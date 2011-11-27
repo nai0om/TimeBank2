@@ -105,6 +105,25 @@ class Controller_Company extends Controller_Template {
 		}
 	}
 	
+	public function action_all()
+	{
+		$companies = ORM::factory('company')->find_all();
+		$this->template->content = View::factory('company/all')->bind('companies', $companies);
+	}
+	
+	public function action_search()
+	{
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			$message =  'Search: '.Arr::get($_GET, 'q');
+			$query =  '%'.Arr::get($_GET, 'q').'%';
+			$companies = ORM::factory('company')->where('temp', 'like', $query)->find_all();
+			$this->template->content = View::factory('company/search')
+				->bind('message', $message)
+				->bind('companies', $companies);
+		}
+	}
+	
 	private function save_company($company, &$message, &$errors)
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
@@ -116,6 +135,7 @@ class Controller_Company extends Controller_Template {
 			$company->website = Arr::get($_POST, 'website');			
 			
 			$company->user = $this->user;
+			$company->temp = $company->name.'/'.$company->objective.'/'.$company->address.'/'.$company->detail.'/'.$company->website;
 			$company->company_type = ORM::factory('company_type', 1);
 			
 			if (isset($_FILES['logo']['name']) && $_FILES['logo']['name'] != '')
