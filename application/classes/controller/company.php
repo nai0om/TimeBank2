@@ -4,7 +4,55 @@ class Controller_Company extends Controller_Template {
 	
 	public function action_index()
 	{
-		$this->template->content = View::factory('company/index');
+		$company = ORM::factory('company')
+				->where('user_id', '=', $this->user->id)
+				->find();
+		/*$query = 
+				SELECT events.name as event_name , events.id as event_id, users_events.user_id as user_id, users.username as user_name, users_events.timestamp
+				FROM 
+				events 
+				INNER JOIN companies     ON companies.id =  events.company_id
+				INNER JOIN users_events   ON events.id  = users_events.event_id
+				INNER JOIN users   ON users.id  = users_events.user_id
+				where companies.id='5'
+				Order by users_events.timestamp DESC; */
+		$query = DB::select(
+						array('events.name', 'event_name'),
+						array('events.id', 'event_id'),
+						array('users.id', 'user_id'),
+						array('users.username', 'user_name'),
+						array('users_events.timestamp', 'timestamp')
+						)
+			->from('events')
+			->join('companies','INNER')->on('companies.id', '=', 'events.company_id')
+			->join('users_events','INNER')->on('events.id', '=', 'users_events.event_id')
+			->join('users','INNER')->on('users.id', '=', 'users_events.user_id')
+			->where('companies.id', '=',$company->id)
+			->order_by('users_events.timestamp', 'DESC');
+		
+		$user_event = $query->execute();
+		
+		$query = DB::select(
+						array('events.name', 'event_name'),
+						array('events.id', 'event_id'),
+						array('users.id', 'user_id'),
+						array('users.username', 'user_name'),
+						array('comments.ip', 'user_ip'),
+						array('comments.timestamp', 'timestamp')
+						)
+			->from('events')
+			->join('companies','INNER')->on('companies.id', '=', 'events.company_id')
+			->join('comments','INNER')->on('events.id', '=', 'comments.event_id')
+			->join('users','LEFT')->on('users.id', '=', 'comments.user_id')
+			->where('companies.id', '=',$company->id)
+			->order_by('comments.timestamp', 'DESC');
+		
+		$coments_update = $query->execute();
+		
+		$this->template->content = View::factory('company/index')
+			->bind('company', $company)
+			->bind('coments_update', $coments_update)
+			->bind('user_event', $user_event);
 	}
 	
 	public function action_create()
