@@ -15,8 +15,7 @@ class Model_Event extends ORM {
 		'users'		=> array('model' => 'user', 'through' => 'users_events'),
 		'comments'	=> array('model' => 'comment'),
 	);
-<<<<<<< .mine
-=======>>>>>>> .theirs	
+
 	public function rules()
     {
         return array(
