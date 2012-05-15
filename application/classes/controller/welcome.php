@@ -4,7 +4,27 @@ class Controller_Welcome extends Controller_Template {
 
 	public function action_index()
 	{
-		$this->template->content = View::factory('welcome');
+		//$this->template->content = View::factory('welcome');
+		$this->template->content = View::factory('comingsoon')
+							->bind('message', $message)
+							->bind('errors', $errors);
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$emailcomingsoon = ORM::factory('emailcomingsoon');
+			$emailcomingsoon->email =  Arr::get($_POST, 'email');
+			
+			try
+			{
+				$emailcomingsoon->save();
+				$message = 'done';
+                 				
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+            }
+		}
    	}
 	
 	public function action_timebank()

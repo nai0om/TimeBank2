@@ -1,40 +1,183 @@
-<h2>Info for event "<?= $event->name; ?>"</h2>
-<?= Form::open('event/apply'); ?> 
-<ul>
-	<input type="hidden" name="event_id"  value="<?= $event->id ?>" />
-    <li>Name: <?= $event->name; ?></li>
-    <li>Open date: <?= $event->open_date; ?></li>
-    <li>End date: <?= $event->end_date; ?></li>
+<?php if ($mode == 2): ?>
+<div id="tb_browse_detail" class="members">
+<? elseif ($mode == 3): ?>    
+<div id="tb_browse_detail" class="photos">
+<? else: ?>
+<div id="tb_browse_detail">
+<? endif ?>
+  <div id="main" role="main">
+		<div id="sitemap">
+			<li>หน้าแรก</li>
+			<li>ธนาคารจิตอาสา</li>
+			<li>ดูงานอาสา</li>
+			<li>เด็กและเยาวชน</li>
+			<li>อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน</li>
+		</div>
+		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
 
-    <li>Status: <?= $event_status[$event->status]; ?></li>
-    <li>location: <?= $locations[$event->location_id]; ?></li>
-    <li>company: <?= HTML::anchor('company/view/'.$event->company->id, $event->company->name); ?></li>
+		<div id="icon_set">
+            <?= HTML::anchor('welcome/donation', '<img src="'.url::base().'media/img/icon_donation.png"/>'); ?>
+            <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_how_it_work.png"/>'); ?>
+            <?= HTML::anchor('event/browse', '<img src="'.url::base().'media/img/icon_browse_event.png"/>'); ?>
+            <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
+		</div>
 
-    <li>Phone: <?= $event->phone; ?></li>
-    <li>contractor_name: <?= $event->contractor_name; ?></li>
-    <li>user_need_count: <?= $event->user_need_count; ?></li>
-    <li>Time cost: <?= $event->time_cost; ?></li>
-    <li>Detail: <?= $event->detail; ?></li>
-    <li>Pic 1: <img src="<?= url::base().'media/upload/'.$event->pic_1; ?>" /></li>
-    <li>Pic 2: <img src="<?= url::base().'media/upload/'.$event->pic_2; ?>" /></li>
-    <li>Pic 3: <img src="<?= url::base().'media/upload/'.$event->pic_3; ?>" /></li>
-    <li>Pic 4: <img src="<?= url::base().'media/upload/'.$event->pic_4; ?>" /></li>
-    <li>Pic 5: <img src="<?= url::base().'media/upload/'.$event->pic_5; ?>" /></li>
-</ul>
+		<div id="detail">
+			<?php if ($mode == 2): ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสางานนี้', array('class' => 'current')); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
+            <? elseif ($mode == 3): ?>    
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสางานนี้'); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม', array('class' => 'current')); ?>
+            <? else: ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน', array('class' => 'current')); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสางานนี้'); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
+            <? endif ?>
+                
+			<a id="share">share</a>
+		</div>
+		<div style="clear:both"></div>
+		
+	<?php if ($mode == 2): ?>
+		<div>
+			<ul id="member">
+				<li class="first"><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Mr. MRM</div><div class="name">จีระพงศ์ ศึกษากิจ</div></li>
+				<li><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Natty_New</div><div class="name">รุ่งทิพย์ ตระการตา</div></li>
+				<li><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Kong2323</div><div class="name">วรวัฒน์ ไผ่ทอง</div></li>
+				<li><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Kong2323</div><div class="name">วรวัฒน์ ไผ่ทอง</div></li>
+				<li><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Kong2323</div><div class="name">วรวัฒน์ ไผ่ทอง</div></li>
+   			</ul>
+			<img src="<?= url::base(); ?>media/img/tb_line_form.png">
+				<ul id="pagination">
+					<li>Page 1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+		</div>
+	<? elseif ($mode == 3): ?>
+		<div>
+			<ul id="album">
+				<li class="first"><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
+				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
+				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="open"></div></li>
+				<li class="first"><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
+				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
+				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
+				<li class="first"><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
+				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
+				<li class="add"><div><form><input type="text" value="เขียนคำบรรยายที่นี่"><input type="submit" value="OK"></form></div>
+				<img src="<?= url::base(); ?>media/img/tb_photos_add.png"></li>
+			</ul>
+			<img src="<?= url::base(); ?>media/img/tb_line_form.png">
+				<ul id="pagination">
+					<li>Page 1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			
+		</div>
+		
+		<h2>หลังจากที่ไปร่วมกิจกรรมกันมาแล้วเพื่อนๆ สามารถ พูดคุยกัน ได้ที่นี่นะคะ</h2>
+		<h4 class="title">ฝากคอมเม้นต์</h4>
+		<form id="post_comment">
+			<textarea></textarea><input type="submit" value="โพส">
+			<div style="border:0;"><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+			<div><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+			<a class="long">แสดงทั้งหมด</a>
+			</form>
+		</div>
+    <? else: ?>
+		<div id="post">
+			<h2>ข้อความขอบคุณสามารถพิมพ์โดย admin ประเภทองค์กรหลังจากจบงาน</h2>
+			<a>ดูภาพกิจกรรม</a><form style="float:right;"><input type="text" value="เขียนคำขอบคุณที่นี่"><input type="submit" value="ส่ง"/><input type="submit" value="แก้ไข"/></form>
+		</div>
+		
+		<img src="<?= url::base(); ?>media/img/tb_detail_sampel.png" style="float:left;">
+		<div class="sub">
+			<h3>8 ชั่วโมง</h3>
+			<h4>ต้องการจากอาสา</h4>
+		</div>
+		<div class="sub">
+			<h3>400 ชั่วโมง</h3>
+			<h4>รวมเวลาที่ได้ทั้งหมด</h4>
+		</div>
+		<div class="main">
+			<h2>จำนวนอาสาสมัครที่ต้องการ</h2>
+			<h3>400 ชั่วโมง</h3>
+			<h4>สมัครแล้ว 45 คน เหลืออีก 5 คน</h4>
+		</div>
+		<div style="clear:both"></div>
+		
+		<h3 class="title">อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน</h3>
+		<div id="leftSide">
+			<p><span class="header">ในโครงการ:</span> โครงการอ่านสร้างชาติ</p>
+			<p><span class="header">สถานที่:</span> ศูนย์การค้าอิมพีเรียลเวิร์ล ลาดพร้าว ณ เคาน์เตอร์ประชาสัมพันธ์ชั้น 1</p>
+			<p><span class="header">จังหวัด:</span> กรุงเทพมหานคร</p>
+			<p><span class="header">รายละเอียดงานอาสา</span></p>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+			<p><span class="header">ลักษณะการเดินทาง</span></p>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+			<p><span class="header">ทักษะของอาสาสมัครที่ต้องการ</span></p>
+			<p>ความสามารถพิเศษ</p>
+			<p>ทักษะทั่วไป 	การขับขี่พาหนะ, ว่ายนํ้า
+						การใช้ภาษา -อังกฤษ,จีน, ญี่ปุ่น</p>
+			<p>ทักษะวิชาชีพ 	งานช่างเทคนิค -ช่างไฟฟ้า, ช่างไม้
+						สุขภาพ -ทันตแพทย์, จิตวิทยา</p>
+			<p><span class="header">Tag ความสนใจ</span></p>
+			<p>งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ เย็บ ปัก 
+			ถัก ร้อย, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา 
+			นันทนาการ, อาหารและโภชนาการ</p>
+			<p><span class="header">ค่าใช้จ่าย</span></p>
+			<p>Loremipsumonsectetueradipiscingelit, seddiamnonummynib
+			heuismodtin
+			
+			ciduntutlaoreetdol
+			orema gna 	250.-
+			</p>
+		</div>
+		<div id="rightSide">
+			<p><span class="header">เปิดรับสมัคร</span>
+				<div id="duration">วันที่1 มกราคม  2555<br>
+				ถึง 31 มกราคม 2555<br>
+				วัน : จันทร์ - ศุกร์<br>
+				เวลา : 8.30 am - 16.30 pm</div></p>
+			<p><span class="header">ติดต่อสอบถามเพิ่มเติม</span>
+			<div class="contact">ปรเมศ นาคสุวรรณ<br>
+			Email: prolamet@abc.com<br>
+			โทรศัพท์: 081-3456722<br>
+			โทรสาร: 02-3456722 ต่อ 123</div>
 
-<?= Form::submit('apply', 'apply'); ?>
+			<div class="contact">ยินดี ปรีดา<br>
+			Email: prolamet@abc.com<br>
+			โทรศัพท์: 081-3456722</div>
+			
+			<div class="contact">ปรเมศ นาคสุวรรณ<br>
+			Email: prolamet@abc.com<br>
+			โทรศัพท์: 081-3456722<br>
+			โทรสาร: 02-3456722 ต่อ 123</div>
 
-<h2>Comments</h2>
-<ol>
-<?php foreach($event->comments->find_all() as $comment): ?>
-	<li><?= $comment->user->nickname ? $comment->user->nickname : $comment->ip; ?>, <?= $comment->comment; ?></li>
-<? endforeach ?>
-</ol>
-
-<?= Form::open('event/addcomment/'.$event->id); ?>
-
-<?= Form::label('comment', 'comment'); ?>
-<?= Form::textarea('comment'); ?>
-
-<?= Form::submit('submit', 'Add comment'); ?>
-<?= Form::close(); ?>
+			<div class="contact">ยินดี ปรีดา<br>
+			Email: prolamet@abc.com<br>
+			โทรศัพท์: 081-3456722</div></p>
+			
+			<h4 class="title">ฝากคอมเม้นต์</h4>
+			<form id="post_comment">
+				<textarea></textarea><input type="submit" value="โพส">
+				<div style="border:0;"><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+				<div><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+				<a class="long">แสดงทั้งหมด</a>
+			</form>
+		</div>
+		
+		<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><a style="position:relative;top:-20px;"class="long">สมัครคลิกที่นี่</a></p>
+    <? endif ?>
+		
+  </div>
+</div>

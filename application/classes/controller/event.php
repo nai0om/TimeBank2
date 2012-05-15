@@ -7,7 +7,13 @@ class Controller_Event extends Controller_Template {
 		$events = ORM::factory('event')->find_all();
 		$this->template->content = View::factory('event/index')->bind('events', $events);
 	}
-	
+
+	public function action_browse()
+	{
+		$events = ORM::factory('event')->find_all();
+		$this->template->content = View::factory('event/browse')->bind('events', $events);
+	}
+		
 	public function action_create()
 	{
         $this->template->content = View::factory('event/create')
@@ -78,6 +84,7 @@ class Controller_Event extends Controller_Template {
         $this->template->content = View::factory('event/view')
             ->bind('event', $event)
             ->bind('event_status', $event_status)
+            ->bind('mode', $mode)
             ->bind('locations', $locations);
 		
 		$event = ORM::factory('event', $this->request->param('id'));
@@ -89,6 +96,8 @@ class Controller_Event extends Controller_Template {
 		
 		$event_status = Kohana::$config->load('timebank')->get('event_status');
 		$locations = Location::get_location_array();
+		
+		$mode = Arr::get($_GET, 'mode');
 	}
 	
 	public function action_search()
@@ -97,8 +106,10 @@ class Controller_Event extends Controller_Template {
 		{
 			$message =  'Search: '.Arr::get($_GET, 'q');
 			$query =  '%'.Arr::get($_GET, 'q').'%';
+			$mode = Arr::get($_GET, 'mode');
 			$events = ORM::factory('event')->where('temp', 'like', $query)->find_all();
 			$this->template->content = View::factory('event/search')
+				->bind('mode', $mode)
 				->bind('message', $message)
 				->bind('events', $events);
 		}
