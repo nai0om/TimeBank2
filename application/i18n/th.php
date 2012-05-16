@@ -5,4 +5,5 @@ return array(
 	'You must provide a website.' => 'ใส่เว็บไซต์ด้วยจ้า',
 	'There were errors, please see form below.' => 'กรอกข้อมูลด้านล่างให้ครบด้วยจ้า',
 	'open' => 'เปิด',
+	'Sample first page' => 'หน้าแรก',
 );

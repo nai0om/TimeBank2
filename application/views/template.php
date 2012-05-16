@@ -4,7 +4,7 @@
 <head> 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
     <meta name="language" content="en-us" /> 
-    <title>Jitarsa Bank</title> 
+    <title><?= $meta_page_title ?></title> 
 
 	  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
 		   More info: h5bp.com/i/378 -->

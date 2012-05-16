@@ -3,7 +3,8 @@
 abstract class Controller_Template extends Kohana_Controller_Template {
 
 	public $user;
-
+	public $meta_page_title;
+	
 	/**
 	 * Loads the template [View] object.
 	 */
@@ -15,6 +16,8 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 		{
 			$this->template->bind('user', $this->user);
 			$this->user = Auth::instance()->get_user();
+			
+			$this->template->bind('meta_page_title', $this->meta_page_title);
 		}
 	}
 

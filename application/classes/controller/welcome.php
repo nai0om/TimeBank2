@@ -4,6 +4,12 @@ class Controller_Welcome extends Controller_Template {
 
 	public function action_index()
 	{
+		$this->meta_page_title = __('Sample first page');
+		$this->template->content = View::factory('welcome');
+   	}
+	
+	public function action_comingsoon()
+	{
 		//$this->template->content = View::factory('welcome');
 		$this->template->content = View::factory('comingsoon')
 							->bind('message', $message)
