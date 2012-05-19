@@ -17,7 +17,7 @@ class Controller_Event extends Controller_Template {
 	public function action_create()
 	{
         $this->template->content = View::factory('event/create')
-            ->bind('locations', $locations)
+            //->bind('locations', $locations)
             ->bind('message', $message)
 			->bind('errors', $errors)
 			->bind('event', $event);
@@ -30,7 +30,7 @@ class Controller_Event extends Controller_Template {
 			return;
 		}
 		
-		$locations = Location::get_location_array();
+		//$locations = Location::get_location_array();
 		
 		$event = ORM::factory('event');
 		$this->save_event($event, $message, $errors);
@@ -39,7 +39,7 @@ class Controller_Event extends Controller_Template {
 	public function action_edit()
 	{
         $this->template->content = View::factory('event/edit')
-            ->bind('locations', $locations)
+            //->bind('locations', $locations)
             ->bind('message', $message)
 			->bind('errors', $errors)
 			->bind('event', $event);
@@ -74,7 +74,7 @@ class Controller_Event extends Controller_Template {
 			throw new HTTP_Exception_404(__('Event id :id doesn\'t belong to you', array(':id' => $this->request->param('id'))));
 		}
 
-		$locations = Location::get_location_array();
+		//$locations = Location::get_location_array();
 		
 		$this->save_event($event, $message, $errors);
 	}
@@ -84,8 +84,8 @@ class Controller_Event extends Controller_Template {
         $this->template->content = View::factory('event/view')
             ->bind('event', $event)
             ->bind('event_status', $event_status)
-            ->bind('mode', $mode)
-            ->bind('locations', $locations);
+            ->bind('mode', $mode);
+            //->bind('locations', $locations);
 		
 		$event = ORM::factory('event', $this->request->param('id'));
 
@@ -95,7 +95,7 @@ class Controller_Event extends Controller_Template {
 		}
 		
 		$event_status = Kohana::$config->load('timebank')->get('event_status');
-		$locations = Location::get_location_array();
+		//$locations = Location::get_location_array();
 		
 		$mode = Arr::get($_GET, 'mode');
 	}
@@ -200,17 +200,35 @@ class Controller_Event extends Controller_Template {
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
 			$event->name = Arr::get($_POST, 'name');
-			$event->open_date = Arr::get($_POST, 'open_date');
-			$event->end_date = Arr::get($_POST, 'end_date');
-			$event->status = Arr::get($_POST, 'status');
-			$event->phone = Arr::get($_POST, 'phone');			
-			$event->contractor_name = Arr::get($_POST, 'contractor_name');			
-			$event->user_need_count = Arr::get($_POST, 'user_need_count');			
-			$event->time_cost = Arr::get($_POST, 'time_cost');			
+			$event->project_name = Arr::get($_POST, 'project_name');
+			
+			$event->signup_begin_date = Arr::get($_POST, 'signup_begin_date');
+			$event->signup_end_date = Arr::get($_POST, 'signup_end_date');
+			
+			$event->volunteer_begin_date = Arr::get($_POST, 'volunteer_begin_date');
+			$event->volunteer_end_date = Arr::get($_POST, 'volunteer_end_date');
+			
+			$event->location_name = Arr::get($_POST, 'location_name');
+			$event->location_province = Arr::get($_POST, 'location_province');
+			$event->location_district = Arr::get($_POST, 'location_district');
+			$event->location_postcode = Arr::get($_POST, 'location_postcode');
+
+			$event->volunteer_need_count = Arr::get($_POST, 'volunteer_need_count');			
+
 			$event->detail = Arr::get($_POST, 'detail');			
-			$event->location_id = Arr::get($_POST, 'location_id');			
-			$location = ORM::factory('location',$event->location_id)->province;
-			$event->temp = $event->name.'/'.$event->phone.'/'.$event->contractor_name.'/'.$event->detail.'/'.$location;
+			$event->travel_detail = Arr::get($_POST, 'travel_detail');			
+			$event->inquiry_detail = Arr::get($_POST, 'inquiry_detail');			
+
+			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');			
+			$event->expense_detail = Arr::get($_POST, 'expense_detail');			
+			
+			//$event->status = Arr::get($_POST, 'status');
+			//$event->phone = Arr::get($_POST, 'phone');			
+			//$event->contractor_name = Arr::get($_POST, 'contractor_name');			
+			//$event->time_cost = Arr::get($_POST, 'time_cost');	
+					
+			//$event->location_id = Arr::get($_POST, 'location_id');			
+			//$event->temp = $event->name.'/'.$event->phone.'/'.$event->contractor_name.'/'.$event->detail.'/'.$location;
 			$event->company = ORM::factory('company')
 								->where('user_id', '=', $this->user->id)
 								->find();
@@ -219,6 +237,7 @@ class Controller_Event extends Controller_Template {
 			{
 				$event->pic_1 = 'pic_1';
 			}
+			/*
 			if (isset($_FILES['pic_2']['name']) && $_FILES['pic_2']['name'] != '')
 			{
 				$event->pic_2 = 'pic_2';
@@ -235,6 +254,7 @@ class Controller_Event extends Controller_Template {
 			{
 				$event->pic_5 = 'pic_5';
 			}
+			*/
 			
 			try
 			{
@@ -250,6 +270,8 @@ class Controller_Event extends Controller_Template {
                  
                 // Set errors using custom messages
                 $errors = $e->errors('models');
+				
+				print_r($errors);
             }
 		}		
 	}

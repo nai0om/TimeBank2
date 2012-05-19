@@ -3,7 +3,7 @@
  * Event
  *
  * @author     Pongrob Saisuwan
- * @copyright  (c) 2011 Pongrob Saisuwan
+ * @copyright  (c) 2012 Pongrob Saisuwan
  */
 class Model_Event extends ORM {
 
@@ -23,11 +23,19 @@ class Model_Event extends ORM {
                 array('not_empty'),
                 array('min_length', array(':value', 3)),
             ),
-            'open_date' => array(
+            'signup_begin_date' => array(
                 array('not_empty'),
                 array('date'),
             ),
-            'end_date' => array(
+            'signup_end_date' => array(
+                array('not_empty'),
+                array('date'),
+            ),
+            'volunteer_begin_date' => array(
+                array('not_empty'),
+                array('date'),
+            ),
+            'volunteer_end_date' => array(
                 array('not_empty'),
                 array('date'),
             ),
@@ -35,10 +43,12 @@ class Model_Event extends ORM {
                 array('not_empty'),
                 array('max_length', array(':value', 11)),
             ),
+			/*
             'location_id' => array(
                 array('not_empty'),
                 array('max_length', array(':value', 11)),
             ),
+			
             'status' => array(
                 array('not_empty'),
             ),
@@ -49,22 +59,52 @@ class Model_Event extends ORM {
             'contractor_name' => array(
                 array('not_empty'),
             ),
-            'user_need_count' => array(
+			*/
+            'volunteer_need_count' => array(
                 array('not_empty'),
                 array('digit'),
             ),
+			/*
             'time_cost' => array(
                 array('not_empty'),
                 array('digit'),
                 array('max_length', array(':value', 3)),
             ),
+			*/
+            'location_name' => array(
+                array('not_empty'),
+            ),
+            'location_province' => array(
+                array('not_empty'),
+            ),
+            'location_district' => array(
+                array('not_empty'),
+            ),
+            'location_postcode' => array(
+                array('not_empty'),
+            ),
             'detail' => array(
                 array('not_empty'),
-                array('min_length', array(':value', 50)),
+                array('min_length', array(':value', 10)),
             ),
+            'travel_detail' => array(
+                array('min_length', array(':value', 10)),
+            ),
+			'inquiry_detail' => array(
+                array('min_length', array(':value', 10)),
+            ),	
+            'is_need_expense' => array(
+                array('not_empty'),
+                array('digit'),
+            ),
+            'expense_detail' => array(
+                array('min_length', array(':value', 10)),
+            ),
+			/*
 			'temp' => array(
                 array('not_empty'),
             ),
+			*/
             'pic_1' => array(
                 array(array($this, 'check_upload'), array('pic_1', ':value')),
             ),
@@ -86,10 +126,16 @@ class Model_Event extends ORM {
 	public function filters()
 	{
 		return array(
-			'open_date' => array(
+			'signup_begin_date' => array(
 				array('trim'),
 			),
-			'end_date' => array(
+			'signup_end_date' => array(
+				array('trim'),
+			),
+			'volunteer_begin_date' => array(
+				array('trim'),
+			),
+			'volunteer_end_date' => array(
 				array('trim'),
 			),
 		);
