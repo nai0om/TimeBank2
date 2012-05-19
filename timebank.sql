@@ -90,7 +90,7 @@ CREATE TABLE `companies` (
 
 INSERT INTO `companies` VALUES (1, 3, 1, 'new company', 'new company', 'new company', 'new company', 'http://zanroo.com', NULL, '2011-11-15 21:35:05');
 INSERT INTO `companies` VALUES (2, 8, 1, 'com3com2', 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', 'asdfasdfasdf', 'asdfasdfasdf', '', NULL, '2011-11-18 14:40:55');
-INSERT INTO `companies` VALUES (3, 8, 1, 'comname2', 'comobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหด', 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', 'ferewrew', 'http://www.zanroo.com', '4ec7092217c96thai.png', '2011-11-19 08:40:50');
+INSERT INTO `companies` VALUES (3, 12, 1, 'comname2', 'comobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหด', 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', 'ferewrew', 'http://www.zanroo.com', '4ec7092217c96thai.png', '2012-05-19 22:43:23');
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,7 @@ INSERT INTO `emailcomingsoons` VALUES (9, 'xinexo@gmail.com', '2012-05-15 18:26:
 
 CREATE TABLE `events` (
   `id` int(11) NOT NULL auto_increment,
-  `temp` text collate utf8_unicode_ci NOT NULL,
+  `search_temp` text collate utf8_unicode_ci NOT NULL,
   `signup_begin_date` date default NULL,
   `signup_end_date` date default NULL,
   `volunteer_begin_date` date NOT NULL,
@@ -163,11 +163,13 @@ CREATE TABLE `events` (
   `phone` mediumtext collate utf8_unicode_ci,
   `contractor_name` mediumtext collate utf8_unicode_ci,
   `project_name` mediumtext collate utf8_unicode_ci NOT NULL,
-  `user_need_count` int(11) default NULL,
+  `volunteer_need_count` int(11) default NULL,
   `time_cost` int(11) default NULL,
   `detail` mediumtext collate utf8_unicode_ci,
   `travel_detail` text collate utf8_unicode_ci NOT NULL,
   `inquiry_detail` text collate utf8_unicode_ci NOT NULL,
+  `is_need_expense` tinyint(1) NOT NULL default '0',
+  `expense_detail` text collate utf8_unicode_ci NOT NULL,
   `pic_1` mediumtext collate utf8_unicode_ci,
   `pic_2` mediumtext collate utf8_unicode_ci,
   `pic_3` mediumtext collate utf8_unicode_ci,
@@ -175,29 +177,15 @@ CREATE TABLE `events` (
   `pic_5` mediumtext collate utf8_unicode_ci,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 -- 
 -- dump ตาราง `events`
 -- 
 
-INSERT INTO `events` VALUES (1, '', '2011-11-16', '0000-00-00', '0000-00-00', '0000-00-00', 2, 3, '', '', '', '', 1, 'fasdf', '434324', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:14:35');
-INSERT INTO `events` VALUES (2, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:32:10');
-INSERT INTO `events` VALUES (3, '', '2011-11-17', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '434324', 'adsf', '', 10, 20, 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:40:42');
-INSERT INTO `events` VALUES (4, '', '2011-11-17', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '434324', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:41:23');
-INSERT INTO `events` VALUES (5, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:42:02');
-INSERT INTO `events` VALUES (6, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:42:46');
-INSERT INTO `events` VALUES (7, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:45:26');
-INSERT INTO `events` VALUES (8, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:46:33');
-INSERT INTO `events` VALUES (9, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:47:52');
-INSERT INTO `events` VALUES (10, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:48:09');
-INSERT INTO `events` VALUES (11, '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:48:37');
-INSERT INTO `events` VALUES (12, '', '2011-11-17', '2011-11-17', '0000-00-00', '0000-00-00', NULL, NULL, '', '', '', '', NULL, '', NULL, NULL, '', NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:49:31');
-INSERT INTO `events` VALUES (13, '', '2011-11-17', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:49:51');
-INSERT INTO `events` VALUES (14, '', '2011-11-17', '2011-11-17', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:50:15');
-INSERT INTO `events` VALUES (15, '', '2011-11-17', '2011-11-17', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:51:42');
-INSERT INTO `events` VALUES (16, '', '2011-11-17', '2011-11-17', '0000-00-00', '0000-00-00', 2, 1, '', '', '', '', 1, 'comname', '323232', 'adsf', '', 10, 20, 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', '', '', NULL, NULL, NULL, NULL, NULL, '2011-11-17 22:51:58');
-INSERT INTO `events` VALUES (17, '', '2011-11-16', '2011-11-19', '0000-00-00', '0000-00-00', 2, 2, '', '', '', '', 2, 'comname', '32323123', 'ดหกดหกดหก', '', 10, 40, 'ดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหกดหก', '', '', '4ec71cc8e2096IMG00665-20111009-1411.jpg', '4ec71db4e965athai.png', NULL, NULL, '4ec71dd364babIMG00666-20111009-1411.jpg', '2011-11-19 10:09:07');
+INSERT INTO `events` VALUES (1, '', '2012-05-18', '2012-05-19', '2012-05-22', '2012-05-25', 3, NULL, 'ลาดพร้าว', 'จตุจักร', 'กทม', '10900', NULL, 'ช่วยงานวัดลอยลำ', NULL, NULL, 'สร้างวัดให้บินได้', 20, NULL, 'ให้มาดำนาทีลาดพร้าว', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, '2012-05-19 22:44:22');
+INSERT INTO `events` VALUES (2, '', '2012-05-18', '2012-05-19', '2012-05-22', '2012-05-25', 3, NULL, 'ลาดพร้าว', 'จตุจักร', 'กทม', '10900', NULL, 'ช่วยงานวัดลอยลำ', NULL, NULL, 'สร้างวัดให้บินได้', 20, NULL, 'ให้มาดำนาทีลาดพร้าว', 'เที่ยวเที่ยวเที่ยวเที่ยว', 'เพิ่มเติมเพิ่มเติมเพิ่มเติม', 0, '', NULL, NULL, NULL, NULL, NULL, '2012-05-19 22:44:55');
+INSERT INTO `events` VALUES (3, '', '2012-05-18', '2012-05-19', '2012-05-22', '2012-05-25', 3, NULL, 'ลาดพร้าวดด', 'จตุจักร', 'กทม', '10900', NULL, 'ช่วยงานวัดลอยลำ', NULL, NULL, 'สร้างวัดให้บินได้', 20, NULL, 'ให้มาดำนาทีลาดพร้าว', 'เที่ยวเที่ยวเที่ยวเที่ยว', 'เพิ่มเติมเพิ่มเติมเพิ่มเติม', 0, '', NULL, NULL, NULL, NULL, NULL, '2012-05-19 22:49:26');
 
 -- --------------------------------------------------------
 
@@ -289,12 +277,16 @@ INSERT INTO `roles_users` VALUES (4, 1);
 INSERT INTO `roles_users` VALUES (5, 1);
 INSERT INTO `roles_users` VALUES (8, 1);
 INSERT INTO `roles_users` VALUES (10, 1);
+INSERT INTO `roles_users` VALUES (11, 1);
+INSERT INTO `roles_users` VALUES (12, 1);
 INSERT INTO `roles_users` VALUES (8, 2);
 INSERT INTO `roles_users` VALUES (6, 3);
 INSERT INTO `roles_users` VALUES (7, 3);
 INSERT INTO `roles_users` VALUES (8, 3);
 INSERT INTO `roles_users` VALUES (9, 3);
 INSERT INTO `roles_users` VALUES (10, 3);
+INSERT INTO `roles_users` VALUES (11, 3);
+INSERT INTO `roles_users` VALUES (12, 3);
 
 -- --------------------------------------------------------
 
@@ -341,7 +333,7 @@ CREATE TABLE `users` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_username` (`username`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 -- 
 -- dump ตาราง `users`
@@ -357,6 +349,8 @@ INSERT INTO `users` VALUES (7, 'com@com2.com', 'company', 'b71921bbd45546671b747
 INSERT INTO `users` VALUES (8, 'com3@com.com', 'com3', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 10, 1322102789, 'lnw', 'first', 'last', '2011-11-17', '121212', 'address', '4eca8b076063a1app_page.png', 'quote', 'description', '2011-11-24 09:46:29');
 INSERT INTO `users` VALUES (9, 'com4@com.com', 'com4', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
 INSERT INTO `users` VALUES (10, 'tum@tum.com', 'tum', 'aa13a3b87cb902baa173a33865b268c1a2943ce2f1481c548a50eaf903078aa0', 2, 1337182188, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-16 22:29:48');
+INSERT INTO `users` VALUES (11, 'tum@tmmm.com', 'tumnaja', 'aa13a3b87cb902baa173a33865b268c1a2943ce2f1481c548a50eaf903078aa0', 1, 1337339199, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-18 18:06:39');
+INSERT INTO `users` VALUES (12, 'user@name.com', 'username', '2618af841fa649acdbb657af9bab4c045989a920728fe6d83dd03211a18b60f6', 1, 1337432769, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-19 20:06:09');
 
 -- --------------------------------------------------------
 
@@ -494,7 +488,7 @@ CREATE TABLE `user_tokens` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_token` (`token`),
   KEY `fk_user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 -- 
 -- dump ตาราง `user_tokens`
@@ -503,6 +497,7 @@ CREATE TABLE `user_tokens` (
 INSERT INTO `user_tokens` VALUES (1, 8, 'e0ce124ea238c9131da145270845a7e59909abd1', '75b36edce2e988b45d5101ed6f375f4a5950f7fd', '', 0, 1322746156);
 INSERT INTO `user_tokens` VALUES (2, 8, 'e0ce124ea238c9131da145270845a7e59909abd1', '021dc1307855bdfdd2600d286f5e51456758bc0a', '', 0, 1322746276);
 INSERT INTO `user_tokens` VALUES (3, 10, '480450a02972ac1a7ac3ac0324afc9f6045bca51', '86019671fd0380be2958beab8017b099bb483b7e', '', 0, 1338285987);
+INSERT INTO `user_tokens` VALUES (4, 12, 'dba0d6492600f97f28531a1e52bc6fd0db02d0c0', 'ae731e1b76892b6d0c51487f93c310affa445296', '', 0, 1338642368);
 
 -- 
 -- Constraints for dumped tables
