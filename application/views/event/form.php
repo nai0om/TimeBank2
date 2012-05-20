@@ -75,7 +75,10 @@
             </div>        
         </p>
         <p><label>จังหวัด</label>
-			<?= Form::input('location_province', HTML::chars($event->location_province)); ?>
+        	<?php
+				$provices = Kohana::$config->load('timebank')->get('provices'); 
+				echo Form::select('location_province', $provices, $event->location_province, array ('class' => 'full'));
+			?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'location_province'); ?></font>
             </div>           
@@ -159,10 +162,20 @@
     </fieldset>
     <fieldset>
         <p><legend><strong>Tag ความสนใจ  (เลือกได้มากกว่า 1)</strong></legend></p>
-        <p><input type="checkbox"> งานอาสาทั่วไป</p>
-        <p><input type="checkbox"> กู้ภัยและพื้นฟูจากภัยพิบัติ</p>
-        <p><input type="checkbox"> หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย</p>
-        <p><input type="checkbox"> ศาสนาและปฎิบัติธรรม</p>
+        
+			<?php  
+				$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+				foreach ($jobs as $job):
+					$checked = FALSE;
+					if($event->tags != '') {
+						$pos = strpos($event->tags, $job);
+						if (  $pos > 0){
+							$checked = TRUE;
+						}
+					}
+					echo '<p>'.Form::checkbox($job, $job, $checked).''.$job.'</p>';
+				endforeach;
+            ?> 
         <div class="line"></div>
     </fieldset>
     <fieldset>
@@ -180,5 +193,8 @@
 		$( ".datepicker" ).datepicker({
 			dateFormat: 'yy-mm-dd'
 		});	
+		
+		
 	});
+ 
 </script>

@@ -17,7 +17,7 @@
 		<form id="search">
 			<input type="text" value="ใส่ชื่องานอาสา, ชื่อองค์กร, ชื่อสถานที่"/>
 			<select><option>--ประเภทงานอาสา--</option></select>
-			<select><option>--จังหวัด--</option></select>
+			<select><option >--จังหวัด--</option></select>
 			<input type="submit" class="mid" value="หางานอาสา"/>
 			<img src="<?= url::base(); ?>media/img/tb_line_form.png" />
 			<input type="submit" class="long" value="ค้นหาแบบละเอียด"/>
