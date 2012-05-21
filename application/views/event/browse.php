@@ -14,12 +14,21 @@
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
 		</div>
 		
-		<form id="search" method="post" action="main_timeBank_2_1.html">
-			<input type="text" value="ใส่ชื่องานอาสา, ชื่อองค์กร, ชื่อสถานที่"/>
-			<select><option>--ประเภทงานอาสา--</option></select>
-			<select><option>--จังหวัด--</option></select>
-			<input type="submit" class="mid" value="หางานอาสา"/><input type="submit" class="long" value="ค้นหาแบบละเอียด"/>
-		</form>
+		<?php 
+			echo Form::open('event/search', array ('id' => 'search')); 
+        	echo Form::input('text', 'ใส่ชื่องานอาสา, ชื่อองค์กร, ชื่อสถานที่"'); 
+		
+            $jobs = Kohana::$config->load('timebank')->get('jobs'); 
+            echo Form::select('jobs', $jobs, '--ประเภทงานอาสา--');
+            
+            $provices = Kohana::$config->load('timebank')->get('provices'); 
+            echo Form::select('location_province', $provices, '--จังหวัด--');
+            
+	        echo Form::submit(NULL, 'หางานอาสา', array ('class' => 'mid')); 
+            echo Form::submit(NULL, 'ค้นหาแบบละเอียด', array ('class' => 'long')); 
+			echo Form::close();
+		?>
+
 		
 		<blockquote>
 			<h2>สนใจเป็นอาสาสมัคร</h2>
@@ -28,25 +37,12 @@
 		
 		<h3 class="title">ประเภทงานอาสา</h3>
 		<ul class="type">
-			<li>งานอาสาทั่วไป <span>[394]</span></li>
-			<li>กู้ภัยและฟื้นฟูจากภัยพิบัติ <span>[394]</span></li>
-			<li>หัตถกรรมและงานฝีมือ <span>[394]</span></li>
-			<li>ศาสนาและปฏิบัติธรรม <span>[394]</span></li>
-			<li>ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ <span>[394]</span></li>
-			<li>อาหารและโภชนาการ <span>[394]</span></li>
-			<li>สิ่งแวดล้อมและการเกษตร <span>[394]</span></li>
-			<li>ก่อสร้างและงานช่างเทคนิค <span>[394]</span></li>
-			<li>ประสานงานและบริหารจัดการ <span>[394]</span></li>
-			<li>เด็กและเยาวชน <span>[394]</span></li>
-			<li>สตรี <span>[394]</span></li>
-			<li>ผู้สูงอายุและครอบครัว <span>[394]</span></li>
-			<li>ผู้พิการ <span>[394]</span></li>
-			<li>ไอที และคอมพิวเตอร์กราฟฟิค <span>[394]</span></li>
-			<li>สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด <span>[394]</span></li>
-			<li>สุนัข แมว และสัตว์เลี้ยง <span>[394]</span></li>
-			<li>กฎหมาย <span>[394]</span></li>
-			<li>สุขภาพและสาธารณสุข <span>[394]</span></li>
-			<li>การศึกษาและฝึกอบรม <span>[394]</span></li>
+			<?php  
+				$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+				foreach ($jobs as $job):
+					echo '<li><a href="" >'.$job.'</a><span>[3941]</span></li>';
+				endforeach;
+            ?> 
 		</ul>
 
 		<h3 class="title" style="float:left;">งานอาสามาใหม่</h3>
@@ -60,46 +56,16 @@
 				<th>วัน/เวลาทำงาน</th>
 				<th></th>
 			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
+            <?php foreach ($events as $event):	?>
+            	<tr>
+				<td><?= $event->name?></td>
+				<td><?= $event->time_cost ?></td>
+				<td><?= $event->volunteer_need_count ?> คน</td>
 				<td>1 มค. 2555<br>ถึง 31 มค. 2555</td>
 				<td>ทุกวัน (จันทร์-อา)<br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a>สมัคร</a></td>
+				<td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
 			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555<br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา)<br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a>สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555<br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา)<br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a>สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555<br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา)<br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a>สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555<br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา)<br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a>สมัคร</a></td>
-			</tr>
+            <?php endforeach; ?>
 			<tr class="pagination">
 				<td colspan="6"><ul>
 					<li>Page 1</li>

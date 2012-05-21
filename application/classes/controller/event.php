@@ -10,7 +10,7 @@ class Controller_Event extends Controller_Template {
 
 	public function action_browse()
 	{
-		$events = ORM::factory('event')->find_all();
+		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(7)->find_all();
 		$this->template->content = View::factory('event/browse')->bind('events', $events);
 	}
 		
@@ -220,8 +220,15 @@ class Controller_Event extends Controller_Template {
 			$event->inquiry_detail = Arr::get($_POST, 'inquiry_detail');			
 
 			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');			
-			$event->expense_detail = Arr::get($_POST, 'expense_detail');			
+			$event->expense_detail = Arr::get($_POST, 'expense_detail');
 			
+			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+			$tags = '';
+			foreach ($jobs as $job):
+					$tags  = $tags.''.Arr::get($_POST, $job) .', ';
+			endforeach;
+			
+			$event->tags = $tags;
 			//$event->status = Arr::get($_POST, 'status');
 			//$event->phone = Arr::get($_POST, 'phone');			
 			//$event->contractor_name = Arr::get($_POST, 'contractor_name');			

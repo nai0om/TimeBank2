@@ -856,6 +856,15 @@ header h2 {
     padding: 0 0 0 27px;
     width: 46%;
 }
+#tb_browse .type li a{
+	color: #222222;
+	}
+#tb_browse .type li a:link{
+	text-decoration:none;
+	}
+#tb_browse .type li a:hover{
+	text-decoration:underline;
+}
 #tb_browse .type span{
 	color: #e87c0c;
 }
@@ -1220,6 +1229,9 @@ header h2 {
 	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
 	margin: 15px 0 5px;
 }
+.full {
+	width: 265px !important; 
+	}
 #tb_browse_new form{
 	font-family:tahoma;
 	font-size:13px;
