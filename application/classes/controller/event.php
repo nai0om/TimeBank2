@@ -107,7 +107,7 @@ class Controller_Event extends Controller_Template {
 			$message =  'Search: '.Arr::get($_GET, 'q');
 			$query =  '%'.Arr::get($_GET, 'q').'%';
 			$mode = Arr::get($_GET, 'mode');
-			$events = ORM::factory('event')->where('temp', 'like', $query)->find_all();
+			$events = ORM::factory('event')->where('search_temp', 'like', $query)->find_all();
 			$this->template->content = View::factory('event/search')
 				->bind('mode', $mode)
 				->bind('message', $message)
