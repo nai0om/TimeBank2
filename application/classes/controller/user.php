@@ -109,7 +109,8 @@ class Controller_User extends Controller_Template {
             }
         }
     }
-
+	
+	
     public function action_edit() 
     {
 		// if a user is not logged in, redirect to login page
@@ -157,6 +158,54 @@ class Controller_User extends Controller_Template {
         }
     }
 	
+
+    public function action_profile() 
+    {
+		// if a user is not logged in, redirect to login page
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+        $this->template->content = View::factory('user/profile')
+            ->bind('errors', $errors)
+            ->bind('message', $message);
+             
+        if (HTTP_Request::POST == $this->request->method()) 
+        {
+			$this->user->nickname = Arr::get($_POST, 'nickname');
+			$this->user->first_name = Arr::get($_POST, 'first_name');
+			$this->user->last_name = Arr::get($_POST, 'last_name');
+			$this->user->phone = Arr::get($_POST, 'phone');
+			$this->user->birthday = Arr::get($_POST, 'birthday');
+			$this->user->address = Arr::get($_POST, 'address');
+			$this->user->quote = Arr::get($_POST, 'quote');
+			$this->user->description = Arr::get($_POST, 'description');
+
+			if (isset($_FILES['profile_image']['name']) && $_FILES['profile_image']['name'] != '')
+			{
+				$this->user->profile_image = 'profile_image';
+			}
+			
+            try {
+				
+            	$this->user->save();       
+                 
+                // Redirect to user view
+				Request::current()->redirect('user/profile');
+                 
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set failure message
+                $message = 'There were errors, please see form below.';
+                 
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+            }
+        }
+    }
+	
 	public function action_view()
 	{
         $this->template->content = View::factory('user/view')
@@ -192,6 +241,7 @@ class Controller_User extends Controller_Template {
             }
         }
     }
+	
     
     public function action_logout() 
     {
