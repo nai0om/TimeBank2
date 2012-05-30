@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?= url::base(); ?>media/css/ui-lightness/jquery-ui-1.8.20.custom.css">
 <div id="member" class="profile">
   <div id="main" role="main">
 		<div id="sitemap">
@@ -59,10 +60,17 @@
                 <div class="error"><?= Arr::get($errors, 'nickname'); ?></div>
 				
 				<?= Form::label('birthday', 'วันเกิด'); ?>
-				<?= Form::input('birthday', HTML::chars($user->birthday), array('id' => 'datepicker')); ?>
+				<?= Form::input('birthday', HTML::chars($user->birthday), array('class' => 'datepicker')); ?>
                 <div class="error"><?= Arr::get($errors, 'birthday'); ?></div>
                 
-
+				<?= Form::label('sex', 'เพศ'); ?>
+				<?= Form::radio('sex', 'm', ($user->sex === 'm')); ?> ชาย
+                <?= Form::radio('sex', 'f', ($user->sex === 'f')); ?> หญิง
+                <div class="error"><?= Arr::get($errors, 'sex'); ?></div>
+                
+				<?= Form::label('website', 'Website'); ?>
+				<?= Form::input('website', HTML::chars($user->website)); ?>
+				
 			</div>
 			<div class="right">
             
@@ -127,3 +135,137 @@
 		</div>
 	
   </div>
+  
+    <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery-1.7.1.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.core.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.rcarousel.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery-ui-1.8.20.custom.min.js"></script>
+  <script type="text/javascript">
+			jQuery(function($) {
+			
+				$(function() {
+					$( ".datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+				});
+				function generatePages() {
+					var _total, i, _link;
+					
+					_total = $( "#carousel" ).rcarousel( "getTotalPages" );
+					
+					for ( i = 0; i < _total; i++ ) {
+						_link = $( "<a href='#'></a>" );
+						
+						$(_link)
+							.bind("click", {page: i},
+								function( event ) {
+									$( "#carousel" ).rcarousel( "goToPage", event.data.page );
+									event.preventDefault();
+								}
+							)
+							.addClass( "bullet off" )
+							.appendTo( "#pages" );
+					}
+						
+					// mark first page as active
+					$( "a:eq(0)", "#pages" )
+						.removeClass( "off" )
+						.addClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+
+
+				}
+				
+				function generatePages2() {
+					
+					var _total2, i, _link;
+					
+					_total2 = $( "#carouselBanner" ).rcarousel( "getTotalPages" );
+					
+					for ( i = 0; i < _total2; i++ ) {
+						_link = $( "<a href='#'></a>" );
+						
+						$(_link)
+							.bind("click", {page: i},
+								function( event ) {
+									$( "#carouselBanner" ).rcarousel( "goToPage", event.data.page );
+									event.preventDefault();
+								}
+							)
+							.addClass( "bullet off" )
+							.appendTo( "#pages2" );
+					}
+					
+					// mark first page as active
+					$( "a:eq(0)", "#pages2" )
+						.removeClass( "off" )
+						.addClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );	
+
+				}
+
+				function pageLoaded( event, data ) {
+					$( "a.on", "#pages" )
+						.removeClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+
+					$( "a", "#pages" )
+						.eq( data.page )
+						.addClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+				}
+				
+				function pageLoaded2( event, data ) {
+					$( "a.on", "#pages2" )
+						.removeClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+
+					$( "a", "#pages2" )
+						.eq( data.page )
+						.addClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+						
+				}
+				
+				$("#carousel").rcarousel(
+					{
+						visible: 1,
+						step: 1,
+						speed: 700,
+						auto: {
+							enabled: true
+						},
+						width: 350,
+						height: 250,
+						start: generatePages,
+						pageLoaded: pageLoaded
+					}
+				);
+				
+				$("#carouselBanner").rcarousel(
+					{
+						visible: 1,
+						step: 1,
+						speed: 700,
+						auto: {
+							enabled: true
+						},
+						width: 450,
+						height: 215,
+						start: generatePages2,
+						pageLoaded: pageLoaded2
+					}
+				);
+				
+				$( "#ui-carousel-next" )
+					.add( "#ui-carousel-prev" )
+					.add( ".bullet" )
+					.hover(
+						function() {
+							$( this ).css( "opacity", 0.7 );
+						},
+						function() {
+							$( this ).css( "opacity", 1.0 );
+						}
+					);
+			});
+		</script>

@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 2.10.3
 -- http://www.phpmyadmin.net
 -- 
@@ -344,6 +344,8 @@ CREATE TABLE `users` (
   `quote` text NOT NULL,
   `description` text NOT NULL,
   `created` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `sex` char(1) NOT NULL,
+  `website` text NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_username` (`username`),
   UNIQUE KEY `uniq_email` (`email`)
@@ -353,18 +355,20 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 -- 
 
-INSERT INTO `users` VALUES (1, 'xinexo@gmail.com', 'nongtum', 'e5851f42ce72252a4128014028921086917349a4e39633f8a16eaa9f910cd2b2', 1, 1321097714, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES (2, 'xinexo@gmails.com', 'autumn', '2b6d678710e375762de7e2c97c4263ef4409eea5d54631bf3f4ac72313a4562b', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES (3, 'xinexo@yahoo.com', 'nongmay', '11e8ef6433a4bf1267257d9a944252e01541f27bf3ebdc0e08f9c2c08e63ee20', 9, 1321517706, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES (4, 'a@b.com', 'asdf', 'b30c9474902607d01c76cc47aec9fbdbb5f5f7da70711ff902621df55d9a18d8', 1, 1321511993, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES (5, 'x@x.com', 'dsfadsf', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES (6, 'lnw@lnw.com', 'com', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES (7, 'com@com2.com', 'company', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES (8, 'com3@com.com', 'com3', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 10, 1322102789, 'lnw', 'first', 'last', '2011-11-17', '121212', 'address', '4eca8b076063a1app_page.png', 'quote', 'description', '2011-11-24 09:46:29');
-INSERT INTO `users` VALUES (9, 'com4@com.com', 'com4', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES (10, 'tum@tum.com', 'tum', 'aa13a3b87cb902baa173a33865b268c1a2943ce2f1481c548a50eaf903078aa0', 2, 1337182188, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-16 22:29:48');
-INSERT INTO `users` VALUES (11, 'tum@tmmm.com', 'tumnaja', 'aa13a3b87cb902baa173a33865b268c1a2943ce2f1481c548a50eaf903078aa0', 1, 1337339199, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-18 18:06:39');
-INSERT INTO `users` VALUES (12, 'user@name.com', 'username', '2618af841fa649acdbb657af9bab4c045989a920728fe6d83dd03211a18b60f6', 2, 1337445530, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-19 23:38:50');
+INSERT INTO `users` VALUES (1, 'xinexo@gmail.com', 'nongtum', 'e5851f42ce72252a4128014028921086917349a4e39633f8a16eaa9f910cd2b2', 1, 1321097714, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
+INSERT INTO `users` VALUES (2, 'xinexo@gmails.com', 'autumn', '2b6d678710e375762de7e2c97c4263ef4409eea5d54631bf3f4ac72313a4562b', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
+INSERT INTO `users` VALUES (3, 'xinexo@yahoo.com', 'nongmay', '11e8ef6433a4bf1267257d9a944252e01541f27bf3ebdc0e08f9c2c08e63ee20', 9, 1321517706, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
+INSERT INTO `users` VALUES (4, 'a@b.com', 'asdf', 'b30c9474902607d01c76cc47aec9fbdbb5f5f7da70711ff902621df55d9a18d8', 1, 1321511993, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
+INSERT INTO `users` VALUES (5, 'x@x.com', 'dsfadsf', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
+INSERT INTO `users` VALUES (6, 'lnw@lnw.com', 'com', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
+INSERT INTO `users` VALUES (7, 'com@com2.com', 'company', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
+INSERT INTO `users` VALUES (8, 'com3@com.com', 'com3', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 10, 1322102789, 'lnw', 'first', 'last', '2011-11-17', '121212', 'address', '4eca8b076063a1app_page.png', 'quote', 'description', '2011-11-24 09:46:29', '', '');
+INSERT INTO `users` VALUES (9, 'com4@com.com', 'com4', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
+INSERT INTO `users` VALUES (10, 'tum@tum.com', 'tum', 'aa13a3b87cb902baa173a33865b268c1a2943ce2f1481c548a50eaf903078aa0', 2, 1337182188, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-16 22:29:48', '', '');
+INSERT INTO `users` VALUES (11, 'tum@tmmm.com', 'tumnaja', 'aa13a3b87cb902baa173a33865b268c1a2943ce2f1481c548a50eaf903078aa0', 1, 1337339199, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-18 18:06:39', '', '');
+INSERT INTO `users` VALUES (12, 'user@name.com', 'username', '2618af841fa649acdbb657af9bab4c045989a920728fe6d83dd03211a18b60f6', 2, 1337445530, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-19 23:38:50', '', '');
+INSERT INTO `users` VALUES (13, 'xxx@xxx.com', 'someone', '72426db907029d4d6beca11499605c584249beb20ced4885b6f9b155e38327b5', 1, 1338394301, 'ฮ่วย', 'ใครเอ่ย', 'บ้านรวย', '1979-05-22', '0891130030', '1117 ลาดพร้าว71 กรุงเทพ', '', '', '', '2012-05-30 23:13:54', 'f', 'https://www.facebook.com/');
+
 
 -- --------------------------------------------------------
 

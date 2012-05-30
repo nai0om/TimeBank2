@@ -132,8 +132,8 @@ class Controller_User extends Controller_Template {
 			$this->user->phone = Arr::get($_POST, 'phone');
 			$this->user->birthday = Arr::get($_POST, 'birthday');
 			$this->user->address = Arr::get($_POST, 'address');
-			$this->user->quote = Arr::get($_POST, 'quote');
-			$this->user->description = Arr::get($_POST, 'description');
+			$this->user->website = Arr::get($_POST, 'website');
+			$this->user->sex = Arr::get($_POST, 'sex');
 
 			if (isset($_FILES['profile_image']['name']) && $_FILES['profile_image']['name'] != '')
 			{
@@ -180,8 +180,8 @@ class Controller_User extends Controller_Template {
 			$this->user->phone = Arr::get($_POST, 'phone');
 			$this->user->birthday = Arr::get($_POST, 'birthday');
 			$this->user->address = Arr::get($_POST, 'address');
-			$this->user->quote = Arr::get($_POST, 'quote');
-			$this->user->description = Arr::get($_POST, 'description');
+			$this->user->website = Arr::get($_POST, 'website');
+			$this->user->sex = Arr::get($_POST, 'sex');
 
 			if (isset($_FILES['profile_image']['name']) && $_FILES['profile_image']['name'] != '')
 			{
