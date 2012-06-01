@@ -15,9 +15,9 @@
 		<div style="clear:both"></div>
 		<div id="menu_left">
 			<ul>
-				<li><?= HTML::anchor('user/index', 'หน้าหลัก'); ?></li>
+				<li><?= HTML::anchor('user', 'หน้าหลัก'); ?></li>
 				<li class="current">โปร์ไพล์</li>
-				<li>ฝากเวลาของฉัน</li>
+				<li><?= HTML::anchor('user/record', 'ฝากเวลาของฉัน'); ?></li>
 				<li>งานอาสาของฉัน</li>
 				<li>ค้นหางานอาสา</li>
 				<li>งานฝึกอบรมของฉัน</li>

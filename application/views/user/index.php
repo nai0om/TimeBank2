@@ -16,7 +16,7 @@
 			<ul>
 				<li class="current">หน้าหลัก</li>
 				<li><?= HTML::anchor('user/profile', 'โปร์ไฟล์'); ?></li>
-				<li>ฝากเวลาของฉัน</li>
+				<li><?= HTML::anchor('user/record', 'ฝากเวลาของฉัน'); ?></li>
 				<li>งานอาสาของฉัน</li>
 				<li>ค้นหางานอาสา</li>
 				<li>งานฝึกอบรมของฉัน</li>
