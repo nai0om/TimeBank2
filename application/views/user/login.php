@@ -1,24 +1,27 @@
-<h2>Login</h2>
-<? if ($message) : ?>
-    <h3 class="message">
-        <?= $message; ?>
-    </h3>
-<? endif; ?>
+﻿
+<div id="data" class="popup big">
+  <div id="main" role="main">
+
+		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		
+		<div id="content">
+			<h2>Sign In</h2>
+			<?= Form::open('user/login', array('style' => 'margin-top:20px;')); ?>
+                <p><label>รหัสผู้ใช้ (อีเมล์)  * : </label><?= Form::input('username', HTML::chars(Arr::get($_POST, 'username'))); ?></p>
+				<p><label>รหัสผ่าน * : </label><?= Form::password('password'); ?></p>
+				<p><label></label><?= Form::checkbox('remember'); ?> บันทึกไว้ในเครื่อง</p>
+                <div class="error"><?= $message; ?></div>
+				<p><label></label><input type="submit" value="เข้าสู่ระบบ"> <input type="submit" value="ลืมรหัสผ่าน"></p>
+			<?= Form::close(); ?>
+			<div class="line"></div>
+			<div id="sub">
+			<h3>สร้างบัญชีผู้ใช้</h3>
+			<p>สมัครเป็นสมาชิกกับ Jitarsabank.org</p>
+			<p><?= HTML::anchor('user/signup', 'สมัครสมาชิก',array('class'=>'button')); ?></p>
+			</div>
+
+		</div>
+		
+  </div>
+ </div>
  
-<?= Form::open('user/login'); ?>
- 
-<?= Form::label('username', 'Username'); ?>
-<?= Form::input('username', HTML::chars(Arr::get($_POST, 'username'))); ?>
- 
-<?= Form::label('password', 'Password'); ?>
-<?= Form::password('password'); ?>
- 
-<?= Form::label('remember', 'Remember Me'); ?>
-<?= Form::checkbox('remember'); ?>
- 
-<p>(Remember Me keeps you logged in for 2 weeks)</p>
- 
-<?= Form::submit('login', 'Login'); ?>
-<?= Form::close(); ?>
- 
-<p>Or <?= HTML::anchor('user/create', 'create a new account'); ?></p>

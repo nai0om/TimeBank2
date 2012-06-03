@@ -73,6 +73,11 @@ class Controller_User extends Controller_Template {
 		}	
 	}
 	
+    public function action_signup()
+    {
+		$this->template->content = View::factory('user/signup');
+    }
+	
     public function action_create() 
     {
         $this->template->content = View::factory('user/create')
@@ -97,7 +102,7 @@ class Controller_User extends Controller_Template {
                 $_POST = array();
                  
                 // Set success message
-                $message = "You have added user '{$user->username}' to the database";
+                Request::current()->redirect('user/thanks');
                  
             } catch (ORM_Validation_Exception $e) {
                  
@@ -110,6 +115,10 @@ class Controller_User extends Controller_Template {
         }
     }
 	
+    public function action_thanks()
+    {
+		$this->template->content = View::factory('user/thanks');
+    }
 	
     public function action_edit() 
     {
