@@ -17,6 +17,10 @@
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
 	<meta name="viewport" content="width=device-width">
 
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="<?= url::base(); ?>media/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 	<link rel="stylesheet" href="<?= url::base(); ?>media/css/style.css">
 	<link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/widget/css/rcarousel.css" />
@@ -57,14 +61,12 @@
     
   <footer>
 	<p>Copyright 2012 Jitarsa All rights reserved.</p>
-	<ul><li>Team & Conditions</li><li>Privacy</li><li>Contact Us</li></ul>
+	<ul>
+    	<li><?= HTML::anchor('welcome/term', 'Term & Conditions'); ?></li>
+        <li><?= HTML::anchor('welcome/privacy', 'Privacy'); ?></li>
+        <li>Contact Us</li></ul>
   </footer>
-  
-  <!-- JavaScript at the bottom for fast page loading -->
 
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="<?= url::base(); ?>media/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
