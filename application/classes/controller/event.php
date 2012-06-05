@@ -11,7 +11,21 @@ class Controller_Event extends Controller_Template {
 	public function action_browse()
 	{
 		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(7)->find_all();
-		$this->template->content = View::factory('event/browse')->bind('events', $events);
+		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+		$jobs_count = array();
+		for ($i = 0; $i < sizeof($jobs); $i++) {
+			$records = ORM::factory('event')->where('tags', 'like', '%'.$jobs[$i].'%');
+			$records->reset(FALSE); // !!!!
+			$count = $records->count_all();
+
+			$jobs_count[$jobs[$i]] = $count;
+		}
+		 $provices = Kohana::$config->load('timebank')->get('provices'); 
+		$this->template->content = View::factory('event/browse')
+										->bind('events', $events)
+										->bind('jobs_count', $jobs_count)
+										->bind('jobs', $jobs)
+										->bind('provices', $provices);
 	}
 		
 	public function action_create()
@@ -113,6 +127,10 @@ class Controller_Event extends Controller_Template {
 				->bind('message', $message)
 				->bind('events', $events);
 		}
+				$this->template->content = View::factory('event/search')
+				->bind('mode', $mode)
+				->bind('message', $message)
+				->bind('events', $events);
 	}
 	
 	public function action_addcomment()
