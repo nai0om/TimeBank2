@@ -4124,11 +4124,6 @@ header h2 {
 .mid.content img {
     padding: 0 0 90px;
 }
-.error {
-	background: #ffff88;
-	color:#cc0000;
-	text-align: center;
-}
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

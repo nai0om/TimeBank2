@@ -72,5 +72,4 @@ class Controller_Welcome extends Controller_Template {
 	{
 		$this->template->content = View::factory('privacy');
    	}
-	
 } // End Welcome

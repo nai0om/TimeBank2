@@ -64,7 +64,7 @@
 	<ul>
     	<li><?= HTML::anchor('welcome/term', 'Term & Conditions'); ?></li>
         <li><?= HTML::anchor('welcome/privacy', 'Privacy'); ?></li>
-        <li>Contact Us</li></ul>
+        <li><?= HTML::anchor('contactus', 'Contact Us'); ?></li></ul>
   </footer>
 
 
