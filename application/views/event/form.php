@@ -63,7 +63,7 @@
         <p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">จันทร์</label><input type="checkbox"><label class="day">อังคาร</label><input type="checkbox"><label class="day">พุธ</label></p>
         <p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">พฤหัสบดี</label><input type="checkbox"><label class="day">ศุกร์</label><input type="checkbox"><label class="day">เสาร์</label></p>
         <p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">อาทิตย์</label></p>
-        <p>รวม <input type="text" style="width:50px;margin:0;display:inline;"> ชม.(อัตโนมัติ)</p>
+        <p>รวม <input name='time_cost' type="text" style="width:50px;margin:0;display:inline;"> ชม.(อัตโนมัติ)</p>
         <div class="line"></div>
     </fieldset>
     <fieldset>
@@ -165,16 +165,16 @@
         
 			<?php  
 				$jobs = Kohana::$config->load('timebank')->get('jobs'); 
-				foreach ($jobs as $job):
+				for($i = 1 ; $i < sizeof($jobs) ; $i++){
 					$checked = FALSE;
 					if($event->tags != '') {
-						$pos = strpos($event->tags, $job);
+						$pos = strpos($event->tags, $jobs[$i]);
 						if (  $pos > 0){
 							$checked = TRUE;
 						}
 					}
-					echo '<p>'.Form::checkbox($job, $job, $checked).''.$job.'</p>';
-				endforeach;
+					echo '<p>'.Form::checkbox($jobs[$i], $jobs[$i], $checked).''.$jobs[$i].'</p>';
+				}
             ?> 
         <div class="line"></div>
     </fieldset>

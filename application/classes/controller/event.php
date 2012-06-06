@@ -13,12 +13,12 @@ class Controller_Event extends Controller_Template {
 		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(7)->find_all();
 		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 		$jobs_count = array();
-		for ($i = 0; $i < sizeof($jobs); $i++) {
+		for ($i = 1; $i < sizeof($jobs); $i++) {
 			$records = ORM::factory('event')->where('tags', 'like', '%'.$jobs[$i].'%');
 			$records->reset(FALSE); // !!!!
 			$count = $records->count_all();
 
-			$jobs_count[$jobs[$i]] = $count;
+			$jobs_count[$i] = $count;
 		}
 		 $provices = Kohana::$config->load('timebank')->get('provices'); 
 		$this->template->content = View::factory('event/browse')
@@ -26,6 +26,7 @@ class Controller_Event extends Controller_Template {
 										->bind('jobs_count', $jobs_count)
 										->bind('jobs', $jobs)
 										->bind('provices', $provices);
+
 	}
 		
 	public function action_create()
@@ -116,21 +117,54 @@ class Controller_Event extends Controller_Template {
 	
 	public function action_search()
 	{
+		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+		$provinces = Kohana::$config->load('timebank')->get('provices');
+		$page = 1;
+		$job = 0;
+		$type = 0;
+		$province = 0;
+		$events = ORM::factory('event');
 		if (HTTP_Request::GET == $this->request->method()) 
 		{
-			$message =  'Search: '.Arr::get($_GET, 'q');
-			$query =  '%'.Arr::get($_GET, 'q').'%';
-			$mode = Arr::get($_GET, 'mode');
-			$events = ORM::factory('event')->where('search_temp', 'like', $query)->find_all();
-			$this->template->content = View::factory('event/search')
-				->bind('mode', $mode)
-				->bind('message', $message)
-				->bind('events', $events);
+			$query = Arr::get($_GET, 'query');
+			$type = Arr::get($_GET, 'type'); // open, close, member
+			
+			$job = Arr::get($_GET, 'job');
+			if($job == '')
+				$job = 0;
+		
+			$province = Arr::get($_GET, 'province');
+			if($province == '')
+				$province = 0;
+				
+			$page = Arr::get($_GET, 'page');
+			if ($page == '') 
+				$page = 1;
+			
+			if($job != 0)
+				$events = $events->where('tags', 'like', '%'.$jobs[$job].'%');
+			if($province != 0)
+				$events = $events->where('location_province', '=', $province);
+			if($query != '')
+				$events = $events->where('search_temp', 'like', '%'.$query.'%');
 		}
-				$this->template->content = View::factory('event/search')
-				->bind('mode', $mode)
-				->bind('message', $message)
-				->bind('events', $events);
+		$event_obj =  $events;
+		$event_obj->reset(FALSE); // !!!!
+		$count = $event_obj->count_all();
+		$total_page = ceil($count/15);
+		$events = $events->order_by('timestamp','desc')->limit(15)->offset(($page-1)*15)->find_all();	
+		
+		$this->template->content = View::factory('event/search')
+					->bind('query', $query)
+					->bind('type', $type)
+					->bind('job', $job)
+					->bind('events', $events)
+					->bind('count', $count)
+					->bind('jobs', $jobs)
+					->bind('total_page', $total_page)
+					->bind('page', $page)
+					->bind('provices', $provinces)
+					->bind('province', $province);
 	}
 	
 	public function action_addcomment()
@@ -219,27 +253,26 @@ class Controller_Event extends Controller_Template {
 		{
 			$event->name = Arr::get($_POST, 'name');
 			$event->project_name = Arr::get($_POST, 'project_name');
-			
 			$event->signup_begin_date = Arr::get($_POST, 'signup_begin_date');
 			$event->signup_end_date = Arr::get($_POST, 'signup_end_date');
-			
 			$event->volunteer_begin_date = Arr::get($_POST, 'volunteer_begin_date');
 			$event->volunteer_end_date = Arr::get($_POST, 'volunteer_end_date');
-			
 			$event->location_name = Arr::get($_POST, 'location_name');
 			$event->location_province = Arr::get($_POST, 'location_province');
 			$event->location_district = Arr::get($_POST, 'location_district');
 			$event->location_postcode = Arr::get($_POST, 'location_postcode');
-
 			$event->volunteer_need_count = Arr::get($_POST, 'volunteer_need_count');			
-
 			$event->detail = Arr::get($_POST, 'detail');			
 			$event->travel_detail = Arr::get($_POST, 'travel_detail');			
 			$event->inquiry_detail = Arr::get($_POST, 'inquiry_detail');			
-
 			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');			
 			$event->expense_detail = Arr::get($_POST, 'expense_detail');
+			$event->phone = Arr::get($_POST, 'phone');	
+			$event->time_cost = Arr::get($_POST, 'time_cost');	
+			//name,  project_name, location_name, detail
+			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
 			
+	
 			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 			$tags = '';
 			foreach ($jobs as $job):
@@ -247,13 +280,7 @@ class Controller_Event extends Controller_Template {
 			endforeach;
 			
 			$event->tags = $tags;
-			//$event->status = Arr::get($_POST, 'status');
-			//$event->phone = Arr::get($_POST, 'phone');			
-			//$event->contractor_name = Arr::get($_POST, 'contractor_name');			
-			//$event->time_cost = Arr::get($_POST, 'time_cost');	
-					
-			//$event->location_id = Arr::get($_POST, 'location_id');			
-			//$event->temp = $event->name.'/'.$event->phone.'/'.$event->contractor_name.'/'.$event->detail.'/'.$location;
+				
 			$event->company = ORM::factory('company')
 								->where('user_id', '=', $this->user->id)
 								->find();

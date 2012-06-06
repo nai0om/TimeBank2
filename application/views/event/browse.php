@@ -31,9 +31,9 @@
 		
 		<h3 class="title">ประเภทงานอาสา</h3>
 		<ul class="type">
-		 	 <?php foreach ($jobs as $job):	?>
-					<li><?= HTML::anchor('event/search/',  $job) ?> <span>[<?= $jobs_count[$job] ?>]</span></li>
-             <?php endforeach; ?>
+			<?php for($i = 1; $i < sizeof($jobs); $i++):	?>
+				<li><?= HTML::anchor('event/search/',  $jobs[$i]) ?> <span>[<?= $jobs_count[$i] ?>]</span></li>
+            <?php endfor; ?>
 		</ul>
 
 		 <h3 class="title" style="float:left;">งานอาสามาใหม่</h3>
@@ -50,7 +50,7 @@
 			</tr>
 			
             <?php foreach ($events as $event):	?>
-            	<tr>
+            <tr>
 				<td><?= $event->name?></td>
 				<td><?= $event->time_cost ?></td>
 				<td><?= $event->volunteer_need_count ?> คน</td>
