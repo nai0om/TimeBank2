@@ -1,7 +1,7 @@
 <?php
 	$link = 'event/search?';
 	if($job != 0)
-		$link .= 'jobs='.$job.'&';
+		$link .= 'job='.$job.'&';
 	if($province != 0)
 		$link .= 'province='.$province.'&';
 	if($query != '')
@@ -15,8 +15,18 @@
 		<div id="sitemap">
 			<li>หน้าแรก</li>
 			<li>ธนาคารจิตอาสา</li>
-			<li>ดูงานอาสา</li>
-			<li>เด็กและเยาวชน</li>
+			
+          <?php	
+		  	
+			if($job != 0){
+				echo '<li>ดูงานอาสา</li>';
+				echo '<li>'.$jobs[$job].'</li>';
+			}
+			else{
+				echo '<li>ค้นหางานอาสา</li>';
+				}
+			?>
+			
 		</div>
 		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
 
@@ -30,13 +40,14 @@
         <?= Form::input('query', $query);  ?>
         <?= Form::select('job', $jobs, $job); ?>
         <?= Form::select('province', $provices, $province); ?>
-        <?= Form::submit('search', 'หางานอาสา', array ('class' => 'mid'));  ?>
+        <?= Form::submit(NULL, 'หางานอาสา', array ('class' => 'mid'));  ?>
         <img src="<?= url::base(); ?>media/img/tb_line_form.png" />
-        <?= Form::submit('advance-search', 'ค้นหาแบบละเอียด', array ('class' => 'long'));  ?>
+     
+        <?= Form::submit(NULL, 'ค้นหาแบบละเอียด', array ('class' => 'long'));  ?>
         <?= Form::close(); ?>
 		
 	
-	   <?php if (($query != '' && $job == 0 ) || ($query == '' && $job == 0  && $province == 0)): ?>
+	   <?php if (($job != 0 ) || ($query != '' && $job == 0  && $province != 0) ): ?>
        
             <div id="detail"><h2><?= ($job == 0 ) ? '': $jobs[$job] ?></h2>
                 <?php if ($type == 'closed'): ?>
@@ -56,52 +67,79 @@
             </div>
 		<?php endif ?>
 		<div style="clear:both"></div>
-        <?php if ($query == '' && $job == 0  && $province == 0) : ?>
-                <h3 class="title" style="float:left;">งานอาสามาใหม่</h3>
-         <?php else: ?>
-        <p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> 
-    	<span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $count ?></span></p>
-		<?php endif ?>
-		<table>
-			<tbody><tr>
-				<th>งานอาสา</th>
-				<th>ต้องการจากอาสา</th>
-				<th>จำนวนรับสมัคร</th>
-				<th>เปิดรับสมัคร</th>
-				<th>วัน / เวลาทำงานอาสา</th>
-				<th></th>
-			</tr>
-            <?php foreach ($events as $event):	?>
-            <tr>
-				<td><?= $event->name?></td>
-				<td><?= $event->time_cost ?></td>
-				<td><?= $event->volunteer_need_count ?> คน</td>
-				<td><?= $event->signup_begin_date ?><br>ถึง <?= $event->signup_end_date ?></td>
-				<td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
-				<td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
-			</tr>
-            <?php endforeach; ?>
-			<tr>
-				<td colspan="6">
-					<ul>
-                    <?php for($i = 1; $i <= $total_page; $i++){	
-							if( $i == $page)
-							{
-								echo '<li>Page '.$i.'</li>';
-							}
-							else
-							{
-								if($type != '')
-									$link .= 'type='.$type.'&';
-									
-									$link .= 'page='.$i.'&';
-								echo '<li>'.HTML::anchor($link, $i) .'</li>';
-							}
-						  }
-					?>
-					</ul>
-				</td>
-			</tr>
-		</tbody></table>
+        <?php if ($type != 'member') : ?>
+			<?php if ($query == '' && $job == 0  && $province == 0) : ?>
+                    <h3 class="title" style="float:left;">งานอาสามาใหม่</h3>
+             <?php else: ?>
+            <p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> 
+            <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $count ?></span></p>
+            <?php endif ?>
+            <table>
+                <tbody><tr>
+                    <th>งานอาสา</th>
+                    <th>ต้องการจากอาสา</th>
+                    <th>จำนวนรับสมัคร</th>
+                    <th>เปิดรับสมัคร</th>
+                    <th>วัน / เวลาทำงานอาสา</th>
+                    <th></th>
+                </tr>
+                <?php foreach ($events as $event):	?>
+                <tr>
+                    <td><?= $event->name?></td>
+                    <td><?= $event->time_cost ?></td>
+                    <td><?= $event->volunteer_need_count ?> คน</td>
+            
+                    <? if( $type == 'open'): ?>
+                        <td><?= $event->signup_begin_date ?><br>ถึง <?= $event->signup_end_date ?></td>
+                        <td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
+                        <td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
+                    <? else : ?>
+                        <td>- ปิด -</td>
+                        <td>- ปิด -</td>
+                        <td><?= HTML::anchor('event/view/'.$event->id, 'เปิดดู') ?></td>
+                    <? endif ?>
+                </tr>
+                <?php endforeach; ?>
+                <tr>
+                    <td colspan="6">
+                        <ul>
+                        <?php for($i = 1; $i <= $total_page; $i++){	
+                                if( $i == $page)
+                                {
+                                    echo '<li>Page '.$i.'</li>';
+                                }
+                                else
+                                {
+                                    if($type != '')
+                                        $link .= 'type='.$type.'&';
+                                        
+                                        $link .= 'page='.$i.'&';
+                                    echo '<li>'.HTML::anchor($link, $i) .'</li>';
+                                }
+                              }
+                        ?>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody></table>
+		<?php else :?>
+        	<ul id="winnerList">
+			<li><img src="<?=url::base()?>media/img/tb_sample_image.png"/>
+				<div class="hours">50 ชม.</div>
+				<a class="no">120<br>อาสาสมัคร</a>
+				<p class="detail">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
+			</li>
+			<li><img src="<?=url::base()?>media/img/tb_sample_image.png"/>
+				<div class="hours">50 ชม.</div>
+				<a class="no">120<br>อาสาสมัคร</a>
+				<p class="detail">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
+			</li>
+			<li><img src="<?=url::base()?>media/img/tb_sample_image.png"/>
+				<div class="hours">50 ชม.</div>
+				<a class="no">120<br>อาสาสมัคร</a>
+				<p class="detail">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
+			</li>
+		</ul>
+        <?php endif ?>
   </div>
 </div>

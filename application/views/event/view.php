@@ -101,7 +101,7 @@
 		
 		<img src="<?= url::base(); ?>media/img/tb_detail_sampel.png" style="float:left;">
 		<div class="sub">
-			<h3>8 ชั่วโมง</h3>
+			<h3><?= $event->time_cost ?> ชั่วโมง</h3>
 			<h4>ต้องการจากอาสา</h4>
 		</div>
 		<div class="sub">
@@ -115,15 +115,15 @@
 		</div>
 		<div style="clear:both"></div>
 		
-		<h3 class="title">อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน</h3>
+		<h3 class="title"><?= $event->name ?></h3>
 		<div id="leftSide">
-			<p><span class="header">ในโครงการ:</span> โครงการอ่านสร้างชาติ</p>
+			<p><span class="header">ในโครงการ:</span> <?= $event->project_name ?></p>
 			<p><span class="header">สถานที่:</span> ศูนย์การค้าอิมพีเรียลเวิร์ล ลาดพร้าว ณ เคาน์เตอร์ประชาสัมพันธ์ชั้น 1</p>
 			<p><span class="header">จังหวัด:</span> กรุงเทพมหานคร</p>
 			<p><span class="header">รายละเอียดงานอาสา</span></p>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+			<p><?= $event->detail ?></p>
 			<p><span class="header">ลักษณะการเดินทาง</span></p>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+			<p><?= $event->travel_detail ?></p>
 			<p><span class="header">ทักษะของอาสาสมัครที่ต้องการ</span></p>
 			<p>ความสามารถพิเศษ</p>
 			<p>ทักษะทั่วไป 	การขับขี่พาหนะ, ว่ายนํ้า
@@ -131,15 +131,9 @@
 			<p>ทักษะวิชาชีพ 	งานช่างเทคนิค -ช่างไฟฟ้า, ช่างไม้
 						สุขภาพ -ทันตแพทย์, จิตวิทยา</p>
 			<p><span class="header">Tag ความสนใจ</span></p>
-			<p>งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ เย็บ ปัก 
-			ถัก ร้อย, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา 
-			นันทนาการ, อาหารและโภชนาการ</p>
+			<p><?= $event->tags ?>  </p>
 			<p><span class="header">ค่าใช้จ่าย</span></p>
-			<p>Loremipsumonsectetueradipiscingelit, seddiamnonummynib
-			heuismodtin
-			
-			ciduntutlaoreetdol
-			orema gna 	250.-
+			<p><?= $event->expense_detail ?>  	
 			</p>
 		</div>
 		<div id="rightSide">
@@ -149,23 +143,9 @@
 				วัน : จันทร์ - ศุกร์<br>
 				เวลา : 8.30 am - 16.30 pm</div></p>
 			<p><span class="header">ติดต่อสอบถามเพิ่มเติม</span>
-			<div class="contact">ปรเมศ นาคสุวรรณ<br>
-			Email: prolamet@abc.com<br>
-			โทรศัพท์: 081-3456722<br>
-			โทรสาร: 02-3456722 ต่อ 123</div>
-
-			<div class="contact">ยินดี ปรีดา<br>
-			Email: prolamet@abc.com<br>
-			โทรศัพท์: 081-3456722</div>
+            <?= $event->inquiry_detail ?>
 			
-			<div class="contact">ปรเมศ นาคสุวรรณ<br>
-			Email: prolamet@abc.com<br>
-			โทรศัพท์: 081-3456722<br>
-			โทรสาร: 02-3456722 ต่อ 123</div>
 
-			<div class="contact">ยินดี ปรีดา<br>
-			Email: prolamet@abc.com<br>
-			โทรศัพท์: 081-3456722</div></p>
 			
 			<h4 class="title">ฝากคอมเม้นต์</h4>
 			<form id="post_comment">

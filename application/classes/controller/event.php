@@ -51,6 +51,13 @@ class Controller_Event extends Controller_Template {
 		$this->save_event($event, $message, $errors);
 	} 
 
+	public function action_created()
+	{
+		$id = $this->request->param('id'); 
+		$this->template->content = View::factory('event/created')
+									->bind('id', $id);		
+	}
+	
 	public function action_edit()
 	{
         $this->template->content = View::factory('event/edit')
@@ -100,7 +107,7 @@ class Controller_Event extends Controller_Template {
             ->bind('event', $event)
             ->bind('event_status', $event_status)
             ->bind('mode', $mode);
-            //->bind('locations', $locations);
+     
 		
 		$event = ORM::factory('event', $this->request->param('id'));
 
@@ -121,7 +128,7 @@ class Controller_Event extends Controller_Template {
 		$provinces = Kohana::$config->load('timebank')->get('provices');
 		$page = 1;
 		$job = 0;
-		$type = 0;
+		$type = 'open';
 		$province = 0;
 		$events = ORM::factory('event');
 		if (HTTP_Request::GET == $this->request->method()) 
@@ -129,6 +136,9 @@ class Controller_Event extends Controller_Template {
 			$query = Arr::get($_GET, 'query');
 			$type = Arr::get($_GET, 'type'); // open, close, member
 			
+			if ($type == '')
+				$type = 'open';
+				
 			$job = Arr::get($_GET, 'job');
 			if($job == '')
 				$job = 0;
@@ -148,6 +158,12 @@ class Controller_Event extends Controller_Template {
 			if($query != '')
 				$events = $events->where('search_temp', 'like', '%'.$query.'%');
 		}
+		
+		if($type == 'open')
+			$events = $events->where('status', '=', '1');
+		if($type == 'closed')
+			$events = $events->where('status', '=', '0');
+			
 		$event_obj =  $events;
 		$event_obj->reset(FALSE); // !!!!
 		$count = $event_obj->count_all();
@@ -313,7 +329,7 @@ class Controller_Event extends Controller_Template {
 				$event->save();
                  
 				// Redirect to event view
-				Request::current()->redirect('event/view/'.$event->id);
+				Request::current()->redirect('event/created/'.$event->id);
 				
             } catch (ORM_Validation_Exception $e) {
                  
