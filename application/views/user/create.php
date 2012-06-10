@@ -7,14 +7,6 @@
 			<h2>Create volunteer account</h2>
 			<?= Form::open('user/create',array('style'=>'margin-top:20px')); ?>
 				<p>
-					<?= Form::label('username', 'Username :'); ?>
-                    <?= Form::input('username', HTML::chars(Arr::get($_POST, 'username'))); ?>
-                    <div class="error">
-						<?= Arr::get($errors, 'username'); ?>
-                    </div>
-                </p>
-                
-				<p>
 					<?= Form::label('email', 'Email Address'); ?>
                     <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
                     <div class="error">
@@ -26,7 +18,7 @@
 					<?= Form::label('password', 'Password'); ?>
                     <?= Form::password('password'); ?>
                     <div class="error">
-                        <?= Arr::path($errors, '_external.password'); ?>
+                        <?= Arr::path($errors, 'password'); ?>
                     </div>
                 </p>
                 
@@ -34,7 +26,7 @@
 					<?= Form::label('password_confirm', 'Confirm Password'); ?>
                     <?= Form::password('password_confirm'); ?>
                     <div class="error">
-                        <?= Arr::path($errors, '_external.password_confirm'); ?>
+                        <?= Arr::path($errors, 'password_confirm'); ?>
                     </div>
                 </p>
 
@@ -45,26 +37,3 @@
 		
   </div>
 </div>
-
-
-
-
-<h2>Create volunteer account</h2>
-<? if ($message) : ?>
-    <h3 class="message">
-        <?= $message; ?>
-    </h3>
-<? endif; ?>
- 
- 
-
- 
-
- 
-
- 
-
- 
-
-
- 

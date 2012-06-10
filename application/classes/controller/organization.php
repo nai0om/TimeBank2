@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
  
-class Controller_Company extends Controller_Template {
+class Controller_Organization extends Controller_Template {
 	
 	public function action_index()
 	{
@@ -184,7 +184,6 @@ class Controller_Company extends Controller_Template {
 			
 			$company->user = $this->user;
 			$company->temp = $company->name.'/'.$company->objective.'/'.$company->address.'/'.$company->detail.'/'.$company->website;
-			$company->company_type = ORM::factory('company_type', 1);
 			
 			if (isset($_FILES['logo']['name']) && $_FILES['logo']['name'] != '')
 			{

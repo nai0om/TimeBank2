@@ -5,7 +5,7 @@
  * @author     Pongrob Saisuwan
  * @copyright  (c) 2011 Pongrob Saisuwan
  */
-class Model_Company extends ORM {
+class Model_Organization extends ORM {
 
 	// Relationships
 	protected $_has_many = array(
@@ -14,16 +14,12 @@ class Model_Company extends ORM {
 
 	protected $_belongs_to = array(
 					'user' => array(),
-					'company_type' => array(),);
+					);
 
     public function rules()
     {
         return array(
             'user_id' => array(
-                array('not_empty'),
-                array('max_length', array(':value', 11)),
-            ),
-            'company_type_id' => array(
                 array('not_empty'),
                 array('max_length', array(':value', 11)),
             ),

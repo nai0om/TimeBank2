@@ -7,7 +7,7 @@
 		<div id="content">
 			<h2>Sign In</h2>
 			<?= Form::open('user/login', array('style' => 'margin-top:20px;')); ?>
-                <p><label>รหัสผู้ใช้ (อีเมล์)  * : </label><?= Form::input('username', HTML::chars(Arr::get($_POST, 'username'))); ?></p>
+                <p><label>รหัสผู้ใช้ (อีเมล์)  * : </label><?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?></p>
 				<p><label>รหัสผ่าน * : </label><?= Form::password('password'); ?></p>
 				<p><label></label><?= Form::checkbox('remember'); ?> บันทึกไว้ในเครื่อง</p>
                 <div class="error"><?= $message; ?></div>
