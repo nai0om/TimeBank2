@@ -1,14 +1,10 @@
 <?php
-	$link = 'event/search?';
-	if($job != 0)
-		$link .= 'job='.$job.'&';
-	if($province != 0)
-		$link .= 'province='.$province.'&';
-	if($query != '')
-		$link .= 'query='.$query.'&';
-	if($page != '')
+$job = isset($gets['job'])? $gets['job'] : '0';
+$query = isset($gets['query'])? $gets['query'] : '';
+$province = isset($gets['province'])? $gets['province'] : '0';
+$type = isset($gets['type'])? $gets['type'] : 'open';
+$page = isset($gets['page'])? $gets['page'] : '1';
 ?>
-
 
 <div id="tb_browse_searchResult" class="search">
 	<div id="main" role="main">
@@ -20,7 +16,7 @@
 		  	
 			if($job != 0){
 				echo '<li>ดูงานอาสา</li>';
-				echo '<li>'.$jobs[$job].'</li>';
+				echo '<li>'.$jobs[$gets['job']].'</li>';
 			}
 			else{
 				echo '<li>ค้นหางานอาสา</li>';
@@ -36,14 +32,14 @@
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
 		</div>
 		
-		<?= Form::open('event/search', array ('id' => 'search','method' => 'get'));  ?>
+		<?= Form::open('event/search', array ('id' => 'search', 'method' => 'get'));  ?>
         <?= Form::input('query', $query);  ?>
         <?= Form::select('job', $jobs, $job); ?>
         <?= Form::select('province', $provices, $province); ?>
         <?= Form::submit(NULL, 'หางานอาสา', array ('class' => 'mid'));  ?>
         <img src="<?= url::base(); ?>media/img/tb_line_form.png" />
      
-        <?= Form::submit(NULL, 'ค้นหาแบบละเอียด', array ('class' => 'long'));  ?>
+        <?= Form::submit('advance', 'ค้นหาแบบละเอียด', array ('class' => 'long'));  ?>
         <?= Form::close(); ?>
 		
 	

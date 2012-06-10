@@ -15,12 +15,12 @@
 		</div>
 		
 		<?php 
-			echo Form::open('event/search', array ('id' => 'search')); 
+			echo Form::open('event/search', array ('id' => 'search', 'method' => 'get')); 
         	echo Form::input('text', 'ใส่ชื่องานอาสา, ชื่อองค์กร, ชื่อสถานที่'); 
             echo Form::select('jobs', $jobs, '--ประเภทงานอาสา--');
             echo Form::select('location_province', $provices, '--จังหวัด--');
-	        echo Form::submit('search', 'หางานอาสา', array ('class' => 'mid')); 
-            echo Form::submit('advance-search', 'ค้นหาแบบละเอียด', array ('class' => 'long')); 
+	        echo Form::submit(NULL, 'หางานอาสา', array ('class' => 'mid')); 
+            echo Form::submit('advance', 'ค้นหาแบบละเอียด', array ('class' => 'long')); 
 			echo Form::close();
 		?>
 

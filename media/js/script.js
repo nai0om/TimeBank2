@@ -1,38 +1,50 @@
 ﻿/* Author:
 
 */
-var provices = ["กรุงเทพมหานคร", "กระบี่", "กาญจนบุรี", "กาฬสินธุ์", "กำแพงเพชร", "ขอนแก่น", "จันทบุรี", "ฉะเชิงเทรา", "ชลบุรี", "ชัยนาท", "ชัยภูมิ", "ชุมพร", 
-				"เชียงราย", "เชียงใหม่", "ตรัง", "ตราด", "ตาก", "นครนายก", "นครปฐม", "นครพนม", "นครราชสีมา", "นครศรีธรรมราช", "นครสวรรค์", "นนทบุรี", 
-				"นราธิวาส", "น่าน", "บึงกาฬ", "บุรีรัมย์", "ปทุมธานี", "ประจวบคีรีขันธ์", "ปราจีนบุรี", "ปัตตานี", "พระนครศรีอยุธยา", "พังงา", "พัทลุง", "พิจิตร", "พิษณุโลก", 
-				"เพชรบุรี", "เพชรบูรณ์", "แพร่", "พะเยา", "ภูเก็ต", "มหาสารคาม", "มุกดาหาร", "แม่ฮ่องสอน", "ยะลา", "ยโสธร", "ร้อยเอ็ด", "ระนอง", "ระยอง", "ราชบุรี", "ลพบุรี", 
-				"ลำปาง", "ลำพูน", "เลย", "ศรีสะเกษ", "สกลนคร", "สงขลา", "สตูล", "สมุทรปราการ", "สมุทรสงคราม", "สมุทรสาคร", "สระแก้ว", "สระบุรี", "สิงห์บุรี", "สุโขทัย", 
-				"สุพรรณบุรี", "สุราษฎร์ธานี", "สุรินทร์", "หนองคาย", "หนองบัวลำภู", "อ่างทอง", "อุดรธานี", "อุทัยธานี", "อุตรดิตถ์", "อุบลราชธานี",  "อำนาจเจริญ"]; 
-
-var jobs = ["งานอาสาทั่วไป", "กู้ภัยและฟื้นฟูจากภัยพิบัติ", "หัตถกรรมและงานฝีมือ", "ศาสนาและปฏิบัติธรรม", "ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ", "อาหารและโภชนาการ", 
-			"สิ่งแวดล้อมและการเกษตร", "ก่อสร้างและงานช่างเทคนิค", "ประสานงานและบริหารจัดการ", "เด็กและเยาวชน", "สตรี", "ผู้สูงอายุและครอบครัว", "ผู้พิการ", "ไอที และคอมพิวเตอร์กราฟฟิค", 
-			"สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด", "สุนัข แมว และสัตว์เลี้ยง", "กฎหมาย", "สุขภาพและสาธารณสุข", "การศึกษาและฝึกอบรม"];
-
-function addOptionList(type, list){
-	var elements = document.getElementsByClassName(type);
-	for (j = 0 ;j < elements.length; j ++){
-		element = elements[j];
-		for (i =0 ; i < list.length ; i++){
-			var option = document.createElement("option");
-			option.text = list[i];
-			try
-			  {
-				// for IE earlier than version 8
-				element.add(option,x.options[null]);
-			  }
-			catch (e)
-			  {
-				  element.add(option,null);
-			  }
-		}
-	}
-}
 
 $(document).ready( function () {
-	addOptionList("provice", provices);
-	addOptionList("job", jobs);
+  	$(function() {
+			$(".datepicker" ).datepicker({
+										dateFormat: 'dd-mm-yy',
+								
+											 });
+	});
+	$(function() {
+			$(".timepicker" ).timepicker({
+										timeFormat: 'hh:MM:ss',
+											 });
+	});
+
 });
+
+// parse a date in dd-mm-yyyy hh:mm:ss format
+function parseDate(input) 
+{
+  var parts = input.match(/(\d+)/g);
+  // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+  return new Date(parts[2], parts[1]-1, parts[0]); // months are 0-based
+}
+
+// parse a date in dd-mm-yyyy hh:mm:ss format
+function parseTime(input) 
+{
+
+  var parts = input.match(/(\d+)/g);
+  // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+  return new Date(parts[0] * (parts[1] + 1) * ( parts[2] + 1 ) * 1000); // months are 0-based
+}
+
+function CountDays(DayOfWeek, start, end)
+{
+	var ts = new Date(end - start);                       // Total duration
+	var count = Math.floor((ts/(1000*60*60*24)) / 7);   // Number of whole weeks
+	var remainder = ((ts/(1000*60*60*24)) % 7);         // Number of remaining days
+	var sinceLastDay = (end.getDay() - DayOfWeek);   // Number of days since last [day]
+	if (sinceLastDay < 0) sinceLastDay += 7;         // Adjust for negative days since last [day]
+
+	// If the days in excess of an even week are greater than or equal to the number days since the last [day], then count this one, too.
+	if (remainder >= sinceLastDay) count++;          
+
+	return count;
+}
+

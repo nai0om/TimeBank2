@@ -122,65 +122,14 @@ class Controller_Event extends Controller_Template {
 		$mode = Arr::get($_GET, 'mode');
 	}
 	
+	public function action_advance_search()
+	{
+        $this->template->content =$this->search_even('event/advanced_search');
+	}
+	
 	public function action_search()
 	{
-		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
-		$provinces = Kohana::$config->load('timebank')->get('provices');
-		$page = 1;
-		$job = 0;
-		$type = 'open';
-		$province = 0;
-		$events = ORM::factory('event');
-		if (HTTP_Request::GET == $this->request->method()) 
-		{
-			$query = Arr::get($_GET, 'query');
-			$type = Arr::get($_GET, 'type'); // open, close, member
-			
-			if ($type == '')
-				$type = 'open';
-				
-			$job = Arr::get($_GET, 'job');
-			if($job == '')
-				$job = 0;
-		
-			$province = Arr::get($_GET, 'province');
-			if($province == '')
-				$province = 0;
-				
-			$page = Arr::get($_GET, 'page');
-			if ($page == '') 
-				$page = 1;
-			
-			if($job != 0)
-				$events = $events->where('tags', 'like', '%'.$jobs[$job].'%');
-			if($province != 0)
-				$events = $events->where('location_province', '=', $province);
-			if($query != '')
-				$events = $events->where('search_temp', 'like', '%'.$query.'%');
-		}
-		
-		if($type == 'open')
-			$events = $events->where('status', '=', '1');
-		if($type == 'closed')
-			$events = $events->where('status', '=', '0');
-			
-		$event_obj =  $events;
-		$event_obj->reset(FALSE); // !!!!
-		$count = $event_obj->count_all();
-		$total_page = ceil($count/15);
-		$events = $events->order_by('timestamp','desc')->limit(15)->offset(($page-1)*15)->find_all();	
-		
-		$this->template->content = View::factory('event/search')
-					->bind('query', $query)
-					->bind('type', $type)
-					->bind('job', $job)
-					->bind('events', $events)
-					->bind('count', $count)
-					->bind('jobs', $jobs)
-					->bind('total_page', $total_page)
-					->bind('page', $page)
-					->bind('provices', $provinces)
-					->bind('province', $province);
+		$this->template->content = $this->search_even('event/search');	
 	}
 	
 	public function action_addcomment()
@@ -263,6 +212,78 @@ class Controller_Event extends Controller_Template {
 		}
 	}
 	
+	private function search_even( $view)
+	{
+		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+		$provinces = Kohana::$config->load('timebank')->get('provices');
+		$page = 1;
+		$job = 0;
+		$type = 'open';
+		$province = 0;
+		$query = '';
+		$events = ORM::factory('event');
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			if(Arr::get($_GET, 'advance') != '')
+				Request::current()->redirect('event/advance_search/');
+				
+			$query = Arr::get($_GET, 'query');
+			$type = Arr::get($_GET, 'type'); // open, close, member
+			
+			if ($type == '')
+				$type = 'open';
+				
+			$job = Arr::get($_GET, 'job');
+			if($job == '')
+				$job = 0;
+		
+			$province = Arr::get($_GET, 'province');
+			if($province == '')
+				$province = 0;
+				
+			$page = Arr::get($_GET, 'page');
+			if ($page == '') 
+				$page = 1;
+			
+			if($job != 0)
+				$events = $events->where('tags', 'like', '%'.$jobs[$job].'%');
+			if($province != 0)
+				$events = $events->where('location_province', '=', $province);
+			if($query != '')
+				$events = $events->where('search_temp', 'like', '%'.$query.'%');
+		}
+		
+		if($type == 'open')
+			$events = $events->where('status', '=', '1');
+		if($type == 'closed')
+			$events = $events->where('status', '=', '0');
+			
+		$event_obj =  $events;
+		$event_obj->reset(FALSE); // !!!!
+		$count = $event_obj->count_all();
+		$total_page = ceil($count/15);
+		$events = $events->order_by('timestamp','desc')->limit(15)->offset(($page-1)*15)->find_all();	
+		
+		$link = 'event/search?';
+		if($job != 0)
+			$link .= 'job='.$job.'&';
+		if($province != 0)
+			$link .= 'province='.$province.'&';
+		if($query != '')
+			$link .= 'query='.$query.'&';
+
+		$content = View::factory($view)
+					->bind('events', $events)
+					->bind('count', $count)
+					->bind('total_page', $total_page)
+					->bind('provices', $provinces)
+					->bind('jobs', $jobs)
+					->bind('link', $link)
+					->bind('gets', $_GET);
+
+		return $content;
+	}
+	
 	private function save_event($event, &$message, &$errors)
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
@@ -273,6 +294,10 @@ class Controller_Event extends Controller_Template {
 			$event->signup_end_date = Arr::get($_POST, 'signup_end_date');
 			$event->volunteer_begin_date = Arr::get($_POST, 'volunteer_begin_date');
 			$event->volunteer_end_date = Arr::get($_POST, 'volunteer_end_date');
+			$event->signup_begin_date = Arr::get($_POST, 'signup_begin_time');
+			$event->signup_end_date = Arr::get($_POST, 'signup_end_time');
+			$event->volunteer_begin_date = Arr::get($_POST, 'volunteer_begin_time');
+			$event->volunteer_end_date = Arr::get($_POST, 'volunteer_end_time');
 			$event->location_name = Arr::get($_POST, 'location_name');
 			$event->location_province = Arr::get($_POST, 'location_province');
 			$event->location_district = Arr::get($_POST, 'location_district');
@@ -281,21 +306,52 @@ class Controller_Event extends Controller_Template {
 			$event->detail = Arr::get($_POST, 'detail');			
 			$event->travel_detail = Arr::get($_POST, 'travel_detail');			
 			$event->inquiry_detail = Arr::get($_POST, 'inquiry_detail');			
-			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');			
+			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');
 			$event->expense_detail = Arr::get($_POST, 'expense_detail');
 			$event->phone = Arr::get($_POST, 'phone');	
 			$event->time_cost = Arr::get($_POST, 'time_cost');	
 			//name,  project_name, location_name, detail
 			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
 			
-	
-			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
-			$tags = '';
-			foreach ($jobs as $job):
-					$tags  = $tags.''.Arr::get($_POST, $job) .', ';
-			endforeach;
 			
-			$event->tags = $tags;
+			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+			foreach ($jobs as $job){
+				$job =  str_replace(' ', '_', $job);
+				if ( Arr::get($_POST, $job) != '')
+						$event->tags  = $event->tags.''.Arr::get($_POST, $job) .', ';
+			}
+			if (Arr::get($_POST, 'day') != 'everyday' ){
+				$days = Kohana::$config->load('timebank')->get('days');
+				foreach ($days as $day){
+					if ( Arr::get($_POST, $day) != '') 
+						$event->days  = $event->days.''.Arr::get($_POST, $day) .', ';
+				}
+			}
+			
+			$skills = Kohana::$config->load('timebank')->get('skills');
+			foreach ($skills as $skill){
+				$skill = str_replace(' ', '_', $skill);
+				if ( Arr::get($_POST, $skill) != '') 
+					$event->skills  = $event->skills.''.Arr::get($_POST, $skill) .', ';
+			}
+			
+			$technicals = Kohana::$config->load('timebank')->get('technicals');
+			foreach ($technicals as $technical){
+				$technical = str_replace(' ', '_', $technical);
+				if ( Arr::get($_POST, $technical) != '') 
+					$event->technical  = $event->technical.''.Arr::get($_POST, $technical) .', ';
+			}
+			
+			$languates = Kohana::$config->load('timebank')->get('languates');
+			foreach ($languates as $languate){
+				if ( Arr::get($_POST, str_replace(' ', '_', $languate)) != '') 
+					$event->languates  = $event->languates.''.Arr::get($_POST, $languate) .', ';
+			}
+			
+			
+			if ( Arr::get($_POST, 'any_languate') != '') 
+				$event->languates  = $event->languates.''.Arr::get($_POST, 'any_languate') ;
+			
 				
 			$event->company = ORM::factory('company')
 								->where('user_id', '=', $this->user->id)

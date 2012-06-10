@@ -19,23 +19,26 @@
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="<?= url::base(); ?>media/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="<?= url::base(); ?>media/js/jquery-1.7.2.min.js"><\/script>')</script>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 	<link rel="stylesheet" href="<?= url::base(); ?>media/css/style.css">
 	<link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/widget/css/rcarousel.css" />
+    <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/widget/css/rcarousel.css" />
+    
+     <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/css/ui-lightness/jquery-ui-1.8.21.custom.css" />
+  
 	<script src="<?= url::base(); ?>media/js/libs/modernizr-2.5.3.min.js"></script>
 
-  <!-- scripts concatenated and minified via build script -->
-  <script src="<?= url::base(); ?>media/js/plugins.js"></script>
-  <script src="<?= url::base(); ?>media/js/script.js"></script>
-  <!-- end scripts -->
 
-  <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery-1.7.1.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery-ui-1.8.21.custom.min.js"></script>
+
   <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.core.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.widget.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.rcarousel.js"></script>
-
+  <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery-ui-timepicker-addon.js"></script>
+   
+  
 </head> 
 <body>
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
@@ -67,10 +70,14 @@
         <li><?= HTML::anchor('contactus', 'Contact Us'); ?></li></ul>
   </footer>
 
-
+  <!-- scripts concatenated and minified via build script -->
+  <script src="<?= url::base(); ?>media/js/plugins.js"></script>
+  <script src="<?= url::base(); ?>media/js/script.js"></script>
+  <!-- end scripts -->
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
   <script>
+
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';

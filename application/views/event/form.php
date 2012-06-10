@@ -1,3 +1,15 @@
+<?
+//build array of times.
+$times = array();
+$time = strtotime("00:00");
+$times["00:00"] = date("H:i",$time);
+for($i = 1;$i < 48;$i++) {
+	$time = strtotime("+ 30 minutes",$time);
+	$key = date("H:i",$time);
+	$times[$key] = date("H:i",$time);
+}
+$times['24:00'] = '24:00';
+?>
 <div id="leftSide">
     <fieldset>
         <legend></legend>
@@ -18,7 +30,7 @@
         <p><label><strong>โดยองค์กร</strong></label></p>
         <p><input type="text"></p>
         <p><strong>เปิดรับสมัคร</strong></p>
-        <p><label>ตั้งแต่วันที่</label></p>
+        <p><label>ตั้งแต่วัยที่</label></p>
         <p>
 			<?= Form::input('signup_begin_date', HTML::chars($event->signup_begin_date), array('class' => 'datepicker')); ?>
             <div class="error">
@@ -33,37 +45,53 @@
             </div>        
         </p>
         <p><label>ตั้งแต่เวลา</label>
-        <select><option></option></select>
-        <label>ถึง</label>
-        <select><option></option></select></p>
+        	<?= Form::select('signup_begin_time', $times); ?>
+        	<label>ถึง</label>
+        	<?= Form::select('signup_end_time', $times, '24:00'); ?>
+        </p>
         <div class="line"></div>
     </fieldset>
     <fieldset>
         <p><legend><strong>วันทำอาสา</strong></legend></p>
         <p><label>ตั้งแต่วันที่</label></p>
         <p>
-			<?= Form::input('volunteer_begin_date', HTML::chars($event->volunteer_begin_date), array('class' => 'datepicker')); ?>
+			<?= Form::input('volunteer_begin_date', HTML::chars($event->volunteer_begin_date), array('class' => 'datepicker', 'id' => 'volunteer_begin_date', 'onChange' => 'difDateTIme()')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'volunteer_begin_date'); ?></font>
             </div>           
         </p>
-        <p><label>ถึงวันที่</label></p>
+        <p><label>ถึงวันที่</label>
+        </p>
         <p>
-			<?= Form::input('volunteer_end_date', HTML::chars($event->volunteer_end_date), array('class' => 'datepicker')); ?>
+			<?= Form::input('volunteer_end_date', HTML::chars($event->volunteer_end_date), array('class' => 'datepicker', 'id' => 'volunteer_end_date', 'onChange' => 'difDateTIme()')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'volunteer_end_date'); ?></font>
             </div>           
         </p>
-        <p><label>ตั้งแต่เวลา</label>
-        <select><option></option></select>
-        <label>ถึง</label>
-        <select><option></option></select></p>
-        <p><input type="radio" name="day" >ทุกวัน (จันทร์ - อาทิตย์)</p>
-        <p><input type="radio" name="day" checked>ระบุวัน (เลือกได้มากกว่า 1)</p>
-        <p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">จันทร์</label><input type="checkbox"><label class="day">อังคาร</label><input type="checkbox"><label class="day">พุธ</label></p>
-        <p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">พฤหัสบดี</label><input type="checkbox"><label class="day">ศุกร์</label><input type="checkbox"><label class="day">เสาร์</label></p>
-        <p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">อาทิตย์</label></p>
-        <p>รวม <input name='time_cost' type="text" style="width:50px;margin:0;display:inline;"> ชม.(อัตโนมัติ)</p>
+		<p><label>ตั้งแต่เวลา</label>
+        	<?= Form::select('volunteer_begin_time', $times, '', array('id' => 'volunteer_begin_time', 'onChange' => 'difDateTIme()')); ?>
+        	<label>ถึง</label>
+        	<?= Form::select('volunteer_end_time', $times, '24:00', array('id' => 'volunteer_end_time', 'onChange' => 'difDateTIme()')); ?>
+        </p>
+        <p><?= Form::radio('day', 'every_day',($event->days == '')? true : false, array('id' => 'every_day', 'onChange' => 'everyDayChecked()')); ?>ทุกวัน (จันทร์ - อาทิตย์)</p>
+        <p><?= Form::radio('day', 'day', ($event->days != '')? true : false, array('id' => 'day')); ?>ระบุวัน (เลือกได้มากกว่า 1)</p>
+        
+        <p style="margin:3px 0 3px 78px; width:250px;" >
+        	<?php  
+				$days = Kohana::$config->load('timebank')->get('days'); 
+				for($i = 0 ; $i < sizeof($days) ; $i++){
+					$checked = FALSE;
+					if($event->days != '') {
+						$pos = strpos($event->days, $days[$i]);
+						if (  $pos > 0){
+							$checked = TRUE;
+						}
+					}
+					echo Form::checkbox($days[$i], $days[$i], $checked, array('id' => 'day'.$i, 'onChange' => 'dayChecked()')).''. Form::label($days[$i], $days[$i], array('class'=>'day'));
+				}
+            ?>
+        </p>
+        <p>รวม <input name='time_cost' id='time_cost' type="text" style="width:50px;margin:0;display:inline;"> ชม.(อัตโนมัติ)</p>
         <div class="line"></div>
     </fieldset>
     <fieldset>
@@ -138,24 +166,56 @@
         <ol>
             <li><p>ความสามารถพิเศษ</p>
                 <p><label>ทักษะทั่วไป (เลือกได้มากกว่า 1)</label></p>
-                <p><input type="checkbox"> การขับขี่พาหนะ (จักรยานยนต์/รถยนต์)</p>
-                <p><input type="checkbox"> ว่ายน้ำ</p>
+                  <p style="width:250px">
+                <?php  
+                    $skills = Kohana::$config->load('timebank')->get('skills'); 
+                    for($i = 0 ; $i < sizeof($skills) ; $i++){
+                        $checked = FALSE;
+                        if($event->skills != '') {
+                            $pos = strpos($event->skills, $skills[$i]);
+                            if ($pos > 0){
+                                $checked = TRUE;
+                            }
+                        }//str_replace("world","Peter","Hello world!");
+                        echo '<p>'.Form::checkbox(str_replace(' ','_',$skills[$i]), $skills[$i], $checked).''. Form::label($skills[$i], $skills[$i]).'</p>';
+                    }
+                ?>
+                </p>
                 <p><label>การใช้ภาษา (สื่อสารได้/อ่านเขียนได้/แปลได้) (เลือกได้มากกว่า 1)</label></p>
-                <p><input type="checkbox"> <label class="day">อังกฤษ</label>
-                <input type="checkbox"> <label class="day">จีน</label>
-                <input type="checkbox"> <label class="day">เยอรมัน</label></p>
-                <p><input type="checkbox"> <label class="day">ญี่ปุ่น</label>
-                <input type="checkbox"> <label>อื่นๆ (ให้ระบุ) </label><input type="text" style="width:50px;margin:0;display:inline;"></p>
+                <p style="width:250px">
+                <?php  
+                    $languates = Kohana::$config->load('timebank')->get('languates'); 
+                    for($i = 0 ; $i < sizeof($languates) ; $i++){
+                        $checked = FALSE;
+                        if($event->languates != '') {
+                            $pos = strpos($event->languates, $languates[$i]);
+                            if (  $pos > 0){
+                                $checked = TRUE;
+                            }
+                        }
+                        echo Form::checkbox(str_replace(' ','_',$languates[$i]), $languates[$i], $checked).''. Form::label($languates[$i], $languates[$i], array('class'=>'job'));
+                    }
+                ?>
+                </p>
+                <input type="checkbox"> <label>อื่นๆ (ให้ระบุ) </label><input name='any_languate' type="text" style="width:50px;margin:0;display:inline;"></p>
             </li>
             <li><p>ทักษะวิชาชีพ (เลือกได้มากกว่า 1)</p>
                 <p><label>งานช่างเทคนิค</label></p>
-                <p><input type="checkbox"> <label class="job">ช่างอิเล็กทรอนิคส์</label>
-                <input type="checkbox"> <label class="job">ช่างโลหะ</label></p>
-                <p><input type="checkbox"> <label class="job">ช่างไฟฟ้า</label>
-                <input type="checkbox"> <label class="job">ช่างประปา</label></p>
-                <p><input type="checkbox"> <label class="job">ช่างไม้</label>
-                <input type="checkbox"> <label class="job">ช่างสี</label></p>
-                <p><input type="checkbox"> <label class="job">ช่างปูน</label></p>
+				 <p style="width:250px">
+				 <?php  
+                    $technicals = Kohana::$config->load('timebank')->get('technicals'); 
+                    for($i = 0 ; $i < sizeof($technicals) ; $i++){
+                        $checked = FALSE;
+                        if($event->technical != '') {
+                            $pos = strpos($event->technical, $technicals[$i]);
+                            if (  $pos > 0){
+                                $checked = TRUE;
+                            }
+                        }
+                        echo Form::checkbox(str_replace(' ','_',$technicals[$i]), $technicals[$i], $checked).''. Form::label($technicals[$i], $technicals[$i], array('class'=>'job'));
+                    }
+                ?>
+   				</p>
             </li>
         </ol>
         <div class="line"></div>
@@ -173,7 +233,7 @@
 							$checked = TRUE;
 						}
 					}
-					echo '<p>'.Form::checkbox($jobs[$i], $jobs[$i], $checked).''.$jobs[$i].'</p>';
+					echo '<p>'.Form::checkbox(str_replace(' ','_',$jobs[$i]), $jobs[$i], $checked).''.$jobs[$i].'</p>';
 				}
             ?> 
         <div class="line"></div>
@@ -188,13 +248,50 @@
             <font color="red"><?= Arr::get($errors, 'pic_1'); ?></font>
         </div>
     </fieldset>
+
 <script>
-	$(function() {
-		$( ".datepicker" ).datepicker({
-			dateFormat: 'yy-mm-dd'
-		});	
+	function dayChecked()
+	{
+		$("#day").prop("checked", true);
+		difDateTIme();
+	}
+	function everyDayChecked()
+	{
+		$("#every_day").prop("checked", true);
+		 for( var i = 0 ; i < 7 ; i++)
+		 {
+			  $('#day' + i).prop("checked", false);
+		 }
+			
+		difDateTIme();
+	}
+	function difDateTIme()
+	{
+		var date_start  = $('#volunteer_begin_date').val();
+		var date_end = $('#volunteer_end_date').val();
+		var time_start  = $('#volunteer_begin_time').val() + ':00';
+		var time_end = $('#volunteer_end_time').val() + ':00';
+	
+		if (date_start != '' && date_end != '')
+		{
+
+			 var volunteer_date_start = parseDate(date_start);
+			 var volunteer_date_end = parseDate(date_end);
+ 			 var volunteer_time_start = parseTime(time_start);
+			 var volunteer_time_end = parseTime(time_end);
+			 var diff = volunteer_time_end.getTime() - volunteer_time_start.getTime();
+			 var day = 0;
 		
-		
-	});
- 
+			 
+			 for( var i = 0 ; i < 7 ; i++)
+			 {
+				 	if( ( $('#day' + i).is(':checked') && $('#day').is(':checked')) || 
+																			 ($('#every_day').is(':checked')))
+					{
+						day +=  CountDays(i, volunteer_date_start, volunteer_date_end);
+					}
+				 }
+			 $('#time_cost').val( (Math.floor( ( diff/1000 ) *10 ) /10 ) * day );
+		}
+	}
 </script>
