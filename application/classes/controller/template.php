@@ -15,7 +15,7 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 		if ($this->auto_render === TRUE)
 		{
 			$this->template->bind('user', $this->user);
-			$this->user = Auth::instance()->get_user();
+			$this->user = Controller_User::get_logged_in_user();
 			
 			$this->template->bind('meta_page_title', $this->meta_page_title);
 		}

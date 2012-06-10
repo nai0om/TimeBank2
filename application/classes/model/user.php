@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct access allowed.');
 
-class Model_User extends Model_Auth_User {
+class Model_User extends ORM {
 
 	protected $_has_many = array(
 		'user_timebanks' => array('model' => 'user_timebank'),
@@ -24,6 +24,9 @@ class Model_User extends Model_Auth_User {
 			'birthdate' => array(
 				array('trim'),
 			),
+			'password' => array(
+                array(array($this, 'hash_password')),
+            ),
 		);
 	}
 	
@@ -46,6 +49,11 @@ class Model_User extends Model_Auth_User {
                 array(array($this, 'check_upload'), array('profile_image', ':value')),
             ),
         );
+    }
+	
+ 	public function hash_password($password)
+    {
+        return md5(Kohana::$config->load('timebank')->get('password_salt').$this->email.$password);
     }
 	
 	public function check_upload($filename)

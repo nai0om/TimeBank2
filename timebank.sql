@@ -1,22 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 2.10.3
+-- version 2.10.2
 -- http://www.phpmyadmin.net
 -- 
--- Host: localhost
--- Generation Time: Jun 10, 2012 at 09:04 PM
--- Server version: 5.0.51
--- PHP Version: 5.2.6
+-- โฮสต์: localhost
+-- เวลาในการสร้าง: 
+-- รุ่นของเซิร์ฟเวอร์: 5.0.45
+-- รุ่นของ PHP: 5.2.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 -- 
--- Database: `timebank`
+-- ฐานข้อมูล: `timebank`
 -- 
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `activities`
+-- โครงสร้างตาราง `activities`
 -- 
 
 CREATE TABLE `activities` (
@@ -28,7 +28,7 @@ CREATE TABLE `activities` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 -- 
--- Dumping data for table `activities`
+-- dump ตาราง `activities`
 -- 
 
 INSERT INTO `activities` VALUES (1, 'pack sand', 'pack description', '2011-11-22 21:10:35');
@@ -41,7 +41,7 @@ INSERT INTO `activities` VALUES (6, 'pack sand', 'pack description', '2011-11-22
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `comments`
+-- โครงสร้างตาราง `comments`
 -- 
 
 CREATE TABLE `comments` (
@@ -56,7 +56,7 @@ CREATE TABLE `comments` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 -- 
--- Dumping data for table `comments`
+-- dump ตาราง `comments`
 -- 
 
 INSERT INTO `comments` VALUES (1, 2, 3, 0, '127.0.0.1', 'Add comment', '2011-11-22 01:41:20');
@@ -67,55 +67,7 @@ INSERT INTO `comments` VALUES (4, 2, 3, 8, '127.0.0.1', 'กากมาแล�
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `companies`
--- 
-
-CREATE TABLE `companies` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) default NULL,
-  `company_type_id` int(11) default NULL,
-  `name` mediumtext collate utf8_unicode_ci,
-  `objective` mediumtext collate utf8_unicode_ci,
-  `detail` mediumtext collate utf8_unicode_ci,
-  `address` mediumtext collate utf8_unicode_ci,
-  `website` mediumtext collate utf8_unicode_ci,
-  `logo` mediumtext collate utf8_unicode_ci,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
-
--- 
--- Dumping data for table `companies`
--- 
-
-INSERT INTO `companies` VALUES (1, 3, 1, 'new company', 'new company', 'new company', 'new company', 'http://zanroo.com', NULL, '2011-11-15 21:35:05');
-INSERT INTO `companies` VALUES (2, 8, 1, 'com3com2', 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', 'asdfasdfasdf', 'asdfasdfasdf', '', NULL, '2011-11-18 14:40:55');
-INSERT INTO `companies` VALUES (3, 12, 1, 'comname2', 'comobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหด', 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', 'ferewrew', 'http://www.zanroo.com', '4ec7092217c96thai.png', '2012-05-19 22:43:23');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `company_types`
--- 
-
-CREATE TABLE `company_types` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` mediumtext collate utf8_unicode_ci,
-  `description` mediumtext collate utf8_unicode_ci,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
-
--- 
--- Dumping data for table `company_types`
--- 
-
-INSERT INTO `company_types` VALUES (1, 'มะง่วง', 'มากกก', '2011-11-15 21:33:28');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `contactusforms`
+-- โครงสร้างตาราง `contactusforms`
 -- 
 
 CREATE TABLE `contactusforms` (
@@ -131,7 +83,7 @@ CREATE TABLE `contactusforms` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- 
--- Dumping data for table `contactusforms`
+-- dump ตาราง `contactusforms`
 -- 
 
 INSERT INTO `contactusforms` VALUES (1, 'aa', 'bb', 'xinexo@gmail.com', 'asdf', 'tp[occcccccccc', 'อยากได้ๆๆๆ', '2012-06-05 11:39:50');
@@ -139,7 +91,7 @@ INSERT INTO `contactusforms` VALUES (1, 'aa', 'bb', 'xinexo@gmail.com', 'asdf', 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `emailcomingsoons`
+-- โครงสร้างตาราง `emailcomingsoons`
 -- 
 
 CREATE TABLE `emailcomingsoons` (
@@ -150,7 +102,7 @@ CREATE TABLE `emailcomingsoons` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 -- 
--- Dumping data for table `emailcomingsoons`
+-- dump ตาราง `emailcomingsoons`
 -- 
 
 INSERT INTO `emailcomingsoons` VALUES (1, 'test@test.com', '2012-05-15 18:13:48');
@@ -166,7 +118,7 @@ INSERT INTO `emailcomingsoons` VALUES (9, 'xinexo@gmail.com', '2012-05-15 18:26:
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `events`
+-- โครงสร้างตาราง `events`
 -- 
 
 CREATE TABLE `events` (
@@ -213,7 +165,7 @@ CREATE TABLE `events` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=73 ;
 
 -- 
--- Dumping data for table `events`
+-- dump ตาราง `events`
 -- 
 
 INSERT INTO `events` VALUES (21, 'ccccccccc/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'ccccccccc', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
@@ -280,7 +232,7 @@ INSERT INTO `events` VALUES (72, 'ชื่องานอาสา ตย.อ�
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `helps`
+-- โครงสร้างตาราง `helps`
 -- 
 
 CREATE TABLE `helps` (
@@ -292,7 +244,7 @@ CREATE TABLE `helps` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- 
--- Dumping data for table `helps`
+-- dump ตาราง `helps`
 -- 
 
 INSERT INTO `helps` VALUES (1, 'ไม่ทราบว่าอยากบริจาคเงินกับทางเว็บไซต์ต้องทำอย่างไร ?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2012-06-05 12:18:10');
@@ -300,7 +252,7 @@ INSERT INTO `helps` VALUES (1, 'ไม่ทราบว่าอยากบร
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `locations`
+-- โครงสร้างตาราง `locations`
 -- 
 
 CREATE TABLE `locations` (
@@ -314,7 +266,7 @@ CREATE TABLE `locations` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 -- 
--- Dumping data for table `locations`
+-- dump ตาราง `locations`
 -- 
 
 INSERT INTO `locations` VALUES (1, 'กรุงเทพ', NULL, NULL, NULL, '2011-11-17 20:42:34');
@@ -325,7 +277,7 @@ INSERT INTO `locations` VALUES (4, 'ภูเก็ต', NULL, NULL, NULL, '2011
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `occupations`
+-- โครงสร้างตาราง `occupations`
 -- 
 
 CREATE TABLE `occupations` (
@@ -337,71 +289,42 @@ CREATE TABLE `occupations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- 
--- Dumping data for table `occupations`
+-- dump ตาราง `occupations`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `roles`
+-- โครงสร้างตาราง `organizations`
 -- 
 
-CREATE TABLE `roles` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `name` varchar(32) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`),
-  UNIQUE KEY `uniq_name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+CREATE TABLE `organizations` (
+  `id` int(11) NOT NULL auto_increment,
+  `search_temp` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `user_id` int(11) default NULL,
+  `name` mediumtext collate utf8_unicode_ci,
+  `objective` mediumtext collate utf8_unicode_ci,
+  `detail` mediumtext collate utf8_unicode_ci,
+  `address` mediumtext collate utf8_unicode_ci,
+  `website` mediumtext collate utf8_unicode_ci,
+  `logo` mediumtext collate utf8_unicode_ci,
+  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 -- 
--- Dumping data for table `roles`
+-- dump ตาราง `organizations`
 -- 
 
-INSERT INTO `roles` VALUES (1, 'login', 'Login privileges, granted after account confirmation');
-INSERT INTO `roles` VALUES (2, 'admin', 'Administrative user, has access to everything.');
-INSERT INTO `roles` VALUES (3, 'company', 'Company account, has access to create event and edit company info');
+INSERT INTO `organizations` VALUES (1, '', 3, 'new company', 'new company', 'new company', 'new company', 'http://zanroo.com', NULL, '2011-11-15 21:35:05');
+INSERT INTO `organizations` VALUES (2, '', 8, 'com3com2', 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', 'asdfasdfasdf', 'asdfasdfasdf', '', NULL, '2011-11-18 14:40:55');
+INSERT INTO `organizations` VALUES (3, '', 12, 'comname2', 'comobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหด', 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', 'ferewrew', 'http://www.zanroo.com', '4ec7092217c96thai.png', '2012-05-19 22:43:23');
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `roles_users`
--- 
-
-CREATE TABLE `roles_users` (
-  `user_id` int(10) unsigned NOT NULL,
-  `role_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY  (`user_id`,`role_id`),
-  KEY `fk_role_id` (`role_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- 
--- Dumping data for table `roles_users`
--- 
-
-INSERT INTO `roles_users` VALUES (1, 1);
-INSERT INTO `roles_users` VALUES (2, 1);
-INSERT INTO `roles_users` VALUES (3, 1);
-INSERT INTO `roles_users` VALUES (4, 1);
-INSERT INTO `roles_users` VALUES (5, 1);
-INSERT INTO `roles_users` VALUES (6, 3);
-INSERT INTO `roles_users` VALUES (7, 3);
-INSERT INTO `roles_users` VALUES (8, 1);
-INSERT INTO `roles_users` VALUES (8, 2);
-INSERT INTO `roles_users` VALUES (8, 3);
-INSERT INTO `roles_users` VALUES (9, 3);
-INSERT INTO `roles_users` VALUES (10, 1);
-INSERT INTO `roles_users` VALUES (10, 3);
-INSERT INTO `roles_users` VALUES (11, 1);
-INSERT INTO `roles_users` VALUES (11, 3);
-INSERT INTO `roles_users` VALUES (12, 1);
-INSERT INTO `roles_users` VALUES (12, 3);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `skills`
+-- โครงสร้างตาราง `skills`
 -- 
 
 CREATE TABLE `skills` (
@@ -413,24 +336,22 @@ CREATE TABLE `skills` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- 
--- Dumping data for table `skills`
+-- dump ตาราง `skills`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `users`
+-- โครงสร้างตาราง `users`
 -- 
 
 CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL auto_increment,
   `email` varchar(127) NOT NULL,
-  `username` varchar(32) NOT NULL default '',
   `password` varchar(64) NOT NULL,
-  `logins` int(10) unsigned NOT NULL default '0',
-  `last_login` int(10) unsigned default NULL,
   `nickname` text NOT NULL,
+  `role` int(11) NOT NULL,
   `first_name` text NOT NULL,
   `last_name` text NOT NULL,
   `birthday` date NOT NULL,
@@ -443,32 +364,19 @@ CREATE TABLE `users` (
   `sex` char(1) NOT NULL,
   `website` text NOT NULL,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `uniq_username` (`username`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- 
--- Dumping data for table `users`
+-- dump ตาราง `users`
 -- 
 
-INSERT INTO `users` VALUES (1, 'xinexo@gmail.com', 'nongtum', 'e5851f42ce72252a4128014028921086917349a4e39633f8a16eaa9f910cd2b2', 1, 1321097714, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
-INSERT INTO `users` VALUES (2, 'xinexo@gmails.com', 'autumn', '2b6d678710e375762de7e2c97c4263ef4409eea5d54631bf3f4ac72313a4562b', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
-INSERT INTO `users` VALUES (3, 'xinexo@yahoo.com', 'nongmay', '11e8ef6433a4bf1267257d9a944252e01541f27bf3ebdc0e08f9c2c08e63ee20', 9, 1321517706, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
-INSERT INTO `users` VALUES (4, 'a@b.com', 'asdf', 'b30c9474902607d01c76cc47aec9fbdbb5f5f7da70711ff902621df55d9a18d8', 1, 1321511993, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
-INSERT INTO `users` VALUES (5, 'x@x.com', 'dsfadsf', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
-INSERT INTO `users` VALUES (6, 'lnw@lnw.com', 'com', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
-INSERT INTO `users` VALUES (7, 'com@com2.com', 'company', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
-INSERT INTO `users` VALUES (8, 'com3@com.com', 'com3', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 10, 1322102789, 'lnw', 'first', 'last', '2011-11-17', '121212', 'address', '4eca8b076063a1app_page.png', 'quote', 'description', '2011-11-24 09:46:29', '', '');
-INSERT INTO `users` VALUES (9, 'com4@com.com', 'com4', 'b71921bbd45546671b747d4135387efb7c99c55612774f7cb85ca6d134873516', 0, NULL, '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00 00:00:00', '', '');
-INSERT INTO `users` VALUES (10, 'tum@tum.com', 'tum', 'aa13a3b87cb902baa173a33865b268c1a2943ce2f1481c548a50eaf903078aa0', 2, 1337182188, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-16 22:29:48', '', '');
-INSERT INTO `users` VALUES (11, 'tum@tmmm.com', 'tumnaja', 'aa13a3b87cb902baa173a33865b268c1a2943ce2f1481c548a50eaf903078aa0', 1, 1337339199, '', '', '', '0000-00-00', '', '', '', '', '', '2012-05-18 18:06:39', '', '');
-INSERT INTO `users` VALUES (12, 'user@name.com', 'username', '2618af841fa649acdbb657af9bab4c045989a920728fe6d83dd03211a18b60f6', 17, 1339332632, '', '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 19:50:32', '', '');
-INSERT INTO `users` VALUES (13, 'xxx@xxx.com', 'someone', '72426db907029d4d6beca11499605c584249beb20ced4885b6f9b155e38327b5', 1, 1338394301, 'ฮ่วย', 'ใครเอ่ย', 'บ้านรวย', '1979-05-22', '0891130030', '1117 ลาดพร้าว71 กรุงเทพ', '', '', '', '2012-05-30 23:13:54', 'f', 'https://www.facebook.com/');
+INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', '', 0, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 21:35:10', '', '');
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `users_activities`
+-- โครงสร้างตาราง `users_activities`
 -- 
 
 CREATE TABLE `users_activities` (
@@ -480,14 +388,14 @@ CREATE TABLE `users_activities` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- Dumping data for table `users_activities`
+-- dump ตาราง `users_activities`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `users_events`
+-- โครงสร้างตาราง `users_events`
 -- 
 
 CREATE TABLE `users_events` (
@@ -499,7 +407,7 @@ CREATE TABLE `users_events` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- Dumping data for table `users_events`
+-- dump ตาราง `users_events`
 -- 
 
 INSERT INTO `users_events` VALUES (3, 8, 2, '2011-11-22 22:22:24');
@@ -508,7 +416,7 @@ INSERT INTO `users_events` VALUES (0, 0, 3, '2011-11-22 22:12:22');
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `users_locations`
+-- โครงสร้างตาราง `users_locations`
 -- 
 
 CREATE TABLE `users_locations` (
@@ -519,14 +427,14 @@ CREATE TABLE `users_locations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- Dumping data for table `users_locations`
+-- dump ตาราง `users_locations`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `users_occupations`
+-- โครงสร้างตาราง `users_occupations`
 -- 
 
 CREATE TABLE `users_occupations` (
@@ -537,14 +445,14 @@ CREATE TABLE `users_occupations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- Dumping data for table `users_occupations`
+-- dump ตาราง `users_occupations`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `users_skills`
+-- โครงสร้างตาราง `users_skills`
 -- 
 
 CREATE TABLE `users_skills` (
@@ -556,14 +464,14 @@ CREATE TABLE `users_skills` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- Dumping data for table `users_skills`
+-- dump ตาราง `users_skills`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `user_timebanks`
+-- โครงสร้างตาราง `user_timebanks`
 -- 
 
 CREATE TABLE `user_timebanks` (
@@ -576,40 +484,10 @@ CREATE TABLE `user_timebanks` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- 
--- Dumping data for table `user_timebanks`
+-- dump ตาราง `user_timebanks`
 -- 
 
 INSERT INTO `user_timebanks` VALUES (1, 8, 1, 12, '2011-11-22 23:16:47');
 INSERT INTO `user_timebanks` VALUES (2, 8, 1, 12, '2011-11-22 23:16:55');
 INSERT INTO `user_timebanks` VALUES (3, 8, 1, 5, '2011-11-22 23:22:44');
 INSERT INTO `user_timebanks` VALUES (4, 8, 1, 122, '2011-11-22 23:25:50');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `user_tokens`
--- 
-
-CREATE TABLE `user_tokens` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `user_id` int(11) unsigned NOT NULL,
-  `user_agent` varchar(40) NOT NULL,
-  `token` varchar(40) NOT NULL,
-  `type` varchar(100) NOT NULL,
-  `created` int(10) unsigned NOT NULL,
-  `expires` int(10) unsigned NOT NULL,
-  PRIMARY KEY  (`id`),
-  UNIQUE KEY `uniq_token` (`token`),
-  KEY `fk_user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
--- 
--- Dumping data for table `user_tokens`
--- 
-
-INSERT INTO `user_tokens` VALUES (1, 8, 'e0ce124ea238c9131da145270845a7e59909abd1', '75b36edce2e988b45d5101ed6f375f4a5950f7fd', '', 0, 1322746156);
-INSERT INTO `user_tokens` VALUES (2, 8, 'e0ce124ea238c9131da145270845a7e59909abd1', '021dc1307855bdfdd2600d286f5e51456758bc0a', '', 0, 1322746276);
-INSERT INTO `user_tokens` VALUES (3, 10, '480450a02972ac1a7ac3ac0324afc9f6045bca51', '86019671fd0380be2958beab8017b099bb483b7e', '', 0, 1338285987);
-INSERT INTO `user_tokens` VALUES (4, 12, 'dba0d6492600f97f28531a1e52bc6fd0db02d0c0', 'ae731e1b76892b6d0c51487f93c310affa445296', '', 0, 1338642368);
-INSERT INTO `user_tokens` VALUES (5, 12, '67acfb37e415e05ec3cfa0f23e3f124803d8e2b5', '36ad9e3569c3da23d621c53b4050ebe2720cbc03', '', 0, 1340040511);
-INSERT INTO `user_tokens` VALUES (6, 12, 'bc8694a19416f4ca3106fd74d6c05bf58f6dadec', '3ff8a5ee87c3e9419cbfa6fd0454ae5feb02feeb', '', 0, 1340212156);

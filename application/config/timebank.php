@@ -2,6 +2,14 @@
 
 return array
 (
+	'password_salt'	=>	'abcdefg',
+
+ 	'user_roles'		=>	array(
+								'0'	=>	'volunteer',
+								'1'	=>	'organization',
+								'2'	=>	'admin'
+							),
+	
  	'event_status'		=>	array(
 								'1'	=>	__('open'),
 								'0'	=>	'close',
