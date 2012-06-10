@@ -30,7 +30,7 @@ $times['24:00'] = '24:00';
         <p><label><strong>โดยองค์กร</strong></label></p>
         <p><input type="text"></p>
         <p><strong>เปิดรับสมัคร</strong></p>
-        <p><label>ตั้งแต่วัยที่</label></p>
+        <p><label>ตั้งแต่วันที่</label></p>
         <p>
 			<?= Form::input('signup_begin_date', HTML::chars($event->signup_begin_date), array('class' => 'datepicker')); ?>
             <div class="error">
