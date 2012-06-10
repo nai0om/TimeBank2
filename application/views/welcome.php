@@ -1,7 +1,7 @@
 <div id="home">
   <div id="main" role="main">
 		<ul>
-        	<li><?= HTML::anchor('user/create', 'สมัครสมาชิก'); ?></li>
+        	<li><?= HTML::anchor('user/signup', 'สมัครสมาชิก'); ?></li>
         	<li><?= HTML::anchor('user/login', 'เข้าสู่ระบบ'); ?></li>
         </ul>
 		<div id="banner"><img src="<?= url::base(); ?>media/img/banner.png" /></div>

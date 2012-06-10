@@ -4,7 +4,12 @@ class Controller_Organization extends Controller_Template {
 	
 	public function action_index()
 	{
-		$company = ORM::factory('company')
+		if (is_null($this->user))
+		{
+			Request::current()->redirect('user/login');
+		}
+
+		$company = ORM::factory('organization')
 				->where('user_id', '=', $this->user->id)
 				->find();
 		/*$query = 
@@ -55,104 +60,45 @@ class Controller_Organization extends Controller_Template {
 			->bind('user_event', $user_event);
 	}
 	
-	public function action_create()
+	public function action_profile()
 	{
-        $this->template->content = View::factory('company/create')
-            ->bind('message', $message)
-			->bind('errors', $errors);
-		
-		if (HTTP_Request::POST == $this->request->method()) 
+		if (is_null($this->user))
 		{
-			try
-			{
-				// Log out current user
-				Auth::instance()->logout();
-				
-                // Create the user using form values
-                $user = ORM::factory('user')->create_user($this->request->post(), array(
-                    'username',
-                    'password',
-					'email',
-                ));
-                 
-                // Grant user login and company role
-                $user->add('roles', ORM::factory('role', array('name' => 'login')));
-                $user->add('roles', ORM::factory('role', array('name' => 'company')));                 
+			Request::current()->redirect('user/login');
+		}
 
-                $message = __('Please confirm email to continue');
-                 
-            } catch (ORM_Validation_Exception $e) {
-                 
-                // Set failure message
-                $message = __('There were errors, please see form below.');
-                 
-                // Set errors using custom messages
-                $errors = $e->errors('models');
-            }
-		}
-	} 
-	
-	public function action_createcompany()
-	{
-        $this->template->content = View::factory('company/createcompany')
+        $this->template->content = View::factory('organization/profile')
             ->bind('message', $message)
 			->bind('errors', $errors)
-			->bind('company', $company);
-		
-		// If user have permission to create company
-		if (!Auth::instance()->logged_in('company'))
-		{
-			// Redirect to step 1
-			Request::current()->redirect('company/create');
-			return;
-		}
-		
-		$company = ORM::factory('company');
-		$this->save_company($company, $message, $errors);
-	} 
-	
-	public function action_edit()
-	{
-        $this->template->content = View::factory('company/edit')
-            ->bind('message', $message)
-			->bind('errors', $errors)
-			->bind('company', $company);
-		
-		// If user have permission to create company
-		if (!Auth::instance()->logged_in('company'))
-		{
-			// Redirect to step 1
-			Request::current()->redirect('company/create');
-			return;
-		}
-		
+			->bind('organization', $organization);
+
 		// If this company belong to this user
-		$company = ORM::factory('company')
+		$organization = ORM::factory('organization')
 					->where('user_id', '=', $this->user->id)
-					->where('id', '=', $this->request->param('id'))
 					->find();
 		
-		if (!$company->loaded())
+		if (!$organization->loaded())
 		{
-			throw new HTTP_Exception_404(__('Company id :id doesn\'t belong to you', array(':id' => $this->request->param('id'))));
+			throw new HTTP_Exception_403(__('Not organization account'));
 		}
 		
-		$this->save_company($company, $message, $errors);
+		$this->save_organization($organization, $message, $errors);
 	}
 
 	public function action_view()
 	{
-        $this->template->content = View::factory('company/view')
-            ->bind('company', $company);
+        $this->template->content = View::factory('organization/view')
+            ->bind('organization', $organization);
 		
-		$company = ORM::factory('company', $this->request->param('id'));
+		$organization = ORM::factory('organization', $this->request->param('id'));
 
-		if (!$company->loaded())
+		if (!$organization->loaded())
 		{
-			throw new HTTP_Exception_404(__('Company id :id not found', array(':id' => 10)));
+			throw new HTTP_Exception_404(__('Organization id :id not found', array(':id' => 10)));
 		}
 	}
 	
+	/*
 	public function action_all()
 	{
 		$companies = ORM::factory('company')->find_all();
@@ -171,31 +117,38 @@ class Controller_Organization extends Controller_Template {
 				->bind('companies', $companies);
 		}
 	}
+	*/
 	
-	private function save_company($company, &$message, &$errors)
+	private function save_organization($organization, &$message, &$errors)
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
-			$company->name = Arr::get($_POST, 'name');
-			$company->objective = Arr::get($_POST, 'objective');
-			$company->address = Arr::get($_POST, 'address');
-			$company->detail = Arr::get($_POST, 'detail');
-			$company->website = Arr::get($_POST, 'website');			
+			$organization->name = Arr::get($_POST, 'name');
+			$organization->objective = Arr::get($_POST, 'objective');
+			$organization->activity = Arr::get($_POST, 'activity');
+			$organization->address = Arr::get($_POST, 'address');
+			$organization->province = Arr::get($_POST, 'province');
+			$organization->postcode = Arr::get($_POST, 'postcode');
+			$organization->district = Arr::get($_POST, 'district');
+			$organization->fax = Arr::get($_POST, 'fax');
+			$organization->homephone = Arr::get($_POST, 'homephone');			
+			$organization->contactperson = Arr::get($_POST, 'contactperson');			
+			$organization->facebook = Arr::get($_POST, 'facebook');			
+			$organization->twitter = Arr::get($_POST, 'twitter');			
+			$organization->website = Arr::get($_POST, 'website');			
+			//$company->search_temp = $company->name.'/'.$company->objective.'/'.$company->address.'/'.$company->detail.'/'.$company->website;
 			
-			$company->user = $this->user;
-			$company->temp = $company->name.'/'.$company->objective.'/'.$company->address.'/'.$company->detail.'/'.$company->website;
-			
+			/*
 			if (isset($_FILES['logo']['name']) && $_FILES['logo']['name'] != '')
 			{
 				$company->logo = 'logo';
 			}
-			
+			*/
 			try
 			{
-				$company->save();
+				$organization->save();
                  
-				// Redirect to company view
-				Request::current()->redirect('company/view/'.$company->id);
+				Request::current()->redirect('organization/profile');
 				
             } catch (ORM_Validation_Exception $e) {
                  
@@ -204,6 +157,8 @@ class Controller_Organization extends Controller_Template {
                 
                 // Set errors using custom messages
                 $errors = $e->errors('models');
+				
+				print_r($errors);
             }
 		}
 	}

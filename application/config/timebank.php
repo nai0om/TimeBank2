@@ -5,9 +5,9 @@ return array
 	'password_salt'	=>	'abcdefg',
 
  	'user_roles'		=>	array(
-								'0'	=>	'volunteer',
-								'1'	=>	'organization',
-								'2'	=>	'admin'
+								'volunteer'		=>	'0',
+								'organization'	=>	'1',
+								'admin'			=>	'2'
 							),
 	
  	'event_status'		=>	array(

@@ -132,7 +132,7 @@ CREATE TABLE `events` (
   `signup_end_time` time NOT NULL,
   `volunteer_begin_time` time NOT NULL,
   `volunteer_end_time` time NOT NULL,
-  `company_id` int(11) default NULL,
+  `organization_id` int(11) default NULL,
   `location_id` int(11) default NULL,
   `location_name` text collate utf8_unicode_ci NOT NULL,
   `location_district` text collate utf8_unicode_ci NOT NULL,
@@ -305,8 +305,16 @@ CREATE TABLE `organizations` (
   `user_id` int(11) default NULL,
   `name` mediumtext collate utf8_unicode_ci,
   `objective` mediumtext collate utf8_unicode_ci,
-  `detail` mediumtext collate utf8_unicode_ci,
+  `activity` mediumtext collate utf8_unicode_ci,
   `address` mediumtext collate utf8_unicode_ci,
+  `district` mediumtext collate utf8_unicode_ci NOT NULL,
+  `province` mediumtext collate utf8_unicode_ci NOT NULL,
+  `postcode` tinytext collate utf8_unicode_ci NOT NULL,
+  `homephone` tinytext collate utf8_unicode_ci NOT NULL,
+  `fax` tinytext collate utf8_unicode_ci NOT NULL,
+  `contactperson` tinytext collate utf8_unicode_ci NOT NULL,
+  `facebook` tinytext collate utf8_unicode_ci NOT NULL,
+  `twitter` tinytext collate utf8_unicode_ci NOT NULL,
   `website` mediumtext collate utf8_unicode_ci,
   `logo` mediumtext collate utf8_unicode_ci,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
@@ -317,9 +325,9 @@ CREATE TABLE `organizations` (
 -- dump ตาราง `organizations`
 -- 
 
-INSERT INTO `organizations` VALUES (1, '', 3, 'new company', 'new company', 'new company', 'new company', 'http://zanroo.com', NULL, '2011-11-15 21:35:05');
-INSERT INTO `organizations` VALUES (2, '', 8, 'com3com2', 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', 'asdfasdfasdf', 'asdfasdfasdf', '', NULL, '2011-11-18 14:40:55');
-INSERT INTO `organizations` VALUES (3, '', 12, 'comname2', 'comobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหดcomobjดกดกฟหด', 'fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds', 'ferewrew', 'http://www.zanroo.com', '4ec7092217c96thai.png', '2012-05-19 22:43:23');
+INSERT INTO `organizations` VALUES (1, '', 3, 'new company', 'new company', 'new company', 'new company', '', '', '', '', '', '', '', '', 'http://zanroo.com', NULL, '2011-11-15 21:35:05');
+INSERT INTO `organizations` VALUES (2, '', 8, 'com3com2', 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', 'asdfasdfasdf', 'asdfasdfasdf', '', '', '', '', '', '', '', '', '', NULL, '2011-11-18 14:40:55');
+INSERT INTO `organizations` VALUES (3, '', 2, 'ชื่ออออออออออออ', 'ดดดดดดดดดดดดดดดดวัตถุประสงค์', 'ลักษณะ', 'ที่อยู่', 'เขต', 'จังหวัด', 'ไปรษณีย์', 'บ้าน', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.org', '4ec7092217c96thai.png', '2012-06-10 23:35:02');
 
 -- --------------------------------------------------------
 
@@ -365,13 +373,14 @@ CREATE TABLE `users` (
   `website` text NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- 
 -- dump ตาราง `users`
 -- 
 
 INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', '', 0, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 21:35:10', '', '');
+INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', '', 1, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 22:50:44', '', '');
 
 -- --------------------------------------------------------
 

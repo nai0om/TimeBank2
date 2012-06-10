@@ -12,10 +12,6 @@ class Model_Organization extends ORM {
 		'events' => array('model' => 'event'),
 	);
 
-	protected $_belongs_to = array(
-					'user' => array(),
-					);
-
     public function rules()
     {
         return array(
@@ -28,14 +24,16 @@ class Model_Organization extends ORM {
             ),
             'objective' => array(
                 array('not_empty'),
-				array('min_length', array(':value', 50)),
+				array('min_length', array(':value', 10)),
             ),
             'website' => array(
                 array('url'),
             ),
+			/*
             'logo' => array(
                 array(array($this, 'check_upload'), array('logo', ':value')),
             ),
+			*/
         );
     }
 	
