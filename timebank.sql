@@ -16,31 +16,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `activities`
--- 
-
-CREATE TABLE `activities` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` mediumtext collate utf8_unicode_ci NOT NULL,
-  `description` mediumtext collate utf8_unicode_ci NOT NULL,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
-
--- 
--- dump ตาราง `activities`
--- 
-
-INSERT INTO `activities` VALUES (1, 'pack sand', 'pack description', '2011-11-22 21:10:35');
-INSERT INTO `activities` VALUES (2, 'pack sand', 'pack description', '2011-11-22 21:11:03');
-INSERT INTO `activities` VALUES (3, 'pack sand', 'pack description', '2011-11-22 21:11:11');
-INSERT INTO `activities` VALUES (4, 'pack sand', 'pack description', '2011-11-22 21:14:25');
-INSERT INTO `activities` VALUES (5, 'pack sand', 'pack description', '2011-11-22 21:15:36');
-INSERT INTO `activities` VALUES (6, 'pack sand', 'pack description', '2011-11-22 21:17:36');
-
--- --------------------------------------------------------
-
--- 
 -- โครงสร้างตาราง `comments`
 -- 
 
@@ -252,6 +227,33 @@ INSERT INTO `helps` VALUES (1, 'ไม่ทราบว่าอยากบร
 -- --------------------------------------------------------
 
 -- 
+-- โครงสร้างตาราง `inboxes`
+-- 
+
+CREATE TABLE `inboxes` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `organization_id` int(11) NOT NULL,
+  `is_removed` tinyint(1) NOT NULL default '0',
+  `is_read` tinyint(1) NOT NULL default '0',
+  `title` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `message` text collate utf8_unicode_ci NOT NULL,
+  `send_status` int(11) NOT NULL,
+  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `inboxes`
+-- 
+
+INSERT INTO `inboxes` VALUES (1, 0, 3, 1, 0, 'ทดสอบ1', 'messageสำหรับทดสอบ1', 0, '2012-06-11 10:03:47');
+INSERT INTO `inboxes` VALUES (2, 0, 3, 0, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-06-11 10:04:11');
+INSERT INTO `inboxes` VALUES (3, 0, 3, 1, 0, 'ทดสอ3', 'messageสำหรับทดสอบ3', 0, '2012-06-11 10:04:11');
+
+-- --------------------------------------------------------
+
+-- 
 -- โครงสร้างตาราง `locations`
 -- 
 
@@ -303,6 +305,9 @@ CREATE TABLE `organizations` (
   `id` int(11) NOT NULL auto_increment,
   `search_temp` varchar(255) collate utf8_unicode_ci NOT NULL,
   `user_id` int(11) default NULL,
+  `noti_volunteerregister` tinyint(1) NOT NULL default '1',
+  `noti_eventalmostend` tinyint(1) NOT NULL default '1',
+  `noti_eventend` tinyint(1) NOT NULL default '1',
   `name` mediumtext collate utf8_unicode_ci,
   `objective` mediumtext collate utf8_unicode_ci,
   `activity` mediumtext collate utf8_unicode_ci,
@@ -325,9 +330,9 @@ CREATE TABLE `organizations` (
 -- dump ตาราง `organizations`
 -- 
 
-INSERT INTO `organizations` VALUES (1, '', 3, 'new company', 'new company', 'new company', 'new company', '', '', '', '', '', '', '', '', 'http://zanroo.com', NULL, '2011-11-15 21:35:05');
-INSERT INTO `organizations` VALUES (2, '', 8, 'com3com2', 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', 'asdfasdfasdf', 'asdfasdfasdf', '', '', '', '', '', '', '', '', '', NULL, '2011-11-18 14:40:55');
-INSERT INTO `organizations` VALUES (3, '', 2, 'ชื่ออออออออออออ', 'ดดดดดดดดดดดดดดดดวัตถุประสงค์', 'ลักษณะ', 'ที่อยู่', 'เขต', 'จังหวัด', 'ไปรษณีย์', 'บ้าน', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.org', '4ec7092217c96thai.png', '2012-06-10 23:35:02');
+INSERT INTO `organizations` VALUES (1, '', 3, 1, 1, 1, 'new company', 'new company', 'new company', 'new company', '', '', '', '', '', '', '', '', 'http://zanroo.com', NULL, '2011-11-15 21:35:05');
+INSERT INTO `organizations` VALUES (2, '', 8, 1, 1, 1, 'com3com2', 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', 'asdfasdfasdf', 'asdfasdfasdf', '', '', '', '', '', '', '', '', '', NULL, '2011-11-18 14:40:55');
+INSERT INTO `organizations` VALUES (3, '', 2, 0, 1, 0, 'ชื่ออออออออออออ', 'ดดดดดดดดดดดดดดดดวัตถุประสงค์', 'ลักษณะ', 'ที่อยู่', 'เขต', 'จังหวัด', 'ไปรษณีย์', 'บ้าน', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.orgg', '4ec7092217c96thai.png', '2012-06-11 09:48:35');
 
 -- --------------------------------------------------------
 
@@ -381,25 +386,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', '', 0, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 21:35:10', '', '');
 INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', '', 1, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 22:50:44', '', '');
-
--- --------------------------------------------------------
-
--- 
--- โครงสร้างตาราง `users_activities`
--- 
-
-CREATE TABLE `users_activities` (
-  `user_id` int(11) NOT NULL default '0',
-  `activity_id` int(11) NOT NULL default '0',
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `test` text collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`user_id`,`activity_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- 
--- dump ตาราง `users_activities`
--- 
-
 
 -- --------------------------------------------------------
 

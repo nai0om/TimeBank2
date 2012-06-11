@@ -10,7 +10,6 @@ class Model_User extends ORM {
 		'skills'       => array('model' => 'skill', 'through' => 'users_skills'),
 		'occupations'       => array('model' => 'occupation', 'through' => 'users_occupations'),
 		'locations'       => array('model' => 'location', 'through' => 'users_locations'),
-		'activities'       => array('model' => 'activity', 'through' => 'users_activities'),
 		'events'		=> array('model' => 'event', 'through' => 'users_events'),
 	);
 	
