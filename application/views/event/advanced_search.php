@@ -14,7 +14,7 @@ $end = isset($gets['end'])? $gets['end'] : '';
 			<li>ดูงานอาสา</li>
 			<li>ค้นหาแบบละเอียด</li>
 		</div>
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<h2>ดูงานอาสา</h2>

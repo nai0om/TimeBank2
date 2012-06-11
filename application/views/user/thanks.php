@@ -1,7 +1,6 @@
 ﻿<div id="alertMsg" class="popup">
   <div id="main" role="main">
-
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
 			<h2>Thank you Message</h2>

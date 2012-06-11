@@ -4,7 +4,7 @@
 			<li>หน้าแรก</li>
 			<li>เกี่ยวกับเว็บไซต์</li>
 		</div>
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div style="clear:both"></div>
 		<h2>เกี่ยวกับเวบไซต์</h2>
 		<div class="column two">

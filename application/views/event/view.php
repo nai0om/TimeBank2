@@ -13,7 +13,7 @@
 			<li>เด็กและเยาวชน</li>
 			<li>อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน</li>
 		</div>
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div id="icon_set">
             <?= HTML::anchor('welcome/donation', '<img src="'.url::base().'media/img/icon_donation.png"/>'); ?>

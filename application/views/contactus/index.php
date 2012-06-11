@@ -4,7 +4,7 @@
 			<li>หน้าแรก</li>
 			<li>ติดต่อทีมงานอาสา</li>
 		</div>
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div style="clear:both"></div>
 		<h2>ติดต่อทีมงานอาสา</h2>
 		<center><img src="<?= url::base(); ?>media/img/long_banner.png"></center>

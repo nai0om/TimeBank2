@@ -5,7 +5,7 @@
 			<li>ธนาคารจิตอาสา</li>
 			<li>สร้างงานอาสาใหม่</li>
 		</div>
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<h2>สร้างงานอาสาใหม่</h2>
 		<?= Form::open('event/create', array('enctype' => 'multipart/form-data')); ?>

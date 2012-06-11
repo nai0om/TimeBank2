@@ -6,7 +6,7 @@
 			<li>ธนาคารจิตอาสา</li>
 			<li>สร้างงานอาสาใหม่</li>
 		</div>
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
 			<h2>ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้  <?= HTML::anchor('event/view/'.$id, 'ที่นี่'); ?></h2>

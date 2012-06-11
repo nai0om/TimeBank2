@@ -4,12 +4,7 @@
 			<li>หน้าแรก</li>
 			<li>ฝากเวลาของฉัน</li>
 		</div>
-		<ul>
-			<li>Welcome <span id="member_name">Mr.MRM</span></li>
-			<li>ข้อความเตือน (5)</li>
-			<li>ตั้งค่าบัญชีผู้ใช้</li>
-			<li>ออกจากระบบ</li>
-		</ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div id="menu_left">

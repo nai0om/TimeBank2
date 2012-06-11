@@ -5,7 +5,7 @@
 			<li>ธนาคารจิตอาสา</li>
 			<li>วิธีใช้งาน</li>
 		</div>
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<h2>วิธีใช้งาน</h2>
 		<div id="icon_set">

@@ -5,7 +5,7 @@
 			<li>ธนาคารจิตอาสา</li>
 			<li>ดูงานอาสา</li>
 		</div>
-		<ul><li><?= HTML::anchor('user/create', 'สมัครสมาชิก'); ?></li><li><?= HTML::anchor('user/login', 'เข้าสู่ระบบ'); ?></li></ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<h2>หางานอาสา</h2>
 		<div id="icon_set">
