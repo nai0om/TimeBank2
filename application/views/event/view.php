@@ -110,7 +110,7 @@
 		</div>
 		<div class="main">
 			<h2>จำนวนอาสาสมัครที่ต้องการ</h2>
-			<h3>400 ชั่วโมง</h3>
+			<h3><?= $event->time_cost ?> ชั่วโมง</h3>
 			<h4>สมัครแล้ว 45 คน เหลืออีก 5 คน</h4>
 		</div>
 		<div style="clear:both"></div>
@@ -118,31 +118,45 @@
 		<h3 class="title"><?= $event->name ?></h3>
 		<div id="leftSide">
 			<p><span class="header">ในโครงการ:</span> <?= $event->project_name ?></p>
-			<p><span class="header">สถานที่:</span> ศูนย์การค้าอิมพีเรียลเวิร์ล ลาดพร้าว ณ เคาน์เตอร์ประชาสัมพันธ์ชั้น 1</p>
-			<p><span class="header">จังหวัด:</span> กรุงเทพมหานคร</p>
+			<p><span class="header">สถานที่:</span><?= $event->location_name ?></p>
+			<p><span class="header">จังหวัด:</span> <?= $event->location_province 	 ?></p>
 			<p><span class="header">รายละเอียดงานอาสา</span></p>
 			<p><?= $event->detail ?></p>
 			<p><span class="header">ลักษณะการเดินทาง</span></p>
 			<p><?= $event->travel_detail ?></p>
 			<p><span class="header">ทักษะของอาสาสมัครที่ต้องการ</span></p>
 			<p>ความสามารถพิเศษ</p>
-			<p>ทักษะทั่วไป 	การขับขี่พาหนะ, ว่ายนํ้า
-						การใช้ภาษา -อังกฤษ,จีน, ญี่ปุ่น</p>
-			<p>ทักษะวิชาชีพ 	งานช่างเทคนิค -ช่างไฟฟ้า, ช่างไม้
-						สุขภาพ -ทันตแพทย์, จิตวิทยา</p>
+			<p>ทักษะทั่วไป 	<?= $event->skills 	 ?></p>
+			<p>ทักษะวิชาชีพ 	<?= $event->technical ?></p>
 			<p><span class="header">Tag ความสนใจ</span></p>
-			<p><?= $event->tags ?>  </p>
+			<p><?php
+					$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+					$last = '';
+					   for($i = 0 ; $i < sizeof($jobs) ; $i++){
+						    $pos = strpos($event->tags , $jobs[$i]);
+						   if ( $pos >= 0)
+						   {
+							$last  .=  HTML::anchor('even/search?job='.$i, $jobs[$i]).', ';  
+						   }
+					   }
+					   echo substr($last , 0, -2); 
+					
+			?> </p>
 			<p><span class="header">ค่าใช้จ่าย</span></p>
 			<p><?= $event->expense_detail ?>  	
 			</p>
 		</div>
 		<div id="rightSide">
 			<p><span class="header">เปิดรับสมัคร</span>
-				<div id="duration">วันที่1 มกราคม  2555<br>
-				ถึง 31 มกราคม 2555<br>
+				<div id="duration">วันที่ <?= $event->signup_begin_date  ?><br>
+				ถึง <?= $event->signup_end_date  ?><br>
 				วัน : จันทร์ - ศุกร์<br>
-				เวลา : 8.30 am - 16.30 pm</div></p>
-			<p><span class="header">ติดต่อสอบถามเพิ่มเติม</span>
+				เวลา : <?= date("H:i", strtotime($event->signup_begin_time)); ?> น. - <?= date("H:i", strtotime($event->signup_end_time));?> น.</div></p>
+			<p><span class="header">วันทำอาสา</span>
+				<div id="duration">วันที่ <?= $event->volunteer_begin_date  ?><br>
+				ถึง <?= $event->volunteer_end_date  ?><br>
+				วัน : จันทร์ - ศุกร์<br>
+				เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time ));?> น. - <?= date("H:i", strtotime($event->volunteer_end_time));?> น.</div></p>
             <?= $event->inquiry_detail ?>
 			
 

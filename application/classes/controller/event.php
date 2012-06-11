@@ -37,18 +37,16 @@ class Controller_Event extends Controller_Template {
 			->bind('errors', $errors)
 			->bind('event', $event);
 		
-		// If user have permission to create company
-		if (!Auth::instance()->logged_in('company'))
-		{
-			// Redirect to step 1
-			Request::current()->redirect('company/create');
-			return;
+		// If user have permission to create organization
+		if (is_null($this->orguser))
+		{	// Redirect to step 1
+			throw new HTTP_Exception_404(__('Is not organization account'));
 		}
 		
 		//$locations = Location::get_location_array();
 		
 		$event = ORM::factory('event');
-		$this->save_event($event, $message, $errors);
+		$this->save_event($event, $this->orguser, $message, $errors);
 	} 
 
 	public function action_created()
@@ -67,27 +65,25 @@ class Controller_Event extends Controller_Template {
 			->bind('event', $event);
 		
 		// If user have permission to create event
-		if (!Auth::instance()->logged_in('company'))
+		if (is_null($this->orguser))
 		{
 			// Redirect to step 1
-			Request::current()->redirect('company/create');
+			Request::current()->redirect('organization/create');
 			return;
 		}
 		
 		// If this event belong to this user
-		$company = ORM::factory('company')
-					->where('user_id', '=', $this->user->id)
-					->find();
+		$company = $this->orguser;
 		
 		if (!$company->loaded())
 		{
 			// Redirect to step 1
-			Request::current()->redirect('company/create');
+			Request::current()->redirect('organization/create');
 			return;
 		}
 
 		$event = ORM::factory('event')
-					->where('company_id', '=', $company->id)
+					->where('organization_id', '=', $company->id)
 					->where('id', '=', $this->request->param('id'))
 					->find();
 
@@ -284,16 +280,16 @@ class Controller_Event extends Controller_Template {
 		return $content;
 	}
 	
-	private function save_event($event, &$message, &$errors)
+	private function save_event($event, $orguser, &$message, &$errors)
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
 			$event->name = Arr::get($_POST, 'name');
 			$event->project_name = Arr::get($_POST, 'project_name');
-			$event->signup_begin_date = Arr::get($_POST, 'signup_begin_date');
-			$event->signup_end_date = Arr::get($_POST, 'signup_end_date');
-			$event->volunteer_begin_date = Arr::get($_POST, 'volunteer_begin_date');
-			$event->volunteer_end_date = Arr::get($_POST, 'volunteer_end_date');
+			$event->signup_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_begin_date')));
+			$event->signup_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_end_date')));
+			$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
+			$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));
 			$event->signup_begin_time = Arr::get($_POST, 'signup_begin_time');
 			$event->signup_end_time = Arr::get($_POST, 'signup_end_time');
 			$event->volunteer_begin_time = Arr::get($_POST, 'volunteer_begin_time');
@@ -353,9 +349,7 @@ class Controller_Event extends Controller_Template {
 				$event->languates  = $event->languates.''.Arr::get($_POST, 'any_languate') ;
 			
 				
-			$event->company = ORM::factory('company')
-								->where('user_id', '=', $this->user->id)
-								->find();
+			$event->organization = $orguser;
 			
 			if (isset($_FILES['pic_1']['name']) && $_FILES['pic_1']['name'] != '')
 			{

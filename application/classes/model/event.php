@@ -9,7 +9,7 @@ class Model_Event extends ORM {
 
 	// Relationships
 	protected $_belongs_to = array(
-					'company' => array(),
+					'organization' => array(),
 					'location' => array(),);
 	protected $_has_many = array(
 		'users'		=> array('model' => 'user', 'through' => 'users_events'),
@@ -39,7 +39,7 @@ class Model_Event extends ORM {
                 array('not_empty'),
                 array('date'),
             ),
-            'company_id' => array(
+            'organization_id' => array(
                 array('not_empty'),
                 array('max_length', array(':value', 11)),
             ),
@@ -64,13 +64,13 @@ class Model_Event extends ORM {
                 array('not_empty'),
                 array('digit'),
             ),
-			/*
+			
             'time_cost' => array(
                 array('not_empty'),
                 array('digit'),
                 array('max_length', array(':value', 3)),
             ),
-			*/
+			
             'location_name' => array(
                 array('not_empty'),
             ),

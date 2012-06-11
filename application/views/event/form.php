@@ -2,13 +2,13 @@
 //build array of times.
 $times = array();
 $time = strtotime("00:00");
-$times["00:00"] = date("H:i",$time);
+$times["00:00:00"] = date("H:i",$time);
 for($i = 1;$i < 48;$i++) {
 	$time = strtotime("+ 30 minutes",$time);
 	$key = date("H:i",$time);
-	$times[$key] = date("H:i",$time);
+	$times[$key.':00'] = date("H:i",$time);
 }
-$times['24:00'] = '24:00';
+$times['23:59:59'] = '23:59';
 ?>
 <div id="leftSide">
     <fieldset>
@@ -47,7 +47,7 @@ $times['24:00'] = '24:00';
         <p><label>ตั้งแต่เวลา</label>
         	<?= Form::select('signup_begin_time', $times); ?>
         	<label>ถึง</label>
-        	<?= Form::select('signup_end_time', $times, '24:00'); ?>
+        	<?= Form::select('signup_end_time', $times, '23:59:59'); ?>
         </p>
         <div class="line"></div>
     </fieldset>
@@ -71,7 +71,7 @@ $times['24:00'] = '24:00';
 		<p><label>ตั้งแต่เวลา</label>
         	<?= Form::select('volunteer_begin_time', $times, '', array('id' => 'volunteer_begin_time', 'onChange' => 'difDateTIme()')); ?>
         	<label>ถึง</label>
-        	<?= Form::select('volunteer_end_time', $times, '24:00', array('id' => 'volunteer_end_time', 'onChange' => 'difDateTIme()')); ?>
+        	<?= Form::select('volunteer_end_time', $times, '23:59:59', array('id' => 'volunteer_end_time', 'onChange' => 'difDateTIme()')); ?>
         </p>
         <p><?= Form::radio('day', 'every_day',($event->days == '')? true : false, array('id' => 'every_day', 'onChange' => 'everyDayChecked()')); ?>ทุกวัน (จันทร์ - อาทิตย์)</p>
         <p><?= Form::radio('day', 'day', ($event->days != '')? true : false, array('id' => 'day')); ?>ระบุวัน (เลือกได้มากกว่า 1)</p>
@@ -87,11 +87,11 @@ $times['24:00'] = '24:00';
 							$checked = TRUE;
 						}
 					}
-					echo Form::checkbox($days[$i], $days[$i], $checked, array('id' => 'day'.$i, 'onChange' => 'dayChecked()')).''. Form::label($days[$i], $days[$i], array('class'=>'day'));
+					echo Form::checkbox($days[$i], $days[$i], $checked, array('id' => 'day'.$i, 'onChange' => 'eachDayChecked()')).''. Form::label($days[$i], $days[$i], array('class'=>'day'));
 				}
             ?>
         </p>
-        <p>รวม <input name='time_cost' id='time_cost' type="text" style="width:50px;margin:0;display:inline;"> ชม.(อัตโนมัติ)</p>
+        <p>รวม <input name='time_cost' id='time_cost'  varlue = "<?= $event->time_cost ?>" type="text" style="width:50px;margin:0;display:inline;"> ชม.(อัตโนมัติ)</p>
         <div class="line"></div>
     </fieldset>
     <fieldset>
@@ -172,7 +172,7 @@ $times['24:00'] = '24:00';
                     for($i = 0 ; $i < sizeof($skills) ; $i++){
                         $checked = FALSE;
                         if($event->skills != '') {
-                            $pos = strpos($event->skills, $skills[$i]);
+                            $pos = strpos(str_replace(' ', '_', $event->skills);, $skills[$i]);
                             if ($pos > 0){
                                 $checked = TRUE;
                             }
@@ -250,11 +250,41 @@ $times['24:00'] = '24:00';
     </fieldset>
 
 <script>
+	function eachDayChecked()
+	{		
+		checkDaySelect();
+		 dayChecked();
+		
+	}
+	function checkDaySelect()
+	{
+		var date_start  = $('#volunteer_begin_date').val();
+		var date_end = $('#volunteer_end_date').val();
+		
+		if (date_start != '' && date_end != '')
+		{
+			 var volunteer_date_start = parseDate(date_start);
+			 var volunteer_date_end = parseDate(date_end);
+
+			 for( var i = 0 ; i < 7 ; i++)
+			 {
+				   if ( $('#day' + i).is(':checked') )
+				   {
+					   
+					 if (CountDays(i, volunteer_date_start, volunteer_date_end) <=0 ){
+						  $('#day' + i).prop("checked", false);
+						 }
+				   }
+			 }
+		 }	 
+	}
+	
 	function dayChecked()
 	{
 		$("#day").prop("checked", true);
 		difDateTIme();
 	}
+	
 	function everyDayChecked()
 	{
 		$("#every_day").prop("checked", true);
@@ -267,10 +297,12 @@ $times['24:00'] = '24:00';
 	}
 	function difDateTIme()
 	{
+		checkDaySelect()
+
 		var date_start  = $('#volunteer_begin_date').val();
 		var date_end = $('#volunteer_end_date').val();
-		var time_start  = $('#volunteer_begin_time').val() + ':00';
-		var time_end = $('#volunteer_end_time').val() + ':00';
+		var time_start  = $('#volunteer_begin_time').val();
+		var time_end = $('#volunteer_end_time').val();
 	
 		if (date_start != '' && date_end != '')
 		{
@@ -278,7 +310,7 @@ $times['24:00'] = '24:00';
 			 var volunteer_date_start = parseDate(date_start);
 			 var volunteer_date_end = parseDate(date_end);
  			 var volunteer_time_start = parseTime(time_start);
-			 var volunteer_time_end = parseTime(time_end);
+			 var volunteer_time_end = parseTime((time_end == '23:59:59') ? '24:00:00' : time_end);
 			 var diff = volunteer_time_end.getTime() - volunteer_time_start.getTime();
 			 var day = 0;
 		
@@ -291,7 +323,7 @@ $times['24:00'] = '24:00';
 						day +=  CountDays(i, volunteer_date_start, volunteer_date_end);
 					}
 				 }
-			 $('#time_cost').val( (Math.floor( ( diff/1000 ) *10 ) /10 ) * day );
+			 $('#time_cost').val( Math.ceil( diff/1000/60/60*10)/10 * day );
 		}
 	}
 </script>

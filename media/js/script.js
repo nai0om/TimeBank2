@@ -31,7 +31,7 @@ function parseTime(input)
 
   var parts = input.match(/(\d+)/g);
   // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
-  return new Date(parts[0] * (parts[1] + 1) * ( parts[2] + 1 ) * 1000); // months are 0-based
+  return new Date(parts[0]*60*60*1000 + parts[1]*60*1000  + parts[2]*10000 ); // months are 0-based
 }
 
 function CountDays(DayOfWeek, start, end)
