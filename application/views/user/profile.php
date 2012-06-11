@@ -28,8 +28,11 @@
 		<div class="title right"></div>
 		<div style="clear:both"></div>
         
-		<?= Form::label('profile_image', 'รูปภาพของคุณ'); ?>
-        <img src="<?= url::base().'media/upload/'.$user->profile_image; ?>" />
+        <? if ($user->profile_image) : ?>
+        	<p><img src="<?= url::base().'media/upload/'.$user->profile_image; ?>" /></p>
+         <? else :?>
+         	<p><img src="<?= url::base().'media/img/member.png'; ?>" /></p>
+         <? endif ?>
 		<?= Form::file('profile_image') ?>
         <div class="error"><?= Arr::get($errors, 'profile_image'); ?></div>
         
@@ -87,24 +90,37 @@
             <?= Form::submit('profile', 'บันทึกการเปลี่ยนแปลง'); ?>
 			<div class="line"></div>
 		<?= Form::close(); ?>
-		<form>
-		<div class="left">
+        
+        
+        
+
+		<?= Form::open('user/addskill', array('enctype' => 'multipart/form-data')); ?>	
+  <div class="left">
 			<div class="title left"></div>
 			<div class="title body" style="font-family:chula">ความสามารถเฉพาะของคุณ</div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
-			<label>1. ความสามารถพิเศษ ทักษะทั่วไป (เลือกได้มากกว่า 1)</label>
-			<p><input type="checkbox"> <span>การขับขี่พาหนะ (จักรยานยนต์ / รถยนต์)</span></p>
-			<p><input type="checkbox"> <span>ว่ายน้ำ</span></p>
-			<label>การใช้ภาษา (สื่อสารได้ / อ่านเขียนได้ / แปลได้) <br>(เลือกได้มากกว่า 1)</label>
-			<p><input type="checkbox"> <span>อังกฤษ</span></p>
-			<p><input type="checkbox"> <span>จีน</span></p>
-			<p><input type="checkbox"> <span>เยอรมัน</span></p>
-			<p><input type="checkbox"> <span>ญี่ปุ่น</span></p>
-			<p><input type="checkbox"> <span>อื่นๆให้ระบุ </span><input type="text" style="display:inline;width:40%;"></p>
-			<p align="center"><img src="img/loading.png"></p>
-			<label>Tag บ่งบอกกลุ่ม</label>
-			<input type="text">
+<? if (count($skills) > 0) :?>        
+	<?php foreach ($skills as $skill):?>
+
+        <? if ($skill->description) : $skilldescription = '('.$skill->description.')'; else: $skilldescription = ''; endif ?>  
+          
+		<? if (substr ($skill->id,1,4) == '0000') :?>    
+			<label><?= substr ($skill->id,0,1) ?>. <?= $skill->name ?> <?= $skilldescription ?></label> 
+        <? elseif (substr ($skill->id,3,2) == '00') :?>  
+			<p> <span>- <strong><?= $skill->name ?></strong>  <?= $skilldescription ?></span></p>
+        <? else :?>  
+			<p>&nbsp;&nbsp;&nbsp; <input type="checkbox" name="<?= $skill->id ?>" value="1"> <span><?= $skill->name ?>  <?= $skilldescription ?></span></p><? if ($skill->moreinfo) :?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" name="info<?= $skill->id ?>" class="moreinfo"><? endif ?>
+        <? endif ?>
+        
+        
+    <? endforeach ?>
+<? endif ?>
+
+
+
+		  <label>Tag บ่งบอกกลุ่ม</label>
+			<input name="xx" type="text" id="xx">
 			<p><span class="tag">SCBStaff</span><span class="tag">วัดไร่ขิงห้อง 6/1</span><p>
 		</div>
 		
@@ -117,14 +133,14 @@
 			<p><input type="checkbox"> <span>งานอาสาทั่วไป</span></p>
 			<p><input type="checkbox"> <span>กู้ภัยและฟื้นฟูจากภัยพิบัติ</span></p>
 			<p><input type="checkbox"> <span>หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย</span></p>
-			<p><input type="checkbox"> <span>ศาสนาและปฏิบัติธรรม</span></p>
+			<p><input name="asd" type="checkbox" id="asd" value="1"> <span>ศาสนาและปฏิบัติธรรม</span></p>
 			<p><input type="checkbox"> <span>อาหารและโภชนาการ </span></p>
 			<p><input type="checkbox"> <span>ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ</span></p>
 			<p align="center"><img src="img/loading.png"></p>
 		</div>
 		<div style="clear:both"></div>
 		<input type="submit" value="บันทึกการเปลี่ยนแปลง"><div class="line"></div>
-		</form>
+		<?= Form::close(); ?>
 		</div>
 		
 		</div>

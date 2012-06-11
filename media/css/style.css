@@ -4181,6 +4181,8 @@ header h2 {
 .ui-timepicker-div dl dd { margin: -25px 10px 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+.error { color: #CC0000; }
+
 /* ==|== print styles =======================================================
    Print styles.
    Inlined to avoid required HTTP connection: h5bp.com/r

@@ -143,7 +143,8 @@ class Controller_User extends Controller_Template {
 		
         $this->template->content = View::factory('user/profile')
             ->bind('errors', $errors)
-            ->bind('message', $message);
+            ->bind('message', $message)
+			->bind('skills', $skills);
              
         if (HTTP_Request::POST == $this->request->method()) 
         {
@@ -177,6 +178,57 @@ class Controller_User extends Controller_Template {
                 $errors = $e->errors('models');
             }
         }
+		
+		//$skills = ORM::factory('skill')->where('user_id', '=', $this->user->id)->find_all();
+		//$skills = ORM::factory('skill')->orderby('id', 'ASC')->find_all();
+		$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();
+		
+		
+    }
+	
+    public function action_addskill() 
+    {
+		// Please help add this
+		/*
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();		
+             
+        if (HTTP_Request::POST == $this->request->method()) 
+        {
+			$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();	
+			$message = "ahoy ahoy";
+			foreach ($_POST as $key => $value)
+			{
+				if (substr($key,0,4) == 'info')
+				{
+					$message = $message.'<br>'.$key.'='.$value.'-'.substr($key,4,5);
+					$detail = $this->user->skills->find(substr($key,4,5));
+					$detail->info = $value;
+					$detail.save();
+				}
+				else
+				{
+					$message = $message.'<br>'.$key.'='.$value;
+					$this->user->add('skills',$key);
+				}
+			}
+			
+
+        }
+		
+		$this->template->content = View::factory('user/profile')
+        ->bind('errors', $errors)
+        ->bind('message', $message)
+		->bind('skills', $skills);
+		Request::current()->redirect('user/profile');
+		*/
+		
+		
     }
 	
 	public function action_view()

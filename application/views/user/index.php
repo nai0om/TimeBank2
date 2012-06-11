@@ -23,9 +23,14 @@
 		<div id="main_right">
 			<div id="summary">
 				<div id="photo" style="float:left;">
-					<img src="<?= url::base(); ?>media/img/mem_sample_profile.png">
+                <a href="<?= url::base().'user/profile'; ?>">
+        <? if ($user->profile_image) : ?>
+        	<img src="<?= url::base().'media/upload/'.$user->profile_image; ?>" />
+         <? else :?>
+         	<img src="<?= url::base().'media/img/member.png'; ?>" />
+         <? endif ?>
+         		</a>
 					<div style="clear:both"></div>
-					<a>เปลี่ยนรูปภาพ</a>
 				</div>
 				<div class="sum"><div class="sum_hours">36 ชั่วโมง</div>
 				<div class="sub_title">เวลาตั้งใจอาสา</div></div>

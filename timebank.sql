@@ -344,6 +344,7 @@ CREATE TABLE `skills` (
   `id` int(11) NOT NULL auto_increment,
   `name` char(100) collate utf8_unicode_ci NOT NULL,
   `description` mediumtext collate utf8_unicode_ci NOT NULL,
+  `moreinfo` tinyint(1) NOT NULL,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -352,6 +353,83 @@ CREATE TABLE `skills` (
 -- dump ตาราง `skills`
 -- 
 
+INSERT INTO `skills` VALUES (10000, 'ความสามารถพิเศษ', 'Special Skill', 0, '2012-06-11 13:07:15');
+INSERT INTO `skills` VALUES (10100, 'ทักษะทั่วไป', '', 0, '2012-06-11 13:08:24');
+INSERT INTO `skills` VALUES (10101, 'การขับขี่พาหนะ', 'จักรยานยนต์, รถยนต์', 0, '2012-06-11 16:25:01');
+INSERT INTO `skills` VALUES (10102, 'ว่ายน้ำ', '', 0, '2012-06-11 13:12:56');
+INSERT INTO `skills` VALUES (10200, 'การใช้ภาษา', 'สื่อสารได้, อ่านเขียนได้, แปลได้', 0, '2012-06-11 16:24:03');
+INSERT INTO `skills` VALUES (10201, 'อังกฤษ', '', 0, '2012-06-11 16:23:08');
+INSERT INTO `skills` VALUES (10202, 'จีน', '', 0, '2012-06-11 16:23:43');
+INSERT INTO `skills` VALUES (10203, 'เยอรมัน', '', 0, '2012-06-11 16:24:26');
+INSERT INTO `skills` VALUES (10204, 'ญี่ปุ่น', '', 0, '2012-06-11 16:24:28');
+INSERT INTO `skills` VALUES (10205, 'ฝรั่งเศส', '', 0, '2012-06-11 16:24:31');
+INSERT INTO `skills` VALUES (10299, 'อื่นๆ', 'ให้ระบุ', 1, '2012-06-11 13:22:23');
+INSERT INTO `skills` VALUES (10300, 'งานดูแล', '', 0, '2012-06-11 13:22:23');
+INSERT INTO `skills` VALUES (10301, 'ทำอาหาร', '', 0, '2012-06-11 13:23:18');
+INSERT INTO `skills` VALUES (10302, 'เลี้ยงเด็ก', '', 0, '2012-06-11 13:23:18');
+INSERT INTO `skills` VALUES (10303, 'ดูแลคนชรา', '', 0, '2012-06-11 13:23:20');
+INSERT INTO `skills` VALUES (10304, 'เย็บปักถักร้อย', '', 0, '2012-06-11 13:23:20');
+INSERT INTO `skills` VALUES (10400, 'นันทนาการ', '', 0, '2012-06-11 13:26:26');
+INSERT INTO `skills` VALUES (10401, 'เล่นดนตรี', 'ระบุชนิดเครื่องดนตรี', 1, '2012-06-11 13:26:26');
+INSERT INTO `skills` VALUES (10402, 'สอนกีฬา', 'ระบุชนิดกีฬา', 1, '2012-06-11 13:27:52');
+INSERT INTO `skills` VALUES (10403, 'วาดภาพ', 'ภาพเหมือน/การ์ตูน/ฯลฯ', 1, '2012-06-11 13:27:52');
+INSERT INTO `skills` VALUES (10404, 'เต้นรำ', '', 0, '2012-06-11 13:27:54');
+INSERT INTO `skills` VALUES (10405, 'ร้องเพลง', '', 0, '2012-06-11 13:27:54');
+INSERT INTO `skills` VALUES (20000, 'ทักษะวิชาชีพ', 'Professional Skill', 0, '2012-06-11 13:30:27');
+INSERT INTO `skills` VALUES (20100, 'งานช่างเทคนิค', '', 0, '2012-06-11 13:30:27');
+INSERT INTO `skills` VALUES (20101, 'ช่างอิเลคทรอนิคส์', '', 0, '2012-06-11 13:31:13');
+INSERT INTO `skills` VALUES (20102, 'ช่างไฟฟ้า', '', 0, '2012-06-11 13:31:13');
+INSERT INTO `skills` VALUES (20103, 'ช่างไม้', '', 0, '2012-06-11 13:31:35');
+INSERT INTO `skills` VALUES (20104, 'ช่างปูน', '', 0, '2012-06-11 13:31:35');
+INSERT INTO `skills` VALUES (20105, 'ช่างโลหะ', '', 0, '2012-06-11 13:32:10');
+INSERT INTO `skills` VALUES (20106, 'ช่างประปา', '', 0, '2012-06-11 13:32:10');
+INSERT INTO `skills` VALUES (20107, 'ช่างสี', '', 0, '2012-06-11 13:33:45');
+INSERT INTO `skills` VALUES (20200, 'วิทยาศาสตร์และเทคโนโลยี', '', 0, '2012-06-11 13:33:45');
+INSERT INTO `skills` VALUES (20201, 'วิทยาศาสตร์', 'ระบุสาขา', 1, '2012-06-11 13:34:12');
+INSERT INTO `skills` VALUES (20202, 'คอมพิวเตอร์และไอที', 'ระบุสาขา', 1, '2012-06-11 13:36:00');
+INSERT INTO `skills` VALUES (20203, 'วิศวกรรม', 'ระบุสาขา', 1, '2012-06-11 13:36:06');
+INSERT INTO `skills` VALUES (20204, 'สถาปัตยกรรม', 'ระบุสาขา', 1, '2012-06-11 13:36:11');
+INSERT INTO `skills` VALUES (20300, 'สุขภาพ', '', 0, '2012-06-11 13:37:02');
+INSERT INTO `skills` VALUES (20301, 'แพทย์', 'ระบุสาขา', 1, '2012-06-11 13:37:02');
+INSERT INTO `skills` VALUES (20302, 'พยาบาล', 'ระบุสาขา', 1, '2012-06-11 13:37:26');
+INSERT INTO `skills` VALUES (20303, 'ทันตแพทย์', '', 0, '2012-06-11 13:37:26');
+INSERT INTO `skills` VALUES (20304, 'เทคนิคการแพทย์', '', 0, '2012-06-11 13:38:14');
+INSERT INTO `skills` VALUES (20305, 'จิตวิทยา', '', 0, '2012-06-11 13:38:14');
+INSERT INTO `skills` VALUES (20306, 'เภสัชศาสตร์', '', 0, '2012-06-11 13:38:44');
+INSERT INTO `skills` VALUES (20307, 'สาธารณสุข', '', 0, '2012-06-11 13:38:44');
+INSERT INTO `skills` VALUES (20308, 'สัตวแพทย์', '', 0, '2012-06-11 13:39:32');
+INSERT INTO `skills` VALUES (20400, 'สังคมศาตร์และมนุษย์ศาสตร์', '', 0, '2012-06-11 13:39:32');
+INSERT INTO `skills` VALUES (20401, 'กฎหมาย', '', 0, '2012-06-11 13:39:48');
+INSERT INTO `skills` VALUES (20402, 'ประวัติศาสตร์', '', 0, '2012-06-11 13:39:48');
+INSERT INTO `skills` VALUES (20403, 'เศรษฐศาสตร์', '', 0, '2012-06-11 13:40:27');
+INSERT INTO `skills` VALUES (20404, 'บรรณารักษ์', '', 0, '2012-06-11 13:40:27');
+INSERT INTO `skills` VALUES (20405, 'สังคมสงเคราะห์', '', 0, '2012-06-11 13:41:16');
+INSERT INTO `skills` VALUES (20499, 'อื่นๆ', 'ระบุสาขา', 1, '2012-06-11 13:41:16');
+INSERT INTO `skills` VALUES (20500, 'บริหารธุรกิจ', '', 0, '2012-06-11 13:42:27');
+INSERT INTO `skills` VALUES (20501, 'การบัญชี', '', 0, '2012-06-11 13:42:27');
+INSERT INTO `skills` VALUES (20502, 'การเงิน', '', 0, '2012-06-11 13:42:41');
+INSERT INTO `skills` VALUES (20503, 'การตลาด', '', 0, '2012-06-11 13:42:41');
+INSERT INTO `skills` VALUES (20504, 'การบริหารจัดการ', '', 0, '2012-06-11 13:45:07');
+INSERT INTO `skills` VALUES (20600, 'ศิลปวัฒนธรรม', '', 0, '2012-06-11 13:45:07');
+INSERT INTO `skills` VALUES (20601, 'การละคร', '', 0, '2012-06-11 13:45:37');
+INSERT INTO `skills` VALUES (20602, 'วรรณศิลป์', '', 0, '2012-06-11 13:45:37');
+INSERT INTO `skills` VALUES (20603, 'โบราณคดี', '', 0, '2012-06-11 13:46:29');
+INSERT INTO `skills` VALUES (20604, 'ภาพยนตร์', '', 0, '2012-06-11 13:46:29');
+INSERT INTO `skills` VALUES (20605, 'โทรทัศน์/วิทยุ', '', 0, '2012-06-11 13:47:01');
+INSERT INTO `skills` VALUES (20606, 'การโฆษณาและประชาสัมพันธ์', '', 0, '2012-06-11 13:47:01');
+INSERT INTO `skills` VALUES (20607, 'วารสารศาสตร์', '', 0, '2012-06-11 13:47:28');
+INSERT INTO `skills` VALUES (20608, 'จิตรกรรมและประติมากรรม', '', 0, '2012-06-11 13:47:28');
+INSERT INTO `skills` VALUES (20609, 'ออกแบบและตกแต่งภายใน', '', 0, '2012-06-11 13:48:21');
+INSERT INTO `skills` VALUES (20700, 'การศึกษา', '', 0, '2012-06-11 13:48:21');
+INSERT INTO `skills` VALUES (20701, 'งานสอน', 'ระบุสาขา', 1, '2012-06-11 13:49:19');
+INSERT INTO `skills` VALUES (20702, 'งานประเมิน', 'ระบุสาขา', 1, '2012-06-11 13:49:19');
+INSERT INTO `skills` VALUES (20703, 'งานวิจัย', 'ระบุสาขา', 1, '2012-06-11 13:49:47');
+INSERT INTO `skills` VALUES (20800, 'สิ่งแวดล้อมและการเกษตร', '', 0, '2012-06-11 13:49:47');
+INSERT INTO `skills` VALUES (20801, 'สิ่งแวดล้อม', 'ระบุสาขา', 1, '2012-06-11 13:50:36');
+INSERT INTO `skills` VALUES (20802, 'การเกษตร', 'ระบุสาขา', 1, '2012-06-11 13:50:36');
+INSERT INTO `skills` VALUES (20803, 'สัตวบาล', '', 0, '2012-06-11 13:51:06');
+INSERT INTO `skills` VALUES (20804, 'การประมง', '', 0, '2012-06-11 13:51:06');
+INSERT INTO `skills` VALUES (20805, 'วนศาสตร์', '', 0, '2012-06-11 13:51:32');
 
 -- --------------------------------------------------------
 
@@ -453,6 +531,7 @@ CREATE TABLE `users_occupations` (
 CREATE TABLE `users_skills` (
   `user_id` int(11) NOT NULL default '0',
   `skill_id` int(11) NOT NULL default '0',
+  `info` text collate utf8_unicode_ci NOT NULL,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`user_id`,`skill_id`),
   KEY `skill_id` (`skill_id`)
