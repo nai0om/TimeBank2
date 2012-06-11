@@ -194,6 +194,7 @@ class Controller_User extends Controller_Template {
 	
 	public function action_login()
 	{
+		// If user already logged in
 		if (isset($this->user))
 		{
 			Request::current()->redirect('/');
@@ -205,11 +206,19 @@ class Controller_User extends Controller_Template {
 
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
-			$success = $this->login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
+			$user = $this->login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
 			
-			if ($success === true)
+			if ($user !== FALSE)
 			{
-                Request::current()->redirect('user/index');
+				$user_roles = Kohana::$config->load('timebank')->get('user_roles');
+				if ($user->role == $user_roles['volunteer'])
+				{
+                	Request::current()->redirect('user/index');
+				}
+				else
+				{
+                	Request::current()->redirect('organization/index');
+				}
 			}
 			else
 			{
@@ -254,7 +263,7 @@ class Controller_User extends Controller_Template {
 	
 			// Store username in session
 			$session->set(Session::$default, $user);
-			return TRUE;
+			return $user;
 		}
 		else
 		{

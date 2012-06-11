@@ -5,12 +5,7 @@
 			<li>หน้าหลักสมาชิกองค์กร</li>
 			<li>หน้าหลัก</li>
 		</div>
-		<ul>
-			<li>Welcome <span id="member_name">มูลนิธิกระจกเงา</span></li>
-			<li>ข้อความเตือน (5)</li>
-			<li>ตั้งค่าบัญชีผู้ใช้</li>
-			<li>ออกจากระบบ</li>
-		</ul>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div id="menu_left">
@@ -153,19 +148,9 @@
   </div>
 </div>
 
-
-<?= Form::label('website', 'Company website'); ?>
-<?= Form::input('website', HTML::chars($organization->website)); ?>
-<div class="error">
-    <?= Arr::get($errors, 'website'); ?>
-</div>
-
 <?= Form::label('logo', 'Company logo'); ?>
 <img src="<?= url::base().'media/upload/'.$organization->logo; ?>" />
 <?= Form::file('logo') ?>
 <div class="error">
     <?= Arr::get($errors, 'logo'); ?>
 </div>
-
-<?= Form::submit('create', 'Edit company'); ?>
-<?= Form::close(); ?>
