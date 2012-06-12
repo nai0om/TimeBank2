@@ -8,15 +8,7 @@
 
 		<div style="clear:both"></div>
 		<div id="menu_left">
-			<ul>
-				<li><?= HTML::anchor('user', 'หน้าหลัก'); ?></li>
-				<li><?= HTML::anchor('user/profile', 'โปร์ไฟล์'); ?></li>
-				<li class="current">ฝากเวลาของฉัน</li>
-				<li>งานอาสาของฉัน</li>
-				<li>ค้นหางานอาสา</li>
-				<li>งานฝึกอบรมของฉัน</li>
-				<li>การแจ้งเตือน</li>
-			</ul>
+			<?php include Kohana::find_file('views', 'shared/usermenu') ?>
 		</div>
 		
 		
