@@ -4,8 +4,7 @@ class Controller_Event extends Controller_Template {
 	
 	public function action_index()
 	{
-		$events = ORM::factory('event')->find_all();
-		$this->template->content = View::factory('event/index')->bind('events', $events);
+		Request::current()->redirect('event/browse');
 	}
 
 	public function action_browse()
@@ -46,6 +45,7 @@ class Controller_Event extends Controller_Template {
 		//$locations = Location::get_location_array();
 		
 		$event = ORM::factory('event');
+		$event->organization_id  = $this->orguser->id;
 		$this->save_event($event, $this->orguser, $message, $errors);
 	} 
 
@@ -171,27 +171,42 @@ class Controller_Event extends Controller_Template {
 	
 	public function action_apply()
 	{
-		if (HTTP_Request::POST == $this->request->method()) 
+		
+		if ($this->user)
 		{
-			$message = 'Not user!';
-			if ($this->user)
+			try
 			{
-				try
+				$event = ORM::factory('event', $this->request->param('id'));
+				if ($this->user->has('events', $event))
 				{
-					$this->user->add('events', ORM::factory('event', $this->request->post('event_id')));
-					$this->user->save();
-					$message = 'Done!';
-				} catch (ORM_Validation_Exception $e) {
-				
-					// Set failure message
-					$message = $e->getMessage();
-					// Set errors using custom messages
-					$errors = $e->errors('user');
+					Request::current()->redirect('user/');
 				}
+				else 
+				{
+	
+					$organization_id = $event->organization_id;
+					$organization = ORM::factory('organization', $organization_id);
+					if (!$organization->loaded())
+					{
+						throw new HTTP_Exception_404(__('organization id :id not found', array(':id' => $organization_id)));
+						return;
+					}
+					$this->user->add('events', $event);
+					$this->user->save();
+					$organam = $organization->name;
+					echo 'xxxxxxxxxxxxxxxxxxx'.$organam;
+					$this->template->content = View::factory('event/apply')
+												->bind('organam', $organam);
+				}
+			} catch (ORM_Validation_Exception $e) {
+			
+				// Set failure message
+				$message = $e->getMessage();
+				// Set errors using custom messages
+				$errors = $e->errors('user');
 			}
-			$this->template->content = View::factory('event/apply')
-				->bind('message', $message);
 		}
+		
 	}
 	
 	public function action_test()

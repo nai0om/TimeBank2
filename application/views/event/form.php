@@ -172,7 +172,7 @@ $times['23:59:59'] = '23:59';
                     for($i = 0 ; $i < sizeof($skills) ; $i++){
                         $checked = FALSE;
                         if($event->skills != '') {
-                            $pos = strpos(str_replace(' ', '_', $event->skills);, $skills[$i]);
+                            $pos = strpos(str_replace(' ', '_', $event->skills), $skills[$i]);
                             if ($pos > 0){
                                 $checked = TRUE;
                             }

@@ -110,7 +110,7 @@
 		</div>
 		<div class="main">
 			<h2>จำนวนอาสาสมัครที่ต้องการ</h2>
-			<h3><?= $event->time_cost ?> ชั่วโมง</h3>
+			<h3><?= $event->volunteer_need_count ?> คน</h3>
 			<h4>สมัครแล้ว 45 คน เหลืออีก 5 คน</h4>
 		</div>
 		<div style="clear:both"></div>
@@ -136,7 +136,7 @@
 						    $pos = strpos($event->tags , $jobs[$i]);
 						   if ( $pos >= 0)
 						   {
-							$last  .=  HTML::anchor('even/search?job='.$i, $jobs[$i]).', ';  
+							$last  .=  HTML::anchor('event/search?job='.$i, $jobs[$i]).', ';  
 						   }
 					   }
 					   echo substr($last , 0, -2); 
@@ -150,12 +150,21 @@
 			<p><span class="header">เปิดรับสมัคร</span>
 				<div id="duration">วันที่ <?= $event->signup_begin_date  ?><br>
 				ถึง <?= $event->signup_end_date  ?><br>
-				วัน : จันทร์ - ศุกร์<br>
 				เวลา : <?= date("H:i", strtotime($event->signup_begin_time)); ?> น. - <?= date("H:i", strtotime($event->signup_end_time));?> น.</div></p>
 			<p><span class="header">วันทำอาสา</span>
 				<div id="duration">วันที่ <?= $event->volunteer_begin_date  ?><br>
 				ถึง <?= $event->volunteer_end_date  ?><br>
-				วัน : จันทร์ - ศุกร์<br>
+				วัน : <?php  if ($event->days == '')
+							{
+								echo 'ทุกวัน';
+							}
+							else
+							{
+								echo substr($event->days , 0, -2); 
+							}
+				
+				
+					?><br>
 				เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time ));?> น. - <?= date("H:i", strtotime($event->volunteer_end_time));?> น.</div></p>
             <?= $event->inquiry_detail ?>
 			
@@ -170,7 +179,7 @@
 			</form>
 		</div>
 		
-		<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><a style="position:relative;top:-20px;"class="long">สมัครคลิกที่นี่</a></p>
+		<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('event/apply/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
     <? endif ?>
 		
   </div>
