@@ -11,7 +11,9 @@ class Controller_User extends Controller_Template {
 			return;
         }
 
-        $this->template->content = View::factory('user/index');
+        $action = $this->request->action();
+		$this->template->content = View::factory('user/index')
+		->bind('action', $action);
     }
 
     public function action_record()
@@ -31,10 +33,12 @@ class Controller_User extends Controller_Template {
 			$total_hour += $record->hour;
 		}
 
+		$action = $this->request->action();
 		$this->template->content = View::factory('user/record')
 								->bind('records', $records)
 								->bind('errors', $errors)
-								->bind('total_hour', $total_hour);
+								->bind('total_hour', $total_hour)
+								->bind('action', $action);
     }
 	
 	public function action_addhour()
@@ -141,10 +145,12 @@ class Controller_User extends Controller_Template {
 			return;
         }
 		
-        $this->template->content = View::factory('user/profile')
+       $action = $this->request->action();
+	   $this->template->content = View::factory('user/profile')
             ->bind('errors', $errors)
             ->bind('message', $message)
-			->bind('skills', $skills);
+			->bind('skills', $skills)
+			->bind('action', $action);
              
         if (HTTP_Request::POST == $this->request->method()) 
         {
@@ -230,6 +236,43 @@ class Controller_User extends Controller_Template {
 		
 		
     }
+	
+    public function action_myevent()
+    {
+		$action = $this->request->action();
+		$this->template->content = View::factory('user/myevent')
+		->bind('action', $action);
+
+    }
+	
+    public function action_myeventpast()
+    {
+		$action = $this->request->action();
+		$this->template->content = View::factory('user/myeventpast')
+		->bind('action', $action);
+    }
+	
+    public function action_notification()
+    {
+		$action = $this->request->action();
+		$this->template->content = View::factory('user/notification')
+		->bind('action', $action);
+    }
+	
+    public function action_inbox()
+    {
+		$action = $this->request->action();
+		$this->template->content = View::factory('user/inbox')
+		->bind('action', $action);
+    }
+	
+    public function action_mytraining()
+    {
+		$action = $this->request->action();
+		$this->template->content = View::factory('user/mytraining')
+		->bind('action', $action);
+    }
+
 	
 	public function action_view()
 	{

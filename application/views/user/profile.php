@@ -9,15 +9,7 @@
 
 		<div style="clear:both"></div>
 		<div id="menu_left">
-			<ul>
-				<li><?= HTML::anchor('user', 'หน้าหลัก'); ?></li>
-				<li class="current">โปร์ไพล์</li>
-				<li><?= HTML::anchor('user/record', 'ฝากเวลาของฉัน'); ?></li>
-				<li>งานอาสาของฉัน</li>
-				<li>ค้นหางานอาสา</li>
-				<li>งานฝึกอบรมของฉัน</li>
-				<li>การแจ้งเตือน</li>
-			</ul>
+			<?php include Kohana::find_file('views', 'shared/usermenu') ?>
 		</div>
         <?= Form::open('user/profile', array('enctype' => 'multipart/form-data')); ?>		
 		
