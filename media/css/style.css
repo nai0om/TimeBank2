@@ -1525,6 +1525,7 @@ header h2 {
     padding: 10px 0;
 	font-size:12px;
 	font-family:tahoma;
+	width:100%;
 }
 #tb_browse_detail #post_comment div img{
 	margin-right:10px;

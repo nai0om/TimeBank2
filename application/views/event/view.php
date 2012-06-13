@@ -43,12 +43,18 @@
 		
 	<?php if ($mode == 2): ?>
 		<div>
+      
 			<ul id="member">
-				<li class="first"><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Mr. MRM</div><div class="name">จีระพงศ์ ศึกษากิจ</div></li>
-				<li><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Natty_New</div><div class="name">รุ่งทิพย์ ตระการตา</div></li>
-				<li><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Kong2323</div><div class="name">วรวัฒน์ ไผ่ทอง</div></li>
-				<li><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Kong2323</div><div class="name">วรวัฒน์ ไผ่ทอง</div></li>
-				<li><img src="<?= url::base(); ?>media/img/sample_member_01.png"><div class="username">Kong2323</div><div class="name">วรวัฒน์ ไผ่ทอง</div></li>
+            <?php foreach( $event->users->find_all() as $user): ?>
+              	<?php if ($user->profile_image == '') : ?>
+					<li><img src="<?= url::base(); ?>media/img/sample_member_01.png">
+                <?php else :?>
+                	<li><img src="<?= url::base(); ?>media/img/<?= $user->profile_image;?>">
+                <?php endif?>
+                <div class="username"><?= $user->nickname ?></div>
+                <div class="name"><?= $user->first_name ?> <?= $user->last_name ?></div>
+                </li>
+			<?php  endforeach ?>
    			</ul>
 			<img src="<?= url::base(); ?>media/img/tb_line_form.png">
 				<ul id="pagination">
@@ -173,9 +179,11 @@
 			<h4 class="title">ฝากคอมเม้นต์</h4>
 			<form id="post_comment">
 				<textarea></textarea><input type="submit" value="โพส">
-				<div style="border:0;"><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-				<div><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-				<a class="long">แสดงทั้งหมด</a>
+          
+                <? foreach( $event->comments->limit(2)->find_all() as $comment) : ?>
+				<div><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;"><?= $comment->comment ?></div>
+                <? endforeach ?>
+				<a href="" class="long">แสดงทั้งหมด</a>
 			</form>
 		</div>
 		

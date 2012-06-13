@@ -103,7 +103,6 @@ class Controller_Event extends Controller_Template {
             ->bind('event', $event)
             ->bind('event_status', $event_status)
             ->bind('mode', $mode);
-     
 		
 		$event = ORM::factory('event', $this->request->param('id'));
 
@@ -111,11 +110,12 @@ class Controller_Event extends Controller_Template {
 		{
 			throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
 		}
-		
+		echo 'xxxxxxxx'.sizeof($event->users);
 		$event_status = Kohana::$config->load('timebank')->get('event_status');
 		//$locations = Location::get_location_array();
 		
 		$mode = Arr::get($_GET, 'mode');
+	
 	}
 	
 	public function action_advance_search()
@@ -194,7 +194,6 @@ class Controller_Event extends Controller_Template {
 					$this->user->add('events', $event);
 					$this->user->save();
 					$organam = $organization->name;
-					echo 'xxxxxxxxxxxxxxxxxxx'.$organam;
 					$this->template->content = View::factory('event/apply')
 												->bind('organam', $organam);
 				}
