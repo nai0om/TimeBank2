@@ -5,7 +5,7 @@
     </ul>
 <? elseif (isset($user)) : ?>       
     <ul>
-        <li>Welcome <span id="member_name"><?= $user->nickname ?></span></li>
+        <li>Welcome <span id="member_name"><?= $user->displayname ?></span></li>
         <li><?= HTML::anchor('user/inbox', 'ข้อความเตือน (5)'); ?></li>
         <li><?= HTML::anchor('user/setting', 'ตั้งค่าบัญชีผู้ใช้'); ?></li>
         <li><?= HTML::anchor('user/logout', 'ออกจากระบบ'); ?></li>
