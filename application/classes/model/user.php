@@ -41,6 +41,9 @@ class Model_User extends ORM {
             'birthdate' => array(
                 array('date')
             ),
+			'displayname' => array(
+                array('min_length', array(':value', 3))
+			),
 			'first_name' => array(
                 array('min_length', array(':value', 3))
 			),

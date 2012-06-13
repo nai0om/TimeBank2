@@ -111,6 +111,7 @@ class Controller_User extends Controller_Template {
 			$user->password = Arr::get($_POST, 'password');
 			$user_roles = Kohana::$config->load('timebank')->get('user_roles');
 			$user->role = $user_roles['volunteer'];
+			$user->displayname = Arr::get($_POST, 'displayname');
 
 			try
 			{
@@ -275,7 +276,82 @@ class Controller_User extends Controller_Template {
 		$this->template->content = View::factory('user/mytraining')
 		->bind('action', $action);
     }
+	
 
+	public function action_setting()
+    {
+        // if a user is not logged in, redirect to login page
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$action = $this->request->action();
+		$this->template->content = View::factory('user/setting')
+			->set('values', $_POST)
+            ->bind('errors', $errors)
+            ->bind('message', $message)
+			->bind('action', $action);
+			
+        if (HTTP_Request::POST == $this->request->method()) 
+        {
+			$password = Arr::get($_POST, 'password');
+			if ($password == '')
+			{
+				$message = __('There were errors, please see form below.');
+				$errors = array('password' => 'Password can\'t be empty.');
+				return;
+			}
+			
+			if (Arr::get($_POST, 'newpassword') != Arr::get($_POST, 'newpasswordconfirm'))
+			{
+				$message = __('There were errors, please see form below.');
+				$errors = array('newpasswordconfirm' => 'The password fields did not match.');
+				return;
+			}
+			
+			
+			$hash_password = $this->user->hash_password($password);
+			if ($this->user->password == $hash_password)
+			{
+				$email = Arr::get($_POST, 'email');
+				$newpassword = Arr::get($_POST, 'newpassword');
+				$this->user->displayname = Arr::get($_POST, 'displayname');
+				if (!empty($email))
+				{
+					$this->user->email = $email;
+					$this->user->password = $password;
+				}
+				if (!empty($newpassword))
+				{
+					$this->user->password = $newpassword;
+				}
+					
+				try {
+						$this->user->save();       
+						$message = 'Update completed successfully';
+						 
+				} catch (ORM_Validation_Exception $e) {
+						// Set failure message
+						$message = 'There were errors, please see form below.';
+						// Set errors using custom messages
+						$errors = $e->errors('models');
+						return;
+				}
+					
+			}
+			else
+			{
+				$message = 'Incorrect Password';
+			}
+			
+
+        }
+		
+    }
+
+	
 	
 	public function action_view()
 	{

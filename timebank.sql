@@ -441,6 +441,7 @@ CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL auto_increment,
   `email` varchar(127) NOT NULL,
   `password` varchar(64) NOT NULL,
+  `displayname` text NOT NULL,
   `nickname` text NOT NULL,
   `role` int(11) NOT NULL,
   `first_name` text NOT NULL,
@@ -462,8 +463,8 @@ CREATE TABLE `users` (
 -- dump ตาราง `users`
 -- 
 
-INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', '', 0, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 21:35:10', '', '');
-INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', '', 1, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 22:50:44', '', '');
+INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', '', 0, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 21:35:10', '', '');
+INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', 'org nakrub', '', 1, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 22:50:44', '', '');
 
 -- --------------------------------------------------------
 
