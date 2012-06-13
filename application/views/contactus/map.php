@@ -2,9 +2,7 @@
   <div id="main" role="main">
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
-		<div id="content">
-			<img src="<?= url::base(); ?>media/img/map_03.jpg">
-		</div>
+        <img width="950px" src="<?= url::base(); ?>media/img/map_full.jpg">
 		
   </div>
 </div>

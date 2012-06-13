@@ -32,6 +32,12 @@ class Model_User extends ORM {
 	public function rules()
     {
         return parent::rules() + array(
+            'email' => array(
+                array('not_empty'),
+				array('email'),
+				array('max_length', array(':value', 127)),
+ 				array(array($this, 'unique'), array('email', ':value')),
+			),
             'birthdate' => array(
                 array('date')
             ),

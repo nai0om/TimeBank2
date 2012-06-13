@@ -2,7 +2,7 @@
  
 class Controller_Organization extends Controller_Template {
 	
-	public function action_index()
+	public function action_indexold()
 	{
 		if (is_null($this->orguser))
 		{
@@ -58,6 +58,102 @@ class Controller_Organization extends Controller_Template {
 			->bind('user_event', $user_event);
 		*/
 	}
+
+	public function action_create()
+	{
+		$this->template->content = View::factory('organization/create')
+									->bind('message', $message)
+									->bind('errors', $errors)
+									->bind('organization', $organization)
+									->bind('newuser', $user);
+		$user = ORM::factory('user');	
+		$organization = ORM::factory('organization');		
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			// Prepare data for user
+			$user->email = Arr::get($_POST, 'email');
+			$user->password = Arr::get($_POST, 'password');
+			$user_roles = Kohana::$config->load('timebank')->get('user_roles');
+			$user->role = $user_roles['organization'];
+
+			// Prepare data for organization
+			$organization->name = Arr::get($_POST, 'name');
+			$organization->objective = Arr::get($_POST, 'objective');
+			$organization->activity = Arr::get($_POST, 'activity');
+			$organization->address = Arr::get($_POST, 'address');
+			$organization->province = Arr::get($_POST, 'province');
+			$organization->postcode = Arr::get($_POST, 'postcode');
+			$organization->district = Arr::get($_POST, 'district');
+			$organization->fax = Arr::get($_POST, 'fax');
+			$organization->homephone = Arr::get($_POST, 'homephone');			
+			$organization->contactperson = Arr::get($_POST, 'contactperson');			
+			$organization->facebook = Arr::get($_POST, 'facebook');			
+			$organization->twitter = Arr::get($_POST, 'twitter');			
+			$organization->website = Arr::get($_POST, 'website');			
+
+			// First level validation
+			if (Arr::get($_POST, 'acceptterm') == '')
+			{
+				$message = __('There were errors, please see form below.');
+				$errors = array('acceptterm' => 'Please accept term&condition.');
+				return;
+			}
+						
+			if (Arr::get($_POST, 'password') == '')
+			{
+				$message = __('There were errors, please see form below.');
+				$errors = array('password' => 'Password can\'t be empty.');
+				return;
+			}
+
+			if (Arr::get($_POST, 'password') != Arr::get($_POST, 'password_confirm'))
+			{
+				$message = __('There were errors, please see form below.');
+				$errors = array('password_confirm' => 'The password fields did not match.');
+				return;
+			}
+
+			try
+			{
+				// Pre-validation before save all value
+				$user_check = $user->check();
+
+				$organization->user_id = 0;
+				$organization_check = $organization->check();
+				
+				// Save this new user
+				$user->save();
+				$organization->user_id = $user->id;
+				$organization->save();
+					
+				// Log in
+				Controller_User::login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
+				
+				// Redirect
+				Request::current()->redirect('/organization/index');
+				
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set failure message
+                $message = __('There were errors, please see form below.');
+                
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+				//print_r($errors);
+            }
+		}
+	}
+	
+	public function action_index()
+	{
+		if (is_null($this->orguser))
+		{
+			Request::current()->redirect('user/login');
+		}
+		//print_r($this->orguser);exit;
+		Request::current()->redirect('/organization/view/'.$this->orguser->id);	
+	}
 	
 	public function action_profile()
 	{
@@ -74,6 +170,17 @@ class Controller_Organization extends Controller_Template {
 		$this->save_organization($message, $errors);
 	}
 
+	public function action_event()
+	{
+		if (is_null($this->orguser))
+		{
+			Request::current()->redirect('user/login');
+		}
+
+        $this->template->content = View::factory('organization/event')
+			->bind('organization', $this->orguser);
+	}
+	
 	public function action_notification()
 	{
 		if (is_null($this->orguser))
@@ -83,7 +190,7 @@ class Controller_Organization extends Controller_Template {
 
         $this->template->content = View::factory('organization/notification')
 			->bind('organization', $this->orguser);
-		
+	
 		$this->save_notification();
 	}
 
@@ -129,7 +236,8 @@ class Controller_Organization extends Controller_Template {
 	public function action_view()
 	{
         $this->template->content = View::factory('organization/view')
-            ->bind('organization', $organization);
+            ->bind('organization', $organization)
+            ->bind('org_user', $org_user);
 		
 		$organization = ORM::factory('organization', $this->request->param('id'));
 
@@ -137,6 +245,8 @@ class Controller_Organization extends Controller_Template {
 		{
 			throw new HTTP_Exception_404(__('Organization id :id not found', array(':id' => 10)));
 		}
+		
+		$org_user = ORM::factory('user', $organization->user_id);
 	}
 	
 	/*

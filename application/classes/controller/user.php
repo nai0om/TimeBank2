@@ -115,6 +115,9 @@ class Controller_User extends Controller_Template {
 			try
 			{
 				$user->save();
+				
+				// Log in
+				$this->login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
                  
 				// Redirect
 				Request::current()->redirect('/user/index');

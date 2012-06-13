@@ -856,15 +856,6 @@ header h2 {
     padding: 0 0 0 27px;
     width: 46%;
 }
-#tb_browse .type li a{
-	color: #222222;
-	}
-#tb_browse .type li a:link{
-	text-decoration:none;
-	}
-#tb_browse .type li a:hover{
-	text-decoration:underline;
-}
 #tb_browse .type span{
 	color: #e87c0c;
 }
@@ -1239,9 +1230,6 @@ header h2 {
 	border:1px solid #a8acad;
 	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
 	margin: 15px 0 5px;
-}
-.full {
-	width: 265px !important; 
 }
 #tb_browse_new form{
 	font-family:tahoma;
@@ -3301,6 +3289,92 @@ header h2 {
     text-align: center;
     width: 45%;
 }
+/*volunteer org sign up*/
+#volunteerOrgSignup.popup #content h2{
+	padding:0 0 10px 55px;
+}
+#volunteerOrgSignup.popup #content {
+    background-image: url("../img/map_bg.png");
+    height: 836px;
+}
+#volunteerOrgSignup.popup  form{
+	text-align:left;
+	color:#666;
+}
+#volunteerOrgSignup.popup label{
+	display:inline-block;
+	width:185px;
+}
+#volunteerOrgSignup.popup h3{
+	color:#0099CC;
+}
+#volunteerOrgSignup.popup input[type="submit"]{
+	margin:0;
+}
+#volunteerOrgSignup.popup form p{
+	margin:0;
+	padding:0 0 8px;
+}
+#volunteerOrgSignup.popup input[type="radio"]{
+	width:auto;
+}
+
+/*volunteer sign up*/
+#volunteerSignup.popup #content h2{
+	padding:0 0 10px 55px;
+}
+#volunteerSignup.popup #content{
+	background-image:url("../img/bg_popup_340.png");
+	height:340px;
+}
+#volunteerSignup.popup  form{
+	text-align:left;
+	padding:0 0 0 130px;
+	color:#666;
+}
+#volunteerSignup.popup label{
+	display:inline-block;
+	width:102px;
+}
+#volunteerSignup.popup input[type="submit"]{
+	margin:0;
+}
+#volunteerSignup.popup form p{
+	margin:0;
+	padding:0 0 8px;
+}
+#volunteerSignup.popup input[type="radio"]{
+	width:auto;
+}
+#volunteerSignup.popup #leftSide {
+	background: url("../img/tb_line_verticle.png") repeat-y scroll right 0 transparent;
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+#volunteerSignup.popup #rightSide {
+    float: right;
+    text-align: left;
+    width: 48%;
+}
+#volunteerSignup.popup #rightSide #left {
+    float: left;
+    width: 139px;
+}
+#volunteerSignup.popup #rightSide #details {
+    background: url("../img/mem_plus.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    float: left;
+    font-family: tahoma;
+    font-size: 17px;
+    height: 191px;
+    padding: 55px 0;
+    text-align: center;
+    width: 162px;
+}
+#volunteerSignup.popup #content h3{
+	margin:0;
+}
 /*contact*/
 #contact_us .column.two {
     float: left;
@@ -3996,6 +4070,51 @@ header h2 {
     position: relative;
     top: 90px;
 }
+/*77 footer*/
+#insideFooter .line {
+    background: url("../img/mem_line.png") repeat-x scroll 0 center transparent;
+    height: 30px;
+}
+#insideFooter {
+    display: block;
+    position: relative;
+    top: 835px;
+}
+#insideFooter #section li{
+	float:left;
+	width:205px;
+	font-family:tahoma;
+	font-size:12px;
+}
+#main #insideFooter #section li:before, #main #insideFooter #section li li:before {
+    content: "";
+    left: 0;
+    padding: 0;
+}
+#insideFooter #section {
+    clear: both;
+    display: inline-block;
+    float: none;
+    margin: -20px 0 0;
+    width: 900px;
+}
+#insideFooter #section li h4{
+	margin:0;
+}
+#insideFooter #section ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+#insideFooter #section li li {
+    float: none;
+    width: 100%;
+	color: #999;
+	list-style:disc inside;
+}
+#insideFooter #section li:nth-child(2){
+	width: 285px;
+}
 /*Term*/
 #term #main {
     background: url("../img/tb_browse_bg.jpg") no-repeat scroll 0 0 transparent;
@@ -4175,13 +4294,6 @@ header h2 {
 .clearfix { *zoom: 1; }
 
 
-.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
-.ui-timepicker-div dl { text-align: left; }
-.ui-timepicker-div dl dt { height: 25px; }
-.ui-timepicker-div dl dd { margin: -25px 10px 10px 65px; }
-.ui-timepicker-div td { font-size: 90%; }
-.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
-.error { color: #CC0000; }
 
 /* ==|== print styles =======================================================
    Print styles.

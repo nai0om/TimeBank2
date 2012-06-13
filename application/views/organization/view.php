@@ -36,22 +36,22 @@
 			<h3>วัตถุประสงค์/ เป้าหมายองค์กร:</h3>
 			<p><?= $organization->objective ?></p>
 			<h3>ลักษณะกิจกรรมขององค์กร:</h3>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			<p><?= $organization->activity ?></p>
 		</div>
 		<div class="column two">
 			<h4>สถานที่ตั้ง</h4>
 			<p><?= $organization->address ?></p>
 			<h4>เบอร์โทรศัพท์ </h4>
-			<p>02-941-4194-5</p>
+			<p><?= $organization->homephone ?></p>
 			<h4>เบอร์โทรสาร</h4>
-			<p>02-941-4194 ต่อ 109</p>
+			<p><?= $organization->fax ?></p>
 		</div>
 		<div class="column three wrap">
-			<h4>อีเมล์</h4><span>webmaster@mirror.or.th</span>
-			<h4>เบอร์โทรศัพท์ </h4><span>ปรเมศ นาคสุวรรณ</span>
-			<h4>website URL</h4><span>www.mirror.or.th</span>
-			<h4>Facebook</h4><span>www.facebook.com/mirror</span>
-			<h4>twitter</h4><span>http://twitter.com/mirror</span>
+			<h4>อีเมล์</h4><span><?= $org_user->email ?></span>
+			<h4>ติดต่อ </h4><span><?= $organization->contactperson ?></span>
+			<h4>website URL</h4><span><?= $organization->website ?></span>
+			<h4>Facebook</h4><span><?= $organization->facebook ?></span>
+			<h4>twitter</h4><span><?= $organization->twitter ?></span>
 		</div>
 
 		<div style="clear:both"></div>
