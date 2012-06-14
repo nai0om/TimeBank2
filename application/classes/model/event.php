@@ -64,12 +64,12 @@ class Model_Event extends ORM {
                 array('not_empty'),
                 array('digit'),
             ),
-			
+			/*
             'time_cost' => array(
                 array('not_empty'),
                 array('digit'),
                 array('max_length', array(':value', 3)),
-            ),
+            ),*/
 			
             'location_name' => array(
                 array('not_empty'),

@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+﻿<?php defined('SYSPATH') or die('No direct script access.');
  
 class Controller_Event extends Controller_Template {
 	
@@ -110,7 +110,7 @@ class Controller_Event extends Controller_Template {
 		{
 			throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
 		}
-		echo 'xxxxxxxx'.sizeof($event->users);
+
 		$event_status = Kohana::$config->load('timebank')->get('event_status');
 		//$locations = Location::get_location_array();
 		
@@ -255,12 +255,68 @@ class Controller_Event extends Controller_Template {
 			if ($page == '') 
 				$page = 1;
 			
+			$start = Arr::get($_GET, 'start'); 
+			$end = Arr::get($_GET, 'end'); 
+			
+			$begin_time = Arr::get($_GET, 'begin_time'); 
+			$end_time = Arr::get($_GET, 'end_time'); 
+			
+			$time_cost 	= Arr::get($_GET, 'time_cost'); 
+			
+			if($start != '')	
+				$events = $events->where('volunteer_begin_date', '>=', date("Y-m-d", strtotime(Arr::get($_GET, $start ))));	
+			if($end != '')
+				$events = $events->where('volunteer_end_date', '<=', date("Y-m-d", strtotime(Arr::get($_GET, $end ))));	
+				
+			if($begin_time != '')	
+				$events = $events->where('volunteer_begin_time', '>=', $begin_time );	
+			if($end_time != '')
+				$events = $events->where('volunteer_end_time', '<=', $end_time );	
+
+			if($time_cost != 0)
+				$events = $events->where('time_cost', '=', $time_cost);
 			if($job != 0)
 				$events = $events->where('tags', 'like', '%'.$jobs[$job].'%');
 			if($province != 0)
 				$events = $events->where('location_province', '=', $province);
 			if($query != '')
 				$events = $events->where('search_temp', 'like', '%'.$query.'%');
+				
+			echo 'dayyyyyyyyyyy'.	Arr::get($_GET, 'day');
+			//day 
+			if ( Arr::get($_GET, 'day') == '0')
+			{
+				$days = Kohana::$config->load('timebank')->get('days'); 
+				for($i = 0 ; $i < sizeof($days) ; $i++){
+				
+					if (Arr::get($_GET, 'day'.$i ) != ''){
+				
+					$events = $events->where('days', 'like', '%'.$days[ $i ].'%');
+				 }
+				}
+			}
+			else if ( Arr::get($_GET, 'day') == '1')
+			{
+				$events = $events->where('days', '=', '');
+			}
+			//skills
+		   $skills = Kohana::$config->load('timebank')->get('skills'); 
+			for($i = 0 ; $i < sizeof($skills) ; $i++){
+				if (Arr::get($_GET, 'skill'.$i ) != ''){
+				
+					$events = $events->where('skills', 'like', '%'.$skills[ $i ].'%');
+				 }
+			
+			}
+									
+			//languates
+			$languates = Kohana::$config->load('timebank')->get('languates'); 
+			for($i = 0 ; $i < sizeof($languates) ; $i++){
+				$checked = FALSE;
+				if (Arr::get($_GET, 'languate'.$i) != ''){
+				   $events = $events->where('languates', 'like', '%'.$languates[ $i ].'%');
+				}
+			}
 		}
 		
 		if($type == 'open')

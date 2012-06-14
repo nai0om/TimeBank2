@@ -45,9 +45,9 @@ $times['23:59:59'] = '23:59';
             </div>        
         </p>
         <p><label>ตั้งแต่เวลา</label>
-        	<?= Form::select('signup_begin_time', $times); ?>
+        	<?= Form::select('signup_begin_time', $times, $event->signup_begin_time); ?>
         	<label>ถึง</label>
-        	<?= Form::select('signup_end_time', $times, '23:59:59'); ?>
+        	<?= Form::select('signup_end_time', $times, ($event->signup_end_time == '')? '23:59:59': $event->signup_end_time); ?>
         </p>
         <div class="line"></div>
     </fieldset>

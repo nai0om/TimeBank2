@@ -6,6 +6,30 @@ $type = isset($gets['type'])? $gets['type'] : 'open';
 $page = isset($gets['page'])? $gets['page'] : '1';
 $start = isset($gets['start'])? $gets['start'] : '';
 $end = isset($gets['end'])? $gets['end'] : '';
+$time_cost = isset($gets['time_cost'])? $gets['time_cost'] : '';
+$day = isset($gets['day'])? $gets['day'] : '';
+$skill = isset($gets['skill'])? $gets['skill'] : '';
+$languate = isset($gets['languate'])? $gets['languate'] : '';
+$begin_time = isset($gets['begin_time'])? $gets['begin_time'] : '';
+$end_time = isset($gets['end_time'])? $gets['end_time'] : '';
+
+$every_day = false;
+$pick_day = false;
+if($day == '1')
+	$every_day = true;
+if($day == '0')
+	$pick_day = true;
+	
+//build array of times.
+$times = array();
+$time = strtotime("00:00");
+$times["00:00:00"] = date("H:i",$time);
+for($i = 1;$i < 48;$i++) {
+	$time = strtotime("+ 30 minutes",$time);
+	$key = date("H:i",$time);
+	$times[$key.':00'] = date("H:i",$time);
+}
+$times['23:59:59'] = '23:59';
 ?>
 <div id="tb_browse_detail" class="search">
 	<div id="main" role="main">
@@ -35,38 +59,66 @@ $end = isset($gets['end'])? $gets['end'] : '';
 					<p><label>จังหวัด</p>
 					<p><?= Form::select('province', $provices, $province, array('style', 'width:300px;')); ?></p>
 					<p><label>ตั้งแต่วันที่</label></p>
-   					<p><?= Form::input('start', $end, array('class' => 'datepicker', 'id' => 'dp1338212246578'));  ?></p>
+   					<p><?= Form::input('start', $start, array('class' => 'datepicker', 'id' => 'dp1338212246578'));  ?></p>
 					<p><label>ถึงวันที่</label></p>
 					<p><?= Form::input('end', $end, array('class' => 'datepicker', 'id' => 'dp1338212246579'));  ?></p>
 					<p><label>เปิดรับสมัคร หรือ ปิดรับสมัคร</label></p>
 					<p><?= Form::select('type', array('open' => 'เปิด', 'closed' => 'ปิด'), $type, array('style', 'width:300px;')); ?></p>
 					<p><label>จำนวนชั่วโมง</p>
-					<p><input type="text"></p>
-					<p><input type="radio" name="day">ทุกวัน (จันทร์ - อาทิตย์)</p>
-					<p><input type="radio" checked="" name="day">ระบุวัน (เลือกได้มากกว่า 1)</p>
-					<p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">จันทร์</label><input type="checkbox"><label class="day">อังคาร</label><input type="checkbox"><label class="day">พุธ</label></p>
-					<p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">พฤหัสบดี</label><input type="checkbox"><label class="day">ศุกร์</label><input type="checkbox"><label class="day">เสาร์</label></p>
-					<p style="margin:3px 0 3px 78px"><input type="checkbox"><label class="day">อาทิตย์</label></p>
-					<p><label>ตั้งแต่เวลา</label>
-					<select><option></option></select>
-					<label>ถึง</label>
-					<select><option></option></select></p>
+					<p><?= Form::input('time_cost', $time_cost);  ?></p>
+                    <p><?= Form::radio('day', 1, $every_day, array('id' => 'every_day', 'onChange' => 'everyDayChecked()')) ?>ทุกวัน (จันทร์ - อาทิตย์)</p>
+					<p><?= Form::radio('day', 0,  $pick_day,  array('id' => 'day', 'onChange' => 'dayChecked()')) ?>ระบุวัน (เลือกได้มากกว่า 1)</p>
+                    <p style="margin:3px 0 3px 78px; width:250px;" >
+                        <?php  
+                            $days = Kohana::$config->load('timebank')->get('days'); 
+                            for($i = 0 ; $i < sizeof($days) ; $i++){
+                                $checked = FALSE;
+								if (isset($gets['day'.$i])){
+									$checked = TRUE;
+								}
+							    echo Form::checkbox('day'.$i, $days[$i], $checked, array('id' => 'day'.$i, 'onChange' => 'dayChecked()')).''. Form::label($days[$i], $days[$i], array('class'=>'day'));
+                            }
+                        ?>
+                    </p>
+                    <p><label>ตั้งแต่เวลา</label>
+                    	<?= Form::select('begin_time', $times, $begin_time); ?>
+                        <label>ถึง</label>
+                        <?= Form::select('end_time', $times, ($end_time == '')? '23:59:59': $end_time); ?>
+                    </p>
 				</fieldset>
 			</div>
 			<div id="rightSide">
 				<fieldset>
 					<p><label><strong>ทักษะของอาสาสมัครที่ต้องการ</strong></label></p>
 					<ol>
-						<li><p>ความสามารถพิเศษ</p>
-							<p><label>ทักษะทั่วไป (เลือกได้มากกว่า 1)</label></p>
-							<p><input type="checkbox"> การขับขี่พาหนะ (จักรยานยนต์/รถยนต์)</p>
-							<p><input type="checkbox"> ว่ายน้ำ</p>
-							<p><label>การใช้ภาษา (สื่อสารได้/อ่านเขียนได้/แปลได้) (เลือกได้มากกว่า 1)</label></p>
-							<p><input type="checkbox"> <label class="day">อังกฤษ</label>
-							<input type="checkbox"> <label class="day">จีน</label>
-							<input type="checkbox"> <label class="day">เยอรมัน</label></p>
-							<p><input type="checkbox"> <label class="day">ญี่ปุ่น</label>
-							<input type="checkbox"> <label>อื่นๆ (ให้ระบุ) </label><input type="text" style="width:50px;margin:0;display:inline;"></p>
+                       <li><p>ความสามารถพิเศษ</p>
+                                    <p><label>ทักษะทั่วไป (เลือกได้มากกว่า 1)</label></p>
+                                      <p style="width:250px">
+                                    <?php  
+                                        $skills = Kohana::$config->load('timebank')->get('skills'); 
+                                        for($i = 0 ; $i < sizeof($skills) ; $i++){
+                                            $checked = FALSE;
+                                            if (isset( $gets[ 'skill'.$i ] ) ){
+                                                    $checked = TRUE;
+                                             }
+                                            echo '<p>'.Form::checkbox('skill'.$i, $skills[$i], $checked).''. Form::label($skills[$i], $skills[$i]).'</p>';
+                                        }
+                                    ?>
+                                    </p>
+                                    <p><label>การใช้ภาษา (สื่อสารได้/อ่านเขียนได้/แปลได้) (เลือกได้มากกว่า 1)</label></p>
+                                    <p style="width:250px">
+                                    <?php  
+                                        $languates = Kohana::$config->load('timebank')->get('languates'); 
+                                        for($i = 0 ; $i < sizeof($languates) ; $i++){
+                                            $checked = FALSE;
+                                            if ( isset ($gets['languate'.$i ] ) ){
+                                               $checked = TRUE;
+                                            }
+                                            echo Form::checkbox('languate'.$i, $languates[$i], $checked).''. Form::label($languates[$i], $languates[$i], array('class'=>'job'));
+                                        }
+                                    ?>
+                                    </p>
+                                    <input type="checkbox"> <label>อื่นๆ (ให้ระบุ) </label><input name='any_languate' type="text" style="width:50px;margin:0;display:inline;"></p>
 						</li>
 						<input type="submit" value="ค้นหาแบบละเอียด">
 					</ol>
@@ -137,4 +189,21 @@ $(document).ready( function () {
 			$(".datepicker" ).datepicker();
 				});
 });
+
+
+function dayChecked()
+{
+	$("#day").prop("checked", true);
+
+}
+
+function everyDayChecked()
+{
+	$("#every_day").prop("checked", true);
+	 for( var i = 0 ; i < 7 ; i++)
+	 {
+		  $('#day' + i).prop("checked", false);
+	 }
+		
+}
 </script>
