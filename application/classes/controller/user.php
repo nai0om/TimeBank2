@@ -92,18 +92,26 @@ class Controller_User extends Controller_Template {
 		
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
+		
+			if (Arr::get($_POST, 'acceptterm') == '')
+			{
+				$message = ('There were errors, please see form below.');
+				$errors = array('acceptterm' => 'Please accept term&condition.');
+				return;
+			}
+			
 			$user->email = Arr::get($_POST, 'email');
 			
 			if (Arr::get($_POST, 'password') == '')
 			{
-				$message = __('There were errors, please see form below.');
+				$message = ('There were errors, please see form below.');
 				$errors = array('password' => 'Password can\'t be empty.');
 				return;
 			}
 
 			if (Arr::get($_POST, 'password') != Arr::get($_POST, 'password_confirm'))
 			{
-				$message = __('There were errors, please see form below.');
+				$message = ('There were errors, please see form below.');
 				$errors = array('password_confirm' => 'The password fields did not match.');
 				return;
 			}
@@ -119,14 +127,38 @@ class Controller_User extends Controller_Template {
 				
 				// Log in
 				$this->login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
-                 
+				//add user hour
+				$this_user = ORM::factory('user')->where('email', '=', $user->email)->find();
+				if (Arr::get($_POST, 'hour') != '')
+				{
+					try {
+				 
+						// Create an timebank and attach it to the user (one-to-many)
+						$timebank = ORM::factory('user_timebank')->values(array(
+							'hour'			=> Arr::get($_POST, 'hour'),
+							'status'  		=> 1,
+							'user_id'		=> $this_user->id, // sets the fk
+						));
+						$timebank->save();
+						 
+					} catch (ORM_Validation_Exception $e) {
+						 
+						// Set errors using custom messages
+						$this->template->content = View::factory('user/record')
+							->bind('errors', $errors)
+							->bind('records', $records);
+
+						$errors = $e->errors('models');
+						$records = ORM::factory('user_timebank')->where('user_id', '=', $this->user->id)->find_all();
+					}
+                }
 				// Redirect
 				Request::current()->redirect('/user/index');
 				
             } catch (ORM_Validation_Exception $e) {
                  
                 // Set failure message
-                $message = __('There were errors, please see form below.');
+                $message = ('There were errors, please see form below.');
                 
                 // Set errors using custom messages
                 $errors = $e->errors('models');
@@ -299,14 +331,14 @@ class Controller_User extends Controller_Template {
 			$password = Arr::get($_POST, 'password');
 			if ($password == '')
 			{
-				$message = __('There were errors, please see form below.');
+				$message = ('There were errors, please see form below.');
 				$errors = array('password' => 'Password can\'t be empty.');
 				return;
 			}
 			
 			if (Arr::get($_POST, 'newpassword') != Arr::get($_POST, 'newpasswordconfirm'))
 			{
-				$message = __('There were errors, please see form below.');
+				$message = ('There were errors, please see form below.');
 				$errors = array('newpasswordconfirm' => 'The password fields did not match.');
 				return;
 			}
@@ -396,7 +428,7 @@ class Controller_User extends Controller_Template {
 			}
 			else
 			{
-				$message = __('Email or password is incorrect.');
+				$message = ('Email or password is incorrect.');
 			}
 		}
 	}
