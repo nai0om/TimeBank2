@@ -9,29 +9,33 @@
             <?= Form::open('user/create',array('style'=>'margin-top:20px;display:inline;')); ?>
 				<div id="leftSide">
 					<h3 style="color:#0099cc;">ชื่อบัญชีผู้ใช้</h3>
+                <div class="error">
+                    <?= Arr::path($errors, 'acceptterm'); ?>
+                </div>    
 					<p>
                         <label>ชื่อดิสเพล *</label>
                         <?= Form::input('displayname', HTML::chars(Arr::get($_POST, 'displayname'))); ?>
-                        <div class="error"><?= Arr::get($errors, 'displayname'); ?></div>
+                  <div class="error"><?= Arr::get($errors, 'displayname'); ?></div>
                     </p>
 					<p>
                     	<label>ชื่อผู้ใช้ (อีเมล์) *</label>
                        <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
-                        <div class="error"><?= Arr::get($errors, 'email'); ?></div>
+                  <div class="error"><?= Arr::get($errors, 'email'); ?></div>
                     </p>
 					<p><label>รหัสผ่าน *</label>
                        <?= Form::input('password', HTML::chars(Arr::get($_POST, 'password'))); ?>
-                        <div class="error"><?= Arr::get($errors, 'password'); ?></div>
+                  <div class="error"><?= Arr::get($errors, 'password'); ?></div>
                     </p>
 					<p><label>ยืนยันรหัสผ่าน *</label>
                        <?= Form::input('password_confirm', HTML::chars(Arr::get($_POST, 'password_confirm'))); ?>
-                        <div class="error"><?= Arr::get($errors, 'password_confirm'); ?></div>
+                  <div class="error"><?= Arr::get($errors, 'password_confirm'); ?></div>
                     </p>
 					
 				</div>
-				<div id="rightSide">
+		  <div id="rightSide">
 					<h3 style="color:#0099cc;">ฝากชั่วโมงว่างที่คุณพอใจ</h3>
-					<div id="left"><input type="text" style="width:130px;height:40px;"><span style="color:#0099CC;font-size:28px;"> ชม.</span></div>
+					<div id="left"><?= Form::input('hour', HTML::chars(Arr::get($_POST, 'hour')),  array('style'=>'width:130px;height:40px;')); ?>
+                  <div class="error"><?= Arr::get($errors, 'hour'); ?></div><span style="color:#0099CC;font-size:28px;"> ชม.</span></div>
 					<div id="right">
 						<div id="details">
 						<p>
@@ -44,11 +48,16 @@
 					</div>
 					
 				</div>
-				<div style="margin-top:170px;">
-					<p><input type="checkbox"> ข้าพเจ้ายินยอมตาม <span style="text-decoration:underline">เงื่อนไขและข้อตกลง</span> ของเว็บไซต์</p>
-					<p><input type="submit" value="Sign up"></p>
-				</div>
-			</form>
+
+					<p>&nbsp; </p>
+					<p><div style="margin-top:170px;">
+					  <?= Form::checkbox('acceptterm', 1, false); ?> 
+					  ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง'); ?> ของเว็บไซต์</p>
+                      
+                  
+					<p><?= Form::submit('create', 'Sign up'); ?></p></div>
+
+			<?= Form::close(); ?>
 		</div>
 		
   </div>
