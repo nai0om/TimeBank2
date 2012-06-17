@@ -52,7 +52,7 @@
 			<li><?= HTML::anchor('welcome/aboutus', 'About Website', array('id' => 'aboutUs')); ?></li>
 			<li><?= HTML::anchor('welcome/timebank', 'Time Bank', array('id' => 'timeBank')); ?></li>
 			<li><?= HTML::anchor('welcome/training', 'Training & Knowledge', array('id' => 'training')); ?></li>
-			<li><?= HTML::anchor('welcome/news', 'News Update', array('id' => 'news')); ?></li>
+			<li><?= HTML::anchor('news', 'News Update', array('id' => 'news')); ?></li>
 			<li><?= HTML::anchor('welcome/donation', 'Donation', array('id' => 'donation')); ?></li>
 		</ul>
 	</nav>

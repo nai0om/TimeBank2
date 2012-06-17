@@ -58,11 +58,6 @@ class Controller_Welcome extends Controller_Template {
 		$this->template->content = View::factory('training');
    	}
 	
-	public function action_news()
-	{
-		$this->template->content = View::factory('news');
-   	}
-
 	public function action_term()
 	{
 		$this->template->content = View::factory('term');

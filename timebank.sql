@@ -279,6 +279,28 @@ INSERT INTO `locations` VALUES (4, 'ภูเก็ต', NULL, NULL, NULL, '2011
 -- --------------------------------------------------------
 
 -- 
+-- โครงสร้างตาราง `news`
+-- 
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL auto_increment,
+  `topic` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `pic` text NOT NULL,
+  `video` text NOT NULL,
+  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- 
+-- dump ตาราง `news`
+-- 
+
+INSERT INTO `news` VALUES (1, 'ข่าวล่ามาไว', 'เย้ๆๆๆๆๆๆๆๆๆๆๆ', '', '', '2012-06-17 19:24:41');
+
+-- --------------------------------------------------------
+
+-- 
 -- โครงสร้างตาราง `occupations`
 -- 
 
@@ -347,7 +369,7 @@ CREATE TABLE `skills` (
   `moreinfo` tinyint(1) NOT NULL,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20806 ;
 
 -- 
 -- dump ตาราง `skills`
