@@ -96,19 +96,34 @@
 	<?php foreach ($skills as $skill):?>
 
         <? if ($skill->description) : $skilldescription = '('.$skill->description.')'; else: $skilldescription = ''; endif ?>  
+<? $alreadyexist = count($user->skills->where('skill_id', '=', $skill)->find_all());  ?>  
           
 		<? if (substr ($skill->id,1,4) == '0000') :?>    
 			<label><?= substr ($skill->id,0,1) ?>. <?= $skill->name ?> <?= $skilldescription ?></label> 
         <? elseif (substr ($skill->id,3,2) == '00') :?>  
 			<p> <span>- <strong><?= $skill->name ?></strong>  <?= $skilldescription ?></span></p>
         <? else :?>  
-			<p>&nbsp;&nbsp;&nbsp; <input type="checkbox" name="<?= $skill->id ?>" value="1"> <span><?= $skill->name ?>  <?= $skilldescription ?></span></p><? if ($skill->moreinfo) :?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" name="info<?= $skill->id ?>" class="moreinfo"><? endif ?>
+			<p>&nbsp;&nbsp;&nbsp; <input type="checkbox" name="<?= $skill->id ?>" value="1" <? if($alreadyexist) :?>checked<? endif ?>> <span><?= $skill->name ?>  <?= $skilldescription ?></span> 
+			<? if ($skill->moreinfo) :?>
+<? 
+$query = DB::select('info')->from('users_skills')->where('user_id', '=', $user->id)->where('skill_id', '=', $skill); $result = $query->execute()->as_array(); 
+			
+		if (count($result) > 0)
+		{
+			$info = $result[0]['info'];
+		}
+		else
+				{
+			$info = '';
+		}
+			
+?>
+            <br /><input name="info<?= $skill->id ?>" type="text" class="moreinfo" value="<?= $info ?>"><? endif ?></p>
         <? endif ?>
         
         
     <? endforeach ?>
 <? endif ?>
-
 
 
 		  <label>Tag บ่งบอกกลุ่ม</label>

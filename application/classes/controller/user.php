@@ -221,8 +221,6 @@ class Controller_User extends Controller_Template {
             }
         }
 		
-		//$skills = ORM::factory('skill')->where('user_id', '=', $this->user->id)->find_all();
-		//$skills = ORM::factory('skill')->orderby('id', 'ASC')->find_all();
 		$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();
 		
 		
@@ -231,44 +229,42 @@ class Controller_User extends Controller_Template {
     public function action_addskill() 
     {
 		// Please help add this
-		/*
+		
         if (!$this->user)
         {
             Request::current()->redirect('user/login');
 			return;
         }
-		
-		$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();		
              
         if (HTTP_Request::POST == $this->request->method()) 
         {
-			$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();	
-			$message = "ahoy ahoy";
-			foreach ($_POST as $key => $value)
+			// add/remove skill for this user as data recieve from post
+			$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();				
+			foreach ($skills as $skill)
 			{
-				if (substr($key,0,4) == 'info')
+				$alreadyexist = count($this->user->skills->where('skill_id', '=', $skill)->find_all());
+				if ( Arr::get($_POST, $skill->id) == '' )
 				{
-					$message = $message.'<br>'.$key.'='.$value.'-'.substr($key,4,5);
-					$detail = $this->user->skills->find(substr($key,4,5));
-					$detail->info = $value;
-					$detail.save();
+					if($alreadyexist)
+					{
+						$this->user->remove('skills',$skill);
+					}
 				}
 				else
 				{
-					$message = $message.'<br>'.$key.'='.$value;
-					$this->user->add('skills',$key);
+					if(!$alreadyexist)
+					{
+					$this->user->add('skills',$skill);
+					$this->user->save();					
+					}
+					$query = DB::update('users_skills')->set(array('info' => Arr::get($_POST, 'info'.$skill)))->where('user_id', '=', $this->user->id)->where('skill_id', '=', $skill);
+					$query->execute();
 				}
 			}
-			
-
         }
 		
-		$this->template->content = View::factory('user/profile')
-        ->bind('errors', $errors)
-        ->bind('message', $message)
-		->bind('skills', $skills);
-		Request::current()->redirect('user/profile');
-		*/
+            Request::current()->redirect('user/profile');
+		
 		
 		
     }
