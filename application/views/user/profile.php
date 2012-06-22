@@ -103,7 +103,7 @@
         <? elseif (substr ($skill->id,3,2) == '00') :?>  
 			<p> <span>- <strong><?= $skill->name ?></strong>  <?= $skilldescription ?></span></p>
         <? else :?>  
-			<p>&nbsp;&nbsp;&nbsp; <input type="checkbox" name="<?= $skill->id ?>" value="1" <? if($alreadyexist) :?>checked<? endif ?>> <span><?= $skill->name ?>  <?= $skilldescription ?></span> 
+			<p>&nbsp;&nbsp;&nbsp; <input type="checkbox" name="skill<?= $skill->id ?>" value="1" <? if($alreadyexist) :?>checked<? endif ?>> <span><?= $skill->name ?>  <?= $skilldescription ?></span> 
 			<? if ($skill->moreinfo) :?>
 <? 
 $query = DB::select('info')->from('users_skills')->where('user_id', '=', $user->id)->where('skill_id', '=', $skill); $result = $query->execute()->as_array(); 
@@ -137,13 +137,21 @@ $query = DB::select('info')->from('users_skills')->where('user_id', '=', $user->
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 			<label>(เลือกได้มากกว่า 1 ข้อ)</label>
-			<p><input type="checkbox"> <span>งานอาสาทั่วไป</span></p>
-			<p><input type="checkbox"> <span>กู้ภัยและฟื้นฟูจากภัยพิบัติ</span></p>
-			<p><input type="checkbox"> <span>หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย</span></p>
-			<p><input name="asd" type="checkbox" id="asd" value="1"> <span>ศาสนาและปฏิบัติธรรม</span></p>
-			<p><input type="checkbox"> <span>อาหารและโภชนาการ </span></p>
-			<p><input type="checkbox"> <span>ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ</span></p>
-			<p align="center"><img src="img/loading.png"></p>
+            
+            
+            
+<? if (count($occupations) > 0) :?>        
+	<?php foreach ($occupations as $occupation):?>
+
+<? $alreadyexist = count($user->occupations->where('occupation_id', '=', $occupation)->find_all());  ?>  
+          
+
+		  <p><input type="checkbox" name="occupation<?= $occupation->id ?>" value="1" <? if($alreadyexist) :?>checked<? endif ?>> <span><?= $occupation->name ?>  <?= $occupation->description ?></span> </p>
+       
+        
+        
+    <? endforeach ?>
+<? endif ?>            
 		</div>
 		<div style="clear:both"></div>
 		<input type="submit" value="บันทึกการเปลี่ยนแปลง"><div class="line"></div>

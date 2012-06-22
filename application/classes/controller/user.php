@@ -186,6 +186,7 @@ class Controller_User extends Controller_Template {
             ->bind('errors', $errors)
             ->bind('message', $message)
 			->bind('skills', $skills)
+			->bind('occupations', $occupations)
 			->bind('action', $action);
              
         if (HTTP_Request::POST == $this->request->method()) 
@@ -222,13 +223,13 @@ class Controller_User extends Controller_Template {
         }
 		
 		$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();
+		$occupations = ORM::factory('occupation')->order_by('id', 'asc')->find_all();
 		
 		
     }
 	
     public function action_addskill() 
     {
-		// Please help add this
 		
         if (!$this->user)
         {
@@ -243,7 +244,7 @@ class Controller_User extends Controller_Template {
 			foreach ($skills as $skill)
 			{
 				$alreadyexist = count($this->user->skills->where('skill_id', '=', $skill)->find_all());
-				if ( Arr::get($_POST, $skill->id) == '' )
+				if ( Arr::get($_POST, 'skill'.$skill->id) == '' )
 				{
 					if($alreadyexist)
 					{
@@ -261,6 +262,26 @@ class Controller_User extends Controller_Template {
 					$query->execute();
 				}
 			}
+			
+			// add/remove occupation for this user as data recieve from post
+			$occupations = ORM::factory('occupation')->order_by('id', 'asc')->find_all();				
+			foreach ($occupations as $occupation)
+			{
+				$alreadyexist = count($this->user->occupations->where('occupation_id', '=', $occupation)->find_all());
+				if ( Arr::get($_POST, 'occupation'.$occupation->id) == '' )
+				{
+					if($alreadyexist)
+					{
+						$this->user->remove('occupations',$occupation);
+					}
+				}
+				elseif(!$alreadyexist)
+				{
+				$this->user->add('occupations',$occupation);
+				$this->user->save();					
+				}
+			}
+			
         }
 		
             Request::current()->redirect('user/profile');
@@ -271,9 +292,22 @@ class Controller_User extends Controller_Template {
 	
     public function action_myevent()
     {
+        // if a user is not logged in, redirect to login page
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$records = $this->user->events->find_all();
+		
+
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/myevent')
-		->bind('action', $action);
+								->bind('records', $records)
+								->bind('errors', $errors)
+								->bind('action', $action);
+	
 
     }
 	
@@ -282,6 +316,11 @@ class Controller_User extends Controller_Template {
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/myeventpast')
 		->bind('action', $action);
+    }
+	
+    public function action_eventsearch()
+    {
+		Request::current()->redirect('event');
     }
 	
     public function action_notification()

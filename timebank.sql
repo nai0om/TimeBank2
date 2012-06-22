@@ -316,6 +316,26 @@ CREATE TABLE `occupations` (
 -- dump ตาราง `occupations`
 -- 
 
+INSERT INTO `occupations` VALUES (1, 'งานอาสาทั่วไป', NULL, '2012-06-22 20:21:11');
+INSERT INTO `occupations` VALUES (2, 'กู้ภัยและฟื้นฟูจากภัยพิบัติ', NULL, '2012-06-22 20:21:11');
+INSERT INTO `occupations` VALUES (3, 'ประสานงานและบริหารจัดการ', NULL, '2012-06-22 20:22:02');
+INSERT INTO `occupations` VALUES (4, 'ไอที และคอมพิวเตอร์กราฟฟิค', NULL, '2012-06-22 20:22:02');
+INSERT INTO `occupations` VALUES (5, 'สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด', NULL, '2012-06-22 20:22:19');
+INSERT INTO `occupations` VALUES (6, 'สุขภาพและสาธารณสุข', NULL, '2012-06-22 20:22:19');
+INSERT INTO `occupations` VALUES (7, 'ก่อสร้างและงานช่างเทคนิค', NULL, '2012-06-22 20:22:30');
+INSERT INTO `occupations` VALUES (8, 'กฎหมายและกระบวนการยุติธรรม', NULL, '2012-06-22 20:22:30');
+INSERT INTO `occupations` VALUES (9, 'การศึกษาและฝึกอบรม', NULL, '2012-06-22 20:22:42');
+INSERT INTO `occupations` VALUES (10, 'สิ่งแวดล้อมและการเกษตร', NULL, '2012-06-22 20:22:42');
+INSERT INTO `occupations` VALUES (11, 'ศาสนาและปฏิบัติธรรม', NULL, '2012-06-22 20:22:58');
+INSERT INTO `occupations` VALUES (12, 'หัตถกรรมและงานฝีมือ ', NULL, '2012-06-22 20:22:58');
+INSERT INTO `occupations` VALUES (13, 'ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ', NULL, '2012-06-22 20:23:12');
+INSERT INTO `occupations` VALUES (14, 'อาหารและโภชนาการ', NULL, '2012-06-22 20:23:12');
+INSERT INTO `occupations` VALUES (15, 'เด็กและเยาวชน', NULL, '2012-06-22 20:23:22');
+INSERT INTO `occupations` VALUES (16, 'สตรี', NULL, '2012-06-22 20:23:22');
+INSERT INTO `occupations` VALUES (17, 'ผู้พิการ', NULL, '2012-06-22 20:23:33');
+INSERT INTO `occupations` VALUES (18, 'ผู้สูงอายุและครอบครัว', NULL, '2012-06-22 20:23:33');
+INSERT INTO `occupations` VALUES (19, 'สุนัข แมว และสัตว์เลี้ยง', NULL, '2012-06-22 20:23:42');
+
 
 -- --------------------------------------------------------
 
