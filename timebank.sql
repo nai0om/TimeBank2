@@ -1,22 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 2.10.2
+-- version 2.10.3
 -- http://www.phpmyadmin.net
 -- 
--- โฮสต์: localhost
--- เวลาในการสร้าง: 
--- รุ่นของเซิร์ฟเวอร์: 5.0.45
--- รุ่นของ PHP: 5.2.3
+-- Host: localhost
+-- Generation Time: Jun 28, 2012 at 03:12 AM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 -- 
--- ฐานข้อมูล: `timebank`
+-- Database: `timebank`
 -- 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `comments`
+-- Table structure for table `comments`
 -- 
 
 CREATE TABLE `comments` (
@@ -28,21 +28,19 @@ CREATE TABLE `comments` (
   `comment` text collate utf8_unicode_ci NOT NULL,
   `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 -- 
--- dump ตาราง `comments`
+-- Dumping data for table `comments`
 -- 
 
-INSERT INTO `comments` VALUES (1, 2, 3, 0, '127.0.0.1', 'Add comment', '2011-11-22 01:41:20');
-INSERT INTO `comments` VALUES (2, 2, 3, 0, '127.0.0.1', 'wefaewf', '2011-11-22 01:47:59');
-INSERT INTO `comments` VALUES (3, 2, 3, 0, '127.0.0.1', 'สาดดดด', '2011-11-22 01:53:35');
-INSERT INTO `comments` VALUES (4, 2, 3, 8, '127.0.0.1', 'กากมาแล้ว', '2011-11-22 01:56:11');
+INSERT INTO `comments` VALUES (6, 2, 1, 1, '127.0.0.1', 'น่าไปจัง', '2012-06-28 02:03:35');
+INSERT INTO `comments` VALUES (5, 2, 1, 3, '127.0.0.1', 'สวดยวดไปเลย จุบูจุบู ', '2012-06-28 01:56:20');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `contactusforms`
+-- Table structure for table `contactusforms`
 -- 
 
 CREATE TABLE `contactusforms` (
@@ -58,7 +56,7 @@ CREATE TABLE `contactusforms` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- 
--- dump ตาราง `contactusforms`
+-- Dumping data for table `contactusforms`
 -- 
 
 INSERT INTO `contactusforms` VALUES (1, 'aa', 'bb', 'xinexo@gmail.com', 'asdf', 'tp[occcccccccc', 'อยากได้ๆๆๆ', '2012-06-05 11:39:50');
@@ -66,7 +64,7 @@ INSERT INTO `contactusforms` VALUES (1, 'aa', 'bb', 'xinexo@gmail.com', 'asdf', 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `emailcomingsoons`
+-- Table structure for table `emailcomingsoons`
 -- 
 
 CREATE TABLE `emailcomingsoons` (
@@ -77,7 +75,7 @@ CREATE TABLE `emailcomingsoons` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 -- 
--- dump ตาราง `emailcomingsoons`
+-- Dumping data for table `emailcomingsoons`
 -- 
 
 INSERT INTO `emailcomingsoons` VALUES (1, 'test@test.com', '2012-05-15 18:13:48');
@@ -93,7 +91,7 @@ INSERT INTO `emailcomingsoons` VALUES (9, 'xinexo@gmail.com', '2012-05-15 18:26:
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `events`
+-- Table structure for table `events`
 -- 
 
 CREATE TABLE `events` (
@@ -125,89 +123,26 @@ CREATE TABLE `events` (
   `inquiry_detail` text collate utf8_unicode_ci NOT NULL,
   `is_need_expense` tinyint(1) NOT NULL default '0',
   `expense_detail` text collate utf8_unicode_ci NOT NULL,
-  `pic_1` mediumtext collate utf8_unicode_ci,
+  `image` mediumtext collate utf8_unicode_ci,
   `skills` text collate utf8_unicode_ci NOT NULL,
   `languates` text collate utf8_unicode_ci NOT NULL,
   `technical` text collate utf8_unicode_ci NOT NULL,
   `days` text collate utf8_unicode_ci NOT NULL,
-  `pic_2` mediumtext collate utf8_unicode_ci,
-  `pic_3` mediumtext collate utf8_unicode_ci,
-  `pic_4` mediumtext collate utf8_unicode_ci,
-  `pic_5` mediumtext collate utf8_unicode_ci,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `tags` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=73 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- 
--- dump ตาราง `events`
+-- Dumping data for table `events`
 -- 
 
-INSERT INTO `events` VALUES (21, 'ccccccccc/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'ccccccccc', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (20, 'bbbbbbbbb/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'bbbbbbbbb', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (19, 'aaaaaaaaaa/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'aaaaaaaaaa', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (18, 'bzxcb/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'bzxcb', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (12, '', '2012-03-11', '2012-03-12', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123', '123123', '--จังหวัด--', '123123', 1, '12312', NULL, NULL, '123123', 12, 12, '1231111111111111111', '11111111111111', '111111111111111', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', 'abc');
-INSERT INTO `events` VALUES (17, 'bzxcb/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'bzxcb', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (14, '', '2012-03-11', '2012-03-12', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123', '123123', '--จังหวัด--', '123123', 1, '12312', NULL, NULL, '123123', 12, 11, '1231111111111111111', '11111111111111', '111111111111111', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', 'งานอาสาทั่วไป, ศาสนาและปฏิบัติธรรม, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, ผู้สูงอายุและครอบครัว, ผู้พิการ, ');
-INSERT INTO `events` VALUES (15, '', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdasd', '2012-03-11T10:00:00', 'นครนายก', '2012-03-11T10:00:00', 1, '123123', NULL, NULL, '1231231', 123, 15, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', 'สิ่งแวดล้อมและการเกษตร, ประสานงานและบริหารจัดการ, ผู้พิการ, กฎหมาย, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (16, '', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '16', '2012-03-11T10:00:00', 1, '12312', NULL, NULL, '124', 12, 4, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , , , ประสานงานและบริหารจัดการ, , สตรี, , ผู้พิการ, , , , , , , ');
-INSERT INTO `events` VALUES (22, 'ddddddd/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'ddddddd', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (23, 'eeeeeeee/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'eeeeeeee', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (24, 'fffffffff/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'fffffffff', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (25, 'gggggggggg/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 0, 'gggggggggg', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (26, 'hhhhhhhhhhh/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'hhhhhhhhhhh', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (27, 'iiiiiiiiiiiiii/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'iiiiiiiiiiiiii', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (28, 'jjjjjjjjj/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 0, 'jjjjjjjjj', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (29, 'kkkkkkkkkk/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 1, 'kkkkkkkkkk', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (30, 'lllllllllllll/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '0', '123213123', 0, 'lllllllllllll', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (31, 'nnnnnnnnnnnn/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'nnnnnnnnnnnn', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (32, 'oooooooooooo/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'oooooooooooo', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (33, 'pppppppppppp/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'pppppppppppp', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', กู้ภัยและฟื้นฟูจากภัยพิบัติ, , ศาสนาและปฏิบัติธรรม, , อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , , , , ');
-INSERT INTO `events` VALUES (34, 'qqqqqqqqqqq/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'qqqqqqqqqqq', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , , , , , , , , , , , , , การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (35, 'sssssssss/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'sssssssss', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , , , , , , , , , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (36, 'ttttttttttt/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'ttttttttttt', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , , , , , , , , , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (37, 'uuuuuuuuuu/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 1, 'uuuuuuuuuu', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , , , , , สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (38, 'vvvvvvvv/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'vvvvvvvv', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , , , , , สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (39, 'wwwwwwwwww/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'wwwwwwwwww', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (40, 'xxxxxxxxxxx/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'xxxxxxxxxxx', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , กฎหมาย, , , ');
-INSERT INTO `events` VALUES (41, 'yyyyyyyyy/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'yyyyyyyyy', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , , , , สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , กฎหมาย, , , ');
-INSERT INTO `events` VALUES (42, 'zzzzzzzzzzzz/xczxcbz//2012-03-11T10:00:00/123123123', '2012-03-11', '2012-03-11', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, '123123123', '123123', '1', '123213123', 0, 'zzzzzzzzzzzz', NULL, NULL, 'xczxcbz', 1231, 0, '2012-03-11T10:00:00', '2012-03-11T10:00:00', '2012-03-11T10:00:00', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 00:49:44', ', , , ศาสนาและปฏิบัติธรรม, , , สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, , , สตรี, , , , , , กฎหมาย, , , ');
-INSERT INTO `events` VALUES (43, 'xvzxcvzxcvzxcv/zxcvzxcv//  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;/adsfasdfasdf', '2012-03-11', '2012-03-12', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'adsfasdfasdf', 'asdfasdfasdf', '1', 'asdfasdfasfdasdfasdfsf', 1, 'xvzxcvzxcvzxcv', NULL, NULL, 'zxcvzxcv', 33, 0, '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 01:41:10', ', งานอาสาทั่วไป, , หัตถกรรมและงานฝีมือ, , , , สิ่งแวดล้อมและการเกษตร, , , เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, , , , , กฎหมาย, สุขภาพและสาธารณสุข, , ');
-INSERT INTO `events` VALUES (44, 'xvzxcvzxcvzxcv/zxcvzxcv//  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;/adsfasdfasdf', '2012-03-11', '2012-03-12', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'adsfasdfasdf', 'asdfasdfasdf', '1', 'asdfasdfasfdasdfasdfsf', 1, 'xvzxcvzxcvzxcv', NULL, NULL, 'zxcvzxcv', 33, 0, '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 01:46:46', ', งานอาสาทั่วไป, , หัตถกรรมและงานฝีมือ, , , , สิ่งแวดล้อมและการเกษตร, , , เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, , , , , กฎหมาย, สุขภาพและสาธารณสุข, , ');
-INSERT INTO `events` VALUES (45, 'xxxxxxx/zxcvzxcv//  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;/adsfasdfasdf', '2012-03-11', '2012-03-12', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'adsfasdfasdf', 'asdfasdfasdf', '1', 'asdfasdfasfdasdfasdfsf', 1, 'xxxxxxx', NULL, NULL, 'zxcvzxcv', 33, 0, '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 01:48:27', ', งานอาสาทั่วไป, , หัตถกรรมและงานฝีมือ, , , , สิ่งแวดล้อมและการเกษตร, , , เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, , , , , กฎหมาย, สุขภาพและสาธารณสุข, , ');
-INSERT INTO `events` VALUES (46, 'xxxxxxx/zxcvzxcv//  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;/adsfasdfasdf', '2012-03-11', '2012-03-12', '2012-03-11', '2012-03-11', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'adsfasdfasdf', 'asdfasdfasdf', '1', 'asdfasdfasfdasdfasdfsf', 1, 'xxxxxxx', NULL, NULL, 'zxcvzxcv', 33, 0, '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', '  &lt;div id=&quot;main&quot; role=&quot;main&quot;&gt;\n		&lt;div id=&quot;sitemap&quot;&gt;\n			&lt;li&gt;หน้าแรก&lt;/li&gt;\n			&lt;li&gt;ธนาคารจิตอาสา&lt;/li&gt;\n			&lt;li&gt;สร้างงานอาสาใหม่&lt;/li&gt;\n		&lt;/div&gt;\n		&lt;ul&gt;&lt;li&gt;สมัครสมาชิก&lt;/li&gt;&lt;li&gt;เข้าสู่ระบบ&lt;/li&gt;&lt;/ul&gt;\n		\n		&lt;div id=&quot;content&quot;&gt;\n			&lt;h2&gt;ขณะนี้งานอาสาของคุณได้ขึ้นเวบไซต์เรียบร้อยแล้ว คุณสามารถดูงานอาสาของคุณได้ &lt;a href=&quot;&quot;&gt;ที่นี่&lt;/a&gt;&lt;/h2&gt;\n			&lt;h3&gt;หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ &lt;span style=&quot;color:#a90402;text-decoration:underline;&quot;&gt;และอย่าลืม&lt;/span&gt; เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย&lt;/h3&gt;\n		&lt;/div&gt;\n		\n  &lt;/div&gt;', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-08 01:52:11', ', งานอาสาทั่วไป, , หัตถกรรมและงานฝีมือ, , , , สิ่งแวดล้อมและการเกษตร, , , เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, , , , , กฎหมาย, สุขภาพและสาธารณสุข, , ');
-INSERT INTO `events` VALUES (47, 'asdf/asdf//sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf/sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', '1', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 1, 'asdf', NULL, NULL, 'asdf', 123, 0, 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 0, '', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-09 17:52:23', ', , , , , , , , , , , , , , , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, , , , , , , , ');
-INSERT INTO `events` VALUES (48, 'asdf/asdf//sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf/sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', '1', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 1, 'asdf', NULL, NULL, 'asdf', 123, 0, 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 0, '', NULL, '', '', '', ', , , , , , , , , , , , , , , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, , ', NULL, NULL, NULL, NULL, '2012-06-09 17:53:30', ', , , , , , , , , , , , , , , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (49, 'asdf/asdf//sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf/sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', '1', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 1, 'asdf', NULL, NULL, 'asdf', 123, 0, 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 'sdfsfddsfsdfsfddsfsdfsfddsfsdfsfddsf', 0, '', NULL, '', '', '', 'จันทร์, , , พฤหัสบดี, , , , ', NULL, NULL, NULL, NULL, '2012-06-09 17:54:23', ', , , , , , , , , , , , , , , , , , สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (50, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '1', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 123, 0, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, 'ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, , ช่างปูน, ', 'อังคาร, พุธ, ศุกร์, เสาร์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:16:10', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (51, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '1', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 123, 0, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, 'ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, , ช่างปูน, ', 'อังคาร, พุธ, ศุกร์, เสาร์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:19:16', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (52, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '1', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 123, 0, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, 'ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, , ช่างปูน, ', 'อังคาร, พุธ, ศุกร์, เสาร์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:19:43', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (53, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '1', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 123, 0, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, 'ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, , ช่างปูน, ', 'อังคาร, พุธ, ศุกร์, เสาร์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:23:19', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (54, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '0', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 32, 0, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 0, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, '', '', '', 'อังคาร, พุธ, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:27:59', 'ไอที_และคอมพิวเตอร์กราฟฟิค, สุนัข_แมว_และสัตว์เลี้ยง, ');
-INSERT INTO `events` VALUES (55, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '0', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 32, 0, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 0, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', NULL, 'การขับขี่พาหนะ_(จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, , ช่างประปา, , ช่างปูน, ', 'อังคาร, พุธ, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:28:42', 'ไอที_และคอมพิวเตอร์กราฟฟิค, สุนัข_แมว_และสัตว์เลี้ยง, ');
-INSERT INTO `events` VALUES (56, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 232, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, , ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:36:44', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (57, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 232, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:39:40', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (58, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 232, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:41:13', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (59, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 232, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:46:27', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (60, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 232, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:46:30', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (61, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 232, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:46:56', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (62, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 232, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:47:52', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (63, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 232, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:48:00', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (64, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'ว่ายน้ำ, ', 'จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'จันทร์, อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:49:08', 'กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (65, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, '', 'เยอรมัน, ญี่ปุ่น, ', 'ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'อังคาร, พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:49:12', 'หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (66, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, '', 'ญี่ปุ่น, ', 'ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:49:18', 'ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (67, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, '', 'ญี่ปุ่น, ', 'ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:52:12', 'ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (68, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, '', 'ญี่ปุ่น, ', 'ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', 'พฤหัสบดี, ศุกร์, เสาร์, อาทิตย์, ', NULL, NULL, NULL, NULL, '2012-06-09 18:55:43', 'ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (69, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-09 18:57:19', 'สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (70, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, '', '', '', '', NULL, NULL, NULL, NULL, '2012-06-09 18:57:34', 'ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (71, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd//asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', 3, NULL, 'asdfadsfasd', 'asdfadsfasd', '0', 'asdfadsfasd', 1, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, NULL, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 34, 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', 0, 'asdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasdasdfadsfasd', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'อังกฤษ, จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างอิเล็กทรอนิคส์, ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', '', NULL, NULL, NULL, NULL, '2012-06-09 18:58:51', 'ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (72, 'ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน/ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน//ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน/asdfadsfasd', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '00:00:00', '24:00:00', '00:00:00', '24:00:00', 3, NULL, 'asdfadsfasd', 'ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน', '1', 'ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน', 1, 'ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน', NULL, NULL, 'ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน', 123, 48, 'ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน', 'ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน', 'ชื่องานอาสา ตย.อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน', 0, '', NULL, 'ว่ายน้ำ, ', 'จีน, เยอรมัน, ญี่ปุ่น, ', 'ช่างโลหะ, ช่างไฟฟ้า, ช่างประปา, ช่างไม้ ช่างสี, ช่างปูน, ', '', NULL, NULL, NULL, NULL, '2012-06-10 19:56:56', 'กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
+INSERT INTO `events` VALUES (1, 'สร้างงานอาสาใหม่/ในโครงการ//รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา /สถานที่', '2012-06-03', '2012-06-13', '2012-06-03', '2012-06-30', '00:00:00', '23:59:59', '00:00:00', '23:59:59', 3, NULL, 'สถานที่', 'สถานที่', '1', '10000', 1, 'สร้างงานอาสาใหม่', NULL, NULL, 'ในโครงการ', 423, 672, 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 0, '', '4feb56e804234Thai_Health.jpg', '', '', '', '', '2012-06-28 01:54:33', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `helps`
+-- Table structure for table `helps`
 -- 
 
 CREATE TABLE `helps` (
@@ -219,7 +154,7 @@ CREATE TABLE `helps` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- 
--- dump ตาราง `helps`
+-- Dumping data for table `helps`
 -- 
 
 INSERT INTO `helps` VALUES (1, 'ไม่ทราบว่าอยากบริจาคเงินกับทางเว็บไซต์ต้องทำอย่างไร ?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2012-06-05 12:18:10');
@@ -227,7 +162,30 @@ INSERT INTO `helps` VALUES (1, 'ไม่ทราบว่าอยากบร
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `inboxes`
+-- Table structure for table `images`
+-- 
+
+CREATE TABLE `images` (
+  `image_id` int(11) NOT NULL auto_increment,
+  `event_id` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `image` mediumtext NOT NULL,
+  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`image_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- Dumping data for table `images`
+-- 
+
+INSERT INTO `images` VALUES (1, 1, 'เขียนคำบรรยายที่นี่', '4feb59d36ea9820090817000711-XA9VN.jpg', '2012-06-28 02:06:59');
+INSERT INTO `images` VALUES (2, 1, 'เขียนคำบรรยายที่นี่', '4feb59d9946ddc98232.jpg', '2012-06-28 02:07:05');
+INSERT INTO `images` VALUES (3, 1, 'เขียนคำบรรยายที่นี่', '4feb59df325bdiq08d9bff91fe369a9c8d69c0186092bb7.jpg', '2012-06-28 02:07:11');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `inboxes`
 -- 
 
 CREATE TABLE `inboxes` (
@@ -244,7 +202,7 @@ CREATE TABLE `inboxes` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 -- 
--- dump ตาราง `inboxes`
+-- Dumping data for table `inboxes`
 -- 
 
 INSERT INTO `inboxes` VALUES (1, 0, 3, 1, 0, 'ทดสอบ1', 'messageสำหรับทดสอบ1', 0, '2012-06-11 10:03:47');
@@ -254,7 +212,7 @@ INSERT INTO `inboxes` VALUES (3, 0, 3, 1, 0, 'ทดสอ3', 'messageสำห�
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `locations`
+-- Table structure for table `locations`
 -- 
 
 CREATE TABLE `locations` (
@@ -268,7 +226,7 @@ CREATE TABLE `locations` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 -- 
--- dump ตาราง `locations`
+-- Dumping data for table `locations`
 -- 
 
 INSERT INTO `locations` VALUES (1, 'กรุงเทพ', NULL, NULL, NULL, '2011-11-17 20:42:34');
@@ -279,7 +237,7 @@ INSERT INTO `locations` VALUES (4, 'ภูเก็ต', NULL, NULL, NULL, '2011
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `news`
+-- Table structure for table `news`
 -- 
 
 CREATE TABLE `news` (
@@ -293,7 +251,7 @@ CREATE TABLE `news` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- 
--- dump ตาราง `news`
+-- Dumping data for table `news`
 -- 
 
 INSERT INTO `news` VALUES (1, 'ข่าวล่ามาไว', 'เย้ๆๆๆๆๆๆๆๆๆๆๆ', '', '', '2012-06-17 19:24:41');
@@ -301,7 +259,7 @@ INSERT INTO `news` VALUES (1, 'ข่าวล่ามาไว', 'เย้ๆ
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `occupations`
+-- Table structure for table `occupations`
 -- 
 
 CREATE TABLE `occupations` (
@@ -310,10 +268,10 @@ CREATE TABLE `occupations` (
   `description` mediumtext collate utf8_unicode_ci,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
 
 -- 
--- dump ตาราง `occupations`
+-- Dumping data for table `occupations`
 -- 
 
 INSERT INTO `occupations` VALUES (1, 'งานอาสาทั่วไป', NULL, '2012-06-22 20:21:11');
@@ -336,11 +294,10 @@ INSERT INTO `occupations` VALUES (17, 'ผู้พิการ', NULL, '2012-06
 INSERT INTO `occupations` VALUES (18, 'ผู้สูงอายุและครอบครัว', NULL, '2012-06-22 20:23:33');
 INSERT INTO `occupations` VALUES (19, 'สุนัข แมว และสัตว์เลี้ยง', NULL, '2012-06-22 20:23:42');
 
-
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `organizations`
+-- Table structure for table `organizations`
 -- 
 
 CREATE TABLE `organizations` (
@@ -369,17 +326,15 @@ CREATE TABLE `organizations` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 -- 
--- dump ตาราง `organizations`
+-- Dumping data for table `organizations`
 -- 
 
-INSERT INTO `organizations` VALUES (1, '', 3, 1, 1, 1, 'new company', 'new company', 'new company', 'new company', '', '', '', '', '', '', '', '', 'http://zanroo.com', NULL, '2011-11-15 21:35:05');
-INSERT INTO `organizations` VALUES (2, '', 8, 1, 1, 1, 'com3com2', 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', 'asdfasdfasdf', 'asdfasdfasdf', '', '', '', '', '', '', '', '', '', NULL, '2011-11-18 14:40:55');
 INSERT INTO `organizations` VALUES (3, '', 2, 0, 1, 0, 'ชื่ออออออออออออ', 'ดดดดดดดดดดดดดดดดวัตถุประสงค์', 'ลักษณะ', 'ที่อยู่', 'เขต', 'จังหวัด', 'ไปรษณีย์', 'บ้าน', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.orgg', '4ec7092217c96thai.png', '2012-06-11 09:48:35');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `skills`
+-- Table structure for table `skills`
 -- 
 
 CREATE TABLE `skills` (
@@ -392,7 +347,7 @@ CREATE TABLE `skills` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20806 ;
 
 -- 
--- dump ตาราง `skills`
+-- Dumping data for table `skills`
 -- 
 
 INSERT INTO `skills` VALUES (10000, 'ความสามารถพิเศษ', 'Special Skill', 0, '2012-06-11 13:07:15');
@@ -476,7 +431,7 @@ INSERT INTO `skills` VALUES (20805, 'วนศาสตร์', '', 0, '2012-06-
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users`
+-- Table structure for table `users`
 -- 
 
 CREATE TABLE `users` (
@@ -502,16 +457,16 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- 
--- dump ตาราง `users`
+-- Dumping data for table `users`
 -- 
 
-INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', '', 0, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 21:35:10', '', '');
-INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', 'org nakrub', '', 1, '', '', '0000-00-00', '', '', '', '', '', '2012-06-10 22:50:44', '', '');
+INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', 'nickname', 0, 'first_name', 'last_name', '2012-06-13', '', '', '4feb58e974ea1volunteer-hands.jpg', '', '', '2012-06-28 02:03:05', '', '');
+INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', 'org nakrub', 'org ่ฟ', 1, 'organization', 'lnwlnw', '2012-06-28', '', '', '', '', '', '2012-06-28 01:58:29', '', '');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users_events`
+-- Table structure for table `users_events`
 -- 
 
 CREATE TABLE `users_events` (
@@ -523,16 +478,17 @@ CREATE TABLE `users_events` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- dump ตาราง `users_events`
+-- Dumping data for table `users_events`
 -- 
 
 INSERT INTO `users_events` VALUES (3, 8, 2, '2011-11-22 22:22:24');
 INSERT INTO `users_events` VALUES (0, 0, 3, '2011-11-22 22:12:22');
+INSERT INTO `users_events` VALUES (1, 1, 0, '2012-06-28 02:03:39');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users_locations`
+-- Table structure for table `users_locations`
 -- 
 
 CREATE TABLE `users_locations` (
@@ -543,14 +499,14 @@ CREATE TABLE `users_locations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- dump ตาราง `users_locations`
+-- Dumping data for table `users_locations`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users_occupations`
+-- Table structure for table `users_occupations`
 -- 
 
 CREATE TABLE `users_occupations` (
@@ -561,14 +517,14 @@ CREATE TABLE `users_occupations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- dump ตาราง `users_occupations`
+-- Dumping data for table `users_occupations`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users_skills`
+-- Table structure for table `users_skills`
 -- 
 
 CREATE TABLE `users_skills` (
@@ -581,14 +537,14 @@ CREATE TABLE `users_skills` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- dump ตาราง `users_skills`
+-- Dumping data for table `users_skills`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `user_timebanks`
+-- Table structure for table `user_timebanks`
 -- 
 
 CREATE TABLE `user_timebanks` (
@@ -601,7 +557,7 @@ CREATE TABLE `user_timebanks` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- 
--- dump ตาราง `user_timebanks`
+-- Dumping data for table `user_timebanks`
 -- 
 
 INSERT INTO `user_timebanks` VALUES (1, 8, 1, 12, '2011-11-22 23:16:47');
