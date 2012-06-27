@@ -14,6 +14,7 @@ class Model_Event extends ORM {
 	protected $_has_many = array(
 		'users'		=> array('model' => 'user', 'through' => 'users_events'),
 		'comments'	=> array('model' => 'comment'),
+		'images'	=> array('model' => 'image'),
 	);
 
 	public function rules()
@@ -105,21 +106,9 @@ class Model_Event extends ORM {
                 array('not_empty'),
             ),
 			*/
-            'pic_1' => array(
-                array(array($this, 'check_upload'), array('pic_1', ':value')),
-            ),
-            'pic_2' => array(
-                array(array($this, 'check_upload'), array('pic_2', ':value')),
-            ),
-            'pic_3' => array(
-                array(array($this, 'check_upload'), array('pic_3', ':value')),
-            ),
-            'pic_4' => array(
-                array(array($this, 'check_upload'), array('pic_4', ':value')),
-            ),
-            'pic_5' => array(
-                array(array($this, 'check_upload'), array('pic_5', ':value')),
-            ),
+            'image' => array(
+                array(array($this, 'check_upload'), array('image', ':value')),
+            )
         );
     }
 
@@ -173,10 +162,10 @@ class Model_Event extends ORM {
 	
 	public function upload($filename)
     {
-        $picture = Upload::save($_FILES[$filename]);
+        $picture = Upload::save($_FILES[$filename], NULL, Upload::$default_directory.'\events' );
 		// Resize, sharpen, and save the image
 		Image::factory($picture)
-			->resize(100, 100, Image::INVERSE)
+			->resize(460, NULL)
 			->save();
 		$this->$filename = basename($picture);
     }	

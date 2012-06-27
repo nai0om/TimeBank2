@@ -102,8 +102,13 @@ class Controller_Event extends Controller_Template {
         $this->template->content = View::factory('event/view')
             ->bind('event', $event)
             ->bind('event_status', $event_status)
-            ->bind('mode', $mode);
+            ->bind('mode', $mode)
+			->bind('isAdmin', $isAdmin);
 		
+		if (! is_null($this->orguser))
+		{
+			$isAdmin = true;
+		}
 		$event = ORM::factory('event', $this->request->param('id'));
 
 		if (!$event->loaded())
@@ -128,6 +133,64 @@ class Controller_Event extends Controller_Template {
 		$this->template->content = $this->search_even('event/search');	
 	}
 	
+	public function action_removeimage()
+	{
+		$this->auto_render = false;
+		
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			$event = ORM::factory('event', $this->request->param('id'));			
+			if (!$event->loaded())
+			{
+				throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+			}
+			
+			if($this->orguser->id != $event->organization_id) 
+			{
+				throw new Kohana_Exception('Not allow to remove image', array(':code' => '550'));
+			}
+			
+			$images = $event->images->where('image', '=', Arr::get($_GET, 'image'))->find();
+			$images->delete();
+		
+			
+			// Redirect to event view
+			//Request::current()->redirect('event/view/'.$event->id.'?mode=3');
+		}
+	}
+	
+	public function action_addimage()
+	{
+		$this->auto_render = false;
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$event = ORM::factory('event', $this->request->param('id'));
+			
+			if (!$event->loaded())
+			{
+				throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+			}
+			$image = ORM::factory('image');
+			$image->event = $event;
+			$image->description  =  Arr::get($_POST, 'text');
+			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
+			{
+				$image->image = $_FILES['image']['name'];
+			}
+			try
+			{
+				$image->save();
+                 				
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+            }
+			// Redirect to event view
+			Request::current()->redirect('event/view/'.$event->id.'?mode=3');
+		}
+	}
 	public function action_addcomment()
 	{
 		$this->auto_render = false;
@@ -148,10 +211,14 @@ class Controller_Event extends Controller_Template {
 			$comment->ip = Request::$client_ip;
 			
 			// If this is logged in user, stamp user_id
-			$user = Auth::instance()->get_user();
-			if ($user)
+	
+			if (isset($this->user))
 			{
-				$comment->user = $user;
+				$comment->user = $this->user;
+			}
+			else if (isset($this->orguser))
+			{
+				$comment->user = $this->orguser;
 			}
 			
 			try
@@ -421,28 +488,11 @@ class Controller_Event extends Controller_Template {
 				
 			$event->organization = $orguser;
 			
-			if (isset($_FILES['pic_1']['name']) && $_FILES['pic_1']['name'] != '')
+			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
 			{
-				$event->pic_1 = 'pic_1';
+				$event->image = $_FILES['image']['name'];
 			}
-			/*
-			if (isset($_FILES['pic_2']['name']) && $_FILES['pic_2']['name'] != '')
-			{
-				$event->pic_2 = 'pic_2';
-			}
-			if (isset($_FILES['pic_3']['name']) && $_FILES['pic_3']['name'] != '')
-			{
-				$event->pic_3 = 'pic_3';
-			}
-			if (isset($_FILES['pic_4']['name']) && $_FILES['pic_4']['name'] != '')
-			{
-				$event->pic_4 = 'pic_4';
-			}
-			if (isset($_FILES['pic_5']['name']) && $_FILES['pic_5']['name'] != '')
-			{
-				$event->pic_5 = 'pic_5';
-			}
-			*/
+	
 			
 			try
 			{

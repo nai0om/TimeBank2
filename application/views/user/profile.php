@@ -21,7 +21,7 @@
 		<div style="clear:both"></div>
         
         <? if ($user->profile_image) : ?>
-        	<p><img src="<?= url::base().'media/upload/'.$user->profile_image; ?>" /></p>
+        	<p><img src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" /></p>
          <? else :?>
          	<p><img src="<?= url::base().'media/img/member.png'; ?>" /></p>
          <? endif ?>

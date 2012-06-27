@@ -1,3 +1,8 @@
+<?
+$memebers = $event->users->find_all();
+$member_count = $memebers->count();
+?>
+
 <?php if ($mode == 2): ?>
 <div id="tb_browse_detail" class="members">
 <? elseif ($mode == 3): ?>    
@@ -45,11 +50,11 @@
 		<div>
       
 			<ul id="member">
-            <?php foreach( $event->users->find_all() as $user): ?>
+            <?php foreach( $memebers as $user): ?>
               	<?php if ($user->profile_image == '') : ?>
 					<li><img src="<?= url::base(); ?>media/img/sample_member_01.png">
                 <?php else :?>
-                	<li><img src="<?= url::base(); ?>media/img/<?= $user->profile_image;?>">
+                	<li><img src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" />
                 <?php endif?>
                 <div class="username"><?= $user->nickname ?></div>
                 <div class="name"><?= $user->first_name ?> <?= $user->last_name ?></div>
@@ -67,18 +72,34 @@
 		</div>
 	<? elseif ($mode == 3): ?>
 		<div>
+        <? if (! $isAdmin) : ?>
 			<ul id="album">
-				<li class="first"><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
-				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
-				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="open"></div></li>
-				<li class="first"><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
-				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
-				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
-				<li class="first"><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
-				<li><img src="<?= url::base(); ?>media/img/tb_photos.png"><div class="close">close X</div></li>
-				<li class="add"><div><form><input type="text" value="เขียนคำบรรยายที่นี่"><input type="submit" value="OK"></form></div>
-				<img src="<?= url::base(); ?>media/img/tb_photos_add.png"></li>
+            	<? foreach ($event->images->find_all() as $image) :?>
+  			      <li>  <img  style=" max-width:257px; max-height:203px;"src="<?= url::base().'media/upload/events/'.$image->image; ?>"> </li>
+                <? endforeach ?>
 			</ul>
+         <? else :?>
+             <ul id="album">
+			 	<? foreach ($event->images->find_all() as $image) :?>
+                    <li>
+                        <img  style=" max-width:257px; max-height:203px;"src="<?= url::base().'media/upload/events/'.$image->image; ?>">
+                        <div onclick="window.location = '<?= url::base().'event/removeimage/'.$event->id.'?image='.$image->image; ?>';" class="close">close X</div>
+                    </li>
+                <? endforeach ?>
+              </ul>
+			  <div class="add">
+                    <div>
+                         <?php 
+                           echo Form::open('event/addimage/'.$event->id, array ('id' => 'search', 'enctype' => 'multipart/form-data')); 
+                           echo Form::input('text', 'เขียนคำบรรยายที่นี่'); 
+                           echo Form::file('image');
+	       				   echo Form::submit(NULL, 'OK'); 
+						  // echo '<input type="file" >'.'<img src="'.url::base().'media/img/tb_photos_add.png"/>'.'</input>';
+                           echo Form::close();
+                        ?> 
+                      </div>
+                 </div> 
+         <? endif ?>
 			<img src="<?= url::base(); ?>media/img/tb_line_form.png">
 				<ul id="pagination">
 					<li>Page 1</li>
@@ -92,12 +113,24 @@
 		
 		<h2>หลังจากที่ไปร่วมกิจกรรมกันมาแล้วเพื่อนๆ สามารถ พูดคุยกัน ได้ที่นี่นะคะ</h2>
 		<h4 class="title">ฝากคอมเม้นต์</h4>
-		<form id="post_comment">
-			<textarea></textarea><input type="submit" value="โพส">
-			<div style="border:0;"><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-			<div><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-			<a class="long">แสดงทั้งหมด</a>
-			</form>
+		<?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
+            <?= Form::textarea('comment'); ?>
+            <?= Form::submit(NULL, 'โพส'); ?>
+            <? foreach( $event->comments->limit(2)->order_by('timestamp','desc')->find_all() as $comment) : ?>
+            	<div>
+					<? if ($comment->user->profile_image == '') : ?>
+                        <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
+                    <? else :?>
+                    	 <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+                    <? endif ?>
+                <?= $comment->comment ?>
+                </div>
+            <? endforeach ?>
+    
+            <a href="" class="long">แสดงทั้งหมด</a>			 
+            <?= Form::close(); ?>
+
+            
 		</div>
     <? else: ?>
 		<div id="post">
@@ -105,19 +138,19 @@
 			<a>ดูภาพกิจกรรม</a><form style="float:right;"><input type="text" value="เขียนคำขอบคุณที่นี่"><input type="submit" value="ส่ง"/><input type="submit" value="แก้ไข"/></form>
 		</div>
 		
-		<img src="<?= url::base(); ?>media/img/tb_detail_sampel.png" style="float:left;">
+		<img src="<?= url::base().'media/upload/events/'.$event->image ?>" style="float:left;">
 		<div class="sub">
 			<h3><?= $event->time_cost ?> ชั่วโมง</h3>
 			<h4>ต้องการจากอาสา</h4>
 		</div>
 		<div class="sub">
-			<h3>400 ชั่วโมง</h3>
+			<h3><?= $member_count*$event->time_cost  ?> ชั่วโมง</h3>
 			<h4>รวมเวลาที่ได้ทั้งหมด</h4>
 		</div>
 		<div class="main">
 			<h2>จำนวนอาสาสมัครที่ต้องการ</h2>
 			<h3><?= $event->volunteer_need_count ?> คน</h3>
-			<h4>สมัครแล้ว 45 คน เหลืออีก 5 คน</h4>
+			<h4>สมัครแล้ว <?= $member_count ?> คน เหลืออีก <?= abs($event->volunteer_need_count - $member_count) ?> คน</h4>
 		</div>
 		<div style="clear:both"></div>
 		
@@ -177,17 +210,28 @@
 
 			
 			<h4 class="title">ฝากคอมเม้นต์</h4>
-			<form id="post_comment">
-				<textarea></textarea><input type="submit" value="โพส">
-          
-                <? foreach( $event->comments->limit(2)->find_all() as $comment) : ?>
-				<div><img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;"><?= $comment->comment ?></div>
-                <? endforeach ?>
-				<a href="" class="long">แสดงทั้งหมด</a>
-			</form>
+            
+			<?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
+            <?= Form::textarea('comment'); ?>
+            <?= Form::submit(NULL, 'โพส'); ?>
+            <? foreach( $event->comments->limit(2)->order_by('timestamp','desc')->find_all() as $comment) : ?>
+            	<div>
+					<? if ($comment->user->profile_image == '') : ?>
+                        <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
+                    <? else :?>
+                    	 <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+                    <? endif ?>
+                <?= $comment->comment ?>
+                </div>
+            <? endforeach ?>
+    
+            <a href="" class="long">แสดงทั้งหมด</a>			 
+            <?= Form::close(); ?>
+
 		</div>
-		
+		<? if (! $isAdmin) : ?>
 		<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('event/apply/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
+        <? endif ?>
     <? endif ?>
 		
   </div>

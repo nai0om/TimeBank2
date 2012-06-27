@@ -240,12 +240,12 @@ $times['23:59:59'] = '23:59';
     </fieldset>
     <fieldset>
         <legend>รูปภาพงานอาสา</legend>
-        <?php if ($event->pic_1 != ''): ?>
-        	<img src="<?= url::base().'media/upload/events/'.$event->pic_1; ?>" />
+        <?php if ($event->image != ''): ?>
+        	<img src="<?= url::base().'media/upload/events/'.$event->image; ?>" />
         <? endif ?>
-		<?= Form::file('pic_1') ?>
+		<?= Form::file('image') ?>
         <div class="error">
-            <font color="red"><?= Arr::get($errors, 'pic_1'); ?></font>
+            <font color="red"><?= Arr::get($errors, 'image'); ?></font>
         </div>
     </fieldset>
 
