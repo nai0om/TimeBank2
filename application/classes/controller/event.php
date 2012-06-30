@@ -125,12 +125,12 @@ class Controller_Event extends Controller_Template {
 	
 	public function action_advance_search()
 	{
-        $this->template->content =$this->search_even('event/advanced_search');
+        $this->template->content =$this->search_event('event/advanced_search');
 	}
 	
 	public function action_search()
 	{
-		$this->template->content = $this->search_even('event/search');	
+		$this->template->content = $this->search_event('event/search');	
 	}
 	
 	public function action_removeimage()
@@ -150,12 +150,13 @@ class Controller_Event extends Controller_Template {
 				throw new Kohana_Exception('Not allow to remove image', array(':code' => '550'));
 			}
 			
-			$images = $event->images->where('image', '=', Arr::get($_GET, 'image'))->find();
-			$images->delete();
-		
+			//$images = $event->images->where('image', '=', Arr::get($_GET, 'image'))->find();
+			$image = ORM::factory('image', array('image' => Arr::get($_GET, 'image')));			
+			unlink(DOCROOT.'media/upload/events/'.$image->image);
+			$image->delete();
 			
 			// Redirect to event view
-			//Request::current()->redirect('event/view/'.$event->id.'?mode=3');
+			Request::current()->redirect('event/view/'.$event->id.'?mode=3');
 		}
 	}
 	
@@ -289,7 +290,7 @@ class Controller_Event extends Controller_Template {
 		}
 	}
 	
-	private function search_even( $view)
+	private function search_event( $view)
 	{
 		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 		$provinces = Kohana::$config->load('timebank')->get('provices');
