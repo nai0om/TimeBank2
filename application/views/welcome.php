@@ -1,4 +1,4 @@
-<div id="home">
+﻿<div id="home">
   <div id="main" role="main">
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div id="banner"><img src="<?= url::base(); ?>media/img/banner.png" /></div>
@@ -47,7 +47,7 @@
 		</div>
 		
 		<blockquote>
-			<h2>สนใจเป็นอาสาสมัคร</h2>
+			<h2>สนใจเป็นอาสา</h2>
 			<p>Loremipsumonsectetueradipiscingelit, seddiamnonummynibheuismod. Loremipsumonsectetueradipiscingelit, seddiamnonummynibheuismod.</p>
 			<h3><span style="text-decoration:underline">ดูงานอาสา</span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline">สร้างโอกาสในการใช้เวลา</span></h3>
 		</blockquote>
