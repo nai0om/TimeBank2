@@ -1,4 +1,4 @@
-<div id="term">
+﻿<div id="term">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -7,20 +7,24 @@
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<h2>เงื่อนไขและข้อตกลง</h2>
-		<p><img src="img/sample_con.png" style="float:right;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br>
+		<p><img src="img/sample_con.png" style="float:right;">เว็บไซต์ของโครงการ “ธนาคารจิตอาสา” ภายใต้ชุดโครงการร่วมสร้างสังคมจิตอาสา เป็นโครงการเพื่อส่งเสริมอาสาสมัครที่เน้นการสื่อสารผ่านแนวคิดการลงทุนเวลาอาสาเพื่อสร้างสังคม 
+โดยเป็นสื่อกลางระหว่างประชาชนและองค์กรอาสาสมัคร เพื่อเปิดให้ทุกคนได้มีส่วนร่วมกับงานอาสาสมัคร ในทุกรูปแบบและทุกโอกาส <br><br>
 
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.<br><br>
+		เว็บไซต์นี้เปิดให้บริการแบบสาธารณะ และพยายามอย่างเต็มที่เพื่อนำเสนอข้อมูล ข่าวสาร บทความ หรือข้อความอื่นใดทั้งหมดให้ถูกต้องและเที่ยงตรงมากที่สุด แต่อย่างไรก็ตามธนาคารจิตอาสา ไม่สามารถรับประกัน รับรองความถูกต้อง และความสมบูรณ์ของเนื้อหาได้ทั้งหมด ทางธนาคารจิตอาสาไม่รับผิดชอบความเสียหายใดๆ ที่เกิดจากความผิดพลาดหรือความบกพร่องของข้อมูลบนเว็บไซต์นี้<br><br>
 
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br>
+		ผู้ใช้ที่สมัครเข้าร่วมกิจกรรมอาสา หรือการอบรม จะต้องศึกษารายละเอียด และข้อตกลง จากองค์กรที่จัดกิจกรรมหรือการอบรมนั้นๆ ทางธนาคารจิตอาสาไม่รับผิดชอบความเสียหายใดๆ ที่เกิดจากการเข้าร่วมกิจกรรมอาสาหรือการอบรมใดๆ ทั้งสิ้น<br><br>
 
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-		<p><img src="img/sample_con.png" style="float:left;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br>
+		</p>
+		<p><img src="img/sample_con.png" style="float:left;"><br><br>
 
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.<br><br>
+	<br><br>
+นโยบายลิขสิทธิ์
 
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br>
+สำหรับข้อมูลต่างๆ บน website และ mobile app
 
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+		<br><br><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="สัญญาอนุญาตของครีเอทีฟคอมมอนส์" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" rel="dct:type">ผลงาน</span>นี้ โดย <a xmlns:cc="http://creativecommons.org/ns#" href="www.JitArsaBank.com" property="cc:attributionName" rel="cc:attributionURL">ธนาคารจิตอาสา</a> ใช้<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">สัญญาอนุญาตของครีเอทีฟคอมมอนส์แบบ แสดงที่มา-ไม่ใช้เพื่อการค้า 3.0 ต้นฉบับ</a>.
+
+		</p>
 		
 		
   </div>

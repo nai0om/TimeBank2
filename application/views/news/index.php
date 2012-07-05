@@ -1,8 +1,8 @@
-<div id="training">
+﻿<div id="training">
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ข่าวสารอัพเดท</li>
+			<li>ข่าวสารเฮงๆ</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 

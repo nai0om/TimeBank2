@@ -1,7 +1,7 @@
 ﻿<div id="home">
   <div id="main" role="main">
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
-		<div id="banner"><img src="<?= url::base(); ?>media/img/banner.png" /></div>
+		<div id="banner"><img src="<?= url::base(); ?>media/img/banner_welcome.png" /></div>
 		
 		<div id="videoRotating">
 			<div id="carousel">
@@ -27,7 +27,7 @@
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
 					<h3>XXX ชม.</h3>
-					<p>จํานวนรวมเวลาที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>จํานวนเวลารวมที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
 				</div>
 						
 				<div id="slide02" class="slide">
@@ -48,7 +48,7 @@
 		
 		<blockquote>
 			<h2>สนใจเป็นอาสา</h2>
-			<p>Loremipsumonsectetueradipiscingelit, seddiamnonummynibheuismod. Loremipsumonsectetueradipiscingelit, seddiamnonummynibheuismod.</p>
+			<p>"มันไม่เร็วไปที่เราจะเริ่มต้นแบ่งปัน เพระว่าสักวัน มันอาจสายเกินไป"- Ralph Waldo Emerson</p>
 			<h3><span style="text-decoration:underline">ดูงานอาสา</span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline">สร้างโอกาสในการใช้เวลา</span></h3>
 		</blockquote>
 		
@@ -75,7 +75,7 @@
 			<a>[More...]</a></p>
 		</article>
 		<p align="center"><img src="<?= url::base(); ?>media/img/line_sponser.png"/>
-		<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner.png" /></p>
+		<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner2.png" /></p>
   </div>
 </div>
 

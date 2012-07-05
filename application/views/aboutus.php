@@ -47,7 +47,7 @@
 
 		<ol>
 			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png">
+				<img src="<?= url::base(); ?>media/img/about_website_1.jpg">
 				<div class="top"></div>
 				<div class="body">
 					<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
@@ -56,7 +56,7 @@
 				<p class="sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
 			</li>
 			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png">
+				<img src="<?= url::base(); ?>media/img/about_website_2.jpg">
 				<div class="top"></div>
 				<div class="body">
 					<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
@@ -65,7 +65,7 @@
 				<p class="sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
 			</li>
 			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png">
+				<img src="<?= url::base(); ?>media/img/about_website_3.jpg">
 				<div class="top"></div>
 				<div class="body">
 					<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>

@@ -1,4 +1,4 @@
-<div id="contact_us">
+﻿<div id="contact_us">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -6,15 +6,15 @@
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div style="clear:both"></div>
-		<h2>ติดต่อทีมงานอาสา</h2>
+		<h2>ติดต่อธนาคารจิตอาสา</h2>
 		<center><img src="<?= url::base(); ?>media/img/long_banner.png"></center>
 		
 		<div id="message">
-			<p style="color:#FB8911">Address</p>
-			<p>Lorem Ipsum is simply dummy</p> 
-			<p>text of the printing and typesetting industry.</p>
-			<p>Lorem Ipsum has been the industry's standard</p>
-			<p>dummy text ever since the 1500s,</p>
+			<p style="color:#FB8911">ที่อยู่</p>
+			<p>10 ซ.3 ถ.พหลโยธิน สามเสนใน พญาไท กรุมเทพฯ 10400</p> 
+			<p>อีเมล jitarsabank@gmail.com</p>
+			<p></p>
+			<p></p>
 		</div>
 		
 		<div id="leftSide">

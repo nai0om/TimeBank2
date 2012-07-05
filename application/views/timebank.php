@@ -40,7 +40,7 @@
 		
 		<blockquote>
 			<h2>สนใจเป็นอาสาสมัคร</h2>
-			<p>Loremi psumonsecte tueradipisci ngelit, seddiamn onummyni bheuismod. Loremipsum onsectetuerad ipiscingelit, seddiamnon ummynibheuismod.</p>
+			<p>เราไม่มีเวลาให้ทำอะไร ถ้าเราไม่ตั้งใจจะให้เวลา- Charles Robert Buxton</p>
 			<h3><span style="text-decoration:underline">ดูงานอาสา</span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline">สร้างโอกาสในการใช้เวลา</span></h3>
 		</blockquote>
 
