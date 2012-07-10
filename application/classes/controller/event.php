@@ -510,7 +510,7 @@ class Controller_Event extends Controller_Template {
                 // Set errors using custom messages
                 $errors = $e->errors('models');
 				
-				print_r($errors);
+				//print_r($errors);
             }
 		}		
 	}
