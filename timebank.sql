@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost
--- Generation Time: Jun 28, 2012 at 03:12 AM
+-- Generation Time: Jul 18, 2012 at 11:16 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6
 
@@ -131,13 +131,15 @@ CREATE TABLE `events` (
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `tags` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 -- 
 -- Dumping data for table `events`
 -- 
 
 INSERT INTO `events` VALUES (1, 'สร้างงานอาสาใหม่/ในโครงการ//รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา /สถานที่', '2012-06-03', '2012-06-13', '2012-06-03', '2012-06-30', '00:00:00', '23:59:59', '00:00:00', '23:59:59', 3, NULL, 'สถานที่', 'สถานที่', '1', '10000', 1, 'สร้างงานอาสาใหม่', NULL, NULL, 'ในโครงการ', 423, 672, 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 0, '', '4feb56e804234Thai_Health.jpg', '', '', '', '', '2012-06-28 01:54:33', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
+INSERT INTO `events` VALUES (2, 'asfasf/asfasfasf//aradasdasdad/fsdfsf', '2012-07-02', '2012-07-05', '2012-07-15', '2012-07-19', '00:00:00', '23:59:59', '00:00:00', '23:59:59', 3, NULL, 'fsdfsf', 'sdfsfsd', '4', 'fsdfsf', 1, 'asfasf', NULL, NULL, 'asfasfasf', 32, 120, 'aradasdasdad', 'afafafadgadgdagadg', 'agdagadgagadgag', 0, 'gsdfgdgdfg', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'เยอรมัน, ', '', '', '2012-07-16 22:31:05', 'กู้ภัยและฟื้นฟูจากภัยพิบัติ, อาหารและโภชนาการ, ');
+INSERT INTO `events` VALUES (3, 'xxxxxxxxx/xxxxxxx//asdfasfdasdfasdfaasdfsafd/dsfasd', '2012-07-09', '2012-07-27', '2012-07-01', '2012-07-21', '00:00:00', '23:59:59', '00:00:00', '23:59:59', 3, NULL, 'dsfasd', 'asdfasd', '1', 'fasdfsf', 1, 'xxxxxxxxx', NULL, NULL, 'xxxxxxx', 323, 504, 'asdfasfdasdfasdfaasdfsafd', 'asfdasdfsdfasfdasdfasfd', 'asdfasfdasfdasfdasfdafdasdfasfd', 0, '', NULL, ' 2405|2406|2701T=qweqw|2702T=eqweqw|2703T=eqweqwe|2801T=qweqew|2802T=qweqe|', '', '', '', '2012-07-18 22:01:02', '');
 
 -- --------------------------------------------------------
 
@@ -259,44 +261,6 @@ INSERT INTO `news` VALUES (1, 'ข่าวล่ามาไว', 'เย้ๆ
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `occupations`
--- 
-
-CREATE TABLE `occupations` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` mediumtext collate utf8_unicode_ci,
-  `description` mediumtext collate utf8_unicode_ci,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
-
--- 
--- Dumping data for table `occupations`
--- 
-
-INSERT INTO `occupations` VALUES (1, 'งานอาสาทั่วไป', NULL, '2012-06-22 20:21:11');
-INSERT INTO `occupations` VALUES (2, 'กู้ภัยและฟื้นฟูจากภัยพิบัติ', NULL, '2012-06-22 20:21:11');
-INSERT INTO `occupations` VALUES (3, 'ประสานงานและบริหารจัดการ', NULL, '2012-06-22 20:22:02');
-INSERT INTO `occupations` VALUES (4, 'ไอที และคอมพิวเตอร์กราฟฟิค', NULL, '2012-06-22 20:22:02');
-INSERT INTO `occupations` VALUES (5, 'สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด', NULL, '2012-06-22 20:22:19');
-INSERT INTO `occupations` VALUES (6, 'สุขภาพและสาธารณสุข', NULL, '2012-06-22 20:22:19');
-INSERT INTO `occupations` VALUES (7, 'ก่อสร้างและงานช่างเทคนิค', NULL, '2012-06-22 20:22:30');
-INSERT INTO `occupations` VALUES (8, 'กฎหมายและกระบวนการยุติธรรม', NULL, '2012-06-22 20:22:30');
-INSERT INTO `occupations` VALUES (9, 'การศึกษาและฝึกอบรม', NULL, '2012-06-22 20:22:42');
-INSERT INTO `occupations` VALUES (10, 'สิ่งแวดล้อมและการเกษตร', NULL, '2012-06-22 20:22:42');
-INSERT INTO `occupations` VALUES (11, 'ศาสนาและปฏิบัติธรรม', NULL, '2012-06-22 20:22:58');
-INSERT INTO `occupations` VALUES (12, 'หัตถกรรมและงานฝีมือ ', NULL, '2012-06-22 20:22:58');
-INSERT INTO `occupations` VALUES (13, 'ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ', NULL, '2012-06-22 20:23:12');
-INSERT INTO `occupations` VALUES (14, 'อาหารและโภชนาการ', NULL, '2012-06-22 20:23:12');
-INSERT INTO `occupations` VALUES (15, 'เด็กและเยาวชน', NULL, '2012-06-22 20:23:22');
-INSERT INTO `occupations` VALUES (16, 'สตรี', NULL, '2012-06-22 20:23:22');
-INSERT INTO `occupations` VALUES (17, 'ผู้พิการ', NULL, '2012-06-22 20:23:33');
-INSERT INTO `occupations` VALUES (18, 'ผู้สูงอายุและครอบครัว', NULL, '2012-06-22 20:23:33');
-INSERT INTO `occupations` VALUES (19, 'สุนัข แมว และสัตว์เลี้ยง', NULL, '2012-06-22 20:23:42');
-
--- --------------------------------------------------------
-
--- 
 -- Table structure for table `organizations`
 -- 
 
@@ -334,103 +298,6 @@ INSERT INTO `organizations` VALUES (3, '', 2, 0, 1, 0, 'ชื่อออออ
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `skills`
--- 
-
-CREATE TABLE `skills` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` char(100) collate utf8_unicode_ci NOT NULL,
-  `description` mediumtext collate utf8_unicode_ci NOT NULL,
-  `moreinfo` tinyint(1) NOT NULL,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20806 ;
-
--- 
--- Dumping data for table `skills`
--- 
-
-INSERT INTO `skills` VALUES (10000, 'ความสามารถพิเศษ', 'Special Skill', 0, '2012-06-11 13:07:15');
-INSERT INTO `skills` VALUES (10100, 'ทักษะทั่วไป', '', 0, '2012-06-11 13:08:24');
-INSERT INTO `skills` VALUES (10101, 'การขับขี่พาหนะ', 'จักรยานยนต์, รถยนต์', 0, '2012-06-11 16:25:01');
-INSERT INTO `skills` VALUES (10102, 'ว่ายน้ำ', '', 0, '2012-06-11 13:12:56');
-INSERT INTO `skills` VALUES (10200, 'การใช้ภาษา', 'สื่อสารได้, อ่านเขียนได้, แปลได้', 0, '2012-06-11 16:24:03');
-INSERT INTO `skills` VALUES (10201, 'อังกฤษ', '', 0, '2012-06-11 16:23:08');
-INSERT INTO `skills` VALUES (10202, 'จีน', '', 0, '2012-06-11 16:23:43');
-INSERT INTO `skills` VALUES (10203, 'เยอรมัน', '', 0, '2012-06-11 16:24:26');
-INSERT INTO `skills` VALUES (10204, 'ญี่ปุ่น', '', 0, '2012-06-11 16:24:28');
-INSERT INTO `skills` VALUES (10205, 'ฝรั่งเศส', '', 0, '2012-06-11 16:24:31');
-INSERT INTO `skills` VALUES (10299, 'อื่นๆ', 'ให้ระบุ', 1, '2012-06-11 13:22:23');
-INSERT INTO `skills` VALUES (10300, 'งานดูแล', '', 0, '2012-06-11 13:22:23');
-INSERT INTO `skills` VALUES (10301, 'ทำอาหาร', '', 0, '2012-06-11 13:23:18');
-INSERT INTO `skills` VALUES (10302, 'เลี้ยงเด็ก', '', 0, '2012-06-11 13:23:18');
-INSERT INTO `skills` VALUES (10303, 'ดูแลคนชรา', '', 0, '2012-06-11 13:23:20');
-INSERT INTO `skills` VALUES (10304, 'เย็บปักถักร้อย', '', 0, '2012-06-11 13:23:20');
-INSERT INTO `skills` VALUES (10400, 'นันทนาการ', '', 0, '2012-06-11 13:26:26');
-INSERT INTO `skills` VALUES (10401, 'เล่นดนตรี', 'ระบุชนิดเครื่องดนตรี', 1, '2012-06-11 13:26:26');
-INSERT INTO `skills` VALUES (10402, 'สอนกีฬา', 'ระบุชนิดกีฬา', 1, '2012-06-11 13:27:52');
-INSERT INTO `skills` VALUES (10403, 'วาดภาพ', 'ภาพเหมือน/การ์ตูน/ฯลฯ', 1, '2012-06-11 13:27:52');
-INSERT INTO `skills` VALUES (10404, 'เต้นรำ', '', 0, '2012-06-11 13:27:54');
-INSERT INTO `skills` VALUES (10405, 'ร้องเพลง', '', 0, '2012-06-11 13:27:54');
-INSERT INTO `skills` VALUES (20000, 'ทักษะวิชาชีพ', 'Professional Skill', 0, '2012-06-11 13:30:27');
-INSERT INTO `skills` VALUES (20100, 'งานช่างเทคนิค', '', 0, '2012-06-11 13:30:27');
-INSERT INTO `skills` VALUES (20101, 'ช่างอิเลคทรอนิคส์', '', 0, '2012-06-11 13:31:13');
-INSERT INTO `skills` VALUES (20102, 'ช่างไฟฟ้า', '', 0, '2012-06-11 13:31:13');
-INSERT INTO `skills` VALUES (20103, 'ช่างไม้', '', 0, '2012-06-11 13:31:35');
-INSERT INTO `skills` VALUES (20104, 'ช่างปูน', '', 0, '2012-06-11 13:31:35');
-INSERT INTO `skills` VALUES (20105, 'ช่างโลหะ', '', 0, '2012-06-11 13:32:10');
-INSERT INTO `skills` VALUES (20106, 'ช่างประปา', '', 0, '2012-06-11 13:32:10');
-INSERT INTO `skills` VALUES (20107, 'ช่างสี', '', 0, '2012-06-11 13:33:45');
-INSERT INTO `skills` VALUES (20200, 'วิทยาศาสตร์และเทคโนโลยี', '', 0, '2012-06-11 13:33:45');
-INSERT INTO `skills` VALUES (20201, 'วิทยาศาสตร์', 'ระบุสาขา', 1, '2012-06-11 13:34:12');
-INSERT INTO `skills` VALUES (20202, 'คอมพิวเตอร์และไอที', 'ระบุสาขา', 1, '2012-06-11 13:36:00');
-INSERT INTO `skills` VALUES (20203, 'วิศวกรรม', 'ระบุสาขา', 1, '2012-06-11 13:36:06');
-INSERT INTO `skills` VALUES (20204, 'สถาปัตยกรรม', 'ระบุสาขา', 1, '2012-06-11 13:36:11');
-INSERT INTO `skills` VALUES (20300, 'สุขภาพ', '', 0, '2012-06-11 13:37:02');
-INSERT INTO `skills` VALUES (20301, 'แพทย์', 'ระบุสาขา', 1, '2012-06-11 13:37:02');
-INSERT INTO `skills` VALUES (20302, 'พยาบาล', 'ระบุสาขา', 1, '2012-06-11 13:37:26');
-INSERT INTO `skills` VALUES (20303, 'ทันตแพทย์', '', 0, '2012-06-11 13:37:26');
-INSERT INTO `skills` VALUES (20304, 'เทคนิคการแพทย์', '', 0, '2012-06-11 13:38:14');
-INSERT INTO `skills` VALUES (20305, 'จิตวิทยา', '', 0, '2012-06-11 13:38:14');
-INSERT INTO `skills` VALUES (20306, 'เภสัชศาสตร์', '', 0, '2012-06-11 13:38:44');
-INSERT INTO `skills` VALUES (20307, 'สาธารณสุข', '', 0, '2012-06-11 13:38:44');
-INSERT INTO `skills` VALUES (20308, 'สัตวแพทย์', '', 0, '2012-06-11 13:39:32');
-INSERT INTO `skills` VALUES (20400, 'สังคมศาตร์และมนุษย์ศาสตร์', '', 0, '2012-06-11 13:39:32');
-INSERT INTO `skills` VALUES (20401, 'กฎหมาย', '', 0, '2012-06-11 13:39:48');
-INSERT INTO `skills` VALUES (20402, 'ประวัติศาสตร์', '', 0, '2012-06-11 13:39:48');
-INSERT INTO `skills` VALUES (20403, 'เศรษฐศาสตร์', '', 0, '2012-06-11 13:40:27');
-INSERT INTO `skills` VALUES (20404, 'บรรณารักษ์', '', 0, '2012-06-11 13:40:27');
-INSERT INTO `skills` VALUES (20405, 'สังคมสงเคราะห์', '', 0, '2012-06-11 13:41:16');
-INSERT INTO `skills` VALUES (20499, 'อื่นๆ', 'ระบุสาขา', 1, '2012-06-11 13:41:16');
-INSERT INTO `skills` VALUES (20500, 'บริหารธุรกิจ', '', 0, '2012-06-11 13:42:27');
-INSERT INTO `skills` VALUES (20501, 'การบัญชี', '', 0, '2012-06-11 13:42:27');
-INSERT INTO `skills` VALUES (20502, 'การเงิน', '', 0, '2012-06-11 13:42:41');
-INSERT INTO `skills` VALUES (20503, 'การตลาด', '', 0, '2012-06-11 13:42:41');
-INSERT INTO `skills` VALUES (20504, 'การบริหารจัดการ', '', 0, '2012-06-11 13:45:07');
-INSERT INTO `skills` VALUES (20600, 'ศิลปวัฒนธรรม', '', 0, '2012-06-11 13:45:07');
-INSERT INTO `skills` VALUES (20601, 'การละคร', '', 0, '2012-06-11 13:45:37');
-INSERT INTO `skills` VALUES (20602, 'วรรณศิลป์', '', 0, '2012-06-11 13:45:37');
-INSERT INTO `skills` VALUES (20603, 'โบราณคดี', '', 0, '2012-06-11 13:46:29');
-INSERT INTO `skills` VALUES (20604, 'ภาพยนตร์', '', 0, '2012-06-11 13:46:29');
-INSERT INTO `skills` VALUES (20605, 'โทรทัศน์/วิทยุ', '', 0, '2012-06-11 13:47:01');
-INSERT INTO `skills` VALUES (20606, 'การโฆษณาและประชาสัมพันธ์', '', 0, '2012-06-11 13:47:01');
-INSERT INTO `skills` VALUES (20607, 'วารสารศาสตร์', '', 0, '2012-06-11 13:47:28');
-INSERT INTO `skills` VALUES (20608, 'จิตรกรรมและประติมากรรม', '', 0, '2012-06-11 13:47:28');
-INSERT INTO `skills` VALUES (20609, 'ออกแบบและตกแต่งภายใน', '', 0, '2012-06-11 13:48:21');
-INSERT INTO `skills` VALUES (20700, 'การศึกษา', '', 0, '2012-06-11 13:48:21');
-INSERT INTO `skills` VALUES (20701, 'งานสอน', 'ระบุสาขา', 1, '2012-06-11 13:49:19');
-INSERT INTO `skills` VALUES (20702, 'งานประเมิน', 'ระบุสาขา', 1, '2012-06-11 13:49:19');
-INSERT INTO `skills` VALUES (20703, 'งานวิจัย', 'ระบุสาขา', 1, '2012-06-11 13:49:47');
-INSERT INTO `skills` VALUES (20800, 'สิ่งแวดล้อมและการเกษตร', '', 0, '2012-06-11 13:49:47');
-INSERT INTO `skills` VALUES (20801, 'สิ่งแวดล้อม', 'ระบุสาขา', 1, '2012-06-11 13:50:36');
-INSERT INTO `skills` VALUES (20802, 'การเกษตร', 'ระบุสาขา', 1, '2012-06-11 13:50:36');
-INSERT INTO `skills` VALUES (20803, 'สัตวบาล', '', 0, '2012-06-11 13:51:06');
-INSERT INTO `skills` VALUES (20804, 'การประมง', '', 0, '2012-06-11 13:51:06');
-INSERT INTO `skills` VALUES (20805, 'วนศาสตร์', '', 0, '2012-06-11 13:51:32');
-
--- --------------------------------------------------------
-
--- 
 -- Table structure for table `users`
 -- 
 
@@ -452,6 +319,8 @@ CREATE TABLE `users` (
   `created` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `sex` char(1) NOT NULL,
   `website` text NOT NULL,
+  `skills` text NOT NULL,
+  `interest_tags` text NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_email` (`email`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -460,8 +329,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 -- 
 
-INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', 'nickname', 0, 'first_name', 'last_name', '2012-06-13', '', '', '4feb58e974ea1volunteer-hands.jpg', '', '', '2012-06-28 02:03:05', '', '');
-INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', 'org nakrub', 'org ่ฟ', 1, 'organization', 'lnwlnw', '2012-06-28', '', '', '', '', '', '2012-06-28 01:58:29', '', '');
+INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', 'nickname', 0, 'first_name', 'last_name', '2012-06-06', '123124124', 'adfa', '4feb58e974ea1volunteer-hands.jpg', '', '', '2012-07-16 21:19:31', '', '13123', '2303|2304|2305|2306|2307|', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ');
+INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', 'org nakrub', 'org ่ฟ', 1, 'organization', 'lnwlnw', '2012-06-28', '', '', '', '', '', '2012-06-28 01:58:29', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -484,6 +353,7 @@ CREATE TABLE `users_events` (
 INSERT INTO `users_events` VALUES (3, 8, 2, '2011-11-22 22:22:24');
 INSERT INTO `users_events` VALUES (0, 0, 3, '2011-11-22 22:12:22');
 INSERT INTO `users_events` VALUES (1, 1, 0, '2012-06-28 02:03:39');
+INSERT INTO `users_events` VALUES (1, 2, 0, '2012-07-16 22:31:27');
 
 -- --------------------------------------------------------
 
@@ -564,3 +434,6 @@ INSERT INTO `user_timebanks` VALUES (1, 8, 1, 12, '2011-11-22 23:16:47');
 INSERT INTO `user_timebanks` VALUES (2, 8, 1, 12, '2011-11-22 23:16:55');
 INSERT INTO `user_timebanks` VALUES (3, 8, 1, 5, '2011-11-22 23:22:44');
 INSERT INTO `user_timebanks` VALUES (4, 8, 1, 122, '2011-11-22 23:25:50');
+INSERT INTO `user_timebanks` VALUES (1, 1, 1, 23, '2012-07-02 22:05:25');
+INSERT INTO `user_timebanks` VALUES (2, 1, 1, 2, '2012-07-16 21:35:00');
+INSERT INTO `user_timebanks` VALUES (3, 1, 1, 2222, '2012-07-16 21:35:05');

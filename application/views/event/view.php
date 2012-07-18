@@ -137,8 +137,13 @@ $member_count = $memebers->count();
 			<h2>ข้อความขอบคุณสามารถพิมพ์โดย admin ประเภทองค์กรหลังจากจบงาน</h2>
 			<a>ดูภาพกิจกรรม</a><form style="float:right;"><input type="text" value="เขียนคำขอบคุณที่นี่"><input type="submit" value="ส่ง"/><input type="submit" value="แก้ไข"/></form>
 		</div>
-		
-		<img src="<?= url::base().'media/upload/events/'.$event->image ?>" style="float:left;">
+	
+    	<? if ($event->image != ''): ?>
+			<img src="<?= url::base().'media/upload/events/'.$event->image ?>" style="float:left;">
+        <? else :?>
+            <img src="<?= url::base().'media/img/tb_detail_sampel.png' ?>" style="float:left;">
+        <? endif ?>
+
 		<div class="sub">
 			<h3><?= $event->time_cost ?> ชั่วโมง</h3>
 			<h4>ต้องการจากอาสา</h4>

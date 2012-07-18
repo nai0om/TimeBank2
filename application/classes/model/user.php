@@ -7,8 +7,6 @@ class Model_User extends ORM {
 		'user_tokens' => array('model' => 'user_token'),
 		'comments' => array('model' => 'comment'),
 		'roles'       => array('model' => 'role', 'through' => 'roles_users'),
-		'skills'       => array('model' => 'skill', 'through' => 'users_skills'),
-		'occupations'       => array('model' => 'occupation', 'through' => 'users_occupations'),
 		'locations'       => array('model' => 'location', 'through' => 'users_locations'),
 		'events'		=> array('model' => 'event', 'through' => 'users_events'),
 	);

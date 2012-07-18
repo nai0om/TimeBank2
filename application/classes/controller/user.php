@@ -174,23 +174,27 @@ class Controller_User extends Controller_Template {
 
     public function action_profile() 
     {
+		
 		// if a user is not logged in, redirect to login page
         if (!$this->user)
         {
             Request::current()->redirect('user/login');
 			return;
         }
-		
+	
        $action = $this->request->action();
+	   $interest = $this->user->interest_tags; 
 	   $this->template->content = View::factory('user/profile')
             ->bind('errors', $errors)
             ->bind('message', $message)
 			->bind('skills', $skills)
 			->bind('occupations', $occupations)
-			->bind('action', $action);
-             
+			->bind('action', $action)
+			->bind('interest_tags', $interest);
+			
         if (HTTP_Request::POST == $this->request->method()) 
         {
+			
 			$this->user->nickname = Arr::get($_POST, 'nickname');
 			$this->user->first_name = Arr::get($_POST, 'first_name');
 			$this->user->last_name = Arr::get($_POST, 'last_name');
@@ -205,6 +209,7 @@ class Controller_User extends Controller_Template {
 				$this->user->profile_image = 'profile_image';
 			}
 			
+
             try {
 				
             	$this->user->save();       
@@ -222,10 +227,22 @@ class Controller_User extends Controller_Template {
             }
         }
 		
-		$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();
-		$occupations = ORM::factory('occupation')->order_by('id', 'asc')->find_all();
-		
-		
+		$skill_list = explode ('|', $this->user->skills);
+		$skills = array();
+		for($i = 0 ; $i < count($skill_list) ; $i++)
+		{
+			$cut =  explode('=', $skill_list[$i]);
+			if($cut[0] != ''){
+				if(count($cut) >= 2)
+				{ 
+					$skills[$cut[0]] = $cut[1];
+				}
+				else 
+				{
+					$skills[$cut[0]] = 'true';	
+				}
+			}
+		}	
     }
 	
     public function action_addskill() 
@@ -239,52 +256,48 @@ class Controller_User extends Controller_Template {
              
         if (HTTP_Request::POST == $this->request->method()) 
         {
+			
 			// add/remove skill for this user as data recieve from post
-			$skills = ORM::factory('skill')->order_by('id', 'asc')->find_all();				
-			foreach ($skills as $skill)
-			{
-				$alreadyexist = count($this->user->skills->where('skill_id', '=', $skill)->find_all());
-				if ( Arr::get($_POST, 'skill'.$skill->id) == '' )
-				{
-					if($alreadyexist)
-					{
-						$this->user->remove('skills',$skill);
-					}
-				}
-				else
-				{
-					if(!$alreadyexist)
-					{
-					$this->user->add('skills',$skill);
-					$this->user->save();					
-					}
-					$query = DB::update('users_skills')->set(array('info' => Arr::get($_POST, 'info'.$skill)))->where('user_id', '=', $this->user->id)->where('skill_id', '=', $skill);
-					$query->execute();
-				}
+			 $dict = Kohana::$config->load('timebank')->get('worddict');
+			 $skill = '';
+			 foreach($dict  as $key => $val)
+			 {
+				 
+				 $value = Arr::get($_POST,  $key);
+				 if( $value != '') 
+				 {
+					 if($value == 'on')
+					 {
+						$skill .= $key.'|'; 
+					 }
+					 else
+					 {
+						 $skill .= $key.'='.$value.'|'; 
+					 }
+				 }
+			 }
+			 $this->user->skills = $skill;
+			 
+			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+			$tags = '';
+			foreach ($jobs as $job){
+				$job =  str_replace(' ', '_', $job);
+				if ( Arr::get($_POST, $job) != '')
+						$tags  = $tags.''.Arr::get($_POST, $job) .', ';
 			}
-			
-			// add/remove occupation for this user as data recieve from post
-			$occupations = ORM::factory('occupation')->order_by('id', 'asc')->find_all();				
-			foreach ($occupations as $occupation)
-			{
-				$alreadyexist = count($this->user->occupations->where('occupation_id', '=', $occupation)->find_all());
-				if ( Arr::get($_POST, 'occupation'.$occupation->id) == '' )
-				{
-					if($alreadyexist)
-					{
-						$this->user->remove('occupations',$occupation);
-					}
+			$this->user->interest_tags = $tags; 
+			try {
+						$this->user->save();       
+						 
+				} catch (ORM_Validation_Exception $e) {
+						// Set failure message
+						$message = 'update error.';
+					
+						
 				}
-				elseif(!$alreadyexist)
-				{
-				$this->user->add('occupations',$occupation);
-				$this->user->save();					
-				}
-			}
-			
         }
 		
-            Request::current()->redirect('user/profile');
+           Request::current()->redirect('user/profile');
 		
 		
 		

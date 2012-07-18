@@ -92,38 +92,43 @@
 			<div class="title body" style="font-family:chula">ความสามารถเฉพาะของคุณ</div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
-<? if (count($skills) > 0) :?>        
-	<?php foreach ($skills as $skill):?>
-
-        <? if ($skill->description) : $skilldescription = '('.$skill->description.')'; else: $skilldescription = ''; endif ?>  
-<? $alreadyexist = count($user->skills->where('skill_id', '=', $skill)->find_all());  ?>  
-          
-		<? if (substr ($skill->id,1,4) == '0000') :?>    
-			<label><?= substr ($skill->id,0,1) ?>. <?= $skill->name ?> <?= $skilldescription ?></label> 
-        <? elseif (substr ($skill->id,3,2) == '00') :?>  
-			<p> <span>- <strong><?= $skill->name ?></strong>  <?= $skilldescription ?></span></p>
-        <? else :?>  
-			<p>&nbsp;&nbsp;&nbsp; <input type="checkbox" name="skill<?= $skill->id ?>" value="1" <? if($alreadyexist) :?>checked<? endif ?>> <span><?= $skill->name ?>  <?= $skilldescription ?></span> 
-			<? if ($skill->moreinfo) :?>
-<? 
-$query = DB::select('info')->from('users_skills')->where('user_id', '=', $user->id)->where('skill_id', '=', $skill); $result = $query->execute()->as_array(); 
-			
-		if (count($result) > 0)
-		{
-			$info = $result[0]['info'];
-		}
-		else
+       <?php
+		   $skill = Kohana::$config->load('timebank')->get('all_skills'); 
+		   $dict = Kohana::$config->load('timebank')->get('worddict');
+		   foreach ($skill as $title => $value)
+		   {
+   			 echo  '<p><label>'.$dict[$title].'</label>';
+			 foreach ($value as $title2 => $value2)
+			 {
+				echo  '<label style="margin-left: 10px;" > - '.$dict[$title2].'</label>'; 
+				foreach ($value2 as $name)
 				{
-			$info = '';
-		}
-			
-?>
-            <br /><input name="info<?= $skill->id ?>" type="text" class="moreinfo" value="<?= $info ?>"><? endif ?></p>
-        <? endif ?>
-        
-        
-    <? endforeach ?>
-<? endif ?>
+					$value = '';
+					 $checked = '';
+					if(array_key_exists($name, $skills))
+					{
+					  $value = $skills[$name];
+					  if($value <> '')
+					  {
+						 $checked = 'checked="'.$value.'"'; 
+					  }
+					}
+					
+					if(phphelp::endsWith($name, 'T'))
+					{
+						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox"> <span>'.$dict[$name].'</span> <br />';
+						echo  '<input name='.$name.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left: 35px;"><br />';
+					}
+					else
+					{
+						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox" name='.$name.'> <span>'.$dict[$name].'</span> <br />';
+					}
+				}
+			 }
+			 echo '<p>';
+		   }
+	   ?>
+		
 
 
 		  <label>Tag บ่งบอกกลุ่ม</label>
@@ -137,21 +142,22 @@ $query = DB::select('info')->from('users_skills')->where('user_id', '=', $user->
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 			<label>(เลือกได้มากกว่า 1 ข้อ)</label>
+            <?php  
+				$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+				for($i = 1 ; $i < sizeof($jobs) ; $i++){
+					$checked = FALSE;
+					if($interest_tags != '') {
+						$pos = strpos($interest_tags, $jobs[$i]);
+						if (  $pos > 0){
+							$checked = TRUE;
+						}
+					}
+					echo Form::checkbox(str_replace(' ','_',$jobs[$i]), $jobs[$i], $checked).''.$jobs[$i].'<br />';
+				}
+            ?> 
             
             
-            
-<? if (count($occupations) > 0) :?>        
-	<?php foreach ($occupations as $occupation):?>
-
-<? $alreadyexist = count($user->occupations->where('occupation_id', '=', $occupation)->find_all());  ?>  
-          
-
-		  <p><input type="checkbox" name="occupation<?= $occupation->id ?>" value="1" <? if($alreadyexist) :?>checked<? endif ?>> <span><?= $occupation->name ?>  <?= $occupation->description ?></span> </p>
-       
-        
-        
-    <? endforeach ?>
-<? endif ?>            
+     
 		</div>
 		<div style="clear:both"></div>
 		<input type="submit" value="บันทึกการเปลี่ยนแปลง"><div class="line"></div>

@@ -25,32 +25,34 @@
 		
 		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;">120</span></p>
 		<div id="selection">ระบุเดือนที่ต้องการดู <select></select></div>
-<? if (count($records) > 0) :?>
-		<table>
-			<tr>
-				<th>งานอาสา</th>
-				<th>ต้องการจากอาสา</th>
-				<th>จำนวนรับสมัคร</th>
-				<th>เปิดรับสมัคร</th>
-				<th>วัน / เวลาทำงาน</th>
-				<th>ยกเลิก</th>
-			</tr>
-<?php foreach ($records as $record):?>
-			<tr>
-				<td><?= $record->name ?></td>
-				<td><?= $record->time_cost ?></td>
-				<td><?= $record->volunteer_need_count ?>
-		      คน</td>
-				<td><?= $record->signup_begin_date ?>
-		    <br>ถึง 
-		    <?= $record->signup_end_date ?></td>
-				<td><?= $record->volunteer_begin_date ?>
-				  <br />
-				  ถึง
-              <?= $record->volunteer_end_date ?></td>
-				<td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <a href="#">ยกเลิก</a></td>
-			</tr>
-			<tr>
+		<? if (count($records) > 0) :?>
+                <table>
+                    <tr>
+                        <th>งานอาสา</th>
+                        <th>ต้องการจากอาสา</th>
+                        <th>จำนวนรับสมัคร</th>
+                        <th>เปิดรับสมัคร</th>
+                        <th>วัน / เวลาทำงาน</th>
+                        <th>ยกเลิก</th>
+                    </tr>
+        <?php foreach ($records as $record):?>
+                    <tr>
+                        <td><?= $record->name ?></td>
+                        <td><?= $record->time_cost ?></td>
+                        <td><?= $record->volunteer_need_count ?>
+                      คน</td>
+                        <td><?= $record->signup_begin_date ?>
+                    <br>ถึง 
+                    <?= $record->signup_end_date ?></td>
+                        <td><?= $record->volunteer_begin_date ?>
+                          <br />
+                          ถึง
+                      <?= $record->volunteer_end_date ?></td>
+                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <a href="#">ยกเลิก</a></td>
+                    </tr>
+            
+        <? endforeach ?>
+                <tr>
 				<td colspan="6">
 					<ul>
 						<li>Page 1</li>
@@ -61,7 +63,6 @@
 					</ul>
 				</td>
 			</tr>
-<? endforeach ?>
 		</table>
 <? endif ?>
 		

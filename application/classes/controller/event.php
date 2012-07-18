@@ -462,13 +462,28 @@ class Controller_Event extends Controller_Template {
 				}
 			}
 			
-			$skills = Kohana::$config->load('timebank')->get('skills');
-			foreach ($skills as $skill){
-				$skill = str_replace(' ', '_', $skill);
-				if ( Arr::get($_POST, $skill) != '') 
-					$event->skills  = $event->skills.''.Arr::get($_POST, $skill) .', ';
-			}
+			// add/remove skill for this user as data recieve from post
+			 $dict = Kohana::$config->load('timebank')->get('worddict');
+			 $skill = ' ';
+			 foreach($dict  as $key => $val)
+			 {
+				 
+				 $value = Arr::get($_POST,  $key);
+				 if( $value != '') 
+				 {
+					 if($value == 'on')
+					 {
+						$skill .= $key.'|'; 
+					 }
+					 else
+					 {
+						 $skill .= $key.'='.$value.'|'; 
+					 }
+				 }
+			 }
+			 $event->skills = $skill;
 			
+
 			$technicals = Kohana::$config->load('timebank')->get('technicals');
 			foreach ($technicals as $technical){
 				$technical = str_replace(' ', '_', $technical);
