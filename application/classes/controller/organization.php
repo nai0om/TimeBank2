@@ -151,6 +151,7 @@ class Controller_Organization extends Controller_Template {
 		{
 			Request::current()->redirect('user/login');
 		}
+		
 		//print_r($this->orguser);exit;
 		Request::current()->redirect('/organization/view/'.$this->orguser->id);	
 	}
