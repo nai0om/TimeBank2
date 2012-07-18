@@ -26,9 +26,30 @@ class Model_Organization extends ORM {
                 array('not_empty'),
 				array('min_length', array(':value', 10)),
             ),
-            'website' => array(
-                array('url'),
+			'activity' => array(
+                array('not_empty'),
             ),
+			'address' => array(
+                array('not_empty'),
+            ),
+			'province' => array(
+                array('not_empty'),
+            ),
+			'postcode' => array(
+                array('not_empty'),
+            ),
+			'district' => array(
+                array('not_empty'),
+            ),
+			'fax' => array(
+                array('not_empty'),
+            ),
+			'homephone' => array(
+                array('not_empty'),
+            ),
+			'contactperson' => array(
+                array('not_empty'),
+            ), 
 			/*
             'logo' => array(
                 array(array($this, 'check_upload'), array('logo', ':value')),
