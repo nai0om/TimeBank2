@@ -46,7 +46,7 @@
                     </div>
                 </p>
 				<p><label>ลักษณะกิจกรรมขององค์กร</label>
-					<?= Form::input('activity', HTML::chars($organization->activity), array('class'=>'long')); ?>
+					<?= Form::textarea('activity', HTML::chars($organization->activity), array('class'=>'long', 'style'=>'height:80px;')); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'activity'); ?>
                     </div>
@@ -57,16 +57,16 @@
                             <?= Arr::get($errors, 'address'); ?>
                         </div>
                 </p>
+                <p><label>เขต</label>
+						<?= Form::input('district', HTML::chars($organization->district)); ?>
+                        <div class="error">
+                            <?= Arr::get($errors, 'district'); ?>
+                        </div>
+                </p>
 				<p><label>จังหวัด</label>
 						<?= Form::input('province', HTML::chars($organization->province)); ?>
                         <div class="error">
                             <?= Arr::get($errors, 'province'); ?>
-                        </div>
-                </p>
-				<p><label>เขต</label>
-						<?= Form::input('district', HTML::chars($organization->district)); ?>
-                        <div class="error">
-                            <?= Arr::get($errors, 'district'); ?>
                         </div>
                 </p>
 				<p><label>รหัสไปรษณีย์</label>

@@ -3326,7 +3326,9 @@ header h2 {
 #volunteerOrgSignup.popup input[type="radio"]{
 	width:auto;
 }
-
+#volunteerOrgSignup.popup input[type="text"]{
+	width:400px;
+}
 /*volunteer sign up*/
 #volunteerSignup.popup #content h2{
 	padding:0 0 10px 55px;
