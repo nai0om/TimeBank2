@@ -23,11 +23,11 @@
                   <div class="error"><?= Arr::get($errors, 'email'); ?></div>
                     </p>
 					<p><label>รหัสผ่าน *</label>
-                       <?= Form::input('password', HTML::chars(Arr::get($_POST, 'password'))); ?>
+                       <?= Form::password('password', HTML::chars(Arr::get($_POST, 'password'))); ?>
                   <div class="error"><?= Arr::get($errors, 'password'); ?></div>
                     </p>
 					<p><label>ยืนยันรหัสผ่าน *</label>
-                       <?= Form::input('password_confirm', HTML::chars(Arr::get($_POST, 'password_confirm'))); ?>
+                       <?= Form::password('password_confirm', HTML::chars(Arr::get($_POST, 'password_confirm'))); ?>
                   <div class="error"><?= Arr::get($errors, 'password_confirm'); ?></div>
                     </p>
 					
@@ -50,7 +50,7 @@
 				</div>
 
 					<p>&nbsp; </p>
-					<p><div style="margin-top:170px;">
+					<p><div style="margin-top:120px;">
 					  <?= Form::checkbox('acceptterm', 1, false); ?> 
 					  ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง'); ?> ของเว็บไซต์</p>
                       

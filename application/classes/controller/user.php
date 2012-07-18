@@ -115,7 +115,13 @@ class Controller_User extends Controller_Template {
 				$errors = array('password_confirm' => 'The password fields did not match.');
 				return;
 			}
-	
+			if (!is_numeric(Arr::get($_POST, 'hour')))
+			{
+				$message = ('There were errors, please see form below.');
+				$errors = array('hour' => 'Please insert hours number.');
+				return;
+			}
+			
 			$user->password = Arr::get($_POST, 'password');
 			$user_roles = Kohana::$config->load('timebank')->get('user_roles');
 			$user->role = $user_roles['volunteer'];
