@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
@@ -49,9 +49,9 @@
 	<?= HTML::anchor('/', '<img src="'.url::base().'media/img/logo.png"/>'); ?>
 	<nav>
 		<ul>
-			<li><?= HTML::anchor('welcome/aboutus', 'About Website', array('id' => 'aboutUs')); ?></li>
+			<li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับเรา', array('id' => 'aboutUs')); ?></li>
 			<li><?= HTML::anchor('welcome/timebank', 'Time Bank', array('id' => 'timeBank')); ?></li>
-			<li><?= HTML::anchor('training', 'Training & Knowledge', array('id' => 'training')); ?></li>
+			<li><?= HTML::anchor('training', 'ฝึกอบรมและความรู้', array('id' => 'training')); ?></li>
 			<li><?= HTML::anchor('news', 'News Update', array('id' => 'news')); ?></li>
 			<li><?= HTML::anchor('welcome/donation', 'Donation', array('id' => 'donation')); ?></li>
 		</ul>
@@ -63,7 +63,13 @@
     </div>
     
   <footer>
-	<p>Copyright 2012 Jitarsa All rights reserved.</p>
+	<p>นโยบายลิขสิทธิ์
+
+สำหรับข้อมูลต่างๆ บน website และ mobile app
+
+		<br><br><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="สัญญาอนุญาตของครีเอทีฟคอมมอนส์" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a> <br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" rel="dct:type">ผลงาน</span>นี้ โดย <a xmlns:cc="http://creativecommons.org/ns#" href="" property="cc:attributionName" rel="cc:attributionURL">ธนาคารจิตอาสา</a> ใช้ <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">สัญญาอนุญาตของครีเอทีฟคอมมอนส์แบบ แสดงที่มา-ไม่ใช้เพื่อการค้า 3.0 ต้นฉบับ</a>.
+
+		</p></p>
 	<ul>
     	<li><?= HTML::anchor('welcome/term', 'Term & Conditions'); ?></li>
         <li><?= HTML::anchor('welcome/privacy', 'Privacy'); ?></li>

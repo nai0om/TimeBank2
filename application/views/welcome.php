@@ -27,17 +27,17 @@
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
 					<h3>XXX ชม.</h3>
-					<p>จํานวนเวลารวมที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
 					<h3>YYY ชม.</h3>
-					<p>จํานวนรวมเวลาที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
 					<h3>ZZZ ชม.</h3>
-					<p>จํานวนรวมเวลาที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					
 			</div>
@@ -47,32 +47,32 @@
 		</div>
 		
 		<blockquote>
-			<h2>สนใจเป็นอาสา</h2>
-			<p>"มันไม่เร็วไปที่เราจะเริ่มต้นแบ่งปัน เพระว่าสักวัน มันอาจสายเกินไป"- Ralph Waldo Emerson</p>
-			<h3><span style="text-decoration:underline">ดูงานอาสา</span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline">สร้างโอกาสในการใช้เวลา</span></h3>
+			<h2>ปันเวลาช่วยกัน</h2>
+			<p>มาช่วยกันสร้างสรรค์สังคมของเรา ผ่านการฝากเวลา เพื่อปฏิบัติภารกิจจิตอาสา (หากคุณเป็นอาสาสมัคร) หรือสร้างภารกิจจิตอาสา เพื่อเป็นโอกาสในการใช้เวลา (หากคุณเป็นองค์กรอาสา) </p>
+			<h3><span style="text-decoration:underline">ฝากเวลา</span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline">สร้างภารกิจจิตอาสา</span></h3>
 		</blockquote>
 		
-		<section><span style="color:#a73c0c">งานอาสาเปิดรับสมัคร</span> (แนะนําจากทางเว็บ)</section>
+		<section><span style="color:#a73c0c">ภารกิจจิตอาสาที่น่าสนใจ</span></section>
 		<article class="first">
 			<img src="<?= url::base(); ?>media/img/sample_01.png"/>
 			<div>50 ชม.</div>
 			<a class="subscribe">สมัคร</a>
 			<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.
-			<a>[More...]</a></p>
+			<a>[อ่านต่อ...]</a></p>
 		</article>
 		<article>
 			<img src="<?= url::base(); ?>media/img/sample_02.png"/>
 			<div>50 ชม.</div>
 			<a class="subscribe">สมัคร</a>
 			<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.
-			<a>[More...]</a></p>
+			<a>[อ่านต่อ...]</a></p>
 		</article>
 		<article>
 			<img src="<?= url::base(); ?>media/img/sample_03.png"/>
 			<div>50 ชม.</div>
 			<a class="subscribe">สมัคร</a>
 			<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.
-			<a>[More...]</a></p>
+			<a>[อ่านต่อ...]</a></p>
 		</article>
 		<p align="center"><img src="<?= url::base(); ?>media/img/line_sponser.png"/>
 		<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner2.png" /></p>

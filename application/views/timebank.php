@@ -1,4 +1,4 @@
-<div id="main_timeBank">
+﻿<div id="main_timeBank">
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -17,17 +17,17 @@
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
 					<h3>XXX ชม.</h3>
-					<p>จํานวนรวมเวลาที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
 					<h3>YYY ชม.</h3>
-					<p>จํานวนรวมเวลาที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
 					<h3>ZZZ ชม.</h3>
-					<p>จํานวนรวมเวลาที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					
 			</div>
@@ -39,9 +39,9 @@
 		<div id="banner"><img src="<?= url::base(); ?>media/img/banner.png" /></div>
 		
 		<blockquote>
-			<h2>สนใจเป็นอาสาสมัคร</h2>
-			<p>เราไม่มีเวลาให้ทำอะไร ถ้าเราไม่ตั้งใจจะให้เวลา- Charles Robert Buxton</p>
-			<h3><span style="text-decoration:underline">ดูงานอาสา</span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline">สร้างโอกาสในการใช้เวลา</span></h3>
+			<h2>ปันเวลาช่วยกัน</h2>
+			<p>มาช่วยกันสร้างสรรค์สังคมของเรา ผ่านการฝากเวลา เพื่อปฏิบัติภารกิจจิตอาสา (หากคุณเป็นอาสาสมัคร) หรือสร้างภารกิจจิตอาสา เพื่อเป็นโอกาสในการใช้เวลา (หากคุณเป็นองค์กรอาสา) </p>
+			<h3><span style="text-decoration:underline">ดูฝากเวลา</span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline">สร้างภารกิจจิตอาสา</span></h3>
 		</blockquote>
 
 		<h3 class="title">ขั้นตอนหาอาสามัคร</h3>

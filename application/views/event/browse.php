@@ -1,4 +1,4 @@
-<div id="tb_browse">
+﻿<div id="tb_browse">
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -25,8 +25,8 @@
 		?>
 
 		<blockquote>
-			<h2>สนใจเป็นอาสาสมัคร</h2>
-			<h3><span style="text-decoration:underline"><?= HTML::anchor('event/browse', 'ดูงานอาสา'); ?></span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline"><?= HTML::anchor('event/create', 'สร้างโอกาสในการใช้เวลา'); ?></span></h3>
+			<h2>ปันเวลาช่วยกัน</h2>
+			<h3><span style="text-decoration:underline"><?= HTML::anchor('event/browse', 'ฝากเวลา'); ?></span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline"><?= HTML::anchor('event/create', 'สร้างภารกิจจิตอาสา'); ?></span></h3>
 		</blockquote>
 		
 		<h3 class="title">ประเภทงานอาสา</h3>

@@ -1,4 +1,4 @@
-<div id="about_us">
+﻿<div id="about_us">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -15,17 +15,18 @@
 			<div id="bannerRotating">
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
-					<img src="<?= url::base(); ?>media/img/about_banners.jpg">
+					<h3>XXX ชม.</h3>
+					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
 					<h3>YYY ชม.</h3>
-					<p>จํานวนรวมเวลาที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
 					<h3>ZZZ ชม.</h3>
-					<p>จํานวนรวมเวลาที่อาสาสมัคร<br>ฝากไว้กับระบบทั้งหมด</p>
+					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					
 			</div>
