@@ -2,16 +2,16 @@
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ฝึกอบรมอาสาสมัคร</li>
+			<li>ฝึกอบรม</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div class="title left"></div>
-		<div class="title body"><?= HTML::anchor('training', 'หลักสูตรฝึกอบรม'); ?></div>
+		<div class="title body"><?= HTML::anchor('training', 'ฝึกอบรม'); ?></div>
 		<div class="title right"></div>
 		<div class="title left"></div>
-		<div class="title body past"><?= HTML::anchor('training/download', 'ดาวน์โหลดคู่มืออาสา'); ?></div>
+		<div class="title body past"><?= HTML::anchor('training/download', 'ความรู้'); ?></div>
 		<div class="title right"></div>
 		
 		<div id="bannerRotating">
@@ -46,39 +46,39 @@
 			<li>
 				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
 				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
+				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
 			</li>
 			<li>
 				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
 				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
+				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
 			</li>
 			<li>
 				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
 				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
+				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
 			</li>
 			<li>
 				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
 				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
+				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
 			</li>
 			<li>
 				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
 				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
+				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
 			</li>
 			<li>
 				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
 				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
+				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
 			</li>
 		</ul>
 		
 		<div style="clear:left"></div>
 		<div class="line" style="width:82%;float:left"></div>
 		<ul id="pagination">
-			<li>Page 1</li>
+			<li>หน้า 1</li>
 			<li>2</li>
 			<li>3</li>
 			<li>4</li>

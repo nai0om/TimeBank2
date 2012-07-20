@@ -2,15 +2,15 @@
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>เกี่ยวกับเว็บไซต์</li>
+			<li>เกี่ยวกับเรา</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div style="clear:both"></div>
-		<h2>เกี่ยวกับเวบไซต์</h2>
+		<h2>เกี่ยวกับเรา</h2>
 		<div class="column two">
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<p>เราเชื่อว่าสังคมไทยจะเป็นสังคมอุดมไปด้วยความรักความสุข มีความมั่นคง และพัฒนาก้าวหน้าต่อไปได้ เพราะทุกคนร่วมสร้างสังคมนี้ขึ้นมา ไม่จำกัดว่าเป็นวัยไหนหรืออยู่ในหน้าที่การงานใด เราต่างมีความมุ่งมั่นตั้งใจเพื่อสร้างประเทศไทย เราไม่นิ่งเฉยดูดาย แต่จะลุกขึ้นยื่นมือมาช่วยเหลือกัน ทุกๆ คนบนผืนแผ่นดินไทยสามารถเป็นอาสาสมัครผู้อุทิศกำลังความสามารถและเวลาอันมีค่าของตนให้แก่ประโยชน์ส่วนรวม</p>
 
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+			<p>ธนาคารจิตอาสาเป็นพื้นที่ให้ทุกคนได้เข้ามาใช้เพื่อประกาศความตั้งใจที่จะแบ่งปันเวลาให้กับสังคม เวลาเหล่านี้คือทุนของความมุ่งมั่นตั้งใจของคนไทยทั้งประเทศเป็นทุน และหลักประกันความมั่นคงของสังคม เป็นเครื่องชี้ว่าจิตอาสาคือคุณค่าที่สังคมไทยยึดถือ เพราะการให้เวลาคือการมอบสมบัติล้ำค่าที่เรา ทุกคนมีอยู่อย่างเท่าเทียมกันให้แก่ส่วนรวม และให้แก่กันและกัน จากเดิมที่เราพร้อมจะมอบเวลาให้คนที่เรารัก ธนาคารจิตอาสาช่วยเพิ่มช่องทางให้เราสามารถมอบเวลาให้กับสังคม ให้กับบ้านที่เรารัก โดยมีระบบแนะนำกิจกรรมอาสาที่เหมาะกับความสนใจ ความสามารถ และแบบแผนการใช้ชีวิต/เวลาว่าง อีกทั้งมีบริการเสริมความรู้ ความเข้าใจ ทักษะ เตรียมความพร้อม ให้กับทั้งอาสาและองค์กร รวมถึงการแลกเปลี่ยนเรียนรู้สะท้อนแบ่งปันประสบการณ์หลังกิจกรรม</p>
 			
 			<div id="bannerRotating">
 			<div id="carouselBanner">
@@ -34,51 +34,58 @@
 				<a href="#" id="ui-carousel-prev"><span>prev</span></a>
 			<div id="pages2"></div>
 			</div>
+		<p><h1>ธนาคารจิตอาสามีภากิจ 3 ส่วนหลัก ได้แก่</h1></p>
 		</div>
 		
 		<div class="column two">
-			<img src="<?= url::base(); ?>media/img/about_01.jpg">
-			<h3>เวลาตั้งใจอาสา</h3>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-			<h3>เวลางานอาสา</h3>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-			<h3>เวลาทำอาสา</h3>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+	
+			<img src="<?= url::base(); ?>media/img/logo_big.png">
+			<h3>เวลารวมที่อาสาฝากไว้กับธนาคาร</h3>
+			<p>คือเวลาทั้งหมดที่อาสาได้มาประกาศความตั้งใจเพื่อนำไปทำงานจิตอาสา</p>
+			<h3>เวลารวมของภารกิจที่ต้องการอาสา</h3>
+			<p>คือเวลารวมทั้งหมดของโอกาสในการทำจิตอาสา</p>
+			<h3>เวลารวมที่อาสาได้ปฏิบัติภารกิจไปแล้ว</h3>
+			<p>คือเวลารวมทั้งหมดที่ถูกใช้ในการทำงานอาสาแล้ว</p>
 		</div>
-
+			
 		<ol>
 			<li>
-				<img src="<?= url::base(); ?>media/img/about_website_1.jpg">
+				<img src="<?= url::base(); ?>media/img/about_timebank.jpg">
 				<div class="top"></div>
 				<div class="body">
-					<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
+					<p>1. ระบบธนาคารเวลา (Time Bank) </p>
 				</div>
 				<div class="bottom"></div>
-				<p class="sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+				<p class="sub">Time Bank เป็นระบบสนับสนุนการทำงานอาสา ที่เข้าถึงได้ทาง Internet ให้อาสาสมัครได้แสดงความตั้งใจจะใช้เวลาเพื่อทำงานอาสา โดยรวบรวมสถิติการใช้เวลา ยังมีระบบคัดเลือกและแนะนำงาน (matching) ให้ค้นหางานอาสาที่เหมาะกับตนเอง ตรงกับความสนใจ ความถนัด ทักษะ ความสามารถ หรือความสะดวก ไม่เฉพาะแต่ในสถานการณ์ภัยพิบัติเท่านั้น แต่ยังรวมถึงงานอาสาสมัครเพื่อสังคมทุกประเภทที่มีอยู่แล้วในประเทศไทยด้วย </p>
 			</li>
 			<li>
-				<img src="<?= url::base(); ?>media/img/about_website_2.jpg">
+				<img src="<?= url::base(); ?>media/img/about_training.jpg">
 				<div class="top"></div>
 				<div class="body">
-					<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
+					<p>2. การปฐมนิเทศและการอบรม (Orientation and Training) </p>
 				</div>
 				<div class="bottom"></div>
-				<p class="sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+				<p class="sub">การปฐมนิเทศและการอบรมอาสาเป็นกระบวนการเตรียมพร้อมอาสาสมัครก่อนลงไปทำงานอาสา 
+				เพื่อให้อาสาได้เกิดประสบการณ์ที่ดี ได้เรียนรู้ และพัฒนาตนเองอย่างรอบด้านทั้งทางกาย ทางใจ และทางสังคม นอกจากนี้การจัดอบรมให้กับองค์กรที่รับอาสาเข้าไปทำงานก็เป็นสิ่งสำคัญเช่นกัน เพราะการจัดกิจกรรมเพื่อให้เกิดประโยชน์สูงสุดกับอาสานั้นจำเป็นต้องมีทั้งความเข้าใจและทักษะ
+				รวมถึงมีการจัดทำคู่มือรวบรวมองค์ความรู้เรื่องการปฐมนิเทศและการอบรมด้วย </p>
 			</li>
 			<li>
-				<img src="<?= url::base(); ?>media/img/about_website_3.jpg">
+				<img src="<?= url::base(); ?>media/img/about_vrm.jpg">
 				<div class="top"></div>
 				<div class="body">
-					<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
+					<p>3.  อาสาสัมพันธ์ (Volunteer Relation Managaement: VRM) </p>
 				</div>
 				<div class="bottom"></div>
-				<p class="sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+				<p class="sub">งานอาสาสัมพันธ์เป็นการสร้างความต่อเนื่องในการมีกิจกรรมความร่วมมือและสื่อสาระะหว่างอาสาสมัครและองค์กรที่จัดกิจกรรม นอกจากจะเป็นช่องทางในการสื่อสาร งานอาสาสัมพันธ์ยังช่วยให้กำลังใจ เปิดโอกาสการแลกเปลี่ยนประสบการณ์ และความประทับใจ จากการทำงาน ตลอดจนสามารถพัฒนาเป็นชุมชนเครือข่ายความร่วมมือตามประเด็นความสนใจ หรือตามพื้นที่ต่อไป</p>
 			</li>
+			<div class="column two">
+			<p>ด้วยการสนับสนุนจากสำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ (สสส.) ธนาคารจิตอาสาพร้อมยินดีรับใช้และให้บริการ มาร่วมกันเป็นส่วนสำคัญของการสร้างความมั่นคงยั่งยืน ให้กับชุมชนจิตอาสาและสังคมไทย ด้วยการแบ่งปันเวลาและลงมือทำกับธนาคารจิตอาสา</p>
+			</div>
 		</ol>
-		
 		
 
   </div>
+		
 </div>
 
 <script type="text/javascript">
