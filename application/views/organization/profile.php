@@ -86,8 +86,6 @@
                             <?= Arr::get($errors, 'homephone'); ?>
                         </div>
                     </p>
-					<p><label>อีเมล์</label></p>
-					<p><input type="text"></p>
 				</div>
 				<div class="one">
 					<p><label>เขต</label></p>
@@ -113,9 +111,9 @@
                     </p>
 					<p><label>ติดต่อคุณ</label></p>
 					<p>
-						<?= Form::input('contactperson', HTML::chars($organization->homephone)); ?>
+						<?= Form::input('contactperson', HTML::chars($organization->contactperson)); ?>
                         <div class="error">
-                            <?= Arr::get($errors, 'homephone'); ?>
+                            <?= Arr::get($errors, 'contactperson'); ?>
                         </div>
                     </p>
 				</div>
