@@ -5,7 +5,26 @@ class Controller_Welcome extends Controller_Template {
 	public function action_index()
 	{
 		$this->meta_page_title = __('Sample first page');
-		$this->template->content = View::factory('welcome');
+		$this->template->content = View::factory('welcome')
+									->bind('time_donate', $time_donate)
+									->bind('time_want', $time_want)
+									->bind('time_done', $time_done)
+									->bind('events', $events);
+									
+	$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
+				->from('timebank.user_timebanks')
+				->where('status','=','1')->execute()->get('time_donate', 0);
+				
+ 	$time_done = DB::select(array('SUM("hour")', 'time_done'))
+				->from('timebank.user_timebanks')
+				->where('status','=','0')->execute()->get('time_done', 0);
+				
+	$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
+				->from('timebank.events')
+				->where('status','=','1')->execute()->get('time_want', 0);
+				
+	$events = ORM::factory('event')->order_by('timestamp','desc')->limit(3)->find_all();
+	
    	}
 	
 	public function action_comingsoon()

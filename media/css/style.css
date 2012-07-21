@@ -390,7 +390,7 @@ header h2 {
 }
 #home article {
     float: left;
-    margin: 20px 0 0 45px;
+    margin: 20px 0 0 30px;
     width: 30%;
 }
 #home article div {
@@ -419,6 +419,7 @@ header h2 {
     font-family: tahoma;
     font-size: 13px;
     margin: 5px 0;
+	width:250px;	
 }
 #home article p  a{
 	color:#e87c0c;
