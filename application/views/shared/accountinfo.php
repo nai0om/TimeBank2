@@ -5,14 +5,14 @@
     </ul>
 <? elseif (isset($user)) : ?>       
     <ul>
-        <li>Welcome <span id="member_name"><?= $user->displayname ?></span></li>
+        <li>Welcome <span id="member_name"><?= HTML::anchor('user/profile/'.$user->id , $user->displayname ); ?></span></li>
         <li><?= HTML::anchor('user/inbox', 'ข้อความเตือน (5)'); ?></li>
         <li><?= HTML::anchor('user/setting', 'ตั้งค่าบัญชีผู้ใช้'); ?></li>
         <li><?= HTML::anchor('user/logout', 'ออกจากระบบ'); ?></li>
     </ul>
 <? elseif (isset($orguser)) : ?>       
     <ul>
-        <li>Welcome <span id="member_name"><?= $orguser->name ?></span></li>
+        <li>Welcome <span id="member_name"><?= HTML::anchor('organization/profile/'.$orguser->id , $orguser->name ); ?></span></li>
         <li><?= HTML::anchor('organization/inbox', 'ข้อความเตือน (5)'); ?></li>
         <li><?= HTML::anchor('organization/setting', 'ตั้งค่าบัญชีผู้ใช้'); ?></li>
         <li><?= HTML::anchor('user/logout', 'ออกจากระบบ'); ?></li>
