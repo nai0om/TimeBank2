@@ -6,12 +6,7 @@ $(document).ready( function () {
   	$(function() {
 			$(".datepicker" ).datepicker({
 										dateFormat: 'dd-mm-yy',
-								
-											 });
-	});
-	$(function() {
-			$(".timepicker" ).timepicker({
-										timeFormat: 'hh:MM:ss',
+										isBuddhist: true
 											 });
 	});
 
