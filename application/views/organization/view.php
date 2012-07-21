@@ -25,9 +25,9 @@
 			<img src="img/org_sample_small.png">
 		</div>
 		<div id="columnRight">
-			<div class="sum"><div class="sum_hours">2,360 ชั่วโมง</div>
+			<div class="sum"><div class="sum_hours"><?= $hours_sum ?> ชั่วโมง</div>
 			<div class="sub_title">เวลาจากอาสาสมัครที่เคยทำงานกับมูลนิธิ</div></div>
-			<div class="sum"><div class="sum_hours">250 อาสาสมัคร</div>
+			<div class="sum"><div class="sum_hours"><?= $total_valun ?>  อาสาสมัคร</div>
 			<div class="sub_title">ที่เคยร่วมงานกับมูลนิธิ</div></div>
 		</div>
 		

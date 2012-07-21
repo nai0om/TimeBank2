@@ -88,9 +88,9 @@
                         </div>
                 </p>
 				<p><label>ติดต่อคุณ</label>
-						<?= Form::input('contactperson', HTML::chars($organization->homephone)); ?>
+						<?= Form::input('contactperson', HTML::chars($organization->contactperson)); ?>
                         <div class="error">
-                            <?= Arr::get($errors, 'homephone'); ?>
+                            <?= Arr::get($errors, 'contactperson'); ?>
                         </div>
                 </p>
 				<p><label>Website URL</label>
