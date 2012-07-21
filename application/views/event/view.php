@@ -1,6 +1,7 @@
 <?
 $memebers = $event->users->find_all();
 $member_count = $memebers->count();
+$provinces = Kohana::$config->load('timebank')->get('provices');
 ?>
 
 <?php if ($mode == 2): ?>
@@ -163,7 +164,7 @@ $member_count = $memebers->count();
 		<div id="leftSide">
 			<p><span class="header">ในโครงการ:</span> <?= $event->project_name ?></p>
 			<p><span class="header">สถานที่:</span><?= $event->location_name ?></p>
-			<p><span class="header">จังหวัด:</span> <?= $event->location_province 	 ?></p>
+			<p><span class="header">จังหวัด:</span> <?= $provincesบ$event->location_province?></p>
 			<p><span class="header">รายละเอียดงานอาสา</span></p>
 			<p><?= $event->detail ?></p>
 			<p><span class="header">ลักษณะการเดินทาง</span></p>
