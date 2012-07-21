@@ -15,10 +15,14 @@ class Controller_Welcome extends Controller_Template {
 				->from('timebank.user_timebanks')
 				->where('status','=','1')->execute()->get('time_donate', 0);
 				
- 	$time_done = DB::select(array('SUM("hour")', 'time_done'))
-				->from('timebank.user_timebanks')
-				->where('status','=','0')->execute()->get('time_done', 0);
-				
+ 	$time_done = 0;
+
+	$done_event = ORM::factory('event')->where('status', '=', '0')->find_all();
+	foreach($done_event as $done)
+	{
+		$time_done += $done->time_cost * $done->volunteer_need_count;
+	}
+
 	$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
 				->from('timebank.events')
 				->where('status','=','1')->execute()->get('time_want', 0);

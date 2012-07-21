@@ -357,8 +357,7 @@ class Controller_Event extends Controller_Template {
 				$events = $events->where('location_province', '=', $province);
 			if($query != '')
 				$events = $events->where('search_temp', 'like', '%'.$query.'%');
-				
-			echo 'dayyyyyyyyyyy'.	Arr::get($_GET, 'day');
+			
 			//day 
 			if ( Arr::get($_GET, 'day') == '0')
 			{

@@ -16,22 +16,22 @@
 			<div id="summary">
 				<div id="photo" style="float:left;">
                 <a href="<?= url::base().'user/profile'; ?>">
-        <? if ($user->profile_image) : ?>
-        	<img src="<?= url::base().'media/upload/'.$user->profile_image; ?>" />
+         <? if ($user->profile_image) : ?>
+        	<p><img style="width:271px;height:259px;" src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" /></p>
          <? else :?>
-         	<img src="<?= url::base().'media/img/member.png'; ?>" />
+         	<img src="<?= url::base().'media/img/mem_sample_profile.png'; ?>" />
          <? endif ?>
          		</a>
 					<div style="clear:both"></div>
 				</div>
-				<div class="sum"><div class="sum_hours">36 ชั่วโมง</div>
-				<div class="sub_title">เวลาตั้งใจอาสา</div></div>
+				<div class="sum"><div class="sum_hours"><?= $time ?> ชั่วโมง</div>
+				<div class="sub_title"> เวลาตั้งใจอาสา</div></div>
 				<div></div>
-				<div class="sum"><div class="sum_hours">16 ชั่วโมง</div>
+				<div class="sum"><div class="sum_hours"><?= $work_time ?> ชั่วโมง</div>
 				<div class="sub_title">เวลาทำอาสา</div></div>
 			</div>
 			<div style="clear:both"></div>
-			<div class="title left"></div>
+			<!--div class="title left"></div>
 			<div class="title body">งานอาสาที่เหมาะกับโปร์ไพล์คุณ</div>
 			<div class="title right"></div>
 			<div class="line" style="width:374px;"></div>
@@ -54,6 +54,7 @@
 				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
 				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
 			</ul>
+            -->
 			<div style="clear:both"></div>
 			<div class="title left"></div>
 			<div class="title body">งานอาสาที่ทางเวบไซต์อยากแนะนำ</div>
@@ -62,8 +63,6 @@
 			<a class="more">Load more</a>
 			<div style="clear:both"></div>
 			<ul class="list">
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
 				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
 			</ul>
 			

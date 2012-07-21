@@ -49,8 +49,8 @@
 				<?= Form::input('nickname', HTML::chars($user->nickname)); ?>
                 <div class="error"><?= Arr::get($errors, 'nickname'); ?></div>
 				
-				<?= Form::label('birthday', 'วันเกิด'); ?>
-				<?= Form::input('birthday', HTML::chars($user->birthday), array('class' => 'datepicker')); ?>
+				<?= Form::label('birthday', 'วันเกิด (วัน/เดือน/ปี)'); ?>
+				<?= Form::input('birthday', HTML::chars($user->birthday)); ?>
                 <div class="error"><?= Arr::get($errors, 'birthday'); ?></div>
                 
 				<?= Form::label('sex', 'เพศ'); ?>
@@ -74,6 +74,13 @@
                 
 				<?= Form::label('address', 'ที่อยู่'); ?>
 				<?= Form::input('address', HTML::chars($user->address)); ?>
+                <?= Form::label('location', 'เขต/อำเภอ'); ?>
+				<?= Form::input('location', HTML::chars($user->location)); ?>
+                <?= Form::label('province', 'จังหวัด'); ?>
+				 <?php
+				$provices = Kohana::$config->load('timebank')->get('provices'); 
+				echo Form::select('province', $provices, $user->province, array ('class' => 'full'));
+				?>
                 <div class="error"><?= Arr::get($errors, 'address'); ?></div>
                 
                 
