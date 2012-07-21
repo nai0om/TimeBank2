@@ -348,4 +348,80 @@ class Controller_Organization extends Controller_Template {
             }
 		}
 	}
+	
+	public function action_setting()
+    {
+        // if a user is not logged in, redirect to login page
+		if (is_null($this->orguser))
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$action = $this->request->action();
+		$org_user = ORM::factory('user', $this->orguser->user_id);
+		$this->template->content = View::factory('organization/setting')
+			->bind('action', $action)
+			->bind('org_user', $org_user);
+    }
+
+	public function action_changepassword()
+	{
+        // if a user is not logged in, redirect to login page
+		if (is_null($this->orguser))
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$action = $this->request->action();
+		$this->template->content = View::factory('organization/password')
+			->set('values', $_POST)
+            ->bind('errors', $errors)
+            ->bind('message', $message)
+			->bind('action', $action);
+			
+        if (HTTP_Request::POST == $this->request->method()) 
+        {
+			$password = Arr::get($_POST, 'password');
+			if ($password == '')
+			{
+				$message = ('There were errors, please see form below.');
+				$errors = array('password' => 'Password can\'t be empty.');
+				return;
+			}
+			
+			if (Arr::get($_POST, 'newpassword') != Arr::get($_POST, 'newpasswordconfirm'))
+			{
+				$message = ('There were errors, please see form below.');
+				$errors = array('newpasswordconfirm' => 'The password fields did not match.');
+				return;
+			}
+			
+			$org_user = ORM::factory('user', $this->orguser->user_id);
+			$hash_password = $org_user->hash_password($password);
+			if ($org_user->password == $hash_password)
+			{
+				$org_user->password = Arr::get($_POST, 'newpassword');
+									
+				try
+				{
+					$org_user->save();       
+					$message = 'Update complete';
+						 
+				} catch (ORM_Validation_Exception $e) {
+					// Set failure message
+					$message = 'There were errors, please see form below.';
+					// Set errors using custom messages
+					$errors = $e->errors('models');
+					return;
+				}
+			}
+			else
+			{
+				$message = 'Incorrect Password';
+			}
+        }		
+	}
+
 }

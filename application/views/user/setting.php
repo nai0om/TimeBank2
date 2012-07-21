@@ -27,37 +27,17 @@
 <? endif; ?>
 			<?= Form::open('user/setting', array('enctype' => 'multipart/form-data')); ?>	
                 
+                <label>อีเมล์ผู้ใช้ :</label><p><?= HTML::chars($user->email) ?></p>
 				<?= Form::label('displayname', 'ดิสเพลเนม :'); ?>
 				<?= Form::input('displayname', HTML::chars($user->displayname) ); ?>
                 <div class="error"><?= Arr::get($errors, 'displayname'); ?></div>
-                
-				<label>รหัสผู้ใช้ (อีเมล์) :</label><p><?= HTML::chars($user->email) ?></p>
-                
-				<?= Form::label('email', 'เปลี่ยนรหัสผู้ใช้ใหม่ (อีเมล์) :'); ?>
-				<?= Form::input('email', Arr::get($values, 'email')); ?>
-                <div class="error"><?= Arr::get($errors, 'email'); ?></div>
-                
-				<?= Form::label('password', 'รหัสผ่านเดิม :'); ?>
-				<?= Form::password('password'); ?>
-                <div class="error"><?= Arr::get($errors, 'password'); ?></div>
-                
-				<?= Form::label('newpassword', 'รหัสผ่านใหม่ :'); ?>
-				<?= Form::password('newpassword'); ?>
-                <div class="error"><?= Arr::get($errors, 'newpassword'); ?></div>
-                
-				<?= Form::label('newpasswordconfirm', 'ยืนยันรหัสผ่านใหม่อีกครั้ง :'); ?>
-				<?= Form::password('newpasswordconfirm'); ?>
-                <div class="error"><?= Arr::get($errors, 'newpasswordconfirm'); ?></div>
-
-
-
 				<label></label><input type="submit" value="บันทึกการเปลี่ยนแปลง">
 			<?= Form::close(); ?>
+            
+            <h2><?= HTML::anchor('user/changepassword', 'เปลี่ยนรหัสผ่าน'); ?></h2>
 			
 		</div>
-		
-		</div>
-	
-  </div>
+	</div>	
+</div>
   
  

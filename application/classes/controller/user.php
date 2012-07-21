@@ -382,6 +382,44 @@ class Controller_User extends Controller_Template {
 			
         if (HTTP_Request::POST == $this->request->method()) 
         {
+			//$email = Arr::get($_POST, 'email');
+			$this->user->displayname = Arr::get($_POST, 'displayname');
+			
+			try
+			{
+					$this->user->save();       
+					$message = 'Update complete';
+					 
+			}
+			catch (ORM_Validation_Exception $e) 
+			{
+					// Set failure message
+					$message = 'There were errors, please see form below.';
+					// Set errors using custom messages
+					$errors = $e->errors('models');
+					return;
+			}
+        }
+    }
+
+	public function action_changepassword()
+	{
+        // if a user is not logged in, redirect to login page
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$action = $this->request->action();
+		$this->template->content = View::factory('user/password')
+			->set('values', $_POST)
+            ->bind('errors', $errors)
+            ->bind('message', $message)
+			->bind('action', $action);
+			
+        if (HTTP_Request::POST == $this->request->method()) 
+        {
 			$password = Arr::get($_POST, 'password');
 			if ($password == '')
 			{
@@ -397,47 +435,30 @@ class Controller_User extends Controller_Template {
 				return;
 			}
 			
-			
 			$hash_password = $this->user->hash_password($password);
 			if ($this->user->password == $hash_password)
 			{
-				$email = Arr::get($_POST, 'email');
-				$newpassword = Arr::get($_POST, 'newpassword');
-				$this->user->displayname = Arr::get($_POST, 'displayname');
-				if (!empty($email))
+				$this->user->password = Arr::get($_POST, 'newpassword');
+									
+				try
 				{
-					$this->user->email = $email;
-					$this->user->password = $password;
-				}
-				if (!empty($newpassword))
-				{
-					$this->user->password = $newpassword;
-				}
-					
-				try {
-						$this->user->save();       
-						$message = 'Update completed successfully';
+					$this->user->save();       
+					$message = 'Update complete';
 						 
 				} catch (ORM_Validation_Exception $e) {
-						// Set failure message
-						$message = 'There were errors, please see form below.';
-						// Set errors using custom messages
-						$errors = $e->errors('models');
-						return;
+					// Set failure message
+					$message = 'There were errors, please see form below.';
+					// Set errors using custom messages
+					$errors = $e->errors('models');
+					return;
 				}
-					
 			}
 			else
 			{
 				$message = 'Incorrect Password';
 			}
-			
-
-        }
-		
-    }
-
-	
+        }		
+	}
 	
 	public function action_view()
 	{
