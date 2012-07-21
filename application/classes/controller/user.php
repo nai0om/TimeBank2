@@ -13,7 +13,24 @@ class Controller_User extends Controller_Template {
 
         $action = $this->request->action();
 		$this->template->content = View::factory('user/index')
-		->bind('action', $action);
+		->bind('action', $action)
+		->bind('time', $time)
+		->bind('work_time', $work_time)
+		->bind('events', $events);
+		
+		$time = DB::select(array('SUM("hour")', 'time'))
+				->from('timebank.user_timebanks') 	
+				->where('status','=','1')
+				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
+		$work_time = 0;		
+		$pass_event = $this->user->events->where('event.status', '=', '0')->find_all();
+		foreach($pass_event as $pass)
+		{
+			$work_time += $pass->time_cost;
+		}
+		
+			
+		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(3)->find_all();
     }
 
     public function action_record()
@@ -37,8 +54,21 @@ class Controller_User extends Controller_Template {
 		$this->template->content = View::factory('user/record')
 								->bind('records', $records)
 								->bind('errors', $errors)
-								->bind('total_hour', $total_hour)
+								->bind('time', $time)
+								->bind('work_time', $work_time)
 								->bind('action', $action);
+								
+		$time = DB::select(array('SUM("hour")', 'time'))
+				->from('timebank.user_timebanks') 	
+				->where('status','=','1')
+				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
+		$work_time = 0;		
+		$pass_event = $this->user->events->where('event.status', '=', '0')->find_all();
+		foreach($pass_event as $pass)
+		{
+			$work_time += $pass->time_cost;
+		}
+		
     }
 	
 	public function action_addhour()
@@ -52,6 +82,7 @@ class Controller_User extends Controller_Template {
 				
         if (HTTP_Request::POST == $this->request->method()) 
         {           
+		   $errors = '';
             try {
          
                	// Create an timebank and attach it to the user (one-to-many)
@@ -61,19 +92,11 @@ class Controller_User extends Controller_Template {
 					'user_id'		=> $this->user->id, // sets the fk
 				));
 				$timebank->save();
-				
-				Request::current()->redirect('user/record');
-                 
+           //  Request::current()->redirect('user/record');    
             } catch (ORM_Validation_Exception $e) {
-                 
-                // Set errors using custom messages
-				$this->template->content = View::factory('user/record')
-					->bind('errors', $errors)
-					->bind('records', $records);
-
                 $errors = $e->errors('models');
-				$records = ORM::factory('user_timebank')->where('user_id', '=', $this->user->id)->find_all();
             }
+			  Request::current()->redirect('user/record')->bind('errors', $errors);        
 		}	
 	}
 	
@@ -207,6 +230,8 @@ class Controller_User extends Controller_Template {
 			$this->user->phone = Arr::get($_POST, 'phone');
 			$this->user->birthday = Arr::get($_POST, 'birthday');
 			$this->user->address = Arr::get($_POST, 'address');
+			$this->user->location = Arr::get($_POST, 'location');
+			$this->user->province = Arr::get($_POST, 'province');
 			$this->user->website = Arr::get($_POST, 'website');
 			$this->user->sex = Arr::get($_POST, 'sex');
 
