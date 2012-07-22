@@ -28,12 +28,12 @@
 			<div style="clear:both"></div>
 
 			<div id="photo">
-				<img src="img/org_profile_logo.png" style="float:left">
-				<img src="img/org_profile_logo.png_small.png">
-				<img src="img/org_profile_logo.png_small.png">
-				<img src="img/org_profile_logo.png_small.png">
-				<img src="img/org_profile_logo.png_small.png">
-				<img src="img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png" style="float:left">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
 			</div>
 			
 			<div style="clear:both"></div>

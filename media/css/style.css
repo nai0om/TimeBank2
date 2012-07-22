@@ -419,6 +419,8 @@ header h2 {
     font-family: tahoma;
     font-size: 13px;
     margin: 5px 0;
+	height:45px;
+	overflow:hidden;
 	width:250px;	
 }
 #home article p  a{

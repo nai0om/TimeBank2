@@ -19,7 +19,7 @@ class Controller_User extends Controller_Template {
 		->bind('events', $events);
 		
 		$time = DB::select(array('SUM("hour")', 'time'))
-				->from('timebank.user_timebanks') 	
+				->from('timebank_test.user_timebanks') 	
 				->where('status','=','1')
 				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
 		$work_time = 0;		
@@ -59,7 +59,7 @@ class Controller_User extends Controller_Template {
 								->bind('action', $action);
 								
 		$time = DB::select(array('SUM("hour")', 'time'))
-				->from('timebank.user_timebanks') 	
+				->from('timebank_test.user_timebanks') 	
 				->where('status','=','1')
 				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
 		$work_time = 0;		

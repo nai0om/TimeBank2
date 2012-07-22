@@ -12,7 +12,7 @@ class Controller_Welcome extends Controller_Template {
 									->bind('events', $events);
 									
 	$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
-				->from('timebank.user_timebanks')
+				->from('timebank_test.user_timebanks')
 				->where('status','=','1')->execute()->get('time_donate', 0);
 				
  	$time_done = 0;
@@ -24,7 +24,7 @@ class Controller_Welcome extends Controller_Template {
 	}
 
 	$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
-				->from('timebank.events')
+				->from('timebank_test.events')
 				->where('status','=','1')->execute()->get('time_want', 0);
 				
 	$events = ORM::factory('event')->order_by('timestamp','desc')->limit(3)->find_all();
