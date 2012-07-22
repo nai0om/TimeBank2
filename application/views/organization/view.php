@@ -17,12 +17,12 @@
 		<h2><?= $organization->name ?></h2>
 		
 		<div id="columnLeft">
-			<img src="img/org_sample.png" style="float:left;">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample.png" style="float:left;">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
 		</div>
 		<div id="columnRight">
 			<div class="sum"><div class="sum_hours"><?= $hours_sum ?> ชั่วโมง</div>

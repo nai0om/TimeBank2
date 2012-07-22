@@ -3,11 +3,11 @@
 		<div id="sitemap">
 			<li>หน้าแรก</li>
 			<li>ธนาคารจิตอาสา</li>
-			<li>ดูงานอาสา</li>
-			<li>เด็กและเยาวชน</li>
-			<li>อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน</li>
+			<li>สมัครงานอาสา</li>
+			<li><?= $name ?></li>
+
 		</div>
-		<ul><li>สมัครสมาชิก</li><li>เข้าสู่ระบบ</li></ul>
+		<ul><?php include Kohana::find_file('views', 'shared/accountinfo') ?></ul>
 
 		<div id="icon_set">
 			<?=  HTML::anchor('/', '<img src="'.url::base().'media/img/icon_donation.png"/>') ?>
