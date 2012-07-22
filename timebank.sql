@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost
--- Generation Time: Jul 18, 2012 at 11:16 PM
+-- Generation Time: Jul 22, 2012 at 05:29 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6
 
@@ -28,14 +28,12 @@ CREATE TABLE `comments` (
   `comment` text collate utf8_unicode_ci NOT NULL,
   `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- 
 -- Dumping data for table `comments`
 -- 
 
-INSERT INTO `comments` VALUES (6, 2, 1, 1, '127.0.0.1', 'น่าไปจัง', '2012-06-28 02:03:35');
-INSERT INTO `comments` VALUES (5, 2, 1, 3, '127.0.0.1', 'สวดยวดไปเลย จุบูจุบู ', '2012-06-28 01:56:20');
 
 -- --------------------------------------------------------
 
@@ -130,16 +128,14 @@ CREATE TABLE `events` (
   `days` text collate utf8_unicode_ci NOT NULL,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `tags` text collate utf8_unicode_ci NOT NULL,
+  `message` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- 
 -- Dumping data for table `events`
 -- 
 
-INSERT INTO `events` VALUES (1, 'สร้างงานอาสาใหม่/ในโครงการ//รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา /สถานที่', '2012-06-03', '2012-06-13', '2012-06-03', '2012-06-30', '00:00:00', '23:59:59', '00:00:00', '23:59:59', 3, NULL, 'สถานที่', 'สถานที่', '1', '10000', 1, 'สร้างงานอาสาใหม่', NULL, NULL, 'ในโครงการ', 423, 672, 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 'รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา รายละเอียดของงานอาสา ', 0, '', '4feb56e804234Thai_Health.jpg', '', '', '', '', '2012-06-28 01:54:33', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ');
-INSERT INTO `events` VALUES (2, 'asfasf/asfasfasf//aradasdasdad/fsdfsf', '2012-07-02', '2012-07-05', '2012-07-15', '2012-07-19', '00:00:00', '23:59:59', '00:00:00', '23:59:59', 3, NULL, 'fsdfsf', 'sdfsfsd', '4', 'fsdfsf', 1, 'asfasf', NULL, NULL, 'asfasfasf', 32, 120, 'aradasdasdad', 'afafafadgadgdagadg', 'agdagadgagadgag', 0, 'gsdfgdgdfg', NULL, 'การขับขี่พาหนะ (จักรยานยนต์/รถยนต์), ว่ายน้ำ, ', 'เยอรมัน, ', '', '', '2012-07-16 22:31:05', 'กู้ภัยและฟื้นฟูจากภัยพิบัติ, อาหารและโภชนาการ, ');
-INSERT INTO `events` VALUES (3, 'xxxxxxxxx/xxxxxxx//asdfasfdasdfasdfaasdfsafd/dsfasd', '2012-07-09', '2012-07-27', '2012-07-01', '2012-07-21', '00:00:00', '23:59:59', '00:00:00', '23:59:59', 3, NULL, 'dsfasd', 'asdfasd', '1', 'fasdfsf', 1, 'xxxxxxxxx', NULL, NULL, 'xxxxxxx', 323, 504, 'asdfasfdasdfasdfaasdfsafd', 'asfdasdfsdfasfdasdfasfd', 'asdfasfdasfdasfdasfdafdasdfasfd', 0, '', NULL, ' 2405|2406|2701T=qweqw|2702T=eqweqw|2703T=eqweqwe|2801T=qweqew|2802T=qweqe|', '', '', '', '2012-07-18 22:01:02', '');
 
 -- --------------------------------------------------------
 
@@ -174,15 +170,12 @@ CREATE TABLE `images` (
   `image` mediumtext NOT NULL,
   `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`image_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- 
 -- Dumping data for table `images`
 -- 
 
-INSERT INTO `images` VALUES (1, 1, 'เขียนคำบรรยายที่นี่', '4feb59d36ea9820090817000711-XA9VN.jpg', '2012-06-28 02:06:59');
-INSERT INTO `images` VALUES (2, 1, 'เขียนคำบรรยายที่นี่', '4feb59d9946ddc98232.jpg', '2012-06-28 02:07:05');
-INSERT INTO `images` VALUES (3, 1, 'เขียนคำบรรยายที่นี่', '4feb59df325bdiq08d9bff91fe369a9c8d69c0186092bb7.jpg', '2012-06-28 02:07:11');
 
 -- --------------------------------------------------------
 
@@ -287,13 +280,14 @@ CREATE TABLE `organizations` (
   `logo` mediumtext collate utf8_unicode_ci,
   `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 -- 
 -- Dumping data for table `organizations`
 -- 
 
-INSERT INTO `organizations` VALUES (3, '', 2, 0, 1, 0, 'ชื่ออออออออออออ', 'ดดดดดดดดดดดดดดดดวัตถุประสงค์', 'ลักษณะ', 'ที่อยู่', 'เขต', 'จังหวัด', 'ไปรษณีย์', 'บ้าน', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.orgg', '4ec7092217c96thai.png', '2012-06-11 09:48:35');
+INSERT INTO `organizations` VALUES (3, '', 2, 0, 1, 0, 'ชื่ออออออออออออ', 'ดดดดดดดดดดดดดดดดวัตถุประสงค์dfasdf', 'qssd', 'zzzzzzz', 'เขต', 'zzzzzzz', 'ไปรษณีย์', '1231231231313', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.orgg', '4ec7092217c96thai.png', '2012-07-21 16:26:49');
+INSERT INTO `organizations` VALUES (4, '', 3, 1, 1, 1, '123124124124', '1231412314124214', '1231412314124214123141231412421412314123141242141231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', NULL, '2012-07-22 02:14:25');
 
 -- --------------------------------------------------------
 
@@ -321,16 +315,18 @@ CREATE TABLE `users` (
   `website` text NOT NULL,
   `skills` text NOT NULL,
   `interest_tags` text NOT NULL,
+  `location` text NOT NULL,
+  `province` text NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- 
 -- Dumping data for table `users`
 -- 
 
-INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', 'nickname', 0, 'first_name', 'last_name', '2012-06-06', '123124124', 'adfa', '4feb58e974ea1volunteer-hands.jpg', '', '', '2012-07-16 21:19:31', '', '13123', '2303|2304|2305|2306|2307|', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ');
-INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', 'org nakrub', 'org ่ฟ', 1, 'organization', 'lnwlnw', '2012-06-28', '', '', '', '', '', '2012-06-28 01:58:29', '', '', '', '');
+INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', 'nickname', 0, 'first_name', 'last_name', '2012-06-06', '12356', 'adfa', '4feb58e974ea1volunteer-hands.jpg', '', '', '2012-07-22 16:06:17', '', '13123', '2303|2304|2305|2306|2307|', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ', '12312', '1');
+INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1e0d', 'org nakrub', 'org ่ฟ', 1, 'organization', 'lnwlnw', '2012-06-28', '', '', '', '', '', '2012-06-28 01:58:29', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -350,10 +346,6 @@ CREATE TABLE `users_events` (
 -- Dumping data for table `users_events`
 -- 
 
-INSERT INTO `users_events` VALUES (3, 8, 2, '2011-11-22 22:22:24');
-INSERT INTO `users_events` VALUES (0, 0, 3, '2011-11-22 22:12:22');
-INSERT INTO `users_events` VALUES (1, 1, 0, '2012-06-28 02:03:39');
-INSERT INTO `users_events` VALUES (1, 2, 0, '2012-07-16 22:31:27');
 
 -- --------------------------------------------------------
 
@@ -437,3 +429,5 @@ INSERT INTO `user_timebanks` VALUES (4, 8, 1, 122, '2011-11-22 23:25:50');
 INSERT INTO `user_timebanks` VALUES (1, 1, 1, 23, '2012-07-02 22:05:25');
 INSERT INTO `user_timebanks` VALUES (2, 1, 1, 2, '2012-07-16 21:35:00');
 INSERT INTO `user_timebanks` VALUES (3, 1, 1, 2222, '2012-07-16 21:35:05');
+INSERT INTO `user_timebanks` VALUES (4, 1, 1, 123, '2012-07-22 02:02:38');
+INSERT INTO `user_timebanks` VALUES (5, 1, 1, 1111111, '2012-07-22 02:02:45');
