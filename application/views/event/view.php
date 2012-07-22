@@ -16,8 +16,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<li>หน้าแรก</li>
 			<li>ธนาคารจิตอาสา</li>
 			<li>ดูงานอาสา</li>
-			<li>เด็กและเยาวชน</li>
-			<li>อาสาช่วยคัดหนังสือเพื่อแบ่งปันให้น้องในพื้นที่ขาดแคลน</li>
+			<li><?= $event->name ?></li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
@@ -43,7 +42,13 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
             <? endif ?>
                 
-			<a id="share">share</a>
+			
+            <div class="a2a_kit a2a_default_style">
+          	  <a id="share" class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a>
+            </div>
+            <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+            <!-- Lockerz Share END -->
+
 		</div>
 		<div style="clear:both"></div>
 		
@@ -91,12 +96,14 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			  <div class="add">
                     <div>
                          <?php 
-                           echo Form::open('event/addimage/'.$event->id, array ('id' => 'search', 'enctype' => 'multipart/form-data')); 
-                           echo Form::input('text', 'เขียนคำบรรยายที่นี่'); 
-                           echo Form::file('image');
-	       				   echo Form::submit(NULL, 'OK'); 
-						  // echo '<input type="file" >'.'<img src="'.url::base().'media/img/tb_photos_add.png"/>'.'</input>';
-                           echo Form::close();
+						 	
+							   echo Form::open('event/addimage/'.$event->id, array ('id' => 'search', 'enctype' => 'multipart/form-data')); 
+							   echo Form::input('text', 'เขียนคำบรรยายที่นี่'); 
+							   echo Form::file('image');
+							   echo Form::submit(NULL, 'OK'); 
+							  // echo '<input type="file" >'.'<img src="'.url::base().'media/img/tb_photos_add.png"/>'.'</input>';
+							   echo Form::close();
+						
                         ?> 
                       </div>
                  </div> 
@@ -134,11 +141,27 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             
 		</div>
     <? else: ?>
-		<div id="post">
-			<h2>ข้อความขอบคุณสามารถพิมพ์โดย admin ประเภทองค์กรหลังจากจบงาน</h2>
-			<a>ดูภาพกิจกรรม</a><form style="float:right;"><input type="text" value="เขียนคำขอบคุณที่นี่"><input type="submit" value="ส่ง"/><input type="submit" value="แก้ไข"/></form>
-		</div>
-	
+		<? if($isAdmin) : ?>
+            <div id="post">
+                <h2>ข้อความขอบคุณสามารถพิมพ์โดย admin ประเภทองค์กรหลังจากจบงาน</h2>
+               <?
+			   echo Form::open('event/addmessage/'.$event->id, array ('style' => 'float:right;')); 
+			   echo Form::input('message', ($event->message == '' ? 'เขียนคำขอบคุณที่นี่' : $event->message)); 
+			   echo Form::submit(NULL, 'ส่ง'); 
+			  // echo '<input type="file" >'.'<img src="'.url::base().'media/img/tb_photos_add.png"/>'.'</input>';
+			   echo Form::close();
+			   ?>
+            </div>
+		<? else : ?>	
+         	<? if($event->message != '') : ?>
+        	<div id="post">
+                <h2>ข้อความขอบคุณจากทีมงาน</h2>
+                 <p><?= $event->message ?> </p>
+            </div>
+            <? endif ?>
+        <? endif ?>
+        
+    	
     	<? if ($event->image != ''): ?>
 			<img src="<?= url::base().'media/upload/events/'.$event->image ?>" style="float:left;">
         <? else :?>
@@ -162,26 +185,68 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		
 		<h3 class="title"><?= $event->name ?></h3>
 		<div id="leftSide">
-			<p><span class="header">ในโครงการ:</span> <?= $event->project_name ?></p>
-			<p><span class="header">สถานที่:</span><?= $event->location_name ?></p>
-			<p><span class="header">จังหวัด:</span> <?= $provinces[$event->location_province] ?></p>
+			<p><span class="header">ในโครงการ : </span> <?= $event->project_name ?></p>
+			<p><span class="header">สถานที่ : </span><?= $event->location_name ?></p>
+			<p><span class="header">จังหวัด : </span> <?= $provinces[$event->location_province] ?></p>
 			<p><span class="header">รายละเอียดงานอาสา</span></p>
 			<p><?= $event->detail ?></p>
 			<p><span class="header">ลักษณะการเดินทาง</span></p>
 			<p><?= $event->travel_detail ?></p>
 			<p><span class="header">ทักษะของอาสาสมัครที่ต้องการ</span></p>
-			<p>ความสามารถพิเศษ</p>
-			<p>ทักษะทั่วไป 	<?= $event->skills 	 ?></p>
-			<p>ทักษะวิชาชีพ 	<?= $event->technical ?></p>
+			
+            <? 
+				$dict = Kohana::$config->load('timebank')->get('worddict'); 
+				$skill_list = explode ('|', $event->skills);
+				$normal_skill = "";
+				$special_skill = "";
+				for($i = 0 ; $i < count($skill_list) ; $i++)
+				{
+					$name = trim($skill_list[$i]);
+					if($name == '') continue;
+					if(phphelp::startsWith($name, '2'))
+					{
+						if(strpos($name , '=') !== false)
+						{
+							$texts = explode('=', $name);
+							$text = $texts[1];
+							$special_skill .= $text.', ';  
+						}
+						else
+						{
+							$special_skill .= $dict[$name].', '; 
+						}	
+					}
+					else
+					{
+						if(strpos($name , '=') !== false)
+						{
+							$texts = explode('=', $name);
+							$text = $texts[1];
+							$normal_skill .= $text.', '; 
+						}
+						else
+						{
+							$normal_skill .= $dict[$name].', '; 
+						}	
+
+					}
+			
+				}
+				 $normal_skill = substr($normal_skill , 0, -2); 
+				 $special_skill = substr($special_skill , 0, -2); 
+			?>
+			<p>ความสามารถพิเศษ (Special Skill) : <?= $normal_skill	 ?></p>
+			<p> ทักษะวิชาชีพ (Professional Skill) : <?= $special_skill ?></p>
 			<p><span class="header">Tag ความสนใจ</span></p>
 			<p><?php
 					$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 					$last = '';
 					   for($i = 0 ; $i < sizeof($jobs) ; $i++){
 						    $pos = strpos($event->tags , $jobs[$i]);
-						   if ( $pos >= 0)
+						
+						   if ( $pos >= 0 && $pos != '')
 						   {
-							$last  .=  HTML::anchor('event/search?job='.$i, $jobs[$i]).', ';  
+								$last  .=  HTML::anchor('event/search?job='.$i, $jobs[$i]).', ';  
 						   }
 					   }
 					   echo substr($last , 0, -2); 
@@ -193,25 +258,48 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		</div>
 		<div id="rightSide">
 			<p><span class="header">เปิดรับสมัคร</span>
-				<div id="duration">วันที่ <?= $event->signup_begin_date  ?><br>
-				ถึง <?= $event->signup_end_date  ?><br>
-				เวลา : <?= date("H:i", strtotime($event->signup_begin_time)); ?> น. - <?= date("H:i", strtotime($event->signup_end_time));?> น.</div></p>
-			<p><span class="header">วันทำอาสา</span>
-				<div id="duration">วันที่ <?= $event->volunteer_begin_date  ?><br>
-				ถึง <?= $event->volunteer_end_date  ?><br>
-				วัน : <?php  if ($event->days == '')
-							{
-								echo 'ทุกวัน';
-							}
-							else
-							{
-								echo substr($event->days , 0, -2); 
-							}
-				
-				
-					?><br>
-				เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time ));?> น. - <?= date("H:i", strtotime($event->volunteer_end_time));?> น.</div></p>
-            <?= $event->inquiry_detail ?>
+				<div id="duration"> 
+				<?
+				$time= strtotime($event->signup_begin_date); 
+				echo phphelp::thai_date($time);
+				?> เวลา : <?= date("H:i", strtotime($event->signup_begin_time)); ?>น.
+                
+                <br>
+				ถึง <?
+				$time= strtotime($event->signup_end_date); 
+				echo phphelp::thai_date($time);
+				?> เวลา :<?= date("H:i", strtotime($event->signup_end_time));?> น.
+                </div>
+            </p>
+            <p><span class="header">วันทำอาสา</span>
+				<div id="duration"> 
+				<?
+				$time= strtotime($event->volunteer_end_date); 
+				echo phphelp::thai_date($time);
+				?> เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น.
+                
+                <br>
+				ถึง <?
+				$time= strtotime($event->signup_end_date); 
+				echo phphelp::thai_date($time);
+				?> เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
+                <br />
+                วัน : <?php  if ($event->days == '')
+                        {
+                            echo 'ทุกวัน';
+                        }
+                        else
+                        {
+                            echo substr($event->days , 0, -2); 
+                        }
+            
+            
+                ?><br>
+                </div>
+            </p>
+              <p><span class="header">ติดต่อสอบถามเพิ่มเติม</span><br />
+              <?= $event->inquiry_detail ?>
+              </p>
 			
 
 			
@@ -235,10 +323,19 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <?= Form::close(); ?>
 
 		</div>
-		<? if (! $isAdmin) : ?>
-		<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('event/apply/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
+		<? if (! $isOrga) : ?>
+		<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('user/checkdata/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
         <? endif ?>
     <? endif ?>
 		
   </div>
 </div>
+<style>
+ .a2a_img{
+	background-image:none;
+}
+.a2a_kit
+{
+	display:inline;
+}
+</style>

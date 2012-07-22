@@ -498,6 +498,58 @@ class Controller_User extends Controller_Template {
 		}
 	}
 	
+	public function action_checkdata()
+	{
+        
+		if (!isset($this->user))
+		{
+			Request::current()->redirect('user/login');
+		}
+		
+		$eventid = $this->request->param('id');
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+		 $this->template->content = View::factory('user/checkdata')
+										->bind('user', $this->user)
+										->bind('eventid', $evetnid)
+										->bind('errors', $errors);
+			try
+			{
+				$this->user->nickname = Arr::get($_POST, 'nickname');
+				$this->user->first_name = Arr::get($_POST, 'first_name');
+				$this->user->last_name = Arr::get($_POST, 'last_name');
+				$this->user->phone = Arr::get($_POST, 'phone');
+				$this->user->save();	 
+			} catch (ORM_Validation_Exception $e) {
+				$errors = $e->errors('models');
+			}
+		}
+		
+		if($this->user->nickname == '' ||
+			$this->user->first_name == '' ||
+			$this->user->last_name == '' ||
+			$this->user->phone == '')
+		{
+			 $this->template->content = View::factory('user/checkdata')
+										->bind('user', $this->user)
+										->bind('eventid', $eventid)
+										->bind('errors', $errors); 
+		}
+		else
+		{
+			if($eventid == '')
+			{
+				Request::current()->redirect('user/profile');
+			}
+			else
+			{
+				Request::current()->redirect('event/apply/'.$eventid);	
+			}
+			
+		}
+	
+	}
 	public function action_login()
 	{
 		// If user already logged in

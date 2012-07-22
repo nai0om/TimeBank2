@@ -1296,7 +1296,6 @@ header h2 {
     margin: 0 auto;
     padding: 0 50px;
     position: relative;
-    text-align: center;
     top: 100px;
     width: 635px;
 }
@@ -1498,7 +1497,7 @@ header h2 {
     width: 180px;
 }
 #tb_browse_detail #duration{
-	width:  165px;
+	width:  400px;
 }
 #tb_browse_detail h4.title {
     background: url("../img/tb_highlight.png") no-repeat scroll 0 0 transparent;

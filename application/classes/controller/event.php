@@ -111,14 +111,21 @@ class Controller_Event extends Controller_Template {
             ->bind('event', $event)
             ->bind('event_status', $event_status)
             ->bind('mode', $mode)
-			->bind('isAdmin', $isAdmin);
+			->bind('isAdmin', $isAdmin)
+			->bind('isOrga', $isOrga);
 		
-		if (! is_null($this->orguser))
+		$isOrga = false;
+		$event = ORM::factory('event', $this->request->param('id'));
+		if (!is_null($this->orguser))
+		{
+		 	$isOrga = true;
+		}
+		 
+		if (!is_null($this->orguser) && $this->orguser->id == $event->organization_id)
 		{
 			$isAdmin = true;
+			
 		}
-		$event = ORM::factory('event', $this->request->param('id'));
-
 		if (!$event->loaded())
 		{
 			throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
@@ -248,14 +255,17 @@ class Controller_Event extends Controller_Template {
 	public function action_apply()
 	{
 		
+		
 		if ($this->user)
 		{
 			try
 			{
 				$event = ORM::factory('event', $this->request->param('id'));
+				$name = $event->name;
 				if ($this->user->has('events', $event))
 				{
-					Request::current()->redirect('user/');
+					Request::current()->redirect('user/myevent');
+					
 				}
 				else 
 				{
@@ -267,11 +277,13 @@ class Controller_Event extends Controller_Template {
 						throw new HTTP_Exception_404(__('organization id :id not found', array(':id' => $organization_id)));
 						return;
 					}
+					
 					$this->user->add('events', $event);
 					$this->user->save();
 					$organam = $organization->name;
 					$this->template->content = View::factory('event/apply')
-												->bind('organam', $organam);
+												->bind('organam', $organam)
+												->bind('name', $name);
 				}
 			} catch (ORM_Validation_Exception $e) {
 			
@@ -280,6 +292,28 @@ class Controller_Event extends Controller_Template {
 				// Set errors using custom messages
 				$errors = $e->errors('user');
 			}
+		}
+		else
+		{
+		Request::current()->redirect('user/login');	
+		}
+		
+	}
+	
+	public function action_addmessage()
+	{
+				
+		$event = ORM::factory('event', $this->request->param('id'));
+		if (is_null($this->orguser) || $this->orguser->id != $event->organization_id)
+		{
+			throw new HTTP_Exception_404(__('Not Allow to add message'));	
+		}
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$event->message = Arr::get($_POST, 'message');
+			$event->save();
+			Request::current()->redirect('event/view/'. $this->request->param('id'));
 		}
 		
 	}

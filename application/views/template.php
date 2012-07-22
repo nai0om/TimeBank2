@@ -38,7 +38,7 @@
   <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.rcarousel.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery-ui-timepicker-addon.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery.ui.datepicker-th.js"></script>
-   j
+	
   
 </head> 
 <body>
