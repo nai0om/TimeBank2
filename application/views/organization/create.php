@@ -40,13 +40,13 @@
                     </div>
                 </p>
 				<p><label>วัตถุประสงค์ / เป้าหมายองค์กร</label>
-					<?= Form::input('objective', HTML::chars($organization->objective), array('class'=>'long')); ?>
+					<?= Form::textarea('objective', HTML::chars($organization->objective), array('class'=>'long', 'style'=>'height:58px;')); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'objective'); ?>
                     </div>
                 </p>
 				<p><label>ลักษณะกิจกรรมขององค์กร</label>
-					<?= Form::textarea('activity', HTML::chars($organization->activity), array('class'=>'long', 'style'=>'height:80px;')); ?>
+					<?= Form::textarea('activity', HTML::chars($organization->activity), array('class'=>'long', 'style'=>'height:58px;')); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'activity'); ?>
                     </div>

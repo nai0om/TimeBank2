@@ -52,7 +52,7 @@
                 </p>
 				<p><label>วัตถุประสงค์ / เป้าหมายองค์กร</label></p>
 				<p>
-					<?= Form::input('objective', HTML::chars($organization->objective), array('class'=>'long')); ?>
+					<?= Form::textarea('objective', HTML::chars($organization->objective), array('class'=>'long')); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'objective'); ?>
                     </div>
