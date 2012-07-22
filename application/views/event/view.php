@@ -185,6 +185,8 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		
 		<h3 class="title"><?= $event->name ?></h3>
 		<div id="leftSide">
+
+        	<p><span class="header"> องค์กร : </span> <?= $event->organization->name ?></p>
 			<p><span class="header">ในโครงการ : </span> <?= $event->project_name ?></p>
 			<p><span class="header">สถานที่ : </span><?= $event->location_name ?></p>
 			<p><span class="header">จังหวัด : </span> <?= $provinces[$event->location_province] ?></p>
