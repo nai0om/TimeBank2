@@ -65,8 +65,8 @@
 
 			<div><?= $event->time_cost ?> ชม.</div>
 			<a class="subscribe" href="<?= url::base().'event/view/'.$event->id ?>">สมัคร</a>
-			<p><?= $event->name ?>: <?= $event->detail ?>
-			<a href="<?= url::base().'event/view/'.$event->id ?>" >[อ่านต่อ...]</a></p>
+			<p><?= $event->name ?>: <?= $event->detail ?></p>
+			<a style="font-family:Tahoma, Geneva, sans-serif" href="<?= url::base().'event/view/'.$event->id ?>" >[อ่านต่อ...]</a>
 		</article>
         <?php endforeach ?>
 	
