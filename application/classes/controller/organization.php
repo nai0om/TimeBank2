@@ -179,7 +179,7 @@ class Controller_Organization extends Controller_Template {
 		}
 
         $this->template->content = View::factory('organization/event')
-			->bind('organization', $this->orguser);
+			->bind('orguser', $this->orguser);
 	}
 	
 	public function action_notification()

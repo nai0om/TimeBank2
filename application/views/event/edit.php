@@ -10,7 +10,7 @@
 		<h2>แก้ไขงานอาสา</h2>
 		<?= Form::open('event/edit/'.$event->id, array('enctype' => 'multipart/form-data')); ?>
 			<?php include Kohana::find_file('views', 'event/form') ?>
-			<input type="submit" value="สร้างงานอาสา">
+			<input type="submit" value="บันทึกข้อมูล">
 			</div>
 		<?= Form::close(); ?>
 		

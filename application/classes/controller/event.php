@@ -54,7 +54,7 @@ class Controller_Event extends Controller_Template {
 		
 		$event = ORM::factory('event');
 		$event->organization_id  = $this->orguser->id;
-		$this->save_event($event, $this->orguser, $message, $errors);
+		$this->save_event($event, $this->orguser, false, $message, $errors);
 	} 
 
 	public function action_created()
@@ -102,7 +102,7 @@ class Controller_Event extends Controller_Template {
 
 		//$locations = Location::get_location_array();
 		
-		$this->save_event($event, $message, $errors);
+		$this->save_event($event, $this->orguser, true, $message, $errors);
 	}
 	
 	public function action_view()
@@ -459,7 +459,7 @@ class Controller_Event extends Controller_Template {
 		return $content;
 	}
 	
-	private function save_event($event, $orguser, &$message, &$errors)
+	private function save_event($event, $orguser, $isupdate, &$message, &$errors)
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
@@ -555,8 +555,18 @@ class Controller_Event extends Controller_Template {
 			{
 				$event->save();
                  
-				// Redirect to event view
-				Request::current()->redirect('event/created/'.$event->id);
+				if($isupdate == true)
+				{
+					// Redirect to event view
+					Request::current()->redirect('event/view/'.$event->id);
+	
+				}
+				else
+				{
+					// Redirect to event view
+					Request::current()->redirect('event/created/'.$event->id);
+				}
+				
 				
             } catch (ORM_Validation_Exception $e) {
                  

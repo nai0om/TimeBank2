@@ -39,76 +39,15 @@
 					<th>อนุมัติอาสา</th>
 				</tr>
 				<tr>
+                <? foreach($orguser->events->find_all() as $event) : ?>
 					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Loremip  sumons  ectetueradip</td>
-					<td>8 ชม.</td>
-					<td>132 คน</td>
-					<td><a href="#">แก้ไข</a></td>
-					<td><a href="#">ดูอาสาสมัคร</a></td>
+					<td><?=  $event->name ?></td>
+					<td><?=  $event->time_cost ?> ชม.</td>
+					<td><?=  $event->volunteer_need_count ?> คน</td>
+                    <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?></td>
+                    <td><?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ดูอาสาสมัคร') ?></td>
+				
+                <? endforeach ?>
 				</tr>
 				<tr>
 					<td colspan="6">
