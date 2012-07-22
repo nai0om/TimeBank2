@@ -32,7 +32,7 @@
 		<h3 class="title">ประเภทงานอาสา</h3>
 		<ul class="type">
 			<?php for($i = 1; $i < sizeof($jobs); $i++):	?>
-				<li><?= HTML::anchor('event/search/',  $jobs[$i]) ?> <span>[<?= $jobs_count[$i] ?>]</span></li>
+				<li><?= HTML::anchor('event/search/?job='.$i,  $jobs[$i]) ?> <span>[<?= $jobs_count[$i] ?>]</span></li>
             <?php endfor; ?>
 		</ul>
 
