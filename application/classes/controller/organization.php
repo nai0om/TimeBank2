@@ -152,8 +152,8 @@ class Controller_Organization extends Controller_Template {
 			Request::current()->redirect('user/login');
 		}
 		
-		//print_r($this->orguser);exit;
-		Request::current()->redirect('/organization/view/'.$this->orguser->id);	
+		Request::current()->redirect('/organization/view/'.$this->orguser->id);
+	
 	}
 	
 	public function action_profile()
@@ -179,7 +179,7 @@ class Controller_Organization extends Controller_Template {
 		}
 
         $this->template->content = View::factory('organization/event')
-			->bind('organization', $this->orguser);
+			->bind('orguser', $this->orguser);
 	}
 	
 	public function action_notification()
@@ -238,7 +238,9 @@ class Controller_Organization extends Controller_Template {
 	{
         $this->template->content = View::factory('organization/view')
             ->bind('organization', $organization)
-            ->bind('org_user', $org_user);
+            ->bind('org_user', $org_user)
+			->bind('hours_sum', $hours_sum)
+			->bind('total_valun', $total_valun);
 		
 		$organization = ORM::factory('organization', $this->request->param('id'));
 
@@ -248,6 +250,18 @@ class Controller_Organization extends Controller_Template {
 		}
 		
 		$org_user = ORM::factory('user', $organization->user_id);
+								
+		 $hours_sum = 0;		
+		 $total_valun = 0;
+		$events = $this->orguser->events->where('event.status', '=', '0')->find_all();					
+		foreach($events as $event)
+		{
+			$hours_sum +=  $event->time_cost * $event->volunteer_need_count;
+			$total_valun += $event->volunteer_need_count;
+		}
+		//print_r($this->orguser);exit;
+		
+							
 	}
 	
 	/*

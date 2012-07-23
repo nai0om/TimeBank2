@@ -19,7 +19,7 @@ return array
 			 * Ports and sockets may be appended to the hostname.
 			 */
 			'hostname'   => 'localhost',
-			'database'   => 'timebank',
+			'database'   => 'timebank_test',
 			'username'   => 'root',
 			'password'   => 'root',
 			'persistent' => FALSE,

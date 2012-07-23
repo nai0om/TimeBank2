@@ -32,13 +32,13 @@
 		<h3 class="title">ประเภทงานอาสา</h3>
 		<ul class="type">
 			<?php for($i = 1; $i < sizeof($jobs); $i++):	?>
-				<li><?= HTML::anchor('event/search/',  $jobs[$i]) ?> <span>[<?= $jobs_count[$i] ?>]</span></li>
+				<li><?= HTML::anchor('event/search/?job='.$i,  $jobs[$i]) ?> <span>[<?= $jobs_count[$i] ?>]</span></li>
             <?php endfor; ?>
 		</ul>
 
 		 <h3 class="title" style="float:left;">งานอาสามาใหม่</h3>
          
-		<img src="<?= url::base() ?>/media/img/tb_browse_line.png" style="position:relative;top:20px;"/><?= HTML::anchor('event/search/', 'แสดงเพิ่มเติม', array('class' => 'read_more')) ?>
+		<img src="<?= url::base() ?>media/img/tb_browse_line.png" style="position:relative;top:20px;"/><?= HTML::anchor('event/search/', 'แสดงเพิ่มเติม', array('class' => 'read_more')) ?>
 		<table cellpadding=0 cellspacing=0>
 			<tr>
 				<th>งานอาสา</th>
@@ -54,8 +54,14 @@
 				<td><?= $event->name?></td>
 				<td><?= $event->time_cost ?></td>
 				<td><?= $event->volunteer_need_count ?> คน</td>
-				<td><?= $event->signup_begin_date ?><br>ถึง <?= $event->signup_end_date ?></td>
-				<td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
+				<td><?	
+						$time= strtotime($event->signup_begin_date); 
+						echo phphelp::thai_date($time);
+					?><br>ถึง <?= $event->signup_end_date ?></td>
+				<td><? 
+					$time= strtotime($event->volunteer_begin_date); 
+					echo phphelp::thai_date($time);
+					?><br>ถึง <?= $event->volunteer_end_date ?></td>
 				<td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
 			</tr>
             <?php endforeach; ?>

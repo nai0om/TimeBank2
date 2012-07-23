@@ -6,15 +6,15 @@
 		<div id="videoRotating">
 			<div id="carousel">
 				<div id="slide01" class="slide">
-					<img src="<?= url::base(); ?>media/img/video.png"/>
+					<iframe width="297" height="216" src="http://www.youtube.com/embed/_TAkbT6CxJ4?rel=0" frameborder="0" allowfullscreen></iframe>
 				</div>
 						
 				<div id="slide02" class="slide">
-					<img src="<?= url::base(); ?>media/img/video.png"/>
+					<iframe width="297" height="216" src="http://www.youtube.com/embed/DYgDWw4epK8?rel=0" frameborder="0" allowfullscreen></iframe>
 				</div>
 						
 				<div id="slide03" class="slide">
-					<img src="<?= url::base(); ?>media/img/video.png"/>
+					<iframe width="297" height="216" src="http://www.youtube.com/embed/dZjVzFsRakg?rel=0" frameborder="0" allowfullscreen></iframe>
 				</div>
 					
 			</div>
@@ -26,17 +26,17 @@
 		<div id="bannerRotating">
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
-					<h3>XXX ชม.</h3>
+					<h3><?= $time_donate ?> ชม.</h3>
 					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
-					<h3>YYY ชม.</h3>
+					<h3><?= $time_want ?> ชม.</h3>
 					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
-					<h3>ZZZ ชม.</h3>
+					<h3><?= $time_done ?> ชม.</h3>
 					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					
@@ -49,31 +49,27 @@
 		<blockquote>
 			<h2>ปันเวลาช่วยกัน</h2>
 			<p>มาช่วยกันสร้างสรรค์สังคมของเรา ผ่านการฝากเวลา เพื่อปฏิบัติภารกิจจิตอาสา (หากคุณเป็นอาสาสมัคร) หรือสร้างภารกิจจิตอาสา เพื่อเป็นโอกาสในการใช้เวลา (หากคุณเป็นองค์กรอาสา) </p>
-			<h3><span style="text-decoration:underline">ฝากเวลา</span>   <span style="font-size:20px;">หรือ</span>   <span style="text-decoration:underline">สร้างภารกิจจิตอาสา</span></h3>
+			<h3><a href="<?= url::base().'user/create' ?>"><span style="text-decoration:underline">ฝากเวลา</span></a>  <span style="font-size:20px;">หรือ</span>  <a href="<?= url::base().'organization/create' ?>"> <span style="text-decoration:underline">สร้างภารกิจจิตอาสา</span></a></h3>
 		</blockquote>
 		
 		<section><span style="color:#a73c0c">ภารกิจจิตอาสาที่น่าสนใจ</span></section>
-		<article class="first">
-			<img src="<?= url::base(); ?>media/img/sample_01.png"/>
-			<div>50 ชม.</div>
-			<a class="subscribe">สมัคร</a>
-			<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.
-			<a>[อ่านต่อ...]</a></p>
-		</article>
+       <?
+	  
+	   foreach ($events as $event) : ?>
 		<article>
-			<img src="<?= url::base(); ?>media/img/sample_02.png"/>
-			<div>50 ชม.</div>
-			<a class="subscribe">สมัคร</a>
-			<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.
-			<a>[อ่านต่อ...]</a></p>
+			<? if ($event->image != ''): ?>
+                <img src="<?= url::base().'media/upload/events/'.$event->image ?>" style="width:155px; height:169px">
+            <? else :?>
+                <img src="<?= url::base().'media/img/sample_01.png' ?>" >
+            <? endif ?>
+
+			<div><?= $event->time_cost ?> ชม.</div>
+			<a class="subscribe" href="<?= url::base().'event/view/'.$event->id ?>">สมัคร</a>
+			<p><?= $event->name ?>: <?= $event->detail ?></p>
+			<a style="font-family:Tahoma, Geneva, sans-serif" href="<?= url::base().'event/view/'.$event->id ?>" >[อ่านต่อ...]</a>
 		</article>
-		<article>
-			<img src="<?= url::base(); ?>media/img/sample_03.png"/>
-			<div>50 ชม.</div>
-			<a class="subscribe">สมัคร</a>
-			<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.
-			<a>[อ่านต่อ...]</a></p>
-		</article>
+        <?php endforeach ?>
+	
 		<p align="center"><img src="<?= url::base(); ?>media/img/line_sponser.png"/>
 		<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner2.png" /></p>
   </div>
@@ -166,7 +162,7 @@
 				step: 1,
 				speed: 700,
 				auto: {
-					enabled: true
+					enabled: false
 				},
 				width: 350,
 				height: 250,

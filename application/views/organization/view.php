@@ -17,17 +17,17 @@
 		<h2><?= $organization->name ?></h2>
 		
 		<div id="columnLeft">
-			<img src="img/org_sample.png" style="float:left;">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample.png" style="float:left;">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
 		</div>
 		<div id="columnRight">
-			<div class="sum"><div class="sum_hours">2,360 ชั่วโมง</div>
+			<div class="sum"><div class="sum_hours"><?= $hours_sum ?> ชั่วโมง</div>
 			<div class="sub_title">เวลาจากอาสาสมัครที่เคยทำงานกับมูลนิธิ</div></div>
-			<div class="sum"><div class="sum_hours">250 อาสาสมัคร</div>
+			<div class="sum"><div class="sum_hours"><?= $total_valun ?>  อาสาสมัคร</div>
 			<div class="sub_title">ที่เคยร่วมงานกับมูลนิธิ</div></div>
 		</div>
 		
@@ -73,78 +73,23 @@
 				<th>วัน / เวลาทำงานอาสา</th>
 				<th></th>
 			</tr>
+            <? foreach( $organization->events->find_all() as $event ): ?>
 			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
+                <td><?= $event->name?></td>
+                <td><?= $event->time_cost ?></td>
+                <td><?= $event->volunteer_need_count ?> คน</td>
+                
+                <? if( $event->status == '1'): ?>
+                    <td><?= $event->signup_begin_date ?><br>ถึง <?= $event->signup_end_date ?></td>
+                    <td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
+                    <td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
+                <? else : ?>
+                    <td>- ปิด -</td>
+                    <td>- ปิด -</td>
+                    <td><?= HTML::anchor('event/view/'.$event->id, 'เปิดดู') ?></td>
+                <? endif ?>
 			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
-			</tr>
-			<tr>
-				<td>Loremip  sumons  ectetueradip</td>
-				<td>8 ชม.</td>
-				<td>132 คน</td>
-				<td>1 มค. 2555 <br>ถึง 31 มค. 2555</td>
-				<td>ทุกวัน (จันทร์-อา) <br>เวลา 8.30 น. - 17.30 น.</td>
-				<td><a href="#">สมัคร</a></td>
-			</tr>
+			<? endforeach ?>
 			<tr>
 				<td colspan="6">
 					<ul>
