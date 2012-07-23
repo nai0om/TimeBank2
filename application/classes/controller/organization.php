@@ -253,7 +253,7 @@ class Controller_Organization extends Controller_Template {
 								
 		 $hours_sum = 0;		
 		 $total_valun = 0;
-		$events = $this->orguser->events->where('event.status', '=', '0')->find_all();					
+		$events = $organization->events->where('event.status', '=', '0')->find_all();					
 		foreach($events as $event)
 		{
 			$hours_sum +=  $event->time_cost * $event->volunteer_need_count;
