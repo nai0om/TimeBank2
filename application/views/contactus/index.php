@@ -1,4 +1,4 @@
-﻿<div id="contact_us">
+<div id="contact_us">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>

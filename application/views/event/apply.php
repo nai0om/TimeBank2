@@ -1,4 +1,4 @@
-﻿<div id="tb_browse_detail" class="thanks">
+<div id="tb_browse_detail" class="thanks">
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>

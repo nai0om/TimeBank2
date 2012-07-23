@@ -299,9 +299,21 @@ header h2 {
     height: 0;
     visibility: hidden;
 }
+#head_main{
+	background: url("../img/bg_paper_top.png") no-repeat scroll 0 0 transparent;
+	width:1055px;
+	height:85px;
+	margin:0 auto;
+}
 
+#footer_main{
+	background: url("../img/bg_paper_bottom.png") no-repeat scroll 0 0 transparent;
+	width:1061px;
+	height:85px;
+	margin:0 auto;
+}
 #main {
-    background: url("../img/bg.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/bg_paper_middle.png") repeat-y scroll 0 0 transparent !important;
     margin: 0 auto;
     min-height: 1003px;
     padding: 0 60px;
@@ -1145,7 +1157,7 @@ header h2 {
     font-size: 13px;
 }
 /*timeBank > browse > newEvent*/
-#tb_browse_new #main {
+#tb_browse_new 	
     background: url("../img/tb_browse_bg.jpg") no-repeat scroll 0 0 transparent;
     min-height: 1197px;
 }
