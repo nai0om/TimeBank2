@@ -141,24 +141,23 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             
 		</div>
     <? else: ?>
+		<? if($event->message != '') : ?>
+        <div id="post">
+            <h2>ข้อความขอบคุณจากทีมงาน</h2>
+             <p class="post-data"><?= $event->message ?> </p>
+        </div>
+        <? endif ?>
 		<? if($isAdmin) : ?>
             <div id="post">
                 <h2>ข้อความขอบคุณสามารถพิมพ์โดย admin ประเภทองค์กรหลังจากจบงาน</h2>
                <?
 			   echo Form::open('event/addmessage/'.$event->id, array ('style' => 'float:right;')); 
-			   echo Form::input('message', ($event->message == '' ? 'เขียนคำขอบคุณที่นี่' : $event->message)); 
+			   echo Form::textarea('message', ($event->message == '' ? 'เขียนคำขอบคุณที่นี่' : $event->message),  array ('style' => 'height: 50px; width: 760px;')); 
 			   echo Form::submit(NULL, 'ส่ง'); 
 			  // echo '<input type="file" >'.'<img src="'.url::base().'media/img/tb_photos_add.png"/>'.'</input>';
 			   echo Form::close();
 			   ?>
-            </div>
-		<? else : ?>	
-         	<? if($event->message != '') : ?>
-        	<div id="post">
-                <h2>ข้อความขอบคุณจากทีมงาน</h2>
-                 <p><?= $event->message ?> </p>
-            </div>
-            <? endif ?>
+            </div>	
         <? endif ?>
         
     	
