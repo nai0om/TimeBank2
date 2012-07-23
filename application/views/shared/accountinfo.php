@@ -1,4 +1,4 @@
-﻿<?php if (is_null($user) && is_null($orguser)) : ?>
+<?php if (is_null($user) && is_null($orguser)) : ?>
     <ul>
         <li><?= HTML::anchor('user/signup', 'สมัครสมาชิก'); ?></li>
         <li><?= HTML::anchor('user/login', 'เข้าสู่ระบบ'); ?></li>

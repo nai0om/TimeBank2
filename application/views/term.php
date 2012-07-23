@@ -1,4 +1,4 @@
-﻿<div id="term">
+<div id="term">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
