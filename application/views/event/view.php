@@ -276,13 +276,13 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <p><span class="header">วันทำอาสา</span>
 				<div id="duration"> 
 				<?
-				$time= strtotime($event->volunteer_end_date); 
+				$time= strtotime($event->volunteer_begin_date ); 
 				echo phphelp::thai_date($time);
 				?> เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น.
                 
                 <br>
 				ถึง <?
-				$time= strtotime($event->signup_end_date); 
+				$time= strtotime($event->volunteer_end_date); 
 				echo phphelp::thai_date($time);
 				?> เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
                 <br />
