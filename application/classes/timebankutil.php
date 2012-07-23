@@ -63,7 +63,7 @@ class Timebankutil {
 			)
 		);
 		// Success?
-		print_r($response);
+		//print_r($response);
 		$success = $response->isOK();
 		
 		// As a backup we send SMTP
