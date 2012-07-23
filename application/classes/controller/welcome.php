@@ -5,7 +5,32 @@ class Controller_Welcome extends Controller_Template {
 	public function action_index()
 	{
 		$this->meta_page_title = __('Sample first page');
-		$this->template->content = View::factory('welcome');
+		$this->template->content = View::factory('welcome')
+									->bind('time_donate', $time_donate)
+									->bind('time_want', $time_want)
+									->bind('time_done', $time_done)
+									->bind('events', $events);
+		$time_done = 0;
+		$time_donate = 0;
+		$time_want = 0;									
+		$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
+					->from('timebank_test.user_timebanks')
+					->where('status','=','1')->execute()->get('time_donate', 0);
+					
+	 
+	
+		$done_event = ORM::factory('event')->where('status', '=', '0')->find_all();
+		foreach($done_event as $done)
+		{
+			$time_done += $done->time_cost * $done->volunteer_need_count;
+		}
+	
+		$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
+					->from('timebank_test.events')
+					->where('status','=','1')->execute()->get('time_want', 0);
+					
+		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(3)->find_all();
+	
    	}
 	
 	public function action_comingsoon()
@@ -35,7 +60,29 @@ class Controller_Welcome extends Controller_Template {
 	
 	public function action_timebank()
 	{
-		$this->template->content = View::factory('timebank');
+		$this->template->content = View::factory('timebank')	
+									->bind('time_donate', $time_donate)
+									->bind('time_want', $time_want)
+									->bind('time_done', $time_done);
+	
+	$time_done = 0;
+	$time_donate = 0;
+	$time_want = 0;
+	$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
+				->from('timebank_test.user_timebanks')
+				->where('status','=','1')->execute()->get('time_donate', 0);
+	
+
+	$done_event = ORM::factory('event')->where('status', '=', '0')->find_all();
+	foreach($done_event as $done)
+	{
+		$time_done += $done->time_cost * $done->volunteer_need_count;
+	}
+
+	$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
+			->from('timebank_test.events')
+			->where('status','=','1')->execute()->get('time_want', 0);
+		
    	}
 	
 	public function action_timebankhow()
@@ -50,7 +97,28 @@ class Controller_Welcome extends Controller_Template {
 	
 	public function action_aboutus()
 	{
-		$this->template->content = View::factory('aboutus');
+		$this->template->content = View::factory('aboutus')
+									->bind('time_donate', $time_donate)
+									->bind('time_want', $time_want)
+									->bind('time_done', $time_done);
+		$time_done = 0;
+		$time_donate = 0;
+		$time_want = 0;
+										
+		$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
+					->from('timebank_test.user_timebanks')
+					->where('status','=','1')->execute()->get('time_donate', 0);
+					
+	
+		$done_event = ORM::factory('event')->where('status', '=', '0')->find_all();
+		foreach($done_event as $done)
+		{
+			$time_done += $done->time_cost * $done->volunteer_need_count;
+		}
+	
+		$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
+					->from('timebank_test.events')
+					->where('status','=','1')->execute()->get('time_want', 0);
    	}
 	
 	public function action_training()

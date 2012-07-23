@@ -13,7 +13,24 @@ class Controller_User extends Controller_Template {
 
         $action = $this->request->action();
 		$this->template->content = View::factory('user/index')
-		->bind('action', $action);
+		->bind('action', $action)
+		->bind('time', $time)
+		->bind('work_time', $work_time)
+		->bind('events', $events);
+		
+		$time = DB::select(array('SUM("hour")', 'time'))
+				->from('timebank_test.user_timebanks') 	
+				->where('status','=','1')
+				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
+		$work_time = 0;		
+		$pass_event = $this->user->events->where('event.status', '=', '0')->find_all();
+		foreach($pass_event as $pass)
+		{
+			$work_time += $pass->time_cost;
+		}
+		
+			
+		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(3)->find_all();
     }
 
     public function action_record()
@@ -37,8 +54,21 @@ class Controller_User extends Controller_Template {
 		$this->template->content = View::factory('user/record')
 								->bind('records', $records)
 								->bind('errors', $errors)
-								->bind('total_hour', $total_hour)
+								->bind('time', $time)
+								->bind('work_time', $work_time)
 								->bind('action', $action);
+								
+		$time = DB::select(array('SUM("hour")', 'time'))
+				->from('timebank_test.user_timebanks') 	
+				->where('status','=','1')
+				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
+		$work_time = 0;		
+		$pass_event = $this->user->events->where('event.status', '=', '0')->find_all();
+		foreach($pass_event as $pass)
+		{
+			$work_time += $pass->time_cost;
+		}
+		
     }
 	
 	public function action_addhour()
@@ -52,6 +82,7 @@ class Controller_User extends Controller_Template {
 				
         if (HTTP_Request::POST == $this->request->method()) 
         {           
+		   $errors = '';
             try {
          
                	// Create an timebank and attach it to the user (one-to-many)
@@ -61,19 +92,11 @@ class Controller_User extends Controller_Template {
 					'user_id'		=> $this->user->id, // sets the fk
 				));
 				$timebank->save();
-				
-				Request::current()->redirect('user/record');
-                 
+           //  Request::current()->redirect('user/record');    
             } catch (ORM_Validation_Exception $e) {
-                 
-                // Set errors using custom messages
-				$this->template->content = View::factory('user/record')
-					->bind('errors', $errors)
-					->bind('records', $records);
-
                 $errors = $e->errors('models');
-				$records = ORM::factory('user_timebank')->where('user_id', '=', $this->user->id)->find_all();
             }
+			  Request::current()->redirect('user/record')->bind('errors', $errors);        
 		}	
 	}
 	
@@ -207,6 +230,8 @@ class Controller_User extends Controller_Template {
 			$this->user->phone = Arr::get($_POST, 'phone');
 			$this->user->birthday = Arr::get($_POST, 'birthday');
 			$this->user->address = Arr::get($_POST, 'address');
+			$this->user->location = Arr::get($_POST, 'location');
+			$this->user->province = Arr::get($_POST, 'province');
 			$this->user->website = Arr::get($_POST, 'website');
 			$this->user->sex = Arr::get($_POST, 'sex');
 
@@ -473,6 +498,58 @@ class Controller_User extends Controller_Template {
 		}
 	}
 	
+	public function action_checkdata()
+	{
+        
+		if (!isset($this->user))
+		{
+			Request::current()->redirect('user/login');
+		}
+		
+		$eventid = $this->request->param('id');
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+		 $this->template->content = View::factory('user/checkdata')
+										->bind('user', $this->user)
+										->bind('eventid', $evetnid)
+										->bind('errors', $errors);
+			try
+			{
+				$this->user->nickname = Arr::get($_POST, 'nickname');
+				$this->user->first_name = Arr::get($_POST, 'first_name');
+				$this->user->last_name = Arr::get($_POST, 'last_name');
+				$this->user->phone = Arr::get($_POST, 'phone');
+				$this->user->save();	 
+			} catch (ORM_Validation_Exception $e) {
+				$errors = $e->errors('models');
+			}
+		}
+		
+		if($this->user->nickname == '' ||
+			$this->user->first_name == '' ||
+			$this->user->last_name == '' ||
+			$this->user->phone == '')
+		{
+			 $this->template->content = View::factory('user/checkdata')
+										->bind('user', $this->user)
+										->bind('eventid', $eventid)
+										->bind('errors', $errors); 
+		}
+		else
+		{
+			if($eventid == '')
+			{
+				Request::current()->redirect('user/profile');
+			}
+			else
+			{
+				Request::current()->redirect('event/apply/'.$eventid);	
+			}
+			
+		}
+	
+	}
 	public function action_login()
 	{
 		// If user already logged in

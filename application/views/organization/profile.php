@@ -28,12 +28,12 @@
 			<div style="clear:both"></div>
 
 			<div id="photo">
-				<img src="img/org_profile_logo.png" style="float:left">
-				<img src="img/org_profile_logo.png_small.png">
-				<img src="img/org_profile_logo.png_small.png">
-				<img src="img/org_profile_logo.png_small.png">
-				<img src="img/org_profile_logo.png_small.png">
-				<img src="img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png" style="float:left">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
 			</div>
 			
 			<div style="clear:both"></div>
@@ -52,7 +52,7 @@
                 </p>
 				<p><label>วัตถุประสงค์ / เป้าหมายองค์กร</label></p>
 				<p>
-					<?= Form::input('objective', HTML::chars($organization->objective), array('class'=>'long')); ?>
+					<?= Form::textarea('objective', HTML::chars($organization->objective), array('class'=>'long')); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'objective'); ?>
                     </div>
@@ -86,8 +86,6 @@
                             <?= Arr::get($errors, 'homephone'); ?>
                         </div>
                     </p>
-					<p><label>อีเมล์</label></p>
-					<p><input type="text"></p>
 				</div>
 				<div class="one">
 					<p><label>เขต</label></p>
@@ -113,9 +111,9 @@
                     </p>
 					<p><label>ติดต่อคุณ</label></p>
 					<p>
-						<?= Form::input('contactperson', HTML::chars($organization->homephone)); ?>
+						<?= Form::input('contactperson', HTML::chars($organization->contactperson)); ?>
                         <div class="error">
-                            <?= Arr::get($errors, 'homephone'); ?>
+                            <?= Arr::get($errors, 'contactperson'); ?>
                         </div>
                     </p>
 				</div>

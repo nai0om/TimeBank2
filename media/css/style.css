@@ -390,7 +390,7 @@ header h2 {
 }
 #home article {
     float: left;
-    margin: 20px 0 0 45px;
+    margin: 20px 0 0 30px;
     width: 30%;
 }
 #home article div {
@@ -419,6 +419,9 @@ header h2 {
     font-family: tahoma;
     font-size: 13px;
     margin: 5px 0;
+	height:45px;
+	overflow:hidden;
+	width:250px;	
 }
 #home article p  a{
 	color:#e87c0c;
@@ -1295,7 +1298,6 @@ header h2 {
     margin: 0 auto;
     padding: 0 50px;
     position: relative;
-    text-align: center;
     top: 100px;
     width: 635px;
 }
@@ -1497,7 +1499,7 @@ header h2 {
     width: 180px;
 }
 #tb_browse_detail #duration{
-	width:  165px;
+	width:  400px;
 }
 #tb_browse_detail h4.title {
     background: url("../img/tb_highlight.png") no-repeat scroll 0 0 transparent;
@@ -3088,6 +3090,17 @@ header h2 {
     text-align: center;
     width: 295px;
 }
+#about_us ol 
+{
+	float: left;	
+	height:500px;
+}
+#about_us img.thum
+{
+	width:257px;
+	height:174px;
+}
+	
 #about_us ol li {
     float: left;
     height: 126px;

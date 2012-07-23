@@ -208,7 +208,7 @@ $times['23:59:59'] = '23:59';
    			 echo  '<p><label>'.$dict[$title].'</label>';
 			 foreach ($value as $title2 => $value2)
 			 {
-				echo  '<label style="margin-left: 10px;" > - '.$dict[$title2].'</label>'; 
+				echo  '<label style="margin-left: 10px;" > - '.$dict[$title2].'</label> <br />'; 
 				foreach ($value2 as $name)
 				{
 					$value = '';
@@ -225,7 +225,7 @@ $times['23:59:59'] = '23:59';
 					if(phphelp::endsWith($name, 'T'))
 					{
 						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox"> <span>'.$dict[$name].'</span> <br />';
-						echo  '<input name='.$name.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left: 35px;"><br />';
+						echo  '<input name='.$name.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left: 50px;"><br />';
 					}
 					else
 					{

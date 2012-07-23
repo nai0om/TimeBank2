@@ -8,7 +8,12 @@
 
 		<div style="clear:both"></div>
 		<div id="menu_left">
-			<?php include Kohana::find_file('views', 'shared/usermenu') ?>
+			<ul>
+				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
+				<li><?= HTML::anchor('organization/profile', 'โปร์ไพล์'); ?></li>
+				<li><?= HTML::anchor('organization/event', 'งานอาสาของฉัน'); ?></li>
+				<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
+			</ul>
 		</div>
 		
 		
