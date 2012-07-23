@@ -38,17 +38,18 @@
 					<th>แก้ไข</th>
 					<th>อนุมัติอาสา</th>
 				</tr>
-				<tr>
+				
                 <? foreach($orguser->events->find_all() as $event) : ?>
+                <tr>
 					<td><input type="checkbox"></td>
-					<td><?=  $event->name ?></td>
+					<td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
 					<td><?=  $event->time_cost ?> ชม.</td>
 					<td><?=  $event->volunteer_need_count ?> คน</td>
                     <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?></td>
                     <td><?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ดูอาสาสมัคร') ?></td>
-				
-                <? endforeach ?>
 				</tr>
+                <? endforeach ?>
+				
 				<tr>
 					<td colspan="6">
 						<ul>
