@@ -1486,8 +1486,9 @@ header h2 {
     float: left;
     font-family: tahoma;
     font-size: 12px;
-    margin-right: 100px;
-    width: 400px;
+    margin-right: 20px;
+    overflow: hidden;
+    width: 480px;
 }
 #tb_browse_detail #rightSide {
     float: right;
