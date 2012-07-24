@@ -1,4 +1,4 @@
-﻿ <h1> Admin Page </h1>
+ <h1> Admin Page </h1>
  <table border="1">
   <tr>
 	<th>name</th>

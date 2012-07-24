@@ -141,24 +141,23 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             
 		</div>
     <? else: ?>
+		<? if($event->message != '') : ?>
+        <div id="post">
+            <h2>ข้อความขอบคุณจากทีมงาน</h2>
+             <p class="post-data"><?= $event->message ?> </p>
+        </div>
+        <? endif ?>
 		<? if($isAdmin) : ?>
             <div id="post">
                 <h2>ข้อความขอบคุณสามารถพิมพ์โดย admin ประเภทองค์กรหลังจากจบงาน</h2>
                <?
 			   echo Form::open('event/addmessage/'.$event->id, array ('style' => 'float:right;')); 
-			   echo Form::input('message', ($event->message == '' ? 'เขียนคำขอบคุณที่นี่' : $event->message)); 
+			   echo Form::textarea('message', ($event->message == '' ? 'เขียนคำขอบคุณที่นี่' : $event->message),  array ('style' => 'height: 50px; width: 760px;')); 
 			   echo Form::submit(NULL, 'ส่ง'); 
 			  // echo '<input type="file" >'.'<img src="'.url::base().'media/img/tb_photos_add.png"/>'.'</input>';
 			   echo Form::close();
 			   ?>
-            </div>
-		<? else : ?>	
-         	<? if($event->message != '') : ?>
-        	<div id="post">
-                <h2>ข้อความขอบคุณจากทีมงาน</h2>
-                 <p><?= $event->message ?> </p>
-            </div>
-            <? endif ?>
+            </div>	
         <? endif ?>
         
     	
@@ -186,7 +185,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		<h3 class="title"><?= $event->name ?></h3>
 		<div id="leftSide">
 
-        	<p><span class="header"> องค์กร : </span> <?= $event->organization->name ?></p>
+        	<p><span class="header"> องค์กร : </span> <?= HTML::anchor('organization/view/'.$event->organization_id, $event->organization->name) ?></p>
 			<p><span class="header">ในโครงการ : </span> <?= $event->project_name ?></p>
 			<p><span class="header">สถานที่ : </span><?= $event->location_name ?></p>
 			<p><span class="header">จังหวัด : </span> <?= $provinces[$event->location_province] ?></p>
@@ -276,13 +275,13 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <p><span class="header">วันทำอาสา</span>
 				<div id="duration"> 
 				<?
-				$time= strtotime($event->volunteer_end_date); 
+				$time= strtotime($event->volunteer_begin_date ); 
 				echo phphelp::thai_date($time);
 				?> เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น.
                 
                 <br>
 				ถึง <?
-				$time= strtotime($event->signup_end_date); 
+				$time= strtotime($event->volunteer_end_date); 
 				echo phphelp::thai_date($time);
 				?> เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
                 <br />

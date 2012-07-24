@@ -299,9 +299,21 @@ header h2 {
     height: 0;
     visibility: hidden;
 }
+#head_main{
+	background: url("../img/bg_paper_top.png") no-repeat scroll 0 0 transparent;
+	width:1055px;
+	height:85px;
+	margin:0 auto;
+}
 
+#footer_main{
+	background: url("../img/bg_paper_bottom.png") no-repeat scroll 0 0 transparent;
+	width:1061px;
+	height:85px;
+	margin:0 auto;
+}
 #main {
-    background: url("../img/bg.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/bg_paper_middle.png") repeat-y scroll 0 0 transparent !important;
     margin: 0 auto;
     min-height: 1003px;
     padding: 0 60px;
@@ -1145,7 +1157,7 @@ header h2 {
     font-size: 13px;
 }
 /*timeBank > browse > newEvent*/
-#tb_browse_new #main {
+#tb_browse_new 	
     background: url("../img/tb_browse_bg.jpg") no-repeat scroll 0 0 transparent;
     min-height: 1197px;
 }
@@ -1199,7 +1211,7 @@ header h2 {
 }
 #tb_browse_new label.day {
     display: inline-block;
-    width: 55px;
+    width: 50px;
 }
 #tb_browse_new label.job {
     display: inline-block;
@@ -1208,7 +1220,7 @@ header h2 {
 #tb_browse_new input[type="checkbox"] {
     display: inline;
     margin: 0 10px 0 0;
-    width: 10px;
+    width: 20px;
 } 
 #tb_browse_new #rightSide input[type="radio"]{
 	margin:0 0 0 37px;
@@ -1237,6 +1249,7 @@ header h2 {
 #tb_browse_new form{
 	font-family:tahoma;
 	font-size:13px;
+	display:inline-block;
 }
 #tb_browse_new form .line{
 	background:#716b62;
@@ -1408,7 +1421,9 @@ header h2 {
 }
 #tb_browse_detail #post {
     background: url("../img/bg_post_comment.png") no-repeat scroll 0 0 transparent;
-    height: 96px;
+	background-size: cover;
+    background-repeat: no-repeat;
+   	display:inline-block;
     margin: 0 auto 20px;
     padding: 10px 40px;
     width: 829px;
@@ -1417,6 +1432,12 @@ header h2 {
 	padding:0;
 	margin:0 0 25px 0;
 }
+#tb_browse_detail #post .post-data
+{
+	 font-size: 25px;
+    font-weight: bolder;
+}
+
 #tb_browse_detail #post input{
 	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
 	border:1px solid #a8acad;
@@ -1474,8 +1495,9 @@ header h2 {
     float: left;
     font-family: tahoma;
     font-size: 12px;
-    margin-right: 100px;
-    width: 400px;
+    margin-right: 20px;
+    overflow: hidden;
+    width: 480px;
 }
 #tb_browse_detail #rightSide {
     float: right;
@@ -4281,6 +4303,7 @@ header h2 {
 .error {
 	color:#cc0000;
 }
+
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

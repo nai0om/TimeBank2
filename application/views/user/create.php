@@ -1,4 +1,4 @@
-﻿
+
 <div id="volunteerSignup" class="popup big">
   <div id="main" role="main">
 
