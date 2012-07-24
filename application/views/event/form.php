@@ -132,21 +132,21 @@ $times['23:59:59'] = '23:59';
         </p>
         <p><label>รายละเอียดของงานอาสา</label></p>
         <p>
-			<?= Form::textarea('detail', HTML::chars($event->detail), array('rows' => 3)); ?>      
+			<?= Form::textarea('detail', $event->detail, array('rows' => 3)); ?>      
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'detail'); ?></font>
             </div>  
         </p>
         <p><label>ลักษณะการเดินทาง</label></p>
         <p>
-        	<?= Form::textarea('travel_detail', HTML::chars($event->travel_detail), array('rows' => 3)); ?>    
+        	<?= Form::textarea('travel_detail', $event->travel_detail, array('rows' => 3)); ?>    
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'travel_detail'); ?></font>
             </div>  
         </p>
         <p><label>ติดต่อสอบถามเพิ่มเติม</label></p>
         <p>
-        	<?= Form::textarea('inquiry_detail', HTML::chars($event->inquiry_detail), array('rows' => 3)); ?>    
+        	<?= Form::textarea('inquiry_detail', $event->inquiry_detail, array('rows' => 3)); ?>    
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'inquiry_detail'); ?></font>
             </div>  
@@ -178,7 +178,7 @@ $times['23:59:59'] = '23:59';
         <p><?= Form::radio('is_need_expense', 0, !$event->is_need_expense); ?>ไม่มี</p>
         <p><?= Form::radio('is_need_expense', 1, $event->is_need_expense == 1 ? true : false); ?>มี (โปรดระบุรายละเอียด)</p>
         <p>
-			<?= Form::textarea('expense_detail', HTML::chars($event->expense_detail), array('rows' => 3)); ?>            
+			<?= Form::textarea('expense_detail', $event->expense_detail, array('rows' => 3)); ?>            
         </p>
         <p><label><strong>ทักษะของอาสาสมัครที่ต้องการ</strong></label></p>
         <ol>
@@ -329,3 +329,22 @@ $times['23:59:59'] = '23:59';
 		}
 	}
 </script>
+
+<!-- TinyMCE -->
+<script type="text/javascript" src="<?= url::base(); ?>media/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+tinyMCE.init({
+        mode : "textareas",
+        theme : "advanced",
+        plugins : "emotions,spellchecker,advhr,insertdatetime", 
+                
+        // Theme options - button# indicated the row# only
+        theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,fontselect,fontsizeselect,formatselect",
+		theme_advanced_buttons2 : "cut,copy,paste,|,bullist,numlist,|,outdent,indent,|,undo,redo,|,link,unlink,anchor,image,|,code,preview,|,forecolor,backcolor",
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_toolbar_align : "left",
+        theme_advanced_statusbar_location : "bottom",
+        theme_advanced_resizing : true
+});
+</script>
+<!-- /TinyMCE -->
