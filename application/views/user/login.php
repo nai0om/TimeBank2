@@ -1,4 +1,4 @@
-﻿
+
 <div id="data" class="popup big">
   <div id="main" role="main">
 

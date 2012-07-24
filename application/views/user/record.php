@@ -1,4 +1,4 @@
-﻿<div id="member" class="deposit">
+<div id="member" class="deposit">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
