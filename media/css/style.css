@@ -1328,6 +1328,7 @@ header h2 {
 #tb_browse_detail #main {
     background: url("../img/tb_main_bg.jpg") no-repeat scroll 0 0 transparent;
     min-height: 1514px;
+	display:table;
 }
 #tb_browse_detail #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
@@ -2443,7 +2444,7 @@ header h2 {
     padding: 0;
 }
 #org #main{
-	width: 956px;
+	width: 933px;
 }
 #org #main ul li{
 	font-size:18px;
@@ -2896,7 +2897,7 @@ header h2 {
     width: 505px;
 }
 #org.profile #main_right #photo{
-	width: 500px;
+	width: 550px;
 	margin: 20px 0;
 }
 /*org > profile > detail*/

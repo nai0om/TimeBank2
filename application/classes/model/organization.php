@@ -50,11 +50,10 @@ class Model_Organization extends ORM {
 			'contactperson' => array(
                 array('not_empty'),
             ), 
-			/*
             'logo' => array(
                 array(array($this, 'check_upload'), array('logo', ':value')),
             ),
-			*/
+			
         );
     }
 	
@@ -86,10 +85,9 @@ class Model_Organization extends ORM {
 	
 	public function upload($filename)
     {
-        $picture = Upload::save($_FILES[$filename]);
+		$picture = Upload::save($_FILES[$filename], NULL, Upload::$default_directory.'/organizations' );
 		// Resize, sharpen, and save the image
 		Image::factory($picture)
-			->resize(100, 100, Image::INVERSE)
 			->save();
 		$this->logo = basename($picture);
     }	
