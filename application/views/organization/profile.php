@@ -24,16 +24,23 @@
 			<div class="title left"></div>
 			<div class="title body">รูปโลโก้และภาพอื่นๆ</div>
 			<div class="title right"></div>
-			<p style="font-family:tahoma;color:#8B4C03;font-size:13px;font-weight:bold;">ภาพที่เกี่ยวข้องไม่เกิน 5 ภาพ</p>
+		
 			<div style="clear:both"></div>
-
+			<?= Form::open('organization/profile/', array('enctype' => 'multipart/form-data')); ?>	
+        
+            
 			<div id="photo">
+            <? if ( $organization->logo == '' or  $organization->logo == NULL) : ?>
 				<img src="<?= url::base() ?>media/img/org_profile_logo.png" style="float:left">
-				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
-				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
-				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
-				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
-				<img src="<?= url::base() ?>media/img/org_profile_logo.png_small.png">
+            <? else :?>
+            	<img src="<?= url::base().'media/upload/organizations/'.$organization->logo; ?>" style="float:left;width:265px;height:253px;border:3px solid #FFF;margin:2px">
+            <? endif ?>
+            <?= Form::file('logo' , array('style' => 'float:left;width:300px;')) ?>
+            <? foreach ($organization->events->limit(5)->find_all() as $event) : ?>
+            	<? if($event->image != '' ) : ?>
+					<img src="<?= url::base().'media/upload/events/'.$event->image  ?>" style="width:107px;height:85px;margin:2px; border:3px solid #FFF" >
+                <? endif ?>
+           <? endforeach ?>
 			</div>
 			
 			<div style="clear:both"></div>
@@ -42,7 +49,7 @@
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 
-			<?= Form::open('organization/profile/', array('enctype' => 'multipart/form-data')); ?>
+		
 				<p><label>ชื่อองค์กร</label></p>
 				<p>
 					<?= Form::input('name', HTML::chars($organization->name)); ?>
@@ -146,9 +153,3 @@
   </div>
 </div>
 
-<?= Form::label('logo', 'Company logo'); ?>
-<img src="<?= url::base().'media/upload/'.$organization->logo; ?>" />
-<?= Form::file('logo') ?>
-<div class="error">
-    <?= Arr::get($errors, 'logo'); ?>
-</div>

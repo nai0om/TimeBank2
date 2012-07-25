@@ -340,12 +340,12 @@ class Controller_Organization extends Controller_Template {
 			$this->orguser->website = Arr::get($_POST, 'website');			
 			//$company->search_temp = $company->name.'/'.$company->objective.'/'.$company->address.'/'.$company->detail.'/'.$company->website;
 			
-			/*
+			
 			if (isset($_FILES['logo']['name']) && $_FILES['logo']['name'] != '')
 			{
-				$company->logo = 'logo';
+				$this->orguser->logo = $_FILES['logo']['name'];
 			}
-			*/
+			
 			try
 			{
 				$this->orguser->save();

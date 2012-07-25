@@ -58,19 +58,19 @@
 	   foreach ($events as $event) : ?>
 		<article>
 			<? if ($event->image != ''): ?>
-                <img src="<?= url::base().'media/upload/events/'.$event->image ?>" style="width:155px; height:169px">
+                <img src="<?= url::base().'media/upload/events/'.$event->image ?>" style="width:145px; height:159px; border:5px solid #FFF">
             <? else :?>
                 <img src="<?= url::base().'media/img/sample_01.png' ?>" >
             <? endif ?>
 
 			<div><?= $event->time_cost ?> ชม.</div>
 			<a class="subscribe" href="<?= url::base().'event/view/'.$event->id ?>">สมัคร</a>
-			<p><?= $event->name ?>: <?= $event->detail ?></p>
+			<p><?= $event->name ?></p>
 			<a style="font-family:Tahoma, Geneva, sans-serif" href="<?= url::base().'event/view/'.$event->id ?>" >[อ่านต่อ...]</a>
 		</article>
         <?php endforeach ?>
 	
-		<p align="center"><img src="<?= url::base(); ?>media/img/line_sponser.png"/>
+		<p align="center" style="display:inline-block"><img src="<?= url::base(); ?>media/img/line_sponser.png"/>
 		<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner2.png" /></p>
   </div>
 </div>

@@ -17,12 +17,16 @@
 		<h2><?= $organization->name ?></h2>
 		
 		<div id="columnLeft">
-			<img src="<?= url::base(); ?>media/img/org_sample.png" style="float:left;">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
+			<? if ( $organization->logo == '' or  $organization->logo == NULL) : ?>
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png" style="float:left">
+            <? else :?>
+            	<img src="<?= url::base().'media/upload/organizations/'.$organization->logo; ?>" style="float:left;width:265px;height:253px;border:3px solid #FFF;margin:2px">
+            <? endif ?>
+			<? foreach ($organization->events->limit(5)->find_all() as $event) : ?>
+				<? if($event->image != '' ) : ?>
+                	<img src="<?= url::base().'media/upload/events/'.$event->image  ?>" style="width:107px;height:85px;margin:2px; border:3px solid #FFF" >
+                <? endif ?>
+            <? endforeach ?>
 		</div>
 		<div id="columnRight">
 			<div class="sum"><div class="sum_hours"><?= $hours_sum ?> ชั่วโมง</div>
