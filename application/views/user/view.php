@@ -87,12 +87,12 @@ $sex = array ('m' => 'ชาย', 'f' => 'หญิง')
 			<h4>วันเกิด </h4>
             <p><? $time= strtotime($view_user->birthday); 
 				echo phphelp::thaidate_todate($time); ?></p>
-			<h4>เพศ</h4>	<p><?= $sex[$view_user->sex]  ?></p>
+			<h4>เพศ</h4>	<p><?= ($view_user->sex == '' ? '' : $sex[$view_user->sex] ) ?></p>
 		
 		</div>
 		<div class="column three">
         	<h4>ที่อยู่</h4><span><?= $view_user->address ?></span>
-			<h4>จังหวัด</h4><span><?= $provinces[$view_user->province] ?></span>
+			<h4>จังหวัด</h4><span><?= ( $view_user->province  == '' ? '' : $provinces[$view_user->province]) ?></span>
 			<h4>เบอร์โทรติดต่อ</h4><span><?= $view_user->phone ?></span>
 			<h4>e-mail</h4><span><?= $view_user->email ?></span>
 		</div>
