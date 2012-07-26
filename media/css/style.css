@@ -266,8 +266,8 @@ nav {
     background: url("../img/menu_bar.png") no-repeat scroll 0 0 transparent;
     float: right;
     height: 50px;
-    padding: 10px 0 23px 120px;
-    width: 729px;
+    padding: 10px 0 23px 50px;
+    width: 800px;
 }
 
 nav a {
