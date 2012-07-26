@@ -16,7 +16,8 @@ class Controller_User extends Controller_Template {
 		->bind('action', $action)
 		->bind('time', $time)
 		->bind('work_time', $work_time)
-		->bind('events', $events);
+		->bind('events', $events)
+		->bind('events_rand', $events_rand);
 		
 		$time = DB::select(array('SUM("hour")', 'time'))
 				->from('timebank_test.user_timebanks') 	
@@ -31,6 +32,7 @@ class Controller_User extends Controller_Template {
 		
 			
 		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(3)->find_all();
+		$events_rand = ORM::factory('event')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
     }
 
     public function action_record()
@@ -487,14 +489,30 @@ class Controller_User extends Controller_Template {
 	
 	public function action_view()
 	{
-        $this->template->content = View::factory('user/view')
-            ->bind('user_view', $user_view);
+	    $this->template->content = View::factory('user/view')
+							->bind('view_user', $view_user)
+							->bind('time', $time)
+							->bind('work_time', $work_time);
 		
-		$user_view = ORM::factory('user', $this->request->param('id'));
+		$view_user = ORM::factory('user', $this->request->param('id'));
+		// if a user is not logged in, redirect to login page
+        if (!$view_user->loaded())
+        {
+            Request::current()->redirect('user/login');
+			return;
+		}
+ 
+	
+		$time = DB::select(array('SUM("hour")', 'time'))
+				->from('timebank_test.user_timebanks') 	
+				->where('status','=','1')
+				->where('user_id','=',$view_user->id)->execute()->get('time', 0);
+		$work_time = 0;		
 		
-		if (!$user_view->loaded())
+		$pass_event = $view_user->events->where('event.status', '=', '0')->find_all();
+		foreach($pass_event as $pass)
 		{
-			throw new HTTP_Exception_404(__('User id :id not found', array(':id' => $this->request->param('id'))));
+			$work_time += $pass->time_cost;
 		}
 	}
 	

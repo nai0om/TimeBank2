@@ -1,13 +1,139 @@
-<h2>Info for user "<?= $user->nickname; ?>"</h2>
- 
-<ul>
-    <li>Nickname: <?= $user->nickname; ?></li>
-    <li>First name: <?= $user->first_name; ?></li>
-    <li>Last name: <?= $user->last_name; ?></li>
-    <li>Phone: <?= $user->phone; ?></li>
-    <li>Birthday: <?= $user->birthday; ?></li>
-    <li>Address: <?= $user->address; ?></li>
-    <li>Quote: <?= $user->quote; ?></li>
-    <li>Description: <?= $user->description; ?></li>
-    <li>Profile image: <img src="<?= url::base().'media/upload/'.$user->profile_image; ?>" /></li>
-</ul>
+<?
+$provinces = Kohana::$config->load('timebank')->get('provices');
+$sex = array ('m' => 'ชาย', 'f' => 'หญิง')
+?>
+<div id="org">
+ <div id="main" role="main">
+		<div id="sitemap">
+			<li>หน้าแรก<li>
+			<li>ดูข้อมูลอาสา<li>
+		</div>
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
+
+		<div style="clear:both"></div>
+
+		<div class="title left"></div>
+		<div class="title body"> <?= $view_user->displayname  ?></div>
+		<div class="title right"></div>
+		
+		<div style="clear:both"></div>
+		<h2><?= $view_user->first_name ?> <?= $view_user->last_name ?></h2>
+		
+		<div id="columnLeft">
+			<? if ( $view_user->profile_image == '' or  $view_user->profile_image == NULL) : ?>
+				<img src="<?= url::base() ?>media/img/org_profile_logo.png" style="float:left">
+            <? else :?>
+            	<img src="<?= url::base().'media/upload/volunteers/'.$view_user->profile_image; ?>" style="float:left;width:265px;height:253px;border:3px solid #FFF;margin:2px">
+            <? endif ?>
+		</div>
+		<div id="columnRight">
+			<div class="sum"><div class="sum_hours"><?= $time ?> ชั่วโมง</div>
+			<div class="sub_title">เวลาตั้งใจอาสา</div></div>
+			<div class="sum"><div class="sum_hours"><?= $work_time ?> ชั่วโมง</div>
+			<div class="sub_title">ที่เคยร่วมงานกับมูลนิธิ</div></div>
+		</div>
+		
+		<div style="clear:both"></div>
+		<div class="column one">
+			<h3>ความสนใจของคุณ</h3>
+			<p><?= $view_user->interest_tags ?></p>
+               <? 
+				$dict = Kohana::$config->load('timebank')->get('worddict'); 
+				$skill_list = explode ('|', $view_user->skills);
+				$normal_skill = "";
+				$special_skill = "";
+				for($i = 0 ; $i < count($skill_list) ; $i++)
+				{
+					$name = trim($skill_list[$i]);
+					if($name == '') continue;
+					if(phphelp::startsWith($name, '2'))
+					{
+						if(strpos($name , '=') !== false)
+						{
+							$texts = explode('=', $name);
+							$text = $texts[1];
+							$special_skill .= $text.', ';  
+						}
+						else
+						{
+							$special_skill .= $dict[$name].', '; 
+						}	
+					}
+					else
+					{
+						if(strpos($name , '=') !== false)
+						{
+							$texts = explode('=', $name);
+							$text = $texts[1];
+							$normal_skill .= $text.', '; 
+						}
+						else
+						{
+							$normal_skill .= $dict[$name].', '; 
+						}	
+
+					}
+			
+				}
+				 $normal_skill = substr($normal_skill , 0, -2); 
+				 $special_skill = substr($special_skill , 0, -2); 
+			?>
+            <h3>ความสามารถพิเศษ (Special Skill) : </h3> <p><?= $normal_skill	 ?></p>
+			<h3> ทักษะวิชาชีพ (Professional Skill) : </h3> <p><?= $special_skill ?></p>
+		</div>
+		<div class="column two">
+        	<h4>ชื่อเล่น</h4><p><?= $view_user->nickname ?></p>
+             
+			<h4>วันเกิด </h4>
+            <p><? $time= strtotime($view_user->birthday); 
+				echo phphelp::thaidate_todate($time); ?></p>
+			<h4>เพศ</h4>	<p><?= $sex[$view_user->sex]  ?></p>
+		
+		</div>
+		<div class="column three">
+        	<h4>ที่อยู่</h4><span><?= $view_user->address ?></span>
+			<h4>จังหวัด</h4><span><?= $provinces[$view_user->province] ?></span>
+			<h4>เบอร์โทรติดต่อ</h4><span><?= $view_user->phone ?></span>
+			<h4>e-mail</h4><span><?= $view_user->email ?></span>
+		</div>
+
+		<div style="clear:both"></div>
+		<div class="title left"></div>
+		<div class="title body">งานของอาสา</div>
+		<div class="title right"></div>
+		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $view_user->events->count_all()?></span></p>
+		
+		<table>
+			<tbody><tr>
+				<th>งานอาสา</th>
+				<th>ชั่วโมงที่ได้รับ</th>
+				<th>วัน / เวลาทำงานอาสา</th>
+				<th>ประเภทของงาน</th>
+				<th></th>
+			</tr>
+            <? foreach( $view_user->events->find_all() as $event ): ?>
+			<tr>
+                <td><?= HTML::anchor('event/view/'.$event->id,  $event->name) ?></td>
+                <td><?= $event->time_cost ?></td>
+                <td><? $time= strtotime($event->volunteer_begin_date); 
+						echo phphelp::thaidate_todate($time); ?></td>
+                <td><?= $event->tags ?></td>
+			</tr>
+			<? endforeach ?>
+			<tr>
+				<td colspan="6">
+					<ul>
+						<li>Page 1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody></table>
+		
+		</div>
+	
+  </div>
+</div>
