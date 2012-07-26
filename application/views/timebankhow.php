@@ -1,4 +1,4 @@
-<div id="tb_hiw">
+﻿<div id="tb_hiw">
 <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -14,18 +14,18 @@
             <?= HTML::anchor('help', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
 		</div>
 		<div style="clear:both;"></div>
-		<div class="table left"><h3 class="title">ขั้นตอนหาอาสามัคร</h3>
+		<div class="table right"><h3 class="title">ขั้นตอนสร้างภารกิจจิตอาสา</h3>
 		<ol>
-			<li><strong>สมัครบอกเล่าแนะนำตัว</strong><p>สร้างบัญชีผู้ใช้และให้ข้อมูลองค์กร</p><p class="link" style="top:70px;"><a><img src="<?= url::base(); ?>media/img/tb_icon_alarm.png"/>ฝากเวลา</a></P></li>
-			<li><strong>สร้างงาน เปิดโอกาสการใช้เวลาอาสา</strong><p>ระบุรายละเอียดของงาน เพื่อให้อาสาสมัครได้พบงานที่ตรงกับความสนใจและความสามารถ</p><p class="link" style="top:10px;"><a><img src="<?= url::base(); ?>media/img/tb_icon_glass.png"/>ดูงานอาสา</a></p></li>
-			<li><strong>ตอบรับและตอบกลับ เมื่องานเสร็จ</strong><p>ตอบรับอาสาที่สมัครเข้าร่วมและบันทึกเวลาเมื่อจบงานพร้อมคำขอบคุณ</p></li>
+			<li><strong>ให้ข้อมูลและแนะนำองค์กร</strong><p>สร้างบัญชีผู้ใช้ และบอกเล่าเรื่องราวเกี่ยวกับกลุ่ม/องค์กรอาสาของเรา</p><p class="link" style="top:70px;"><a><img src="<?= url::base(); ?>media/img/tb_icon_alarm.png"/>ฝากเวลา</a></P></li>
+			<li><strong>สร้างภารกิจ เปิดโอกาสใช้เวลาอาสา</strong><p>ระบุรายละเอียดของภารกิจให้ครบถ้วน เช่นเวลาที่ใช้ ลักษณะงาน และทักษะที่ต้องการ</p><p class="link" style="top:10px;"><a><img src="<?= url::base(); ?>media/img/tb_icon_glass.png"/>ดูงานอาสา</a></p></li>
+			<li><strong>ตอบรับและตอบกลับ เมื่อบรรลุภารกิจ</strong><p>ตอบรับอาสาที่สมัครเข้าร่วมและตอบกลับเมื่อสิ้นภารกิจโดยบันทึกเวลาพร้อมคำขอบคุณ</p></li>
 		</ol></div>
 		
-		<div class="table right"><h3 class="title">ขั้นตอนสมัครอาสา</h3>
+		<div class="table left"><h3 class="title">ขั้นตอนฝากเวลาเป็นอาสา</h3>
 		<ol>
-			<li><strong>สมัครบอกความตั้งใจให้เวลา</strong><p>กรอกชื่อ อีเมล รหัสผ่าน</p><p class="link" style="top:70px;"><a><img src="<?= url::base(); ?>media/img/tb_icon_heart.png"/>สมัคร</a></P></li>
-			<li><strong>เลือกใช้เวลากับงานอาสาที่ตรงใจ</strong><p>ค้นหาและสมัครไปอาสากับงานที่สอดคล้องกับความสนใจหรือทักษะของเรา</p><p class="link" style="top:28px;"><a><img src="<?= url::base(); ?>media/img/tb_icon_plus.png"/>สร้างงานอาสา</a></p></li>
-			<li><strong> บอกเล่าประสบการณ์และยืนยันการใช้เวลา</strong><p>เล่าความประทับใจ การเรียนรู้ เรื่องราวจากงานอาสาและยืนยันเวลาที่ใช้ไปหลังได้ทำงานแล้ว</p></li>
+			<li><strong>สมัครบอกความตั้งใจให้เวลา</strong><p>กรอกชื่อ อีเมล รหัสผ่าน และฝากจำนวนชั่วโมงตามที่ตั้งใจ</p><p class="link" style="top:70px;"><a><img src="<?= url::base(); ?>media/img/tb_icon_heart.png"/>สมัคร</a></P></li>
+			<li><strong>เลือกใช้เวลากับงานอาสาที่ตรงใจ</strong><p>ค้นหาและสมัครภารกิจจิตอาสาที่สอดคล้องกับเวลา ความสนใจ หรือทักษะของเรา</p><p class="link" style="top:28px;"><a><img src="<?= url::base(); ?>media/img/tb_icon_plus.png"/>สร้างงานอาสา</a></p></li>
+			<li><strong>แบ่งปันประสบการณ์และยืนยันการใช้เวลา</strong><p>เล่าความประทับใจ การเรียนรู้ เรื่องราวจากภารกิจจิตอาสา และยืนยันเวลาที่ได้ใช้ไปแล้ว</p></li>
 		</ol></div>
   </div>
 </div>

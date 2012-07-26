@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
@@ -50,11 +50,11 @@
 	<?= HTML::anchor('/', '<img src="'.url::base().'media/img/logo.png"/>'); ?>
 	<nav>
 		<ul>
-			<li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับเรา', array('id' => 'aboutUs')); ?></li>
-			<li><?= HTML::anchor('welcome/timebank', 'Time Bank', array('id' => 'timeBank')); ?></li>
+			<li><?= HTML::anchor('welcome/timebank', 'ใช้บริการธนาคารจิตอาสา', array('id' => 'timeBank')); ?></li>
 			<li><?= HTML::anchor('training', 'ฝึกอบรมและความรู้', array('id' => 'training')); ?></li>
-			<li><?= HTML::anchor('news', 'News Update', array('id' => 'news')); ?></li>
-			<li><?= HTML::anchor('welcome/donation', 'Donation', array('id' => 'donation')); ?></li>
+			<li><?= HTML::anchor('news', 'ข่าวแวดวง', array('id' => 'news')); ?></li>
+			<li><?= HTML::anchor('welcome/donation', 'สนับสนุนธนาคารจิตอาสา', array('id' => 'donation')); ?></li>
+			<li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับเรา', array('id' => 'aboutUs')); ?></li>
 		</ul>
 	</nav>
   </header>
