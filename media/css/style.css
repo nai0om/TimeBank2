@@ -1847,13 +1847,14 @@ header h2 {
 #member #main {
     background: url("../img/tb_main_bg.jpg") no-repeat scroll 0 0 transparent;
     min-height: 1514px;
+	display:table;
 }
 #member #main ul {
     margin: 25px 0;
     padding: 0;
 }
 #member #main{
-	width: 956px;
+	width: 933px;
 }
 #member #main ul li{
 	font-size:18px;
