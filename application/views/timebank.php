@@ -1,4 +1,4 @@
-<div id="main_timeBank">
+﻿<div id="main_timeBank">
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -44,50 +44,50 @@
 			<h3><a href="<?= url::base().'user/create' ?>"><span style="text-decoration:underline">ฝากเวลา</span></a>  <span style="font-size:20px;">หรือ</span>  <a href="<?= url::base().'organization/create' ?>"> <span style="text-decoration:underline">สร้างภารกิจจิตอาสา</span></a></h3>
 		</blockquote>
 	
-		<h3 class="title">ขั้นตอนสมัครอาสา</h3>
+		<h3 class="title">ข้นตอนฝากเวลาเป็นอาสา</h3>
 		<ol>
-			<li><strong>สมัครบอกความตั้งใจให้เวลา</strong><p>กรอกชื่อ อีเมล รหัสผ่าน</p></li>
-			<li><strong>เลือกใช้เวลากับงานอาสาที่ตรงใจ</strong><p>ค้นหาและสมัครไปอาสากับงานที่สอดคล้องกับความสนใจหรือทักษะของเรา</p></li>
-			<li><strong> บอกเล่าประสบการณ์และยืนยันการใช้เวลา</strong><p>เล่าความประทับใจ การเรียนรู้ เรื่องราวจากงานอาสาและยืนยันเวลาที่ใช้ไปหลังได้ทำงานแล้ว</p></li>
+			<li><strong>สมัครบอกความตั้งใจให้เวลา</strong><p>กรอกชื่อ อีเมล รหัสผ่าน และฝากจำนวนชั่วโมงตามที่ตั้งใจ</p></li>
+			<li><strong>เลือกใช้เวลากับงานอาสาที่ตรงใจ</strong><p>ค้นหาและสมัครภารกิจจิตอาสาที่สอดคล้องกับเวลา ความสนใจ หรือทักษะของเรา</p></li>
+			<li><strong> แบ่งปันประสบการณ์และยืนยันการใช้เวลา</strong><p>เล่าความประทับใจ การเรียนรู้ เรื่องราวจากภารกิจจิตอาสา และยืนยันเวลาที่ได้ใช้ไปแล้ว</p></li>
 		</ol>
         
-		<h3 class="title">ขั้นตอนหาอาสามัคร</h3>
+		<h3 class="title">ขั้นตอนสร้างภารกิจจิตอาสา</h3>
 		<ol>
-			<li><strong>สมัครบอกเล่าแนะนำตัว</strong><p>สร้างบัญชีผู้ใช้และให้ข้อมูลองค์กร</p></li>
-			<li><strong>สร้างงาน เปิดโอกาสการใช้เวลาอาสา</strong><p>ระบุรายละเอียดของงาน เพื่อให้อาสาสมัครได้พบงานที่ตรงกับความสนใจและความสามารถ</p></li>
-			<li><strong>ตอบรับและตอบกลับ เมื่องานเสร็จ</strong><p>ตอบรับอาสาที่สมัครเข้าร่วมและบันทึกเวลาเมื่อจบงานพร้อมคำขอบคุณ</p></li>
+			<li><strong>ให้ข้อมูลและแนะนำองค์กร</strong><p>สร้างบัญชีผู้ใช้ และบอกเล่าเรื่องราวเกี่ยวกับกลุ่ม/องค์กรอาสาของเรา</p></li>
+			<li><strong>สร้างภารกิจ เปิดโอกาสใช้เวลาอาสา</strong><p>ระบุรายละเอียดของภารกิจให้ครบถ้วน เช่นเวลาที่ใช้ ลักษณะงาน และทักษะที่ต้องการ</p></li>
+			<li><strong>ตอบรับและตอบกลับ เมื่อบรรลุภารกิจ</strong><p>ตอบรับอาสาที่สมัครเข้าร่วมและตอบกลับเมื่อสิ้นภารกิจโดยบันทึกเวลาพร้อมคำขอบคุณ</p></li>
 		</ol>
 	
-		<h3 class="title" align="center">จากใจ...อาสาสมัคร</h3>
+		<h3 class="title" align="center">บอกเล่าจากใจอาสา</h3>
 		<ul id="volunteer">
 			<li>
 				<img src="<?= url::base(); ?>media/img/tb_sample_profile.png"/>
 				<p><strong>name surname</strong></p>
 				<p>Neque tum eos illa opinio fefellit.</p>
-				<a>ชมภาพ</a>
+				<a>ดูภารกิจ</a>
 				<div>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</div>
 			</li>
 			<li>
 				<img src="<?= url::base(); ?>media/img/tb_sample_profile.png"/>
 				<p><strong>name surname</strong></p>
 				<p>Neque tum eos illa opinio fefellit.</p>
-				<a>ชมภาพ</a>
+				<a>ดูภารกิจ</a>
 				<div>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</div>
 			</li>
 			<li>
 				<img src="<?= url::base(); ?>media/img/tb_sample_profile.png"/>
 				<p><strong>name surname</strong></p>
 				<p>Neque tum eos illa opinio fefellit.</p>
-				<a>ชมภาพ</a>
+				<a>ดูภารกิจ</a>
 				<div>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</div>
 			</li>
 		</ul>
 		<p align="center" style="margin:0;"><img src="<?= url::base(); ?>media/img/tb_line.png"/></p>
 		<ul id="summary">
-			<li><p>อาสาสมัครเข้าร่วมงานอาสาสมัครขณะนี้ ....</p><div class="showNumber">92</div></li>
-			<li><p>งานอาสาที่ต้องการอาสาสมัครขณะนี้ ....</p><div class="showNumber">92</div></li>
-			<li><p>งานอาสาที่ผ่านมาทั้งหมด....</p><div class="showNumber">92</div></li>
-			<li><p>อาสาสมัครทั้งหมดที่เคยผ่านงานอาสากับเรา</p><div class="showNumber">92</div></li>
+			<li><p>จำนวนอาสาที่ร่วมฝากเวลา ....</p><div class="showNumber">92</div></li>
+			<li><p>จำนวนภารกิจที่กำลังเปิดรับ ....</p><div class="showNumber">92</div></li>
+			<li><p>จำนวนภารกิจที่เสร็จสิ้นแล้ว ....</p><div class="showNumber">92</div></li>
+			<li><p>จำนวนอาสาทั้งหมดที่เคยร่วมปฏิบัติภารกิจ ....</p><div class="showNumber">92</div></li>
 		</ul>
   </div>
 </div>

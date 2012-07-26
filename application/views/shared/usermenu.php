@@ -1,4 +1,4 @@
-<ul><?php $menuitem = array(
+﻿<ul><?php $menuitem = array(
     'index' => 'หน้าหลัก', 
     'profile' => 'โปรไฟล์',
     'record' => 'ฝากเวลาของฉัน', 
