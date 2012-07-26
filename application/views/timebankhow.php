@@ -1,4 +1,4 @@
-﻿<div id="tb_hiw">
+<div id="tb_hiw">
 <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
