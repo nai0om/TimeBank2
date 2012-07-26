@@ -50,7 +50,7 @@
 			<h4>เบอร์โทรสาร</h4>
 			<p><?= $organization->fax ?></p>
 		</div>
-		<div class="column three wrap">
+		<div class="column three">
 			<h4>อีเมล์</h4><span><?= $org_user->email ?></span>
 			<h4>ติดต่อ </h4><span><?= $organization->contactperson ?></span>
 			<h4>website URL</h4><span><?= $organization->website ?></span>
@@ -66,7 +66,7 @@
 		<div class="title body past">งานอาสาที่จบไปแล้ว</div>
 		<div class="title right"></div>
 		<div style="clear:both"></div>
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;">120</span></p>
+		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $organization->events->count_all()?></span></p>
 		
 		<table>
 			<tbody><tr>

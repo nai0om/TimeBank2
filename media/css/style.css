@@ -1542,6 +1542,7 @@ header h2 {
     height: 315px;
     padding: 17px;
     width: 375px;
+	margin-bottom:50px;
 }
 #tb_browse_detail #post_comment div {
     border-top: 1px solid #FFFFFF;
@@ -1658,6 +1659,8 @@ header h2 {
     border-bottom: 1px dashed #222222;
     margin: 0 0 5px;
     padding: 0 0 10px;
+	width: 152px;
+	height: 146px;
 }
 #tb_browse_detail.members #member .simple img {
     border-bottom: 0;

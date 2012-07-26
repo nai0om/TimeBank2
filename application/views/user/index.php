@@ -31,30 +31,30 @@
 				<div class="sub_title">เวลาทำอาสา</div></div>
 			</div>
 			<div style="clear:both"></div>
-			<!--div class="title left"></div>
+			<div class="title left"></div>
 			<div class="title body">งานอาสาที่เหมาะกับโปร์ไพล์คุณ</div>
 			<div class="title right"></div>
 			<div class="line" style="width:374px;"></div>
 			<a class="more">Load more</a>
 			<div style="clear:both"></div>
 			<ul class="list">
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
+				<? foreach ($events_rand as $event) : ?>
+				<li>
+	                <?	if ($event->image == '' || $event->image == NULL) : ?>
+	                	<img src="<?= url::base(); ?>media/img/mem_sample_list.png">
+                    <? else : ?>
+                    	<img src="<?= url::base().'media/upload/events/'.$event->image;  ?>" 
+                        style="width:216px; height:167px;border:5px solid #FFF;
+                                -moz-box-shadow: 3px 3px 5px #999;
+                                -webkit-box-shadow: 3px 5px 2px #999;
+                                box-shadow: 3px 3px 5px #999;
+                                ">
+                    <? endif ?>
+                    <div class="description"><?= $event->name ?></div>
+                    <div class="hours"><?= $event->time_cost ?> ชม.</div>
+                </li>
+                <? endforeach ?>
 			</ul>
-			<div style="clear:both"></div>
-			<div class="title left"></div>
-			<div class="title body">งานอาสาที่มีอาสาสมัครสนใจมากที่สุด</div>
-			<div class="title right"></div>
-			<div class="line"></div>
-			<a class="more">Load more</a>
-			<div style="clear:both"></div>
-			<ul class="list">
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
-			</ul>
-            -->
 			<div style="clear:both"></div>
 			<div class="title left"></div>
 			<div class="title body">งานอาสาที่ทางเวบไซต์อยากแนะนำ</div>
@@ -63,7 +63,22 @@
 			<a class="more">Load more</a>
 			<div style="clear:both"></div>
 			<ul class="list">
-				<li><img src="<?= url::base(); ?>media/img/mem_sample_list.png"><div class="description">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab.</div><div class="hours">50 ชม.</div></li>
+				<? foreach ($events as $event) : ?>
+				<li>
+	                <?	if ($event->image == '' || $event->image == NULL) : ?>
+	                	<img src="<?= url::base(); ?>media/img/mem_sample_list.png">
+                    <? else : ?>
+                    	<img src="<?= url::base().'media/upload/events/'.$event->image;  ?>" 
+                        style="width:216px; height:167px;border:5px solid #FFF;
+                                -moz-box-shadow: 3px 3px 5px #999;
+                                -webkit-box-shadow: 3px 5px 2px #999;
+                                box-shadow: 3px 3px 5px #999;
+                                ">
+                    <? endif ?>
+                    <div class="description"><?= $event->name ?></div>
+                    <div class="hours"><?= $event->time_cost ?> ชม.</div>
+                </li>
+                <? endforeach ?>
 			</ul>
 			
 		</div>
