@@ -106,6 +106,41 @@ class Controller_User extends Controller_Template {
     {
 		$this->template->content = View::factory('user/signup');
     }
+
+    public function action_forgetpassword()
+    {
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			if (Arr::get($_POST, 'email') != '')
+			{
+				$user = ORM::factory('user')->where('email', '=', Arr::get($_POST, 'email'))->find();
+				if ($user->loaded())
+				{
+					// Reset password and send email
+					$newpassword = TimebankUtil::randomstring(10);
+					$user->password = $newpassword;
+					$user->save();
+					
+					TimebankNotification::notify_forgetpassword($user, $newpassword);
+					
+					$this->template->content = View::factory('user/forgetpassword_finish')->set('email', $user->email);
+					return;
+				}
+				else
+				{
+					$message = 'กรุณากรอกอีเมล์ที่สมัครไว้กับธนาคารจิตอาสา';
+				}
+			}
+			else
+			{
+				$message = 'Please enter email address';	
+			}
+		}
+		
+		$this->template->content = View::factory('user/forgetpassword')
+									->bind('message', $message);
+
+    }
 	
 	public function action_create()
 	{
@@ -155,7 +190,7 @@ class Controller_User extends Controller_Template {
 			try
 			{
 				$user->save();
-				
+
 				// Log in
 				$this->login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
 				//add user hour
@@ -183,6 +218,9 @@ class Controller_User extends Controller_Template {
 						$records = ORM::factory('user_timebank')->where('user_id', '=', $this->user->id)->find_all();
 					}
                 }
+
+				TimebankNotification::notify_new_volunteer($user, Arr::get($_POST, 'password'));
+
 				// Redirect
 				Request::current()->redirect('/user/index');
 				

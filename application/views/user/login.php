@@ -11,7 +11,9 @@
 				<p><label>รหัสผ่าน * : </label><?= Form::password('password'); ?></p>
 				<p><label></label><?= Form::checkbox('remember'); ?> บันทึกไว้ในเครื่อง</p>
                 <div class="error"><?= $message; ?></div>
-				<p><label></label><input type="submit" value="เข้าสู่ระบบ"> <input type="submit" value="ลืมรหัสผ่าน"></p>
+				<p><label></label><input type="submit" value="เข้าสู่ระบบ">
+                <input onclick="window.location='<?=url::base().'/user/forgetpassword' ?>'; return false" type="submit" value="ลืมรหัสผ่าน">
+                </p>
 			<?= Form::close(); ?>
 			<div class="line"></div>
 			<div id="sub">
