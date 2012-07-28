@@ -3,38 +3,33 @@
 		<div id="sitemap">
 			<li>หน้าแรก</li>
 			<li>ฝึกอบรมอาสาสมัคร</li>
-			<li>Title Name</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
         
 		<div style="clear:both"></div>
 		<h2><?= $training->topic ?></h2>
-		<h3><?= $training->created ?></h3>
-		<a id="share">Share</a>
+		<h3 style="width:40%"><?= $training->date_message ?></h3>
+		<!--a id="share">Share</a-->
 		<div id="leftSide">
-			<img src="img/tb_detail_sampel.png">
+			<a href="<?= url::base().'media/upload/training/'.$training->main_pic ?>" target="_blank"><img style="max-width:450px" src="<?= url::base().'media/upload/training/'.$training->main_pic ?>"></a>
 		</div>
+        
+        <?php $pic_list = explode(',', $training->pic); ?>
 		<div id="rightSide">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-			<img src="img/org_sample_small.png">
-		</div>
-		
+	        <?php foreach ($pic_list as $pic) : ?>
+				<a href="<?= url::base().'media/upload/training/'.$pic ?>" target="_blank"><img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/training/'.$pic ?>"></a>
+			<? endforeach ?>
+        </div>
+
 		<div style="clear:left"></div>
+		
 		<div id="content">
-			<img src="img/video.png" style="float:right;">
+			<br /><br />
 			<?= $training->message ?>
 		</div>
 		
 		<div style="clear:left"></div>
-		<div class="line" style="width:100%;float:right"><a class="button">สมัครคลิกที่นี่</a></div>
-		
-		
+		<div class="line" style="width:100%;float:right"><!--a class="button">สมัครคลิกที่นี่</a--></div>
 
-  </div>
+	</div>
 </div>

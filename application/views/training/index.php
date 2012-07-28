@@ -35,55 +35,25 @@
 		</div>
 		<div style="clear:left"></div>
 		<div class="title left"></div>
-		<div class="title body">ข่าวสารต่างๆ</div>
+		<div class="title body">งานฝึกอบรมทั้งหมด</div>
 		<div class="title right"></div>
 		<div class="line"></div>
 		<div style="clear:left"></div>
 		
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;">20</span></p>
+		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($trainings) ?></span></p>
 		
 		<ul id="list">
+        <?php foreach ($trainings as $training) :?>
 			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
+				<a href="<?= url::base().'training/view/'.$training->id?>"><img style="max-width:240px; max-height:174px" src="<?= url::base().'media/upload/training/'.$training->main_pic ?>" style="float:left;"></a>
+				<h3><?= $training->topic ?></h3>
+				<!--p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p-->
 			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
+        <? endforeach ?>
 		</ul>
 		
 		<div style="clear:left"></div>
 		<div class="line" style="width:82%;float:left"></div>
-		<ul id="pagination">
-			<li>หน้า 1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-		</ul>
 		
 	</div>
 </div>

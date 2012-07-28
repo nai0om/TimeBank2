@@ -4,7 +4,8 @@ class Controller_Training extends Controller_Template {
 
 	public function action_index()
 	{
-		$this->template->content = View::factory('training/index');
+		$trainings = ORM::factory('training')->find_all();
+		$this->template->content = View::factory('training/index')->bind('trainings', $trainings);
    	}
 
 	public function action_download()
