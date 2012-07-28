@@ -12,7 +12,7 @@
 			<ul>
 				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
 				<li><?= HTML::anchor('organization/profile', 'โปร์ไพล์'); ?></li>
-				<li class="current"><?= HTML::anchor('organization/event', 'งานอาสาของฉัน'); ?></li>
+				<li class="current"><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>
 				<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
 			</ul>
 		</div>
@@ -46,7 +46,7 @@
 					<td><?=  $event->time_cost ?> ชม.</td>
 					<td><?=  $event->volunteer_need_count ?> คน</td>
                     <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?></td>
-                    <td><?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ดูอาสาสมัคร') ?></td>
+                    <td><?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?></td>
 				</tr>
                 <? endforeach ?>
 				
