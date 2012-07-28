@@ -11,7 +11,7 @@
 			<ul>
 				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
 				<li><?= HTML::anchor('organization/profile', 'โปร์ไพล์'); ?></li>
-				<li><?= HTML::anchor('organization/event', 'งานอาสาของฉัน'); ?></li>
+				<li><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>
 				<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
 			</ul>
 		</div>

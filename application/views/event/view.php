@@ -1,6 +1,6 @@
 <?
 $memebers = $event->users->find_all();
-$member_count = $memebers->count();
+$member_count = count($member_event);
 $provinces = Kohana::$config->load('timebank')->get('provices');
 ?>
 
@@ -52,20 +52,21 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		</div>
 		<div style="clear:both"></div>
 		
-	<?php if ($mode == 2): ?>
+	<? if ($mode == 2): ?>
 		<div>
       
 			<ul id="member">
-            <?php foreach( $memebers as $user): ?>
-              	<?php if ($user->profile_image == '') : ?>
+            <? foreach( $memebers as $user): ?>
+            	<? if ($member_event[$user->id]['status'] == '0') continue; ?>
+              	<? if ($user->profile_image == '') : ?>
 					<li><img src="<?= url::base(); ?>media/img/sample_member_01.png">
-                <?php else :?>
+                <? else :?>
                 	<li><img src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" />
-                <?php endif?>
+                <? endif?>
                 <div class="username"><?= HTML::anchor('user/view/'.$user->id,  $user->displayname) ?></div>
                 <div class="name"><?= $user->first_name ?> <?= $user->last_name ?></div>
                 </li>
-			<?php  endforeach ?>
+			<?  endforeach ?>
    			</ul>
 			<img src="<?= url::base(); ?>media/img/tb_line_form.png">
 				<ul id="pagination">

@@ -112,10 +112,14 @@ class Controller_Event extends Controller_Template {
             ->bind('event_status', $event_status)
             ->bind('mode', $mode)
 			->bind('isAdmin', $isAdmin)
-			->bind('isOrga', $isOrga);
+			->bind('isOrga', $isOrga)
+			->bind('member_event', $member_event);
 		
 		$isOrga = false;
 		$event = ORM::factory('event', $this->request->param('id'));
+		
+		$query = DB::select()->from('users_events')->where('event_id', '=',  $event->id);
+		$member_event = $query->execute()->as_array('user_id');
 		if (!is_null($this->orguser))
 		{
 		 	$isOrga = true;
@@ -175,6 +179,60 @@ class Controller_Event extends Controller_Template {
 		}
 	}
 	
+	public function action_approve()
+	{
+			
+		$this->template->content = View::factory('event/approve')
+									->bind('event', $event)
+									->bind('users', $users);
+		if (is_null($this->orguser))
+		{
+			echo 'not organization account';
+			Request::current()->redirect('/');
+		}
+
+		$event = ORM::factory('event', $this->request->param('id'));
+		if(!$event->loaded())
+		{
+			echo 'not found event';
+			Request::current()->redirect('/');
+		}
+		
+		if($event->organization_id != $this->orguser->id)
+		{
+			echo 'no permission';			
+			Request::current()->redirect('/');
+		}
+		
+		$query = DB::select()->from('users_events')->where('event_id', '=',  $this->request->param('id'));
+		$users = $query->execute()->as_array('user_id');
+		
+       if (HTTP_Request::POST == $this->request->method())
+	   {
+		  foreach ($users as $user)
+		  {
+			if(Arr::get($_POST, 'user'.$user['user_id']) != 'on') continue;
+			
+			if(Arr::get($_POST, 'submit') == 'approve')
+			{
+			
+				DB::update('users_events')
+					->set(array('status' => '1'))
+					->where('user_id', '=', $user['user_id'])
+					->where('event_id', '=', $event->id)
+					->execute();
+			}
+			else
+			{
+				$event->remove('users', $event); 
+			}
+			
+		  }
+		  $event->save();
+	   }
+	
+								
+	}
 	public function action_addimage()
 	{
 		$this->auto_render = false;
@@ -254,7 +312,6 @@ class Controller_Event extends Controller_Template {
 	
 	public function action_apply()
 	{
-		
 		
 		if ($this->user)
 		{
