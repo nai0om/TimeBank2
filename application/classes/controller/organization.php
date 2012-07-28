@@ -60,7 +60,7 @@ class Controller_Organization extends Controller_Template {
 	}
 
 	public function action_create()
-	{
+	{		
 		$this->template->content = View::factory('organization/create')
 									->bind('message', $message)
 									->bind('errors', $errors)
@@ -126,10 +126,13 @@ class Controller_Organization extends Controller_Template {
 				$user->save();
 				$organization->user_id = $user->id;
 				$organization->save();
+
+				// Send email
+				TimebankNotification::notify_new_organization($user, $organization->name, Arr::get($_POST, 'password'));
 					
 				// Log in
 				Controller_User::login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
-				
+
 				// Redirect
 				Request::current()->redirect('/organization/index');
 				
