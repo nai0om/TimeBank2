@@ -15,50 +15,21 @@
 		<div class="title right"></div>
 		<div style="clear:both"></div>
 		
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;">20</span></p>
-		
-		<ul id="list">
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p>
-			</li>
-		</ul>
+        <div id="content">
+        	<br />
+        	<h2>คู่มือจิตอาสา</h2>
+            <p>ภาคี เครือข่ายจิตอาสา เครือข่ายพุทธิกา สสส. และ สช. ร่วมแบ่งปัน "คู่มือจิตอาสา" สำหรับทั้งอาสาสมัครและ องค์กรที่บริหารจัดการอาสาสมัคร</p>
+			<p>เป็นแนวทางง่ายๆ ที่ช่วยให้การออกมาทำความดีร่วมกันเกิดประโยชน์สูงสุดทั้งผู้ให้และผู้รับ ช่วยให้อาสาสมัคร ทำงานโดยมี "จิตอาสา" เกิดผลดีทั้งต่องานและต่อการเรียนรู้ ฝึกฝน ขัดเกลาตนเอง</p> 
+			<p>มีสองเวอร์ชัน คือ</p>
+			<p><a href="<?= url::base().'media/upload/download/volunteer_2011_guidline.pdf' ?>">1. Volunteer 2011 Guideline: สำหรับแผ่นพับขนาดเอสี่ สองหน้า (หน้าหลัง พับครึ่ง)</a></p>
+			<p><a href="<?= url::base().'media/upload/download/volunteer_2011_guidline_poster.pdf' ?>">2. Volunteer 2011 Guideline Poster: สำหรับโปสเตอร์ขนาดเอสี่ สองหน้าต่อกัน</a></p>
+			<p>สามารถผลิตเพิ่มและใช้ได้ตามสะดวก</p> 
+			<p>ยินดีรับคำแนะนำเพื่อการพัฒนาเอกสารให้รับใช้สังคมได้ดีที่สุด โดยส่งมาที่ JitArsaBank (เครื่องหมาย @) gmail.com</p>
+
+        </div>
 		
 		<div style="clear:left"></div>
 		<div class="line" style="width:82%;float:left"></div>
-		<ul id="pagination">
-			<li>หน้า 1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-		</ul>
 		
 	</div>
 </div>
