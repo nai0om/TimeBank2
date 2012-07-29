@@ -45,21 +45,15 @@ $page = isset($gets['page'])? $gets['page'] : '1';
 	
 	   <?php if (($job != 0 ) || ($query != '' && $job == 0  && $province != 0) ): ?>
        
-            <div id="detail"><h2><?= ($job == 0 ) ? '': $jobs[$job] ?></h2>
+            <div id="detail" style="width:100%"><h2><?= ($job == 0 ) ? '': $jobs[$job] ?></h2>
                 <?php if ($type == 'closed'): ?>
                     <?= HTML::anchor($link.'type=open', 'งานอาสาที่เปิดรับสมัคร'); ?>
                     <?= HTML::anchor($link.'type=closed', 'งานอาสาที่จบไปแล้ว', array('class' => 'current')); ?>
-                    <?= HTML::anchor($link.'type=member', 'ประกาศรายชื่ออาสา'); ?>
-                <? elseif ($type == 'member'): ?>    
-                    <?= HTML::anchor($link.'type=open', 'งานอาสาที่เปิดรับสมัคร'); ?>
-                    <?= HTML::anchor($link.'type=closed', 'งานอาสาที่จบไปแล้ว'); ?>
-                    <?= HTML::anchor($link.'type=member', 'ประกาศรายชื่ออาสา', array('class' => 'current')); ?>
                 <? else: ?>
                     <?= HTML::anchor($link.'type=open', 'งานอาสาที่เปิดรับสมัคร', array('class' => 'current')); ?>
                     <?= HTML::anchor($link.'type=closed', 'งานอาสาที่จบไปแล้ว'); ?>
-                    <?= HTML::anchor($link.'type=member', 'ประกาศรายชื่ออาสา'); ?>
                 <? endif ?>
-                <?= HTML::anchor('event/create', 'สร้างงานอาสาใหม่', array('class' => 'long')); ?>
+                <?= HTML::anchor('event/create', 'สร้างงานอาสาใหม่', array('class' => 'long', 'style' => 'float:right')); ?>
             </div>
 		<?php endif ?>
 		<div style="clear:both"></div>

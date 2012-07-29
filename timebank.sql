@@ -1,22 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 2.10.2
+-- version 2.10.3
 -- http://www.phpmyadmin.net
 -- 
--- โฮสต์: localhost
--- เวลาในการสร้าง: 
--- รุ่นของเซิร์ฟเวอร์: 5.0.45
--- รุ่นของ PHP: 5.2.3
+-- Host: localhost
+-- Generation Time: Jul 30, 2012 at 04:03 AM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 -- 
--- ฐานข้อมูล: `timebank_test`
+-- Database: `timebank_test`
 -- 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `comments`
+-- Table structure for table `comments`
 -- 
 
 CREATE TABLE `comments` (
@@ -28,17 +28,28 @@ CREATE TABLE `comments` (
   `comment` text collate utf8_unicode_ci NOT NULL,
   `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 -- 
--- dump ตาราง `comments`
+-- Dumping data for table `comments`
 -- 
 
+INSERT INTO `comments` VALUES (1, 2, 1, 3, '127.0.0.1', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nv\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nv\nxxxxxxxxxx\nv\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nv\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nv\nxxxxxxxxxx\nv\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nv\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nv\nxxxxxxxxxx\nv\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nv\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nv\nxxxxxxxxxx\nv\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nv\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nv\nxxxxxxxxxx\nv\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nv\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nv\nxxxxxxxxxx\nv\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nv\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nv\nxxxxxxxxxx\nv\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nv\nxxxxxxxxxx\nxxxxxxxxxx\nxxxxxxxxxx\nv\nxxxxxxxxxx\nv\n', '2012-07-29 22:22:12');
+INSERT INTO `comments` VALUES (2, 2, 1, 3, '127.0.0.1', 'xxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:02:50');
+INSERT INTO `comments` VALUES (3, 2, 1, 3, '127.0.0.1', 'xxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:02:56');
+INSERT INTO `comments` VALUES (4, 2, 1, 3, '127.0.0.1', 'xxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:03:01');
+INSERT INTO `comments` VALUES (5, 2, 1, 3, '127.0.0.1', 'xxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:03:06');
+INSERT INTO `comments` VALUES (6, 2, 1, 3, '127.0.0.1', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:03:56');
+INSERT INTO `comments` VALUES (7, 2, 1, 3, '127.0.0.1', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:04:01');
+INSERT INTO `comments` VALUES (8, 2, 1, 3, '127.0.0.1', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:04:08');
+INSERT INTO `comments` VALUES (9, 2, 1, 3, '127.0.0.1', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:04:12');
+INSERT INTO `comments` VALUES (10, 2, 1, 3, '127.0.0.1', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:04:17');
+INSERT INTO `comments` VALUES (11, 2, 1, 3, '127.0.0.1', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx v xxxxxxxxxx xxxxxxxxxx xxxxxxxxxx v xxxxxxxxxx v ', '2012-07-29 23:04:22');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `contactusforms`
+-- Table structure for table `contactusforms`
 -- 
 
 CREATE TABLE `contactusforms` (
@@ -54,7 +65,7 @@ CREATE TABLE `contactusforms` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- 
--- dump ตาราง `contactusforms`
+-- Dumping data for table `contactusforms`
 -- 
 
 INSERT INTO `contactusforms` VALUES (1, 'aa', 'bb', 'xinexo@gmail.com', 'asdf', 'tp[occcccccccc', 'อยากได้ๆๆๆ', '2012-06-05 11:39:50');
@@ -62,7 +73,7 @@ INSERT INTO `contactusforms` VALUES (1, 'aa', 'bb', 'xinexo@gmail.com', 'asdf', 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `emailcomingsoons`
+-- Table structure for table `emailcomingsoons`
 -- 
 
 CREATE TABLE `emailcomingsoons` (
@@ -73,7 +84,7 @@ CREATE TABLE `emailcomingsoons` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 -- 
--- dump ตาราง `emailcomingsoons`
+-- Dumping data for table `emailcomingsoons`
 -- 
 
 INSERT INTO `emailcomingsoons` VALUES (1, 'test@test.com', '2012-05-15 18:13:48');
@@ -89,7 +100,7 @@ INSERT INTO `emailcomingsoons` VALUES (9, 'xinexo@gmail.com', '2012-05-15 18:26:
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `events`
+-- Table structure for table `events`
 -- 
 
 CREATE TABLE `events` (
@@ -130,17 +141,18 @@ CREATE TABLE `events` (
   `tags` text collate utf8_unicode_ci NOT NULL,
   `message` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- 
--- dump ตาราง `events`
+-- Dumping data for table `events`
 -- 
 
+INSERT INTO `events` VALUES (1, '11111111111111111111111111/222222222222222//<div>\n<p>จากที่กูเกิลบอกว่าจะอัพเกรด Google Maps ให้ความละเอียดสูงขึ้น และสวยงามขึ้นตามที่บอกไว้ในงาน <a href="http://www.blognone.com/node/33093">New Dimension of Google Maps</a> วันนี้ก็ปล่อยออกมาอย่างเป็นทางการแล้ว</p>\n<p>ตัวภาพที่เพิ่มเข้ามาแบ่งเป็นสามชุดคือ ภาพจากดาวเทียมความละเอียดสูงครอบคลุมหลายประเทศทั่วโลก (แต่ไม่มีไทย) อีกชุดคือภาพจากอากาศยานที่ยังมีอยู่แค่ในสหรัฐฯ และบางประเทศในยุโรปเท่านั้น</p>\n<p>ไฮไลท์ของอัพเกรดคราวนี้คือภาพมุมสูง 45 องศาสำหรับ 21 เมืองในสหรัฐฯ และ 7 ประเทศในยุโรป</p>\n<p>ผมลองเข้าไปค้นหาสถานที่ตามตัวอย่างจากที่มาแล้วพบว่าเมนู 45&deg; ยังใช้ไม่ได้ ใครอยากดูภาพ Google Maps แบบใหม่ลองดูจากที่มาแทนก่อนครับ</p>\n<p>ที่มา - <a href="http://google-latlong.blogspot.co.uk/2012/07/imagery-update-explore-your-favorite.html">Google Lat Long Blog</a></p>\n</div>/หหหหหหหหห', '2012-07-01', '2012-07-27', '2012-07-01', '2012-07-31', '00:00:00', '23:59:59', '00:00:00', '23:59:59', 3, NULL, 'หหหหหหหหห', 'sdfasdfasdfas', '18', '123123123', 1, '11111111111111111111111111', NULL, NULL, '222222222222222', 123, 744, '<div>\n<p>จากที่กูเกิลบอกว่าจะอัพเกรด Google Maps ให้ความละเอียดสูงขึ้น และสวยงามขึ้นตามที่บอกไว้ในงาน <a href="http://www.blognone.com/node/33093">New Dimension of Google Maps</a> วันนี้ก็ปล่อยออกมาอย่างเป็นทางการแล้ว</p>\n<p>ตัวภาพที่เพิ่มเข้ามาแบ่งเป็นสามชุดคือ ภาพจากดาวเทียมความละเอียดสูงครอบคลุมหลายประเทศทั่วโลก (แต่ไม่มีไทย) อีกชุดคือภาพจากอากาศยานที่ยังมีอยู่แค่ในสหรัฐฯ และบางประเทศในยุโรปเท่านั้น</p>\n<p>ไฮไลท์ของอัพเกรดคราวนี้คือภาพมุมสูง 45 องศาสำหรับ 21 เมืองในสหรัฐฯ และ 7 ประเทศในยุโรป</p>\n<p>ผมลองเข้าไปค้นหาสถานที่ตามตัวอย่างจากที่มาแล้วพบว่าเมนู 45&deg; ยังใช้ไม่ได้ ใครอยากดูภาพ Google Maps แบบใหม่ลองดูจากที่มาแทนก่อนครับ</p>\n<p>ที่มา - <a href="http://google-latlong.blogspot.co.uk/2012/07/imagery-update-explore-your-favorite.html">Google Lat Long Blog</a></p>\n</div>', '<div>\n<p>จากที่กูเกิลบอกว่าจะอัพเกรด Google Maps ให้ความละเอียดสูงขึ้น และสวยงามขึ้นตามที่บอกไว้ในงาน <a href="http://www.blognone.com/node/33093">New Dimension of Google Maps</a> วันนี้ก็ปล่อยออกมาอย่างเป็นทางการแล้ว</p>\n<p>ตัวภาพที่เพิ่มเข้ามาแบ่งเป็นสามชุดคือ ภาพจากดาวเทียมความละเอียดสูงครอบคลุมหลายประเทศทั่วโลก (แต่ไม่มีไทย) อีกชุดคือภาพจากอากาศยานที่ยังมีอยู่แค่ในสหรัฐฯ และบางประเทศในยุโรปเท่านั้น</p>\n<p>ไฮไลท์ของอัพเกรดคราวนี้คือภาพมุมสูง 45 องศาสำหรับ 21 เมืองในสหรัฐฯ และ 7 ประเทศในยุโรป</p>\n<p>ผมลองเข้าไปค้นหาสถานที่ตามตัวอย่างจากที่มาแล้วพบว่าเมนู 45&deg; ยังใช้ไม่ได้ ใครอยากดูภาพ Google Maps แบบใหม่ลองดูจากที่มาแทนก่อนครับ</p>\n<p>ที่มา - <a href="http://google-latlong.blogspot.co.uk/2012/07/imagery-update-explore-your-favorite.html">Google Lat Long Blog</a></p>\n</div>', '<div>\n<p>จากที่กูเกิลบอกว่าจะอัพเกรด Google Maps ให้ความละเอียดสูงขึ้น และสวยงามขึ้นตามที่บอกไว้ในงาน <a href="http://www.blognone.com/node/33093">New Dimension of Google Maps</a> วันนี้ก็ปล่อยออกมาอย่างเป็นทางการแล้ว</p>\n<p>ตัวภาพที่เพิ่มเข้ามาแบ่งเป็นสามชุดคือ ภาพจากดาวเทียมความละเอียดสูงครอบคลุมหลายประเทศทั่วโลก (แต่ไม่มีไทย) อีกชุดคือภาพจากอากาศยานที่ยังมีอยู่แค่ในสหรัฐฯ และบางประเทศในยุโรปเท่านั้น</p>\n<p>ไฮไลท์ของอัพเกรดคราวนี้คือภาพมุมสูง 45 องศาสำหรับ 21 เมืองในสหรัฐฯ และ 7 ประเทศในยุโรป</p>\n<p>ผมลองเข้าไปค้นหาสถานที่ตามตัวอย่างจากที่มาแล้วพบว่าเมนู 45&deg; ยังใช้ไม่ได้ ใครอยากดูภาพ Google Maps แบบใหม่ลองดูจากที่มาแทนก่อนครับ</p>\n<p>ที่มา - <a href="http://google-latlong.blogspot.co.uk/2012/07/imagery-update-explore-your-favorite.html">Google Lat Long Blog</a></p>\n</div>', 0, '', NULL, ' 1203|1204|1302|1303|1304|2401|2404|2405|2601|2602|2603|2605|2608|2803|2804|2805|', '', '', '', '2012-07-29 22:13:40', 'กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ', '');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `helps`
+-- Table structure for table `helps`
 -- 
 
 CREATE TABLE `helps` (
@@ -152,7 +164,7 @@ CREATE TABLE `helps` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- 
--- dump ตาราง `helps`
+-- Dumping data for table `helps`
 -- 
 
 INSERT INTO `helps` VALUES (1, 'ไม่ทราบว่าอยากบริจาคเงินกับทางเว็บไซต์ต้องทำอย่างไร ?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2012-06-05 12:18:10');
@@ -160,27 +172,30 @@ INSERT INTO `helps` VALUES (1, 'ไม่ทราบว่าอยากบร
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `images`
+-- Table structure for table `images`
 -- 
 
 CREATE TABLE `images` (
-  `image_id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL auto_increment,
   `event_id` int(11) NOT NULL,
   `description` text NOT NULL,
   `image` mediumtext NOT NULL,
   `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`image_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 -- 
--- dump ตาราง `images`
+-- Dumping data for table `images`
 -- 
 
+INSERT INTO `images` VALUES (3, 1, 'เขียนคำบรรยายที่นี่', '50157345c855biq08d9bff91fe369a9c8d69c0186092bb7.jpg', '2012-07-30 00:30:45');
+INSERT INTO `images` VALUES (4, 1, 'เขียนคำบรรยายที่นี่', '5015734b66d06c98232.jpg', '2012-07-30 00:30:51');
+INSERT INTO `images` VALUES (5, 1, 'เขียนคำบรรยายที่นี่', '501581382b610iq08d9bff91fe369a9c8d69c0186092bb7.jpg', '2012-07-30 01:30:16');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `inboxes`
+-- Table structure for table `inboxes`
 -- 
 
 CREATE TABLE `inboxes` (
@@ -197,7 +212,7 @@ CREATE TABLE `inboxes` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 -- 
--- dump ตาราง `inboxes`
+-- Dumping data for table `inboxes`
 -- 
 
 INSERT INTO `inboxes` VALUES (1, 0, 3, 1, 0, 'ทดสอบ1', 'messageสำหรับทดสอบ1', 0, '2012-06-11 10:03:47');
@@ -207,7 +222,7 @@ INSERT INTO `inboxes` VALUES (3, 0, 3, 1, 0, 'ทดสอ3', 'messageสำห�
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `locations`
+-- Table structure for table `locations`
 -- 
 
 CREATE TABLE `locations` (
@@ -221,7 +236,7 @@ CREATE TABLE `locations` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 -- 
--- dump ตาราง `locations`
+-- Dumping data for table `locations`
 -- 
 
 INSERT INTO `locations` VALUES (1, 'กรุงเทพ', NULL, NULL, NULL, '2011-11-17 20:42:34');
@@ -232,7 +247,7 @@ INSERT INTO `locations` VALUES (4, 'ภูเก็ต', NULL, NULL, NULL, '2011
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `news`
+-- Table structure for table `news`
 -- 
 
 CREATE TABLE `news` (
@@ -246,7 +261,7 @@ CREATE TABLE `news` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- 
--- dump ตาราง `news`
+-- Dumping data for table `news`
 -- 
 
 INSERT INTO `news` VALUES (1, 'ข่าวล่ามาไว', 'เย้ๆๆๆๆๆๆๆๆๆๆๆ', '', '', '2012-06-17 19:24:41');
@@ -254,7 +269,7 @@ INSERT INTO `news` VALUES (1, 'ข่าวล่ามาไว', 'เย้ๆ
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `organizations`
+-- Table structure for table `organizations`
 -- 
 
 CREATE TABLE `organizations` (
@@ -283,7 +298,7 @@ CREATE TABLE `organizations` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 -- 
--- dump ตาราง `organizations`
+-- Dumping data for table `organizations`
 -- 
 
 INSERT INTO `organizations` VALUES (3, '', 2, 0, 1, 0, 'ชื่ออออออออออออ', 'ดดดดดดดดดดดดดดดดวัตถุประสงค์dfasdf', 'qssd', 'zzzzzzz', 'เขต', 'zzzzzzz', 'ไปรษณีย์', '1231231231313', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.orgg', '4ec7092217c96thai.png', '2012-07-21 16:26:49');
@@ -292,7 +307,7 @@ INSERT INTO `organizations` VALUES (4, '', 3, 1, 1, 1, '123124124124', '12314123
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `trainings`
+-- Table structure for table `trainings`
 -- 
 
 CREATE TABLE `trainings` (
@@ -308,7 +323,7 @@ CREATE TABLE `trainings` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 -- 
--- dump ตาราง `trainings`
+-- Dumping data for table `trainings`
 -- 
 
 INSERT INTO `trainings` VALUES (1, 'การออกแบบกระบวนการและจัดกิจกรรมอาสาสมัครเพื่อส่งเสริมสุขภาวะทางปัญญาสำหรับพี่เลี้ยงอาสาสมัคร', '<p><b>รุ่นที่ 1</b></p>\r\n<p>แรกพบ 28 พฤษภาคม 2555</p>\r\n<p> ครั้งที่ 1 วันที่ 13-15 มิถุนายน 2555</p>\r\n<p>	ครั้งที่ 2 วันที่ 10-13 กรกฏาคม 2555</p>\r\n<p>	ครั้งที่ 3 วันที่ 15-17 สิงหาคม 2555</p>\r\n	\r\n<p><b>รุ่นที่ 2</b></p>\r\n<p>	แรกพบ 24 กรกฏาคม 2555</p>\r\n<p> ครั้งที่ 1 วันที่ 29-31 สิงหาคม 2555</p>\r\n<p>	ครั้งที่ 2 วันที่ 18-21 กันยายน 2555</p>\r\n<p>	ครั้งที่ 3 วันที่ 17-19 ตุลาคม 2555</p>', '<p>หลักสูตรฝึกอบรมต่อเนื่องสำหรับพี่เลี้ยงและผู้ดูแลกิจกรรมขององค์กรอาสาสมัคร เพื่อส่งเสริมศักยภาพการออกแบบกระบวนการและจัดกิจกรรม ให้เกิดการเรียนรู้ เข้าใจ และพัฒนาจิตใจ ทั้งในอาสาสมัครและผู้ดูแล เนื้อหาหลักสูตรแบ่งออกเป็น 3 ส่วนหลักตามการอบรม 3 ครั้ง ได้แก่ ความเข้าใจในตนเองและการสะท้อนตนเอง (Self Reflection) การสื่อสารเพื่องานอาสา (Dialogue & Non-Violent Communication) และการเห็นความเชื่อมโยงของปัญหา (Systems Thinking)</p>\r\n<p>รูปแบบการอบรมเป็นการแลกเปลี่ยนเรียนรู้อย่างมีส่วนร่วมและการทดลองมีประสบการณ์ด้วยตนเอง เพื่อให้เกิดความเข้าใจอย่างลึกซึ้ง และผสมผสานกับบทเรียนจากการทำงานที่มีลักษณะเฉพาะของแต่ละองค์กร ธนาคารจิตอาสาจัดการอบรม 2 รุ่น รุ่นละประมาณ 20 คน</p>', 'main_1.jpg', '1_1.jpg,1_2.jpg,1_3.jpg,1_4.jpg,1_5.jpg,1_6.jpg,1_7.jpg,1_8.jpg,1_9.jpg,1_10.jpg,1_11.jpg,1_12.jpg,1_13.jpg,1_14.jpg,1_15.jpg,1_16.jpg,1_17.jpg,1_18.jpg,1_19.jpg,1_20.jpg,1_21.jpg,1_22.jpg,1_23.jpg,1_24.jpg,1_25.jpg,1_26.jpg', '', '2012-07-28 10:46:00');
@@ -321,7 +336,7 @@ INSERT INTO `trainings` VALUES (6, 'Volunteer+ ครั้งที่ 5 : โ�
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users`
+-- Table structure for table `users`
 -- 
 
 CREATE TABLE `users` (
@@ -351,7 +366,7 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- 
--- dump ตาราง `users`
+-- Dumping data for table `users`
 -- 
 
 INSERT INTO `users` VALUES (1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', 'nickname', 0, 'first_name', 'last_name', '2012-06-06', '12356', 'adfa', '4feb58e974ea1volunteer-hands.jpg', '', '', '2012-07-22 16:06:17', '', '13123', '2303|2304|2305|2306|2307|', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ', '12312', '1');
@@ -360,7 +375,7 @@ INSERT INTO `users` VALUES (2, 'org@jitarsa.org', '741a8f387c2c3f39ba241937a47c1
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users_events`
+-- Table structure for table `users_events`
 -- 
 
 CREATE TABLE `users_events` (
@@ -372,14 +387,14 @@ CREATE TABLE `users_events` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- dump ตาราง `users_events`
+-- Dumping data for table `users_events`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users_locations`
+-- Table structure for table `users_locations`
 -- 
 
 CREATE TABLE `users_locations` (
@@ -390,14 +405,14 @@ CREATE TABLE `users_locations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- dump ตาราง `users_locations`
+-- Dumping data for table `users_locations`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users_occupations`
+-- Table structure for table `users_occupations`
 -- 
 
 CREATE TABLE `users_occupations` (
@@ -408,14 +423,14 @@ CREATE TABLE `users_occupations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- dump ตาราง `users_occupations`
+-- Dumping data for table `users_occupations`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `users_skills`
+-- Table structure for table `users_skills`
 -- 
 
 CREATE TABLE `users_skills` (
@@ -428,14 +443,14 @@ CREATE TABLE `users_skills` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 
--- dump ตาราง `users_skills`
+-- Dumping data for table `users_skills`
 -- 
 
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `user_timebanks`
+-- Table structure for table `user_timebanks`
 -- 
 
 CREATE TABLE `user_timebanks` (
@@ -448,7 +463,7 @@ CREATE TABLE `user_timebanks` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- 
--- dump ตาราง `user_timebanks`
+-- Dumping data for table `user_timebanks`
 -- 
 
 INSERT INTO `user_timebanks` VALUES (1, 8, 1, 12, '2011-11-22 23:16:47');

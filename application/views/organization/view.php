@@ -94,17 +94,7 @@
                 <? endif ?>
 			</tr>
 			<? endforeach ?>
-			<tr>
-				<td colspan="6">
-					<ul>
-						<li>Page 1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-					</ul>
-				</td>
-			</tr>
+
 		</tbody></table>
 		
 		</div>

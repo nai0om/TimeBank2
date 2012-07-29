@@ -179,11 +179,10 @@ class Controller_Event extends Controller_Template {
 				throw new Kohana_Exception('Not allow to remove image', array(':code' => '550'));
 			}
 			
-			//$images = $event->images->where('image', '=', Arr::get($_GET, 'image'))->find();
-			$image = ORM::factory('image', array('image' => Arr::get($_GET, 'image')));			
+			$image = $event->images->where('image', '=', Arr::get($_GET, 'image'))->find();	
+			
 			unlink(DOCROOT.'media/upload/events/'.$image->image);
 			$image->delete();
-			
 			// Redirect to event view
 			Request::current()->redirect('event/view/'.$event->id.'?mode=3');
 		}
@@ -204,7 +203,7 @@ class Controller_Event extends Controller_Template {
 		}
 		if($event->organization_id  == $this->orguser->id)
 		{
-			$event->status = '1';
+			$event->status = '0';
 			$event->save();	
 		}
 		
@@ -227,7 +226,7 @@ class Controller_Event extends Controller_Template {
 		
 		if($event->organization_id  == $this->orguser->id)
 		{
-			$event->status = '0';
+			$event->status = '1';
 			$event->save();	
 		}
 		
