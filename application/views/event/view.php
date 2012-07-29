@@ -69,63 +69,51 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<?  endforeach ?>
    			</ul>
 			<img src="<?= url::base(); ?>media/img/tb_line_form.png">
-				<ul id="pagination">
-					<li>Page 1</li>
-					<li>2</li>
-					<li>3</li>
-					<li>4</li>
-					<li>5</li>
-				</ul>
+	
 		</div>
 	<? elseif ($mode == 3): ?>
 		<div>
-        <? if (! $isAdmin) : ?>
-			<ul id="album">
-            	<? foreach ($event->images->find_all() as $image) :?>
-  			      <li>  <img  style=" max-width:257px; max-height:203px;"src="<?= url::base().'media/upload/events/'.$image->image; ?>"> </li>
-                <? endforeach ?>
-			</ul>
-         <? else :?>
-             <ul id="album">
+             <ul id="album" style=" width:100%">
 			 	<? foreach ($event->images->find_all() as $image) :?>
                     <li>
-                        <img  style=" max-width:257px; max-height:203px;"src="<?= url::base().'media/upload/events/'.$image->image; ?>">
-                        <div onclick="window.location = '<?= url::base().'event/removeimage/'.$event->id.'?image='.$image->image; ?>';" class="close">close X</div>
+                     <? if ( $isAdmin) : ?>
+                    	<div class="close" onclick="window.location = '<?= url::base().'event/removeimage/'.$event->id.'?image='.$image->image; ?>';" >X</div>
+                    <? endif ?>
+                        <div class='image'>
+                        	<a href="">
+                        		<img  style=" max-width:257px; max-height:203px;"src="<?= url::base().'media/upload/events/'.$image->image; ?>">
+                            </a>
+                        </div>
+                        <div class="caption"><?= $image->description; ?></div>
                     </li>
                 <? endforeach ?>
+                              <? if ( $isAdmin) : ?>
+			  <li class="add">
+                    
+                         <?= Form::open('event/addimage/'.$event->id, array ('id' => 'search', 'enctype' => 'multipart/form-data'));  ?><br />
+                        <div class='image' style="height:180px;">
+                        	<img  style=" max-width:257px; max-height:203px;" src="<?= url::base().'media/img/tb_photos_add.png'; ?>" />    
+                        </div>
+						<div class="caption">
+                         <?= Form::file('image') ?><br />
+   						 <?= Form::input('text', 'เขียนคำบรรยายที่นี่'); ?> 
+						 <?= Form::submit(NULL, 'add'); ?>
+						 <?= Form::close(); ?>
+                        </div>
+                
+             </li> 
+            <? endif ?>
               </ul>
-			  <div class="add">
-                    <div>
-                         <?php 
-						 	
-							   echo Form::open('event/addimage/'.$event->id, array ('id' => 'search', 'enctype' => 'multipart/form-data')); 
-							   echo Form::input('text', 'เขียนคำบรรยายที่นี่'); 
-							   echo Form::file('image');
-							   echo Form::submit(NULL, 'OK'); 
-							  // echo '<input type="file" >'.'<img src="'.url::base().'media/img/tb_photos_add.png"/>'.'</input>';
-							   echo Form::close();
-						
-                        ?> 
-                      </div>
-                 </div> 
-         <? endif ?>
+
 			<img src="<?= url::base(); ?>media/img/tb_line_form.png">
-				<ul id="pagination">
-					<li>Page 1</li>
-					<li>2</li>
-					<li>3</li>
-					<li>4</li>
-					<li>5</li>
-				</ul>
-			
 		</div>
 		
 		<h2>หลังจากที่ไปร่วมกิจกรรมกันมาแล้วเพื่อนๆ สามารถ พูดคุยกัน ได้ที่นี่นะคะ</h2>
 		<h4 class="title">ฝากคอมเม้นต์</h4>
 		<?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
             <?= Form::textarea('comment'); ?>
-            <?= Form::submit(NULL, 'โพส'); ?>
-            <? foreach( $event->comments->limit(2)->order_by('timestamp','desc')->find_all() as $comment) : ?>
+            <?= Form::submit(NULL, 'โพส', array('style' => 'float:right; margin: 10px')); ?>
+            <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             	<div>
 					<? if ($comment->user->profile_image == '') : ?>
                         <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
@@ -135,8 +123,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                 <?= $comment->comment ?>
                 </div>
             <? endforeach ?>
-    
-            <a href="" class="long">แสดงทั้งหมด</a>			 
+    	 
             <?= Form::close(); ?>
 
             
@@ -305,12 +292,18 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			
 
 			
-			<h4 class="title">ฝากคอมเม้นต์</h4>
+		
+
+		</div>
+		<? if (!$isOrga || $isOpen) : ?>
+			<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('user/checkdata/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
+        <? endif ?>
+        	<h4 class="title">ฝากคอมเม้นต์</h4>
             
 			<?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
             <?= Form::textarea('comment'); ?>
-            <?= Form::submit(NULL, 'โพส'); ?>
-            <? foreach( $event->comments->limit(2)->order_by('timestamp','desc')->find_all() as $comment) : ?>
+            <?= Form::submit(NULL, 'โพส', array( 'style' => 'float:right; margin: 10px;')); ?>
+            <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             	<div>
 					<? if ($comment->user->profile_image == '') : ?>
                         <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
@@ -320,14 +313,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                 <?= $comment->comment ?>
                 </div>
             <? endforeach ?>
-    
-            <a href="" class="long">แสดงทั้งหมด</a>			 
             <?= Form::close(); ?>
-
-		</div>
-		<? if (!$isOrga || $isOpen) : ?>
-			<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('user/checkdata/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
-        <? endif ?>
     <? endif ?>
 		
   </div>
@@ -336,8 +322,5 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
  .a2a_img{
 	background-image:none;
 }
-.a2a_kit
-{
-	display:inline;
-}
+
 </style>

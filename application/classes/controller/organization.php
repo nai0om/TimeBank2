@@ -190,11 +190,12 @@ class Controller_Organization extends Controller_Template {
 			$mode =	Arr::get($_GET, 'mode');
 			if($mode =='1')
 			{
-				$events = $this->orguser->events->where('status', '=', '1')->find_all()->as_array();
+				// closed event
+				$events = $this->orguser->events->where('status', '=', '0')->find_all()->as_array();
 			}
 			else
 			{
-				$events = $this->orguser->events->where('status', '=', '0')->find_all()->as_array();
+				$events = $this->orguser->events->where('status', '=', '1')->find_all()->as_array();
 			}
 		}
 		
@@ -269,7 +270,7 @@ class Controller_Organization extends Controller_Template {
 								
 		$hours_sum = 0;		
 		$total_valun = 0;
-		$events = $this->orguser->events->where('event.status', '=', '0')->find_all();					
+		$events = $this->orguser->events->where('event.status', '=', '1')->find_all();					
 		foreach($events as $event)
 		{
 			$hours_sum +=  $event->time_cost * $event->volunteer_need_count;

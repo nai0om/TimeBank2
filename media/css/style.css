@@ -1541,8 +1541,10 @@ header h2 {
     clear: both;
     height: 315px;
     padding: 17px;
-    width: 375px;
 	margin-bottom:50px;
+	background-repeat: no-repeat;
+    background-size: cover;
+	display:inline-table;
 }
 #tb_browse_detail #post_comment div {
     border-top: 1px solid #FFFFFF;
@@ -1563,7 +1565,7 @@ header h2 {
     background: url("../img/tb_bg_textbox.jpg") repeat-x scroll 0 0 transparent;
     border: 0 none;
     height: 100px;
-    width: 300px;
+    width: 100%;
 }
 #tb_browse_detail #detail #share {
     background: url("../img/tb_orange_button_share.png") no-repeat scroll 0 0 transparent;
@@ -1578,11 +1580,13 @@ header h2 {
 /*timeBank > browse > newEvent > thank you > detail (photos)*/
 #tb_browse_detail.photos #album li:before{
 	content:"";
+	padding:0px;
 }
 #tb_browse_detail.photos #album li {
-    margin: 0 15px;
-	height: 250px;
+    margin: 5px 10px;
 	width: 260px;
+	background-color:#000;
+	border:10px solid #FFF;
 }
 #tb_browse_detail.photos #album li.first{
 	margin-left: 0;
@@ -1590,26 +1594,44 @@ header h2 {
 #tb_browse_detail.photos #album li img{
 	position: relative;
 }
+
+#tb_browse_detail.photos #album li .image{
+	position: relative;
+	height:203px;
+	overflow:hidden;
+	max-width:260px;
+	text-align:center;
+	vertical-align:middle;
+}
+#tb_browse_detail.photos #album li .caption{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    font-family: tahoma;
+    font-size: 12px;
+    padding: 3px 10px;
+    position: relative;
+	height:40px;
+	overflow:hidden;
+}
 #tb_browse_detail.photos #album li .close {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
     cursor: pointer;
     font-family: tahoma;
     font-size: 12px;
-    left: 19px;
     padding: 5px 10px;
     position: relative;
     text-align: right;
-    top: -41px;
+	height:10px;
+
 
 }
 #tb_browse_detail.photos #album li .close:hover{
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
 }
 #tb_browse_detail.photos #album li.add {
-    left: 10px;
     position: relative;
-    top: -69px;
+   
 }
 #tb_browse_detail.photos #album li.add form{
 	margin: 10px 0;
@@ -1631,10 +1653,10 @@ header h2 {
     background: url("../img/tb_bg_post_photo.png") no-repeat scroll 0 0 transparent;
     height: 317px;
     margin: 0 auto;
-    width: 599px;
+	background-size: cover
 }
 #tb_browse_detail.photos #post_comment textarea {
-    width: 538px;
+    width: 100%;
 }
 #tb_browse_detail.photos h2 {
     color: #0099CC;
@@ -4310,7 +4332,7 @@ header h2 {
 }
 
 .a2a_kit {
-	display:table !important;
+	display:inline-table !important;
 }
 
 /* ==|== media queries ======================================================
