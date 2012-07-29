@@ -301,7 +301,15 @@ class Controller_Event extends Controller_Template {
 			}
 			$image = ORM::factory('image');
 			$image->event = $event;
-			$image->description  =  Arr::get($_POST, 'text');
+			if(Arr::get($_POST, 'text') == 'เขียนคำบรรยายที่นี่')
+			{
+				$image->description  =  '';
+			}
+			else
+			{
+				$image->description  =  Arr::get($_POST, 'text');	
+			}
+			
 			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
 			{
 				$image->image = $_FILES['image']['name'];

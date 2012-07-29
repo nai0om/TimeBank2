@@ -1545,6 +1545,7 @@ header h2 {
 	background-repeat: no-repeat;
     background-size: cover;
 	display:inline-table;
+	width:100%;
 }
 #tb_browse_detail #post_comment div {
     border-top: 1px solid #FFFFFF;
@@ -1602,9 +1603,14 @@ header h2 {
 	max-width:260px;
 	text-align:center;
 	vertical-align:middle;
+	margin:auto;
+	display:table;
+	padding:5px;
+
 }
 #tb_browse_detail.photos #album li .caption{
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+	background-color:#111;
     color: #FFFFFF;
     font-family: tahoma;
     font-size: 12px;
