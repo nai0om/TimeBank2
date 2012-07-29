@@ -18,49 +18,73 @@
 		</div>
         		
 		<div id="main_right">
-			
+		 <? 
+		 	// default of mode
+		 	$open = '';
+			$close = 'past';
+		 	if ($mode == '1' ) // closed event 
+		 	{
+				$open = 'past';
+				$close = '';	
+			}
+		 ?>
+         
 			<div style="clear:both"></div>
 			<div class="title left"></div>
-			<div class="title body">งานอาสาที่เปิดรับสมัคร</div>
+			<div class="title body <?= $open ?>"><?= HTML::anchor('organization/event', 'งานอาสาที่เปิดรับสมัคร'); ?></div>
 			<div class="title right"></div>
 			<div class="title left"></div>
-			<div class="title body past">งานอาสาที่จบไปแล้ว</div>
+			<div class="title body <?= $close ?>"><?= HTML::anchor('organization/event?mode=1', 'งานอาสาที่จบไปแล้ว'); ?></div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
-			<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $orguser->events->count_all()?></span><?= HTML::anchor('event/create', 'สร้างงานอาสาใหม่', array('class'=>'button')); ?></p>
+			<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($events) ?></span><?= HTML::anchor('event/create', 'สร้างงานอาสาใหม่', array('class'=>'button')); ?></p>
 			<div id="selection"><form><input type="checkbox"> Select All <input type="submit" value="ลบ"></form><div>ระบุเดือนที่ต้องการดู <select></select></div></div>
+            <? if ($mode == '1' ) : // closed event ?>
+            <table>
+				<tbody><tr>
+					<th></th>
+					<th>งานอาสา</th>
+					<th>ต้องการจากอาสา</th>
+					<th>จำนวนรับสมัคร</th>
+					<th>จำนวนคนที่ไปจริง</th>
+					<th>เขียนคำขอบคุณ</th>
+                    <th>เปิดไหม่</th>
+				</tr>
+                <? foreach($events as $event) : ?>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
+                        <td><?=  $event->time_cost ?> ชม.</td>
+                        <td><?=  $event->volunteer_need_count ?> คน</td>
+                        <td><input type="text"> <a href="#">บันทึก</a></td>
+                        <td><?= HTML::anchor('event/view/'.$event->id, 'เขียน') ?></td>
+                        <td><?= HTML::anchor('event/reopen/'.$event->id, 'เปิด') ?></td>
+                    </tr>
+                <? endforeach ?>
+             </table>
+            <? else : ?>
 			<table>
 				<tbody><tr>
 					<th></th>
 					<th>งานอาสา</th>
 					<th>ต้องการจากอาสา</th>
 					<th>จำนวนรับสมัคร</th>
-					<th>แก้ไข</th>
-					<th>อนุมัติอาสา</th>
+					<th>ตัวเลือก</th>
 				</tr>
 				
-                <? foreach($orguser->events->find_all() as $event) : ?>
+                <? foreach($events as $event) : ?>
                 <tr>
 					<td><input type="checkbox"></td>
 					<td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
 					<td><?=  $event->time_cost ?> ชม.</td>
 					<td><?=  $event->volunteer_need_count ?> คน</td>
-                    <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?></td>
-                    <td><?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?></td>
+                    <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?>
+                    	<?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?>
+                    	<?= HTML::anchor('event/closed/'.$event->id, 'ปิดงาน') ?></td>
 				</tr>
                 <? endforeach ?>
 				
-				<tr>
-					<td colspan="6">
-						<ul>
-							<li>Page 1</li>
-							<li>2</li>
-							<li>3</li>
-							<li>4</li>
-							<li>5</li>
-						</ul>
-					</td>
-				</tr>
+			<? endif ?>
 			</tbody></table>
 		</div>
 		

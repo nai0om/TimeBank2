@@ -179,6 +179,51 @@ class Controller_Event extends Controller_Template {
 		}
 	}
 	
+	public function action_closed()
+	{
+		$id = $this->request->param('id'); 
+		if (is_null($this->orguser))
+		{
+			Request::current()->redirect('/');	
+		}
+		
+		$event = ORM::factory('event', $this->request->param('id'));	
+		if (!$event->loaded())
+		{
+			Request::current()->redirect('organization/event');
+		}
+		if($event->organization_id  == $this->orguser->id)
+		{
+			$event->status = '1';
+			$event->save();	
+		}
+		
+		Request::current()->redirect('organization/event');
+	}
+	
+	public function action_reopen()
+	{
+		$id = $this->request->param('id'); 
+		if (is_null($this->orguser))
+		{
+			Request::current()->redirect('/');	
+		}
+	
+		$event = ORM::factory('event', $this->request->param('id'));	
+		if (!$event->loaded())
+		{
+			Request::current()->redirect('organization/event');
+		}
+		
+		if($event->organization_id  == $this->orguser->id)
+		{
+			$event->status = '0';
+			$event->save();	
+		}
+		
+		Request::current()->redirect('organization/event?mode=1');
+	}
+	
 	public function action_approve()
 	{
 			

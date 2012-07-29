@@ -182,9 +182,24 @@ class Controller_Organization extends Controller_Template {
 		}
 
         $this->template->content = View::factory('organization/event')
-			->bind('orguser', $this->orguser);
+			->bind('events', $events)
+			->bind('mode', $mode);
+			
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			$mode =	Arr::get($_GET, 'mode');
+			if($mode =='1')
+			{
+				$events = $this->orguser->events->where('status', '=', '1')->find_all()->as_array();
+			}
+			else
+			{
+				$events = $this->orguser->events->where('status', '=', '0')->find_all()->as_array();
+			}
+		}
+		
 	}
-	
+		
 	public function action_notification()
 	{
 		if (is_null($this->orguser))
