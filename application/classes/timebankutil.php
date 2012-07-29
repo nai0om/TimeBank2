@@ -50,7 +50,7 @@ class Timebankutil {
 	// Send an email using amazon ses
 	public static function send_email($from, $to, $subject, $body)
 	{
-		require_once Kohana::find_file('vendor', 'awssdk-1.5.2\sdk.class');
+		require_once Kohana::find_file('vendor', 'awssdk-1.5.2/sdk.class');
 
 		// Send mail using amazon ses
 		$ses = new AmazonSES();

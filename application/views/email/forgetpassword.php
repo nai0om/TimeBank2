@@ -26,7 +26,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                 <td valign="top" height="121" class="header">
 
-                                    <img src="<?= url::base().'media/upload/email/header.jpg' ?>" style="display:block;float:none;">
+                                    <img src="<?= $vars['urlbase'].'media/upload/email/header.jpg' ?>" style="display:block;float:none;">
 
                                 </td>
 
@@ -58,7 +58,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 											<td valign="top" height="13">
 
-												<img src="<?= url::base().'media/upload/email/843_box_header.png' ?>" style="display:block;float:none;">
+												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_header.png' ?>" style="display:block;float:none;">
 
 											</td>
 
@@ -74,7 +74,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 														<td valign="top" rowspan="2">
 
-															<img src="<?= url::base().'media/upload/email/65_icon.jpg' ?>">
+															<img src="<?= $vars['urlbase'].'media/upload/email/65_icon.jpg' ?>">
 
 														</td>
 
@@ -118,7 +118,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 											<td valign="top" height="15">
 
-												<img src="<?= url::base().'media/upload/email/843_box_footer.png' ?>" style="display:block;float:none;">
+												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_footer.png' ?>" style="display:block;float:none;">
 
 											</td>
 
@@ -130,7 +130,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 												<br clear="left">
 
-												<p>คุณสามารถนำข้อมูลด้านบนมาทำการเข้าสู่ระบบได้ที่นี่  <a href="<?= url::base().'user/login' ?>">เข้าสู่ระบบ</a></p>
+												<p>คุณสามารถนำข้อมูลด้านบนมาทำการเข้าสู่ระบบได้ที่นี่  <a href="<?= $vars['urlbase'].'user/login' ?>">เข้าสู่ระบบ</a></p>
 
 											</td>
 

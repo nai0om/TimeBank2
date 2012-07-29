@@ -2,6 +2,8 @@
 
 return array
 (
+	'server_url'	=>	'http://preview.jitarsabank.com/',
+	
 	'password_salt'	=>	'abcdefg',
 
  	'user_roles'		=>	array(
