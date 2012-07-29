@@ -26,7 +26,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                 <td valign="top" height="121" class="header">
 
-                                    <img src="<?= url::base().'media/upload/email/header.jpg' ?>" style="display:block;float:none;">
+                                    <img src="<?= $vars['urlbase'].'media/upload/email/header.jpg' ?>" style="display:block;float:none;">
 
                                 </td>
 
@@ -58,7 +58,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 											<td valign="top" height="13">
 
-												<img src="<?= url::base().'media/upload/email/843_box_header.png' ?>" style="display:block;float:none;">
+												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_header.png' ?>" style="display:block;float:none;">
 
 											</td>
 
@@ -74,7 +74,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 														<td valign="center" rowspan="3">
 
-															<img src="<?= url::base().'media/upload/email/73_icon.jpg' ?>">
+															<img src="<?= $vars['urlbase'].'media/upload/email/73_icon.jpg' ?>">
 
 														</td>
 
@@ -134,7 +134,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 											<td valign="top" height="15">
 
-												<img src="<?= url::base().'media/upload/email/843_box_footer.png' ?>" style="display:block;float:none;">
+												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_footer.png' ?>" style="display:block;float:none;">
 
 											</td>
 
@@ -150,7 +150,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 												<a>http://www.hostname.com/confirm.php</a></p-->
                                                 <p>ท่านสามารถเริ่มใช้งานระบบได้ทันที</p>
-                                                <a href="<?= url::base() ?>">เริ่มใช้งานระบบได้ที่นี่</a>
+                                                <a href="<?= $vars['urlbase'] ?>">เริ่มใช้งานระบบได้ที่นี่</a>
 											</td>
 
 										</tr>
@@ -161,7 +161,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									<p>ขอบคุณ</p>
 
-									<p><a href="<?= url::base() ?>">Jitarsabank.com</a></p>
+									<p><a href="<?= $vars['urlbase'] ?>">Jitarsabank.com</a></p>
 
                                 </td>
 

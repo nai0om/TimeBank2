@@ -814,7 +814,7 @@ class RequestCore
 	 */
 	public function send_request($parse = false)
 	{
-		set_time_limit(0);
+		//set_time_limit(0);
 
 		$curl_handle = $this->prep_request();
 		curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, false);

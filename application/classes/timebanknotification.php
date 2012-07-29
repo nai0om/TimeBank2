@@ -2,7 +2,8 @@
 
 class TimebankNotification {
 	
-	private static function renderHtmlEmail($email_view, $vars) {
+	public static function renderHtmlEmail($email_view, $vars) {
+		$vars['urlbase'] = Kohana::$config->load('timebank')->get('server_url');
  		ob_start();
     	include Kohana::find_file('views', 'email/'.$email_view);
     	$html = ob_get_clean();
