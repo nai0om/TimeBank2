@@ -113,7 +113,10 @@ class Controller_Event extends Controller_Template {
             ->bind('mode', $mode)
 			->bind('isAdmin', $isAdmin)
 			->bind('isOrga', $isOrga)
-			->bind('member_event', $member_event);
+			->bind('member_event', $member_event)
+			->bind('isOpen', $isOpen);
+			
+			
 		
 		$isOrga = false;
 		$event = ORM::factory('event', $this->request->param('id'));
@@ -135,6 +138,13 @@ class Controller_Event extends Controller_Template {
 			throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
 		}
 
+ 		$now = date("Y-m-d H:i:s");
+		$end_time = $event->signup_end_date.' '.$event->signup_end_time;
+		$isOpen = false;		 
+		if($end_time > $now)
+		{
+			 $isOpen = true;
+		}
 		$event_status = Kohana::$config->load('timebank')->get('event_status');
 		//$locations = Location::get_location_array();
 		
