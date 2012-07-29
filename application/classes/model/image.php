@@ -53,7 +53,7 @@ class Model_Image extends ORM {
 	public function upload($filename)
     {
 	
-        $picture = Upload::save($_FILES[$filename], NULL, Upload::$default_directory.'\events' );
+        $picture = Upload::save($_FILES[$filename], NULL, Upload::$default_directory.'/events' );
 		// Resize, sharpen, and save the image
 		Image::factory($picture)
 			//->resize(460, NULL)

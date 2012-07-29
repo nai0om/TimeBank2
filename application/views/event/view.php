@@ -80,8 +80,8 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                     	<div class="close" onclick="window.location = '<?= url::base().'event/removeimage/'.$event->id.'?image='.$image->image; ?>';" >X</div>
                     <? endif ?>
                         <div class='image'>
-                        	<a href="">
-                        		<img  style=" max-width:257px; max-height:203px;"src="<?= url::base().'media/upload/events/'.$image->image; ?>">
+                        	<a href="" style="display: table-cell; vertical-align: middle">
+                        		<img  style=" max-width:247px; max-height:203px;"src="<?= url::base().'media/upload/events/'.$image->image; ?>">
                             </a>
                         </div>
                         <div class="caption"><?= $image->description; ?></div>
