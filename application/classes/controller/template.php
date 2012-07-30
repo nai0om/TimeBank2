@@ -5,6 +5,7 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 	public $user;
 	public $orguser;
 	public $meta_page_title;
+	public $notification_count;
 	
 	/**
 	 * Loads the template [View] object.
@@ -17,6 +18,7 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 		{
 			$this->template->bind('user', $this->user);
 			$this->template->bind('orguser', $this->orguser);
+			$this->template->bind('notification_count', $this->notification_count);
 
 			$this->user = Controller_User::get_logged_in_user();
 
@@ -32,9 +34,17 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 				if ($organization->loaded())
 				{
 					$this->orguser = $organization;
-					
+										
 					// Disable user account, only one type of user is valid in the system
 					$this->user = NULL;
+					
+					// Get inbox count
+					$query = DB::select(array('COUNT("id")', 'notification_count'))
+											->from('inboxes')
+											->where('organization_id', '=', $this->orguser->id)
+											->and_where('is_removed', '=', 0);
+					$result = $query->execute();
+					$this->notification_count = $result[0]['notification_count'];
 				}
 				else
 				{
@@ -57,6 +67,7 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 			{
 				$this->template->content->bind('user', $this->user);
 				$this->template->content->bind('orguser', $this->orguser);
+				$this->template->content->bind('notification_count', $this->notification_count);
 			}
 		}
 
