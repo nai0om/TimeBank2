@@ -1585,9 +1585,8 @@ header h2 {
 }
 #tb_browse_detail.photos #album li {
     margin: 5px 10px;
-	width: 260px;
-	background-color:#000;
-	border:10px solid #FFF;
+	width: 275px;
+	
 }
 #tb_browse_detail.photos #album li.first{
 	margin-left: 0;
@@ -1598,9 +1597,11 @@ header h2 {
 
 #tb_browse_detail.photos #album li .image{
 	position: relative;
+	background-color:#eee;
+	border:5px solid #FFF;
 	height:203px;
 	overflow:hidden;
-	max-width:260px;
+	width:260px;
 	text-align:center;
 	vertical-align:middle;
 	margin:auto;
@@ -1609,9 +1610,7 @@ header h2 {
 
 }
 #tb_browse_detail.photos #album li .caption{
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
-	background-color:#111;
-    color: #FFFFFF;
+
     font-family: tahoma;
     font-size: 12px;
     padding: 3px 10px;
@@ -1620,20 +1619,21 @@ header h2 {
 	overflow:hidden;
 }
 #tb_browse_detail.photos #album li .close {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
-    color: #FFFFFF;
+  
     cursor: pointer;
     font-family: tahoma;
-    font-size: 12px;
-    padding: 5px 10px;
+    font-size: 15px;
+    padding: 5px 0px;
     position: relative;
     text-align: right;
-	height:10px;
-
+	float:right;
+	width:60px;
+	height:15px;
+	text-decoration:underline;
 
 }
 #tb_browse_detail.photos #album li .close:hover{
-	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+	
 }
 #tb_browse_detail.photos #album li.add {
     position: relative;

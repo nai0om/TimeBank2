@@ -77,7 +77,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			 	<? foreach ($event->images->find_all() as $image) :?>
                     <li>
                      <? if ( $isAdmin) : ?>
-                    	<div class="close" onclick="window.location = '<?= url::base().'event/removeimage/'.$event->id.'?image='.$image->image; ?>';" >X</div>
+                    	<div class="close" onclick="window.location = '<?= url::base().'event/removeimage/'.$event->id.'?image='.$image->image; ?>';" >ลบรูปนี้</div>
                     <? endif ?>
                         <div class='image'>
                         	<a href="" style="display: table-cell; vertical-align: middle">
