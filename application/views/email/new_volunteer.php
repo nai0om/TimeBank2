@@ -1,4 +1,4 @@
-<style type="text/css">h1 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 38px; color: #212121 !important; margin: 0; padding: 0 0 0 15px; font-style: italic; }
+﻿<style type="text/css">h1 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 38px; color: #212121 !important; margin: 0; padding: 0 0 0 15px; font-style: italic; }
 
 h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 20px; color: #212121 !important; margin: 0 0 7px 0; }
 
@@ -48,7 +48,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                 <td valign="top" class="header">
 
-                                    <p>สวัสดี, <?= $vars['displayname'] ?></p>
+                                    <p>สวัสดีครับคุณ <?= $vars['displayname'] ?></p>
 
 									<p>ขอบคุณที่ร่วมลงทะเบียนสมัครสมาชิกกับเรา: </p>
 
@@ -80,7 +80,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 														<td valign="top">
 
-															<p style="margin:0;padding:0;color:#da7101">ดิสเพลเนมของคุณ :</p>
+															<p style="margin:0;padding:0;color:#da7101">ชื่อที่ใช้แสดง (Display Name) ของคุณ: </p>
 
 														</td>
 
@@ -96,7 +96,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 														<td valign="top">
 
-															<p style="margin:0;padding:0;color:#da7101">ชื่อผู้ใช้ (อีเมล์): </p>		
+															<p style="margin:0;padding:0;color:#da7101">ชื่อผู้ใช้ (อีเมล): </p>		
 
 														</td>
 
@@ -149,8 +149,8 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 												<!--p>กรุณาคลิกลิงค์ด้านล่าง เพื่อยืนยันการเป็นสมาชิกของคุณที่นี่ก่อนเข้าสู่ระบบ: <br>
 
 												<a>http://www.hostname.com/confirm.php</a></p-->
-                                                <p>ท่านสามารถเริ่มใช้งานระบบได้ทันที</p>
-                                                <a href="<?= $vars['urlbase'] ?>">เริ่มใช้งานระบบได้ที่นี่</a>
+                                                <p>ท่านสามารถเริ่มใช้บริการธนาคารจิตอาสาได้ทันที</p>
+                                                <a href="<?= $vars['urlbase'] ?>">คลิกที่นี่ เพื่อเริ่มใช้บริการ</a>
 											</td>
 
 										</tr>
@@ -159,9 +159,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									<br clear="left">
 
-									<p>ขอบคุณ</p>
+									<p>ขอบคุณครับ</p>
 
-									<p><a href="<?= $vars['urlbase'] ?>">Jitarsabank.com</a></p>
+									<p><a href="<?= $vars['urlbase'] ?>">JitArsaBank.com</a></p>
 
                                 </td>
 

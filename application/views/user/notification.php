@@ -1,4 +1,4 @@
-<div id="member" class="warn">
+﻿<div id="member" class="warn">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -23,7 +23,7 @@
 		<div style="clear:both"></div>
 		
 		<form>
-			<div class="headline">แจ้งเตือนงานอาสาทางอีเมล์</div><div class="line"></div>
+			<div class="headline">แจ้งเตือนงานอาสาทางอีเมล</div><div class="line"></div>
 			<p><input type="checkbox"> เมื่อมีงานอาสาที่เหมาะกับโปรไพล์ของฉัน</p>
 			<p><input type="radio"> ให้แจ้งเตือนทันที</p>
 			<p><input type="radio"> ให้แจ้งเตือน <select><option>วันละ 1 ครั้ง</option></select></p>

@@ -1,4 +1,4 @@
-<style type="text/css">h1 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 38px; color: #212121 !important; margin: 0; padding: 0 0 0 15px; font-style: italic; }
+﻿<style type="text/css">h1 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 38px; color: #212121 !important; margin: 0; padding: 0 0 0 15px; font-style: italic; }
 
 h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 20px; color: #212121 !important; margin: 0 0 7px 0; }
 
@@ -48,9 +48,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, <?= $vars['displayname'] ?></p>
+                                    <p>สวัสดีครับคุณ <?= $vars['displayname'] ?></p>
 
-									<p>ข้อมูลการเข้าสู่เว็บไซต์ Jitarsabank.org ของคุณคือ:</p>
+									<p>ข้อมูลการเข้าสู่บริการธนาคารจิตอาสา JitArsaBank.com ของคุณคือ:</p>
 
 									 <table class="top" width="505" border="0" cellspacing="0" cellpadding="0">
 
@@ -80,7 +80,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 														<td valign="top">
 
-															<p style="margin:0;padding:0;color:#da7101">ชื่อผู้ใช้ (อีเมล์):</p>
+															<p style="margin:0;padding:0;color:#da7101">ชื่อผู้ใช้ (อีเมล):</p>
 
 														</td>
 
@@ -130,7 +130,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 												<br clear="left">
 
-												<p>คุณสามารถนำข้อมูลด้านบนมาทำการเข้าสู่ระบบได้ที่นี่  <a href="<?= $vars['urlbase'].'user/login' ?>">เข้าสู่ระบบ</a></p>
+												<p>คุณสามารถนำข้อมูลข้างต้นมาเข้าสู่ระบบได้ที่นี่  <a href="<?= $vars['urlbase'].'user/login' ?>">เข้าสู่ระบบ</a></p>
 
 											</td>
 
@@ -140,9 +140,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									<br clear="left">
 
-									<p>ขอบคุณ</p>
+									<p>ขอบคุณครับ</p>
 
-									<p>Jitarsabank.org</p>
+									<p>JitArsaBank.com</p>
 
                                 </td>
 
