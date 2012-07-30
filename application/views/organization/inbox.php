@@ -24,11 +24,11 @@
 			<div class="title body"><?= HTML::anchor('organization/notification', 'แจ้งเตือนงานอาสา'); ?></div>
 			<div class="title right"></div>
 			<div class="title left"></div>
-			<div class="title body past"><?= HTML::anchor('organization/inbox', 'ข้อความเตือน (5)'); ?></div>
+			<div class="title body past"><?= HTML::anchor('organization/inbox', 'ข้อความเตือน ('.$notification_count.')'); ?></div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 
-			<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;">5</span></p>
+			<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $notification_count ?></span></p>
 		<div id="selection">
 		<?= Form::open('organization/deleteinbox'); ?><input type="checkbox"> Select All <?= Form::submit('submit', 'ลบ'); ?></div>
 		<table>

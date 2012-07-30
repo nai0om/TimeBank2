@@ -24,7 +24,7 @@
 			<div class="title body"><?= HTML::anchor('organization/notification', 'แจ้งเตือนงานอาสา'); ?></div>
 			<div class="title right"></div>
 			<div class="title left"></div>
-			<div class="title body past"><?= HTML::anchor('organization/inbox', 'ข้อความเตือน (5)'); ?></div>
+			<div class="title body past"><?= HTML::anchor('organization/inbox', 'ข้อความเตือน ('.$notification_count.')'); ?></div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 

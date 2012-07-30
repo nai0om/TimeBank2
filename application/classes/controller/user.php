@@ -421,13 +421,14 @@ class Controller_User extends Controller_Template {
 		->bind('action', $action);
     }
 	
+	/*
     public function action_mytraining()
     {
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/mytraining')
 		->bind('action', $action);
     }
-	
+	*/
 
 	public function action_setting()
     {
