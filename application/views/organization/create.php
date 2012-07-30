@@ -1,17 +1,17 @@
-<div id="volunteerOrgSignup" class="popup big">
+﻿<div id="volunteerOrgSignup" class="popup big">
   <div id="main" role="main">
 
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
-			<h2>Create organization account</h2>
+			<h2>กรุณาให้ข้อมูลเกี่ยวกับกลุ่ม/องค์กรอาสาของท่าน</h2>
 			<?= Form::open('organization/create',array('style'=>'margin-top:20px')); ?>
                 <div class="error">
                     <?= Arr::path($errors, 'acceptterm'); ?>
                 </div>
 				<h3>ชื่อบัญชีผู้ใช้</h3>
 				<p>
-                	<label>ชื่อผู้ใช้ (อีเมล์) *</label>
+                	<label>ชื่อผู้ใช้ (อีเมล) *</label>
                     <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'email'); ?>
@@ -33,7 +33,7 @@
                 </p>
 				<div class="line"></div>
 				<h3>ข้อมูลองค์กรอาสา</h3>
-				<p><label>ชื่อองค์กร</label>
+				<p><label>ชื่อองค์กร / หน่วยงาน</label>
 					<?= Form::input('name', HTML::chars($organization->name)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'name'); ?>
@@ -57,7 +57,7 @@
                             <?= Arr::get($errors, 'address'); ?>
                         </div>
                 </p>
-                <p><label>เขต</label>
+                <p><label>เขต / อำเภอ</label>
 						<?= Form::input('district', HTML::chars($organization->district)); ?>
                         <div class="error">
                             <?= Arr::get($errors, 'district'); ?>
@@ -75,19 +75,19 @@
                             <?= Arr::get($errors, 'postcode'); ?>
                         </div>
                 </p>
-				<p><label>เบอร์โทรศัพท์บ้าน</label>
+				<p><label>หมายเลขโทรศัพท์บ้าน</label>
 						<?= Form::input('homephone', HTML::chars($organization->homephone)); ?>
                         <div class="error">
                             <?= Arr::get($errors, 'homephone'); ?>
                         </div>
                 </p>
-				<p><label>เบอร์โทรสาร</label>
+				<p><label>หมายเลขโทรสาร</label>
 						<?= Form::input('fax', HTML::chars($organization->fax)); ?>
                         <div class="error">
                             <?= Arr::get($errors, 'fax'); ?>
                         </div>
                 </p>
-				<p><label>ติดต่อคุณ</label>
+				<p><label>ชื่อผู้ติดต่อ</label>
 						<?= Form::input('contactperson', HTML::chars($organization->contactperson)); ?>
                         <div class="error">
                             <?= Arr::get($errors, 'contactperson'); ?>
@@ -105,7 +105,7 @@
                         <?= Arr::get($errors, 'facebook'); ?>
                     </div>
                 </p>
-				<p><label>Twitter</label>
+				<p><label>Twitter (เช่น @JitArsaBank)</label>
                     <?= Form::input('twitter', HTML::chars($organization->twitter)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'twitter'); ?>

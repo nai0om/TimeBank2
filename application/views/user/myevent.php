@@ -1,4 +1,4 @@
-<div id="member" class="job">
+﻿<div id="member" class="job">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -28,9 +28,9 @@
 		<? if (count($records) > 0) :?>
                 <table>
                     <tr>
-                        <th>งานอาสา</th>
-                        <th>ต้องการจากอาสา</th>
-                        <th>จำนวนรับสมัคร</th>
+                        <th>ชื่อภารกิจ</th>
+                        <th>ต้องการเวลา (ช.ม./คน)</th>
+                        <th>รับจำนวน</th>
                         <th>เปิดรับสมัคร</th>
                         <th>วัน / เวลาทำงาน</th>
                         <th>ยกเลิก</th>
