@@ -1,4 +1,4 @@
-
+﻿
 <div id="volunteerSignup" class="popup big">
   <div id="main" role="main">
 
@@ -13,7 +13,8 @@
                     <?= Arr::path($errors, 'acceptterm'); ?>
                 </div>    
 					<p>
-                        <label>ชื่อดิสเพล *</label>
+                        <label>ชื่อที่ใช้แสดง   
+						(Display Nome)*</label>
                         <?= Form::input('displayname', HTML::chars(Arr::get($_POST, 'displayname'))); ?>
                   <div class="error"><?= Arr::get($errors, 'displayname'); ?></div>
                     </p>
@@ -33,15 +34,15 @@
 					
 				</div>
 		  <div id="rightSide">
-					<h3 style="color:#0099cc;">ฝากชั่วโมงว่างที่คุณพอใจ</h3>
+					<h3 style="color:#0099cc;">ฝากเวลาที่คุณตั้งใจจะแบ่งปัน</h3>
 					<div id="left"><?= Form::input('hour', HTML::chars(Arr::get($_POST, 'hour')),  array('style'=>'width:130px;height:40px;')); ?>
-                  <div class="error"><?= Arr::get($errors, 'hour'); ?></div><span style="color:#0099CC;font-size:28px;"> ชม.</span></div>
+                  <div class="error"><?= Arr::get($errors, 'hour'); ?></div><span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span></div>
 					<div id="right">
 						<div id="details">
 						<p>
 							คิดไม่ออก<br>
-							ใช้ตัวช่วยคำนวณ<br>
-							ตามวันที่คุณว่าง<br>
+							คุณอาจลองใช้<br>
+							ตัวช่วยคำนวณ<br>
 							<span style="text-decoration:underline">ที่นี่</span>
 						</p>
 						</div>

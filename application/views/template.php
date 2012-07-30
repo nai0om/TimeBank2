@@ -72,9 +72,9 @@
 
 		</p></p>
 	<ul>
-    	<li><?= HTML::anchor('welcome/term', 'Term & Conditions'); ?></li>
-        <li><?= HTML::anchor('welcome/privacy', 'Privacy'); ?></li>
-        <li><?= HTML::anchor('contactus', 'Contact Us'); ?></li></ul>
+    	<li><?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลงการใช้บริการ'); ?></li>
+        <li><?= HTML::anchor('welcome/privacy', 'นโยบายความเป็นส่วนตัว'); ?></li>
+        <li><?= HTML::anchor('contactus', 'ติดต่อธนาคารจิตอาสา'); ?></li></ul>
   </footer>
 
   <!-- scripts concatenated and minified via build script -->
