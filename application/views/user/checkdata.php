@@ -1,6 +1,6 @@
-<div id="data" class="popup">
+﻿<div id="data" class="popup">
     <div id="content">
-            <h2>Before Join Please update your information</h2>
+            <h2>โปรดให้ข้อมูลของคุณเพิ่มเติม</h2>
 			<?= Form::open('user/checkdata/'.$eventid, array ('style' => 'margin-top:20px;')); ?>
             <p>
                <label>ชื่อเล่น : </label>
@@ -14,9 +14,9 @@
             	<label>นามสกุล : </label>
 	            <?= Form::input('last_name', $user->last_name); ?>
             </p>
-            <p><label>อีเมล์ : </label><span><?= $user->email ?></span></p>  
+            <p><label>อีเมล : </label><span><?= $user->email ?></span></p>  
             <p>
-                <label>เบอร์โทรศัพท์ : </label>
+                <label>หมายเลขโทรศัพท์ : </label>
                 <?= Form::input('phone', $user->phone); ?>
                 <div class="error"><?= Arr::get($errors, 'phone'); ?></div>
             </p>
