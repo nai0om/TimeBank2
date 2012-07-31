@@ -48,7 +48,7 @@
                           <br />
                           ถึง
                       <?= $record->volunteer_end_date ?></td>
-                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <a href="#">ยกเลิก</a></td>
+                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <?= HTML::anchor('user/removeevent/'.$record->id, 'ยกเลิก') ?> </td>
                     </tr>
             
         <? endforeach ?>

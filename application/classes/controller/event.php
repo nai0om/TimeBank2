@@ -140,9 +140,11 @@ class Controller_Event extends Controller_Template {
 
  		$now = date("Y-m-d H:i:s");
 		$end_time = $event->signup_end_date.' '.$event->signup_end_time;
-		$isOpen = false;		 
-		if($end_time > $now)
+		$isOpen = false;	
+
+		if($end_time > $now &&  $event->status <> '0')
 		{
+					echo '---------   '.$event->status ;
 			 $isOpen = true;
 		}
 		$event_status = Kohana::$config->load('timebank')->get('event_status');
