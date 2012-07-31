@@ -50,17 +50,21 @@
 					<th>เขียนคำขอบคุณ</th>
                     <th>เปิดไหม่</th>
 				</tr>
+               	
                 <? foreach($events as $event) : ?>
+                  <?= Form::open('event/addjoined/'.$event->id, array('enctype' => 'multipart/form-data')); ?>	
                     <tr>
                         <td><input type="checkbox"></td>
                         <td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
                         <td><?=  $event->time_cost ?> ชม.</td>
                         <td><?=  $event->volunteer_need_count ?> คน</td>
-                        <td><input type="text"> <a href="#">บันทึก</a></td>
+                        <td><?= Form::input('value', $event->volunteer_joined); ?>  <?= Form::submit(NULL, 'บันทึก'); ?></td>
                         <td><?= HTML::anchor('event/view/'.$event->id, 'เขียน') ?></td>
                         <td><?= HTML::anchor('event/reopen/'.$event->id, 'เปิด') ?></td>
                     </tr>
+                 <?= Form::close(); ?>	
                 <? endforeach ?>
+           	
              </table>
             <? else : ?>
 			<table>
