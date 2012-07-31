@@ -143,14 +143,11 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 										<tr>
 
 											<td valign="top">
-
 												<br clear="left">
 
 												<!--p>กรุณาคลิกลิงค์ด้านล่าง เพื่อยืนยันการเป็นสมาชิกของคุณที่นี่ก่อนเข้าสู่ระบบ: <br>
-
 												<a>http://www.hostname.com/confirm.php</a></p-->
-                                                <p>ท่านสามารถเริ่มสร้างภารกิจจิตอาสา และเปิดโอกาสใช้เวลาอาสาได้ทันที</p>
-                                                <a href="<?= $vars['urlbase'] ?>">เริ่มใช้งานระบบได้ที่นี่</a>
+                                                <p>กรุณารอการยืนยัน Account จากทีมงานจิตอาสาครับ</p>
 											</td>
 
 										</tr>

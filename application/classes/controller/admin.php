@@ -4,35 +4,38 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_index()
 	{
-		// If user have permission to create company
-		if ( ! Auth::instance()->logged_in('admin'))
-			throw new HTTP_Exception_403();
-		
+		if (!$this->user && $this->user->id < 3)
+		{
+			Request::current()->redirect('user/login');
+			return;
+		}
 		// show admin page
-		$companies = ORM::factory('company')->find_all();
-		$this->template->content = View::factory('admin/admin')->bind('companies', $companies);
-		
+		$organizations = ORM::factory('organization')->where('verified', '=', 0)->find_all();
+		$this->template->content = View::factory('admin/index')->bind('organizations', $organizations);
 	}
 	
 	public function action_approve()
 	{
-		if ( ! Auth::instance()->logged_in('admin'))
-			throw new HTTP_Exception_403();
+		if (!$this->user && $this->user->id < 3)
+		{
+			Request::current()->redirect('user/login');
+			return;
+		}
 			
 		$this->template->content = View::factory('admin/approve')
 			->bind('message', $message);
 			
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
-			$company = ORM::factory('company', $this->request->post('company_id'));
-			if ($company) 
+			$organization = ORM::factory('organization', $this->request->post('organization_id'));
+			if ($organization) 
             {
-				$company->verify = 1;
+				$organization->verified = 1;
 				
 				try
 				{
-					$company->save();
-					$message = 'Verified '.$company->name;
+					$organization->save();
+					$message = $organization->name.' has been verified';
 				
 				} catch (ORM_Validation_Exception $e) {
 				
