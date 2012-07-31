@@ -236,11 +236,16 @@ class Controller_Organization extends Controller_Template {
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
+			if (is_null($this->orguser))
+			{
+				Request::current()->redirect('user/login');
+			}
+			
 			$inbox_ids = Arr::get($_POST, 'ib');	
 			
 			foreach ($inbox_ids as $id)
 			{
-				$inbox = ORM::factory('inbox', $id);
+				$inbox = ORM::factory('inbox', array('id' => $id, 'organization_id' => $this->orguser->id));
 				$inbox->is_removed = 1;
 				
 				try

@@ -397,9 +397,15 @@ class Controller_User extends Controller_Template {
 	
     public function action_myeventpast()
     {
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/myeventpast')
-		->bind('action', $action);
+							->bind('action', $action);
     }
 	
     public function action_eventsearch()
@@ -409,18 +415,116 @@ class Controller_User extends Controller_Template {
 	
     public function action_notification()
     {
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/notification')
-		->bind('action', $action);
+							->bind('action', $action);
+
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			if (isset($_POST['noti_eventrecommended']))
+				$this->user->noti_eventrecommended = 1;
+			else
+				$this->user->noti_eventrecommended = 0;
+				
+			if (isset($_POST['noti_eventapproved']))
+				$this->user->noti_eventapproved = 1;
+			else
+				$this->user->noti_eventapproved = 0;
+				
+			if (isset($_POST['noti_almosteventdate']))
+				$this->user->noti_almosteventdate = 1;
+			else
+				$this->user->noti_almosteventdate = 0;
+
+			if (isset($_POST['noti_eventthank']))
+				$this->user->noti_eventthank = 1;
+			else
+				$this->user->noti_eventthank = 0;
+
+			if (isset($_POST['noti_sms_eventapproved']))
+				$this->user->noti_sms_eventapproved = 1;
+			else
+				$this->user->noti_sms_eventapproved = 0;
+
+			if (isset($_POST['noti_sms_almosteventdate']))
+				$this->user->noti_sms_almosteventdate = 1;
+			else
+				$this->user->noti_sms_almosteventdate = 0;
+
+			if (isset($_POST['noti_sms_news']))
+				$this->user->noti_sms_news = 1;
+			else
+				$this->user->noti_sms_news = 0;
+
+			try
+			{
+				$this->user->save();
+                 
+				Request::current()->redirect('user/notification');
+				
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set failure message
+                $message = __('There were errors, please see form below.');
+                
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+            }
+		}
     }
 	
     public function action_inbox()
     {
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/inbox')
-		->bind('action', $action);
+									->bind('inboxes', $inboxes)
+									->bind('action', $action);
+
+		$inboxes = ORM::factory('inbox')
+						->where('user_id', '=', $this->user->id)
+						->and_where('is_removed', '=', 0)
+						->order_by('created', 'desc')
+						->find_all();
     }
-	
+
+	public function action_deleteinbox()
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			if (!$this->user)
+			{
+				Request::current()->redirect('user/login');
+				return;
+			}
+			
+			$inbox_ids = Arr::get($_POST, 'ib');	
+			
+			foreach ($inbox_ids as $id)
+			{
+				$inbox = ORM::factory('inbox', array('id' => $id, 'user_id' => $this->user->id));
+				$inbox->is_removed = 1;
+				
+				try
+				{
+					$inbox->save();
+				} catch (ORM_Validation_Exception $e){}				
+			}
+			
+			Request::current()->redirect('user/inbox');
+		}
+	}	
 	/*
     public function action_mytraining()
     {
@@ -557,7 +661,6 @@ class Controller_User extends Controller_Template {
 	
 	public function action_checkdata()
 	{
-        
 		if (!isset($this->user))
 		{
 			Request::current()->redirect('user/login');
@@ -632,7 +735,22 @@ class Controller_User extends Controller_Template {
 				}
 				else
 				{
-                	Request::current()->redirect('organization/index');
+					// Find organization that belong to this user
+					$organization = ORM::factory('organization')
+								->where('user_id', '=', $user->id)
+								->find();
+
+					if ($organization->loaded())
+					{
+						if ($organization->verified == 0)
+						{
+							Controller_User::logout();
+							$message = ('Account is not verified by JitArsa Bank team yet. Please wait.');
+							return;
+						}
+					}
+					
+					Request::current()->redirect('organization/index');
 				}
 			}
 			else
