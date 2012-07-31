@@ -35,7 +35,7 @@
 				</div>
 		  <div id="rightSide">
 					<h3 style="color:#0099cc;">ฝากเวลาที่คุณตั้งใจจะแบ่งปัน</h3>
-					<div id="left"><?= Form::input('hour', HTML::chars(Arr::get($_POST, 'hour')),  array('style'=>'font-size: 70pt;width: 240px;')); ?>
+					<div id="left"><?= Form::input('hour', HTML::chars(Arr::get($_POST, 'hour')),  array('style'=>'color:#0099cc;font-size: 70pt;width: 240px;')); ?>
                   <span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span></div><div class="error"><?= $message ?></div>
 					<div id="right">
 						<!--div id="details">
