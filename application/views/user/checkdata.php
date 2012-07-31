@@ -1,11 +1,8 @@
-﻿<div id="data" class="popup">
-    <div id="content">
+<div id="data" class="popup">
+    <div id="content" >
             <h2>โปรดให้ข้อมูลของคุณเพิ่มเติม</h2>
-			<?= Form::open('user/checkdata/'.$eventid, array ('style' => 'margin-top:20px;')); ?>
-            <p>
-               <label>ชื่อเล่น : </label>
-                <?= Form::input('nickname', $user->nickname); ?>
-            </p> 
+			<?= Form::open('user/checkdata/'.$eventid, array ('style' => 'display: table')); ?>
+
             <p>
            		<label>ชื่อ : </label>
 	            <?= Form::input('first_name', $user->first_name); ?>
