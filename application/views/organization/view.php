@@ -54,8 +54,8 @@
 			<h4>อีเมล์</h4><span><?= $org_user->email ?></span>
 			<h4>ติดต่อ </h4><span><?= $organization->contactperson ?></span>
 			<h4>website URL</h4><span><?= $organization->website ?></span>
-			<h4>Facebook</h4><span><?= $organization->facebook ?></span>
-			<h4>twitter</h4><span><?= $organization->twitter ?></span>
+			<h4>Facebook</h4><span><a href="<?= 'http://'.$organization->facebook ?>" target="_blank"><?= $organization->facebook ?></a></span>
+			<h4>twitter</h4><span><a href="<?='http://www.twitter.com/'.$organization->twitter ?>" target="_blank"><?= '@'.$organization->twitter ?></a></span>
 		</div>
 
 		<div style="clear:both"></div>

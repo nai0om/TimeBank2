@@ -131,16 +131,16 @@
                         <?= Arr::get($errors, 'website'); ?>
                     </div>
                 </p>
-				<p><label>Facebook</label></p>
+				<p><label>Facebook (ใส่ Url เช่น facebook.com/jitarsabank)</label></p>
                 <p>
                     <?= Form::input('facebook', HTML::chars($organization->facebook)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'facebook'); ?>
                     </div>
                 </p>
-				<p><label>Twitter</label></p>
+				<p><label>Twitter (ใส่ Account name เช่น @jitarsabank)</label></p>
                 <p>
-                    <?= Form::input('twitter', HTML::chars($organization->twitter)); ?>
+                    <?= Form::input('twitter', '@'.HTML::chars($organization->twitter)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'twitter'); ?>
                     </div>
