@@ -263,7 +263,6 @@ class Controller_User extends Controller_Template {
 
     public function action_profile() 
     {
-		
 		// if a user is not logged in, redirect to login page
         if (!$this->user)
         {
@@ -288,7 +287,10 @@ class Controller_User extends Controller_Template {
 			$this->user->first_name = Arr::get($_POST, 'first_name');
 			$this->user->last_name = Arr::get($_POST, 'last_name');
 			$this->user->phone = Arr::get($_POST, 'phone');
-			$this->user->birthday = Arr::get($_POST, 'birthday');
+			$year = Arr::get($_POST, 'year') - 543;
+			$month = Arr::get($_POST, 'month');
+			$day = Arr::get($_POST, 'day');
+			$this->user->birthday = $year.'-'.$month.'-'.$day;
 			$this->user->address = Arr::get($_POST, 'address');
 			$this->user->location = Arr::get($_POST, 'location');
 			$this->user->province = Arr::get($_POST, 'province');
