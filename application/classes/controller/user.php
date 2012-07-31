@@ -708,8 +708,7 @@ class Controller_User extends Controller_Template {
 			}
 		}
 		
-		if($this->user->nickname == '' ||
-			$this->user->first_name == '' ||
+		if(	$this->user->first_name == '' ||
 			$this->user->last_name == '' ||
 			$this->user->phone == '')
 		{
