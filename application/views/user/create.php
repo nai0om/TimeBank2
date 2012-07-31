@@ -38,20 +38,20 @@
 					<div id="left"><?= Form::input('hour', HTML::chars(Arr::get($_POST, 'hour')),  array('style'=>'width:130px;height:40px;')); ?>
                   <div class="error"><?= Arr::get($errors, 'hour'); ?></div><span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span></div>
 					<div id="right">
-						<div id="details">
+						<!--div id="details">
 						<p>
 							คิดไม่ออก<br>
 							คุณอาจลองใช้<br>
 							ตัวช่วยคำนวณ<br>
 							<span style="text-decoration:underline">ที่นี่</span>
 						</p>
-						</div>
+						</div -->
 					</div>
 					
 				</div>
 
 					<p>&nbsp; </p>
-					<p><div style="margin-top:120px;">
+					<p><div style="margin-top:145px;">
 					  <?= Form::checkbox('acceptterm', 1, false); ?> 
 					  ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง'); ?> ของเว็บไซต์</p>
                       

@@ -24,18 +24,18 @@
 					<label>ต้องการฝากชั่วโมงเพิ่มเป็นเวลา</label>
 				<input type="text" name="hour" style="width:130px;height:40px;"><span style="color:#0099CC;font-size:28px;"> ชม.</span>
                 <div class="error"><?= Arr::get($errors, 'hour'); ?></div>
-					<input type="submit" value="บันทึกการเปลี่ยนแปลง">
+					<input type="submit" value="บันทึกการเปลี่ยนแปลง" style="margin: 10px 0;">
 				<?= Form::close(); ?>
 			</div>
 			<div id="summary">
-				<div id="details">
+				<!--div id="details">
 					<p>
 						คิดไม่ออก<br>
 						ใช้ตัวช่วยคำนวณ<br>
 						ตามวันที่คุณว่าง<br>
 						<span style="text-decoration:underline">ที่นี่</span>
 					</p>
-				</div>
+				</div-->
 				<div class="sum"><div class="sum_hours"><?= $time ?> ชั่วโมง</div>
 				<div class="sub_title">เวลาตั้งใจอาสา</div></div>
 				<div></div>
