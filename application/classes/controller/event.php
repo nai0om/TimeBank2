@@ -144,7 +144,6 @@ class Controller_Event extends Controller_Template {
 
 		if($end_time > $now &&  $event->status <> '0')
 		{
-					echo '---------   '.$event->status ;
 			 $isOpen = true;
 		}
 		$event_status = Kohana::$config->load('timebank')->get('event_status');
