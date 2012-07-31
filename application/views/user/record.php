@@ -22,8 +22,8 @@
 			<div id="timeSave">
 				<?= Form::open('user/addhour', array('enctype' => 'multipart/form-data')); ?>	
 					<label>ต้องการฝากชั่วโมงเพิ่มเป็นเวลา</label>
-				<input type="text" name="hour" style="width:130px;height:40px;"><span style="color:#0099CC;font-size:28px;"> ชม.</span>
-                <div class="error"><?= Arr::get($errors, 'hour'); ?></div>
+					<input type="text" name="hour" style="color:#0099cc;font-size: 70pt;width: 240px;"><span style="color:#0099CC;font-size:28px;"> ชม.</span>
+               		<div class="error"><?= $message ?></div>
 					<input type="submit" value="บันทึกการเปลี่ยนแปลง" style="margin: 10px 0;">
 				<?= Form::close(); ?>
 			</div>
