@@ -3437,7 +3437,7 @@ header h2 {
 }
 #volunteerSignup.popup #rightSide #left {
     float: left;
-    width: 139px;
+   /* width: 139px; */
 }
 #volunteerSignup.popup #rightSide #details {
     background: url("../img/mem_plus.png") no-repeat scroll 0 0 transparent;
