@@ -471,7 +471,7 @@ class Controller_Event extends Controller_Template {
 		}
 		
 	}
-	
+
 	public function action_test()
 	{
 		$this->auto_render = FALSE;
