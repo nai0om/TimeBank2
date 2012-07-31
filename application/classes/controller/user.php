@@ -58,8 +58,10 @@ class Controller_User extends Controller_Template {
 								->bind('errors', $errors)
 								->bind('time', $time)
 								->bind('work_time', $work_time)
-								->bind('action', $action);
-								
+								->bind('action', $action)
+								->bind('message', $message);
+							
+		$message = __(Arr::get($_GET, 'error'));							
 		$time = DB::select(array('SUM("hour")', 'time'))
 				->from('timebank_test.user_timebanks') 	
 				->where('status','=','1')
@@ -86,19 +88,32 @@ class Controller_User extends Controller_Template {
         {           
 		   $errors = '';
             try {
-         
-               	// Create an timebank and attach it to the user (one-to-many)
-				$timebank = ORM::factory('user_timebank')->values(array(
-					'hour'			=> Arr::get($_POST, 'hour'),
-					'status'  		=> 1,
-					'user_id'		=> $this->user->id, // sets the fk
-				));
-				$timebank->save();
+				if (!is_numeric(Arr::get($_POST, 'hour')))
+				{
+					$message = ('There were errors, please see form below.');
+					$errors = array('hour' => 'Please insert hours number.');
+					
+				}
+				else if (Arr::get($_POST, 'hour') > 2000)
+				{
+					$message = 'time is maximum at 2000';	
+					
+				}
+				else
+				{
+					// Create an timebank and attach it to the user (one-to-many)
+					$timebank = ORM::factory('user_timebank')->values(array(
+						'hour'			=> Arr::get($_POST, 'hour'),
+						'status'  		=> 1,
+						'user_id'		=> $this->user->id, // sets the fk
+					));
+					$timebank->save();
+				}
            //  Request::current()->redirect('user/record');    
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('models');
             }
-			  Request::current()->redirect('user/record')->bind('errors', $errors);        
+			  Request::current()->redirect('user/record?error='.$message)->bind('errors', $errors);        
 		}	
 	}
 	
@@ -155,7 +170,7 @@ class Controller_User extends Controller_Template {
 		
 			if (Arr::get($_POST, 'acceptterm') == '')
 			{
-				$message = ('There were errors, please see form below.');
+				$message = __('There were errors, please see form below.');
 				$errors = array('acceptterm' => 'Please accept term&condition.');
 				return;
 			}
@@ -164,26 +179,26 @@ class Controller_User extends Controller_Template {
 			
 			if (Arr::get($_POST, 'password') == '')
 			{
-				$message = ('There were errors, please see form below.');
+				$message = __('There were errors, please see form below.');
 				$errors = array('password' => 'Password can\'t be empty.');
 				return;
 			}
 
 			if (Arr::get($_POST, 'password') != Arr::get($_POST, 'password_confirm'))
 			{
-				$message = ('There were errors, please see form below.');
+				$message = __('There were errors, please see form below.');
 				$errors = array('password_confirm' => 'The password fields did not match.');
 				return;
 			}
 			if (!is_numeric(Arr::get($_POST, 'hour')))
 			{
-				$message = ('There were errors, please see form below.');
+				$message = __('There were errors, please see form below.');
 				$errors = array('hour' => 'Please insert hours number.');
 				return;
 			}
 			if (Arr::get($_POST, 'hour') > 2000)
 			{
-				$message = __('time is maximus at 2000');	
+				$message = __('time is maximum at 2000');	
 				return;
 			}
 			
