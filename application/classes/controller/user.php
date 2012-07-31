@@ -181,6 +181,11 @@ class Controller_User extends Controller_Template {
 				$errors = array('hour' => 'Please insert hours number.');
 				return;
 			}
+			if (Arr::get($_POST, 'hour') > 2000)
+			{
+				$message = __('time is maximus at 2000');	
+				return;
+			}
 			
 			$user->password = Arr::get($_POST, 'password');
 			$user_roles = Kohana::$config->load('timebank')->get('user_roles');
