@@ -43,6 +43,10 @@ class phphelp {
 		return $thai_date_return;  
 	} 
 	
+	public static function getDateAsArray($date){  
+		return explode("-", $date);
+	}
+	
 }
  
 ?>
