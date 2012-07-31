@@ -13,7 +13,7 @@ class TimebankNotification {
 	
 	public static function notify_new_volunteer($user, $password)
 	{
-		$from = 'Jitarsa Bank'.' <JitArsaBank@gmail.com>';
+		$from = 'JitArsa Bank'.' <JitArsaBank@gmail.com>';
 		$to = array($user->email);
 		$subject = 'ยินดีต้อนรับสู่ธนาคารจิตอาสา';
 		$body = self::renderHtmlEmail('new_volunteer', array(

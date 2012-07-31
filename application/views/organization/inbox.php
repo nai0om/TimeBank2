@@ -44,17 +44,6 @@
 				<td><?= $inbox->created ?></td>
 			</tr>
             <? endforeach ?>
-			<tr class="last">
-				<td colspan="3">
-					<ul>
-						<li>Page 1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-					</ul>
-				</td>
-			</tr>
 		</table>
         <?= Form::close(); ?>
 		</div>

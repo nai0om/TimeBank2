@@ -24,33 +24,47 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 
 			$user_roles = Kohana::$config->load('timebank')->get('user_roles');
 
-			if (!is_null($this->user) && $this->user->role == $user_roles['organization']) // Is this a organization account?
+			if (!is_null($this->user))
 			{
-				// Find organization that belong to this user
-				$organization = ORM::factory('organization')
-							->where('user_id', '=', $this->user->id)
-							->find();
-				
-				if ($organization->loaded())
+				if ($this->user->role == $user_roles['organization']) // Is this a organization account?
 				{
-					$this->orguser = $organization;
-										
-					// Disable user account, only one type of user is valid in the system
-					$this->user = NULL;
+					// Find organization that belong to this user
+					$organization = ORM::factory('organization')
+								->where('user_id', '=', $this->user->id)
+								->find();
 					
-					// Get inbox count
+					if ($organization->loaded())
+					{
+						$this->orguser = $organization;
+											
+						// Disable user account, only one type of user is valid in the system
+						$this->user = NULL;
+						
+						// Get inbox count
+						$query = DB::select(array('COUNT("id")', 'notification_count'))
+												->from('inboxes')
+												->where('organization_id', '=', $this->orguser->id)
+												->and_where('is_removed', '=', 0);
+						$result = $query->execute();
+						$this->notification_count = $result[0]['notification_count'];
+					}
+					else
+					{
+						$this->orguser = NULL;	
+					}
+				}
+				else
+				{
+					// Get inbox count for user
 					$query = DB::select(array('COUNT("id")', 'notification_count'))
 											->from('inboxes')
-											->where('organization_id', '=', $this->orguser->id)
+											->where('user_id', '=', $this->user->id)
 											->and_where('is_removed', '=', 0);
 					$result = $query->execute();
 					$this->notification_count = $result[0]['notification_count'];
 				}
-				else
-				{
-					$this->orguser = NULL;	
-				}
 			}
+
 
 			$this->template->bind('meta_page_title', $this->meta_page_title);
 		}
