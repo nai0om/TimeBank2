@@ -157,6 +157,27 @@ class Controller_User extends Controller_Template {
 
     }
 	
+	public function action_removeevent()
+	{
+		if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$event = ORM::factory('event', $this->request->param('id'));
+		$this->user->remove('events', $event);
+		try {
+		
+			$this->user->save();
+			 
+		} catch (ORM_Validation_Exception $e) {
+			//silent error		
+		}
+		
+		 Request::current()->redirect('/user/myevent');
+		
+	}
 	public function action_create()
 	{
 		$this->template->content = View::factory('user/create')
