@@ -84,10 +84,10 @@
 		</ul>
 		<p align="center" style="margin:0;"><img src="<?= url::base(); ?>media/img/tb_line.png"/></p>
 		<ul id="summary">
-			<li><p>จำนวนอาสาที่ร่วมฝากเวลา ....</p><div class="showNumber">92</div></li>
-			<li><p>จำนวนภารกิจที่กำลังเปิดรับ ....</p><div class="showNumber">92</div></li>
-			<li><p>จำนวนภารกิจที่เสร็จสิ้นแล้ว ....</p><div class="showNumber">92</div></li>
-			<li><p>จำนวนอาสาทั้งหมดที่เคยร่วมปฏิบัติภารกิจ ....</p><div class="showNumber">92</div></li>
+			<li><p>จำนวนอาสาที่ร่วมฝากเวลา ....</p><div class="showNumber"><?=  timebankhelper::getAllValunteerNumber() ?></div></li>
+			<li><p>จำนวนภารกิจที่กำลังเปิดรับ ....</p><div class="showNumber"><?=  timebankhelper::getOpenEventNumber() ?></div></li>
+			<li><p>จำนวนภารกิจที่เสร็จสิ้นแล้ว ....</p><div class="showNumber"><?=  timebankhelper::getClosedEventNumber() ?></div></li>
+			<li><p>จำนวนอาสาทั้งหมดที่เคยร่วมปฏิบัติภารกิจ ....</p><div class="showNumber"><?=  timebankhelper::getJoinedValunteerNumber() ?></div></li>
 		</ul>
   </div>
 </div>
