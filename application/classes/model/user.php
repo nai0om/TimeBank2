@@ -97,7 +97,6 @@ class Model_User extends ORM {
         $picture = Upload::save($_FILES[$filename], NULL, Upload::$default_directory.'/volunteers');
 		// Resize, sharpen, and save the image
 		Image::factory($picture)
-			->resize(100, 100, Image::INVERSE)
 			->save();
 		$this->$filename = basename($picture);
     }

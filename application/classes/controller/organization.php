@@ -89,7 +89,7 @@ class Controller_Organization extends Controller_Template {
 			$organization->homephone = Arr::get($_POST, 'homephone');			
 			$organization->contactperson = Arr::get($_POST, 'contactperson');			
 			$organization->facebook = Arr::get($_POST, 'facebook');			
-			$organization->twitter = Arr::get($_POST, 'twitter');			
+			$organization->twitter = str_replace('@', '', Arr::get($_POST, 'twitter'));	
 			$organization->website = Arr::get($_POST, 'website');			
 
 			// First level validation
@@ -236,11 +236,16 @@ class Controller_Organization extends Controller_Template {
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
+			if (is_null($this->orguser))
+			{
+				Request::current()->redirect('user/login');
+			}
+			
 			$inbox_ids = Arr::get($_POST, 'ib');	
 			
 			foreach ($inbox_ids as $id)
 			{
-				$inbox = ORM::factory('inbox', $id);
+				$inbox = ORM::factory('inbox', array('id' => $id, 'organization_id' => $this->orguser->id));
 				$inbox->is_removed = 1;
 				
 				try
@@ -320,11 +325,10 @@ class Controller_Organization extends Controller_Template {
 				$this->orguser->noti_eventalmostend = 1;
 			else
 				$this->orguser->noti_eventalmostend = 0;
-
 			try
 			{
 				$this->orguser->save();
-                 
+				
 				Request::current()->redirect('organization/notification');
 				
             } catch (ORM_Validation_Exception $e) {
@@ -334,6 +338,7 @@ class Controller_Organization extends Controller_Template {
                 
                 // Set errors using custom messages
                 $errors = $e->errors('models');
+				print_r($errors);
             }
 		}
 	}
@@ -353,11 +358,9 @@ class Controller_Organization extends Controller_Template {
 			$this->orguser->homephone = Arr::get($_POST, 'homephone');			
 			$this->orguser->contactperson = Arr::get($_POST, 'contactperson');			
 			$this->orguser->facebook = Arr::get($_POST, 'facebook');			
-			$this->orguser->twitter = Arr::get($_POST, 'twitter');			
+			$this->orguser->twitter = str_replace('@', '', Arr::get($_POST, 'twitter'));	
 			$this->orguser->website = Arr::get($_POST, 'website');			
 			//$company->search_temp = $company->name.'/'.$company->objective.'/'.$company->address.'/'.$company->detail.'/'.$company->website;
-			
-			
 			if (isset($_FILES['logo']['name']) && $_FILES['logo']['name'] != '')
 			{
 				$this->orguser->logo = $_FILES['logo']['name'];
@@ -376,6 +379,7 @@ class Controller_Organization extends Controller_Template {
                 
                 // Set errors using custom messages
                 $errors = $e->errors('models');
+				//print_r($errors);
             }
 		}
 	}

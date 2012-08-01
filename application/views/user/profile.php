@@ -50,7 +50,11 @@
                 <div class="error"><?= Arr::get($errors, 'nickname'); ?></div>
 				
 				<?= Form::label('birthday', 'วันเกิด (วัน/เดือน/ปี)'); ?>
-				<?= Form::input('birthday', HTML::chars($user->birthday)); ?>
+                <?  $dateArray = phphelp::getDateAsArray($user->birthday); ?>
+                <?= Form::select('day', timebankhelper::getDaysNumber(), $dateArray[2], array ('class' => 'full')); ?>
+                <? $thai_month_arr = Kohana::$config->load('timebank')->get('thai_month_arr'); ?>
+                <?= Form::select('month', $thai_month_arr, $dateArray[1], array ('class' => 'full'));	?>
+                <?= Form::select('year', timebankhelper::getYearsNumber(), $dateArray[0] + 543, array ('class' => 'full'));	?>
                 <div class="error"><?= Arr::get($errors, 'birthday'); ?></div>
                 
 				<?= Form::label('sex', 'เพศ'); ?>
