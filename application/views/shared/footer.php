@@ -1,3 +1,4 @@
+<div style="clear:both"></div>
 <div id="insideFooter">
     <div class="line"></div><br />
         <ul id="section">
