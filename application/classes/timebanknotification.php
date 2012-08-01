@@ -108,4 +108,19 @@ class TimebankNotification {
 		TimebankUtil::send_email($from, $to, $subject, $body);
 	}
 
+	public static function notify_contactus($contactus)
+	{
+		$from = Kohana::$config->load('timebank')->get('server_email');
+		$to = array('xinexo@gmail.com');
+		$subject = 'มี Contact Us อันใหม่';
+		$body = self::renderHtmlEmail('contact_us', array(
+															'name' 		=> $contactus->name,
+															'surname' 	=> $contactus->surname,
+															'email' 	=> $contactus->email,
+															'phoneno' 	=> $contactus->phoneno,
+															'topic' 	=> $contactus->topic,
+															'message' 	=> $contactus->message,
+															));
+		TimebankUtil::send_email($from, $to, $subject, $body);
+	}
 }
