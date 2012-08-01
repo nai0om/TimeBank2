@@ -32,5 +32,6 @@
 			<div class="line"><?= HTML::anchor('help', 'ย้อนกลับ'); ?></div>
 		</div>
 		
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>

@@ -4164,7 +4164,6 @@ header h2 {
 #insideFooter {
     display: block;
     position: relative;
-    top: 835px;
 }
 #insideFooter #section li{
 	float:left;

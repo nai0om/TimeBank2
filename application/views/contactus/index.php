@@ -63,5 +63,6 @@
 			<p><iframe width="363" height="246" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.th/maps/ms?f=q&amp;source=s_q&amp;hl=th&amp;geocode=&amp;aq=&amp;ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=210435605923926270256.0004b3c548ec4058d0c5a&amp;t=m&amp;ll=13.774754,100.541543&amp;spn=0.002563,0.003884&amp;z=17&amp;output=embed"></iframe><br /><small>ดู <a href="https://maps.google.co.th/maps/ms?f=q&amp;source=embed&amp;hl=th&amp;geocode=&amp;aq=&amp;ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=210435605923926270256.0004b3c548ec4058d0c5a&amp;t=m&amp;ll=13.774754,100.541543&amp;spn=0.002563,0.003884&amp;z=17" style="color:#0000FF;text-align:left">ธนาคารจิตอาสา (JitArsa Bank)</a> ในแผนที่ขนาดใหญ่กว่า</small></p>
 		</div>
 
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>

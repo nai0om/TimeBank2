@@ -20,7 +20,7 @@ class Controller_User extends Controller_Template {
 		->bind('events_rand', $events_rand);
 		
 		$time = DB::select(array('SUM("hour")', 'time'))
-				->from('timebank_test.user_timebanks') 	
+				->from('user_timebanks') 	
 				->where('status','=','1')
 				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
 		$work_time = 0;		
@@ -63,7 +63,7 @@ class Controller_User extends Controller_Template {
 							
 		$message = __(Arr::get($_GET, 'error'));							
 		$time = DB::select(array('SUM("hour")', 'time'))
-				->from('timebank_test.user_timebanks') 	
+				->from('user_timebanks') 	
 				->where('status','=','1')
 				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
 		$work_time = 0;		
@@ -690,7 +690,7 @@ class Controller_User extends Controller_Template {
  
 	
 		$time = DB::select(array('SUM("hour")', 'time'))
-				->from('timebank_test.user_timebanks') 	
+				->from('user_timebanks') 	
 				->where('status','=','1')
 				->where('user_id','=',$view_user->id)->execute()->get('time', 0);
 		$work_time = 0;		

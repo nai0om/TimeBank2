@@ -82,6 +82,7 @@
 			<li>5</li>
 		</ul>
 		
+<?php include Kohana::find_file('views', 'shared/footer') ?>
 	</div>
 </div>
 
