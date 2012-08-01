@@ -312,6 +312,11 @@ header h2 {
 	height:85px;
 	margin:0 auto;
 }
+#data.popup{
+	 background: url("../img/bg_paper_middle.png") repeat-y scroll 0 0 transparent !important;
+    margin: 0 auto;
+	width:1061px;
+}
 #main {
     background: url("../img/bg_paper_middle.png") repeat-y scroll 0 0 transparent !important;
     margin: 0 auto;
@@ -1324,6 +1329,7 @@ header h2 {
 	color:#666;
 	font-size:17px;
 }
+
 /*timeBank > browse > newEvent > thank you > detail*/
 #tb_browse_detail #main {
     background: url("../img/tb_main_bg.jpg") no-repeat scroll 0 0 transparent;
@@ -3225,7 +3231,7 @@ header h2 {
     padding: 20px 50px;
     position: relative;
     text-align: center;
-    top: 100px;
+  
     width: 635px;
 }
 .popup #content h2 a {
@@ -3296,7 +3302,9 @@ header h2 {
 }
 #data.popup #content h2{
 	padding:0 0 10px 55px;
+	
 }
+
 #data.popup #content{
 	background-image:url("../img/bg_popup_340.png");
 	height:340px;
@@ -3437,7 +3445,7 @@ header h2 {
 }
 #volunteerSignup.popup #rightSide #left {
     float: left;
-    width: 139px;
+   /* width: 139px; */
 }
 #volunteerSignup.popup #rightSide #details {
     background: url("../img/mem_plus.png") no-repeat scroll 0 0 transparent;

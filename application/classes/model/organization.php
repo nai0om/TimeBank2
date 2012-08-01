@@ -59,28 +59,35 @@ class Model_Organization extends ORM {
 	
 	public function check_upload($filename)
     {
-		// Validate the file first
-        $validation = Validation::factory($_FILES)
-                ->rules($filename, array(
-                    array('not_empty'),
-                    array('Upload::not_empty'),
-                    array('Upload::valid'),
-                    array('Upload::type', array(':value', array('gif', 'jpg', 'png'))),
-                    array('Upload::size', array(':value', '1M')),
-                ));
-
-        // Validate and upload OK
-        if ($validation->check())
-        {
-			$this->upload($filename);
-			
+		if (isset($_FILES[$filename]) && $_FILES[$filename]['name'] != '')
+		{
+			// Validate the file first
+			$validation = Validation::factory($_FILES)
+					->rules($filename, array(
+						array('not_empty'),
+						array('Upload::not_empty'),
+						array('Upload::valid'),
+						array('Upload::type', array(':value', array('gif', 'jpg', 'png'))),
+						array('Upload::size', array(':value', '1M')),
+					));
+	
+			// Validate and upload OK
+			if ($validation->check())
+			{
+				$this->upload($filename);
+				
+				return TRUE;
+			}
+			else
+			{
+				//print_r($validation->errors('upload'));
+				return FALSE;
+			}
+		}
+		else
+		{
 			return TRUE;
-        }
-        else
-        {
-            //print_r($validation->errors('upload'));
-			return FALSE;
-        }
+		}
     }	
 	
 	public function upload($filename)

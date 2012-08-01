@@ -58,8 +58,10 @@ class Controller_User extends Controller_Template {
 								->bind('errors', $errors)
 								->bind('time', $time)
 								->bind('work_time', $work_time)
-								->bind('action', $action);
-								
+								->bind('action', $action)
+								->bind('message', $message);
+							
+		$message = __(Arr::get($_GET, 'error'));							
 		$time = DB::select(array('SUM("hour")', 'time'))
 				->from('timebank_test.user_timebanks') 	
 				->where('status','=','1')
@@ -86,19 +88,32 @@ class Controller_User extends Controller_Template {
         {           
 		   $errors = '';
             try {
-         
-               	// Create an timebank and attach it to the user (one-to-many)
-				$timebank = ORM::factory('user_timebank')->values(array(
-					'hour'			=> Arr::get($_POST, 'hour'),
-					'status'  		=> 1,
-					'user_id'		=> $this->user->id, // sets the fk
-				));
-				$timebank->save();
+				if (!is_numeric(Arr::get($_POST, 'hour')))
+				{
+					$message = ('There were errors, please see form below.');
+					$errors = array('hour' => 'Please insert hours number.');
+					
+				}
+				else if (Arr::get($_POST, 'hour') > 2000)
+				{
+					$message = 'time is maximum at 2000';	
+					
+				}
+				else
+				{
+					// Create an timebank and attach it to the user (one-to-many)
+					$timebank = ORM::factory('user_timebank')->values(array(
+						'hour'			=> Arr::get($_POST, 'hour'),
+						'status'  		=> 1,
+						'user_id'		=> $this->user->id, // sets the fk
+					));
+					$timebank->save();
+				}
            //  Request::current()->redirect('user/record');    
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('models');
             }
-			  Request::current()->redirect('user/record')->bind('errors', $errors);        
+			  Request::current()->redirect('user/record?error='.$message)->bind('errors', $errors);        
 		}	
 	}
 	
@@ -142,6 +157,27 @@ class Controller_User extends Controller_Template {
 
     }
 	
+	public function action_removeevent()
+	{
+		if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$event = ORM::factory('event', $this->request->param('id'));
+		$this->user->remove('events', $event);
+		try {
+		
+			$this->user->save();
+			 
+		} catch (ORM_Validation_Exception $e) {
+			//silent error		
+		}
+		
+		 Request::current()->redirect('/user/myevent');
+		
+	}
 	public function action_create()
 	{
 		$this->template->content = View::factory('user/create')
@@ -155,7 +191,7 @@ class Controller_User extends Controller_Template {
 		
 			if (Arr::get($_POST, 'acceptterm') == '')
 			{
-				$message = ('There were errors, please see form below.');
+				$message = __('There were errors, please see form below.');
 				$errors = array('acceptterm' => 'Please accept term&condition.');
 				return;
 			}
@@ -164,21 +200,26 @@ class Controller_User extends Controller_Template {
 			
 			if (Arr::get($_POST, 'password') == '')
 			{
-				$message = ('There were errors, please see form below.');
+				$message = __('There were errors, please see form below.');
 				$errors = array('password' => 'Password can\'t be empty.');
 				return;
 			}
 
 			if (Arr::get($_POST, 'password') != Arr::get($_POST, 'password_confirm'))
 			{
-				$message = ('There were errors, please see form below.');
+				$message = __('There were errors, please see form below.');
 				$errors = array('password_confirm' => 'The password fields did not match.');
 				return;
 			}
 			if (!is_numeric(Arr::get($_POST, 'hour')))
 			{
-				$message = ('There were errors, please see form below.');
+				$message = __('There were errors, please see form below.');
 				$errors = array('hour' => 'Please insert hours number.');
+				return;
+			}
+			if (Arr::get($_POST, 'hour') > 2000)
+			{
+				$message = __('time is maximum at 2000');	
 				return;
 			}
 			
@@ -243,7 +284,6 @@ class Controller_User extends Controller_Template {
 
     public function action_profile() 
     {
-		
 		// if a user is not logged in, redirect to login page
         if (!$this->user)
         {
@@ -268,7 +308,10 @@ class Controller_User extends Controller_Template {
 			$this->user->first_name = Arr::get($_POST, 'first_name');
 			$this->user->last_name = Arr::get($_POST, 'last_name');
 			$this->user->phone = Arr::get($_POST, 'phone');
-			$this->user->birthday = Arr::get($_POST, 'birthday');
+			$year = Arr::get($_POST, 'year') - 543;
+			$month = Arr::get($_POST, 'month');
+			$day = Arr::get($_POST, 'day');
+			$this->user->birthday = $year.'-'.$month.'-'.$day;
 			$this->user->address = Arr::get($_POST, 'address');
 			$this->user->location = Arr::get($_POST, 'location');
 			$this->user->province = Arr::get($_POST, 'province');
@@ -397,9 +440,15 @@ class Controller_User extends Controller_Template {
 	
     public function action_myeventpast()
     {
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/myeventpast')
-		->bind('action', $action);
+							->bind('action', $action);
     }
 	
     public function action_eventsearch()
@@ -409,18 +458,116 @@ class Controller_User extends Controller_Template {
 	
     public function action_notification()
     {
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/notification')
-		->bind('action', $action);
+							->bind('action', $action);
+
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			if (isset($_POST['noti_eventrecommended']))
+				$this->user->noti_eventrecommended = 1;
+			else
+				$this->user->noti_eventrecommended = 0;
+				
+			if (isset($_POST['noti_eventapproved']))
+				$this->user->noti_eventapproved = 1;
+			else
+				$this->user->noti_eventapproved = 0;
+				
+			if (isset($_POST['noti_almosteventdate']))
+				$this->user->noti_almosteventdate = 1;
+			else
+				$this->user->noti_almosteventdate = 0;
+
+			if (isset($_POST['noti_eventthank']))
+				$this->user->noti_eventthank = 1;
+			else
+				$this->user->noti_eventthank = 0;
+
+			if (isset($_POST['noti_sms_eventapproved']))
+				$this->user->noti_sms_eventapproved = 1;
+			else
+				$this->user->noti_sms_eventapproved = 0;
+
+			if (isset($_POST['noti_sms_almosteventdate']))
+				$this->user->noti_sms_almosteventdate = 1;
+			else
+				$this->user->noti_sms_almosteventdate = 0;
+
+			if (isset($_POST['noti_sms_news']))
+				$this->user->noti_sms_news = 1;
+			else
+				$this->user->noti_sms_news = 0;
+
+			try
+			{
+				$this->user->save();
+                 
+				Request::current()->redirect('user/notification');
+				
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set failure message
+                $message = __('There were errors, please see form below.');
+                
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+            }
+		}
     }
 	
     public function action_inbox()
     {
+        if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/inbox')
-		->bind('action', $action);
+									->bind('inboxes', $inboxes)
+									->bind('action', $action);
+
+		$inboxes = ORM::factory('inbox')
+						->where('user_id', '=', $this->user->id)
+						->and_where('is_removed', '=', 0)
+						->order_by('created', 'desc')
+						->find_all();
     }
-	
+
+	public function action_deleteinbox()
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			if (!$this->user)
+			{
+				Request::current()->redirect('user/login');
+				return;
+			}
+			
+			$inbox_ids = Arr::get($_POST, 'ib');	
+			
+			foreach ($inbox_ids as $id)
+			{
+				$inbox = ORM::factory('inbox', array('id' => $id, 'user_id' => $this->user->id));
+				$inbox->is_removed = 1;
+				
+				try
+				{
+					$inbox->save();
+				} catch (ORM_Validation_Exception $e){}				
+			}
+			
+			Request::current()->redirect('user/inbox');
+		}
+	}	
 	/*
     public function action_mytraining()
     {
@@ -557,7 +704,6 @@ class Controller_User extends Controller_Template {
 	
 	public function action_checkdata()
 	{
-        
 		if (!isset($this->user))
 		{
 			Request::current()->redirect('user/login');
@@ -583,8 +729,7 @@ class Controller_User extends Controller_Template {
 			}
 		}
 		
-		if($this->user->nickname == '' ||
-			$this->user->first_name == '' ||
+		if(	$this->user->first_name == '' ||
 			$this->user->last_name == '' ||
 			$this->user->phone == '')
 		{
@@ -632,7 +777,22 @@ class Controller_User extends Controller_Template {
 				}
 				else
 				{
-                	Request::current()->redirect('organization/index');
+					// Find organization that belong to this user
+					$organization = ORM::factory('organization')
+								->where('user_id', '=', $user->id)
+								->find();
+
+					if ($organization->loaded())
+					{
+						if ($organization->verified == 0)
+						{
+							Controller_User::logout();
+							$message = ('Account is not verified by JitArsa Bank team yet. Please wait.');
+							return;
+						}
+					}
+					
+					Request::current()->redirect('organization/index');
 				}
 			}
 			else

@@ -290,12 +290,9 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
               <?= $event->inquiry_detail ?>
               </p>
 			
-
-			
-		
-
 		</div>
-		<? if (!$isOrga || $isOpen) : ?>
+       
+		<? if (!$isOrga && $isOpen) : ?>
 			<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('user/checkdata/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
         <? endif ?>
         	<h4 class="title">ฝากคอมเม้นต์</h4>

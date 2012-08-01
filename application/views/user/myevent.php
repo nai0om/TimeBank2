@@ -24,7 +24,7 @@
 		<div style="clear:both"></div>
 		
 		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($records) ?></span></p>
-		<div id="selection">ระบุเดือนที่ต้องการดู <select></select></div>
+		<!-- div id="selection">ระบุเดือนที่ต้องการดู <select></select></div -->
 		<? if (count($records) > 0) :?>
                 <table>
                     <tr>
@@ -48,27 +48,19 @@
                           <br />
                           ถึง
                       <?= $record->volunteer_end_date ?></td>
-                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <a href="#">ยกเลิก</a></td>
+                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <?= HTML::anchor('user/removeevent/'.$record->id, 'ยกเลิก') ?> </td>
                     </tr>
             
         <? endforeach ?>
                 <tr>
-				<td colspan="6">
-					<ul>
-						<li>Page 1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-					</ul>
-				</td>
+	
 			</tr>
 		</table>
 <? endif ?>
 		
-		<div id="update">
+		<!--div id="update">
 		  <form><a href="#">ยกเลิก</a> <input type="text"><input type="submit" value="บันทึก"><a class="cross"></a></form>
-		</div>
+		</div -->
 		
 		</div>
 		</div>

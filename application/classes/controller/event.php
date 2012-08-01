@@ -140,8 +140,9 @@ class Controller_Event extends Controller_Template {
 
  		$now = date("Y-m-d H:i:s");
 		$end_time = $event->signup_end_date.' '.$event->signup_end_time;
-		$isOpen = false;		 
-		if($end_time > $now)
+		$isOpen = false;	
+
+		if($end_time > $now &&  $event->status <> '0')
 		{
 			 $isOpen = true;
 		}
@@ -157,6 +158,41 @@ class Controller_Event extends Controller_Template {
         $this->template->content =$this->search_event('event/advanced_search');
 	}
 	
+	public function action_addjoined()
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$id = $this->request->param('id');
+			// If user have permission to create event
+			if (is_null($this->orguser))
+			{
+				// return to 
+				Request::current()->redirect('organization/event?mode=1');
+				return;
+			}
+			
+			$event = $this->orguser->events->where('id', '=', $id)->find();
+			$event->volunteer_joined = Arr::get($_POST, 'value');
+			echo 'xxxxx'.Arr::get($_POST, 'value');
+			try
+			{
+				$event->save();
+                 				
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+            }
+			
+			Request::current()->redirect('organization/event?mode=1');
+		}
+		else
+		{
+			Request::current()->redirect('organization/event?mode=1');
+		}
+		
+	}
+
 	public function action_search()
 	{
 		$this->template->content = $this->search_event('event/search');	
@@ -436,7 +472,7 @@ class Controller_Event extends Controller_Template {
 		}
 		
 	}
-	
+
 	public function action_test()
 	{
 		$this->auto_render = FALSE;
