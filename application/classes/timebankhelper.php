@@ -18,7 +18,7 @@ class timebankhelper {
 	public static function getJoinedValunteerNumber()
 	{
 		return DB::select(array('SUM("volunteer_joined")', 'jointed'))
-					->from('timebank_test.events')
+					->from('events')
 					->where('status','=','0')->execute()->get('jointed', 0);
 	}
 	

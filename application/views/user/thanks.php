@@ -9,6 +9,7 @@
 				เพื่อกดลิงค์ยืนยันการเป็นสมาชิกของคุณด้วยค่ะ
 			</h3>
 		</div>
+<?php include Kohana::find_file('views', 'shared/footer') ?>
 		
   </div>
  </div>

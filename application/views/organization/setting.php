@@ -30,6 +30,7 @@
             <h2><?= HTML::anchor('organization/changepassword', 'เปลี่ยนรหัสผ่าน'); ?></h2>
 			
 		</div>
+<?php include Kohana::find_file('views', 'shared/footer') ?>
 	</div>	
 </div>
   

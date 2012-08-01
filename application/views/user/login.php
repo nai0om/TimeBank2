@@ -1,5 +1,4 @@
-﻿
-<div id="data" class="popup big">
+﻿<div id="data" class="popup big">
   <div id="main" role="main">
 
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
@@ -12,7 +11,7 @@
 				<p><label></label><?= Form::checkbox('remember'); ?> จำอีเมลและรหัสผ่าน</p>
                 <div class="error"><?= $message; ?></div>
 				<p><label></label><input type="submit" value="เข้าสู่ระบบ">
-                <input onclick="window.location='<?=url::base().'/user/forgetpassword' ?>'; return false" type="submit" value="ลืมรหัสผ่าน">
+                <input onclick="window.location='<?=url::base().'user/forgetpassword' ?>'; return false" type="submit" value="ลืมรหัสผ่าน">
                 </p>
 			<?= Form::close(); ?>
 			<div class="line"></div>
@@ -23,7 +22,7 @@
 			</div>
 
 		</div>
-		
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
- </div>
+</div>
  

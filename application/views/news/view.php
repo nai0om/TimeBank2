@@ -34,5 +34,6 @@
 		<div style="clear:left"></div>
         <?= HTML::anchor('news', 'Go back', array('class' => 'button')); ?><div class="line" style="width:82%;float:right"></div>
 		
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
