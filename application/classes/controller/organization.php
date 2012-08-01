@@ -128,7 +128,7 @@ class Controller_Organization extends Controller_Template {
 				$organization->save();
 
 				// Send email
-				TimebankNotification::notify_new_organization($user, $organization->name, Arr::get($_POST, 'password'));
+				TimebankNotification::notify_new_organization($user, $organization, Arr::get($_POST, 'password'));
 					
 				// Log in
 				Controller_User::login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));

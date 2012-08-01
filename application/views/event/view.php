@@ -126,8 +126,6 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
     	 
             <?= Form::close(); ?>
 
-            
-		</div>
     <? else: ?>
 		<? if($event->message != '') : ?>
         <div id="post">
