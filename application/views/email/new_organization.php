@@ -147,7 +147,8 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 												<!--p>กรุณาคลิกลิงค์ด้านล่าง เพื่อยืนยันการเป็นสมาชิกของคุณที่นี่ก่อนเข้าสู่ระบบ: <br>
 												<a>http://www.hostname.com/confirm.php</a></p-->
-                                                <p>กรุณารอการยืนยัน Account จากทีมงานจิตอาสาครับ</p>
+                                               
+												<p><a href="<?= $vars['urlbase'] ?>">คลิกที่นี่... เพื่อเข้าใช้ระบบธนาคารจิตอาสา</a></p>
 											</td>
 
 										</tr>

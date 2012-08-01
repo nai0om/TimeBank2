@@ -1,4 +1,4 @@
-<div id="home">
+﻿<div id="home">
   <div id="main" role="main">
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div id="banner"><img src="<?= url::base(); ?>media/img/banner_welcome.png" /></div>
@@ -26,17 +26,17 @@
 		<div id="bannerRotating">
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
-					<h3><?= $time_donate ?> ชม.</h3>
+					<h3><?= $time_donate ?> ชั่วโมง</h3>
 					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
-					<h3><?= $time_want ?> ชม.</h3>
-					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
+					<h3><?= $time_want ?> ชั่วโมง</h3>
+					<p>เวลารวมของภารกิจ<br>ที่กำลังต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
-					<h3><?= $time_done ?> ชม.</h3>
+					<h3><?= $time_done ?> ชั่วโมง</h3>
 					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					
