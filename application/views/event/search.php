@@ -131,5 +131,6 @@ $page = isset($gets['page'])? $gets['page'] : '1';
 			</li>
 		</ul>
         <?php endif ?>
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>

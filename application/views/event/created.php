@@ -13,6 +13,7 @@
 			<h3>หากงานอาสาของคุณ ใกล้ปิดรับสมัคร ระบบจะแจ้งกลับที่อีเมล์และกล่องแจ้งเตือน ในหน้าหลักสมาชิกของคุณ <span style="color:#a90402;text-decoration:underline;">และอย่าลืม</span> เข้ามาเลือกอาสาสมัคร (Approve) ตามจำนวนที่คุณต้องการด้วย</h3>
 		</div>
 		
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
   
 </div>

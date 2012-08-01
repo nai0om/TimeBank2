@@ -312,6 +312,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <? endforeach ?>
             <?= Form::close(); ?>
     <? endif ?>
+<?php include Kohana::find_file('views', 'shared/footer') ?>
 		
   </div>
 </div>

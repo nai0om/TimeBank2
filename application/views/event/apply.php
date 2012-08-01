@@ -23,5 +23,6 @@
 			กรุณารออีเมล์ยืนยันจาก <a><?= $organam?></a> อีกครั้ง <br>
 			เพื่อยืนยันการเข้าร่วมกิจกรรมของคุณ ขอบคุณคะ</h3>
 		</div>
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
  </div>

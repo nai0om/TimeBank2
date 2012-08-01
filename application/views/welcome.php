@@ -72,6 +72,7 @@
 	
 		<p align="center" style="display:inline-block"><img src="<?= url::base(); ?>media/img/line_sponser.png"/>
 		<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner2.png" /></p>
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
 

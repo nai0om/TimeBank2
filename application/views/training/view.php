@@ -31,5 +31,6 @@
 		<div style="clear:left"></div>
 		<div class="line" style="width:100%;float:right"><!--a class="button">สมัครคลิกที่นี่</a--></div>
 
+<?php include Kohana::find_file('views', 'shared/footer') ?>
 	</div>
 </div>
