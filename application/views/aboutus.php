@@ -34,7 +34,6 @@
 				<a href="#" id="ui-carousel-prev"><span>prev</span></a>
 			<div id="pages2"></div>
 			</div>
-		<p><h1>ธนาคารจิตอาสามีภากิจ 3 ส่วนหลัก ได้แก่</h1></p>
 		</div>
 		
 		<div class="column two">
@@ -47,6 +46,10 @@
 			<h3>เวลารวมที่อาสาได้ปฏิบัติภารกิจไปแล้ว</h3>
 			<p>คือเวลารวมทั้งหมดที่ถูกใช้ในการทำงานอาสาแล้ว</p>
 		</div>
+        
+        <div style="clear:both"></div>
+        <br /><br />
+		<p><center><h1>ธนาคารจิตอาสามีภารกิจ 3 ส่วนหลัก ได้แก่</h1></center></p>
 	
 		<ol>
 			<li>
