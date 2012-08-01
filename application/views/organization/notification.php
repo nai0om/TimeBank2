@@ -9,6 +9,7 @@
 
 		<div style="clear:both"></div>
 		<div id="menu_left">
+        	<ul>
 				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
 				<li><?= HTML::anchor('organization/profile', 'โปร์ไพล์'); ?></li>
 				<li><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>

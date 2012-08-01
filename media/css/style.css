@@ -4185,6 +4185,7 @@ header h2 {
 }
 #insideFooter #section li h4{
 	margin:0;
+	font-size:12px;
 }
 #insideFooter #section ul {
     float: left;
@@ -4196,6 +4197,7 @@ header h2 {
     width: 100%;
 	color: #999;
 	list-style:disc inside;
+	font-size:12px;
 }
 #insideFooter #section li:nth-child(2){
 	width: 285px;

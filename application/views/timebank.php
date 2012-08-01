@@ -1,4 +1,4 @@
-﻿<div id="main_timeBank">
+<div id="main_timeBank">
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
