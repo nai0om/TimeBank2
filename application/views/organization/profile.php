@@ -59,14 +59,14 @@
                 </p>
 				<p><label>วัตถุประสงค์ / เป้าหมายองค์กร</label></p>
 				<p>
-					<?= Form::textarea('objective', HTML::chars($organization->objective), array('class'=>'long')); ?>
+					<?= Form::textarea('objective', $organization->objective, array('class'=>'long')); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'objective'); ?>
                     </div>
                 </p>
 				<p><label>ลักษณะกิจกรรมขององค์กร</label></p>
 				<p>
-					<?= Form::textarea('activity', HTML::chars($organization->activity), array('class'=>'long')); ?>
+					<?= Form::textarea('activity', $organization->activity, array('class'=>'long')); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'activity'); ?>
                     </div>
