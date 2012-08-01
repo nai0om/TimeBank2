@@ -61,8 +61,10 @@
   <div id="head_main"></div>
     <div id="content">
         <?= $content; ?>
-    </div>
+    </div>    
+    
   <div id="footer_main"></div> 
+        
   <footer>
 	<p>นโยบายลิขสิทธิ์
 

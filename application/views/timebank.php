@@ -89,6 +89,7 @@
 			<li><p>จำนวนภารกิจที่เสร็จสิ้นแล้ว ....</p><div class="showNumber"><?=  timebankhelper::getClosedEventNumber() ?></div></li>
 			<li><p>จำนวนอาสาทั้งหมดที่เคยร่วมปฏิบัติภารกิจ ....</p><div class="showNumber"><?=  timebankhelper::getJoinedValunteerNumber() ?></div></li>
 		</ul>
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
 

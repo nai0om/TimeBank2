@@ -14,5 +14,6 @@
 			</div>
 		<?= Form::close(); ?>
 		
+<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>

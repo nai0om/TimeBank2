@@ -11,6 +11,7 @@
                 <?= HTML::anchor('organization/create', 'สมัครสมาชิกองค์กร', array('class'=>'button long170')); ?></h3>
 
 		</div>
+<?php include Kohana::find_file('views', 'shared/footer') ?>
 		
   </div>
  </div>

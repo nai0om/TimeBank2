@@ -55,6 +55,7 @@
 		<div style="clear:left"></div>
 		<div class="line" style="width:82%;float:left"></div>
 		
+<?php include Kohana::find_file('views', 'shared/footer') ?>
 	</div>
 </div>
 

@@ -14,7 +14,7 @@ class Controller_Welcome extends Controller_Template {
 		$time_donate = 0;
 		$time_want = 0;									
 		$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
-					->from('timebank_test.user_timebanks')
+					->from('user_timebanks')
 					->where('status','=','1')->execute()->get('time_donate', 0);
 					
 	 
@@ -26,7 +26,7 @@ class Controller_Welcome extends Controller_Template {
 		}
 	
 		$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
-					->from('timebank_test.events')
+					->from('events')
 					->where('status','=','1')->execute()->get('time_want', 0);
 					
 		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(3)->find_all();
@@ -69,7 +69,7 @@ class Controller_Welcome extends Controller_Template {
 	$time_donate = 0;
 	$time_want = 0;
 	$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
-				->from('timebank_test.user_timebanks')
+				->from('user_timebanks')
 				->where('status','=','1')->execute()->get('time_donate', 0);
 	
 
@@ -80,7 +80,7 @@ class Controller_Welcome extends Controller_Template {
 	}
 
 	$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
-			->from('timebank_test.events')
+			->from('events')
 			->where('status','=','1')->execute()->get('time_want', 0);
 		
    	}
@@ -106,7 +106,7 @@ class Controller_Welcome extends Controller_Template {
 		$time_want = 0;
 										
 		$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
-					->from('timebank_test.user_timebanks')
+					->from('user_timebanks')
 					->where('status','=','1')->execute()->get('time_donate', 0);
 					
 	
@@ -117,7 +117,7 @@ class Controller_Welcome extends Controller_Template {
 		}
 	
 		$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
-					->from('timebank_test.events')
+					->from('events')
 					->where('status','=','1')->execute()->get('time_want', 0);
    	}
 	
