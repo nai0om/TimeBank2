@@ -48,9 +48,11 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                 <td valign="top" class="header">
 
-                                    <p>สวัสดีครับ <?= $vars['displayname'] ?></p>
+                                    <p>Hello, <?= $vars['display_name'] ?></p>
 
-									<p>ขอบคุณที่ร่วมลงทะเบียนสมัครสมาชิกองค์กรอาสากับเรา: </p>
+									<p>ทาง <a><?= $vars['org_name'] ?></a> ได้ตอบรับการเข้าร่วมงาน <br>
+
+									<a><?= $vars['event_name'] ?></a> ของคุณเรียบร้อยแล้ว</p>
 
 									 <table class="top" width="505" border="0" cellspacing="0" cellpadding="0">
 
@@ -58,7 +60,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 											<td valign="top" height="13">
 
-												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_header.png' ?>" style="display:block;float:none;">
+												<img src="<?= $vars['urlbase'].'media/upload/email/header.jpg' ?>843_box_header.png" style="display:block;float:none;">
 
 											</td>
 
@@ -72,53 +74,11 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 													<tr>
 
-														<td valign="center" rowspan="3">
-
-															<img src="<?= $vars['urlbase'].'media/upload/email/73_icon.jpg' ?>">
-
-														</td>
-
 														<td valign="top">
 
-															<p style="margin:0;padding:0;color:#da7101">ชื่อองค์กร / หน่วยงาน:</p>
+															<p>คุณสามารถดูประกาศรายชื่ออาสาสมัครของคุณได้ที่</p>
 
-														</td>
-
-														<td valign="top">
-
-															<p style="margin:0;padding:0;"><?= $vars['org_name'] ?></p>
-
-														</td>
-
-													</tr>
-
-													<tr>
-
-														<td valign="top">
-
-															<p style="margin:0;padding:0;color:#da7101">ชื่อผู้ใช้ (อีเมล): </p>		
-
-														</td>
-
-														<td valign="top">
-
-															<p style="margin:0;padding:0;"><?= $vars['email'] ?></p>
-
-														</td>
-
-													</tr>
-
-													<tr>
-
-														<td valign="top">
-
-															<p style="margin:0;padding:0;color:#da7101">รหัสผ่าน: </p>		
-
-														</td>
-
-														<td valign="top">
-
-															<p style="margin:0;padding:0;"><?= $vars['password'] ?></p>
+															<p><a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><img src="<?= $vars['urlbase'].'media/upload/email/header.jpg' ?>843_list.png"><a></p>
 
 														</td>
 
@@ -134,31 +94,19 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 											<td valign="top" height="15">
 
-												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_footer.png' ?>" style="display:block;float:none;">
+												<img src="<?= $vars['urlbase'].'media/upload/email/header.jpg' ?>843_box_footer.png" style="display:block;float:none;">
 
-											</td>
-
-										</tr>
-
-										<tr>
-
-											<td valign="top">
-												<br clear="left">
-
-												<!--p>กรุณาคลิกลิงค์ด้านล่าง เพื่อยืนยันการเป็นสมาชิกของคุณที่นี่ก่อนเข้าสู่ระบบ: <br>
-												<a>http://www.hostname.com/confirm.php</a></p-->
-                                                <p>กรุณารอการยืนยัน Account จากทีมงานจิตอาสาครับ</p>
 											</td>
 
 										</tr>
 
 									</table>
 
-									<br clear="left">
+									<p></p>
 
-									<p>ขอบคุณครับ</p>
+									<p>ขอบคุณ</p>
 
-									<p><a href="<?= $vars['urlbase'] ?>">JitArsaBank.com</a></p>
+									<p>Jitarsabank.org</p>
 
                                 </td>
 
