@@ -329,38 +329,43 @@ class Controller_Event extends Controller_Template {
 		
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
-			$event = ORM::factory('event', $this->request->param('id'));
 			
-			if (!$event->loaded())
+			if ( $_FILES['image']['name'] != '' )
 			{
-				throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+				
+				$event = ORM::factory('event', $this->request->param('id'));
+				
+				if (!$event->loaded())
+				{
+					throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+				}
+				$image = ORM::factory('image');
+				$image->event = $event;
+				if(Arr::get($_POST, 'text') == 'เขียนคำบรรยายที่นี่')
+				{
+					$image->description  =  '';
+				}
+				else
+				{
+					$image->description  =  Arr::get($_POST, 'text');	
+				}
+				
+				if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
+				{
+					$image->image = $_FILES['image']['name'];
+				}
+				try
+				{
+					$image->save();
+									
+				} catch (ORM_Validation_Exception $e) {
+					 
+					// Set errors using custom messages
+					$errors = $e->errors('models');
+				}
 			}
-			$image = ORM::factory('image');
-			$image->event = $event;
-			if(Arr::get($_POST, 'text') == 'เขียนคำบรรยายที่นี่')
-			{
-				$image->description  =  '';
-			}
-			else
-			{
-				$image->description  =  Arr::get($_POST, 'text');	
-			}
-			
-			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
-			{
-				$image->image = $_FILES['image']['name'];
-			}
-			try
-			{
-				$image->save();
-                 				
-            } catch (ORM_Validation_Exception $e) {
-                 
-                // Set errors using custom messages
-                $errors = $e->errors('models');
-            }
 			// Redirect to event view
-			Request::current()->redirect('event/view/'.$event->id.'?mode=3');
+			Request::current()->redirect('event/view/'.$this->request->param('id').'?mode=3');
 		}
 	}
 	public function action_addcomment()
