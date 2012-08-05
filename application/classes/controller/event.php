@@ -9,7 +9,7 @@ class Controller_Event extends Controller_Template {
 
 	public function action_browse()
 	{
-		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(7)->find_all();
+		$events = ORM::factory('event')->where('event.status', '=', '1')->order_by('timestamp','desc')->limit(7)->find_all();
 		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 		$jobs_count = array();
 		for ($i = 1; $i < sizeof($jobs); $i++) {

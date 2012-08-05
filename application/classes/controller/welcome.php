@@ -28,7 +28,7 @@ class Controller_Welcome extends Controller_Template {
 					->from('events')
 					->where('status','=','1')->execute()->get('time_want', 0);
 					
-		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(3)->find_all();
+		$events = ORM::factory('event')->where('status', '=', '1')->order_by('timestamp','desc')->limit(3)->find_all();
 	
    	}
 	
