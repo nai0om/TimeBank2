@@ -26,17 +26,17 @@
 		<div id="bannerRotating">
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
-					<h3><?= $time_donate ?> ชม.</h3>
+					<h3><?= number_format($time_donate) ?> ชม.</h3>
 					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
-					<h3><?= $time_want ?> ชม.</h3>
+					<h3><?= number_format($time_want) ?> ชม.</h3>
 					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
-					<h3><?= $time_done ?> ชม.</h3>
+					<h3><?= number_format($time_done) ?> ชม.</h3>
 					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					

@@ -23,7 +23,7 @@
 		<div style="clear:both"></div>
 		
 		<?= Form::open('user/notification'); ?>
-			<div class="headline">แจ้งเตือนงานอาสาทางอีเมล</div><div class="line"></div>
+			<div class="headline">แจ้งเตือนทางอีเมล</div><div class="line"></div>
 			<p><?= Form::checkbox('noti_eventrecommended', 1, (bool) $user->noti_eventrecommended); ?> เมื่อมีงานอาสาที่เหมาะกับโปรไพล์ของฉัน</p>
 			<!--p><input type="radio"> ให้แจ้งเตือนทันที</p>
 			<p><input type="radio"> ให้แจ้งเตือน <select><option>วันละ 1 ครั้ง</option></select></p-->
@@ -32,7 +32,7 @@
 			<!--p><?= Form::checkbox('noti_eventthank', 1, (bool) $user->noti_eventthank); ?> เมื่อมีงานอาสาที่สมัครไป ประกาศรายชื่ออาสาสมัคร และฉันได้ไป หรือไม่ได้ไป</p-->
 			<p><?= Form::checkbox('noti_eventthank', 1, (bool) $user->noti_eventthank); ?> หลังจากได้ไปร่วมงานอาสาที่สมัครไปเรียบร้อยแล้ว และงานอาสานั้นนำภาพกิจกรรมขึ้นหรือ เขียนข้อความกล่าวขอบคุณอาสาสมัครที่ไปร่วมงาน ให้ฉันสามารถเข้าไปเขียน Comment ภาพงานกิจกรรมได้</p>
 			
-			<div class="headline">แจ้งเตือนงานอาสาทางมือถือ</div><div class="line"></div>
+			<div class="headline">แจ้งเตือนทางมือถือ</div><div class="line"></div>
 			<p><?= Form::checkbox('noti_sms_eventapproved', 1, (bool) $user->noti_sms_eventapproved); ?> เมื่อมีงานอาสาที่สมัครไป ตอบรับ (Approve) ให้ฉันเข้าร่วม</p>
 			<p><?= Form::checkbox('noti_sms_almosteventdate', 1, (bool) $user->noti_sms_almosteventdate); ?> เมื่อมีงานอาสาที่สมัครไป ใกล้ถึงวันจัดกิจกรรม</p>
 			<p><?= Form::checkbox('noti_sms_news', 1, (bool) $user->noti_sms_news); ?> รับข่าวสารพิเศษจากทางเว็บไซต์</p>
