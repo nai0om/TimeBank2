@@ -140,7 +140,7 @@ class Model_Event extends ORM {
     	                array('Upload::not_empty'),
 						array('Upload::valid'),
 						array('Upload::type', array(':value', array('gif', 'jpg', 'png'))),
-						array('Upload::size', array(':value', '1M')),
+						array('Upload::size', array(':value', '4M')),
 					));
 	
 			// Validate and upload OK

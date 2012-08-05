@@ -64,6 +64,44 @@ class Controller_Event extends Controller_Template {
 									->bind('id', $id);		
 	}
 	
+	public function action_remove()
+	{
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			// remove list of event.
+			
+			foreach ($_POST as  $event_id )
+			{
+				$event = ORM::factory('event', $event_id); 
+				// If user have permission to create event
+				if (is_null($this->orguser) || $event->organization_id != $this->orguser->id)
+				{
+					continue;
+				}
+				// remove only one event
+				$event->delete();		
+			}
+		}
+		else if ($this->request->param('id') != '')
+		{
+			$event = ORM::factory('event', $this->request->param('id')); 
+			// If user have permission to create event
+			if (is_null($this->orguser) || $event->organization_id != $this->orguser->id)
+			{
+				// Redirect to step 1
+				Request::current()->redirect('organization/event');
+				return;
+			}
+			// remove only one event
+			 $event->delete();
+			
+		}
+	
+			
+		Request::current()->redirect('organization/event');
+	}
+	
 	public function action_edit()
 	{
         $this->template->content = View::factory('event/edit')
@@ -314,7 +352,7 @@ class Controller_Event extends Controller_Template {
 			}
 			else
 			{
-				$event->remove('users', $event); 
+				$event->remove('users', $user); 
 			}
 			
 		  }

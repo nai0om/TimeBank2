@@ -38,7 +38,13 @@
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 			<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($events) ?></span><?= HTML::anchor('event/create', 'สร้างงานอาสาใหม่', array('class'=>'button')); ?></p>
-			<div id="selection"><form><input type="checkbox"> Select All <input type="submit" value="ลบ"></form><div>ระบุเดือนที่ต้องการดู <select></select></div></div>
+			<?= Form::open('event/remove', array('enctype' => 'multipart/form-data')); ?>	
+            <div id="selection">
+            
+            <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>
+             Select All
+            <?= Form::submit(NULL, 'ลบ'); ?>
+           </div>
             <? if ($mode == '1' ) : // closed event ?>
             <table>
 				<tbody><tr>
@@ -48,19 +54,19 @@
 					<th>จำนวนรับสมัคร</th>
 					<th>จำนวนคนที่ไปจริง</th>
 					<th>เขียนคำขอบคุณ</th>
-                    <th>เปิดไหม่</th>
+                    <th>ตัวเลือก</th>
 				</tr>
                	
                 <? foreach($events as $event) : ?>
                   <?= Form::open('event/addjoined/'.$event->id, array('enctype' => 'multipart/form-data')); ?>	
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><?= Form::checkbox($event->id, $event->id, false, array('id' => 'event')) ?></td>
                         <td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
                         <td><?=  $event->time_cost ?> ชม.</td>
                         <td><?=  $event->volunteer_need_count ?> คน</td>
                         <td><?= Form::input('value', $event->volunteer_joined); ?>  <?= Form::submit(NULL, 'บันทึก'); ?></td>
                         <td><?= HTML::anchor('event/view/'.$event->id, 'เขียน') ?></td>
-                        <td><?= HTML::anchor('event/reopen/'.$event->id, 'เปิด') ?></td>
+                        <td><?= HTML::anchor('event/remove/'.$event->id, 'ลบ') ?></td>
                     </tr>
                  <?= Form::close(); ?>	
                 <? endforeach ?>
@@ -78,20 +84,41 @@
 				
                 <? foreach($events as $event) : ?>
                 <tr>
-					<td><input type="checkbox"></td>
-					<td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
+					 <td><?= Form::checkbox($event->id, $event->id, false, array('id' => 'event')) ?></td>
 					<td><?=  $event->time_cost ?> ชม.</td>
 					<td><?=  $event->volunteer_need_count ?> คน</td>
                     <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?>
                     	<?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?>
-                    	<?= HTML::anchor('event/closed/'.$event->id, 'ปิดงาน') ?></td>
+                    	<?= HTML::anchor('event/closed/'.$event->id, 'ปิดงาน') ?>
+                        <?= HTML::anchor('event/remove/'.$event->id, 'ลบ') ?></td>
+
 				</tr>
                 <? endforeach ?>
 				
 			<? endif ?>
 			</tbody></table>
+             </form>
 		</div>
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
+
+<script>
+function check_all(){
+	if( $('#checkall').is(':checked') )
+	{	
+		$("input:checkbox[id=event]").each(function()
+		{
+			$(this).prop("checked", true)
+		});	
+	}
+	else
+	{
+		$("input:checkbox[id=event]").each(function()
+		{
+			$(this).prop("checked", false)
+		});
+	}
+}
+</script>
