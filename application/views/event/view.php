@@ -300,10 +300,14 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <?= Form::submit(NULL, 'โพส', array( 'style' => 'float:right; margin: 10px;')); ?>
             <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             	<div>
-					<? if ($comment->user->profile_image == '') : ?>
-                        <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
-                    <? else :?>
-                    	 <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+                	<? if ($comment->user->id != 0 && $comment->user->profile_image != '') : ?>
+                            <?= HTML::anchor('user/view/'.$comment->user->id,  $comment->user->displayname); ?> :
+                   	 		<img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+					<? elseif ($comment->organization->id != 0 && $comment->organization->logo != '') : ?>
+                    		<?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
+                            <img src="<?= url::base().'media/upload/organizations/'.$comment->organization->logo; ?>" style="float:left; width:51px; ">
+                    <? else : ?>
+                   		 <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
                     <? endif ?>
                 <?= $comment->comment ?>
                 </div>

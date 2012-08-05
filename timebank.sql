@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.0
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 01, 2012 at 01:45 PM
--- Server version: 5.0.51a-community-log
--- PHP Version: 5.2.17
+-- Generation Time: Aug 05, 2012 at 07:51 PM
+-- Server version: 5.5.25
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `jitarsaban_test`
+-- Database: `timebank_test`
 --
 
 -- --------------------------------------------------------
@@ -26,16 +26,25 @@ SET time_zone = "+00:00";
 -- Table structure for table `comments`
 --
 
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL auto_increment,
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `ip` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `comment` text collate utf8_unicode_ci NOT NULL,
-  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `ip` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `comment` text COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `organization_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `type`, `event_id`, `user_id`, `ip`, `comment`, `timestamp`, `organization_id`) VALUES
+(3, 2, 1, 0, '::1', 'qweqe', '2012-08-05 17:44:26', 3),
+(4, 2, 1, 0, '::1', 'asdfasd', '2012-08-05 17:49:18', 3);
 
 -- --------------------------------------------------------
 
@@ -43,16 +52,16 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- Table structure for table `contactusforms`
 --
 
-CREATE TABLE IF NOT EXISTS `contactusforms` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `surname` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `email` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `phoneno` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `topic` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `message` text collate utf8_unicode_ci NOT NULL,
-  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+CREATE TABLE `contactusforms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phoneno` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `topic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
@@ -68,11 +77,11 @@ INSERT INTO `contactusforms` (`id`, `name`, `surname`, `email`, `phoneno`, `topi
 -- Table structure for table `emailcomingsoons`
 --
 
-CREATE TABLE IF NOT EXISTS `emailcomingsoons` (
-  `id` int(11) NOT NULL auto_increment,
-  `email` varchar(256) collate utf8_unicode_ci NOT NULL,
-  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+CREATE TABLE `emailcomingsoons` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
@@ -96,45 +105,45 @@ INSERT INTO `emailcomingsoons` (`id`, `email`, `created`) VALUES
 -- Table structure for table `events`
 --
 
-CREATE TABLE IF NOT EXISTS `events` (
-  `id` int(11) NOT NULL auto_increment,
-  `search_temp` text collate utf8_unicode_ci NOT NULL,
-  `signup_begin_date` date default NULL,
-  `signup_end_date` date default NULL,
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `search_temp` text COLLATE utf8_unicode_ci NOT NULL,
+  `signup_begin_date` date DEFAULT NULL,
+  `signup_end_date` date DEFAULT NULL,
   `volunteer_begin_date` date NOT NULL,
   `volunteer_end_date` date NOT NULL,
   `signup_begin_time` time NOT NULL,
   `signup_end_time` time NOT NULL,
   `volunteer_begin_time` time NOT NULL,
   `volunteer_end_time` time NOT NULL,
-  `organization_id` int(11) default NULL,
-  `location_id` int(11) default NULL,
-  `location_name` text collate utf8_unicode_ci NOT NULL,
-  `location_district` text collate utf8_unicode_ci NOT NULL,
-  `location_province` text collate utf8_unicode_ci NOT NULL,
-  `location_postcode` text collate utf8_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL default '1',
-  `name` text collate utf8_unicode_ci NOT NULL,
-  `phone` mediumtext collate utf8_unicode_ci,
-  `contractor_name` mediumtext collate utf8_unicode_ci,
-  `project_name` mediumtext collate utf8_unicode_ci NOT NULL,
-  `volunteer_need_count` int(11) default NULL,
-  `time_cost` int(11) default NULL,
-  `detail` mediumtext collate utf8_unicode_ci,
-  `travel_detail` text collate utf8_unicode_ci NOT NULL,
-  `inquiry_detail` text collate utf8_unicode_ci NOT NULL,
-  `is_need_expense` tinyint(1) NOT NULL default '0',
-  `expense_detail` text collate utf8_unicode_ci NOT NULL,
-  `image` mediumtext collate utf8_unicode_ci,
-  `skills` text collate utf8_unicode_ci NOT NULL,
-  `languates` text collate utf8_unicode_ci NOT NULL,
-  `technical` text collate utf8_unicode_ci NOT NULL,
-  `days` text collate utf8_unicode_ci NOT NULL,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `tags` text collate utf8_unicode_ci NOT NULL,
-  `message` text collate utf8_unicode_ci NOT NULL,
+  `organization_id` int(11) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `location_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `location_district` text COLLATE utf8_unicode_ci NOT NULL,
+  `location_province` text COLLATE utf8_unicode_ci NOT NULL,
+  `location_postcode` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `phone` mediumtext COLLATE utf8_unicode_ci,
+  `contractor_name` mediumtext COLLATE utf8_unicode_ci,
+  `project_name` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+  `volunteer_need_count` int(11) DEFAULT NULL,
+  `time_cost` int(11) DEFAULT NULL,
+  `detail` mediumtext COLLATE utf8_unicode_ci,
+  `travel_detail` text COLLATE utf8_unicode_ci NOT NULL,
+  `inquiry_detail` text COLLATE utf8_unicode_ci NOT NULL,
+  `is_need_expense` tinyint(1) NOT NULL DEFAULT '0',
+  `expense_detail` text COLLATE utf8_unicode_ci NOT NULL,
+  `image` mediumtext COLLATE utf8_unicode_ci,
+  `skills` text COLLATE utf8_unicode_ci NOT NULL,
+  `languates` text COLLATE utf8_unicode_ci NOT NULL,
+  `technical` text COLLATE utf8_unicode_ci NOT NULL,
+  `days` text COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tags` text COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
   `volunteer_joined` int(11) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
@@ -142,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `events` (
 --
 
 INSERT INTO `events` (`id`, `search_temp`, `signup_begin_date`, `signup_end_date`, `volunteer_begin_date`, `volunteer_end_date`, `signup_begin_time`, `signup_end_time`, `volunteer_begin_time`, `volunteer_end_time`, `organization_id`, `location_id`, `location_name`, `location_district`, `location_province`, `location_postcode`, `status`, `name`, `phone`, `contractor_name`, `project_name`, `volunteer_need_count`, `time_cost`, `detail`, `travel_detail`, `inquiry_detail`, `is_need_expense`, `expense_detail`, `image`, `skills`, `languates`, `technical`, `days`, `timestamp`, `tags`, `message`, `volunteer_joined`) VALUES
-(1, ' ปลูกใจรักษ์โลก รุ่นที่2/“ปลูกใจ..รักษ์โลก”//<p><strong>ความเป็นมา</strong><br /> โครงการ &ldquo;ปลูกใจ..รักษ์โลก&rdquo; ดำเนินงานโดยมูลนิธิกองทุนไทย ร่วมกับภาคีองค์กรสิ่งแวดล้อม โดยการสนับสนุนของมูลนิธิสยามกัมมาจล เริ่มดำเนินงานเมื่อวันที่ 1 เมษายน 2555 ที่ผ่านมา&nbsp;&nbsp; มีเป้าหมายเพื่อพัฒนาเยาวชน ให้มีความเป็นผู้นำที่เข้มแข็ง เป็นคนรุ่นใหม่ที่มีสำนึกรักษ์สิ่งแวดล้อม และมีสำนึกสาธารณะ&nbsp; ให้เติบโตเป็นพลเมืองที่มีคุณภาพ (Active Citizen) มีบทบาทในการดูแลรักษาสิ่งแวดล้อม และเป็นกำลังสำคัญในการขับเคลื่อนสังคมในอนาคต โดยผ่านการสนับสนุนทุนในการทำกิจกรรมดูแลรักษาสิ่งแวดล้อมให้แก่เยาวชน ให้เยาวชนได้ฝึกฝนหล่อหลอมและเสริมสร้างศักยภาพ จากการลงมือทำกิจกรรมแก้ไขปัญหาสิ่งแวดล้อมอย่างต่อเนื่องการฝึกอบรม และการแลกเปลี่ยนเรียนรู้ระหว่างการดำเนินโครงการ</p>\n<p>&nbsp;</p>\n<p><strong>การสนับสนุนทุนทำกิจกรรมดูแลรักษาสิ่งแวดล้อม ปี 2555</strong><br /> - ปี 2555 โครงการฯ จะสนับสนุนเงินทุนแก่กลุ่มเยาวชนสำหรับทำกิจกรรมดูแลรักษาสิ่งแวดล้อม รุ่นที่ 2&nbsp; จำนวน 10 โครงการ<br /> - เปิดรับสมัครข้อเสนอโครงการจากกลุ่มเยาวชน&nbsp; ที่สนใจทำกิจกรรมดูแลรักษาสิ่งแวดล้อม&nbsp; <br /> - คณะกรรมการโครงการจะพิจารณาคัดเลือกโครงการที่มีความชัดเจน และตรงกับเงื่อนไขการสนับสนุนของโครงการฯมากที่สุด โดยคณะกรรมการพิจารณาโครงการ ประกอบด้วยผู้ทรงคุณวุฒิในงานด้านสิ่งแวดล้อมและด้านการพัฒนาเยาวชน<br /> - โครงการที่ผ่านการพิจารณาคัดเลือกจากคณะกรรมการ จะได้รับทุนสนับสนุนการดำเนินงานโครงการตามความเป็นจริง สูงสุดไม่เกินโครงการละ 30,000 บาท&nbsp;&nbsp; และกลุ่มเยาวชน จะได้รับการพัฒนาศักยภาพจากการเข้าร่วมกิจกรรมต่างๆ ที่ทางโครงการฯ จัดขึ้นตลอดระยะเวลาการดำเนินงานโครงการ</p>\n<p>&nbsp;</p>\n<p><strong>คุณสมบัติของผู้เสนอโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; เป็นกลุ่มเยาวชนในพื้นที่ที่มีปัญหาสิ่งแวดล้อม ที่แกนนำและสมาชิกของกลุ่มมีอายุระหว่าง 15 - 25 ปี&nbsp; และแกนนำของกลุ่มมีไม่น้อยกว่า 3 คน<br /> 2.&nbsp;&nbsp;&nbsp; เป็นกลุ่มเยาวชนที่มีการรวมกลุ่มทำกิจกรรมร่วมกันอย่างชัดเจน&nbsp; และมีแกนนำหรือสมาชิกในกลุ่มมีประสบการณ์ในการทำกิจกรรมด้านสิ่งแวดล้อม<br /> 3.&nbsp;&nbsp;&nbsp; มีที่ปรึกษาหรือพี่เลี้ยงที่พร้อมสนับสนุนการทำงานของกลุ่มเยาวชนอย่างน้อย 1 คน&nbsp; โดยเป็นผู้ใหญ่ในพื้นที่นั้นๆ (เช่น&nbsp; ครู, อาจารย์, พ่อ-แม่-ผู้ปกครอง, ผู้ใหญ่บ้าน, อบต. หรือผู้นำชุมชนอื่นๆ)</p>\n<p>&nbsp;</p>\n<p><strong>เงื่อนไขในการให้ทุนสนับสนุนโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; เป็นโครงการที่ดำเนินงานดูแลรักษาและฟื้นฟูสิ่งแวดล้อมใน 5 ประเด็นปัญหาสิ่งแวดล้อม ได้แก่<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1)&nbsp;&nbsp;&nbsp; ปัญหาการเปลี่ยนแปลงสภาวะภูมิอากาศ (สภาวะโลกร้อน) และมลภาวะทางอากาศ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของทรัพยากรป่าไม้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของทรัพยากรทางทะเลและชายฝั่ง<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของแหล่งน้ำ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของดิน<br /> 2.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีโจทย์หรือประเด็นปัญหาสิ่งแวดล้อมในการทำโครงการที่ชัดเจน&nbsp; และเป็นโครงการที่มาจากความต้องการในการทำกิจกรรมของเยาวชนอย่างแท้จริง<br /> 3.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีระยะเวลาในการดำเนินงาน ไม่น้อยกว่า 6 เดือน และไม่เกิน 7 เดือน<br /> 4.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีการลงมือปฏิบัติการต่อสิ่งแวดล้อม&nbsp; และไม่เป็นโครงการวิจัย<br /> 5.&nbsp;&nbsp;&nbsp; โครงการที่ได้รับทุนสนับสนุน จะต้องส่งตัวแทนเข้าร่วมกิจกรรมฝึกอบรมของโครงการฯ จำนวน 4 คน ประกอบด้วย แกนนำเยาวชน 3 คน และที่ปรึกษา/พี่เลี้ยง 1 คน&nbsp;&nbsp; และตัวแทนทั้ง 4 คนจะต้องเข้าร่วมกิจกรรมต่างๆ เพื่อพัฒนาศักยภาพเยาวชนที่โครงการฯ จัดขึ้นอย่างต่อเนื่อง <br /> 6.&nbsp;&nbsp;&nbsp; กลุ่มเยาวชนจะต้องรายงานผลการดำเนินงานโครงการ ตามช่องทางและระยะเวลาที่ทางโครงการฯ กำหนดไว้&nbsp; ได้แก่ การรายงานทาง Website ของโครงการ&nbsp; และการรายงานเป็นเอกสาร</p>\n<p>&nbsp;</p>\n<p><strong>หลักเกณฑ์ในการพิจารณาคัดเลือกโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; ความมุ่งมั่นและความพร้อมในการทำโครงการของกลุ่มเยาวชน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.1&nbsp;&nbsp;&nbsp; มีการรวมกลุ่มเยาวชนเพื่อร่วมกันทำกิจกรรมที่สร้างสรรค์อย่างชัดเจน&nbsp; แกนนำและสมาชิกของกลุ่มมีความกระตือรือร้น และมีศักยภาพในการเรียนรู้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.2&nbsp;&nbsp;&nbsp; กลุ่มมีความมุ่งมั่นในการดูแลรักษาสิ่งแวดล้อมให้สามารถใช้ประโยชน์ได้อย่างยั่งยืน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.3&nbsp;&nbsp;&nbsp; แกนนำกลุ่มมีความเป็นผู้นำ สามารถนำเยาวชนทำกิจกรรมโครงการให้บรรลุวัตถุประสงค์ได้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.4&nbsp;&nbsp;&nbsp; มีแกนนำหรือสมาชิกในกลุ่มที่มีประสบการณ์ในการทำกิจกรรมด้านสิ่งแวดล้อม <br /> 2.&nbsp;&nbsp;&nbsp; ความชัดเจนปัญหาและกิจกรรมของโครงการ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1&nbsp;&nbsp;&nbsp; นำเสนอรูปธรรมของปัญหาสิ่งแวดล้อม ที่กลุ่มจะทำกิจกรรมดูแลรักษาหรือฟื้นฟูได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2&nbsp;&nbsp;&nbsp; นำเสนอพื้นที่ ที่กลุ่มจะทำกิจกรรมดูแลรักษาหรือฟื้นฟูสิ่งแวดล้อมได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3&nbsp;&nbsp;&nbsp; นำเสนอกิจกรรม ที่กลุ่มจะดำเนินการเพื่อดูแลรักษาหรือฟื้นฟูสิ่งแวดล้อมได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.4&nbsp;&nbsp;&nbsp; มีการมีส่วนร่วมจากชุมชน ในการเข้าร่วมทำกิจกรรมร่วมกับกลุ่มเยาวชน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.5&nbsp;&nbsp;&nbsp; มีความเป็นไปได้ที่จะดำเนินงานโครงการได้สำเร็จ และนำเสนอผลที่คาดว่าจะเกิดขึ้นได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.6&nbsp;&nbsp;&nbsp; มีศักยภาพในการขยายผลหรือต่อยอดการดำเนินงานของโครงการ ให้สามารถทำกิจกรรมดูแลรักษาสิ่งแวดล้อมได้กว้างขวางและต่อเนื่อง</p>\n<p>&nbsp;</p>\n<p><strong>ปฏิทินการดำเนินงาน รุ่นที่ 2</strong><br /> - เปิดรับข้อเสนอโครงการ &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันนี้ &ndash;&nbsp; 15 กันยายน 2555<br /> - วันสุดท้ายที่เปิดรับข้อเสนอโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 15 กันยายน 2555<br /> - พิจารณากลั่นกรองโครงการที่ตรงตามหลักเกณฑ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 16-24 กันยายน&nbsp; 2555<br /> - ประกาศผล โครงการที่ผ่านการกลั่นกรองรอบแรก 15 โครงการ&nbsp;&nbsp;&nbsp; วันที่ 25 กันยายน 2555<br /> - Workshop 1 (พัฒนาโครงการ + เสริมความรู้เรื่องสิ่งแวดล้อม)&nbsp; <br /> &nbsp;จำนวน 15 โครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; วันที่ 5 - 7 ตุลาคม&nbsp; 2555***<br /> - กลุ่มเยาวชนพัฒนาและจัดทำข้อเสนอโครงการฉบับสมบูรณ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 8 -19 ตุลาคม&nbsp; 2555<br /> - วันสุดท้ายที่เปิดรับข้อเสนอโครงการฉบับสมบูรณ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 19 ตุลาคม 2555<br /> - พิจารณาคัดเลือกโครงการที่ได้รับการสนับสนุน&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 20 &ndash; 26 ตุลาคม 2555 <br /> - ประกาศผลโครงการที่ได้รับการสนับสนุน 10&nbsp; โครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 27 ตุลาคม&nbsp; 2555 <br /> - ทำสัญญารับทุน + เริ่มดำเนินงานโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 29 ตุลาคม&nbsp; 2555<br /> - กลุ่มเยาวชนดำเนินงานโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 1 พฤศจิกายน2555&ndash;พฤษภาคม 2556<br /> - สิ้นสุดการดำเนินกิจกรรมของโครงการเยาวชน&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 31 พฤษภาคม&nbsp; 2556</p>\n<p>&nbsp;</p>\n<p><strong>หมายเหตุ&nbsp; </strong>โครงการที่ผ่านการกลั่นกรองรอบแรก รุ่นที่ 2 จำนวน 15&nbsp; โครงการ ต้องส่งตัวแทนเข้าร่วมการ Workshop 1 (พัฒนาโครงการ และเสริมทักษะด้านสิ่งแวดล้อม) จำนวน 4 คน ประกอบด้วย แกนนำเยาวชน 3 คน + ที่ปรึกษา/พี่เลี้ยง 1 คน</p>\n<p>&nbsp;</p>\n<p><strong>การรับสมัครโครงการ</strong><br /> - กลุ่มเยาวชนสามารถส่งใบสมัครเพื่อขอรับทุนสนับสนุนการดำเนินงานโครงการ โดยการแนะนำโครงการ บอกเล่าแรงบันดาลใจในการทำโครงการ และนำเสนอแนวความคิดในการทำกิจกรรม ด้วยวิธีการที่ง่ายและชัดเจนได้หลายรูปแบบ&nbsp; ได้แก่&nbsp; <br /> - นำเสนอด้วยเอกสาร ตามแบบฟอร์มใบสมัครโครงการ พร้อมรูปถ่าย&nbsp; <br /> - นำเสนอด้วย คลิปวีดีโอ หรือสื่ออื่นๆ (ระยะเวลาไม่เกิน 10 นาที) ที่แสดงให้เห็นแกนนำและสมาชิกของกลุ่มเยาวชน, แรงบันดาลใจ, ชุมชน, ปัญหาสิ่งแวดล้อมและพื้นที่ในการทำโครงการ, แนวทางการดำเนินงานและกิจกรรมของโครงการ, ฯลฯ&nbsp; <br /> - นำเสนอด้วยรูปแบบและวิธีการอื่นๆ ที่สามารถสื่อสารข้อมูลของโครงการข้างต้นได้</p>\n<p>&nbsp;</p>\n<p><span style="color: #3366ff;"><span style="font-size: x-large;"><strong>ปิดรับสมัครโครงการ วันที่ 15 กันยายน 2555</strong></span></span></p>\n<p>&nbsp;</p>\n<p><strong>ส่งใบสมัครโครงการ ได้ทั้งทางไปรษณีย์ หรือทางอีเมล์ ได้ที่ </strong><br /> โครงการ &ldquo;ปลูกใจ รักษ์โลก&rdquo;&nbsp;&nbsp; มูลนิธิกองทุนไทย <br /> 2044/23&nbsp; ถนนเพชรบุรีตัดใหม่&nbsp; เขตห้วยขวาง&nbsp; กรุงเทพฯ&nbsp; 10310&nbsp;&nbsp; <br /> โทรสาร 02-718-1850&nbsp;&nbsp;&nbsp; E-mail:&nbsp;&nbsp; EFYD2555@gmail.com&nbsp;&nbsp;</p>\n<p><strong>สอบรายละเอียดเพิ่มเติม ได้ที่</strong><br /> ผู้ประสานงานการกระจายทุน:&nbsp;&nbsp; นางสาวสุภษา ถิ่นจะนะ (เกต)<br /> โทรศัพท์:&nbsp;&nbsp; 02-314-4112-3&nbsp;&nbsp; ต่อ 301, 302 <br /> มือถือ:&nbsp;&nbsp; 085-325-5323 <br /> Website:&nbsp;&nbsp; <a title="www.scbfoundation.com" href="http://www.scbfoundation.com">www.scbfoundation.com</a>, <a title="www.tff.or.th" href="http://www.tff.or.th">www.tff.or.th</a></p>/โครงการ “ปลูกใจ รักษ์โลก”   มูลนิธิกองทุนไทย ', '2012-07-01', '2012-07-30', '2012-07-30', '2012-08-31', '00:00:00', '18:00:00', '00:00:00', '23:59:59', 3, NULL, 'โครงการ “ปลูกใจ รักษ์โลก”   มูลนิธิกองทุนไทย ', 'เขตห้วยขวาง ', '1', '10310   ', 0, ' ปลูกใจรักษ์โลก รุ่นที่2', NULL, NULL, '“ปลูกใจ..รักษ์โลก”', 124, 312, '<p><strong>ความเป็นมา</strong><br /> โครงการ &ldquo;ปลูกใจ..รักษ์โลก&rdquo; ดำเนินงานโดยมูลนิธิกองทุนไทย ร่วมกับภาคีองค์กรสิ่งแวดล้อม โดยการสนับสนุนของมูลนิธิสยามกัมมาจล เริ่มดำเนินงานเมื่อวันที่ 1 เมษายน 2555 ที่ผ่านมา&nbsp;&nbsp; มีเป้าหมายเพื่อพัฒนาเยาวชน ให้มีความเป็นผู้นำที่เข้มแข็ง เป็นคนรุ่นใหม่ที่มีสำนึกรักษ์สิ่งแวดล้อม และมีสำนึกสาธารณะ&nbsp; ให้เติบโตเป็นพลเมืองที่มีคุณภาพ (Active Citizen) มีบทบาทในการดูแลรักษาสิ่งแวดล้อม และเป็นกำลังสำคัญในการขับเคลื่อนสังคมในอนาคต โดยผ่านการสนับสนุนทุนในการทำกิจกรรมดูแลรักษาสิ่งแวดล้อมให้แก่เยาวชน ให้เยาวชนได้ฝึกฝนหล่อหลอมและเสริมสร้างศักยภาพ จากการลงมือทำกิจกรรมแก้ไขปัญหาสิ่งแวดล้อมอย่างต่อเนื่องการฝึกอบรม และการแลกเปลี่ยนเรียนรู้ระหว่างการดำเนินโครงการ</p>\n<p>&nbsp;</p>\n<p><strong>การสนับสนุนทุนทำกิจกรรมดูแลรักษาสิ่งแวดล้อม ปี 2555</strong><br /> - ปี 2555 โครงการฯ จะสนับสนุนเงินทุนแก่กลุ่มเยาวชนสำหรับทำกิจกรรมดูแลรักษาสิ่งแวดล้อม รุ่นที่ 2&nbsp; จำนวน 10 โครงการ<br /> - เปิดรับสมัครข้อเสนอโครงการจากกลุ่มเยาวชน&nbsp; ที่สนใจทำกิจกรรมดูแลรักษาสิ่งแวดล้อม&nbsp; <br /> - คณะกรรมการโครงการจะพิจารณาคัดเลือกโครงการที่มีความชัดเจน และตรงกับเงื่อนไขการสนับสนุนของโครงการฯมากที่สุด โดยคณะกรรมการพิจารณาโครงการ ประกอบด้วยผู้ทรงคุณวุฒิในงานด้านสิ่งแวดล้อมและด้านการพัฒนาเยาวชน<br /> - โครงการที่ผ่านการพิจารณาคัดเลือกจากคณะกรรมการ จะได้รับทุนสนับสนุนการดำเนินงานโครงการตามความเป็นจริง สูงสุดไม่เกินโครงการละ 30,000 บาท&nbsp;&nbsp; และกลุ่มเยาวชน จะได้รับการพัฒนาศักยภาพจากการเข้าร่วมกิจกรรมต่างๆ ที่ทางโครงการฯ จัดขึ้นตลอดระยะเวลาการดำเนินงานโครงการ</p>\n<p>&nbsp;</p>\n<p><strong>คุณสมบัติของผู้เสนอโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; เป็นกลุ่มเยาวชนในพื้นที่ที่มีปัญหาสิ่งแวดล้อม ที่แกนนำและสมาชิกของกลุ่มมีอายุระหว่าง 15 - 25 ปี&nbsp; และแกนนำของกลุ่มมีไม่น้อยกว่า 3 คน<br /> 2.&nbsp;&nbsp;&nbsp; เป็นกลุ่มเยาวชนที่มีการรวมกลุ่มทำกิจกรรมร่วมกันอย่างชัดเจน&nbsp; และมีแกนนำหรือสมาชิกในกลุ่มมีประสบการณ์ในการทำกิจกรรมด้านสิ่งแวดล้อม<br /> 3.&nbsp;&nbsp;&nbsp; มีที่ปรึกษาหรือพี่เลี้ยงที่พร้อมสนับสนุนการทำงานของกลุ่มเยาวชนอย่างน้อย 1 คน&nbsp; โดยเป็นผู้ใหญ่ในพื้นที่นั้นๆ (เช่น&nbsp; ครู, อาจารย์, พ่อ-แม่-ผู้ปกครอง, ผู้ใหญ่บ้าน, อบต. หรือผู้นำชุมชนอื่นๆ)</p>\n<p>&nbsp;</p>\n<p><strong>เงื่อนไขในการให้ทุนสนับสนุนโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; เป็นโครงการที่ดำเนินงานดูแลรักษาและฟื้นฟูสิ่งแวดล้อมใน 5 ประเด็นปัญหาสิ่งแวดล้อม ได้แก่<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1)&nbsp;&nbsp;&nbsp; ปัญหาการเปลี่ยนแปลงสภาวะภูมิอากาศ (สภาวะโลกร้อน) และมลภาวะทางอากาศ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของทรัพยากรป่าไม้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของทรัพยากรทางทะเลและชายฝั่ง<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของแหล่งน้ำ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของดิน<br /> 2.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีโจทย์หรือประเด็นปัญหาสิ่งแวดล้อมในการทำโครงการที่ชัดเจน&nbsp; และเป็นโครงการที่มาจากความต้องการในการทำกิจกรรมของเยาวชนอย่างแท้จริง<br /> 3.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีระยะเวลาในการดำเนินงาน ไม่น้อยกว่า 6 เดือน และไม่เกิน 7 เดือน<br /> 4.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีการลงมือปฏิบัติการต่อสิ่งแวดล้อม&nbsp; และไม่เป็นโครงการวิจัย<br /> 5.&nbsp;&nbsp;&nbsp; โครงการที่ได้รับทุนสนับสนุน จะต้องส่งตัวแทนเข้าร่วมกิจกรรมฝึกอบรมของโครงการฯ จำนวน 4 คน ประกอบด้วย แกนนำเยาวชน 3 คน และที่ปรึกษา/พี่เลี้ยง 1 คน&nbsp;&nbsp; และตัวแทนทั้ง 4 คนจะต้องเข้าร่วมกิจกรรมต่างๆ เพื่อพัฒนาศักยภาพเยาวชนที่โครงการฯ จัดขึ้นอย่างต่อเนื่อง <br /> 6.&nbsp;&nbsp;&nbsp; กลุ่มเยาวชนจะต้องรายงานผลการดำเนินงานโครงการ ตามช่องทางและระยะเวลาที่ทางโครงการฯ กำหนดไว้&nbsp; ได้แก่ การรายงานทาง Website ของโครงการ&nbsp; และการรายงานเป็นเอกสาร</p>\n<p>&nbsp;</p>\n<p><strong>หลักเกณฑ์ในการพิจารณาคัดเลือกโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; ความมุ่งมั่นและความพร้อมในการทำโครงการของกลุ่มเยาวชน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.1&nbsp;&nbsp;&nbsp; มีการรวมกลุ่มเยาวชนเพื่อร่วมกันทำกิจกรรมที่สร้างสรรค์อย่างชัดเจน&nbsp; แกนนำและสมาชิกของกลุ่มมีความกระตือรือร้น และมีศักยภาพในการเรียนรู้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.2&nbsp;&nbsp;&nbsp; กลุ่มมีความมุ่งมั่นในการดูแลรักษาสิ่งแวดล้อมให้สามารถใช้ประโยชน์ได้อย่างยั่งยืน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.3&nbsp;&nbsp;&nbsp; แกนนำกลุ่มมีความเป็นผู้นำ สามารถนำเยาวชนทำกิจกรรมโครงการให้บรรลุวัตถุประสงค์ได้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.4&nbsp;&nbsp;&nbsp; มีแกนนำหรือสมาชิกในกลุ่มที่มีประสบการณ์ในการทำกิจกรรมด้านสิ่งแวดล้อม <br /> 2.&nbsp;&nbsp;&nbsp; ความชัดเจนปัญหาและกิจกรรมของโครงการ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1&nbsp;&nbsp;&nbsp; นำเสนอรูปธรรมของปัญหาสิ่งแวดล้อม ที่กลุ่มจะทำกิจกรรมดูแลรักษาหรือฟื้นฟูได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2&nbsp;&nbsp;&nbsp; นำเสนอพื้นที่ ที่กลุ่มจะทำกิจกรรมดูแลรักษาหรือฟื้นฟูสิ่งแวดล้อมได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3&nbsp;&nbsp;&nbsp; นำเสนอกิจกรรม ที่กลุ่มจะดำเนินการเพื่อดูแลรักษาหรือฟื้นฟูสิ่งแวดล้อมได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.4&nbsp;&nbsp;&nbsp; มีการมีส่วนร่วมจากชุมชน ในการเข้าร่วมทำกิจกรรมร่วมกับกลุ่มเยาวชน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.5&nbsp;&nbsp;&nbsp; มีความเป็นไปได้ที่จะดำเนินงานโครงการได้สำเร็จ และนำเสนอผลที่คาดว่าจะเกิดขึ้นได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.6&nbsp;&nbsp;&nbsp; มีศักยภาพในการขยายผลหรือต่อยอดการดำเนินงานของโครงการ ให้สามารถทำกิจกรรมดูแลรักษาสิ่งแวดล้อมได้กว้างขวางและต่อเนื่อง</p>\n<p>&nbsp;</p>\n<p><strong>ปฏิทินการดำเนินงาน รุ่นที่ 2</strong><br /> - เปิดรับข้อเสนอโครงการ &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันนี้ &ndash;&nbsp; 15 กันยายน 2555<br /> - วันสุดท้ายที่เปิดรับข้อเสนอโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 15 กันยายน 2555<br /> - พิจารณากลั่นกรองโครงการที่ตรงตามหลักเกณฑ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 16-24 กันยายน&nbsp; 2555<br /> - ประกาศผล โครงการที่ผ่านการกลั่นกรองรอบแรก 15 โครงการ&nbsp;&nbsp;&nbsp; วันที่ 25 กันยายน 2555<br /> - Workshop 1 (พัฒนาโครงการ + เสริมความรู้เรื่องสิ่งแวดล้อม)&nbsp; <br /> &nbsp;จำนวน 15 โครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; วันที่ 5 - 7 ตุลาคม&nbsp; 2555***<br /> - กลุ่มเยาวชนพัฒนาและจัดทำข้อเสนอโครงการฉบับสมบูรณ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 8 -19 ตุลาคม&nbsp; 2555<br /> - วันสุดท้ายที่เปิดรับข้อเสนอโครงการฉบับสมบูรณ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 19 ตุลาคม 2555<br /> - พิจารณาคัดเลือกโครงการที่ได้รับการสนับสนุน&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 20 &ndash; 26 ตุลาคม 2555 <br /> - ประกาศผลโครงการที่ได้รับการสนับสนุน 10&nbsp; โครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 27 ตุลาคม&nbsp; 2555 <br /> - ทำสัญญารับทุน + เริ่มดำเนินงานโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 29 ตุลาคม&nbsp; 2555<br /> - กลุ่มเยาวชนดำเนินงานโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 1 พฤศจิกายน2555&ndash;พฤษภาคม 2556<br /> - สิ้นสุดการดำเนินกิจกรรมของโครงการเยาวชน&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 31 พฤษภาคม&nbsp; 2556</p>\n<p>&nbsp;</p>\n<p><strong>หมายเหตุ&nbsp; </strong>โครงการที่ผ่านการกลั่นกรองรอบแรก รุ่นที่ 2 จำนวน 15&nbsp; โครงการ ต้องส่งตัวแทนเข้าร่วมการ Workshop 1 (พัฒนาโครงการ และเสริมทักษะด้านสิ่งแวดล้อม) จำนวน 4 คน ประกอบด้วย แกนนำเยาวชน 3 คน + ที่ปรึกษา/พี่เลี้ยง 1 คน</p>\n<p>&nbsp;</p>\n<p><strong>การรับสมัครโครงการ</strong><br /> - กลุ่มเยาวชนสามารถส่งใบสมัครเพื่อขอรับทุนสนับสนุนการดำเนินงานโครงการ โดยการแนะนำโครงการ บอกเล่าแรงบันดาลใจในการทำโครงการ และนำเสนอแนวความคิดในการทำกิจกรรม ด้วยวิธีการที่ง่ายและชัดเจนได้หลายรูปแบบ&nbsp; ได้แก่&nbsp; <br /> - นำเสนอด้วยเอกสาร ตามแบบฟอร์มใบสมัครโครงการ พร้อมรูปถ่าย&nbsp; <br /> - นำเสนอด้วย คลิปวีดีโอ หรือสื่ออื่นๆ (ระยะเวลาไม่เกิน 10 นาที) ที่แสดงให้เห็นแกนนำและสมาชิกของกลุ่มเยาวชน, แรงบันดาลใจ, ชุมชน, ปัญหาสิ่งแวดล้อมและพื้นที่ในการทำโครงการ, แนวทางการดำเนินงานและกิจกรรมของโครงการ, ฯลฯ&nbsp; <br /> - นำเสนอด้วยรูปแบบและวิธีการอื่นๆ ที่สามารถสื่อสารข้อมูลของโครงการข้างต้นได้</p>\n<p>&nbsp;</p>\n<p><span style="color: #3366ff;"><span style="font-size: x-large;"><strong>ปิดรับสมัครโครงการ วันที่ 15 กันยายน 2555</strong></span></span></p>\n<p>&nbsp;</p>\n<p><strong>ส่งใบสมัครโครงการ ได้ทั้งทางไปรษณีย์ หรือทางอีเมล์ ได้ที่ </strong><br /> โครงการ &ldquo;ปลูกใจ รักษ์โลก&rdquo;&nbsp;&nbsp; มูลนิธิกองทุนไทย <br /> 2044/23&nbsp; ถนนเพชรบุรีตัดใหม่&nbsp; เขตห้วยขวาง&nbsp; กรุงเทพฯ&nbsp; 10310&nbsp;&nbsp; <br /> โทรสาร 02-718-1850&nbsp;&nbsp;&nbsp; E-mail:&nbsp;&nbsp; EFYD2555@gmail.com&nbsp;&nbsp;</p>\n<p><strong>สอบรายละเอียดเพิ่มเติม ได้ที่</strong><br /> ผู้ประสานงานการกระจายทุน:&nbsp;&nbsp; นางสาวสุภษา ถิ่นจะนะ (เกต)<br /> โทรศัพท์:&nbsp;&nbsp; 02-314-4112-3&nbsp;&nbsp; ต่อ 301, 302 <br /> มือถือ:&nbsp;&nbsp; 085-325-5323 <br /> Website:&nbsp;&nbsp; <a title="www.scbfoundation.com" href="http://www.scbfoundation.com">www.scbfoundation.com</a>, <a title="www.tff.or.th" href="http://www.tff.or.th">www.tff.or.th</a></p>', '', '', 0, '', '501599a776dc320120725-3-1[1].jpg', ' ', '', '', 'อาทิตย์, พุธ, เสาร์, ', '2012-07-30 16:47:10', 'งานอาสาทั่วไป, ', '', 0);
+(1, ' ปลูกใจรักษ์โลก รุ่นที่2/“ปลูกใจ..รักษ์โลก”//<p><strong>ความเป็นมา</strong><br /> โครงการ &ldquo;ปลูกใจ..รักษ์โลก&rdquo; ดำเนินงานโดยมูลนิธิกองทุนไทย ร่วมกับภาคีองค์กรสิ่งแวดล้อม โดยการสนับสนุนของมูลนิธิสยามกัมมาจล เริ่มดำเนินงานเมื่อวันที่ 1 เมษายน 2555 ที่ผ่านมา&nbsp;&nbsp; มีเป้าหมายเพื่อพัฒนาเยาวชน ให้มีความเป็นผู้นำที่เข้มแข็ง เป็นคนรุ่นใหม่ที่มีสำนึกรักษ์สิ่งแวดล้อม และมีสำนึกสาธารณะ&nbsp; ให้เติบโตเป็นพลเมืองที่มีคุณภาพ (Active Citizen) มีบทบาทในการดูแลรักษาสิ่งแวดล้อม และเป็นกำลังสำคัญในการขับเคลื่อนสังคมในอนาคต โดยผ่านการสนับสนุนทุนในการทำกิจกรรมดูแลรักษาสิ่งแวดล้อมให้แก่เยาวชน ให้เยาวชนได้ฝึกฝนหล่อหลอมและเสริมสร้างศักยภาพ จากการลงมือทำกิจกรรมแก้ไขปัญหาสิ่งแวดล้อมอย่างต่อเนื่องการฝึกอบรม และการแลกเปลี่ยนเรียนรู้ระหว่างการดำเนินโครงการ</p>\n<p>&nbsp;</p>\n<p><strong>การสนับสนุนทุนทำกิจกรรมดูแลรักษาสิ่งแวดล้อม ปี 2555</strong><br /> - ปี 2555 โครงการฯ จะสนับสนุนเงินทุนแก่กลุ่มเยาวชนสำหรับทำกิจกรรมดูแลรักษาสิ่งแวดล้อม รุ่นที่ 2&nbsp; จำนวน 10 โครงการ<br /> - เปิดรับสมัครข้อเสนอโครงการจากกลุ่มเยาวชน&nbsp; ที่สนใจทำกิจกรรมดูแลรักษาสิ่งแวดล้อม&nbsp; <br /> - คณะกรรมการโครงการจะพิจารณาคัดเลือกโครงการที่มีความชัดเจน และตรงกับเงื่อนไขการสนับสนุนของโครงการฯมากที่สุด โดยคณะกรรมการพิจารณาโครงการ ประกอบด้วยผู้ทรงคุณวุฒิในงานด้านสิ่งแวดล้อมและด้านการพัฒนาเยาวชน<br /> - โครงการที่ผ่านการพิจารณาคัดเลือกจากคณะกรรมการ จะได้รับทุนสนับสนุนการดำเนินงานโครงการตามความเป็นจริง สูงสุดไม่เกินโครงการละ 30,000 บาท&nbsp;&nbsp; และกลุ่มเยาวชน จะได้รับการพัฒนาศักยภาพจากการเข้าร่วมกิจกรรมต่างๆ ที่ทางโครงการฯ จัดขึ้นตลอดระยะเวลาการดำเนินงานโครงการ</p>\n<p>&nbsp;</p>\n<p><strong>คุณสมบัติของผู้เสนอโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; เป็นกลุ่มเยาวชนในพื้นที่ที่มีปัญหาสิ่งแวดล้อม ที่แกนนำและสมาชิกของกลุ่มมีอายุระหว่าง 15 - 25 ปี&nbsp; และแกนนำของกลุ่มมีไม่น้อยกว่า 3 คน<br /> 2.&nbsp;&nbsp;&nbsp; เป็นกลุ่มเยาวชนที่มีการรวมกลุ่มทำกิจกรรมร่วมกันอย่างชัดเจน&nbsp; และมีแกนนำหรือสมาชิกในกลุ่มมีประสบการณ์ในการทำกิจกรรมด้านสิ่งแวดล้อม<br /> 3.&nbsp;&nbsp;&nbsp; มีที่ปรึกษาหรือพี่เลี้ยงที่พร้อมสนับสนุนการทำงานของกลุ่มเยาวชนอย่างน้อย 1 คน&nbsp; โดยเป็นผู้ใหญ่ในพื้นที่นั้นๆ (เช่น&nbsp; ครู, อาจารย์, พ่อ-แม่-ผู้ปกครอง, ผู้ใหญ่บ้าน, อบต. หรือผู้นำชุมชนอื่นๆ)</p>\n<p>&nbsp;</p>\n<p><strong>เงื่อนไขในการให้ทุนสนับสนุนโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; เป็นโครงการที่ดำเนินงานดูแลรักษาและฟื้นฟูสิ่งแวดล้อมใน 5 ประเด็นปัญหาสิ่งแวดล้อม ได้แก่<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1)&nbsp;&nbsp;&nbsp; ปัญหาการเปลี่ยนแปลงสภาวะภูมิอากาศ (สภาวะโลกร้อน) และมลภาวะทางอากาศ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของทรัพยากรป่าไม้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของทรัพยากรทางทะเลและชายฝั่ง<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของแหล่งน้ำ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของดิน<br /> 2.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีโจทย์หรือประเด็นปัญหาสิ่งแวดล้อมในการทำโครงการที่ชัดเจน&nbsp; และเป็นโครงการที่มาจากความต้องการในการทำกิจกรรมของเยาวชนอย่างแท้จริง<br /> 3.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีระยะเวลาในการดำเนินงาน ไม่น้อยกว่า 6 เดือน และไม่เกิน 7 เดือน<br /> 4.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีการลงมือปฏิบัติการต่อสิ่งแวดล้อม&nbsp; และไม่เป็นโครงการวิจัย<br /> 5.&nbsp;&nbsp;&nbsp; โครงการที่ได้รับทุนสนับสนุน จะต้องส่งตัวแทนเข้าร่วมกิจกรรมฝึกอบรมของโครงการฯ จำนวน 4 คน ประกอบด้วย แกนนำเยาวชน 3 คน และที่ปรึกษา/พี่เลี้ยง 1 คน&nbsp;&nbsp; และตัวแทนทั้ง 4 คนจะต้องเข้าร่วมกิจกรรมต่างๆ เพื่อพัฒนาศักยภาพเยาวชนที่โครงการฯ จัดขึ้นอย่างต่อเนื่อง <br /> 6.&nbsp;&nbsp;&nbsp; กลุ่มเยาวชนจะต้องรายงานผลการดำเนินงานโครงการ ตามช่องทางและระยะเวลาที่ทางโครงการฯ กำหนดไว้&nbsp; ได้แก่ การรายงานทาง Website ของโครงการ&nbsp; และการรายงานเป็นเอกสาร</p>\n<p>&nbsp;</p>\n<p><strong>หลักเกณฑ์ในการพิจารณาคัดเลือกโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; ความมุ่งมั่นและความพร้อมในการทำโครงการของกลุ่มเยาวชน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.1&nbsp;&nbsp;&nbsp; มีการรวมกลุ่มเยาวชนเพื่อร่วมกันทำกิจกรรมที่สร้างสรรค์อย่างชัดเจน&nbsp; แกนนำและสมาชิกของกลุ่มมีความกระตือรือร้น และมีศักยภาพในการเรียนรู้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.2&nbsp;&nbsp;&nbsp; กลุ่มมีความมุ่งมั่นในการดูแลรักษาสิ่งแวดล้อมให้สามารถใช้ประโยชน์ได้อย่างยั่งยืน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.3&nbsp;&nbsp;&nbsp; แกนนำกลุ่มมีความเป็นผู้นำ สามารถนำเยาวชนทำกิจกรรมโครงการให้บรรลุวัตถุประสงค์ได้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.4&nbsp;&nbsp;&nbsp; มีแกนนำหรือสมาชิกในกลุ่มที่มีประสบการณ์ในการทำกิจกรรมด้านสิ่งแวดล้อม <br /> 2.&nbsp;&nbsp;&nbsp; ความชัดเจนปัญหาและกิจกรรมของโครงการ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1&nbsp;&nbsp;&nbsp; นำเสนอรูปธรรมของปัญหาสิ่งแวดล้อม ที่กลุ่มจะทำกิจกรรมดูแลรักษาหรือฟื้นฟูได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2&nbsp;&nbsp;&nbsp; นำเสนอพื้นที่ ที่กลุ่มจะทำกิจกรรมดูแลรักษาหรือฟื้นฟูสิ่งแวดล้อมได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3&nbsp;&nbsp;&nbsp; นำเสนอกิจกรรม ที่กลุ่มจะดำเนินการเพื่อดูแลรักษาหรือฟื้นฟูสิ่งแวดล้อมได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.4&nbsp;&nbsp;&nbsp; มีการมีส่วนร่วมจากชุมชน ในการเข้าร่วมทำกิจกรรมร่วมกับกลุ่มเยาวชน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.5&nbsp;&nbsp;&nbsp; มีความเป็นไปได้ที่จะดำเนินงานโครงการได้สำเร็จ และนำเสนอผลที่คาดว่าจะเกิดขึ้นได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.6&nbsp;&nbsp;&nbsp; มีศักยภาพในการขยายผลหรือต่อยอดการดำเนินงานของโครงการ ให้สามารถทำกิจกรรมดูแลรักษาสิ่งแวดล้อมได้กว้างขวางและต่อเนื่อง</p>\n<p>&nbsp;</p>\n<p><strong>ปฏิทินการดำเนินงาน รุ่นที่ 2</strong><br /> - เปิดรับข้อเสนอโครงการ &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันนี้ &ndash;&nbsp; 15 กันยายน 2555<br /> - วันสุดท้ายที่เปิดรับข้อเสนอโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 15 กันยายน 2555<br /> - พิจารณากลั่นกรองโครงการที่ตรงตามหลักเกณฑ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 16-24 กันยายน&nbsp; 2555<br /> - ประกาศผล โครงการที่ผ่านการกลั่นกรองรอบแรก 15 โครงการ&nbsp;&nbsp;&nbsp; วันที่ 25 กันยายน 2555<br /> - Workshop 1 (พัฒนาโครงการ + เสริมความรู้เรื่องสิ่งแวดล้อม)&nbsp; <br /> &nbsp;จำนวน 15 โครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; วันที่ 5 - 7 ตุลาคม&nbsp; 2555***<br /> - กลุ่มเยาวชนพัฒนาและจัดทำข้อเสนอโครงการฉบับสมบูรณ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 8 -19 ตุลาคม&nbsp; 2555<br /> - วันสุดท้ายที่เปิดรับข้อเสนอโครงการฉบับสมบูรณ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 19 ตุลาคม 2555<br /> - พิจารณาคัดเลือกโครงการที่ได้รับการสนับสนุน&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 20 &ndash; 26 ตุลาคม 2555 <br /> - ประกาศผลโครงการที่ได้รับการสนับสนุน 10&nbsp; โครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 27 ตุลาคม&nbsp; 2555 <br /> - ทำสัญญารับทุน + เริ่มดำเนินงานโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 29 ตุลาคม&nbsp; 2555<br /> - กลุ่มเยาวชนดำเนินงานโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 1 พฤศจิกายน2555&ndash;พฤษภาคม 2556<br /> - สิ้นสุดการดำเนินกิจกรรมของโครงการเยาวชน&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 31 พฤษภาคม&nbsp; 2556</p>\n<p>&nbsp;</p>\n<p><strong>หมายเหตุ&nbsp; </strong>โครงการที่ผ่านการกลั่นกรองรอบแรก รุ่นที่ 2 จำนวน 15&nbsp; โครงการ ต้องส่งตัวแทนเข้าร่วมการ Workshop 1 (พัฒนาโครงการ และเสริมทักษะด้านสิ่งแวดล้อม) จำนวน 4 คน ประกอบด้วย แกนนำเยาวชน 3 คน + ที่ปรึกษา/พี่เลี้ยง 1 คน</p>\n<p>&nbsp;</p>\n<p><strong>การรับสมัครโครงการ</strong><br /> - กลุ่มเยาวชนสามารถส่งใบสมัครเพื่อขอรับทุนสนับสนุนการดำเนินงานโครงการ โดยการแนะนำโครงการ บอกเล่าแรงบันดาลใจในการทำโครงการ และนำเสนอแนวความคิดในการทำกิจกรรม ด้วยวิธีการที่ง่ายและชัดเจนได้หลายรูปแบบ&nbsp; ได้แก่&nbsp; <br /> - นำเสนอด้วยเอกสาร ตามแบบฟอร์มใบสมัครโครงการ พร้อมรูปถ่าย&nbsp; <br /> - นำเสนอด้วย คลิปวีดีโอ หรือสื่ออื่นๆ (ระยะเวลาไม่เกิน 10 นาที) ที่แสดงให้เห็นแกนนำและสมาชิกของกลุ่มเยาวชน, แรงบันดาลใจ, ชุมชน, ปัญหาสิ่งแวดล้อมและพื้นที่ในการทำโครงการ, แนวทางการดำเนินงานและกิจกรรมของโครงการ, ฯลฯ&nbsp; <br /> - นำเสนอด้วยรูปแบบและวิธีการอื่นๆ ที่สามารถสื่อสารข้อมูลของโครงการข้างต้นได้</p>\n<p>&nbsp;</p>\n<p><span style="color: #3366ff;"><span style="font-size: x-large;"><strong>ปิดรับสมัครโครงการ วันที่ 15 กันยายน 2555</strong></span></span></p>\n<p>&nbsp;</p>\n<p><strong>ส่งใบสมัครโครงการ ได้ทั้งทางไปรษณีย์ หรือทางอีเมล์ ได้ที่ </strong><br /> โครงการ &ldquo;ปลูกใจ รักษ์โลก&rdquo;&nbsp;&nbsp; มูลนิธิกองทุนไทย <br /> 2044/23&nbsp; ถนนเพชรบุรีตัดใหม่&nbsp; เขตห้วยขวาง&nbsp; กรุงเทพฯ&nbsp; 10310&nbsp;&nbsp; <br /> โทรสาร 02-718-1850&nbsp;&nbsp;&nbsp; E-mail:&nbsp;&nbsp; EFYD2555@gmail.com&nbsp;&nbsp;</p>\n<p><strong>สอบรายละเอียดเพิ่มเติม ได้ที่</strong><br /> ผู้ประสานงานการกระจายทุน:&nbsp;&nbsp; นางสาวสุภษา ถิ่นจะนะ (เกต)<br /> โทรศัพท์:&nbsp;&nbsp; 02-314-4112-3&nbsp;&nbsp; ต่อ 301, 302 <br /> มือถือ:&nbsp;&nbsp; 085-325-5323 <br /> Website:&nbsp;&nbsp; <a title="www.scbfoundation.com" href="http://www.scbfoundation.com">www.scbfoundation.com</a>, <a title="www.tff.or.th" href="http://www.tff.or.th">www.tff.or.th</a></p>/โครงการ “ปลูกใจ รักษ์โลก”   มูลนิธิกองทุนไทย ', '2012-07-01', '2012-07-30', '2012-07-30', '2012-08-31', '00:00:00', '18:00:00', '00:00:00', '23:59:59', 3, NULL, 'โครงการ “ปลูกใจ รักษ์โลก”   มูลนิธิกองทุนไทย ', 'เขตห้วยขวาง ', '1', '10310   ', 0, ' ปลูกใจรักษ์โลก รุ่นที่2', NULL, NULL, '“ปลูกใจ..รักษ์โลก”', 124, 312, '<p><strong>ความเป็นมา</strong><br /> โครงการ &ldquo;ปลูกใจ..รักษ์โลก&rdquo; ดำเนินงานโดยมูลนิธิกองทุนไทย ร่วมกับภาคีองค์กรสิ่งแวดล้อม โดยการสนับสนุนของมูลนิธิสยามกัมมาจล เริ่มดำเนินงานเมื่อวันที่ 1 เมษายน 2555 ที่ผ่านมา&nbsp;&nbsp; มีเป้าหมายเพื่อพัฒนาเยาวชน ให้มีความเป็นผู้นำที่เข้มแข็ง เป็นคนรุ่นใหม่ที่มีสำนึกรักษ์สิ่งแวดล้อม และมีสำนึกสาธารณะ&nbsp; ให้เติบโตเป็นพลเมืองที่มีคุณภาพ (Active Citizen) มีบทบาทในการดูแลรักษาสิ่งแวดล้อม และเป็นกำลังสำคัญในการขับเคลื่อนสังคมในอนาคต โดยผ่านการสนับสนุนทุนในการทำกิจกรรมดูแลรักษาสิ่งแวดล้อมให้แก่เยาวชน ให้เยาวชนได้ฝึกฝนหล่อหลอมและเสริมสร้างศักยภาพ จากการลงมือทำกิจกรรมแก้ไขปัญหาสิ่งแวดล้อมอย่างต่อเนื่องการฝึกอบรม และการแลกเปลี่ยนเรียนรู้ระหว่างการดำเนินโครงการ</p>\n<p>&nbsp;</p>\n<p><strong>การสนับสนุนทุนทำกิจกรรมดูแลรักษาสิ่งแวดล้อม ปี 2555</strong><br /> - ปี 2555 โครงการฯ จะสนับสนุนเงินทุนแก่กลุ่มเยาวชนสำหรับทำกิจกรรมดูแลรักษาสิ่งแวดล้อม รุ่นที่ 2&nbsp; จำนวน 10 โครงการ<br /> - เปิดรับสมัครข้อเสนอโครงการจากกลุ่มเยาวชน&nbsp; ที่สนใจทำกิจกรรมดูแลรักษาสิ่งแวดล้อม&nbsp; <br /> - คณะกรรมการโครงการจะพิจารณาคัดเลือกโครงการที่มีความชัดเจน และตรงกับเงื่อนไขการสนับสนุนของโครงการฯมากที่สุด โดยคณะกรรมการพิจารณาโครงการ ประกอบด้วยผู้ทรงคุณวุฒิในงานด้านสิ่งแวดล้อมและด้านการพัฒนาเยาวชน<br /> - โครงการที่ผ่านการพิจารณาคัดเลือกจากคณะกรรมการ จะได้รับทุนสนับสนุนการดำเนินงานโครงการตามความเป็นจริง สูงสุดไม่เกินโครงการละ 30,000 บาท&nbsp;&nbsp; และกลุ่มเยาวชน จะได้รับการพัฒนาศักยภาพจากการเข้าร่วมกิจกรรมต่างๆ ที่ทางโครงการฯ จัดขึ้นตลอดระยะเวลาการดำเนินงานโครงการ</p>\n<p>&nbsp;</p>\n<p><strong>คุณสมบัติของผู้เสนอโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; เป็นกลุ่มเยาวชนในพื้นที่ที่มีปัญหาสิ่งแวดล้อม ที่แกนนำและสมาชิกของกลุ่มมีอายุระหว่าง 15 - 25 ปี&nbsp; และแกนนำของกลุ่มมีไม่น้อยกว่า 3 คน<br /> 2.&nbsp;&nbsp;&nbsp; เป็นกลุ่มเยาวชนที่มีการรวมกลุ่มทำกิจกรรมร่วมกันอย่างชัดเจน&nbsp; และมีแกนนำหรือสมาชิกในกลุ่มมีประสบการณ์ในการทำกิจกรรมด้านสิ่งแวดล้อม<br /> 3.&nbsp;&nbsp;&nbsp; มีที่ปรึกษาหรือพี่เลี้ยงที่พร้อมสนับสนุนการทำงานของกลุ่มเยาวชนอย่างน้อย 1 คน&nbsp; โดยเป็นผู้ใหญ่ในพื้นที่นั้นๆ (เช่น&nbsp; ครู, อาจารย์, พ่อ-แม่-ผู้ปกครอง, ผู้ใหญ่บ้าน, อบต. หรือผู้นำชุมชนอื่นๆ)</p>\n<p>&nbsp;</p>\n<p><strong>เงื่อนไขในการให้ทุนสนับสนุนโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; เป็นโครงการที่ดำเนินงานดูแลรักษาและฟื้นฟูสิ่งแวดล้อมใน 5 ประเด็นปัญหาสิ่งแวดล้อม ได้แก่<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1)&nbsp;&nbsp;&nbsp; ปัญหาการเปลี่ยนแปลงสภาวะภูมิอากาศ (สภาวะโลกร้อน) และมลภาวะทางอากาศ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของทรัพยากรป่าไม้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของทรัพยากรทางทะเลและชายฝั่ง<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของแหล่งน้ำ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5)&nbsp;&nbsp;&nbsp; ปัญหาการเสื่อมโทรมของดิน<br /> 2.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีโจทย์หรือประเด็นปัญหาสิ่งแวดล้อมในการทำโครงการที่ชัดเจน&nbsp; และเป็นโครงการที่มาจากความต้องการในการทำกิจกรรมของเยาวชนอย่างแท้จริง<br /> 3.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีระยะเวลาในการดำเนินงาน ไม่น้อยกว่า 6 เดือน และไม่เกิน 7 เดือน<br /> 4.&nbsp;&nbsp;&nbsp; เป็นโครงการที่มีการลงมือปฏิบัติการต่อสิ่งแวดล้อม&nbsp; และไม่เป็นโครงการวิจัย<br /> 5.&nbsp;&nbsp;&nbsp; โครงการที่ได้รับทุนสนับสนุน จะต้องส่งตัวแทนเข้าร่วมกิจกรรมฝึกอบรมของโครงการฯ จำนวน 4 คน ประกอบด้วย แกนนำเยาวชน 3 คน และที่ปรึกษา/พี่เลี้ยง 1 คน&nbsp;&nbsp; และตัวแทนทั้ง 4 คนจะต้องเข้าร่วมกิจกรรมต่างๆ เพื่อพัฒนาศักยภาพเยาวชนที่โครงการฯ จัดขึ้นอย่างต่อเนื่อง <br /> 6.&nbsp;&nbsp;&nbsp; กลุ่มเยาวชนจะต้องรายงานผลการดำเนินงานโครงการ ตามช่องทางและระยะเวลาที่ทางโครงการฯ กำหนดไว้&nbsp; ได้แก่ การรายงานทาง Website ของโครงการ&nbsp; และการรายงานเป็นเอกสาร</p>\n<p>&nbsp;</p>\n<p><strong>หลักเกณฑ์ในการพิจารณาคัดเลือกโครงการ</strong><br /> 1.&nbsp;&nbsp;&nbsp; ความมุ่งมั่นและความพร้อมในการทำโครงการของกลุ่มเยาวชน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.1&nbsp;&nbsp;&nbsp; มีการรวมกลุ่มเยาวชนเพื่อร่วมกันทำกิจกรรมที่สร้างสรรค์อย่างชัดเจน&nbsp; แกนนำและสมาชิกของกลุ่มมีความกระตือรือร้น และมีศักยภาพในการเรียนรู้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.2&nbsp;&nbsp;&nbsp; กลุ่มมีความมุ่งมั่นในการดูแลรักษาสิ่งแวดล้อมให้สามารถใช้ประโยชน์ได้อย่างยั่งยืน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.3&nbsp;&nbsp;&nbsp; แกนนำกลุ่มมีความเป็นผู้นำ สามารถนำเยาวชนทำกิจกรรมโครงการให้บรรลุวัตถุประสงค์ได้<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.4&nbsp;&nbsp;&nbsp; มีแกนนำหรือสมาชิกในกลุ่มที่มีประสบการณ์ในการทำกิจกรรมด้านสิ่งแวดล้อม <br /> 2.&nbsp;&nbsp;&nbsp; ความชัดเจนปัญหาและกิจกรรมของโครงการ<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1&nbsp;&nbsp;&nbsp; นำเสนอรูปธรรมของปัญหาสิ่งแวดล้อม ที่กลุ่มจะทำกิจกรรมดูแลรักษาหรือฟื้นฟูได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2&nbsp;&nbsp;&nbsp; นำเสนอพื้นที่ ที่กลุ่มจะทำกิจกรรมดูแลรักษาหรือฟื้นฟูสิ่งแวดล้อมได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3&nbsp;&nbsp;&nbsp; นำเสนอกิจกรรม ที่กลุ่มจะดำเนินการเพื่อดูแลรักษาหรือฟื้นฟูสิ่งแวดล้อมได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.4&nbsp;&nbsp;&nbsp; มีการมีส่วนร่วมจากชุมชน ในการเข้าร่วมทำกิจกรรมร่วมกับกลุ่มเยาวชน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.5&nbsp;&nbsp;&nbsp; มีความเป็นไปได้ที่จะดำเนินงานโครงการได้สำเร็จ และนำเสนอผลที่คาดว่าจะเกิดขึ้นได้ชัดเจน<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.6&nbsp;&nbsp;&nbsp; มีศักยภาพในการขยายผลหรือต่อยอดการดำเนินงานของโครงการ ให้สามารถทำกิจกรรมดูแลรักษาสิ่งแวดล้อมได้กว้างขวางและต่อเนื่อง</p>\n<p>&nbsp;</p>\n<p><strong>ปฏิทินการดำเนินงาน รุ่นที่ 2</strong><br /> - เปิดรับข้อเสนอโครงการ &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันนี้ &ndash;&nbsp; 15 กันยายน 2555<br /> - วันสุดท้ายที่เปิดรับข้อเสนอโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 15 กันยายน 2555<br /> - พิจารณากลั่นกรองโครงการที่ตรงตามหลักเกณฑ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 16-24 กันยายน&nbsp; 2555<br /> - ประกาศผล โครงการที่ผ่านการกลั่นกรองรอบแรก 15 โครงการ&nbsp;&nbsp;&nbsp; วันที่ 25 กันยายน 2555<br /> - Workshop 1 (พัฒนาโครงการ + เสริมความรู้เรื่องสิ่งแวดล้อม)&nbsp; <br /> &nbsp;จำนวน 15 โครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; วันที่ 5 - 7 ตุลาคม&nbsp; 2555***<br /> - กลุ่มเยาวชนพัฒนาและจัดทำข้อเสนอโครงการฉบับสมบูรณ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 8 -19 ตุลาคม&nbsp; 2555<br /> - วันสุดท้ายที่เปิดรับข้อเสนอโครงการฉบับสมบูรณ์&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 19 ตุลาคม 2555<br /> - พิจารณาคัดเลือกโครงการที่ได้รับการสนับสนุน&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 20 &ndash; 26 ตุลาคม 2555 <br /> - ประกาศผลโครงการที่ได้รับการสนับสนุน 10&nbsp; โครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 27 ตุลาคม&nbsp; 2555 <br /> - ทำสัญญารับทุน + เริ่มดำเนินงานโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 29 ตุลาคม&nbsp; 2555<br /> - กลุ่มเยาวชนดำเนินงานโครงการ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 1 พฤศจิกายน2555&ndash;พฤษภาคม 2556<br /> - สิ้นสุดการดำเนินกิจกรรมของโครงการเยาวชน&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; วันที่ 31 พฤษภาคม&nbsp; 2556</p>\n<p>&nbsp;</p>\n<p><strong>หมายเหตุ&nbsp; </strong>โครงการที่ผ่านการกลั่นกรองรอบแรก รุ่นที่ 2 จำนวน 15&nbsp; โครงการ ต้องส่งตัวแทนเข้าร่วมการ Workshop 1 (พัฒนาโครงการ และเสริมทักษะด้านสิ่งแวดล้อม) จำนวน 4 คน ประกอบด้วย แกนนำเยาวชน 3 คน + ที่ปรึกษา/พี่เลี้ยง 1 คน</p>\n<p>&nbsp;</p>\n<p><strong>การรับสมัครโครงการ</strong><br /> - กลุ่มเยาวชนสามารถส่งใบสมัครเพื่อขอรับทุนสนับสนุนการดำเนินงานโครงการ โดยการแนะนำโครงการ บอกเล่าแรงบันดาลใจในการทำโครงการ และนำเสนอแนวความคิดในการทำกิจกรรม ด้วยวิธีการที่ง่ายและชัดเจนได้หลายรูปแบบ&nbsp; ได้แก่&nbsp; <br /> - นำเสนอด้วยเอกสาร ตามแบบฟอร์มใบสมัครโครงการ พร้อมรูปถ่าย&nbsp; <br /> - นำเสนอด้วย คลิปวีดีโอ หรือสื่ออื่นๆ (ระยะเวลาไม่เกิน 10 นาที) ที่แสดงให้เห็นแกนนำและสมาชิกของกลุ่มเยาวชน, แรงบันดาลใจ, ชุมชน, ปัญหาสิ่งแวดล้อมและพื้นที่ในการทำโครงการ, แนวทางการดำเนินงานและกิจกรรมของโครงการ, ฯลฯ&nbsp; <br /> - นำเสนอด้วยรูปแบบและวิธีการอื่นๆ ที่สามารถสื่อสารข้อมูลของโครงการข้างต้นได้</p>\n<p>&nbsp;</p>\n<p><span style="color: #3366ff;"><span style="font-size: x-large;"><strong>ปิดรับสมัครโครงการ วันที่ 15 กันยายน 2555</strong></span></span></p>\n<p>&nbsp;</p>\n<p><strong>ส่งใบสมัครโครงการ ได้ทั้งทางไปรษณีย์ หรือทางอีเมล์ ได้ที่ </strong><br /> โครงการ &ldquo;ปลูกใจ รักษ์โลก&rdquo;&nbsp;&nbsp; มูลนิธิกองทุนไทย <br /> 2044/23&nbsp; ถนนเพชรบุรีตัดใหม่&nbsp; เขตห้วยขวาง&nbsp; กรุงเทพฯ&nbsp; 10310&nbsp;&nbsp; <br /> โทรสาร 02-718-1850&nbsp;&nbsp;&nbsp; E-mail:&nbsp;&nbsp; EFYD2555@gmail.com&nbsp;&nbsp;</p>\n<p><strong>สอบรายละเอียดเพิ่มเติม ได้ที่</strong><br /> ผู้ประสานงานการกระจายทุน:&nbsp;&nbsp; นางสาวสุภษา ถิ่นจะนะ (เกต)<br /> โทรศัพท์:&nbsp;&nbsp; 02-314-4112-3&nbsp;&nbsp; ต่อ 301, 302 <br /> มือถือ:&nbsp;&nbsp; 085-325-5323 <br /> Website:&nbsp;&nbsp; <a title="www.scbfoundation.com" href="http://www.scbfoundation.com">www.scbfoundation.com</a>, <a title="www.tff.or.th" href="http://www.tff.or.th">www.tff.or.th</a></p>', '', '', 0, '', '501599a776dc320120725-3-1[1].jpg', ' ', '', '', 'อาทิตย์, พุธ, เสาร์, ', '2012-08-05 17:23:54', 'งานอาสาทั่วไป, ', '', 123);
 
 -- --------------------------------------------------------
 
@@ -150,12 +159,12 @@ INSERT INTO `events` (`id`, `search_temp`, `signup_begin_date`, `signup_end_date
 -- Table structure for table `helps`
 --
 
-CREATE TABLE IF NOT EXISTS `helps` (
-  `id` int(11) NOT NULL auto_increment,
-  `topic` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `message` text collate utf8_unicode_ci NOT NULL,
-  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+CREATE TABLE `helps` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `topic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
@@ -171,13 +180,13 @@ INSERT INTO `helps` (`id`, `topic`, `message`, `created`) VALUES
 -- Table structure for table `images`
 --
 
-CREATE TABLE IF NOT EXISTS `images` (
-  `id` int(11) NOT NULL auto_increment,
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `event_id` int(11) NOT NULL,
   `description` text NOT NULL,
   `image` mediumtext NOT NULL,
-  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
@@ -198,17 +207,17 @@ INSERT INTO `images` (`id`, `event_id`, `description`, `image`, `timestamp`) VAL
 -- Table structure for table `inboxes`
 --
 
-CREATE TABLE IF NOT EXISTS `inboxes` (
-  `id` int(11) NOT NULL auto_increment,
+CREATE TABLE `inboxes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `organization_id` int(11) NOT NULL,
-  `is_removed` tinyint(1) NOT NULL default '0',
-  `is_read` tinyint(1) NOT NULL default '0',
-  `title` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `message` text collate utf8_unicode_ci NOT NULL,
+  `is_removed` tinyint(1) NOT NULL DEFAULT '0',
+  `is_read` tinyint(1) NOT NULL DEFAULT '0',
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
   `send_status` int(11) NOT NULL,
-  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
@@ -226,14 +235,14 @@ INSERT INTO `inboxes` (`id`, `user_id`, `organization_id`, `is_removed`, `is_rea
 -- Table structure for table `locations`
 --
 
-CREATE TABLE IF NOT EXISTS `locations` (
-  `id` int(11) NOT NULL auto_increment,
-  `province` mediumtext collate utf8_unicode_ci,
-  `district` mediumtext collate utf8_unicode_ci,
-  `latitude` double default NULL,
-  `longitude` double default NULL,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+CREATE TABLE `locations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `province` mediumtext COLLATE utf8_unicode_ci,
+  `district` mediumtext COLLATE utf8_unicode_ci,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
@@ -252,14 +261,14 @@ INSERT INTO `locations` (`id`, `province`, `district`, `latitude`, `longitude`, 
 -- Table structure for table `news`
 --
 
-CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(11) NOT NULL auto_increment,
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `topic` varchar(255) NOT NULL,
   `message` text NOT NULL,
   `pic` text NOT NULL,
   `video` text NOT NULL,
-  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
@@ -275,30 +284,30 @@ INSERT INTO `news` (`id`, `topic`, `message`, `pic`, `video`, `created`) VALUES
 -- Table structure for table `organizations`
 --
 
-CREATE TABLE IF NOT EXISTS `organizations` (
-  `id` int(11) NOT NULL auto_increment,
-  `search_temp` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `user_id` int(11) default NULL,
-  `verified` tinyint(1) NOT NULL default '0',
-  `noti_volunteerregister` tinyint(1) NOT NULL default '1',
-  `noti_eventalmostend` tinyint(1) NOT NULL default '1',
-  `noti_eventend` tinyint(1) NOT NULL default '1',
-  `name` mediumtext collate utf8_unicode_ci,
-  `objective` mediumtext collate utf8_unicode_ci,
-  `activity` mediumtext collate utf8_unicode_ci,
-  `address` mediumtext collate utf8_unicode_ci,
-  `district` mediumtext collate utf8_unicode_ci NOT NULL,
-  `province` mediumtext collate utf8_unicode_ci NOT NULL,
-  `postcode` tinytext collate utf8_unicode_ci NOT NULL,
-  `homephone` tinytext collate utf8_unicode_ci NOT NULL,
-  `fax` tinytext collate utf8_unicode_ci NOT NULL,
-  `contactperson` tinytext collate utf8_unicode_ci NOT NULL,
-  `facebook` tinytext collate utf8_unicode_ci NOT NULL,
-  `twitter` tinytext collate utf8_unicode_ci NOT NULL,
-  `website` mediumtext collate utf8_unicode_ci,
-  `logo` mediumtext collate utf8_unicode_ci,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+CREATE TABLE `organizations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `search_temp` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `verified` tinyint(1) NOT NULL DEFAULT '0',
+  `noti_volunteerregister` tinyint(1) NOT NULL DEFAULT '1',
+  `noti_eventalmostend` tinyint(1) NOT NULL DEFAULT '1',
+  `noti_eventend` tinyint(1) NOT NULL DEFAULT '1',
+  `name` mediumtext COLLATE utf8_unicode_ci,
+  `objective` mediumtext COLLATE utf8_unicode_ci,
+  `activity` mediumtext COLLATE utf8_unicode_ci,
+  `address` mediumtext COLLATE utf8_unicode_ci,
+  `district` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+  `province` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+  `postcode` tinytext COLLATE utf8_unicode_ci NOT NULL,
+  `homephone` tinytext COLLATE utf8_unicode_ci NOT NULL,
+  `fax` tinytext COLLATE utf8_unicode_ci NOT NULL,
+  `contactperson` tinytext COLLATE utf8_unicode_ci NOT NULL,
+  `facebook` tinytext COLLATE utf8_unicode_ci NOT NULL,
+  `twitter` tinytext COLLATE utf8_unicode_ci NOT NULL,
+  `website` mediumtext COLLATE utf8_unicode_ci,
+  `logo` mediumtext COLLATE utf8_unicode_ci,
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
@@ -306,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `organizations` (
 --
 
 INSERT INTO `organizations` (`id`, `search_temp`, `user_id`, `verified`, `noti_volunteerregister`, `noti_eventalmostend`, `noti_eventend`, `name`, `objective`, `activity`, `address`, `district`, `province`, `postcode`, `homephone`, `fax`, `contactperson`, `facebook`, `twitter`, `website`, `logo`, `timestamp`) VALUES
-(3, '', 2, 1, 0, 1, 0, 'ชื่ออออออออออออ', 'ดดดดดดดดดดดดดดดดวัตถุประสงค์dfasdf', 'qssd', 'zzzzzzz', 'เขต', 'zzzzzzz', 'ไปรษณีย์', '1231231231313', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.orgg', '50159885b7219about_01.jpg', '2012-08-01 06:39:09'),
+(3, '', 2, 1, 0, 1, 0, 'ชื่ออออออออออออ', '<p>ดดดดดดดดดดดดดดดดวัตถุประสงค์dfasdf</p>', '<p>qssd</p>', 'zzzzzzz', 'เขต', 'zzzzzzz', 'ไปรษณีย์', '1231231231313', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', 'twitter.com/jitarsa', 'http://www.jitarsa.orgg', '501eb200f2adaDSC_3143.jpg', '2012-08-05 17:48:49'),
 (4, '', 3, 0, 1, 1, 1, '123124124124', '1231412314124214', '1231412314124214123141231412421412314123141242141231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', NULL, '2012-07-21 19:14:25'),
 (5, '', 12, 1, 1, 1, 1, 'ธนาคารจิตอาสา', 'เราเชื่อว่าสังคมไทยจะเป็นสังคมอุดมไปด้วยความรักความสุข มีความมั่นคง และพัฒนาก้าวหน้าต่อไปได้ เพราะทุกคนร่วมสร้างสังคมนี้ขึ้นมา ไม่จำกัดว่าเป็นวัยไหนหรืออยู่ในหน้าที่การงานใด เราต่างมีความมุ่งมั่นตั้งใจเพื่อสร้างประเทศไทย เราไม่นิ่งเฉยดูดาย แต่จะลุกขึ้นยื่นมือมาช่วยเหลือกัน ทุกๆ คนบนผืนแผ่นดินไทยสามารถเป็นอาสาสมัครผู้อุทิศกำลังความสามารถและเวลาอันมีค่าของตนให้แก่ประโยชน์ส่วนรวม', 'ธนาคารจิตอาสามีภากิจ 3 ส่วนหลัก ได้แก่1. ระบบธนาคารเวลา (Time Bank)Time Bank เป็นระบบสนับสนุนการทำงานอาสา ที่เข้าถึงได้ทาง Internet ให้อาสาสมัครได้แสดงความตั้งใจจะใช้เวลาเพื่อทำงานอาสา โดยรวบรวมสถิติการใช้เวลา ยังมีระบบคัดเลือกและแนะนำงาน (matching) ให้ค้นหางานอาสาที่เหมาะกับตนเอง ตรงกับความสนใจ ความถนัด ทักษะ ความสามารถ หรือความสะดวก ไม่เฉพาะแต่ในสถานการณ์ภัยพิบัติเท่านั้น แต่ยังรวมถึงงานอาสาสมัครเพื่อสังคมทุกประเภทที่มีอยู่แล้วในประเทศไทยด้วย2. การปฐมนิเทศและการอบรม (Orientation and Training)การปฐมนิเทศและการอบรมอาสาเป็นกระบวนการเตรียมพร้อมอาสาสมัครก่อนลงไปทำงานอาสา เพื่อให้อาสาได้เกิดประสบการณ์ที่ดี ได้เรียนรู้ และพัฒนาตนเองอย่างรอบด้านทั้งทางกาย ทางใจ และทางสังคม นอกจากนี้การจัดอบรมให้กับองค์กรที่รับอาสาเข้าไปทำงานก็เป็นสิ่งสำคัญเช่นกัน เพราะการจัดกิจกรรมเพื่อให้เกิดประโยชน์สูงสุดกับอาสานั้นจำเป็นต้องมีทั้งความเข้าใจและทักษะ รวมถึงมีการจัดทำคู่มือรวบรวมองค์ความรู้เรื่องการปฐมนิเทศและการอบรมด้วย3. อาสาสัมพันธ์ (Volunteer Relation Managaement: VRM)งานอาสาสัมพันธ์เป็นการสร้างความต่อเนื่องในการมีกิจกรรมความร่วมมือและสื่อสาระะหว่างอาสาสมัครและองค์กรที่จัดกิจกรรม นอกจากจะเป็นช่องทางในการสื่อสาร งานอาสาสัมพันธ์ยังช่วยให้กำลังใจ เปิดโอกาสการแลกเปลี่ยนประสบการณ์ และความประทับใจ จากการทำงาน ตลอดจนสามารถพัฒนาเป็นชุมชนเครือข่ายความร่วมมือตามประเด็นความสนใจ หรือตามพื้นที่ต่อไป', '10 ซ.3 ถ.พหลโยธิน สามเสนใน', 'พญาไท', 'กรุงเทพมหานคร', '10400', '02-617-1797', '02-617-1796', 'ธีรัช', 'www.facebook.com/JitArsaBank', '@JitArsaBank', 'www.JitArsaBank.com', '5017428dd707bAW-logoJitArsaThai_cropped.jpg', '2012-08-01 06:42:35');
 
@@ -316,16 +325,16 @@ INSERT INTO `organizations` (`id`, `search_temp`, `user_id`, `verified`, `noti_v
 -- Table structure for table `trainings`
 --
 
-CREATE TABLE IF NOT EXISTS `trainings` (
-  `id` int(11) NOT NULL auto_increment,
+CREATE TABLE `trainings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `topic` varchar(255) NOT NULL,
   `date_message` text NOT NULL,
   `message` text NOT NULL,
   `main_pic` tinytext NOT NULL,
   `pic` text NOT NULL,
   `video` text NOT NULL,
-  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
@@ -346,18 +355,18 @@ INSERT INTO `trainings` (`id`, `topic`, `date_message`, `message`, `main_pic`, `
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+CREATE TABLE `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(127) NOT NULL,
   `password` varchar(64) NOT NULL,
   `displayname` text NOT NULL,
-  `noti_eventrecommended` tinyint(1) NOT NULL default '1',
-  `noti_eventapproved` tinyint(1) NOT NULL default '1',
-  `noti_almosteventdate` tinyint(1) NOT NULL default '1',
-  `noti_eventthank` tinyint(1) NOT NULL default '1',
-  `noti_sms_eventapproved` tinyint(1) NOT NULL default '1',
-  `noti_sms_almosteventdate` tinyint(1) NOT NULL default '1',
-  `noti_sms_news` tinyint(1) NOT NULL default '1',
+  `noti_eventrecommended` tinyint(1) NOT NULL DEFAULT '1',
+  `noti_eventapproved` tinyint(1) NOT NULL DEFAULT '1',
+  `noti_almosteventdate` tinyint(1) NOT NULL DEFAULT '1',
+  `noti_eventthank` tinyint(1) NOT NULL DEFAULT '1',
+  `noti_sms_eventapproved` tinyint(1) NOT NULL DEFAULT '1',
+  `noti_sms_almosteventdate` tinyint(1) NOT NULL DEFAULT '1',
+  `noti_sms_news` tinyint(1) NOT NULL DEFAULT '1',
   `nickname` text NOT NULL,
   `role` int(11) NOT NULL,
   `first_name` text NOT NULL,
@@ -368,14 +377,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `profile_image` text NOT NULL,
   `quote` text NOT NULL,
   `description` text NOT NULL,
-  `created` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `sex` char(1) NOT NULL,
   `website` text NOT NULL,
   `skills` text NOT NULL,
   `interest_tags` text NOT NULL,
   `location` text NOT NULL,
   `province` text NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_email` (`email`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
@@ -397,12 +406,12 @@ INSERT INTO `users` (`id`, `email`, `password`, `displayname`, `noti_eventrecomm
 -- Table structure for table `users_events`
 --
 
-CREATE TABLE IF NOT EXISTS `users_events` (
+CREATE TABLE `users_events` (
   `user_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`user_id`,`event_id`)
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`,`event_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -419,11 +428,11 @@ INSERT INTO `users_events` (`user_id`, `event_id`, `status`, `timestamp`) VALUES
 -- Table structure for table `users_locations`
 --
 
-CREATE TABLE IF NOT EXISTS `users_locations` (
-  `user_id` int(11) NOT NULL default '0',
-  `location_id` int(11) NOT NULL default '0',
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`user_id`,`location_id`)
+CREATE TABLE `users_locations` (
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `location_id` int(11) NOT NULL DEFAULT '0',
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`,`location_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -432,11 +441,11 @@ CREATE TABLE IF NOT EXISTS `users_locations` (
 -- Table structure for table `users_occupations`
 --
 
-CREATE TABLE IF NOT EXISTS `users_occupations` (
-  `user_id` int(11) NOT NULL default '0',
-  `occupation_id` int(11) NOT NULL default '0',
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`user_id`,`occupation_id`)
+CREATE TABLE `users_occupations` (
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `occupation_id` int(11) NOT NULL DEFAULT '0',
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`,`occupation_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -445,12 +454,12 @@ CREATE TABLE IF NOT EXISTS `users_occupations` (
 -- Table structure for table `users_skills`
 --
 
-CREATE TABLE IF NOT EXISTS `users_skills` (
-  `user_id` int(11) NOT NULL default '0',
-  `skill_id` int(11) NOT NULL default '0',
-  `info` text collate utf8_unicode_ci NOT NULL,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`user_id`,`skill_id`),
+CREATE TABLE `users_skills` (
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `skill_id` int(11) NOT NULL DEFAULT '0',
+  `info` text COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`,`skill_id`),
   KEY `skill_id` (`skill_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -460,13 +469,13 @@ CREATE TABLE IF NOT EXISTS `users_skills` (
 -- Table structure for table `user_timebanks`
 --
 
-CREATE TABLE IF NOT EXISTS `user_timebanks` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) NOT NULL default '0',
-  `status` int(11) default NULL,
+CREATE TABLE `user_timebanks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) DEFAULT NULL,
   `hour` int(11) NOT NULL,
-  `timestamp` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`user_id`,`id`)
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`,`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
