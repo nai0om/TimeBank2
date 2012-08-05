@@ -390,7 +390,7 @@ class Controller_Event extends Controller_Template {
 			}
 			else if (isset($this->orguser))
 			{
-				$comment->user = $this->orguser;
+				$comment->organization = $this->orguser;
 			}
 			
 			try
