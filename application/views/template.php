@@ -3,15 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
-    <meta name="language" content="en-us" /> 
-    <title><?= $meta_page_title ?></title> 
-
+    <meta name="language" content="en-us" />
+    <? if ($meta_page_title != '') : ?>
+    	<title><?= $meta_page_title.' - ธนาคารจิตอาสา: ปันเวลาช่วยกัน' ?></title> 
+	<? else : ?>
+    	<title><?= 'ธนาคารจิตอาสา: ปันเวลาช่วยกัน' ?></title> 
+    <? endif ?>
 	  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
 		   More info: h5bp.com/i/378 -->
-	 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-	<title>TimeBank</title>
-    
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 	<meta name="description" content="">
 
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->

@@ -60,6 +60,11 @@ $times['23:59:59'] = '23:59';
                 <font color="red"><?= Arr::get($errors, 'volunteer_begin_date'); ?></font>
             </div>           
         </p>
+		<p><label>ตั้งแต่เวลา</label>
+        	<?= Form::select('volunteer_begin_time', $times, '', array('id' => 'volunteer_begin_time', 'onChange' => 'difDateTIme()')); ?>
+        	<label>ถึง</label>
+        	<?= Form::select('volunteer_end_time', $times, '23:59:59', array('id' => 'volunteer_end_time', 'onChange' => 'difDateTIme()')); ?>
+        </p>
         <p><label>ถึงวันที่</label>
         </p>
         <p>
@@ -67,11 +72,6 @@ $times['23:59:59'] = '23:59';
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'volunteer_end_date'); ?></font>
             </div>           
-        </p>
-		<p><label>ตั้งแต่เวลา</label>
-        	<?= Form::select('volunteer_begin_time', $times, '', array('id' => 'volunteer_begin_time', 'onChange' => 'difDateTIme()')); ?>
-        	<label>ถึง</label>
-        	<?= Form::select('volunteer_end_time', $times, '23:59:59', array('id' => 'volunteer_end_time', 'onChange' => 'difDateTIme()')); ?>
         </p>
         <p><?= Form::radio('day', 'every_day',($event->days == '')? true : false, array('id' => 'every_day', 'onChange' => 'everyDayChecked()')); ?>ทุกวัน (จันทร์ - อาทิตย์)</p>
         <p><?= Form::radio('day', 'day', ($event->days != '')? true : false, array('id' => 'day')); ?>ระบุวัน (เลือกได้มากกว่า 1)</p>
