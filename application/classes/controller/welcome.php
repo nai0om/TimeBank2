@@ -9,24 +9,12 @@ class Controller_Welcome extends Controller_Template {
 									->bind('time_want', $time_want)
 									->bind('time_done', $time_done)
 									->bind('events', $events);
-		$time_done = 0;
-		$time_donate = 0;
-		$time_want = 0;									
-		$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
-					->from('user_timebanks')
-					->where('status','=','1')->execute()->get('time_donate', 0);
-					
-	 
+										
+		$time_donate = timebankhelper::getDonatedTime();
 	
-		$done_event = ORM::factory('event')->where('status', '=', '0')->find_all();
-		foreach($done_event as $done)
-		{
-			$time_done += $done->time_cost * $done->volunteer_need_count;
-		}
-	
-		$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
-					->from('events')
-					->where('status','=','1')->execute()->get('time_want', 0);
+		$time_done = timebankhelper::getFinsihedTime();
+		
+		$time_want =  timebankhelper::getWantedTime();
 					
 		$events = ORM::factory('event')->where('status', '=', '1')->order_by('timestamp','desc')->limit(3)->find_all();
 	
@@ -64,23 +52,11 @@ class Controller_Welcome extends Controller_Template {
 									->bind('time_want', $time_want)
 									->bind('time_done', $time_done);
 	
-	$time_done = 0;
-	$time_donate = 0;
-	$time_want = 0;
-	$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
-				->from('user_timebanks')
-				->where('status','=','1')->execute()->get('time_donate', 0);
+		$time_donate = timebankhelper::getDonatedTime();
 	
-
-	$done_event = ORM::factory('event')->where('status', '=', '0')->find_all();
-	foreach($done_event as $done)
-	{
-		$time_done += $done->time_cost * $done->volunteer_need_count;
-	}
-
-	$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
-			->from('events')
-			->where('status','=','1')->execute()->get('time_want', 0);
+		$time_done = timebankhelper::getFinsihedTime();
+		
+		$time_want =  timebankhelper::getWantedTime();
 		
    	}
 	
@@ -100,24 +76,12 @@ class Controller_Welcome extends Controller_Template {
 									->bind('time_donate', $time_donate)
 									->bind('time_want', $time_want)
 									->bind('time_done', $time_done);
-		$time_done = 0;
-		$time_donate = 0;
-		$time_want = 0;
-										
-		$time_donate = DB::select(array('SUM("hour")', 'time_donate'))
-					->from('user_timebanks')
-					->where('status','=','1')->execute()->get('time_donate', 0);
-					
+									
+		$time_donate = timebankhelper::getDonatedTime();
 	
-		$done_event = ORM::factory('event')->where('status', '=', '0')->find_all();
-		foreach($done_event as $done)
-		{
-			$time_done += $done->time_cost * $done->volunteer_need_count;
-		}
-	
-		$time_want = DB::select(array('SUM("time_cost")', 'time_want'))
-					->from('events')
-					->where('status','=','1')->execute()->get('time_want', 0);
+		$time_done = timebankhelper::getFinsihedTime();
+		
+		$time_want =  timebankhelper::getWantedTime();
    	}
 	
 	public function action_training()
