@@ -45,6 +45,12 @@
 		<div class="column two">
 			<h4>สถานที่ตั้ง</h4>
 			<p><?= $organization->address ?></p>
+			<h4>เขต</h4>
+			<p><?= $organization->district ?></p>
+			<h4>จังหวัด</h4>
+			<p><?= $organization->province ?></p>
+			<h4>รหัสไปรษณีย์</h4>
+			<p><?= $organization->postcode ?></p>
 			<h4>เบอร์โทรศัพท์ </h4>
 			<p><?= $organization->homephone ?></p>
 			<h4>เบอร์โทรสาร</h4>

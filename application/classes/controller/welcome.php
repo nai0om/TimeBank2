@@ -4,7 +4,6 @@ class Controller_Welcome extends Controller_Template {
 	
 	public function action_index()
 	{
-		$this->meta_page_title = __('Sample first page');
 		$this->template->content = View::factory('welcome')
 									->bind('time_donate', $time_donate)
 									->bind('time_want', $time_want)

@@ -261,29 +261,27 @@ class Controller_Organization extends Controller_Template {
 	public function action_view()
 	{
         $this->template->content = View::factory('organization/view')
-            ->bind('organization', $this->orguser)
+            ->bind('organization', $organization)
             ->bind('org_user', $org_user)
 			->bind('hours_sum', $hours_sum)
 			->bind('total_valun', $total_valun);
 		
-		if (is_null($this->orguser))
+		$organization = ORM::factory('organization', $this->request->param('id'));
+		if (is_null($organization))
 		{
-			throw new HTTP_Exception_404(__('Organization id :id not found', array(':id' => 10)));
+			throw new HTTP_Exception_404(__('Organization id :id not found', array(':id' => $this->request->param('id'))));
 		}
 		
-		$org_user = ORM::factory('user', $this->orguser->user_id);
+		$org_user = ORM::factory('user', $organization->user_id);
 								
 		$hours_sum = 0;		
 		$total_valun = 0;
-		$events = $this->orguser->events->where('event.status', '=', '1')->find_all();					
+		$events = $organization->events->where('event.status', '=', '1')->find_all();					
 		foreach($events as $event)
 		{
 			$hours_sum +=  $event->time_cost * $event->volunteer_need_count;
 			$total_valun += $event->volunteer_need_count;
 		}
-		//print_r($this->orguser);exit;
-		
-							
 	}
 	
 	/*
