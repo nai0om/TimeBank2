@@ -16,17 +16,17 @@
 		<div id="bannerRotating">
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
-					<h3><?= $time_donate ?> ชม.</h3>
+					<h3><?= number_format($time_donate) ?> ชม.</h3>
 					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
-					<h3><?= $time_want ?> ชม.</h3>
+					<h3><?= number_format($time_want) ?> ชม.</h3>
 					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
-					<h3><?= $time_done ?> ชม.</h3>
+					<h3><?= number_format($time_done) ?> ชม.</h3>
 					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					
@@ -84,10 +84,10 @@
 		</ul>
 		<p align="center" style="margin:0;"><img src="<?= url::base(); ?>media/img/tb_line.png"/></p>
 		<ul id="summary">
-			<li><p>จำนวนอาสาที่ร่วมฝากเวลา ....</p><div class="showNumber"><?=  timebankhelper::getAllValunteerNumber() ?></div></li>
-			<li><p>จำนวนภารกิจที่กำลังเปิดรับ ....</p><div class="showNumber"><?=  timebankhelper::getOpenEventNumber() ?></div></li>
-			<li><p>จำนวนภารกิจที่เสร็จสิ้นแล้ว ....</p><div class="showNumber"><?=  timebankhelper::getClosedEventNumber() ?></div></li>
-			<li><p>จำนวนอาสาทั้งหมดที่เคยร่วมปฏิบัติภารกิจ ....</p><div class="showNumber"><?=  timebankhelper::getJoinedValunteerNumber() ?></div></li>
+			<li><p>จำนวนอาสาที่ร่วมฝากเวลา ....</p><div class="showNumber"><?= number_format(timebankhelper::getAllValunteerNumber()) ?></div></li>
+			<li><p>จำนวนภารกิจที่กำลังเปิดรับ ....</p><div class="showNumber"><?= number_format(timebankhelper::getOpenEventNumber()) ?></div></li>
+			<li><p>จำนวนภารกิจที่เสร็จสิ้นแล้ว ....</p><div class="showNumber"><?= number_format(timebankhelper::getClosedEventNumber()) ?></div></li>
+			<li><p>จำนวนอาสาทั้งหมดที่เคยร่วมปฏิบัติภารกิจ ....</p><div class="showNumber"><?= number_format(timebankhelper::getJoinedValunteerNumber()) ?></div></li>
 		</ul>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>

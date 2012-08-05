@@ -154,16 +154,16 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
         <? endif ?>
 
 		<div class="sub">
-			<h3><?= $event->time_cost ?> ชั่วโมง</h3>
+			<h3><?= number_format($event->time_cost) ?> ชั่วโมง</h3>
 			<h4>ต้องการจากอาสา</h4>
 		</div>
 		<div class="sub">
-			<h3><?= $member_count*$event->time_cost  ?> ชั่วโมง</h3>
+			<h3><?= number_format($member_count*$event->time_cost)  ?> ชั่วโมง</h3>
 			<h4>รวมเวลาที่ได้ทั้งหมด</h4>
 		</div>
 		<div class="main">
 			<h2>จำนวนอาสาสมัครที่ต้องการ</h2>
-			<h3><?= $event->volunteer_need_count ?> คน</h3>
+			<h3><?= number_format($event->volunteer_need_count) ?> คน</h3>
 			<h4>สมัครแล้ว <?= $member_count ?> คน เหลืออีก <?= abs($event->volunteer_need_count - $member_count) ?> คน</h4>
 		</div>
 		<div style="clear:both"></div>
