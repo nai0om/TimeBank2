@@ -26,8 +26,9 @@
 						<div id="details">
                        <? foreach($event->users->order_by('timestamp','desc')->find_all() as $user) : ?>
 							<div class="person">
-                           		<?= Form::checkbox('user'.$user->id, NULL, false, array('id' => 'user')) ?>
-								
+								<? if( $users[$user->id]['status'] != '1' ) : ?>     
+                                    <?= Form::checkbox('user'.$user->id, NULL, false, array('id' => 'user')) ?>
+                                <? endif ?>	
 								<?php if ($user->profile_image == '') : ?>
                                     <img src="<?= url::base(); ?>media/img/org_01.png">
                                 <?php else :?>
