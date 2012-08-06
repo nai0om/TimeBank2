@@ -393,7 +393,7 @@ class Controller_User extends Controller_Template {
 			 $this->user->skills = $skill;
 			 
 			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
-			$tags = ',';
+			$tags = '';
 			foreach ($jobs as $job){
 				$job =  str_replace(' ', '_', $job);
 				if ( Arr::get($_POST, $job) != '')
