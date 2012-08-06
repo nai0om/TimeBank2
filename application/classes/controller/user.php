@@ -393,12 +393,16 @@ class Controller_User extends Controller_Template {
 			 $this->user->skills = $skill;
 			 
 			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
-			$tags = '';
+			$tags = ',';
 			foreach ($jobs as $job){
 				$job =  str_replace(' ', '_', $job);
 				if ( Arr::get($_POST, $job) != '')
-						$tags  = $tags.''.Arr::get($_POST, $job) .', ';
+				{
+					$tags  .= ''.Arr::get($_POST, $job) .', ';	
+				}
+				
 			}
+			
 			$this->user->interest_tags = $tags; 
 			try {
 						$this->user->save();       
@@ -411,7 +415,7 @@ class Controller_User extends Controller_Template {
 				}
         }
 		
-           Request::current()->redirect('user/profile');
+          Request::current()->redirect('user/profile');
 		
 		
 		
