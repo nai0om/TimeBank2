@@ -22,7 +22,7 @@
              
 				   <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>  Select All
                  <?= Form::submit('submit', 'approve') ?>
-                 <?= Form::submit('submit', 'delete'); ?>
+                 <? // Form::submit('submit', 'delete'); ?>
 						<div id="details">
                        <? foreach($event->users->order_by('timestamp','desc')->find_all() as $user) : ?>
 							<div class="person">

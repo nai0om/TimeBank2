@@ -441,13 +441,28 @@ class Controller_User extends Controller_Template {
         }
 		
 		$records = $this->user->events->find_all();
+		$query = DB::select()->from('users_events')->where('user_id', '=',  $this->user->id);
+		$statuses = $query->execute()->as_array('event_id');
 		
+		foreach ($records as $event)
+		{
+			$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', '1')->execute());
+			echo ' eventttt'. $approved;
+			if ($event->volunteer_need_count <= $approved)
+			{
+				if($statuses[$event->id]['status'] == 0)
+				{
+					$statuses[$event->id]['status'] = -1;
+				}
+			}
+		}
 
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/myevent')
 								->bind('records', $records)
 								->bind('errors', $errors)
-								->bind('action', $action);
+								->bind('action', $action)
+								->bind('statuses', $statuses);
 	
 
     }
