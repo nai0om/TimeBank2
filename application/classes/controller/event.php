@@ -283,7 +283,7 @@ class Controller_Event extends Controller_Template {
 			
 			foreach($event->users->find_all() as $user)
 			{
-				notify_eventend_volunteer($user, $this->orguser, $event);
+				TimebankNotification::notify_eventend_volunteer($user, $this->orguser, $event);
 			}
 		}
 		

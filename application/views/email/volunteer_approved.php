@@ -48,7 +48,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, <?= $vars['display_name'] ?></p>
+                                    <p>Hello, <?= $vars['displayname'] ?></p>
 
 									<p>ทาง <a><?= $vars['org_name'] ?></a> ได้ตอบรับการเข้าร่วมงาน <br>
 
