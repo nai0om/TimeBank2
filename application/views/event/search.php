@@ -53,7 +53,7 @@ $page = isset($gets['page'])? $gets['page'] : '1';
                     <?= HTML::anchor($link.'type=open', 'งานอาสาที่เปิดรับสมัคร', array('class' => 'current')); ?>
                     <?= HTML::anchor($link.'type=closed', 'งานอาสาที่จบไปแล้ว'); ?>
                 <? endif ?>
-                <?= HTML::anchor('event/create', 'สร้างงานอาสาใหม่', array('class' => 'long', 'style' => 'float:right')); ?>
+          
             </div>
 		<?php endif ?>
 		<div style="clear:both"></div>
