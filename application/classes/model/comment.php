@@ -10,7 +10,8 @@ class Model_Comment extends ORM {
 	// Relationships
 	protected $_belongs_to = array(
 					'user' => array(),
-					'event' => array(),);
+					'event' => array(),
+					'organization' => array());
 
 	public function rules()
     {

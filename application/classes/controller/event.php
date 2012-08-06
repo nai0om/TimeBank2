@@ -9,7 +9,7 @@ class Controller_Event extends Controller_Template {
 
 	public function action_browse()
 	{
-		$events = ORM::factory('event')->order_by('timestamp','desc')->limit(7)->find_all();
+		$events = ORM::factory('event')->where('event.status', '=', '1')->order_by('timestamp','desc')->limit(7)->find_all();
 		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 		$jobs_count = array();
 		for ($i = 1; $i < sizeof($jobs); $i++) {
@@ -62,6 +62,44 @@ class Controller_Event extends Controller_Template {
 		$id = $this->request->param('id'); 
 		$this->template->content = View::factory('event/created')
 									->bind('id', $id);		
+	}
+	
+	public function action_remove()
+	{
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			// remove list of event.
+			
+			foreach ($_POST as  $event_id )
+			{
+				$event = ORM::factory('event', $event_id); 
+				// If user have permission to create event
+				if (is_null($this->orguser) || $event->organization_id != $this->orguser->id)
+				{
+					continue;
+				}
+				// remove only one event
+				$event->delete();		
+			}
+		}
+		else if ($this->request->param('id') != '')
+		{
+			$event = ORM::factory('event', $this->request->param('id')); 
+			// If user have permission to create event
+			if (is_null($this->orguser) || $event->organization_id != $this->orguser->id)
+			{
+				// Redirect to step 1
+				Request::current()->redirect('organization/event');
+				return;
+			}
+			// remove only one event
+			 $event->delete();
+			
+		}
+	
+			
+		Request::current()->redirect('organization/event');
 	}
 	
 	public function action_edit()
@@ -314,7 +352,7 @@ class Controller_Event extends Controller_Template {
 			}
 			else
 			{
-				$event->remove('users', $event); 
+				$event->remove('users', $user); 
 			}
 			
 		  }
@@ -329,38 +367,43 @@ class Controller_Event extends Controller_Template {
 		
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
-			$event = ORM::factory('event', $this->request->param('id'));
 			
-			if (!$event->loaded())
+			if ( $_FILES['image']['name'] != '' )
 			{
-				throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+				
+				$event = ORM::factory('event', $this->request->param('id'));
+				
+				if (!$event->loaded())
+				{
+					throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+				}
+				$image = ORM::factory('image');
+				$image->event = $event;
+				if(Arr::get($_POST, 'text') == 'เขียนคำบรรยายที่นี่')
+				{
+					$image->description  =  '';
+				}
+				else
+				{
+					$image->description  =  Arr::get($_POST, 'text');	
+				}
+				
+				if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
+				{
+					$image->image = $_FILES['image']['name'];
+				}
+				try
+				{
+					$image->save();
+									
+				} catch (ORM_Validation_Exception $e) {
+					 
+					// Set errors using custom messages
+					$errors = $e->errors('models');
+				}
 			}
-			$image = ORM::factory('image');
-			$image->event = $event;
-			if(Arr::get($_POST, 'text') == 'เขียนคำบรรยายที่นี่')
-			{
-				$image->description  =  '';
-			}
-			else
-			{
-				$image->description  =  Arr::get($_POST, 'text');	
-			}
-			
-			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
-			{
-				$image->image = $_FILES['image']['name'];
-			}
-			try
-			{
-				$image->save();
-                 				
-            } catch (ORM_Validation_Exception $e) {
-                 
-                // Set errors using custom messages
-                $errors = $e->errors('models');
-            }
 			// Redirect to event view
-			Request::current()->redirect('event/view/'.$event->id.'?mode=3');
+			Request::current()->redirect('event/view/'.$this->request->param('id').'?mode=3');
 		}
 	}
 	public function action_addcomment()
@@ -390,7 +433,7 @@ class Controller_Event extends Controller_Template {
 			}
 			else if (isset($this->orguser))
 			{
-				$comment->user = $this->orguser;
+				$comment->organization = $this->orguser;
 			}
 			
 			try

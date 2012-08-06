@@ -45,6 +45,12 @@
 		<div class="column two">
 			<h4>สถานที่ตั้ง</h4>
 			<p><?= $organization->address ?></p>
+			<h4>เขต</h4>
+			<p><?= $organization->district ?></p>
+			<h4>จังหวัด</h4>
+			<p><?= $organization->province ?></p>
+			<h4>รหัสไปรษณีย์</h4>
+			<p><?= $organization->postcode ?></p>
 			<h4>เบอร์โทรศัพท์ </h4>
 			<p><?= $organization->homephone ?></p>
 			<h4>เบอร์โทรสาร</h4>
@@ -60,10 +66,10 @@
 
 		<div style="clear:both"></div>
 		<div class="title left"></div>
-		<div class="title body">งานอาสาที่เปิดรับสมัคร</div>
+		<div class="title body"><?= HTML::anchor('organization/view/'.$organization->id, 'งานอาสาที่เปิดรับสมัคร') ?></div>
 		<div class="title right"></div>
 		<div class="title left"></div>
-		<div class="title body past">งานอาสาที่จบไปแล้ว</div>
+		<div class="title body past"><?= HTML::anchor('organization/view/'.$organization->id.'?mode=2', 'งานอาสาที่จบไปแล้ว') ?></div>
 		<div class="title right"></div>
 		<div style="clear:both"></div>
 		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $organization->events->count_all()?></span></p>
@@ -77,7 +83,7 @@
 				<th>วัน / เวลาทำงานอาสา</th>
 				<th></th>
 			</tr>
-            <? foreach( $organization->events->find_all() as $event ): ?>
+            <? foreach( $events as $event ): ?>
 			<tr>
                 <td><?= $event->name?></td>
                 <td><?= $event->time_cost ?></td>
