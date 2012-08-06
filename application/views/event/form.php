@@ -30,14 +30,14 @@ $times['23:59:59'] = '23:59';
         <p><label><strong>โดยองค์กร</strong></label></p>
         <p><input type="text"></p>
         <p><strong>เปิดรับสมัคร</strong></p>
-        <!--p><label>ตั้งแต่วันที่</label></p>
+        <!-- p><label>ตั้งแต่วันที่</label></p>
         <p>
 			<?= Form::input('signup_begin_date', HTML::chars($event->signup_begin_date), array('class' => 'datepicker')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'signup_begin_date'); ?></font>
             </div>
-		</p-->
-        <p><label>สิ้นสุดวันที่</label></p>
+		</p -->
+        <p><label>ถึงวันที่</label></p>
         <p>
 			<?= Form::input('signup_end_date', HTML::chars($event->signup_end_date), array('class' => 'datepicker')); ?>
             <div class="error">
@@ -48,7 +48,7 @@ $times['23:59:59'] = '23:59';
         	<?= Form::select('signup_begin_time', $times, $event->signup_begin_time); ?>
         	<label>ถึง</label>
         	<?= Form::select('signup_end_time', $times, ($event->signup_end_time == '')? '23:59:59': $event->signup_end_time); ?>
-        </p-->
+        </p -->
         <div class="line"></div>
     </fieldset>
     <fieldset>
@@ -61,9 +61,9 @@ $times['23:59:59'] = '23:59';
             </div>           
         </p>
 		<p><label>ตั้งแต่เวลา</label>
-        	<?= Form::select('volunteer_begin_time', $times, '', array('id' => 'volunteer_begin_time', 'onChange' => 'difDateTIme()')); ?>
+        	<?= Form::select('volunteer_begin_time', $times, $event->volunteer_begin_time, array('id' => 'volunteer_begin_time', 'onChange' => 'difDateTIme()')); ?>
         	<label>ถึง</label>
-        	<?= Form::select('volunteer_end_time', $times, '23:59:59', array('id' => 'volunteer_end_time', 'onChange' => 'difDateTIme()')); ?>
+        	<?= Form::select('volunteer_end_time', $times, ($event->volunteer_end_time == '')? '23:59:59': $event->volunteer_end_time, array('id' => 'volunteer_end_time', 'onChange' => 'difDateTIme()')); ?>
         </p>
         <p><label>ถึงวันที่</label>
         </p>
