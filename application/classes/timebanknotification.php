@@ -37,8 +37,8 @@ class TimebankNotification {
 															'password' => $password,
 															));
 		TimebankUtil::send_email($from, $to, $subject, $body);
-		echo $body;
-		exit;
+		//echo $body;
+		//exit;
 	} 
 		
 	public static function notify_forgetpassword($user, $password)
@@ -71,7 +71,8 @@ class TimebankNotification {
 	public static function notify_eventapplied_org($user, $organization, $event)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array($user->email);
+		$org_user = ORM::Factory('user', $organization->user_id);
+		$to = array($org_user->email);
 		$subject = 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน';
 		$body = self::renderHtmlEmail('volunteer_apply_event', array(
 															'org_name' 		=> $organization->name,
@@ -84,7 +85,8 @@ class TimebankNotification {
 	public static function notify_eventend_org($organization, $event)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array($user->email);
+		$org_user = ORM::Factory('user', $organization->user_id);
+		$to = array($org_user->email);
 		$subject = 'งานอาสาของท่านได้สิ้นสุดลงแล้ว';
 		$body = self::renderHtmlEmail('event_end_org', array(
 															'org_name' 		=> $organization->name,

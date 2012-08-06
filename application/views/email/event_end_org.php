@@ -52,7 +52,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาของท่านได้สิ้นสุดลงแล้ว กรุณา....<br>
 
-									<a href="<?= $vars['urlbase'].'event/view'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
+									<a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
 
 									<br clear="left">
 
