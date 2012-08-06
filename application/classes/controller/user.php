@@ -87,6 +87,7 @@ class Controller_User extends Controller_Template {
         if (HTTP_Request::POST == $this->request->method()) 
         {           
 		   $errors = '';
+		   $message = '';
             try {
 				if (!is_numeric(Arr::get($_POST, 'hour')))
 				{
