@@ -310,6 +310,10 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                    		 <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
                     <? endif ?>
                 <?= $comment->comment ?>
+                <? if ( $isAdmin) : ?>
+                	<br />
+                       <?= HTML::anchor('event/removecomment/'.$event->id.'?c='.$comment->id,  'ลบ comment', array ('style' => 'float:right') ); ?> 
+                <? endif ?>
                 </div>
             <? endforeach ?>
             <?= Form::close(); ?>
