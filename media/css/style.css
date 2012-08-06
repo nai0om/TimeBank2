@@ -3223,7 +3223,8 @@ header h2 {
     min-height: 1197px;
 }
 .popup #content {
-    background: url("../img/bg_thankyou.png") no-repeat scroll 0 0 transparent;
+    clear: both;
+	background: url("../img/bg_thankyou.png") no-repeat scroll 0 0 transparent;
     font-family: tahoma;
     font-size: 13px;
     height: 221px;
