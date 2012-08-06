@@ -65,7 +65,17 @@
 
 			<div><?= $event->time_cost ?> ชม.</div>
 			<a class="subscribe" href="<?= url::base().'event/view/'.$event->id ?>">สมัคร</a>
-			<p><?= $event->name ?></p>
+			<p><strong><?= $event->name ?></strong><br />
+            <?
+				$time= strtotime($event->volunteer_begin_date ); 
+				echo phphelp::thai_date($time);
+				?> เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น.
+                
+                <br>
+				ถึง <?
+				$time= strtotime($event->volunteer_end_date); 
+				echo phphelp::thai_date($time);
+				?> เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.</p>
 			<a style="font-family:Tahoma, Geneva, sans-serif" href="<?= url::base().'event/view/'.$event->id ?>" >[อ่านต่อ...]</a>
 		</article>
         <?php endforeach ?>
