@@ -20,13 +20,14 @@
 				</div>
 				<div id="rightSide">
              
-				 <?= Form::checkbox('all'); ?> Select All
+				   <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>  Select All
                  <?= Form::submit('submit', 'approve') ?>
                  <?= Form::submit('submit', 'delete'); ?>
 						<div id="details">
                        <? foreach($event->users->order_by('timestamp','desc')->find_all() as $user) : ?>
 							<div class="person">
-								<?= Form::checkbox('user'.$user->id); ?>
+                           		<?= Form::checkbox('user'.$user->id, NULL, false, array('id' => 'user')) ?>
+								
 								<?php if ($user->profile_image == '') : ?>
                                     <img src="<?= url::base(); ?>media/img/org_01.png">
                                 <?php else :?>
@@ -49,3 +50,22 @@
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
+
+<script>
+function check_all(){
+	if( $('#checkall').is(':checked') )
+	{	
+		$("input:checkbox[id=user]").each(function()
+		{
+			$(this).prop("checked", true)
+		});	
+	}
+	else
+	{
+		$("input:checkbox[id=event]").each(function()
+		{
+			$(this).prop("checked", false)
+		});
+	}
+}
+</script>
