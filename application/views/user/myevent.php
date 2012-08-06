@@ -28,6 +28,7 @@
 		<? if (count($records) > 0) :?>
                 <table>
                     <tr>
+                    	<th style="width:130px;">สถานะ</th>
                         <th>ชื่อภารกิจ</th>
                         <th>ต้องการเวลา (ช.ม./คน)</th>
                         <th>รับจำนวน</th>
@@ -37,6 +38,15 @@
                     </tr>
         <?php foreach ($records as $record):?>
                     <tr>
+                    	<td style="font-weight:bold; color:#F00; text-align:center">
+                        <? if( $statuses[$record->id]['status'] == '1' ) : ?>    
+                        	ได้รับการตอบรับแล้ว
+                        <? elseif( $statuses[$record->id]['status'] == '0' ) : ?>
+                        	รอการตอบรับ
+                        <? else : ?>
+                        	งานนี้ไม่ได้รับการตอบรับ
+                        <? endif ?>
+                        </td>
                         <td><?= $record->name ?></td>
                         <td><?= $record->time_cost ?></td>
                         <td><?= $record->volunteer_need_count ?>
