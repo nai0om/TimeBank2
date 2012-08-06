@@ -50,7 +50,7 @@
                                 box-shadow: 3px 3px 5px #999;
                                 ">
                     <? endif ?>
-                    <div class="description"><?= $event->name ?></div>
+                    <div class="description"><?= HTML::anchor('event/view/'.$event->id,  $event->name) ?></div>
                     <div class="hours"><?= $event->time_cost ?> ชม.</div>
                 </li>
                 <? endforeach ?>
@@ -75,7 +75,7 @@
                                 box-shadow: 3px 3px 5px #999;
                                 ">
                     <? endif ?>
-                    <div class="description"><?= $event->name ?></div>
+                    <div class="description"><?= HTML::anchor('event/view/'.$event->id,  $event->name) ?></div>
                     <div class="hours"><?= $event->time_cost ?> ชม.</div>
                 </li>
                 <? endforeach ?>
