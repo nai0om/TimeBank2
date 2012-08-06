@@ -9,9 +9,7 @@
             <?= Form::open('user/create',array('style'=>'margin-top:20px;display:inline;')); ?>
 				<div id="leftSide">
 					<h3 style="color:#0099cc;">ชื่อบัญชีผู้ใช้</h3>
-                <div class="error">
-                    <?= Arr::path($errors, 'acceptterm'); ?>
-                </div>    
+                  
 					<p>
                         <label>ชื่อที่ใช้แสดง   
 						(Display Nome)*</label>
@@ -54,9 +52,13 @@
 					<p><div style="margin-top:150px;">
 					  <?= Form::checkbox('acceptterm', 1, false); ?> 
 					  ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง'); ?> ของเว็บไซต์</p>
-                      
+                      	<div class="error">
+                    		<?= Arr::path($errors, 'acceptterm'); ?>
+                		</div>  
                   
-					<p><?= Form::submit('create', 'Sign up'); ?></p></div>
+					<p><?= Form::submit('create', 'Sign up'); ?></p>
+                   
+                </div>
 
 			<?= Form::close(); ?>
 		</div>
