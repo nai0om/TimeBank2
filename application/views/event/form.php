@@ -161,7 +161,7 @@ $times['23:59:59'] = '23:59';
 					$checked = FALSE;
 					if($event->tags != '') {
 						$pos = strpos($event->tags, $jobs[$i]);
-						if (  $pos > 0){
+						if (  $pos >= 0 && $pos !== false){
 							$checked = TRUE;
 						}
 					}
@@ -188,15 +188,17 @@ $times['23:59:59'] = '23:59';
 			$skills = array();
 			for($i = 0 ; $i < count($skill_list) ; $i++)
 			{
+				
 				$cut =  explode('=', $skill_list[$i]);
 				if($cut[0] != ''){
+					
 					if(count($cut) >= 2)
 					{ 
-						$skills[$cut[0]] = $cut[1];
+						$skills[trim($cut[0])] = $cut[1];
 					}
 					else 
 					{
-						$skills[$cut[0]] = 'true';	
+						$skills[trim($cut[0])] = 'true';	
 					}
 				}
 			}	
@@ -213,9 +215,11 @@ $times['23:59:59'] = '23:59';
 				{
 					$value = '';
 					 $checked = '';
-					if(array_key_exists($name, $skills))
+					 
+					if(array_key_exists(trim($name), $skills))
 					{
 					  $value = $skills[$name];
+					 
 					  if($value <> '')
 					  {
 						 $checked = 'checked="'.$value.'"'; 

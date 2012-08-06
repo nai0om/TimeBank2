@@ -259,7 +259,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 					   for($i = 0 ; $i < sizeof($jobs) ; $i++){
 						    $pos = strpos($event->tags , $jobs[$i]);
 						
-						   if ( $pos >= 0 && $pos != '')
+						   if (  $pos >= 0 && $pos !== false)
 						   {
 								$last  .=  HTML::anchor('event/search?job='.$i, $jobs[$i]).', ';  
 						   }

@@ -159,7 +159,7 @@
 					$checked = FALSE;
 					if($interest_tags != '') {
 						$pos = strpos($interest_tags, $jobs[$i]);
-						if (  $pos >= '0' && $pos !== false){
+						if (  $pos >= 0 && $pos !== false){
 							$checked = TRUE;
 						}
 					}
