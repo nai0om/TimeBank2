@@ -41,9 +41,7 @@
                         <td><?= $record->time_cost ?></td>
                         <td><?= $record->volunteer_need_count ?>
                       คน</td>
-                        <td><?= $record->signup_begin_date ?>
-                    <br>ถึง 
-                    <?= $record->signup_end_date ?></td>
+                        <td>สิ้นสุดวันที่ <?= $record->signup_end_date ?></td>
                         <td><?= $record->volunteer_begin_date ?>
                           <br />
                           ถึง

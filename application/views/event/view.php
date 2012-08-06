@@ -274,16 +274,10 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		<div id="rightSide">
 			<p><span class="header">เปิดรับสมัคร</span>
 				<div id="duration"> 
-				<?
-				$time= strtotime($event->signup_begin_date); 
-				echo phphelp::thai_date($time);
-				?> เวลา : <?= date("H:i", strtotime($event->signup_begin_time)); ?>น.
-                
-                <br>
-				ถึง <?
+				สิ้นสุดวันที่ <?
 				$time= strtotime($event->signup_end_date); 
 				echo phphelp::thai_date($time);
-				?> เวลา :<?= date("H:i", strtotime($event->signup_end_time));?> น.
+				?> 
                 </div>
             </p>
 			<p><span class="header">ลักษณะการเดินทาง</span></p>

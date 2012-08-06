@@ -675,12 +675,12 @@ class Controller_Event extends Controller_Template {
 		{
 			$event->name = Arr::get($_POST, 'name');
 			$event->project_name = Arr::get($_POST, 'project_name');
-			$event->signup_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_begin_date')));
+			//$event->signup_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_begin_date')));
 			$event->signup_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_end_date')));
 			$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
 			$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));
-			$event->signup_begin_time = Arr::get($_POST, 'signup_begin_time');
-			$event->signup_end_time = Arr::get($_POST, 'signup_end_time');
+			//$event->signup_begin_time = Arr::get($_POST, 'signup_begin_time');
+			//$event->signup_end_time = Arr::get($_POST, 'signup_end_time');
 			$event->volunteer_begin_time = Arr::get($_POST, 'volunteer_begin_time');
 			$event->volunteer_end_time = Arr::get($_POST, 'volunteer_end_time');
 			$event->location_name = Arr::get($_POST, 'location_name');

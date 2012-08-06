@@ -80,7 +80,7 @@ $page = isset($gets['page'])? $gets['page'] : '1';
                     <td><?= $event->volunteer_need_count ?> คน</td>
             
                     <? if( $type == 'open'): ?>
-                        <td><?= $event->signup_begin_date ?><br>ถึง <?= $event->signup_end_date ?></td>
+                        <td>สิ้นสุดวันที่ <?= $event->signup_end_date ?></td>
                         <td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
                         <td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
                     <? else : ?>

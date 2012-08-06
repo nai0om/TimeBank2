@@ -49,10 +49,7 @@
 				<td><?= $event->name?></td>
 				<td><?= $event->time_cost ?></td>
 				<td><?= $event->volunteer_need_count ?> คน</td>
-				<td><?	
-						$time= strtotime($event->signup_begin_date); 
-						echo phphelp::thai_date($time);
-					?><br>ถึง <?= $event->signup_end_date ?></td>
+				<td>สิ้นสุด <?= $event->signup_end_date ?></td>
 				<td><? 
 					$time= strtotime($event->volunteer_begin_date); 
 					echo phphelp::thai_date($time);
