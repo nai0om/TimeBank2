@@ -366,6 +366,8 @@ class Controller_Event extends Controller_Template {
 			
 		  }
 		  $event->save();
+		  Request::current()->redirect('event/approve/'.$this->request->param('id'));
+
 	   }
 	
 								
