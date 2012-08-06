@@ -63,8 +63,8 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                 <? else :?>
                 	<li><img src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" />
                 <? endif?>
-                <div class="username"><?= HTML::anchor('user/view/'.$user->id,  $user->displayname) ?></div>
-                <div class="name"><?= $user->first_name ?> <?= $user->last_name ?></div>
+                <div class="username"><?= $user->displayname ?></div>
+                
                 </li>
 			<?  endforeach ?>
    			</ul>
