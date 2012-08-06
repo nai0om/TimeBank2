@@ -33,11 +33,13 @@ class Controller_Contactus extends Controller_Template {
 			$contactus->phoneno = Arr::get($_POST, 'phoneno');
 			$contactus->topic = Arr::get($_POST, 'topic');
 			$contactus->message = Arr::get($_POST, 'message');
-			
+						
 			try
 			{
 				$contactus->save();
-                 
+
+				TimebankNotification::notify_contactus($contactus);
+                
 				// Redirect
 				Request::current()->redirect('contactus/thankyou/');
 				

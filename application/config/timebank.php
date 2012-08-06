@@ -3,6 +3,7 @@
 return array
 (
 	'server_url'	=>	'http://preview.jitarsabank.com/',
+	'server_email'	=>	'JitArsa Bank <JitArsaBank@gmail.com>',
 	
 	'password_salt'	=>	'abcdefg',
 

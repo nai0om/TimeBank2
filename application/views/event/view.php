@@ -109,25 +109,27 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		</div>
 		
 		<h2>หลังจากที่ไปร่วมกิจกรรมกันมาแล้วเพื่อนๆ สามารถ พูดคุยกัน ได้ที่นี่นะคะ</h2>
-		<h4 class="title">ฝากคอมเม้นต์</h4>
-		<?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
-            <?= Form::textarea('comment'); ?>
-            <?= Form::submit(NULL, 'โพส', array('style' => 'float:right; margin: 10px')); ?>
-            <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
-            	<div>
-					<? if ($comment->user->profile_image == '') : ?>
-                        <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
-                    <? else :?>
-                    	 <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
-                    <? endif ?>
-                <?= $comment->comment ?>
-                </div>
-            <? endforeach ?>
-    	 
-            <?= Form::close(); ?>
+        <h4 class="title">ฝากคอมเม้นต์</h4>
+        
+        <?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
+        <?= Form::textarea('comment'); ?>
+        <?= Form::submit(NULL, 'โพส', array( 'style' => 'float:right; margin: 10px;')); ?>
+        <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
+            <div>
+                <? if ($comment->user->id != 0 && $comment->user->profile_image != '') : ?>
+                        <?= HTML::anchor('user/view/'.$comment->user->id,  $comment->user->displayname); ?> :
+                        <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+                <? elseif ($comment->organization->id != 0 && $comment->organization->logo != '') : ?>
+                        <?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
+                        <img src="<?= url::base().'media/upload/organizations/'.$comment->organization->logo; ?>" style="float:left; width:51px; ">
+                <? else : ?>
+                     <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
+                <? endif ?>
+            <?= $comment->comment ?>
+            </div>
+        <? endforeach ?>
+        <?= Form::close(); ?>
 
-            
-		</div>
     <? else: ?>
 		<? if($event->message != '') : ?>
         <div id="post">
@@ -156,16 +158,16 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
         <? endif ?>
 
 		<div class="sub">
-			<h3><?= $event->time_cost ?> ชั่วโมง</h3>
+			<h3><?= number_format($event->time_cost) ?> ชั่วโมง</h3>
 			<h4>ต้องการจากอาสา</h4>
 		</div>
 		<div class="sub">
-			<h3><?= $member_count*$event->time_cost  ?> ชั่วโมง</h3>
+			<h3><?= number_format($member_count*$event->time_cost)  ?> ชั่วโมง</h3>
 			<h4>รวมเวลาที่ได้ทั้งหมด</h4>
 		</div>
 		<div class="main">
 			<h2>จำนวนอาสาสมัครที่ต้องการ</h2>
-			<h3><?= $event->volunteer_need_count ?> คน</h3>
+			<h3><?= number_format($event->volunteer_need_count) ?> คน</h3>
 			<h4>สมัครแล้ว <?= $member_count ?> คน เหลืออีก <?= abs($event->volunteer_need_count - $member_count) ?> คน</h4>
 		</div>
 		<div style="clear:both"></div>
@@ -295,6 +297,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		<? if (!$isOrga && $isOpen) : ?>
 			<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('user/checkdata/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
         <? endif ?>
+        
         	<h4 class="title">ฝากคอมเม้นต์</h4>
             
 			<?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
@@ -302,16 +305,20 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <?= Form::submit(NULL, 'โพส', array( 'style' => 'float:right; margin: 10px;')); ?>
             <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             	<div>
-					<? if ($comment->user->profile_image == '') : ?>
-                        <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
-                    <? else :?>
-                    	 <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+                	<? if ($comment->user->id != 0 && $comment->user->profile_image != '') : ?>
+                            <?= HTML::anchor('user/view/'.$comment->user->id,  $comment->user->displayname); ?> :
+                   	 		<img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+					<? elseif ($comment->organization->id != 0 && $comment->organization->logo != '') : ?>
+                    		<?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
+                            <img src="<?= url::base().'media/upload/organizations/'.$comment->organization->logo; ?>" style="float:left; width:51px; ">
+                    <? else : ?>
+                   		 <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
                     <? endif ?>
                 <?= $comment->comment ?>
                 </div>
             <? endforeach ?>
             <?= Form::close(); ?>
-    <? endif ?>
+    <? endif  //end normal mode?>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
 		
   </div>

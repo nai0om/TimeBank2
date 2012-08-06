@@ -1,6 +1,6 @@
 <div style="clear:both"></div>
 <div id="insideFooter">
-    <div class="line"></div><br />
+    <div class="line" style="padding-bottom:40px; padding-top:40px"></div>
         <ul id="section">
             <li>
                 <h4>จิตอาสา</h4>
