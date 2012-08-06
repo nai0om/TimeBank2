@@ -296,7 +296,7 @@ class Controller_Organization extends Controller_Template {
 		foreach($events_pass as $event)
 		{
 			$hours_sum +=  $event->time_cost * $event->volunteer_joined;
-			$total_valun += $event->volunteer_need_count;
+			$total_valun += $event->volunteer_joined;
 		}
 	}
 	
