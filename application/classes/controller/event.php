@@ -279,6 +279,12 @@ class Controller_Event extends Controller_Template {
 		{
 			$event->status = '0';
 			$event->save();	
+			TimebankNotification::notify_eventend_org($this->orguser, $event);
+			
+			foreach($event->users->find_all() as $user)
+			{
+				notify_eventend_volunteer($user, $this->orguser, $event);
+			}
 		}
 		
 		Request::current()->redirect('organization/event');
@@ -349,6 +355,9 @@ class Controller_Event extends Controller_Template {
 					->where('user_id', '=', $user['user_id'])
 					->where('event_id', '=', $event->id)
 					->execute();
+					
+				TimebankNotification::notify_eventapproved_volunteer( 
+												ORM::factory('user', $user['user_id']), $this->orguser, $event);
 			}
 			else
 			{
@@ -478,6 +487,9 @@ class Controller_Event extends Controller_Template {
 					
 					$this->user->add('events', $event);
 					$this->user->save();
+					
+					TimebankNotification::notify_eventapplied_org($this->user, $organization, $event);
+					
 					$organam = $organization->name;
 					$this->template->content = View::factory('event/apply')
 												->bind('organam', $organam)
@@ -493,7 +505,7 @@ class Controller_Event extends Controller_Template {
 		}
 		else
 		{
-		Request::current()->redirect('user/login');	
+			Request::current()->redirect('user/login');	
 		}
 		
 	}
