@@ -415,6 +415,18 @@ class Controller_Event extends Controller_Template {
 			Request::current()->redirect('event/view/'.$this->request->param('id').'?mode=3');
 		}
 	}
+	
+	public function action_removecomment()
+	{
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			$comment = ORM::factory('comment', Arr::get($_GET, 'c'));
+			$comment->delete();
+		}
+		
+		Request::current()->redirect('event/view/'.$this->request->param('id'));
+	}
+	
 	public function action_addcomment()
 	{
 		$this->auto_render = false;
