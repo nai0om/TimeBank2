@@ -90,13 +90,17 @@ class Controller_User extends Controller_Template {
             try {
 				if (!is_numeric(Arr::get($_POST, 'hour')))
 				{
-					$message = ('There were errors, please see form below.');
-					$errors = array('hour' => 'Please insert hours number.');
+					$message = __('Please insert hours number.');
 					
 				}
+				else if(Arr::get($_POST, 'hour') <= 0)
+				{
+					$message = __('hours must more than 0');
+					
+				} 			
 				else if (Arr::get($_POST, 'hour') > 2000)
 				{
-					$message = 'time is maximum at 2000';	
+					$message = __('time is maximum at 2000');	
 					
 				}
 				else
@@ -213,8 +217,13 @@ class Controller_User extends Controller_Template {
 			}
 			if (!is_numeric(Arr::get($_POST, 'hour')))
 			{
-				$message = __('There were errors, please see form below.');
+				$message = __('Please insert hours number.');
 				$errors = array('hour' => 'Please insert hours number.');
+				return;
+			}
+			if(Arr::get($_POST, 'hour') <= 0)
+			{
+				$message = __('hours must more than 0');
 				return;
 			}
 			if (Arr::get($_POST, 'hour') > 2000)
