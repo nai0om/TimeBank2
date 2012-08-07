@@ -1,9 +1,9 @@
-<div style="clear:both"></div>
+﻿<div style="clear:both"></div>
 <div id="insideFooter">
     <div class="line" style="padding-bottom:40px; padding-top:40px"></div>
         <ul id="section">
             <li>
-                <h4>จิตอาสา</h4>
+                <h4>ธนาคารจิตอาสา</h4>
                 <ul>
                     <li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับเว็บไซต์'); ?></li>
                     <li><?= HTML::anchor('welcome/timebank', 'ธนาคารจิตอาสา'); ?></li>
@@ -13,7 +13,7 @@
                 </ul>
             </li>
             <li>
-                <h4>งานอาสา</h4>
+                <h4>ภารกิจจิตอาสา</h4>
                 <ul>
                    	<? $jobs = Kohana::$config->load('timebank')->get('jobs'); ?>
 					<? for($i = 1 ; $i < sizeof($jobs) ; $i++): ?>
@@ -22,7 +22,7 @@
                 </ul>
             </li>
             <li>
-                <h4>บริการสมาชิก</h4>
+                <h4>สมาชิกอาสา</h4>
                 <ul>
                     <li><?= HTML::anchor('user/signup', 'สมัครสมาชิก'); ?></li>
                     <li><?= HTML::anchor('user/login', 'เข้าสู่ระบบ'); ?></li>
@@ -34,7 +34,7 @@
                 <ul>
                     <li><?= HTML::anchor('welcome/timebankhow', 'วิธีใช้ธนาคารจิตอาสา'); ?></li>
                     <li>คำถาม คำตอบ</li>
-                    <li>ค้นหางานอาสา</li>
+                    <li>ค้นหาภารกิจ</li>
                     <li><?= HTML::anchor('contactus', 'ติดต่อทีมงานอาสา'); ?></li>
                 </ul>
             </li>

@@ -1,9 +1,9 @@
-<div id="tb_browse">
+﻿<div id="tb_browse">
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
-			<li>ดูงานอาสา</li>
+			<li>ใช้บริการธนาคารจิตอาสา</li>
+			<li>ดูภารกิจจิตอาสา</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
@@ -40,7 +40,7 @@
 				<th>ต้องการเวลา (ช.ม./คน) </th>
 				<th>รับจำนวน</th>
 				<th>เปิดรับสมัคร</th>
-				<th>วัน/เวลาทำงาน</th>
+				<th>วัน / เวลาทำงาน</th>
 				<th></th>
 			</tr>
 			

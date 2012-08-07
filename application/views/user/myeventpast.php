@@ -1,4 +1,4 @@
-<div id="member" class="job past">
+﻿<div id="member" class="job past">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -27,10 +27,10 @@
 		<table>
 			<tr>
 				<th></th>
-				<th>งานอาสา</th>
-				<th>ต้องการจากอาสา</th>
-				<th>จำนวนรับสมัคร</th>
-				<th>เปิดรับสมัคร</th>
+				<th>ชื่อภารกิจ</th>
+				<th>ต้องการเวลา (ช.ม./คน)</th>
+				<th>รับจำนวน</th>
+				<th>การรับสมัคร</th>
 				<th>วัน / เวลาทำงาน</th>
 				<th>ยกเลิก</th>
 			</tr>
