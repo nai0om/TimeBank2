@@ -159,7 +159,9 @@ class Controller_Event extends Controller_Template {
 		$isOrga = false;
 		$event = ORM::factory('event', $this->request->param('id'));
 		
-		$query = DB::select()->from('users_events')->where('event_id', '=',  $event->id);
+		$query = DB::select()->from('users_events')
+					->where('event_id', '=',  $event->id)
+					 ->where('status', '=',  1);
 		$member_event = $query->execute()->as_array('user_id');
 		if (!is_null($this->orguser))
 		{
@@ -180,7 +182,13 @@ class Controller_Event extends Controller_Template {
 		$end_time = $event->signup_end_date.' '.$event->signup_end_time;
 		$isOpen = false;	
 
-		if($end_time > $now &&  $event->status <> '0')
+		$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', 1)->execute());
+		
+		if ($event->volunteer_need_count <= $approved)
+		{
+			$isOpen = false;
+		}
+		else if($end_time > $now &&  $event->status <> '0')
 		{
 			 $isOpen = true;
 		}
