@@ -4184,6 +4184,8 @@ header h2 {
     width: 900px;
 }
 #insideFooter #section li h4{
+	color: #09C;
+	background: none;
 	margin:0;
 	font-size:12px;
 }
