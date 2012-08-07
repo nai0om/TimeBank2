@@ -76,7 +76,7 @@ $times['23:59:59'] = '23:59';
 								if (isset($gets['day'.$i])){
 									$checked = TRUE;
 								}
-							    echo Form::checkbox('day'.$i, $days[$i], $checked, array('id' => 'day'.$i, 'onChange' => 'dayChecked()')).''. Form::label($days[$i], $days[$i], array('class'=>'day'));
+							    echo Form::checkbox('day'.$i, $days[$i], $checked, array('id' => 'day'.$i, 'onChange' => 'dayChecked()')).''. Form::label($days[$i], $days[$i], array('class'=>'day')).'<br />';
                             }
                         ?>
                     </p>
@@ -89,39 +89,42 @@ $times['23:59:59'] = '23:59';
 			</div>
 			<div id="rightSide">
 				<fieldset>
-					<p><label><strong>ทักษะของอาสาสมัครที่ต้องการ</strong></label></p>
-					<ol>
-                       <li><p>ความสามารถพิเศษ</p>
-                                    <p><label>ทักษะทั่วไป (เลือกได้มากกว่า 1)</label></p>
-                                      <p style="width:250px">
-                                    <?php  
-                                        $skills = Kohana::$config->load('timebank')->get('skills'); 
-                                        for($i = 0 ; $i < sizeof($skills) ; $i++){
-                                            $checked = FALSE;
-                                            if (isset( $gets[ 'skill'.$i ] ) ){
-                                                    $checked = TRUE;
-                                             }
-                                            echo '<p>'.Form::checkbox('skill'.$i, $skills[$i], $checked).''. Form::label($skills[$i], $skills[$i]).'</p>';
-                                        }
-                                    ?>
-                                    </p>
-                                    <p><label>การใช้ภาษา (สื่อสารได้/อ่านเขียนได้/แปลได้) (เลือกได้มากกว่า 1)</label></p>
-                                    <p style="width:250px">
-                                    <?php  
-                                        $languates = Kohana::$config->load('timebank')->get('languates'); 
-                                        for($i = 0 ; $i < sizeof($languates) ; $i++){
-                                            $checked = FALSE;
-                                            if ( isset ($gets['languate'.$i ] ) ){
-                                               $checked = TRUE;
-                                            }
-                                            echo Form::checkbox('languate'.$i, $languates[$i], $checked).''. Form::label($languates[$i], $languates[$i], array('class'=>'job'));
-                                        }
-                                    ?>
-                                    </p>
-                                    <input type="checkbox"> <label>อื่นๆ (ให้ระบุ) </label><input name='any_languate' type="text" style="width:50px;margin:0;display:inline;"></p>
-						</li>
-						<input type="submit" value="ค้นหาแบบละเอียด">
-					</ol>
+							 <p><label><strong>ทักษะของอาสาสมัครที่ต้องการ</strong></label></p>
+        <ol>
+           <?php
+			
+		   $skill = Kohana::$config->load('timebank')->get('all_skills'); 
+		   $dict = Kohana::$config->load('timebank')->get('worddict');
+		   foreach ($skill as $title => $value)
+		   {
+   			 echo  '<p><label>'.$dict[$title].'</label>';
+			 foreach ($value as $title2 => $value2)
+			 {
+				echo  '<label style="margin-left: 10px;" > - '.$dict[$title2].'</label> <br />'; 
+				foreach ($value2 as $name)
+				{
+					$value = '';
+					 $checked = '';
+					
+					
+					if(phphelp::endsWith($name, 'T'))
+					{
+						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox"> <span>'.$dict[$name].'</span> <br />';
+						echo  '<input name='.$name.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left: 50px;"><br />';
+					}
+					else
+					{
+						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox" name='.$name.'> <span>'.$dict[$name].'</span> <br />';
+					}
+				}
+			 }
+			 echo '<p>';
+		   }
+	   ?>
+       <input type="submit" value="ค้นหาแบบละเอียด">
+        </ol>
+			</fieldset>
+
 				</fieldset>
 			</div>
 		</form>
@@ -175,14 +178,13 @@ $times['23:59:59'] = '23:59';
                         </ul>
                     </td>
                 </tr>
-            </tbody></table>
-		
+            </tbody>
+         </table>
+		<?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
-  <footer>
-	<p>Copyright 2012 Jitarsa All rights reserved.</p>
-	<ul><li>Team & Conditions</li><li>Privacy</li><li>Contact Us</li></ul>
-  </footer>
 </div>
+
+
 <script>
 $(document).ready( function () {
   	$(function() {

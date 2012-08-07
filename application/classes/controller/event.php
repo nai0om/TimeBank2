@@ -193,7 +193,13 @@ class Controller_Event extends Controller_Template {
 	
 	public function action_advance_search()
 	{
-        $this->template->content =$this->search_event('event/advanced_search');
+	
+    	$this->search_event('event/advancedsearch');
+	}
+	
+	public function action_search()
+	{
+		$this->search_event('event/search');	
 	}
 	
 	public function action_addjoined()
@@ -211,7 +217,7 @@ class Controller_Event extends Controller_Template {
 			
 			$event = $this->orguser->events->where('id', '=', $id)->find();
 			$event->volunteer_joined = Arr::get($_POST, 'value');
-			echo 'xxxxx'.Arr::get($_POST, 'value');
+	
 			try
 			{
 				$event->save();
@@ -229,11 +235,6 @@ class Controller_Event extends Controller_Template {
 			Request::current()->redirect('organization/event?mode=1');
 		}
 		
-	}
-
-	public function action_search()
-	{
-		$this->template->content = $this->search_event('event/search');	
 	}
 	
 	public function action_removeimage()
@@ -556,7 +557,7 @@ class Controller_Event extends Controller_Template {
 		}
 	}
 	
-	private function search_event( $view)
+	private function search_event($view)
 	{
 		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 		$provinces = Kohana::$config->load('timebank')->get('provices');
@@ -633,14 +634,24 @@ class Controller_Event extends Controller_Template {
 				$events = $events->where('days', '=', '');
 			}
 			//skills
-		   $skills = Kohana::$config->load('timebank')->get('skills'); 
-			for($i = 0 ; $i < sizeof($skills) ; $i++){
-				if (Arr::get($_GET, 'skill'.$i ) != ''){
-				
-					$events = $events->where('skills', 'like', '%'.$skills[ $i ].'%');
+			 $dict = Kohana::$config->load('timebank')->get('worddict');
+			 $skill = ' ';
+			 foreach($dict  as $key => $val)
+			 {
+				 
+				 $value = Arr::get($_GET,  $key);
+				 if( $value != '') 
+				 {
+					 if($value == 'on')
+					 {
+						$events = $events->where('skills', 'like', '%'.$key.'%');
+					 }
+					 else
+					 {
+						 $events = $events->where('skills', 'like', '%'.$value.'%');
+					 }
 				 }
-			
-			}
+			 }
 									
 			//languates
 			$languates = Kohana::$config->load('timebank')->get('languates'); 
@@ -671,16 +682,16 @@ class Controller_Event extends Controller_Template {
 		if($query != '')
 			$link .= 'query='.$query.'&';
 
-		$content = View::factory($view)
-					->bind('events', $events)
-					->bind('count', $count)
-					->bind('total_page', $total_page)
-					->bind('provices', $provinces)
-					->bind('jobs', $jobs)
-					->bind('link', $link)
-					->bind('gets', $_GET);
+	
+		$this->template->content =  View::factory($view)
+										->bind('events', $events)
+										->bind('count', $count)
+										->bind('total_page', $total_page)
+										->bind('provices', $provinces)
+										->bind('jobs', $jobs)
+										->bind('link', $link)
+										->bind('gets', $_GET);
 
-		return $content;
 	}
 	
 	private function save_event($event, $orguser, $isupdate, &$message, &$errors)
