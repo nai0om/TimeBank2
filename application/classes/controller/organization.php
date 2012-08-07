@@ -265,7 +265,8 @@ class Controller_Organization extends Controller_Template {
             ->bind('org_user', $org_user)
 			->bind('hours_sum', $hours_sum)
 			->bind('total_valun', $total_valun)
-			->bind('events', $events);
+			->bind('events', $events)
+			->bind('mode', $mode);
 		
 		$organization = ORM::factory('organization', $this->request->param('id'));
 		if (is_null($organization))
@@ -292,10 +293,17 @@ class Controller_Organization extends Controller_Template {
 		}
 		$hours_sum = 0;		
 		$total_valun = 0;
-		$events_pass = $organization->events->where('event.status', '=', '0')->find_all();					
+		$events_pass = $organization->events->where('event.status', '=', '0')->find_all();	
+		$event_approve = DB::select('event_id', array('COUNT("*")', 'total'))
+				->from('users_events')
+				->where('time_approve', '=',  1)
+				->group_by('event_id')
+				->execute()->as_array('event_id');				
 		foreach($events_pass as $event)
 		{
-			$hours_sum +=  $event->time_cost * $event->volunteer_joined;
+			if(array_key_exists($event->id, $event_approve))
+				$hours_sum +=  $event->time_cost * $event_approve[$event->id]['total'];
+				
 			$total_valun += $event->volunteer_joined;
 		}
 	}
