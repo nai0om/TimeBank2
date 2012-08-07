@@ -1,14 +1,14 @@
-<div id="training">
+﻿<div id="training">
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ข่าวสารเฮงๆ</li>
+			<li>ข่าวแวดวง</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div class="title left"></div>
-		<div class="title body">ข่าวสารอัพเดท</div>
+		<div class="title body">ข่าวแวดวง</div>
 		<div class="title right"></div>
 		
 		<div id="bannerRotating">

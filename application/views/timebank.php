@@ -1,8 +1,8 @@
-<div id="main_timeBank">
+﻿<div id="main_timeBank">
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
+			<li>ใช้บริการธนาคารจิตอาสา</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
@@ -10,23 +10,23 @@
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_how_it_work.png"/>'); ?>
             <?= HTML::anchor('event/browse', '<img src="'.url::base().'media/img/icon_browse_event.png"/>'); ?>
             <?= HTML::anchor('help', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
-			<h2>ธนาคารจิตอาสา</h2>
+			<h2>ใช้บริการธนาคารจิตอาสา</h2>
 		</div>
 		
 		<div id="bannerRotating">
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
-					<h3><?= number_format($time_donate) ?> ชม.</h3>
+					<h3><?= number_format($time_donate) ?> ชั่วโมง</h3>
 					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
-					<h3><?= number_format($time_want) ?> ชม.</h3>
+					<h3><?= number_format($time_want) ?> ชั่วโมง</h3>
 					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
-					<h3><?= number_format($time_done) ?> ชม.</h3>
+					<h3><?= number_format($time_done) ?> ชั่วโมง</h3>
 					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					

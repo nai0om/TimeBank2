@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $job = isset($gets['job'])? $gets['job'] : '0';
 $query = isset($gets['query'])? $gets['query'] : '';
 $province = isset($gets['province'])? $gets['province'] : '0';
@@ -66,11 +66,11 @@ $page = isset($gets['page'])? $gets['page'] : '1';
             <?php endif ?>
             <table>
                 <tbody><tr>
-                    <th>งานอาสา</th>
-                    <th>ต้องการจากอาสา</th>
-                    <th>จำนวนรับสมัคร</th>
-                    <th>เปิดรับสมัคร</th>
-                    <th>วัน / เวลาทำงานอาสา</th>
+                    <th>ชื่อภารกิจ</th>
+                    <th>ต้องการเวลา (ช.ม./คน)</th>
+                    <th>รับจำนวน</th>
+                    <th>การรับสมัคร</th>
+                    <th>วัน / เวลาทำงาน</th>
                     <th></th>
                 </tr>
                 <?php foreach ($events as $event):	?>

@@ -1,4 +1,4 @@
-<div id="org">
+﻿<div id="org">
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -45,7 +45,7 @@
 		<div class="column two">
 			<h4>สถานที่ตั้ง</h4>
 			<p><?= $organization->address ?></p>
-			<h4>เขต</h4>
+			<h4>เขต / อำเภอ</h4>
 			<p><?= $organization->district ?></p>
 			<h4>จังหวัด</h4>
 			<p><?= $organization->province ?></p>
@@ -76,11 +76,11 @@
 		
 		<table>
 			<tbody><tr>
-				<th>งานอาสา</th>
-				<th>ต้องการจากอาสา</th>
-				<th>จำนวนรับสมัคร</th>
-				<th>เปิดรับสมัคร</th>
-				<th>วัน / เวลาทำงานอาสา</th>
+				<th>ชื่อภารกิจ</th>
+				<th>ต้องการเวลา (ช.ม./คน)</th>
+				<th>รับจำนวน</th>
+				<th>การรับสมัคร</th>
+				<th>วัน / เวลาทำงาน</th>
 				<th></th>
 			</tr>
             <? foreach( $events as $event ): ?>
