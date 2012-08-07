@@ -116,7 +116,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
         <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             <div>
                 <? if ($comment->user->id != 0 && $comment->user->profile_image != '') : ?>
-                        <?= HTML::anchor('user/view/'.$comment->user->id,  $comment->user->displayname); ?> :
+                        <a><?= $comment->user->displayname) ?></a>
                         <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
                 <? elseif ($comment->organization->id != 0 && $comment->organization->logo != '') : ?>
                         <?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
@@ -300,7 +300,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             	<div>
                 	<? if ($comment->user->id != 0 && $comment->user->profile_image != '') : ?>
-                            <?= HTML::anchor('user/view/'.$comment->user->id,  $comment->user->displayname); ?> :
+                            <a><?= $comment->user->displayname) ?></a>
                    	 		<img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
 					<? elseif ($comment->organization->id != 0 && $comment->organization->logo != '') : ?>
                     		<?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
