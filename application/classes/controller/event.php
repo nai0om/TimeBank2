@@ -13,7 +13,7 @@ class Controller_Event extends Controller_Template {
 		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 		$jobs_count = array();
 		for ($i = 1; $i < sizeof($jobs); $i++) {
-			$records = ORM::factory('event')->where('tags', 'like', '%'.$jobs[$i].'%');
+			$records = ORM::factory('event')->where('status','=','1')->where('tags', 'like', '%'.$jobs[$i].'%');
 			$records->reset(FALSE); // !!!!
 			$count = $records->count_all();
 
