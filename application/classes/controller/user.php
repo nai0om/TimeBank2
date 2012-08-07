@@ -499,13 +499,7 @@ class Controller_User extends Controller_Template {
 		
 		foreach ($records as $event)
 		{
-<<<<<<< HEAD
-			$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', '1')->execute());
-			//echo ' eventttt'. $approved;
-			if ($event->volunteer_need_count <= $approved)
-=======
 			if($mode != 1)
->>>>>>> issue #78
 			{
 				$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', $status)->execute());
 				
