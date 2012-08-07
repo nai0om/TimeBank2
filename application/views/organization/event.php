@@ -90,8 +90,8 @@
 					<td><?=  $event->volunteer_need_count ?> คน</td>
                     <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?>
                     	<?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?>
-                    	<?= HTML::anchor('event/closed/'.$event->id, 'ปิดงาน') ?></td>
-
+						<?= HTML::anchor('#', 'ปิดงาน', array('onclick' => "var answer = confirm ('ก่อนปิดงานกรุณาเขียนคำขอบคุณอาสาในหน้างานอาสา และทำการอัพโหลดรูปงานอาสาด้วยครับ หลังจากคุณสั่งปิดงานแล้ว ระบบจะทำการส่งเมล์ไปแจ้งอาสาให้เข้ามาดูคำขอบคุณของคุณ คุณแน่ใจหรือที่จะปิดงาน?') 
+if (answer) window.location='".url::base()."event/closed/".$event->id."'") ); ?></td>
 				</tr>
                 <? endforeach ?>
 				

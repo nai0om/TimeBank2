@@ -810,6 +810,11 @@ class Controller_Event extends Controller_Template {
                  
                 // Set errors using custom messages
                 $errors = $e->errors('models');
+
+				// Reassign date value which we have converted to save to db...which is a hack :(
+				$event->signup_end_date = Arr::get($_POST, 'signup_end_date');
+				$event->volunteer_begin_date = Arr::get($_POST, 'volunteer_begin_date');
+				$event->volunteer_end_date = Arr::get($_POST, 'volunteer_end_date');
 				
 				//print_r($errors);
             }
