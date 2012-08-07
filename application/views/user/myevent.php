@@ -14,12 +14,21 @@
 		
 		
 		<div id="main_right">
-		
+			<?
+			$isOpen = '';
+			$isClose = 'past';
+			if($mode == 1)
+			{
+				//close
+				$isOpen = 'past';
+				$isClose = '';
+			}
+		?>
 		<div class="title left"></div>
-		<div class="title body">งานอาสาที่สมัครไป</div>
+		<div class="title body <?= $isOpen ?>"><?= HTML::anchor('user/myevent/', 'งานอาสาที่สมัครไป') ?></div>
 		<div class="title right"></div>
 		<div class="title left"></div>
-		<div class="title body past">งานอาสาที่เคยร่วม</div>
+		<div class="title body <?= $isClose ?>"><?= HTML::anchor('user/myevent?mode=1', 'งานอาสาที่เคยร่วม') ?></div>
 		<div class="title right"></div>
 		<div style="clear:both"></div>
 		
@@ -34,9 +43,10 @@
                         <th>รับจำนวน</th>
                         <th>เปิดรับสมัคร</th>
                         <th>วัน / เวลาทำงาน</th>
-                        <th>ยกเลิก</th>
+                        <th>ตัวเลือก</th>
                     </tr>
         <?php foreach ($records as $record):?>
+        		<? if($mode != 1) : ?>
                     <tr>
                     	<td style="font-weight:bold; color:#F00; text-align:center">
                         <? if( $statuses[$record->id]['status'] == '1' ) : ?>    
@@ -58,6 +68,24 @@
                       <?= $record->volunteer_end_date ?></td>
                         <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <?= HTML::anchor('user/removeevent/'.$record->id, 'ยกเลิก') ?> </td>
                     </tr>
+                 <? else : ?>
+                    <tr>
+                    	<td style="font-weight:bold; color:#F00; text-align:center">
+                        <? if( $statuses[$record->id]['status'] == '1' ) : ?>    
+                        	ยืนยันการใช้แล้ว
+                        <? else : ?>
+                        	<?= HTML::anchor('user/approvetime/'.$record->id, 'ยืนยันการใช้เวลา') ?> 
+                        <? endif ?>
+                        </td>
+                        <td><?= $record->name ?></td>
+                        <td><?= $record->time_cost ?></td>
+                        <td><?= $record->volunteer_need_count ?>
+                      คน</td>
+                        <td>- ปิด -</td>
+                   		<td>- ปิด -</td>
+                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <?= HTML::anchor('user/removeevent/'.$record->id, 'ยกเลิก') ?> </td>
+                    </tr>
+                 <? endif ?>
             
         <? endforeach ?>
                 <tr>

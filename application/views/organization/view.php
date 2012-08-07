@@ -64,12 +64,22 @@
 			<h4>twitter</h4><span><a href="<?='http://www.twitter.com/'.$organization->twitter ?>" target="_blank"><?= '@'.$organization->twitter ?></a></span>
 		</div>
 
+		<?
+			$isOpen = '';
+			$isClose = 'past';
+			if($mode == 2)
+			{
+				//close
+				$isOpen = 'past';
+				$isClose = '';
+			}
+		?>
 		<div style="clear:both"></div>
 		<div class="title left"></div>
-		<div class="title body"><?= HTML::anchor('organization/view/'.$organization->id, 'งานอาสาที่เปิดรับสมัคร') ?></div>
+		<div class="title body <?= $isOpen ?>"><?= HTML::anchor('organization/view/'.$organization->id, 'งานอาสาที่เปิดรับสมัคร') ?></div>
 		<div class="title right"></div>
 		<div class="title left"></div>
-		<div class="title body past"><?= HTML::anchor('organization/view/'.$organization->id.'?mode=2', 'งานอาสาที่จบไปแล้ว') ?></div>
+		<div class="title body <?= $isClose ?>"><?= HTML::anchor('organization/view/'.$organization->id.'?mode=2', 'งานอาสาที่จบไปแล้ว') ?></div>
 		<div class="title right"></div>
 		<div style="clear:both"></div>
 		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $organization->events->count_all()?></span></p>

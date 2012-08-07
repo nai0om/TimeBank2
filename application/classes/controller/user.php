@@ -21,14 +21,14 @@ class Controller_User extends Controller_Template {
 		
 		$time = DB::select(array('SUM("hour")', 'time'))
 				->from('user_timebanks') 	
-				->where('status','=','1')
 				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
-		$work_time = 0;		
-		$pass_event = $this->user->events->where('event.status', '=', '0')->find_all();
-		foreach($pass_event as $pass)
-		{
-			$work_time += $pass->time_cost;
-		}
+	
+		
+		$work_time = -1* DB::select(array('SUM("hour")', 'time'))
+				->from('user_timebanks') 	
+				->where('status','=','2')
+				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
+	
 		
 			
 		$events = ORM::factory('event')->where('event.status', '=', '1')->order_by('timestamp','desc')->limit(3)->find_all();
@@ -64,7 +64,6 @@ class Controller_User extends Controller_Template {
 		$message = __(Arr::get($_GET, 'error'));							
 		$time = DB::select(array('SUM("hour")', 'time'))
 				->from('user_timebanks') 	
-				->where('status','=','1')
 				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
 		$work_time = 0;		
 		$pass_event = $this->user->events->where('event.status', '=', '0')->find_all();
@@ -431,38 +430,104 @@ class Controller_User extends Controller_Template {
 		
     }
 	
+	public function action_approvetime()
+	{
+		if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
+		$event_id = $this->request->param('id');
+			
+		$status = DB::select()->from('users_events')
+					->where('user_id', '=',  $this->user->id)
+					->where('event_id', '=',  $event_id)->execute()->get('time_approve', 0);
+					
+		if($status == 0)
+		{
+			$event = ORM::factory('event', $event_id);
+			// update timebank of user 
+			// this process not synconize with  approve status action
+			// status 2 means it comes from finshed event
+			DB::insert('user_timebanks', array('user_id', 'status', 'hour', 'description'))
+						->values( array($this->user->id, 2, -1*$event->time_cost,'ได้รับจากงานอาสา '.$event->name))
+						->execute();
+						
+			// update user approve status for event
+			DB::update('users_events')->set(array('time_approve' => '1'))
+					->where('user_id', '=',  $this->user->id)
+					->where('event_id', '=',  $event_id)
+					->execute();
+					
+		
+	
+		
+		}
+	
+	 Request::current()->redirect('user/myevent?mode=1');
+		
+	}
+	
     public function action_myevent()
     {
+		$action = $this->request->action();
+		$this->template->content = View::factory('user/myevent')
+								->bind('records', $records)
+								->bind('errors', $errors)
+								->bind('action', $action)
+								->bind('statuses', $statuses)
+								->bind('mode', $mode);
         // if a user is not logged in, redirect to login page
         if (!$this->user)
         {
             Request::current()->redirect('user/login');
 			return;
         }
-		
-		$records = $this->user->events->find_all();
+		$status = 1;
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			if(Arr::get($_GET, 'mode') == 1)
+			{
+				$mode = 1; //pass event
+				$status = 0;		
+			}
+		}
+		$records = $this->user->events->where('event.status', '=', $status)->find_all();
 		$query = DB::select()->from('users_events')->where('user_id', '=',  $this->user->id);
 		$statuses = $query->execute()->as_array('event_id');
 		
 		foreach ($records as $event)
 		{
+<<<<<<< HEAD
 			$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', '1')->execute());
 			//echo ' eventttt'. $approved;
 			if ($event->volunteer_need_count <= $approved)
+=======
+			if($mode != 1)
+>>>>>>> issue #78
 			{
-				if($statuses[$event->id]['status'] == 0)
+				$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', $status)->execute());
+				
+				if ($event->volunteer_need_count <= $approved)
 				{
-					$statuses[$event->id]['status'] = -1;
+					if($statuses[$event->id]['status'] == 0)
+					{
+						$statuses[$event->id]['status'] = -1;
+					}
 				}
+			}
+			else
+			{
+				$status = DB::select()->from('users_events')
+							->where('user_id', '=',  $this->user->id)
+							->where('event_id', '=',  $event->id)->execute()->get('time_approve', 0);
+				$statuses[$event->id]['status'] = $status;	
+				// 0 is unapprove, 1 is apprved
 			}
 		}
 
-		$action = $this->request->action();
-		$this->template->content = View::factory('user/myevent')
-								->bind('records', $records)
-								->bind('errors', $errors)
-								->bind('action', $action)
-								->bind('statuses', $statuses);
+	
 	
 
     }
