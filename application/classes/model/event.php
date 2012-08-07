@@ -24,10 +24,12 @@ class Model_Event extends ORM {
                 array('not_empty'),
                 array('min_length', array(':value', 3)),
             ),
+			/*
             'signup_begin_date' => array(
                 array('not_empty'),
                 array('date'),
             ),
+			*/
             'signup_end_date' => array(
                 array('not_empty'),
                 array('date'),
@@ -115,9 +117,11 @@ class Model_Event extends ORM {
 	public function filters()
 	{
 		return array(
+		/*
 			'signup_begin_date' => array(
 				array('trim'),
 			),
+			*/
 			'signup_end_date' => array(
 				array('trim'),
 			),
