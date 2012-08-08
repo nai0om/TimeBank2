@@ -56,64 +56,76 @@ class TimebankNotification {
 	
 	public static function notify_eventapproved_volunteer($user, $organization, $event)
 	{
-		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array($user->email);
-		$subject = 'ท่านได้รับคำยืนยันให้เข้าร่วมงานอาสา';
-		$body = self::renderHtmlEmail('volunteer_approved', array(
-															'displayname' 	=> $user->displayname,
-															'org_name'		=> $organization->name,
-															'event_id'		=> $organization->id,
-															'event_name'	=> $event->name,
-															));
-		TimebankUtil::send_email($from, $to, $subject, $body);
+		if ($user->noti_eventapproved == 1)
+		{
+			$from = Kohana::$config->load('timebank')->get('server_email');
+			$to = array($user->email);
+			$subject = 'ท่านได้รับคำยืนยันให้เข้าร่วม "['.$event->name.']"';
+			$body = self::renderHtmlEmail('volunteer_approved', array(
+																'displayname' 	=> $user->displayname,
+																'org_name'		=> $organization->name,
+																'event_id'		=> $event->id,
+																'event_name'	=> $event->name,
+																));
+			TimebankUtil::send_email($from, $to, $subject, $body);
+		}
 	}
 	
 	public static function notify_eventapplied_org($user, $organization, $event)
 	{
-		$from = Kohana::$config->load('timebank')->get('server_email');
 		$org_user = ORM::Factory('user', $organization->user_id);
-		$to = array($org_user->email);
-		$subject = 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน';
-		$body = self::renderHtmlEmail('volunteer_apply_event', array(
-															'org_name' 		=> $organization->name,
-															'event_name'	=> $event->name,
-															'event_id' 		=> $event->id,
-															));
-		TimebankUtil::send_email($from, $to, $subject, $body);
+		if ($organization->noti_volunteerregister == 1)
+		{	
+			$from = Kohana::$config->load('timebank')->get('server_email');
+			$to = array($org_user->email);
+			$subject = 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน';
+			$body = self::renderHtmlEmail('volunteer_apply_event', array(
+																'org_name' 		=> $organization->name,
+																'event_name'	=> $event->name,
+																'event_id' 		=> $event->id,
+																));
+			TimebankUtil::send_email($from, $to, $subject, $body);
+		}
 	}
 
 	public static function notify_eventend_org($organization, $event)
 	{
-		$from = Kohana::$config->load('timebank')->get('server_email');
 		$org_user = ORM::Factory('user', $organization->user_id);
-		$to = array($org_user->email);
-		$subject = 'งานอาสาของท่านได้สิ้นสุดลงแล้ว';
-		$body = self::renderHtmlEmail('event_end_org', array(
-															'org_name' 		=> $organization->name,
-															'event_name' 	=> $event->name,
-															'event_id' 		=> $event->id,
-															));
-		TimebankUtil::send_email($from, $to, $subject, $body);
+		if ($organization->noti_eventend == 1)
+		{
+			$from = Kohana::$config->load('timebank')->get('server_email');
+			$to = array($org_user->email);
+			$subject = 'งานอาสาของท่านได้สิ้นสุดลงแล้ว';
+			$body = self::renderHtmlEmail('event_end_org', array(
+																'org_name' 		=> $organization->name,
+																'event_name' 	=> $event->name,
+																'event_id' 		=> $event->id,
+																));
+			TimebankUtil::send_email($from, $to, $subject, $body);
+		}
 	}
 
 	public static function notify_eventend_volunteer($user, $organization, $event)
 	{
-		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array($user->email);
-		$subject = 'มีคนขอบคุณจิตอาสาของท่าน';
-		$body = self::renderHtmlEmail('event_end_volunteer', array(
-															'displayname' 	=> $user->name,
-															'org_name' 		=> $organization->name,
-															'event_name' 	=> $event->name,
-															'event_id' 		=> $event->id,
-															));
-		TimebankUtil::send_email($from, $to, $subject, $body);
+		if ($user->noti_eventthank == 1)
+		{
+			$from = Kohana::$config->load('timebank')->get('server_email');
+			$to = array($user->email);
+			$subject = 'องค์กรผู้จัดได้ปิดภารกิจ"['.$event->name.']"';
+			$body = self::renderHtmlEmail('event_end_volunteer', array(
+																'displayname' 	=> $user->name,
+																'org_name' 		=> $organization->name,
+																'event_name' 	=> $event->name,
+																'event_id' 		=> $event->id,
+																));
+			TimebankUtil::send_email($from, $to, $subject, $body);
+		}
 	}
 
 	public static function notify_contactus($contactus)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array('xinexo@gmail.com');
+		$to = array('jitarsabank@gmail.com');
 		$subject = 'มี Contact Us อันใหม่';
 		$body = self::renderHtmlEmail('contact_us', array(
 															'name' 		=> $contactus->name,

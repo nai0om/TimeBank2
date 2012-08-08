@@ -30,7 +30,7 @@
 			<p><?= Form::checkbox('noti_eventapproved', 1, (bool) $user->noti_eventapproved); ?> เมื่อมีงานอาสาที่สมัครไป ตอบรับ (Approve) ให้ฉันเข้าร่วม</p>
 			<p><?= Form::checkbox('noti_almosteventdate', 1, (bool) $user->noti_almosteventdate); ?> เมื่อมีงานอาสาที่สมัครไป ใกล้ถึงวันจัดกิจกรรม</p>
 			<!--p><?= Form::checkbox('noti_eventthank', 1, (bool) $user->noti_eventthank); ?> เมื่อมีงานอาสาที่สมัครไป ประกาศรายชื่ออาสาสมัคร และฉันได้ไป หรือไม่ได้ไป</p-->
-			<p><?= Form::checkbox('noti_eventthank', 1, (bool) $user->noti_eventthank); ?> หลังจากได้ไปร่วมงานอาสาที่สมัครไปเรียบร้อยแล้ว และงานอาสานั้นนำภาพกิจกรรมขึ้นหรือ เขียนข้อความกล่าวขอบคุณอาสาสมัครที่ไปร่วมงาน ให้ฉันสามารถเข้าไปเขียน Comment ภาพงานกิจกรรมได้</p>
+			<p><?= Form::checkbox('noti_eventthank', 1, (bool) $user->noti_eventthank); ?> หลังจากฉันได้เข้าร่วมภารกิจจิตอาสาที่สมัครไปแล้ว และองค์กรผู้จัดได้ปิดภารกิจนี้ (ซึ่งอาจมีภาพกิจกรรมมาแสดง และ/หรือได้เขียนขอบคุณอาสาสมัคร)</p>
 			
 			<div class="headline">แจ้งเตือนทางมือถือ</div><div class="line"></div>
 			<p><?= Form::checkbox('noti_sms_eventapproved', 1, (bool) $user->noti_sms_eventapproved); ?> เมื่อมีงานอาสาที่สมัครไป ตอบรับ (Approve) ให้ฉันเข้าร่วม</p>

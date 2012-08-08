@@ -272,7 +272,14 @@ class Controller_User extends Controller_Template {
 				TimebankNotification::notify_new_volunteer($user, Arr::get($_POST, 'password'));
 
 				// Redirect
-				Request::current()->redirect('/user/index');
+				if (Arr::get($_POST, 'back_url') != '')
+				{
+					Request::current()->redirect(Arr::get($_POST, 'back_url'));
+				}
+				else
+				{
+					Request::current()->redirect('/user/index');
+				}
 				
             } catch (ORM_Validation_Exception $e) {
                  
@@ -792,16 +799,17 @@ class Controller_User extends Controller_Template {
 	
 	public function action_checkdata()
 	{
+		$eventid = $this->request->param('id');
+
 		if (!isset($this->user))
 		{
-			Request::current()->redirect('user/login');
+			$back_url = urlencode('user/checkdata/'.$eventid);
+			Request::current()->redirect('user/login?back_url='.$back_url);
 		}
-		
-		$eventid = $this->request->param('id');
 		
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
-		 $this->template->content = View::factory('user/checkdata')
+		 	$this->template->content = View::factory('user/checkdata')
 										->bind('user', $this->user)
 										->bind('eventid', $evetnid)
 										->bind('errors', $errors);
@@ -859,9 +867,10 @@ class Controller_User extends Controller_Template {
 			if ($user !== FALSE)
 			{
 				$user_roles = Kohana::$config->load('timebank')->get('user_roles');
+				$redirect_url = '';
 				if ($user->role == $user_roles['volunteer'])
 				{
-                	Request::current()->redirect('user/index');
+                	$redirect_url = 'user/index';
 				}
 				else
 				{
@@ -880,7 +889,17 @@ class Controller_User extends Controller_Template {
 						}
 					}
 					
-					Request::current()->redirect('organization/index');
+					$redirect_url = 'organization/index';
+				}
+				
+
+				if (Arr::get($_POST, 'back_url') != '')
+				{
+					Request::current()->redirect(Arr::get($_POST, 'back_url'));
+				}
+				else
+				{
+					Request::current()->redirect($redirect_url);
 				}
 			}
 			else
