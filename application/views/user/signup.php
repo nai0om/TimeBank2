@@ -7,7 +7,7 @@
 			<h2>สมัครเป็นสมาชิก/ Sign Up</h2>
 
 				<h3>กรุณาเลือกประเภทสมาชิก<br><br>
-				<?= HTML::anchor('user/create', 'สมัครสมาชิกอาสา', array('class'=>'button long170')); ?> <span style="color:#0099cc">หรือ</span>
+				<?= HTML::anchor('user/create?back_url='.urlencode(Arr::get($_GET, 'back_url')), 'สมัครสมาชิกอาสา', array('class'=>'button long170')); ?> <span style="color:#0099cc">หรือ</span>
                 <?= HTML::anchor('organization/create', 'สมัครสมาชิกองค์กร', array('class'=>'button long170')); ?></h3>
 
 		</div>
