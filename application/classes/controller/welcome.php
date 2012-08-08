@@ -16,7 +16,7 @@ class Controller_Welcome extends Controller_Template {
 		
 		$time_want =  timebankhelper::getWantedTime();
 					
-		$events = ORM::factory('event')->where('status', '=', '1')->order_by('timestamp','desc')->limit(3)->find_all();
+		$events = timebankhelper::getRecommendEvent();
 	
    	}
 	
