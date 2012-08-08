@@ -27,7 +27,8 @@
     <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/widget/css/rcarousel.css" />
     
      <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/css/ui-lightness/jquery-ui-1.8.21.custom.css" />
-  
+      <link rel="icon" href="<?= url::base(); ?>favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= url::base(); ?>favicon.ico" type="image/x-icon"> 
 	<script src="<?= url::base(); ?>media/js/libs/modernizr-2.5.3.min.js"></script>
 
 
