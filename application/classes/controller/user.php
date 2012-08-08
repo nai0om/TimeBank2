@@ -31,7 +31,7 @@ class Controller_User extends Controller_Template {
 	
 		
 			
-		$events = ORM::factory('event')->where('event.status', '=', '1')->order_by('timestamp','desc')->limit(3)->find_all();
+		$events = timebankhelper::getRecommendEvent();
 		$events_rand = ORM::factory('event')->where('event.status', '=', '1')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
     }
 

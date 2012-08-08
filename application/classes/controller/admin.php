@@ -11,7 +11,32 @@ class Controller_Admin extends Controller_Template {
 		}
 		// show admin page
 		$organizations = ORM::factory('organization')->where('verified', '=', 0)->find_all();
-		$this->template->content = View::factory('admin/index')->bind('organizations', $organizations);
+		$this->template->content = View::factory('admin/index')
+											->bind('organizations', $organizations)
+											->bind('event', $event);
+		
+		
+		$event = DB::select()->from('recommend_event')->execute()->as_array('id');
+		
+	}
+	
+	public function action_addrecommend()
+	{
+				
+        if (HTTP_Request::POST == $this->request->method()) 
+        {           
+			// delete all 
+		 	DB::delete('recommend_event')->execute();
+			
+			for($i = 1 ; $i<=3 ; $i++)
+			{
+				DB::insert('recommend_event', array('id', 'event_id'))
+				->values( array($i, Arr::get($_POST, $i)))
+				->execute();
+			}
+		Request::current()->redirect('admin/index');
+			
+		}
 	}
 	
 	public function action_approve()
