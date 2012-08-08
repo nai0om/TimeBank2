@@ -74,7 +74,7 @@
                         <? if( $statuses[$record->id]['status'] == '1' ) : ?>    
                         	ยืนยันการใช้แล้ว
                         <? else : ?>
-                        	<?= HTML::anchor('user/approvetime/'.$record->id, 'ยืนยันการใช้เวลา') ?> 
+                        	<?= HTML::anchor('user/checkhours/'.$record->id, 'ยืนยันการใช้เวลา') ?> 
                         <? endif ?>
                         </td>
                         <td><?= $record->name ?></td>
