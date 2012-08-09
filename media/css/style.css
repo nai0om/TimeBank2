@@ -1,4 +1,4 @@
-﻿/*
+/*
  * HTML5 Boilerplate
  *
  * What follows is the result of much research on cross-browser styling.
@@ -239,12 +239,11 @@ footer {
 	color:#d1b380;
 }
 footer p{
-	width:50%;
-	float:left;
 	margin:0;
 	padding:0 0 10px;
 }
 footer ul {
+	width:52%;
     float: right;
     list-style: none outside none;
     margin: 0;
