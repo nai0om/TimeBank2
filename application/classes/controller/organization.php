@@ -59,6 +59,11 @@ class Controller_Organization extends Controller_Template {
 		*/
 	}
 
+	public function action_createwait()
+	{		
+		$this->template->content = View::factory('organization/createwait');
+	}
+	
 	public function action_create()
 	{		
 		$this->template->content = View::factory('organization/create')
@@ -131,10 +136,10 @@ class Controller_Organization extends Controller_Template {
 				TimebankNotification::notify_new_organization($user, $organization, Arr::get($_POST, 'password'));
 					
 				// Log in
-				Controller_User::login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
+				//Controller_User::login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
 
 				// Redirect
-				Request::current()->redirect('/organization/index');
+				Request::current()->redirect('/organization/createwait');
 				
             } catch (ORM_Validation_Exception $e) {
                  
