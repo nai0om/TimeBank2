@@ -83,7 +83,7 @@ $times['23:59:59'] = '23:59';
 					$checked = FALSE;
 					if($event->days != '') {
 						$pos = strpos($event->days, $days[$i]);
-						if (  $pos > 0){
+						if (  $pos >= 0 && $pos !== false){
 							$checked = TRUE;
 						}
 					}
