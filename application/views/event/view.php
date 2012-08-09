@@ -305,20 +305,27 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <?= Form::submit(NULL, 'โพส', array( 'style' => 'float:right; margin: 10px;')); ?>
             <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             	<div>
-                	<? if ($comment->user->id != 0 && $comment->user->profile_image != '') : ?>
+					<? if ($comment->user->id != 0 ) : ?>
                             <a><?= $comment->user->displayname ?></a>
-                   	 		<img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
-					<? elseif ($comment->organization->id != 0 && $comment->organization->logo != '') : ?>
-                    		<?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
-                            <img src="<?= url::base().'media/upload/organizations/'.$comment->organization->logo; ?>" style="float:left; width:51px; ">
-                    <? else : ?>
-                   		 <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
+                            <? if ($comment->user->profile_image == '') : ?>
+                                <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
+                            <? else : ?>
+                                <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+                            <? endif ?>
+                    <? elseif ($comment->organization->id != 0)  : ?>
+                            <?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
+                            <? if($comment->organization->logo == '') : ?>
+                                <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
+                            <? else :?>
+                                <img src="<?= url::base().'media/upload/organizations/'.$comment->organization->logo; ?>" style="float:left; width:51px; ">
+                            <? endif ?>
                     <? endif ?>
-                <?= $comment->comment ?>
-                <? if ( $isAdmin) : ?>
-                	<br />
-                       <?= HTML::anchor('event/removecomment/'.$event->id.'?c='.$comment->id,  'ลบ comment', array ('style' => 'float:right') ); ?> 
-                <? endif ?>
+                	<?= $comment->comment ?>
+         
+					<? if ( $isAdmin) : ?>
+                        <br />
+                           <?= HTML::anchor('event/removecomment/'.$event->id.'?c='.$comment->id,  'ลบ comment', array ('style' => 'float:right') ); ?> 
+                    <? endif ?>
                 </div>
             <? endforeach ?>
             <?= Form::close(); ?>
