@@ -113,7 +113,7 @@ class TimebankNotification {
 			$to = array($user->email);
 			$subject = 'องค์กรผู้จัดได้ปิดภารกิจ"['.$event->name.']"';
 			$body = self::renderHtmlEmail('event_end_volunteer', array(
-																'displayname' 	=> $user->name,
+																'displayname' 	=> $user->displayname,
 																'org_name' 		=> $organization->name,
 																'event_name' 	=> $event->name,
 																'event_id' 		=> $event->id,
