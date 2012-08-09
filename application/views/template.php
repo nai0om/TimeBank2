@@ -27,7 +27,8 @@
     <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/widget/css/rcarousel.css" />
     
      <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/css/ui-lightness/jquery-ui-1.8.21.custom.css" />
-  
+      <link rel="icon" href="<?= url::base(); ?>favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= url::base(); ?>favicon.ico" type="image/x-icon"> 
 	<script src="<?= url::base(); ?>media/js/libs/modernizr-2.5.3.min.js"></script>
 
 
@@ -66,17 +67,18 @@
   <div id="footer_main"></div> 
         
   <footer>
+  	<ul>
+    	<li><?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลงการใช้บริการ'); ?></li>
+        <li><?= HTML::anchor('welcome/privacy', 'นโยบายความเป็นส่วนตัว'); ?></li>
+        <li><?= HTML::anchor('contactus', 'ติดต่อธนาคารจิตอาสา'); ?></li></ul>
 	<p>นโยบายลิขสิทธิ์
 
 สำหรับข้อมูลต่างๆ บน website และ mobile app
 
-		<br><br><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="สัญญาอนุญาตของครีเอทีฟคอมมอนส์" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a> <br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" rel="dct:type">ผลงาน</span>นี้ โดย <a xmlns:cc="http://creativecommons.org/ns#" href="" property="cc:attributionName" rel="cc:attributionURL">ธนาคารจิตอาสา</a> ใช้ <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">สัญญาอนุญาตของครีเอทีฟคอมมอนส์แบบ แสดงที่มา-ไม่ใช้เพื่อการค้า 3.0 ต้นฉบับ</a>.
+		<br><br>
+		<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="สัญญาอนุญาตของครีเอทีฟคอมมอนส์" align="absbottom" style="border-width:0" /></a> <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" rel="dct:type">ผลงาน</span>นี้ โดย <a xmlns:cc="http://creativecommons.org/ns#" href="" property="cc:attributionName" rel="cc:attributionURL">ธนาคารจิตอาสา</a> ใช้ <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">สัญญาอนุญาตของครีเอทีฟคอมมอนส์.....แบบ แสดงที่มา-ไม่ใช้เพื่อการค้า 3.0 ต้นฉบับ</a>.
+	</p>
 
-		</p></p>
-	<ul>
-    	<li><?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลงการใช้บริการ'); ?></li>
-        <li><?= HTML::anchor('welcome/privacy', 'นโยบายความเป็นส่วนตัว'); ?></li>
-        <li><?= HTML::anchor('contactus', 'ติดต่อธนาคารจิตอาสา'); ?></li></ul>
   </footer>
 
   <!-- scripts concatenated and minified via build script -->
