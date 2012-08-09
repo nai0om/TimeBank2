@@ -739,6 +739,7 @@ class Controller_Event extends Controller_Template {
 			}
 			if (Arr::get($_POST, 'day') != 'everyday' ){
 				$days = Kohana::$config->load('timebank')->get('days');
+				$event->days = '';
 				foreach ($days as $day){
 					if ( Arr::get($_POST, $day) != '') 
 						$event->days  = $event->days.''.Arr::get($_POST, $day) .', ';
