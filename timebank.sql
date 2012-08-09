@@ -143,6 +143,8 @@ CREATE TABLE `events` (
   `tags` text COLLATE utf8_unicode_ci NOT NULL,
   `message` text COLLATE utf8_unicode_ci NOT NULL,
   `volunteer_joined` int(11) NOT NULL,
+  `almostsignupend_noti` BOOL NOT NULL DEFAULT  '0',
+  `almoststart_noti` BOOL NOT NULL DEFAULT  '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
