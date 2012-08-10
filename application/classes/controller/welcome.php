@@ -2,30 +2,6 @@
 
 class Controller_Welcome extends Controller_Template {
 	
-	public function action_testnoti()
-	{
-		$this->auto_render = false;
-
-		// Find event that doesn't send "event signup almost end" email notification yet (3 days)
-		$today = date("Y-m-d", time()+86400*3);
-		echo $today.'<br><br>';
-		$events = ORM::Factory('event')->where('almostsignupend_noti', '=', 0)->and_where('signup_end_date', '<=', $today)->find_all();		
-		foreach ($events as $event)
-		{			
-			$organization = ORM::Factory('organization', $event->organization_id);
-			if ($organization->loaded())
-			{
-				echo $event->name.' : '.$event->signup_end_date.' : '.strtotime($event->signup_end_date).'<br>';	
-				$event->almostsignupend_noti = 1;
-				$event->save();
-				TimebankNotification::notify_eventsignup_almostend_org($organization, $event);
-			}
-		}
-
-		// Find event that doesn't send "event almost start" email notification yet (3 days)
-
-	}
-	
 	public function action_index()
 	{
 		$this->template->content = View::factory('welcome')

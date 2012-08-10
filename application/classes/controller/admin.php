@@ -1,7 +1,7 @@
 ﻿<?php defined('SYSPATH') or die('No direct script access.');
  
 class Controller_Admin extends Controller_Template {
-	
+
 	public function action_index()
 	{
 		if (!$this->user && $this->user->id < 3)

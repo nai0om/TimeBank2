@@ -127,7 +127,8 @@ class TimebankNotification {
 		if ($organization->noti_eventalmostend == 1)
 		{			
 			$from = Kohana::$config->load('timebank')->get('server_email');
-			$to = array($user->email);
+			$org_user = ORM::Factory('user', $organization->user_id);
+			$to = array($org_user->email);
 			$subject = 'ภารกิจ"['.$event->name.']" ใกล้หมดเวลารับสมัครแล้ว';
 			$body = self::renderHtmlEmail('event_almostend_org', array(
 																'org_name' 		=> $organization->name,
@@ -137,7 +138,23 @@ class TimebankNotification {
 			TimebankUtil::send_email($from, $to, $subject, $body);
 		}
 	}
-	
+
+	public static function notify_event_almoststart_volunteer($user, $event)
+	{
+		if ($user->noti_almosteventdate == 1)
+		{			
+			$from = Kohana::$config->load('timebank')->get('server_email');
+			$to = array($user->email);
+			$subject = 'ภารกิจ"['.$event->name.']" ใกล้ถึงเวลาเริ่มกิจกรรมแล้ว';
+			$body = self::renderHtmlEmail('event_almoststart_volunteer', array(
+																'displayname' 	=> $user->displayname,
+																'event_name' 	=> $event->name,
+																'event_id' 		=> $event->id,
+																));
+			TimebankUtil::send_email($from, $to, $subject, $body);
+		}
+	}
+		
 	public static function notify_contactus($contactus)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
