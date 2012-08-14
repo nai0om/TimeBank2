@@ -138,8 +138,7 @@ class Controller_Event extends Controller_Template {
 			throw new HTTP_Exception_404(__('Event id :id doesn\'t belong to you', array(':id' => $this->request->param('id'))));
 		}
 
-		//$locations = Location::get_location_array();
-		
+		//$locations = Location::get_location_array();		
 		$this->save_event($event, $this->orguser, true, $message, $errors);
 	}
 	
@@ -324,15 +323,15 @@ class Controller_Event extends Controller_Template {
 	
 	public function action_approve()
 	{
-			
+		if (is_null($this->orguser))
+		{
+			$back_url = urlencode('event/approve/'.$this->request->param('id'));
+			Request::current()->redirect('user/login?back_url='.$back_url);
+		}
+
 		$this->template->content = View::factory('event/approve')
 									->bind('event', $event)
 									->bind('users', $users);
-		if (is_null($this->orguser))
-		{
-			echo 'not organization account';
-			Request::current()->redirect('/');
-		}
 
 		$event = ORM::factory('event', $this->request->param('id'));
 		if(!$event->loaded())
@@ -740,6 +739,7 @@ class Controller_Event extends Controller_Template {
 			}
 			if (Arr::get($_POST, 'day') != 'everyday' ){
 				$days = Kohana::$config->load('timebank')->get('days');
+				$event->days = '';
 				foreach ($days as $day){
 					if ( Arr::get($_POST, $day) != '') 
 						$event->days  = $event->days.''.Arr::get($_POST, $day) .', ';
@@ -818,11 +818,6 @@ class Controller_Event extends Controller_Template {
                  
                 // Set errors using custom messages
                 $errors = $e->errors('models');
-
-				// Reassign date value which we have converted to save to db...which is a hack :(
-				$event->signup_end_date = Arr::get($_POST, 'signup_end_date');
-				$event->volunteer_begin_date = Arr::get($_POST, 'volunteer_begin_date');
-				$event->volunteer_end_date = Arr::get($_POST, 'volunteer_end_date');
 				
 				//print_r($errors);
             }

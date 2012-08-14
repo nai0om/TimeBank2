@@ -1,4 +1,4 @@
-﻿/*
+/*
  * HTML5 Boilerplate
  *
  * What follows is the result of much research on cross-browser styling.
@@ -34,7 +34,7 @@ html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10
 
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
-body { margin: 0; font-size: 1em;}
+body { margin: 0; font-size: 1em;padding: 0;}
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -224,13 +224,12 @@ td { vertical-align: top; }
 
 body{width:1140px;margin:0 auto;font-family:chula,verdana, helvetica, sans-serif;}
 header {
-    margin: 0 auto;
+	margin: 0;padding:0px;
     width: 1054px;
 }
 header img {
     left: 50px;
     position: relative;
-    top: -25px;
 }
 footer {
     margin: 0 auto;
@@ -239,12 +238,11 @@ footer {
 	color:#d1b380;
 }
 footer p{
-	width:50%;
-	float:left;
 	margin:0;
 	padding:0 0 10px;
 }
 footer ul {
+	width:52%;
     float: right;
     list-style: none outside none;
     margin: 0;
@@ -296,7 +294,7 @@ nav a:hover {
 }
 
 header h2 {
-    height: 0;
+    height: 0;margin: 0;padding: 0px;
     visibility: hidden;
 }
 #head_main{

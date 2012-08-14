@@ -1,4 +1,14 @@
  <h1>Admin Page (Unverified organizations)</h1>
+ 
+ <p>
+ <h3> เพิ่มงานอาสา แนะนำ (ใส่ event ID) <h3>
+	<?= Form::open('admin/addrecommend'); ?>
+    <?= Form::input('1',  (array_key_exists('1', $event)? $event['1']['event_id'] : '')); ?>
+    <?= Form::input('2',  (array_key_exists('2', $event)? $event['2']['event_id'] : '')); ?>
+    <?= Form::input('3',  (array_key_exists('3', $event)? $event['3']['event_id'] : '')); ?>
+    <?= Form::submit(NULL,'update'); ?>
+    <?= Form::close(); ?>
+  </p>
  <table border="1">
   <tr>
 	<th>name</th>

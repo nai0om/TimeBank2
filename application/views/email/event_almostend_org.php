@@ -50,9 +50,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                     <p>Hello, <?= $vars['org_name'] ?></p>
 
-									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร เข้ามาสมัครงานอาสาของคุณ<br>
+									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาของคุณใกล้หมดเวลา! <span style="color:#da7101">อย่าลืมเข้ามาประกาศรายชื่ออาสา</span><br>
 
-									<a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
+									<a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
 
 									<br clear="left">
 

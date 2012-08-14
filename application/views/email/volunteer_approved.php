@@ -60,7 +60,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 											<td valign="top" height="13">
 
-												<img src="<?= $vars['urlbase'].'media/upload/email/header.jpg' ?>843_box_header.png" style="display:block;float:none;">
+												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_header.png' ?>" style="display:block;float:none;">
 
 											</td>
 
@@ -78,7 +78,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 															<p>คุณสามารถดูประกาศรายชื่ออาสาสมัครของคุณได้ที่</p>
 
-															<p><a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><img src="<?= $vars['urlbase'].'media/upload/email/header.jpg' ?>843_list.png"><a></p>
+															<p><a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'].'?mode=2' ?>"><img src="<?= $vars['urlbase'].'media/upload/email/843_list.png' ?>"><a></p>
 
 														</td>
 
@@ -94,7 +94,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 											<td valign="top" height="15">
 
-												<img src="<?= $vars['urlbase'].'media/upload/email/header.jpg' ?>843_box_footer.png" style="display:block;float:none;">
+												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_footer.png' ?>" style="display:block;float:none;">
 
 											</td>
 

@@ -59,6 +59,11 @@ class Controller_Organization extends Controller_Template {
 		*/
 	}
 
+	public function action_createwait()
+	{		
+		$this->template->content = View::factory('organization/createwait');
+	}
+	
 	public function action_create()
 	{		
 		$this->template->content = View::factory('organization/create')
@@ -131,10 +136,10 @@ class Controller_Organization extends Controller_Template {
 				TimebankNotification::notify_new_organization($user, $organization, Arr::get($_POST, 'password'));
 					
 				// Log in
-				Controller_User::login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
+				//Controller_User::login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
 
 				// Redirect
-				Request::current()->redirect('/organization/index');
+				Request::current()->redirect('/organization/createwait');
 				
             } catch (ORM_Validation_Exception $e) {
                  
@@ -294,15 +299,10 @@ class Controller_Organization extends Controller_Template {
 		$hours_sum = 0;		
 		$total_valun = 0;
 		$events_pass = $organization->events->where('event.status', '=', '0')->find_all();	
-		$event_approve = DB::select('event_id', array('COUNT("*")', 'total'))
-				->from('users_events')
-				->where('time_approve', '=',  1)
-				->group_by('event_id')
-				->execute()->as_array('event_id');				
+				
 		foreach($events_pass as $event)
 		{
-			if(array_key_exists($event->id, $event_approve))
-				$hours_sum +=  $event->time_cost * $event_approve[$event->id]['total'];
+			$hours_sum +=  $event->time_cost * $event->volunteer_joined;
 				
 			$total_valun += $event->volunteer_joined;
 		}

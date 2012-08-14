@@ -31,7 +31,7 @@ class Controller_User extends Controller_Template {
 	
 		
 			
-		$events = ORM::factory('event')->where('event.status', '=', '1')->order_by('timestamp','desc')->limit(3)->find_all();
+		$events = timebankhelper::getRecommendEvent();
 		$events_rand = ORM::factory('event')->where('event.status', '=', '1')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
     }
 
@@ -272,7 +272,14 @@ class Controller_User extends Controller_Template {
 				TimebankNotification::notify_new_volunteer($user, Arr::get($_POST, 'password'));
 
 				// Redirect
-				Request::current()->redirect('/user/index');
+				if (Arr::get($_POST, 'back_url') != '')
+				{
+					Request::current()->redirect(Arr::get($_POST, 'back_url'));
+				}
+				else
+				{
+					Request::current()->redirect('/user/index');
+				}
 				
             } catch (ORM_Validation_Exception $e) {
                  
@@ -425,10 +432,17 @@ class Controller_User extends Controller_Template {
         }
 		
           Request::current()->redirect('user/profile');
-		
-		
-		
     }
+	
+	public function action_checkhours()
+	{
+		$this->template->content = View::factory('user/checkhours')
+										->bind('event', $event);
+										
+		$event_id = $this->request->param('id');
+	
+		$event = ORM::factory('event', $event_id);	
+	}
 	
 	public function action_approvetime()
 	{
@@ -438,31 +452,55 @@ class Controller_User extends Controller_Template {
 			return;
         }
 		
-		$event_id = $this->request->param('id');
-			
-		$status = DB::select()->from('users_events')
-					->where('user_id', '=',  $this->user->id)
-					->where('event_id', '=',  $event_id)->execute()->get('time_approve', 0);
-					
-		if($status == 0)
+		if (HTTP_Request::POST == $this->request->method()) 
 		{
-			$event = ORM::factory('event', $event_id);
-			// update timebank of user 
-			// this process not synconize with  approve status action
-			// status 2 means it comes from finshed event
-			DB::insert('user_timebanks', array('user_id', 'status', 'hour', 'description'))
-						->values( array($this->user->id, 2, -1*$event->time_cost,'ได้รับจากงานอาสา '.$event->name))
-						->execute();
+			$event_id = $this->request->param('id');
+			$time = Arr::get($_POST, 'time');
+			if($time == 'text')
+			{
+				$time = Arr::get($_POST, 'text');
+			}
+			
+			if (!is_numeric($time) || $time <= 0)
+			{	
+				Request::current()->redirect('user/checkhours/'.$event_id);
+				return;
+			}
+			
+				
+			$status = DB::select()->from('users_events')
+						->where('user_id', '=',  $this->user->id)
+						->where('event_id', '=',  $event_id)->execute()->get('time_approve', 0);
 						
-			// update user approve status for event
-			DB::update('users_events')->set(array('time_approve' => '1'))
-					->where('user_id', '=',  $this->user->id)
-					->where('event_id', '=',  $event_id)
-					->execute();
-					
+			if($status == 0)
+			{
+				$event = ORM::factory('event', $event_id);
+				// update timebank of user 
+				// this process not synconize with  approve status action
+				// status 2 means it comes from finshed event
+				DB::insert('user_timebanks', array('user_id', 'status', 'hour', 'description'))
+							->values( array($this->user->id, 2, -1*$time,'ได้รับจากงานอาสา '.$event->name))
+							->execute();
+							
+				// update user approve status for event
+				DB::update('users_events')->set(array('time_approve' => '1'))
+						->where('user_id', '=',  $this->user->id)
+						->where('event_id', '=',  $event_id)
+						->execute();
+				
+				$time = DB::select(array('SUM("hour")', 'time'))
+					->from('user_timebanks') 	
+					->where('user_id','=',$this->user->id)->execute()->get('time', 0);		
+				
+				if($time < 0 )
+				{
+					DB::insert('user_timebanks', array('user_id', 'status', 'hour', 'description'))
+							->values( array($this->user->id, 1, -1*$time,'ระบบฝากเวลาเพิ่ม auto '.-1*$time. ' ชั่วโมง'))
+							->execute();
+				}
 		
-	
-		
+			
+			}
 		}
 	
 	 Request::current()->redirect('user/myevent?mode=1');
@@ -792,16 +830,17 @@ class Controller_User extends Controller_Template {
 	
 	public function action_checkdata()
 	{
+		$eventid = $this->request->param('id');
+
 		if (!isset($this->user))
 		{
-			Request::current()->redirect('user/login');
+			$back_url = urlencode('user/checkdata/'.$eventid);
+			Request::current()->redirect('user/login?back_url='.$back_url);
 		}
-		
-		$eventid = $this->request->param('id');
 		
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
-		 $this->template->content = View::factory('user/checkdata')
+		 	$this->template->content = View::factory('user/checkdata')
 										->bind('user', $this->user)
 										->bind('eventid', $evetnid)
 										->bind('errors', $errors);
@@ -859,9 +898,10 @@ class Controller_User extends Controller_Template {
 			if ($user !== FALSE)
 			{
 				$user_roles = Kohana::$config->load('timebank')->get('user_roles');
+				$redirect_url = '';
 				if ($user->role == $user_roles['volunteer'])
 				{
-                	Request::current()->redirect('user/index');
+                	$redirect_url = 'user/index';
 				}
 				else
 				{
@@ -880,7 +920,17 @@ class Controller_User extends Controller_Template {
 						}
 					}
 					
-					Request::current()->redirect('organization/index');
+					$redirect_url = 'organization/index';
+				}
+				
+
+				if (Arr::get($_POST, 'back_url') != '')
+				{
+					Request::current()->redirect(Arr::get($_POST, 'back_url'));
+				}
+				else
+				{
+					Request::current()->redirect($redirect_url);
 				}
 			}
 			else
