@@ -255,8 +255,8 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 				 $normal_skill = substr($normal_skill , 0, -2); 
 				 $special_skill = substr($special_skill , 0, -2); 
 			?>
-			<p>ความสามารถพิเศษ (Special Skill) : <?= $normal_skill	 ?></p>
-			<p> ทักษะวิชาชีพ (Professional Skill) : <?= $special_skill ?></p>
+			<p>ความสามารถพิเศษ (Special Skill) : <?= ($normal_skill == '') ? 'ไม่มี' : ''.$normal_skill ?></p>
+			<p>ทักษะวิชาชีพ (Professional Skill) : <?= ($special_skill == '') ? 'ไม่มี' : ''.$special_skill  ?></p>
 			<p><span class="header">Tag ความสนใจ</span></p>
 			<p><?php
 					$jobs = Kohana::$config->load('timebank')->get('jobs'); 
