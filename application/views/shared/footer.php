@@ -1,4 +1,4 @@
-﻿<div style="clear:both"></div>
+<div style="clear:both"></div>
 <div id="insideFooter">
     <div class="line" style="padding-bottom:40px; padding-top:40px"></div>
         <ul id="section">
