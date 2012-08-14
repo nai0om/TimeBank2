@@ -3377,7 +3377,8 @@ header h2 {
 }
 #volunteerOrgSignup.popup #content {
     background-image: url("../img/map_bg.png");
-    height: 836px;
+    height: auto;
+	background-size:cover;
 }
 #volunteerOrgSignup.popup  form{
 	text-align:left;
