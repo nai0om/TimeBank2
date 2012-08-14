@@ -1,4 +1,4 @@
-﻿<div id="member" class="job">
+<div id="member" class="job">
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
