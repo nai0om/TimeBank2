@@ -48,11 +48,15 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, <?= $vars['org_name'] ?></p>
+                                    <p>Hello, JitArsa Bank</p>
 
-									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร เข้ามาสมัครงานอาสาของคุณ<br>
-
-									<a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
+									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มี Contact US<br></p>
+									<p>Name : <?= $vars['name'] ?></p>								 
+									<p>Surname : <?= $vars['surname'] ?></p>								 
+									<p>Email : <?= $vars['email'] ?></p>								 
+									<p>Phoneno : <?= $vars['phoneno'] ?></p>								 
+									<p>Topic : <?= $vars['topic'] ?></p>								 
+									<p>Message : <?= $vars['message'] ?></p>								 
 
 									<br clear="left">
 
