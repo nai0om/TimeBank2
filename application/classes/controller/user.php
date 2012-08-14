@@ -98,20 +98,26 @@ class Controller_User extends Controller_Template {
 					$message = __('hours must more than 0');
 					
 				} 			
-				else if (Arr::get($_POST, 'hour') > 2000)
+				else 
 				{
-					$message = __('time is maximum at 2000');	
-					
-				}
-				else
-				{
-					// Create an timebank and attach it to the user (one-to-many)
-					$timebank = ORM::factory('user_timebank')->values(array(
-						'hour'			=> Arr::get($_POST, 'hour'),
-						'status'  		=> 1,
-						'user_id'		=> $this->user->id, // sets the fk
-					));
-					$timebank->save();
+					$time = DB::select(array('SUM("hour")', 'time'))
+									->from('user_timebanks') 	
+									->where('user_id','=',$this->user->id)->execute()->get('time', 0);		
+				
+					if($time +  Arr::get($_POST, 'hour') > 2000)
+					{
+						$message = __('time is maximum at 2000');	
+					}
+					else
+					{
+						// Create an timebank and attach it to the user (one-to-many)
+						$timebank = ORM::factory('user_timebank')->values(array(
+							'hour'			=> Arr::get($_POST, 'hour'),
+							'status'  		=> 1,
+							'user_id'		=> $this->user->id, // sets the fk
+						));
+						$timebank->save();
+					}
 				}
            //  Request::current()->redirect('user/record');    
             } catch (ORM_Validation_Exception $e) {
