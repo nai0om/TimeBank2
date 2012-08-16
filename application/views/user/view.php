@@ -115,8 +115,7 @@ $sex = array ('m' => 'ชาย', 'f' => 'หญิง')
 			<tr>
                 <td><?= HTML::anchor('event/view/'.$event->id,  $event->name) ?></td>
                 <td><?= $event->time_cost ?></td>
-                <td><? $time= strtotime($event->volunteer_begin_date); 
-						echo phphelp::thaidate_todate($time); ?></td>
+                <td><?=  phphelp::str_to_thai_date($event->volunteer_begin_date); ?></td>
                 <td><?= $event->tags ?></td>
 			</tr>
 			<? endforeach ?>

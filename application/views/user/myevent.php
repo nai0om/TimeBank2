@@ -61,8 +61,8 @@
                         <td><?= $record->time_cost ?></td>
                         <td><?= $record->volunteer_need_count ?>
                       คน</td>
-                        <td><?= $record->signup_end_date ?></td>
-                        <td><?= $record->volunteer_begin_date ?>
+                        <td><?=  phphelp::str_to_thai_date($record->signup_end_date) ?></td>
+                        <td><?=  phphelp::str_to_thai_date($record->volunteer_begin_date) ?>
                           <br />
                           ถึง
                       <?= $record->volunteer_end_date ?></td>
