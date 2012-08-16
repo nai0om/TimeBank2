@@ -93,7 +93,8 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                         <div class='image' style="height:180px;">
                         	<img  style=" max-width:257px; max-height:203px;" src="<?= url::base().'media/img/tb_photos_add.png'; ?>" />    
                         </div>
-						<div class="caption">
+						<div class="caption" style="height:200px;">
+                        <a style="color:#F00;" > ขนาดภาพไม่เกิน 4Mb </a>
                          <?= Form::file('image') ?><br />
    						 <?= Form::input('text', 'เขียนคำบรรยายที่นี่'); ?> 
 						 <?= Form::submit(NULL, 'เพิ่มรูป'); ?>

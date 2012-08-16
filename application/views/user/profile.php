@@ -25,7 +25,7 @@
          <? else :?>
          	<p><img src="<?= url::base().'media/img/member.png'; ?>" /></p>
          <? endif ?>
-		<?= Form::file('profile_image') ?>
+		<?= Form::file('profile_image') ?><br /><a style="color:#F00" > ขนาดภาพไม่เกิน 4Mb </a>
         <div class="error"><?= Arr::get($errors, 'profile_image'); ?></div>
         
 		<div class="title left"></div>
