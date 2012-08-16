@@ -83,7 +83,7 @@
 			</li>
 		
 		</ol>
-				<div class="column two" style="text-align:center; width:100%">
+				<div class="column two" style="text-align:center; width:100%; position:relative;">
 			<p><h3>ด้วยการสนับสนุนจากสำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ (สสส.) <br /> ธนาคารจิตอาสาพร้อมยินดีรับใช้และให้บริการ มาร่วมกันเป็นส่วนสำคัญของการสร้างความมั่นคงยั่งยืน <br />ให้กับชุมชนจิตอาสาและสังคมไทย ด้วยการแบ่งปันเวลาและลงมือทำกับธนาคารจิตอาสา</h3></p>
 			</div>	
 <?php include Kohana::find_file('views', 'shared/footer') ?>
