@@ -177,8 +177,8 @@ class Controller_Event extends Controller_Template {
 			throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
 		}
 
- 		$now = date("Y-m-d H:i:s");
-		$end_time = $event->signup_end_date.' '.$event->signup_end_time;
+ 		$now = date("Y-m-d");
+		$end_time = $event->signup_end_date;
 		$isOpen = false;	
 
 		$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', 1)->execute());
@@ -187,7 +187,7 @@ class Controller_Event extends Controller_Template {
 		{
 			$isOpen = false;
 		}
-		else if($end_time > $now &&  $event->status <> '0')
+		else if($end_time >= $now &&  $event->status <> '0')
 		{
 			 $isOpen = true;
 		}
