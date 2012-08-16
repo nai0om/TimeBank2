@@ -4057,7 +4057,7 @@ header h2 {
 #tb_browse_detail.search input[type="radio"] {
     clear: both;
     display: inline-block;
-    margin: 0 0 0 75px;
+    margin: 0;
     width: 20px;
 }
 #tb_browse_detail.search label.day {
