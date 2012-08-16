@@ -1,4 +1,4 @@
-﻿<div id="data" class="popup">
+<div id="data" class="popup">
   <div id="main" role="main">
 
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>

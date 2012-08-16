@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $job = isset($gets['job'])? $gets['job'] : '0';
 $query = isset($gets['query'])? $gets['query'] : '';
 $province = isset($gets['province'])? $gets['province'] : '0';
