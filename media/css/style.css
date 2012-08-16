@@ -1338,10 +1338,12 @@ header h2 {
 #tb_browse_detail #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 30px;
     margin: 1em 0 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+   	background-size: cover;
+	min-width:686px;
+	max-width:886px;
 }
 #tb_browse_detail #sitemap li {
     color: #FFFFFF;
@@ -4359,6 +4361,23 @@ header h2 {
 	display:inline-table !important;
 }
 
+
+.normal ul li:first-child:before {
+    visibility: hidden;
+}
+
+.normal ul li:before {
+    content: "" !important;
+    left: 0px !important;
+    padding: 0px; !important
+    position: relative !important;
+}
+.normal ul li {
+    color: inherit !important;
+    float: none !important;
+    font-size: inherit !important;
+    list-style: disc outside none !important;
+}
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
    This example overrides the primary ('mobile first') styles
