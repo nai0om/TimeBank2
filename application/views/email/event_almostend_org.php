@@ -50,7 +50,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                     <p>Hello, <?= $vars['org_name'] ?></p>
 
-									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาของคุณใกล้หมดเวลา! <span style="color:#da7101">อย่าลืมเข้ามาประกาศรายชื่ออาสา</span><br>
+									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาของคุณใกล้ถึงเวลาปิดรับสมัครแล้ว <span style="color:#da7101">อย่าลืมตอบรับ (approve) อาสาเข้าร่วมกิจกรรมนะครับ</span><br>
 
 									<a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
 
@@ -58,9 +58,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<br clear="left">
 
-									<p>ขอบคุณ</p>
+									<p>ขอบคุณครับ</p>
 
-									<p>Jitarsabank.org</p>
+									<p>ธนาคารจิตอาสา</p>
 
                                 </td>
 

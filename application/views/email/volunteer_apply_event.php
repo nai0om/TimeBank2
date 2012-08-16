@@ -48,9 +48,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, <?= $vars['org_name'] ?></p>
+                                    <p>สวัสดีครับ <?= $vars['org_name'] ?></p>
 
-									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร เข้ามาสมัครงานอาสาของคุณ<br>
+									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร เข้าสมัครเข้าร่วมกิจรรม....<br>
 
 									<a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
 
@@ -58,9 +58,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<br clear="left">
 
-									<p>ขอบคุณ</p>
+									<p>ขอบคุณครับ</p>
 
-									<p>Jitarsabank.org</p>
+									<p>ธนาคารจิตอาสา</p>
 
                                 </td>
 

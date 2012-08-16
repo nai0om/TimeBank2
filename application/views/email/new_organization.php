@@ -159,7 +159,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									<p>ขอบคุณครับ</p>
 
-									<p><a href="<?= $vars['urlbase'] ?>">JitArsaBank.com</a></p>
+									<p><a href="<?= $vars['urlbase'] ?>">ธนาคารจิตอาสา</a></p>
 
                                 </td>
 

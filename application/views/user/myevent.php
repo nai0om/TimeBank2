@@ -72,7 +72,7 @@
                     <tr>
                     	<td style="font-weight:bold; color:#F00; text-align:center">
                         <? if( $statuses[$record->id]['status'] == '1' ) : ?>    
-                        	ยืนยันการใช้แล้ว
+                        	ยืนยันการใช้เวลาแล้ว
                         <? else : ?>
                         	<?= HTML::anchor('user/checkhours/'.$record->id, 'ยืนยันการใช้เวลา') ?> 
                         <? endif ?>
