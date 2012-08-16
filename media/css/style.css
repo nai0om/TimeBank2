@@ -3153,7 +3153,7 @@ header h2 {
 #about_us ol 
 {
 	float: left;	
-	height:500px;
+	height:600px;
 }
 #about_us img.thum
 {
@@ -4258,7 +4258,7 @@ header h2 {
 	text-align:center;
 }
 #bannerRotating .slide h3{
-	font-size:77px;
+	font-size:45px;
 	color:#0099cc;
 	margin:0;
 	font-weight:bold;
