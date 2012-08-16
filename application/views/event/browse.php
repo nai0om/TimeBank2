@@ -39,8 +39,8 @@
 				<th>ชื่อภารกิจ</th>
 				<th>ต้องการเวลา (ช.ม./คน) </th>
 				<th>รับจำนวน</th>
-				<th>เปิดรับสมัคร</th>
-				<th>วัน / เวลาทำงาน</th>
+				<th>รับสมัครภายใน</th>
+				<th>ช่วงวันทำงาน</th>
 				<th></th>
 			</tr>
 			
@@ -49,12 +49,12 @@
 				<td><?= $event->name?></td>
 				<td><?= $event->time_cost ?></td>
 				<td><?= $event->volunteer_need_count ?> คน</td>
-				<td>สิ้นสุด <?= $event->signup_end_date ?></td>
+				<td><?= $event->signup_end_date ?></td>
 				<td><? 
 					$time= strtotime($event->volunteer_begin_date); 
 					echo phphelp::thai_date($time);
 					?><br>ถึง <?= $event->volunteer_end_date ?></td>
-				<td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
+				<td><?= HTML::anchor('event/view/'.$event->id, 'รายละเอียด') ?></td>
 			</tr>
             <?php endforeach; ?>
 	

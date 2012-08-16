@@ -41,8 +41,8 @@
                         <th>ชื่อภารกิจ</th>
                         <th>ต้องการเวลา (ช.ม./คน)</th>
                         <th>รับจำนวน</th>
-                        <th>เปิดรับสมัคร</th>
-                        <th>วัน / เวลาทำงาน</th>
+                        <th>รับสมัครภายใน</th>
+                        <th>ช่วงวันทำงาน</th>
                         <th>ตัวเลือก</th>
                     </tr>
         <?php foreach ($records as $record):?>
@@ -61,12 +61,12 @@
                         <td><?= $record->time_cost ?></td>
                         <td><?= $record->volunteer_need_count ?>
                       คน</td>
-                        <td>สิ้นสุดวันที่ <?= $record->signup_end_date ?></td>
+                        <td><?= $record->signup_end_date ?></td>
                         <td><?= $record->volunteer_begin_date ?>
                           <br />
                           ถึง
                       <?= $record->volunteer_end_date ?></td>
-                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <?= HTML::anchor('user/removeevent/'.$record->id, 'ยกเลิก') ?> </td>
+                        <td><?= HTML::anchor('event/view/'.$record->id, 'ดูรายละเอียด') ?> <?= HTML::anchor('user/removeevent/'.$record->id, 'ขอยกเลิก') ?> </td>
                     </tr>
                  <? else : ?>
                     <tr>

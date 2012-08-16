@@ -15,14 +15,14 @@
 		<div id="main_right">
 		
 		<div class="title left"></div>
-		<div class="title body">ชั่วโมงอาสาของคุณที่ให้ไว้</div>
+		<div class="title body">ฝากเวลาตั้งใจอาสา</div>
 		<div class="title right"></div>
 		<div style="clear:both"></div>
 		
 			<div id="timeSave">
 				<?= Form::open('user/addhour', array('enctype' => 'multipart/form-data')); ?>	
 					<label>ต้องการฝากชั่วโมงเพิ่มเป็นเวลา</label>
-					<input type="text" name="hour" style="color:#0099cc;font-size: 70pt;width: 240px;"><span style="color:#0099CC;font-size:28px;"> ชม.</span>
+					<input type="text" name="hour" style="color:#0099cc;font-size: 70pt;width: 240px;"><span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span>
                		<div class="error"><?= $message ?></div>
 					<input type="submit" value="บันทึกการเปลี่ยนแปลง" style="margin: 10px 0;">
 				<?= Form::close(); ?>
@@ -40,7 +40,7 @@
 				<div class="sub_title">เวลาตั้งใจอาสา</div></div>
 				<div></div>
 				<div class="sum"><div class="sum_hours"><?= $work_time ?> ชั่วโมง</div>
-				<div class="sub_title">เวลาทำอาสา</div></div>
+				<div class="sub_title">เวลาที่ได้ทำอาสาไปแล้ว</div></div>
                 
 			</div>	
             <div style="clear:both"></div>

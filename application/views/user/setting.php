@@ -27,8 +27,8 @@
 <? endif; ?>
 			<?= Form::open('user/setting', array('enctype' => 'multipart/form-data')); ?>	
                 
-                <label>อีเมล์ผู้ใช้ :</label><p><?= HTML::chars($user->email) ?></p>
-				<?= Form::label('displayname', 'ดิสเพลเนม :'); ?>
+                <label>อีเมลผู้ใช้ :</label><p><?= HTML::chars($user->email) ?></p>
+				<?= Form::label('displayname', 'ชื่อที่ใช้แสดง (Display Name) :'); ?>
 				<?= Form::input('displayname', HTML::chars($user->displayname) ); ?>
                 <div class="error"><?= Arr::get($errors, 'displayname'); ?></div>
 				<label></label><input type="submit" value="บันทึกการเปลี่ยนแปลง">

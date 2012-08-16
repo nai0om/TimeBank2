@@ -11,7 +11,7 @@
 		<div id="menu_left">
 			<ul>
 				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
-				<li><?= HTML::anchor('organization/profile', 'โปร์ไพล์'); ?></li>
+				<li><?= HTML::anchor('organization/profile', 'ข้อมูลองค์กร'); ?></li>
 				<li class="current"><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>
 				<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
 			</ul>
@@ -44,7 +44,7 @@
                 <div id="selection">
                 
                 <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>
-                 Select All
+                 เลือกทั้งหมด
                 <?= Form::submit(NULL, 'ลบ'); ?>
                </div>
             <? endif ?>	
@@ -54,7 +54,7 @@
 					<th>งานอาสา</th>
 					<th>ต้องการจากอาสา</th>
 					<th>จำนวนรับสมัคร</th>
-					<th>จำนวนคนที่ไปจริง</th>
+					<th>จำนวนอาสาที่ไปจริง</th>
 					<th>เขียนคำขอบคุณ</th>
 				</tr>
                	
