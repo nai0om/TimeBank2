@@ -131,7 +131,7 @@
                         <?= Arr::get($errors, 'website'); ?>
                     </div>
                 </p>
-				<p><label>Facebook (ใส่ Url เช่น facebook.com/jitarsabank)</label></p>
+				<p><label>Facebook (ใส่ Url เช่น www.facebook.com/jitarsabank)</label></p>
                 <p>
                     <?= Form::input('facebook', HTML::chars($organization->facebook)); ?>
                     <div class="error">
