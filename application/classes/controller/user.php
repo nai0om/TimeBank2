@@ -464,13 +464,14 @@ class Controller_User extends Controller_Template {
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
 			$event_id = $this->request->param('id');
-			$time = Arr::get($_POST, 'time');
+			$event = ORM::factory('event', $event_id);
+			$time = trim(Arr::get($_POST, 'time'));
 			if($time == 'text')
 			{
-				$time = Arr::get($_POST, 'text');
+				$time = trim(Arr::get($_POST, 'text'));
 			}
 			
-			if (!is_numeric($time) || $time <= 0)
+			if (!is_numeric($time) || $time <= 0 || $time > $event->time_cost)
 			{	
 				Request::current()->redirect('user/checkhours/'.$event_id);
 				return;
@@ -483,7 +484,7 @@ class Controller_User extends Controller_Template {
 						
 			if($status == 0)
 			{
-				$event = ORM::factory('event', $event_id);
+				
 				// update timebank of user 
 				// this process not synconize with  approve status action
 				// status 2 means it comes from finshed event
