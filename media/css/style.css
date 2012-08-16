@@ -378,7 +378,7 @@ header h2 {
 }
 #home blockquote p {
     background: url("../img/close_quote.png") no-repeat scroll right 0 transparent;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 16px;
     margin: 0;
     padding: 10px 45px;
@@ -431,7 +431,7 @@ header h2 {
     width: 89px;
 }
 #home article p {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     margin: 5px 0;
 	overflow:hidden;
@@ -461,7 +461,7 @@ header h2 {
 }
 #main_timeBank blockquote p {
     background: url("../img/close_quote.png") no-repeat scroll right 0 transparent;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 16px;
     margin: 0;
     padding: 0 62px;
@@ -706,7 +706,7 @@ header h2 {
 }
 
 #tb_hiw ol li strong, #tb_hiw ol li p {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     margin: 0;
     padding: 0;
@@ -819,7 +819,7 @@ header h2 {
 #tb_browse #search input, #tb_browse #search select {
     border: 1px solid #A8ACAD;
 	background: url("../img/tb_bg_form.jpg") repeat-x scroll center 0 transparent;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     margin: 7px 0;
     width: 100%;
@@ -867,7 +867,7 @@ header h2 {
     background: url("../img/tb_bullet.png") no-repeat scroll 0 0 transparent;
     color: #222222;
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     height: 30px;
     padding: 0 0 0 27px;
@@ -881,7 +881,7 @@ header h2 {
 }
 #tb_browse table {
     border: 1px solid #FFFFFF;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     padding: 10px;
     position: relative;
@@ -991,7 +991,7 @@ header h2 {
 #tb_browse_searchResult #search input, #tb_browse_searchResult #search select {
     background: url("../img/tb_bg_form.jpg") repeat-x scroll center 0 transparent;
     border: 1px solid #A8ACAD;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     margin: 7px 0;
     padding: 2px;
@@ -1017,7 +1017,7 @@ header h2 {
 }
 #tb_browse_searchResult table {
     border: 1px solid #FFFFFF;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     padding: 10px;
     position: relative;
@@ -1056,7 +1056,7 @@ header h2 {
 }
 #tb_browse_searchResult #detail p {
     clear: both;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 17px;
     margin: 0;
 	padding: 0 0 15px;
@@ -1133,7 +1133,7 @@ header h2 {
 #tb_browse_searchResult #winnerList .detail {
     border-top: 1px dashed #222222;
     color: #222222;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 12px;
     margin: 3px 41px 10px 0;
 }
@@ -1249,7 +1249,7 @@ header h2 {
 	margin: 15px 0 5px;
 }
 #tb_browse_new form{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	display:inline-block;
 }
@@ -1381,7 +1381,7 @@ header h2 {
 }
 #tb_browse_detail #detail p {
     clear: both;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 17px;
     margin: 0;
 	padding: 0 0 15px;
@@ -1450,7 +1450,7 @@ header h2 {
 	width:300px;
 }
 #tb_browse_detail #post form{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	margin:-15px 0 0;
 }
@@ -1499,7 +1499,7 @@ header h2 {
 }
 #tb_browse_detail #leftSide {
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 12px;
     margin-right: 20px;
     overflow: hidden;
@@ -1507,7 +1507,7 @@ header h2 {
 }
 #tb_browse_detail #rightSide {
     float: right;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 12px;
     width: 433px;
 }
@@ -1558,7 +1558,7 @@ header h2 {
     display: inline-block;
     padding: 10px 0;
 	font-size:12px;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	width:100%;
 }
 #tb_browse_detail #post_comment div img{
@@ -1616,7 +1616,7 @@ header h2 {
 }
 #tb_browse_detail.photos #album li .caption{
 
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 12px;
     padding: 3px 10px;
     position: relative;
@@ -1626,7 +1626,7 @@ header h2 {
 #tb_browse_detail.photos #album li .close {
   
     cursor: pointer;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     padding: 5px 0px;
     position: relative;
@@ -1699,13 +1699,13 @@ header h2 {
     border-bottom: 0;
 }
 #tb_browse_detail.members #member .username {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     padding-left: 10px;
 	color: #ec7c06;
 }
 #tb_browse_detail.members #member .name{
-	font-family: tahoma;
+	font-family: TH chulanarak;
     font-size: 12px;
 	padding-left: 10px;
 	color: #222222;
@@ -1731,7 +1731,7 @@ header h2 {
 }
 #tb_browse_detail.thanks #content h3 {
     color: #5C5C5C;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 14px;
 }
 #tb_browse_detail.thanks #content h3 a{
@@ -1747,14 +1747,14 @@ header h2 {
 	text-align:center;
 }
 #tb_browse_detail.gallery #content h2 {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 16px;
     margin-top: -70px;
     padding: 0 0 0 138px;
     text-align: left;
 }
 #tb_browse_detail.gallery #content h3{
-	font-family: tahoma;
+	font-family: TH chulanarak;
     font-size: 13px;
     padding: 0 0 0 138px;
     text-align: left;
@@ -1823,7 +1823,7 @@ header h2 {
 }
 #help #leftSide li,#help #rightSide li{
 	list-style:disc inside;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:14px;
 	color: #4d4d4d;
 }
@@ -1860,7 +1860,7 @@ header h2 {
     width: 737px;
 }
 #help #content p {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     margin: 30px 0;
 }
@@ -1938,7 +1938,7 @@ header h2 {
     clear: both;
     color: #8B4C03;
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px !important;
     font-weight: bold;
     padding: 4px 0;
@@ -1955,7 +1955,7 @@ header h2 {
 }
 #member #main_right #summary .sum {
     display: inline-block;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     width: 208px;
 }
 #member #main_right #summary .sum_hours {
@@ -1977,7 +1977,7 @@ header h2 {
 }
 #member #main_right #summary #photo a {
     color: #0099CC;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 12px;
 }
 #member #main_right .title.left {
@@ -2009,7 +2009,7 @@ header h2 {
     color: #FFFFFF;
     display: block;
     float: right;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     height: 22px;
     padding: 4px 10px;
     position: relative;
@@ -2029,13 +2029,13 @@ header h2 {
 #member #main_right .list .description {
     color: #4C4C4C;
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 12px;
     padding: 0 10px;
     width: 170px;
 }
 #member #main_right .list .hours {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 22px;
     font-weight: bold;
     line-height: 21px;
@@ -2044,7 +2044,7 @@ header h2 {
 }
 /*member > settings*/
 #member.setting form{
-	font-family: tahoma;
+	font-family: TH chulanarak;
 	width:500px;
 	font-size:13px;
 }
@@ -2093,7 +2093,7 @@ header h2 {
 	width: 45%;
 }
 #member.deposit #timeSave form{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 }
 #member.deposit #timeSave form label {
@@ -2139,7 +2139,7 @@ header h2 {
 	float:right;
 }
 #member.profile form {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
 }
 #member.profile label {
@@ -2184,7 +2184,7 @@ header h2 {
 /*member > job*/
 #member.job table {
     border: 1px solid #FFFFFF;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     width: 100%;
 	margin:10px 0;
@@ -2211,7 +2211,7 @@ header h2 {
 	color:#000;
 }
 #member.job #selection {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     text-align: right;
 }
@@ -2268,7 +2268,7 @@ header h2 {
 	color: #a2600d !important;
 }
 #member.notice #selection {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     text-align: left;
 }
@@ -2296,7 +2296,7 @@ header h2 {
     width: 51px;
 }
 #member.notice table{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 }
 #member.notice table th {
@@ -2334,7 +2334,7 @@ header h2 {
 }
 #member.checkHours #warn form {
     border-top: 1px solid #000000;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     padding: 0 0 0 150px;
     text-align: left;
@@ -2358,7 +2358,7 @@ header h2 {
 	color: #a2600d !important;
 }
 #member.warn form{
-	font-family: tahoma;
+	font-family: TH chulanarak;
     font-size: 13px;
 }
 #member.warn .headline {
@@ -2398,7 +2398,7 @@ header h2 {
 }
 /*member > own*/
 #member.own #selection {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     text-align: left;
 }
@@ -2423,7 +2423,7 @@ header h2 {
     width: 51px;
 }
 #member.own table{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	width: 100%;
 }
@@ -2526,7 +2526,7 @@ header h2 {
     clear: both;
     color: #8B4C03;
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px !important;
     font-weight: bold;
     padding: 4px 0;
@@ -2543,7 +2543,7 @@ header h2 {
 }
 #org .sum {
     display: inline-block;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     width: 252px;
 	text-align:center;
 }
@@ -2566,7 +2566,7 @@ header h2 {
 }
 #org #main_right #summary #photo a {
     color: #0099CC;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 12px;
 }
 #org .title.left {
@@ -2598,7 +2598,7 @@ header h2 {
     color: #FFFFFF;
     display: block;
     float: right;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     height: 22px;
     padding: 4px 10px;
     position: relative;
@@ -2618,13 +2618,13 @@ header h2 {
 #org #main_right .list .description {
     color: #4C4C4C;
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 12px;
     padding: 0 10px;
     width: 170px;
 }
 #org #main_right .list .hours {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 22px;
     font-weight: bold;
     line-height: 21px;
@@ -2643,7 +2643,7 @@ header h2 {
 }
 #org .column {
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
 	padding: 0 20px 20px 0;
 }
@@ -2672,7 +2672,7 @@ header h2 {
 	width:88px;
 }
 #org table{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	width: 100%;
 	border:1px solid #fff;
@@ -2727,7 +2727,7 @@ header h2 {
 }
 /*org > my job*/
 #org #selection {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     text-align: left;
 }
@@ -2789,7 +2789,7 @@ header h2 {
     clear: both;
     color: #8B4C03;
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px !important;
     font-weight: bold;
     padding: 4px 0;
@@ -2799,7 +2799,7 @@ header h2 {
 }
 /*org > setting*/
 #org.setting form{
-	font-family: tahoma;
+	font-family: TH chulanarak;
     font-size: 13px;
 }
 #org.setting form label{
@@ -2813,7 +2813,7 @@ header h2 {
 }
 /*org > warn*/
 #org.warn form {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
 }
 #org.warn .headline {
@@ -2856,7 +2856,7 @@ header h2 {
 }
 /*org > notice*/
 #org.notice #selection {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 15px;
     text-align: left;
 }
@@ -2872,7 +2872,7 @@ header h2 {
     width: 51px;
 }
 #org.notice table {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
 	border:0;
 }
@@ -2910,7 +2910,7 @@ header h2 {
 	margin:3px 0;
 }
 #org.profile form{
-	font-family: tahoma;
+	font-family: TH chulanarak;
     font-size: 13px;
 }
 #org.profile .long{
@@ -2939,7 +2939,7 @@ header h2 {
 }
 /*org > profile > detail*/
 #org.profile.detail form {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
 }
 #org.profile.detail form .line {
@@ -3030,7 +3030,7 @@ header h2 {
 }
 #org.approve #warn form {
     border-top: 1px solid #000000;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     text-align: left;
 }
@@ -3100,7 +3100,7 @@ header h2 {
 }
 #about_us .column.two {
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     padding: 0 0 0 20px;
     width: 47%;
@@ -3170,7 +3170,7 @@ header h2 {
 	font-size:20px;
 	margin-bottom:20px;
 	list-style:none;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 }
 #about_us ul#volunteer{
@@ -3224,7 +3224,7 @@ header h2 {
 .popup #content {
     clear: both;
 	background: url("../img/bg_thankyou.png") no-repeat scroll 0 0 transparent;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     height: 221px;
     margin: 0 auto;
@@ -3452,7 +3452,7 @@ header h2 {
     background: url("../img/mem_plus.png") no-repeat scroll 0 0 transparent;
     color: #FFFFFF;
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 17px;
     height: 191px;
     padding: 55px 0;
@@ -3465,7 +3465,7 @@ header h2 {
 /*contact*/
 #contact_us .column.two {
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     padding: 0 0 0 20px;
     width: 47%;
@@ -3526,7 +3526,7 @@ header h2 {
 }
 #contact_us #message {
     background: url("../img/contact_bg.png") no-repeat scroll 0 0 transparent;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     padding: 10px;
     text-align: center;
@@ -3541,7 +3541,7 @@ header h2 {
     float: left;
     width: 50%;
 	margin: 0 30px 0 20px;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	padding: 0 20px 0 0;
 }
@@ -3577,7 +3577,7 @@ header h2 {
 /*donation*/
 #donation .column.two {
     float: left;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     padding: 0 0 0 20px;
     width: 47%;
@@ -3645,7 +3645,7 @@ header h2 {
 }
 #donation #message {
     background: url("../img/contact_bg.png") no-repeat scroll 0 0 transparent;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 16px;
     padding: 10px;
     text-align: center;
@@ -3657,7 +3657,7 @@ header h2 {
 	margin: 0;
 }
 #donation #content{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	padding:0 0 0 20px;
 }
@@ -3728,7 +3728,7 @@ header h2 {
 }
 #training #message {
     background: url("../img/contact_bg.png") no-repeat scroll 0 0 transparent;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 16px;
     padding: 10px;
     text-align: center;
@@ -3740,7 +3740,7 @@ header h2 {
 	margin: 0;
 }
 #training #content{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	padding:0 0 0 20px;
 }
@@ -3775,7 +3775,7 @@ header h2 {
 	width: 50%;
 }
 #training #list li,#training #pagination li{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	color:#222;
 	height:300px;
@@ -3815,7 +3815,7 @@ header h2 {
     width: 738px;
 }
 #training.gallery #content h2 {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 16px;
     margin-top: -70px;
     padding: 0 0 0 84px;
@@ -3824,7 +3824,7 @@ header h2 {
 }
 #training.gallery #content h3 {
     color: #5C5C5C;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     font-weight: normal;
     padding: 0 0 0 138px;
@@ -3899,12 +3899,12 @@ header h2 {
     font-size: 26px;
     margin: 0 0 10px 53px;
     text-align: left;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-weight:normal;
 }
 #news h3 {
     color: #F9941C;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-weight: normal;
     margin: 0 0 10px 53px;
     width: 20%;
@@ -3926,7 +3926,7 @@ header h2 {
     width: 95px;
 }
 #news #content{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 }
 #news #content p{
@@ -3937,7 +3937,7 @@ header h2 {
     float: left;
     width: 50%;
 	margin: 0 30px 0 20px;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	padding: 0 20px 0 0;
 }
@@ -3989,12 +3989,12 @@ header h2 {
     font-size: 26px;
     margin: 0 0 10px 53px;
     text-align: left;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-weight:normal;
 }
 #training.news h3 {
     color: #F9941C;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-weight: normal;
     margin: 0 0 10px 53px;
     width: 20%;
@@ -4017,7 +4017,7 @@ header h2 {
     width: 95px;
 }
 #training.news #content{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 }
 #training.news #content p{
@@ -4028,7 +4028,7 @@ header h2 {
     float: left;
     width: 50%;
 	margin: 0 30px 0 20px;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 	padding: 0 20px 0 0;
 }
@@ -4050,7 +4050,7 @@ header h2 {
 	text-align:right;
 }
 #tb_browse_detail.search form,#tb_browse_detail.search #leftSide,#tb_browse_detail.search #rightSide {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
 }
 #tb_browse_detail.search label {
@@ -4115,7 +4115,7 @@ header h2 {
 }
 #tb_browse_detail.search table {
     border: 1px solid #FFFFFF;
-    font-family: tahoma;
+    font-family: TH chulanarak;
     font-size: 13px;
     width: 100%;
 }
@@ -4174,7 +4174,7 @@ header h2 {
 #insideFooter #section li{
 	float:left;
 	width:205px;
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:12px;
 }
 #main #insideFooter #section li:before, #main #insideFooter #section li li:before {
@@ -4244,7 +4244,7 @@ header h2 {
     font-size: 37px;
 }
 #term #main p{
-	font-family:tahoma;
+	font-family:TH chulanarak;
 	font-size:13px;
 }
 #term #main p img{
@@ -4336,7 +4336,7 @@ header h2 {
 }
 
 .mid.content {
-    font-family: tahoma;
+    font-family: TH chulanarak;
     margin: 0 auto;
     position: relative;
     text-align: center;
