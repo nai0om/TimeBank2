@@ -8,7 +8,13 @@
 
 		<div style="clear:both"></div>
 		<div id="menu_left">
-			<?php include Kohana::find_file('views', 'shared/usermenu') ?>
+			<ul>
+				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
+				<li><?= HTML::anchor('organization/profile', 'ข้อมูลองค์กร'); ?></li>
+				<li class="current"><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>
+				<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
+			</ul>
+		
 		</div>
 		
 		
@@ -25,7 +31,7 @@
         <?= $message; ?>
     </h3>
 <? endif; ?>
-			<?= Form::open('organization/changepassword', array('enctype' => 'multipart/form-data')); ?>	
+			<?= Form::open('organization/', array('enctype' => 'multipart/form-data')); ?>	
                              
 				<?= Form::label('password', 'รหัสผ่านเดิม :'); ?>
 				<?= Form::password('password'); ?>
