@@ -3778,15 +3778,20 @@ header h2 {
 	font-family:tahoma;
 	font-size:13px;
 	color:#222;
+	height:300px;
+	overflow:hidden;
 }
 #training #list li:before{
 	content:'';
 }
 #training #list li img{
 	margin:0 20px 0 0;
+	max-height:300px;
+	max-width:300px;
 }
 #training #list li h3{
 	color:#F9941C;
+	width:300px;
 }
 #training #list li a{
 	color:#0099CC;
