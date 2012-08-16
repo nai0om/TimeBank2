@@ -10,16 +10,16 @@ $page = isset($gets['page'])? $gets['page'] : '1';
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
+			<li>ใช้บริการธนาคารจิตอาสา</li>
 			
           <?php	
 		  	
 			if($job != 0){
-				echo '<li>ดูงานอาสา</li>';
+				echo '<li>ดูภารกิจจิตอาสา</li>';
 				echo '<li>'.$jobs[$gets['job']].'</li>';
 			}
 			else{
-				echo '<li>ค้นหางานอาสา</li>';
+				echo '<li>ค้นหาภารกิจจิตอาสา</li>';
 				}
 			?>
 			
@@ -59,7 +59,7 @@ $page = isset($gets['page'])? $gets['page'] : '1';
 		<div style="clear:both"></div>
         <?php if ($type != 'member') : ?>
 			<?php if ($query == '' && $job == 0  && $province == 0) : ?>
-                    <h3 class="title" style="float:left;">งานอาสามาใหม่</h3>
+                    <h3 class="title" style="float:left;">ภารกิจล่าสุด</h3>
              <?php else: ?>
             <p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> 
             <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $count ?></span></p>
@@ -69,8 +69,8 @@ $page = isset($gets['page'])? $gets['page'] : '1';
                     <th>ชื่อภารกิจ</th>
                     <th>ต้องการเวลา (ช.ม./คน)</th>
                     <th>รับจำนวน</th>
-                    <th>การรับสมัคร</th>
-                    <th>วัน / เวลาทำงาน</th>
+                    <th>รับสมัครภายใน</th>
+                    <th>ช่วงวันทำงาน</th>
                     <th></th>
                 </tr>
                 <?php foreach ($events as $event):	?>
@@ -80,9 +80,9 @@ $page = isset($gets['page'])? $gets['page'] : '1';
                     <td><?= $event->volunteer_need_count ?> คน</td>
             
                     <? if( $type == 'open'): ?>
-                        <td>สิ้นสุดวันที่ <?= $event->signup_end_date ?></td>
+                        <td><?= $event->signup_end_date ?></td>
                         <td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
-                        <td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
+                        <td><?= HTML::anchor('event/view/'.$event->id, 'รายละเอียด') ?></td>
                     <? else : ?>
                         <td>- ปิด -</td>
                         <td>- ปิด -</td>
@@ -96,7 +96,7 @@ $page = isset($gets['page'])? $gets['page'] : '1';
                         <?php for($i = 1; $i <= $total_page; $i++){	
                                 if( $i == $page)
                                 {
-                                    echo '<li>Page '.$i.'</li>';
+                                    echo '<li>หน้า '.$i.'</li>';
                                 }
                                 else
                                 {

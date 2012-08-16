@@ -2,11 +2,11 @@
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ร่วมบริจาค</li>
+			<li>สนับสนุนธนาคารจิตอาสา</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div style="clear:both"></div>
-		<h2>ร่วมบริจาค</h2>
+		<h2></h2>
 
 		<div id="bannerRotating">
 			<div id="carouselBanner">
@@ -30,24 +30,27 @@
 		<div style="clear:left"></div>
 		
 		<div id="message">
-			<p style="color:#FB8911;font-size:26px;">บัญชี Jitarsabank.org</p>
-			<p>บัญชีออมทรัพย์เลขที่ 020-2-53333-8</p> 
-			<p>ธ. ไทยพาณิชย์ สาขาเทเวศน์</p>
-			<p>หรือ บริจาคได้ที่เคาน์เตอร์เซอร์วิสร้าน 7-11 ทุกสาขา</p>
+			<p style="color:#FB8911;font-size:21px;"><b>ท่านสามารถสนับสนุน<br>ธนาคารจิตอาสาผ่านการ...</b></p><br>
+			<p><b>แบ่งปันเวลา</b></p> 
+			<p><b>แบ่งปันแรงกาย และ แรงใจ</b></p>
+			<p><b>แบ่งปันทักษะ และ ความสามารถ</b></p><br>
 		</div>
 		
-		<div id="content">
+		<br><div id="content">
 			<img src="<?= url::base(); ?>media/img/about_01.jpg" style="float:right">
 			<img src="<?= url::base(); ?>media/img/about_01.jpg" style="float:right;clear:both;">
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<p>“การให้เวลาคือการมอบสมบัติล้ำค่า” เห็นจะเป็นคำพูดที่ไม่เกินจริงเลยสำหรับธนาคารจิตอาสา เพราะเราก็ได้รับสิ่งนี้มาเหมือนกัน ในช่วงที่ผ่านมาระหว่าที่ธนาคารจิตอาสาสามารถออกเดินทาง พัฒนาขึ้น และได้มอบสิ่งที่มีคุณค่าแก่สังคม เพราะเราได้รับการสนับสนุนจากกัลยาณมิตร จากผู้คนมากมายที่มีเมล็ดพันธุ์จิตอาสาในหัวใจ มาแบ่งปันแรงกาย ความตั้งใจ และเวลา แต่ ณ ที่นี้ ธนาคารจิตอาสาจะขอกล่าวคำขอบคุณแด่อาสาที่ร่วมเดินทางมากับเราตั้งแต่เริ่มต้น ได้แก่ นาวสาวอัญชลี ศรีนวลวงศ์ (นักโฆษณา พนักงานบริษัทเอกชน), นายพงศ์รบ สายสุวรรณ (วิศวกรคอมพิวเตอร์ อาชีพอิสระ), นายอุดมศักดิ์ ดอนขำไพร (วิศวกรคอมพิวเตอร์ พนักงานบริษัทเอกชน) และ นายวรานนท์ ทองแกม (วิศวกรคอมพิวเตอร์ พนักงานบริษัทเอกชน) ที่ได้แบ่งปันเวลา ทักษะและความสามารถของตนร่วมพัฒนาระบบธนาคารจิตอาสาตั้งแต่เริ่มโครงการฯ จนถึงปัจจุบัน สิ่งที่เราได้รับนั้นมีค่ามากกว่าแค่ผลงานที่เกิดขึ้น แต่มันคือสิ่งที่ทำให้เราสัมผัสและรับรู้ได้ว่าสังคมนี้ยังอุดมไปด้วยความรัก ความสุข และการช่วยเหลือเกื้อกูลกัน </p>
 
-			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+			<p>ธนาคารจิตอาสาเป็นพื้นที่ให้ทุกคนได้เข้ามาใช้เพื่อประกาศความตั้งใจที่จะแบ่งปันเวลาให้กับสังคม เวลาเหล่านี้คือทุนของความมุ่งมั่นตั้งใจของคนไทยทั้งประเทศเป็นทุน และหลักประกันความมั่นคงของ
+สังคม เป็นเครื่องชี้ว่าจิตอาสาคือคุณค่าที่สังคมไทยยึดถือ เพราะการให้เวลาคือการมอบสมบัติล้ำค่าที่เรา
+ทุกคนมีอยู่อย่างเท่าเทียมกันให้แก่ส่วนรวม และให้แก่กันและกัน ดังนั้นช่องทางหนึ่งในการสนับสนุนธนาคารจิตอาสา คงจะหนีไม่พ้นการที่เราได้มอบเวลาให้แก่สังคม ให้กับบ้านที่เรารัก ​ในรูปแบบที่เหมาะกับความสนใจ ความสามารถ และแบบแผนการใช้ชีวิต/เวลาว่างของตน เพราะเราเชื่อว่าสังคมไทยจะเป็นสังคมอุดมไปด้วยความรักความสุข มีความมั่นคง และพัฒนาก้าวหน้าต่อไปได้ เพราะทุกคนร่วมสร้างสังคมนี้ขึ้นมา ไม่จำกัดว่าเป็นวัยไหนหรืออยู่ในหน้าที่การงานใด เราต่างมีความมุ่งมั่นตั้งใจเพื่อสร้างประเทศไทย เราไม่นิ่งเฉยดูดาย แต่จะลุกขึ้นยื่นมือมาช่วยเหลือกัน ทุกๆ คนบนผืนแผ่นดินไทยสามารถเป็นอาสาสมัครผู้อุทิศกำลังความสามารถและเวลาอันมีค่าของตนให้แก่
+ประโยชน์ส่วนรวม</p>
 
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<p>ขอบคุณที่ปันเวลามาช่วยกันนะครับ <br>ด้วยจิตคารวะ <br>ธนาคารจิตอาสา</p>
 
-			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+			<p></p>
 
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<p></p>
 		</div>
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>

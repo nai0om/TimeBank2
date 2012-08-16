@@ -10,7 +10,7 @@
 		<div style="clear:both"></div>
 
 		<div class="title left"></div>
-		<div class="title body">โปรไฟล์ <?= $organization->name ?></div>
+		<div class="title body">ข้อมูล <?= $organization->name ?></div>
 		<div class="title right"></div>
 		
 		<div style="clear:both"></div>
@@ -30,9 +30,9 @@
 		</div>
 		<div id="columnRight">
 			<div class="sum"><div class="sum_hours"><?= $hours_sum ?> ชั่วโมง</div>
-			<div class="sub_title">เวลาจากอาสาสมัครที่เคยทำงานกับมูลนิธิ</div></div>
-			<div class="sum"><div class="sum_hours"><?= $total_valun ?>  อาสาสมัคร</div>
-			<div class="sub_title">ที่เคยร่วมงานกับมูลนิธิ</div></div>
+			<div class="sub_title">เวลาจากอาสาที่เคยร่วมงานกับองค์กร</div></div>
+			<div class="sum"><div class="sum_hours"><?= $total_valun ?>  คน</div>
+			<div class="sub_title">จำนวนอาสาที่เคยร่วมงานกับองค์กร</div></div>
 		</div>
 		
 		<div style="clear:both"></div>
@@ -51,13 +51,13 @@
 			<p><?= $organization->province ?></p>
 			<h4>รหัสไปรษณีย์</h4>
 			<p><?= $organization->postcode ?></p>
-			<h4>เบอร์โทรศัพท์ </h4>
+			<h4>โทรศัพท์ </h4>
 			<p><?= $organization->homephone ?></p>
-			<h4>เบอร์โทรสาร</h4>
+			<h4>โทรสาร</h4>
 			<p><?= $organization->fax ?></p>
 		</div>
 		<div class="column three">
-			<h4>อีเมล์</h4><span><?= $org_user->email ?></span>
+			<h4>อีเมล</h4><span><?= $org_user->email ?></span>
 			<h4>ติดต่อ </h4><span><?= $organization->contactperson ?></span>
 			<h4>website URL</h4><span><a href="<?= $organization->website ?>" target="_blank"><?= $organization->website ?></a></span>
 			<h4>Facebook</h4><span><a href="<?= 'http://'.$organization->facebook ?>" target="_blank"><?= $organization->facebook ?></a></span>
@@ -89,8 +89,8 @@
 				<th>ชื่อภารกิจ</th>
 				<th>ต้องการเวลา (ช.ม./คน)</th>
 				<th>รับจำนวน</th>
-				<th>การรับสมัคร</th>
-				<th>วัน / เวลาทำงาน</th>
+				<th>รับสมัครภายใน</th>
+				<th>ช่วงวันทำงาน</th>
 				<th></th>
 			</tr>
             <? foreach( $events as $event ): ?>
@@ -100,9 +100,9 @@
                 <td><?= $event->volunteer_need_count ?> คน</td>
                 
                 <? if( $event->status == '1'): ?>
-                    <td>สิ้นสุดวันที่ <?= $event->signup_end_date ?></td>
+                    <td><?= $event->signup_end_date ?></td>
                     <td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
-                    <td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
+                    <td><?= HTML::anchor('event/view/'.$event->id, 'รายละเอียด') ?></td>
                 <? else : ?>
                     <td>- ปิด -</td>
                     <td>- ปิด -</td>

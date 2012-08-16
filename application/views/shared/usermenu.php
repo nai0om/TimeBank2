@@ -1,11 +1,11 @@
 <ul><?php $menuitem = array(
     'index' => 'หน้าหลัก', 
-    'profile' => 'โปรไฟล์',
-    'record' => 'ฝากเวลาของฉัน', 
+    'profile' => 'ข้อมูลส่วนตัว (Profile)',
+    'record' => 'ฝากเวลาเพิ่ม', 
     'myevent' => 'งานอาสาของฉัน',
-    'eventsearch' => 'ค้นหางานอาสา', 
+    'eventsearch' => 'ค้นหาภารกิจจิตอาสา', 
     //'mytraining' => 'งานฝึกอบรมของฉัน',
-    'notification' => 'งานแจ้งเตือน',
+    'notification' => 'การแจ้งเตือน',
 ); ?>
 
 <? foreach ($menuitem as $actionname => $menuname):?>

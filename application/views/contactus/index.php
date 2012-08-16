@@ -2,7 +2,7 @@
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ติดต่อทีมงานอาสา</li>
+			<li>ติดต่อธนาคารจิตอาสา</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div style="clear:both"></div>
@@ -11,15 +11,15 @@
 		
 		<div id="message">
 			<p style="color:#FB8911">ที่อยู่</p>
-			<p>10 ซ.3 ถ.พหลโยธิน สามเสนใน พญาไท กรุมเทพฯ 10400</p> 
-			<p>อีเมล jitarsabank@gmail.com</p>
+			<p>10 ซ.3 ถ.พหลโยธิน สามเสนใน </p>
+			<p>พญาไท กรุมเทพฯ 10400</p>
 			<p></p>
-			<p></p>
+			<p>อีเมล JitArsaBank@gmail.com</p>
 		</div>
 		
 		<div id="leftSide">
-			<h3>Contact us</h3>
-			<p>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem </p>
+			<h3>ฝากข้อมูลการติดต่อได้ที่นี่</h3>
+			<p>ธนาคารจิตอาสาจะติดต่อกลับโดยเร็วที่สุดครับ</p>
 			<?= Form::open('contactus/index'); ?>
 				<label>ชื่อ</label>
 				<?= Form::input('name', HTML::chars($contactus->name)); ?>

@@ -14,8 +14,8 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
-			<li>ดูงานอาสา</li>
+			<li>ใช้บริการธนาคารจิตอาสา</li>
+			<li>ดูภารกิจจิตอาสา</li>
 			<li><?= $event->name ?></li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
@@ -29,15 +29,15 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		<div id="detail">
 			<?php if ($mode == 2): ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>
-                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสางานนี้', array('class' => 'current')); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา', array('class' => 'current')); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
             <? elseif ($mode == 3): ?>    
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>
-                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสางานนี้'); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม', array('class' => 'current')); ?>
             <? else: ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน', array('class' => 'current')); ?>
-                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสางานนี้'); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
             <? endif ?>
                 
@@ -96,7 +96,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 						<div class="caption">
                          <?= Form::file('image') ?><br />
    						 <?= Form::input('text', 'เขียนคำบรรยายที่นี่'); ?> 
-						 <?= Form::submit(NULL, 'add'); ?>
+						 <?= Form::submit(NULL, 'เพิ่มรูป'); ?>
 						 <?= Form::close(); ?>
                         </div>
                 
@@ -107,12 +107,12 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<img src="<?= url::base(); ?>media/img/tb_line_form.png">
 		</div>
 		
-		<h2>หลังจากที่ไปร่วมกิจกรรมกันมาแล้วเพื่อนๆ สามารถ พูดคุยกัน ได้ที่นี่นะคะ</h2>
-        <h4 class="title">ฝากคอมเม้นต์</h4>
+		<h2>หลังจากที่ไปร่วมกิจกรรมกันมาแล้ว ขอขวนอาสามาแบ่งปันประสบการณ์ การเรียนรู้ ความประทับใจ กันนะครับ</h2>
+        <h4 class="title">แบ่งปันประสบการณ์</h4>
         
         <?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
         <?= Form::textarea('comment'); ?>
-        <?= Form::submit(NULL, 'โพส', array( 'style' => 'float:right; margin: 10px;')); ?>
+        <?= Form::submit(NULL, 'แบ่งปัน', array( 'style' => 'float:right; margin: 10px;')); ?>
         <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             <div>
                 <? if ($comment->user->id != 0 ) : ?>
@@ -138,13 +138,13 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
     <? else: ?>
 		<? if($event->message != '') : ?>
         <div id="post">
-            <h2>ข้อความขอบคุณจากทีมงาน</h2>
+            <h2>ข้อความขอบคุณจากองค์กร</h2>
              <p class="post-data"><?= $event->message ?> </p>
         </div>
         <? endif ?>
 		<? if($isAdmin) : ?>
             <div id="post">
-                <h2>ข้อความขอบคุณสามารถพิมพ์โดย admin ประเภทองค์กรหลังจากจบงาน</h2>
+                <h2>หลังจบกิจกรรมอาสาแล้ว อย่าลืมมาเขียนคำขอบคุณที่นี่นะครับ (สำหรับองค์กร) </h2>
                <?
 			   echo Form::open('event/addmessage/'.$event->id, array ('style' => 'float:right;')); 
 			   echo Form::textarea('message', ($event->message == '' ? 'เขียนคำขอบคุณที่นี่' : $event->message),  array ('style' => 'height: 50px; width: 760px;')); 
@@ -164,16 +164,16 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 
 		<div class="sub">
 			<h3><?= number_format($event->time_cost) ?> ชั่วโมง</h3>
-			<h4>ต้องการจากอาสา</h4>
+			<h4>เวลาทำงานอาสา</h4>
 		</div>
 		<div class="sub">
 			<h3><?= number_format($member_count*$event->time_cost)  ?> ชั่วโมง</h3>
-			<h4>รวมเวลาที่ได้ทั้งหมด</h4>
+			<h4>เวลารวมที่ได้จากอาสา</h4>
 		</div>
 		<div class="main">
-			<h2>จำนวนอาสาสมัครที่ต้องการ</h2>
+			<h2>รับสมัครอาสา</h2>
 			<h3><?= number_format($event->volunteer_need_count) ?> คน</h3>
-			<h4>สมัครแล้ว <?= $member_count ?> คน เหลืออีก <?= abs($event->volunteer_need_count - $member_count) ?> คน</h4>
+			<h4>สมัครแล้ว <?= $member_count ?> คน ต้องการอีก <?= abs($event->volunteer_need_count - $member_count) ?> คน</h4>
 		</div>
 		<div style="clear:both"></div>
 		
@@ -184,7 +184,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<p><span class="header">ในโครงการ : </span> <?= $event->project_name ?></p>
 			<p><span class="header">สถานที่ : </span><?= $event->location_name ?></p>
 			<p><span class="header">จังหวัด : </span> <?= $provinces[$event->location_province] ?></p>
-<p><span class="header">วันทำอาสา</span>
+<p><span class="header">ช่วงวันทำงาน</span>
 				<div id="duration"> 
 				<?
 				$time= strtotime($event->volunteer_begin_date ); 
@@ -257,7 +257,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			?>
 			<p>ความสามารถพิเศษ (Special Skill) : <?= ($normal_skill == '') ? 'ไม่มี' : ''.$normal_skill ?></p>
 			<p>ทักษะวิชาชีพ (Professional Skill) : <?= ($special_skill == '') ? 'ไม่มี' : ''.$special_skill  ?></p>
-			<p><span class="header">Tag ความสนใจ</span></p>
+			<p><span class="header">ประเภทงานอาสา</span></p>
 			<p><?php
 					$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 					$last = '';
@@ -272,23 +272,23 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 					   echo substr($last , 0, -2); 
 					
 			?> </p>
-			<p><span class="header">ค่าใช้จ่าย</span></p>
+			<p><span class="header">รายละเอียดค่าใช้จ่าย</span></p>
 			<p><?= $event->expense_detail ?>  	
 			</p>
 		</div>
 		<div id="rightSide">
-			<p><span class="header">เปิดรับสมัคร</span>
+			<p><span class="header">รับสมัครภายใน</span>
 				<div id="duration"> 
-				สิ้นสุดวันที่ <?
+				 <?
 				$time= strtotime($event->signup_end_date); 
 				echo phphelp::thai_date($time);
 				?> 
                 </div>
             </p>
-			<p><span class="header">ลักษณะการเดินทาง</span></p>
+			<p><span class="header">รายละเอียดการเดินทาง</span></p>
 			<p><?= $event->travel_detail ?></p>
             
-              <p><span class="header">ติดต่อสอบถามเพิ่มเติม</span><br />
+              <p><span class="header">ติดต่อสอบถามเพิ่มเติมที่</span><br />
               <?= $event->inquiry_detail ?>
               </p>
 			
@@ -298,11 +298,11 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('user/checkdata/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
         <? endif ?>
         
-        	<h4 class="title">ฝากคอมเม้นต์</h4>
+        	<h4 class="title">พูดคุยกันก่อนได้ที่นี่นะครับ</h4>
             
 			<?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
             <?= Form::textarea('comment'); ?>
-            <?= Form::submit(NULL, 'โพส', array( 'style' => 'float:right; margin: 10px;')); ?>
+            <?= Form::submit(NULL, 'ส่ง', array( 'style' => 'float:right; margin: 10px;')); ?>
             <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
             	<div>
 					<? if ($comment->user->id != 0 ) : ?>

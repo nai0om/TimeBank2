@@ -41,7 +41,7 @@ $times['23:59:59'] = '23:59';
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
-		<h2>ดูงานอาสา</h2>
+		<h2>ค้นหาแบบละเอียด</h2>
 		<div id="icon_set">
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_how_it_work.png"/>'); ?>
             <?= HTML::anchor('event/browse', '<img src="'.url::base().'media/img/icon_browse_event.png"/>'); ?>
@@ -54,7 +54,7 @@ $times['23:59:59'] = '23:59';
 					<legend></legend>
 					<p><label>ใส่งานอาสา, ชื่อองค์กร, ชื่อสถานที่</p>
 					<p><?= Form::input('query', $query);  ?></p>
-					<p><label>ประเภทงานอาสา</p>
+					<p><label>ประเภทภารกิจที่ท่านสนใจ</p>
 					<p><?= Form::select('job', $jobs, $job, array('style', 'width:300px;')); ?></p>
 					<p><label>จังหวัด</p>
 					<p><?= Form::select('province', $provices, $province, array('style', 'width:300px;')); ?></p>
@@ -89,7 +89,7 @@ $times['23:59:59'] = '23:59';
 			</div>
 			<div id="rightSide">
 				<fieldset>
-							 <p><label><strong>ทักษะของอาสาสมัครที่ต้องการ</strong></label></p>
+							 <p><label><strong>ทักษะที่ท่านมี</strong></label></p>
         <ol>
            <?php
 			
@@ -136,8 +136,8 @@ $times['23:59:59'] = '23:59';
                     <th>งานอาสา</th>
                     <th>ต้องการจากอาสา</th>
                     <th>จำนวนรับสมัคร</th>
-                    <th>เปิดรับสมัคร</th>
-                    <th>วัน / เวลาทำงานอาสา</th>
+                    <th>รับสมัครภายใน</th>
+                    <th>ช่วงวันทำงาน</th>
                     <th></th>
                 </tr>
                 <?php foreach ($events as $event):	?>
@@ -147,9 +147,9 @@ $times['23:59:59'] = '23:59';
                     <td><?= $event->volunteer_need_count ?> คน</td>
             
                     <? if( $type == 'open'): ?>
-                        <td>สิ้นสุด <?= $event->signup_end_date ?></td>
+                        <td> <?= $event->signup_end_date ?></td>
                         <td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
-                        <td><?= HTML::anchor('event/view/'.$event->id, 'สมัคร') ?></td>
+                        <td><?= HTML::anchor('event/view/'.$event->id, 'รายละเอียด') ?></td>
                     <? else : ?>
                         <td>- ปิด -</td>
                         <td>- ปิด -</td>
@@ -163,7 +163,7 @@ $times['23:59:59'] = '23:59';
                         <?php for($i = 1; $i <= $total_page; $i++){	
                                 if( $i == $page)
                                 {
-                                    echo '<li>Page '.$i.'</li>';
+                                    echo '<li>หน้า '.$i.'</li>';
                                 }
                                 else
                                 {

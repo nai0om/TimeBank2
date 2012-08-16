@@ -52,7 +52,7 @@ $times['23:59:59'] = '23:59';
         <div class="line"></div>
     </fieldset>
     <fieldset>
-        <p><legend><strong>วันทำอาสา</strong></legend></p>
+        <p><legend><strong>ช่วงวันทำอาสา</strong></legend></p>
         <p><label>ตั้งแต่วันที่</label></p>
         <p>
 			<?= Form::input('volunteer_begin_date', $event->volunteer_begin_date == '' ? '' : date("d-m-Y", strtotime($event->volunteer_begin_date)), array('class' => 'datepicker', 'id' => 'volunteer_begin_date', 'onChange' => 'difDateTIme()')); ?>
@@ -91,7 +91,7 @@ $times['23:59:59'] = '23:59';
 				}
             ?>
         </p>
-        <p>รวม <input name='time_cost' id='time_cost'  value= "<?= $event->time_cost ?>" type="text" style="width:50px;margin:0;display:inline;"> ชม.(อัตโนมัติ)</p>
+        <p>รวม (อัตโนมัติ) <input name='time_cost' id='time_cost'  value= "<?= $event->time_cost ?>" type="text" style="width:50px;margin:0;display:inline;"> ชม.(สามารถแก้ไขได้) </p>
         <div class="line"></div>
     </fieldset>
     <fieldset>
@@ -111,7 +111,7 @@ $times['23:59:59'] = '23:59';
                 <font color="red"><?= Arr::get($errors, 'location_province'); ?></font>
             </div>           
         </p>
-        <p><label>เขต</label>
+        <p><label>เขต / อำเภอ</label>
 			<?= Form::input('location_district', HTML::chars($event->location_district)); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'location_district'); ?></font>
@@ -123,7 +123,7 @@ $times['23:59:59'] = '23:59';
                 <font color="red"><?= Arr::get($errors, 'location_postcode'); ?></font>
             </div>
         </p>
-        <p><label>จำนวนอาสาสมัครที่ต้องการ </label>
+        <p><label>จำนวนอาสาสมัครที่รับสมัคร </label>
         	<?= Form::input('volunteer_need_count', HTML::chars($event->volunteer_need_count)
 							, array('style' =>'width:50px;margin:10px 0 0;display:inline;')); ?> คน
             <div class="error">
@@ -137,14 +137,14 @@ $times['23:59:59'] = '23:59';
                 <font color="red"><?= Arr::get($errors, 'detail'); ?></font>
             </div>  
         </p>
-        <p><label>ลักษณะการเดินทาง</label></p>
+        <p><label>รายละเอียดการเดินทาง</label></p>
         <p>
         	<?= Form::textarea('travel_detail', $event->travel_detail, array('rows' => 3)); ?>    
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'travel_detail'); ?></font>
             </div>  
         </p>
-        <p><label>ติดต่อสอบถามเพิ่มเติม</label></p>
+        <p><label>ติดต่อสอบถามเพิ่มเติมที่</label></p>
         <p>
         	<?= Form::textarea('inquiry_detail', $event->inquiry_detail, array('rows' => 3)); ?>    
             <div class="error">
@@ -153,7 +153,7 @@ $times['23:59:59'] = '23:59';
         </p>
     </fieldset>	
         <fieldset>
-        <p><legend><strong>Tag ความสนใจ  (เลือกได้มากกว่า 1)</strong></legend></p>
+        <p><legend><strong>ประเภทงานอาสา  (เลือกได้มากกว่า 1)</strong></legend></p>
         
 			<?php  
 				$jobs = Kohana::$config->load('timebank')->get('jobs'); 
@@ -174,7 +174,7 @@ $times['23:59:59'] = '23:59';
 <div id="rightSide">
     <fieldset>
         <legend></legend>
-        <p><label><strong>มีค่าใช้จ่ายหรือไม่?</strong></label></p>
+        <p><label><strong>รายละเอียดค่าใช้จ่าย</strong></label></p>
         <p><?= Form::radio('is_need_expense', 0, !$event->is_need_expense); ?>ไม่มี</p>
         <p><?= Form::radio('is_need_expense', 1, $event->is_need_expense == 1 ? true : false); ?>มี (โปรดระบุรายละเอียด)</p>
         <p>
@@ -245,7 +245,7 @@ $times['23:59:59'] = '23:59';
     </fieldset>
 
     <fieldset>
-        <legend>รูปภาพงานอาสา</legend>
+        <legend>รูปงานอาสา (ขนาดไม่เกิน 4 MB)</legend>
         <?php if ($event->image != ''): ?>
         	<img src="<?= url::base().'media/upload/events/'.$event->image; ?>" />
         <? endif ?>

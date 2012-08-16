@@ -28,11 +28,11 @@
 				<div class="sub_title"> เวลาตั้งใจอาสา</div></div>
 				<div></div>
 				<div class="sum"><div class="sum_hours"><?= $work_time ?> ชั่วโมง</div>
-				<div class="sub_title">เวลาทำอาสา</div></div>
+				<div class="sub_title">เวลาที่ได้ทำอาสาไปแล้ว</div></div>
 			</div>
 			<div style="clear:both"></div>
 			<div class="title left"></div>
-			<div class="title body">งานอาสาที่เหมาะกับโปร์ไพล์คุณ</div>
+			<div class="title body">ภารกิจจิตอาสาล่าสุด</div>
 			<div class="title right"></div>
 			<div class="line" style="width:374px;"></div>
 			<a class="more">Load more</a>
@@ -57,7 +57,7 @@
 			</ul>
 			<div style="clear:both"></div>
 			<div class="title left"></div>
-			<div class="title body">งานอาสาที่ทางเวบไซต์อยากแนะนำ</div>
+			<div class="title body">ภารกิจจิตอาสาที่น่าสนใจ</div>
 			<div class="title right"></div>
 			<div class="line"></div>
 			<a class="more">Load more</a>

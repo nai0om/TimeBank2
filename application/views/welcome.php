@@ -48,7 +48,7 @@
 		
 		<blockquote>
 			<h2>ปันเวลาช่วยกัน</h2>
-			<p>มาช่วยกันสร้างสรรค์สังคมของเรา ผ่านการฝากเวลา เพื่อปฏิบัติภารกิจจิตอาสา (หากคุณเป็นอาสาสมัคร) หรือสร้างภารกิจจิตอาสา เพื่อเป็นโอกาสในการใช้เวลา (หากคุณเป็นองค์กรอาสา) </p>
+			<p>มาช่วยกันสร้างสรรค์สังคมของเรา <br>ผ่านการฝากเวลา เพื่อปฏิบัติภารกิจจิตอาสา <br>(หากคุณเป็นอาสาสมัคร) หรือ <br>สร้างภารกิจจิตอาสา เพื่อเป็นโอกาสในการใช้เวลา (หากคุณเป็นองค์กรอาสา) </p>
 			<h3><a href="<?= url::base().'user/create' ?>"><span style="text-decoration:underline">ฝากเวลา</span></a>  <span style="font-size:20px;">หรือ</span>  <a href="<?= url::base().'organization/create' ?>"> <span style="text-decoration:underline">สร้างภารกิจจิตอาสา</span></a></h3>
 		</blockquote>
 		
@@ -80,7 +80,7 @@
 		</article>
         <?php endforeach ?>
 	
-		<p align="center" style="display:inline-block"><img src="<?= url::base(); ?>media/img/line_sponser.png"/>
+		<p align="center" style="display:inline-block"><img src="<?= url::base(); ?>media/img/tb_line.png"/>
 		<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner2.png" /></p>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>

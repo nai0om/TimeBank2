@@ -4,7 +4,7 @@
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
-			<h2>กรุณาให้ข้อมูลเกี่ยวกับกลุ่ม/องค์กรอาสาของท่าน</h2>
+			<h2>กรุณาให้ข้อมูลเกี่ยวกับกลุ่ม / องค์กรอาสาของท่าน</h2>
 			<?= Form::open('organization/create',array('style'=>'margin-top:20px')); ?>
                 <div class="error">
                     <?= Arr::path($errors, 'acceptterm'); ?>
@@ -32,7 +32,7 @@
                     </div>
                 </p>
 				<div class="line"></div>
-				<h3>ข้อมูลองค์กรอาสา</h3>
+				<h3>ข้อมูลกลุ่ม / องค์กร</h3>
 				<p><label>ชื่อองค์กร / หน่วยงาน</label>
 					<?= Form::input('name', HTML::chars($organization->name)); ?>
                     <div class="error">

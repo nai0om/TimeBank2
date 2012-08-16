@@ -4,7 +4,7 @@
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
-			<h2>Sign In</h2>
+			<h2>เข้าสู่ระบบ / Sign In</h2>
 			<?= Form::open('user/login?back_url='.urlencode(Arr::get($_GET, 'back_url')), array('style' => 'margin-top:20px;')); ?>
                 <p><label>ชื่อบัญชีผู้ใช้ (Email)  * : </label><?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?></p>
 				<p><label>รหัสผ่าน * : </label><?= Form::password('password'); ?></p>
@@ -17,7 +17,7 @@
 			<?= Form::close(); ?>
 			<div class="line"></div>
 			<div id="sub">
-			<h3>สมัครเป็นสมาชิกอาสา</h3>
+			<h3><b>สมัครเป็นสมาชิกธนาคารจิตอาสา</b></h3>
 			<p></p>
 			<p><?= HTML::anchor('user/signup?back_url='.urlencode(Arr::get($_GET, 'back_url')), 'สมัครสมาชิก',array('class'=>'button')); ?></p>
 			</div>

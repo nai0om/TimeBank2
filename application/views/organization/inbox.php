@@ -11,7 +11,7 @@
 		<div id="menu_left">
         	<ul>
 				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
-				<li><?= HTML::anchor('organization/profile', 'โปร์ไพล์'); ?></li>
+				<li><?= HTML::anchor('organization/profile', 'ข้อมูลองค์กร'); ?></li>
 				<li><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>
 				<li class="current"><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
 			</ul>
@@ -31,7 +31,7 @@
 
 			<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $notification_count ?></span></p>
 		<div id="selection">
-		<?= Form::open('organization/deleteinbox'); ?><input type="checkbox"> Select All <?= Form::submit('submit', 'ลบ'); ?></div>
+		<?= Form::open('organization/deleteinbox'); ?><input type="checkbox"> เลือกทั้งหมด <?= Form::submit('submit', 'ลบ'); ?></div>
 		<table>
 			<tr>
 				<th colspan="2">หัวข้อ</th>
