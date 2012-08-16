@@ -273,7 +273,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 					
 			?> </p>
 			<p><span class="header">รายละเอียดค่าใช้จ่าย</span></p>
-			<p><?= $event->expense_detail ?>  	
+			<p><?= ($event->expense_detail == '') ? 'ไม่มี' : ''.$event->expense_detail?>  	
 			</p>
 		</div>
 		<div id="rightSide">
