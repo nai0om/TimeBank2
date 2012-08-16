@@ -46,7 +46,7 @@
 			
             <?php foreach ($events as $event):	?>
             <tr>
-				<td><?= $event->name?></td>
+				<td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
 				<td><?= $event->time_cost ?></td>
 				<td><?= $event->volunteer_need_count ?> คน</td>
 				<td><?= $event->signup_end_date ?></td>
