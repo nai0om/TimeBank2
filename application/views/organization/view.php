@@ -100,8 +100,8 @@
                 <td><?= $event->volunteer_need_count ?> คน</td>
                 
                 <? if( $event->status == '1'): ?>
-                    <td><?= $event->signup_end_date ?></td>
-                    <td><?= $event->volunteer_begin_date ?><br>ถึง <?= $event->volunteer_end_date ?></td>
+                    <td><?=  phphelp::str_to_thai_date($event->signup_end_date) ?></td>
+                    <td><?=  phphelp::str_to_thai_date($event->volunteer_begin_date) ?><br>ถึง <?=  phphelp::str_to_thai_date($event->volunteer_end_date) ?></td>
                     <td><?= HTML::anchor('event/view/'.$event->id, 'รายละเอียด') ?></td>
                 <? else : ?>
                     <td>- ปิด -</td>

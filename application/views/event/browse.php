@@ -49,11 +49,9 @@
 				<td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
 				<td><?= $event->time_cost ?></td>
 				<td><?= $event->volunteer_need_count ?> คน</td>
-				<td><?= $event->signup_end_date ?></td>
-				<td><? 
-					$time= strtotime($event->volunteer_begin_date); 
-					echo phphelp::thai_date($time);
-					?><br>ถึง <?= $event->volunteer_end_date ?></td>
+				<td><?= phphelp::str_to_thai_date($event->signup_end_date);   ?></td>
+				<td><?= phphelp::str_to_thai_date($event->volunteer_begin_date); ?>
+                		<br> ถึง <?=  phphelp::str_to_thai_date($event->volunteer_end_date);   ?></td>
 				<td><?= HTML::anchor('event/view/'.$event->id, 'รายละเอียด') ?></td>
 			</tr>
             <?php endforeach; ?>

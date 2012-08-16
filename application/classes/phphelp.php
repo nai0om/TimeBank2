@@ -18,13 +18,19 @@ class phphelp {
 		return (substr($haystack, -$length) === $needle);
 	}
 	
+	public static function str_to_thai_date($string)
+	{
+		$time = strtotime($string); 
+		return phphelp::thai_date($time);
+	}
 
-	public static function thai_date($time){  
+	public static function thai_date($time)
+	{  
 		$thai_day_arr = Kohana::$config->load('timebank')->get('thai_day_arr'); 
 		$thai_month_arr = Kohana::$config->load('timebank')->get('thai_month_arr');
 		 
 		//$thai_date_return="วัน".$thai_day_arr[date("w",$time)];  
-		$thai_date_return= "วันที่ ".date("j",$time);  
+		$thai_date_return= "".date("j",$time);  
 		$thai_date_return.=" ".$thai_month_arr[date("n",$time)];  
 		$thai_date_return.= " ".(date("Y",$time)+543);  
 	
