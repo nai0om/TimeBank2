@@ -82,7 +82,7 @@
 		<div class="title body <?= $isClose ?>"><?= HTML::anchor('organization/view/'.$organization->id.'?mode=2', 'งานอาสาที่จบไปแล้ว') ?></div>
 		<div class="title right"></div>
 		<div style="clear:both"></div>
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $organization->events->count_all()?></span></p>
+		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?=  count($events)?></span></p>
 		
 		<table>
 			<tbody><tr>
@@ -112,9 +112,9 @@
 			<? endforeach ?>
 
 		</tbody></table>
-		
+		<?php include Kohana::find_file('views', 'shared/footer') ?>
 		</div>
 	
-<?php include Kohana::find_file('views', 'shared/footer') ?>
+
   </div>
 </div>
