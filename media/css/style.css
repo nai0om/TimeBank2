@@ -1315,6 +1315,8 @@ header h2 {
     position: relative;
     top: 100px;
     width: 635px;
+	left:100px;
+	float:left;
 }
 #tb_browse_new_thankyou #content h2 a{
 	color: #00829e;
