@@ -11,14 +11,15 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 <? else: ?>
 <div id="tb_browse_detail">
 <? endif ?>
-  <div id="main" role="main">
+  <div id="main" role="main" >
+  <?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div id="sitemap">
 			<li>หน้าแรก</li>
 			<li>ใช้บริการธนาคารจิตอาสา</li>
 			<li>ดูภารกิจจิตอาสา</li>
 			<li><?= $event->name ?></li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
+		
 
 		<div id="icon_set">
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_how_it_work.png"/>'); ?>
@@ -179,7 +180,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		<div style="clear:both"></div>
 		
 		<h3 class="title"><?= $event->name ?></h3>
-		<div id="leftSide">
+		<div id="leftSide" class="normal">
 
         	<p><span class="header"> องค์กร : </span> <?= HTML::anchor('organization/view/'.$event->organization_id, $event->organization->name) ?></p>
 			<p><span class="header">ในโครงการ : </span> <?= $event->project_name ?></p>
@@ -277,7 +278,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<p><?= ($event->expense_detail == '') ? 'ไม่มี' : ''.$event->expense_detail?>  	
 			</p>
 		</div>
-		<div id="rightSide">
+		<div id="rightSide" class="normal">
 			<p><span class="header">รับสมัครภายใน</span>
 				<div id="duration"> 
 				 <?
