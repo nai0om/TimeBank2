@@ -143,7 +143,7 @@ $times['23:59:59'] = '23:59';
                 </tr>
                 <?php foreach ($events as $event):	?>
                 <tr>
-                    <td><?= $event->name?></td>
+                    <td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
                     <td><?= $event->time_cost ?></td>
                     <td><?= $event->volunteer_need_count ?> คน</td>
             
