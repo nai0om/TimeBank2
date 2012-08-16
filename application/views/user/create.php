@@ -51,7 +51,7 @@
 					<p>&nbsp; </p>
 					<p><div style="margin-top:150px;">
 					  <?= Form::checkbox('acceptterm', 1, false); ?> 
-					  ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง'); ?> ของเว็บไซต์</p>
+					  ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง', array('target' => '_blank')); ?> ของเว็บไซต์</p>
                       	<div class="error">
                     		<?= Arr::path($errors, 'acceptterm'); ?>
                 		</div>  
