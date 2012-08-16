@@ -35,7 +35,7 @@
             <? else :?>
             	<img src="<?= url::base().'media/upload/organizations/'.$organization->logo; ?>" style="float:left;width:265px;height:253px;border:3px solid #FFF;margin:2px">
             <? endif ?>
-            <?= Form::file('logo' , array('style' => 'float:left;width:300px;')) ?>
+            <?= Form::file('logo' , array('style' => 'float:left;width:300px;')) ?><a style="color:#F00; width:300px;float:left;" > ขนาดภาพไม่เกิน 4Mb </a>
             <? foreach ($organization->events->limit(5)->find_all() as $event) : ?>
             	<? if($event->image != '' ) : ?>
 					<img src="<?= url::base().'media/upload/events/'.$event->image  ?>" style="width:107px;height:85px;margin:2px; border:3px solid #FFF" >
