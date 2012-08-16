@@ -1,4 +1,4 @@
-﻿<div id="tb_browse">
+<div id="tb_browse">
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -16,7 +16,7 @@
 		
 		<?php 
 			echo Form::open('event/search', array ('id' => 'search', 'method' => 'get')); 
-        	echo Form::input('text', 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่'); 
+        	echo Form::input('query', 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่'); 
             echo Form::select('jobs', $jobs, '--ประเภทภารกิจ--');
             echo Form::select('location_province', $provices, '--จังหวัด--');
 	        echo Form::submit(NULL, 'ค้นหา', array ('class' => 'mid')); 
