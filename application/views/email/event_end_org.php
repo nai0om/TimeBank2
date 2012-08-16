@@ -48,19 +48,20 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, <?= $vars['org_name'] ?></p>
+                                    <p>สวัสดี <?= $vars['org_name'] ?></p>
 
-									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาของท่านได้สิ้นสุดลงแล้ว กรุณา....<br>
+									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาของท่านได้สิ้นสุดลงแล้ว คุณสามารถเขียนคำขอบคุณอาสาที่มาร่วมงาน โพสต์รูปกิจกรรม และปิดงานได้ที่<br>
 
 									<a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
 
 									<br clear="left">
 
 									<br clear="left">
+									<p>อาสาจะได้รับการเชิญชวนผ่านระบบแจ้งเตือนให้เข้ามาอ่านคำขอบคุณ 
+									<br>และดูภาพกิจกรรมหลังคุณ "ปิดงาน" แล้ว</p>
+									<p>ขอบคุณครับ</p>
 
-									<p>ขอบคุณ</p>
-
-									<p>Jitarsabank.org</p>
+									<p>ธนาคารจิตอาสา</p>
 
                                 </td>
 

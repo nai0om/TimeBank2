@@ -4,7 +4,8 @@
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div id="content">
 				<div id="warn">
-			<h2>Check hour(s)</h2>
+			<h2>ยืนยันการใช้เวลา</h2><br>
+			<p>คุณเข้าร่วมงานอาสาครบชั่วโมงหรือไม่?</p>
 			 <?= Form::open('user/approvetime/'.$event->id); ?>
 				<p><input type="radio" name="time" value="<?= $event->time_cost ?>" style="width:auto"> ครบชั่วโมง</p>
 				<p><input type="radio" name="time" value="text" style="width:auto"> ไม่ครบชั่วโมง (โปรดระบุ) 

@@ -48,9 +48,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                 <td valign="top" class="header">
 
-                                    <p>สวัสดีครับคุณ <?= $vars['displayname'] ?></p>
+                                    <p>สวัสดีครับ <?= $vars['displayname'] ?></p>
 
-									<p>ข้อมูลการเข้าสู่บริการธนาคารจิตอาสา JitArsaBank.com ของคุณคือ:</p>
+									<p>ข้อมูลการเข้าสู่ระบบธนาคารจิตอาสาของคุณคือ:</p>
 
 									 <table class="top" width="505" border="0" cellspacing="0" cellpadding="0">
 
@@ -142,7 +142,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									<p>ขอบคุณครับ</p>
 
-									<p>JitArsaBank.com</p>
+									<p>ธนาคารจิตอาสา</p>
 
                                 </td>
 

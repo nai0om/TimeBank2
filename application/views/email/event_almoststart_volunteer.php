@@ -57,10 +57,12 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 									<br clear="left">
 
 									<br clear="left">
+									
+									<p>อย่าลืมเตรียมตัวให้พร้อมก่อนเข้าร่วมกิจกรรม</p>
+									<p>แล้วกลับมาแบ่งปันความประทับใจ การเรียนรู้ และประสบการณ์กันนะครับ</p>
+									<p>ขอบคุณครับ</p>
 
-									<p>ขอบคุณ</p>
-
-									<p>Jitarsabank.org</p>
+									<p>ธนาคารจิตอาสา</p>
 
                                 </td>
 

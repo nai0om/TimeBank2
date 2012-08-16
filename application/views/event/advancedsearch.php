@@ -66,6 +66,7 @@ $times['23:59:59'] = '23:59';
 					<p><?= Form::select('type', array('open' => 'เปิด', 'closed' => 'ปิด'), $type, array('style', 'width:300px;')); ?></p>
 					<p><label>จำนวนชั่วโมง</p>
 					<p><?= Form::input('time_cost', $time_cost);  ?></p>
+					<p><label>เวลาที่ต้องการทำอาสา</p>
                     <p><?= Form::radio('day', 1, $every_day, array('id' => 'every_day', 'onChange' => 'everyDayChecked()')) ?>ทุกวัน (จันทร์ - อาทิตย์)</p>
 					<p><?= Form::radio('day', 0,  $pick_day,  array('id' => 'day', 'onChange' => 'dayChecked()')) ?>ระบุวัน (เลือกได้มากกว่า 1)</p>
                     <p style="margin:3px 0 3px 78px; width:250px;" >

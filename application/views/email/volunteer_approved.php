@@ -48,11 +48,11 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, <?= $vars['displayname'] ?></p>
+                                    <p>สวัสดีครับ <?= $vars['displayname'] ?></p>
 
-									<p>ทาง <a><?= $vars['org_name'] ?></a> ได้ตอบรับการเข้าร่วมงาน <br>
+									<p><a><?= $vars['org_name'] ?></a> ได้ตอบรับการเข้าร่วมงาน <br>
 
-									<a><?= $vars['event_name'] ?></a> ของคุณเรียบร้อยแล้ว</p>
+									<a><?= $vars['event_name'] ?></a> ที่คุณได้สมัครไว้เรียบร้อยแล้ว</p>
 
 									 <table class="top" width="505" border="0" cellspacing="0" cellpadding="0">
 
@@ -76,7 +76,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 														<td valign="top">
 
-															<p>คุณสามารถดูประกาศรายชื่ออาสาสมัครของคุณได้ที่</p>
+															<p>คุณสามารถดูรายชื่ออาสาสมัครได้ที่เข้าร่วมกิจกรรมนี้ได้ที่...</p>
 
 															<p><a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'].'?mode=2' ?>"><img src="<?= $vars['urlbase'].'media/upload/email/843_list.png' ?>"><a></p>
 
@@ -103,10 +103,11 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 									</table>
 
 									<p></p>
+									<p>อย่าลืมเตรียมใจ เตรียมกายให้พร้อม</p>
+									<p>และขอให้มีความสุขกับกิจกรรมนะครับ</p>
+									<p>ขอบคุณครับ</p>
 
-									<p>ขอบคุณ</p>
-
-									<p>Jitarsabank.org</p>
+									<p>ธนาคารจิตอาสา</p>
 
                                 </td>
 

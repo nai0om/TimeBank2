@@ -48,9 +48,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, JitArsa Bank</p>
+                                    <p>สวัสดีครับ ทีมธนาคารจิตอาสา</p>
 
-									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มี Contact US<br></p>
+									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีคนติดต่อมาทาง JitArsaBank.com<br></p>
 									<p>Name : <?= $vars['name'] ?></p>								 
 									<p>Surname : <?= $vars['surname'] ?></p>								 
 									<p>Email : <?= $vars['email'] ?></p>								 
@@ -62,9 +62,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<br clear="left">
 
-									<p>ขอบคุณ</p>
+									<p>ขอบคุณครับ</p>
 
-									<p>Jitarsabank.org</p>
+									<p>ระบบ Contact Us, ธนาคารจิตอาสา</p>
 
                                 </td>
 
