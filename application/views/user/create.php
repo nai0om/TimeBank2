@@ -14,27 +14,27 @@
                         <label>ชื่อที่ใช้แสดง   
 						(Display Nome)*</label>
                         <?= Form::input('displayname', HTML::chars(Arr::get($_POST, 'displayname'))); ?>
-                  <div class="error"><?= Arr::get($errors, 'displayname'); ?></div>
+                  <div class="error"><?= __(Arr::get($errors, 'displayname')); ?></div>
                     </p>
 					<p>
                     	<label>ชื่อผู้ใช้ (อีเมล์) *</label>
                        <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
-                  <div class="error"><?= Arr::get($errors, 'email'); ?></div>
+                  <div class="error"><?= __(Arr::get($errors, 'email')); ?></div>
                     </p>
 					<p><label>รหัสผ่าน *</label>
                        <?= Form::password('password', HTML::chars(Arr::get($_POST, 'password'))); ?>
-                  <div class="error"><?= Arr::get($errors, 'password'); ?></div>
+                  <div class="error"><?= __(Arr::get($errors, 'password')); ?></div>
                     </p>
 					<p><label>ยืนยันรหัสผ่าน *</label>
                        <?= Form::password('password_confirm', HTML::chars(Arr::get($_POST, 'password_confirm'))); ?>
-                  <div class="error"><?= Arr::get($errors, 'password_confirm'); ?></div>
+                  <div class="error"><?= __(Arr::get($errors, 'password_confirm')); ?></div>
                     </p>
 					
 				</div>
 		  <div id="rightSide">
 					<h3 style="color:#0099cc;">ฝากเวลาที่คุณตั้งใจจะแบ่งปัน</h3>
 					<div id="left"><?= Form::input('hour', HTML::chars(Arr::get($_POST, 'hour')),  array('style'=>'color:#0099cc;font-size: 70pt;width: 240px;margin: 20 0px;')); ?>
-                  <span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span></div><div class="error"><?= $message ?></div>
+                  <span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span></div><div class="error"><?= __($message); ?></div>
 					<div id="right">
 						<!--div id="details">
 						<p>
@@ -49,11 +49,11 @@
 				</div>
 
 					<p>&nbsp; </p>
-					<p><div style="margin-top:150px;">
+					<p><div style=" float:left">
 					  <?= Form::checkbox('acceptterm', 1, false); ?> 
 					  ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง', array('target' => '_blank')); ?> ของเว็บไซต์</p>
                       	<div class="error">
-                    		<?= Arr::path($errors, 'acceptterm'); ?>
+                    		<?= __(Arr::path($errors, 'acceptterm')); ?>
                 		</div>  
                      <?= Form::hidden('back_url', Arr::get($_GET, 'back_url')) ?>
 					<p><?= Form::submit('create', 'Sign up'); ?></p>

@@ -3412,6 +3412,7 @@ header h2 {
 }
 #volunteerSignup.popup #content{
 	background-image:url("../img/bg_popup_340.png");
+	background-size:cover;
 	height:340px;
 }
 #volunteerSignup.popup  form{

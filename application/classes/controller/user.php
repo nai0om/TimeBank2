@@ -198,10 +198,16 @@ class Controller_User extends Controller_Template {
 		
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
+			
 		
+			if (Arr::get($_POST, 'displayname') == '')
+			{
+				$errors = array('displayname' => 'displayname cannot be empty.');
+				return;
+			}
+			
 			if (Arr::get($_POST, 'acceptterm') == '')
 			{
-				$message = __('There were errors, please see form below.');
 				$errors = array('acceptterm' => 'Please accept term&condition.');
 				return;
 			}
@@ -210,14 +216,12 @@ class Controller_User extends Controller_Template {
 			
 			if (Arr::get($_POST, 'password') == '')
 			{
-				$message = __('There were errors, please see form below.');
 				$errors = array('password' => 'Password can\'t be empty.');
 				return;
 			}
 
 			if (Arr::get($_POST, 'password') != Arr::get($_POST, 'password_confirm'))
 			{
-				$message = __('There were errors, please see form below.');
 				$errors = array('password_confirm' => 'The password fields did not match.');
 				return;
 			}
