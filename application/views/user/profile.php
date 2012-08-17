@@ -3,7 +3,7 @@
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>โปร์ไพล์</li>
+			<li>แก้ไขข้อมูลส่วนตัว</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
@@ -150,7 +150,7 @@
 		
 		<div class="right">
 			<div class="title left"></div>
-			<div class="title body" style="font-family:chula">ความสนใจของคุณ</div>
+			<div class="title body" style="font-family:chula">เรื่องที่คุณใส่ใจ/สนใจ</div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 			<label>(เลือกได้มากกว่า 1 ข้อ)</label>

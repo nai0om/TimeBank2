@@ -2,7 +2,7 @@
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ฝากเวลาของฉัน</li>
+			<li>ฝากเวลาเพิ่ม</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
