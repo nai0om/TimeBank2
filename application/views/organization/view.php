@@ -2,8 +2,8 @@
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>หน้าหลักสมาชิกองค์กร</li>
-			<li>หน้าหลัก</li>
+			<li>องค์กร</li>
+			<li>ข้อมูลองค์กร</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 

@@ -5,7 +5,7 @@
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
-			<h2>Volunteer Sign up</h2>
+			<h2>สมัครสมาชิก และ เปิดบัญชีฝากเวลา (สำหรับอาสาสมัคร)</h2>
             <?= Form::open('user/create',array('style'=>'margin-top:20px;display:inline;')); ?>
 				<div id="leftSide">
 					<h3 style="color:#0099cc;">ชื่อบัญชีผู้ใช้</h3>
@@ -17,7 +17,7 @@
                   <div class="error"><?= __(Arr::get($errors, 'displayname')); ?></div>
                     </p>
 					<p>
-                    	<label>ชื่อผู้ใช้ (อีเมล์) *</label>
+                    	<label>ชื่อผู้ใช้ (อีเมล) *</label>
                        <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
                   <div class="error"><?= __(Arr::get($errors, 'email')); ?></div>
                     </p>

@@ -2,8 +2,8 @@
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>หน้าหลักสมาชิกองค์กร</li>
-			<li>หน้าหลัก</li>
+			<li>องค์กร</li>
+			<li>งานอาสา</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
@@ -11,7 +11,7 @@
 		<div id="menu_left">
 			<ul>
 				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
-				<li><?= HTML::anchor('organization/profile', 'ข้อมูลองค์กร'); ?></li>
+				<li><?= HTML::anchor('organization/profile', 'แก้ไขข้อมูลองค์กร'); ?></li>
 				<li class="current"><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>
 				<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
 			</ul>

@@ -2,8 +2,8 @@
   <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>หน้าหลักสมาชิกองค์กร</li>
-			<li>หน้าหลัก</li>
+			<li>องค์กร</li>
+			<li>แก้ไขข้อมูลองค์กร</li>
 		</div>
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
@@ -11,7 +11,7 @@
 		<div id="menu_left">
 			<ul>
 				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
-				<li class="current"><?= HTML::anchor('organization/profile', 'ข้อมูลองค์กร'); ?></li>
+				<li class="current"><?= HTML::anchor('organization/profile', 'แก้ไขข้อมูลองค์กร'); ?></li>
 				<li><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>
 				<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
 			</ul>
@@ -138,7 +138,7 @@
                         <?= Arr::get($errors, 'facebook'); ?>
                     </div>
                 </p>
-				<p><label>Twitter (ใส่ Account name เช่น @jitarsabank)</label></p>
+				<p><label>Twitter (ใส่ Account name เช่น @JitArsaBank)</label></p>
                 <p>
                     <?= Form::input('twitter', '@'.HTML::chars($organization->twitter)); ?>
                     <div class="error">

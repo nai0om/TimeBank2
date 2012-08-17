@@ -93,19 +93,19 @@
                             <?= Arr::get($errors, 'contactperson'); ?>
                         </div>
                 </p>
-				<p><label>Website URL</label>
+				<p><label>เว็บไซต์</label>
                     <?= Form::input('website', HTML::chars($organization->website)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'website'); ?>
                     </div>
                 </p>
-				<p><label>Facebook</label>
+				<p><label>เฟสบุ๊ค(เช่น www.facebook.com/JitArsaBank)</label>
                     <?= Form::input('facebook', HTML::chars($organization->facebook)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'facebook'); ?>
                     </div>
                 </p>
-				<p><label>Twitter (เช่น @JitArsaBank)</label>
+				<p><label>ทวิตเตอร์ (เช่น @JitArsaBank)</label>
                     <?= Form::input('twitter', HTML::chars($organization->twitter)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'twitter'); ?>

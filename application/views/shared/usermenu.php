@@ -1,6 +1,6 @@
 <ul><?php $menuitem = array(
     'index' => 'หน้าหลัก', 
-    'profile' => 'ข้อมูลส่วนตัว (Profile)',
+    'profile' => 'แก้ไขข้อมูลส่วนตัว',
     'record' => 'ฝากเวลาเพิ่ม', 
     'myevent' => 'งานอาสาของฉัน',
     'eventsearch' => 'ค้นหาภารกิจจิตอาสา', 
