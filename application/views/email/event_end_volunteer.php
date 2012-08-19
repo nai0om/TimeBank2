@@ -52,7 +52,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">องค์กรที่จัดกิจกรรมอาสาที่คุณได้เข้าร่วม ได้เขียนคำขอบคุณ และ/หรือ โพสต์รูปกิจกรรม<br> คุณสามารถเข้าไปดูได้ที่...
 
-									<a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
+									<a href="<?= $vars['urlbase'].'user/checkhours/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
 
 									<br clear="left">
 
