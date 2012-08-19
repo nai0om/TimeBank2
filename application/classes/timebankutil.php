@@ -54,18 +54,26 @@ class Timebankutil {
 
 		// Send mail using amazon ses
 		$ses = new AmazonSES();
-		$response = $ses->send_email(
-			$from, // Source (aka From)
-			array('ToAddresses' => $to), // Destination (aka To)
-			array( // Message (short form)
-				'Subject.Data' => $subject,
-				'Body.Html.Data' => $body
-			)
-		);
-		// Success?
-		//print_r($response);
-		$success = $response->isOK();
-		
+		try
+		{
+			$response = $ses->send_email(
+				$from, // Source (aka From)
+				array('ToAddresses' => $to), // Destination (aka To)
+				array( // Message (short form)
+					'Subject.Data' => $subject,
+					'Body.Html.Data' => $body
+				)
+			);
+			// Success?
+			//print_r($response);
+			$success = $response->isOK();
+			return $success;
+		}
+		catch (Exception $e)
+		{
+			return 0;
+		}
+		/*
 		// As a backup we send SMTP
 		if($success == 0)
 		{
@@ -82,6 +90,7 @@ class Timebankutil {
 			// End smtp way
 			// -------------------------------------------------			
 		}		
+		*/
 	}
 	
 	// Convert unix time to "10 secs ago" format

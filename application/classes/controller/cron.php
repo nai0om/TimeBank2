@@ -2,6 +2,47 @@
  
 class Controller_Cron extends Controller_Template {
 
+	public function action_sendmail()
+	{
+		$this->auto_render = false;
+		
+		for ($i = 0; $i < 5; $i++)
+		{
+			$mailqueue = ORM::Factory('mailqueue')
+								->where('sending', '=', 0)
+								->and_where('sent', '=', 0)
+								->find();
+			
+			if ($mailqueue->loaded())
+			{
+				// Stamp that this one is currently sending
+				$mailqueue->sending = rand();
+				$mailqueue->save();
+				echo 'working on '.$mailqueue->id.'<br>';
+				
+				$status = TimebankUtil::send_email($mailqueue->from, array($mailqueue->to), $mailqueue->subject, $mailqueue->body);
+				
+				// Try again later
+				if ($status != 1)
+				{
+					$mailqueue->sending = 0;
+					$mailqueue->save();
+				}
+				else
+				{
+					$mailqueue->sending = 0;
+					$mailqueue->sent = 1;
+					$mailqueue->save();
+				}
+			}
+			else
+			{
+				echo 'nothing to send';
+				return;	
+			}
+		}
+	}
+	
 	public function action_notification()
 	{
 		$this->auto_render = false;

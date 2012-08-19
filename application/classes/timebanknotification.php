@@ -11,24 +11,38 @@ class TimebankNotification {
 		return $html;
 	}
 	
+	private static function queuemail($from, $to, $subject, $body)
+	{
+		$mailqueue = ORM::Factory('mailqueue');
+		$mailqueue->from = $from;
+		$mailqueue->to = $to;
+		$mailqueue->subject = $subject;
+		$mailqueue->body = $body;
+		$mailqueue->sent = 0;
+		$mailqueue->sending = 0;
+		$mailqueue->save();
+	}
+	
 	public static function notify_new_volunteer($user, $password)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array($user->email);
+		$to = $user->email;
 		$subject = 'ยินดีต้อนรับสู่ธนาคารจิตอาสา';
 		$body = self::renderHtmlEmail('new_volunteer', array(
 															'displayname' => $user->displayname,
 															'email' => $user->email,
 															'password' => $password,
 															));
-		TimebankUtil::send_email($from, $to, $subject, $body);
+															
+		
+		self::queuemail($from, $to, $subject, $body);
 		//echo $body;
 	} 
 
 	public static function notify_new_organization($user, $organization, $password)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array($user->email);
+		$to = $user->email;
 		$subject = 'ยินดีต้อนรับสู่ธนาคารจิตอาสา (สำหรับองค์กร)';
 		$body = self::renderHtmlEmail('new_organization', array(
 															'org_name' => $organization->name,
@@ -36,22 +50,20 @@ class TimebankNotification {
 															'email' => $user->email,
 															'password' => $password,
 															));
-		TimebankUtil::send_email($from, $to, $subject, $body);
-		//echo $body;
-		//exit;
+		self::queuemail($from, $to, $subject, $body);
 	} 
 		
 	public static function notify_forgetpassword($user, $password)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array($user->email);
+		$to = $user->email;
 		$subject = 'รหัสผ่านใหม่ของท่าน';
 		$body = self::renderHtmlEmail('forgetpassword', array(
 															'displayname' => $user->displayname,
 															'email' => $user->email,
 															'password' => $password,
 															));
-		TimebankUtil::send_email($from, $to, $subject, $body);
+		self::queuemail($from, $to, $subject, $body);
 	} 
 	
 	public static function notify_eventapproved_volunteer($user, $organization, $event)
@@ -59,7 +71,7 @@ class TimebankNotification {
 		if ($user->noti_eventapproved == 1)
 		{
 			$from = Kohana::$config->load('timebank')->get('server_email');
-			$to = array($user->email);
+			$to = $user->email;
 			$subject = 'ท่านได้รับคำยืนยันให้เข้าร่วม "['.$event->name.']"';
 			$body = self::renderHtmlEmail('volunteer_approved', array(
 																'displayname' 	=> $user->displayname,
@@ -67,7 +79,7 @@ class TimebankNotification {
 																'event_id'		=> $event->id,
 																'event_name'	=> $event->name,
 																));
-			TimebankUtil::send_email($from, $to, $subject, $body);
+			self::queuemail($from, $to, $subject, $body);
 		}
 	}
 	
@@ -77,14 +89,14 @@ class TimebankNotification {
 		if ($organization->noti_volunteerregister == 1)
 		{	
 			$from = Kohana::$config->load('timebank')->get('server_email');
-			$to = array($org_user->email);
+			$to = $org_user->email;
 			$subject = 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน';
 			$body = self::renderHtmlEmail('volunteer_apply_event', array(
 																'org_name' 		=> $organization->name,
 																'event_name'	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
-			TimebankUtil::send_email($from, $to, $subject, $body);
+			self::queuemail($from, $to, $subject, $body);
 		}
 	}
 
@@ -94,14 +106,14 @@ class TimebankNotification {
 		if ($organization->noti_eventend == 1)
 		{
 			$from = Kohana::$config->load('timebank')->get('server_email');
-			$to = array($org_user->email);
+			$to = $org_user->email;
 			$subject = 'งานอาสาของท่านได้สิ้นสุดลงแล้ว';
 			$body = self::renderHtmlEmail('event_end_org', array(
 																'org_name' 		=> $organization->name,
 																'event_name' 	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
-			TimebankUtil::send_email($from, $to, $subject, $body);
+			self::queuemail($from, $to, $subject, $body);
 		}
 	}
 
@@ -110,7 +122,7 @@ class TimebankNotification {
 		if ($user->noti_eventthank == 1)
 		{
 			$from = Kohana::$config->load('timebank')->get('server_email');
-			$to = array($user->email);
+			$to = $user->email;
 			$subject = 'องค์กรผู้จัดได้ปิดภารกิจ"['.$event->name.']"';
 			$body = self::renderHtmlEmail('event_end_volunteer', array(
 																'displayname' 	=> $user->displayname,
@@ -118,7 +130,7 @@ class TimebankNotification {
 																'event_name' 	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
-			TimebankUtil::send_email($from, $to, $subject, $body);
+			self::queuemail($from, $to, $subject, $body);
 		}
 	}
 
@@ -128,14 +140,14 @@ class TimebankNotification {
 		{			
 			$from = Kohana::$config->load('timebank')->get('server_email');
 			$org_user = ORM::Factory('user', $organization->user_id);
-			$to = array($org_user->email);
+			$to = $org_user->email;
 			$subject = 'ภารกิจ"['.$event->name.']" ใกล้หมดเวลารับสมัครแล้ว';
 			$body = self::renderHtmlEmail('event_almostend_org', array(
 																'org_name' 		=> $organization->name,
 																'event_name' 	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
-			TimebankUtil::send_email($from, $to, $subject, $body);
+			self::queuemail($from, $to, $subject, $body);
 		}
 	}
 
@@ -144,21 +156,21 @@ class TimebankNotification {
 		if ($user->noti_almosteventdate == 1)
 		{			
 			$from = Kohana::$config->load('timebank')->get('server_email');
-			$to = array($user->email);
+			$to = $user->email;
 			$subject = 'ภารกิจ"['.$event->name.']" ใกล้ถึงเวลาเริ่มกิจกรรมแล้ว';
 			$body = self::renderHtmlEmail('event_almoststart_volunteer', array(
 																'displayname' 	=> $user->displayname,
 																'event_name' 	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
-			TimebankUtil::send_email($from, $to, $subject, $body);
+			self::queuemail($from, $to, $subject, $body);
 		}
 	}
 		
 	public static function notify_contactus($contactus)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
-		$to = array('jitarsabank@gmail.com');
+		$to = 'jitarsabank@gmail.com';
 		$subject = 'มี Contact Us อันใหม่';
 		$body = self::renderHtmlEmail('contact_us', array(
 															'name' 		=> $contactus->name,
@@ -168,6 +180,6 @@ class TimebankNotification {
 															'topic' 	=> $contactus->topic,
 															'message' 	=> $contactus->message,
 															));
-		TimebankUtil::send_email($from, $to, $subject, $body);
+		self::queuemail($from, $to, $subject, $body);
 	}
 }

@@ -515,3 +515,15 @@ INSERT INTO `user_timebanks` (`id`, `user_id`, `status`, `hour`, `timestamp`, `d
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `mailqueues` (
+  `id` int(11) NOT NULL auto_increment,
+  `from` tinytext collate utf8_unicode_ci NOT NULL,
+  `to` text collate utf8_unicode_ci NOT NULL,
+  `subject` text collate utf8_unicode_ci NOT NULL,
+  `body` text collate utf8_unicode_ci NOT NULL,
+  `sent` tinyint(1) NOT NULL,
+  `sending` tinytext collate utf8_unicode_ci NOT NULL,
+  `created` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
