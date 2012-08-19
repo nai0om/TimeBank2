@@ -22,7 +22,16 @@ class TimebankNotification {
 		$mailqueue->sending = 0;
 		$mailqueue->save();
 	}
-	
+
+	private static function send_inbox($user_id, $org_id, $subject, $body)
+	{
+		$inbox = ORM::Factory('inbox');
+		$inbox->title = $subject;
+		$inbox->message = $body;
+		$inbox->user_id = $user->id;
+		$inbox->save();
+	}
+		
 	public static function notify_new_volunteer($user, $password)
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
@@ -36,7 +45,6 @@ class TimebankNotification {
 															
 		
 		self::queuemail($from, $to, $subject, $body);
-		//echo $body;
 	} 
 
 	public static function notify_new_organization($user, $organization, $password)
@@ -80,6 +88,7 @@ class TimebankNotification {
 																'event_name'	=> $event->name,
 																));
 			self::queuemail($from, $to, $subject, $body);
+			self::send_inbox($user->id, 0, $subject, 'ท่านได้รับคำยืนยันให้เข้าร่วม "['.$event->name.']"');
 		}
 	}
 	
@@ -90,13 +99,14 @@ class TimebankNotification {
 		{	
 			$from = Kohana::$config->load('timebank')->get('server_email');
 			$to = $org_user->email;
-			$subject = 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน';
+			$subject = 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน "['.$event->name.']"';
 			$body = self::renderHtmlEmail('volunteer_apply_event', array(
 																'org_name' 		=> $organization->name,
 																'event_name'	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
 			self::queuemail($from, $to, $subject, $body);
+			self::send_inbox(0, $organization->id, $subject, 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน "['.$event->name.']"');
 		}
 	}
 
@@ -107,13 +117,14 @@ class TimebankNotification {
 		{
 			$from = Kohana::$config->load('timebank')->get('server_email');
 			$to = $org_user->email;
-			$subject = 'งานอาสาของท่านได้สิ้นสุดลงแล้ว';
+			$subject = 'งานอาสาของท่านได้สิ้นสุดลงแล้ว "['.$event->name.']"';
 			$body = self::renderHtmlEmail('event_end_org', array(
 																'org_name' 		=> $organization->name,
 																'event_name' 	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
 			self::queuemail($from, $to, $subject, $body);
+			self::send_inbox(0, $organization->id, $subject, 'งานอาสาของท่านได้สิ้นสุดลงแล้ว "['.$event->name.']"');
 		}
 	}
 
@@ -131,6 +142,7 @@ class TimebankNotification {
 																'event_id' 		=> $event->id,
 																));
 			self::queuemail($from, $to, $subject, $body);
+			self::send_inbox($user->id, 0, $subject, 'องค์กรผู้จัดได้ปิดภารกิจ "['.$event->name.']"');
 		}
 	}
 
@@ -148,6 +160,7 @@ class TimebankNotification {
 																'event_id' 		=> $event->id,
 																));
 			self::queuemail($from, $to, $subject, $body);
+			self::send_inbox(0, $organization->id, $subject, 'ภารกิจ"['.$event->name.']" ใกล้หมดเวลารับสมัครแล้ว');
 		}
 	}
 
@@ -164,6 +177,7 @@ class TimebankNotification {
 																'event_id' 		=> $event->id,
 																));
 			self::queuemail($from, $to, $subject, $body);
+			self::send_inbox($user->id, 0, $subject, 'ภารกิจ"['.$event->name.']" ใกล้ถึงเวลาเริ่มกิจกรรมแล้ว');
 		}
 	}
 		
