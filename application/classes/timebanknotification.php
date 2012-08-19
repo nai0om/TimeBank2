@@ -65,7 +65,7 @@ class TimebankNotification {
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
 		$to = $user->email;
-		$subject = 'รหัสผ่านใหม่ของท่าน';
+		$subject = 'รหัสผ่านใหม่ของคุณ';
 		$body = self::renderHtmlEmail('forgetpassword', array(
 															'displayname' => $user->displayname,
 															'email' => $user->email,
@@ -80,7 +80,7 @@ class TimebankNotification {
 		{
 			$from = Kohana::$config->load('timebank')->get('server_email');
 			$to = $user->email;
-			$subject = 'ท่านได้รับคำยืนยันให้เข้าร่วม "['.$event->name.']"';
+			$subject = 'คุณได้รับการตอบรับให้เข้าร่วม "'.$event->name.'"';
 			$body = self::renderHtmlEmail('volunteer_approved', array(
 																'displayname' 	=> $user->displayname,
 																'org_name'		=> $organization->name,
@@ -88,7 +88,7 @@ class TimebankNotification {
 																'event_name'	=> $event->name,
 																));
 			self::queuemail($from, $to, $subject, $body);
-			self::send_inbox($user->id, 0, $subject, 'ท่านได้รับคำยืนยันให้เข้าร่วม "['.$event->name.']"');
+			self::send_inbox($user->id, 0, $subject, 'คุณได้รับการตอบรับให้เข้าร่วม "'.$event->name.'"');
 		}
 	}
 	
@@ -99,14 +99,14 @@ class TimebankNotification {
 		{	
 			$from = Kohana::$config->load('timebank')->get('server_email');
 			$to = $org_user->email;
-			$subject = 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน "['.$event->name.']"';
+			$subject = 'มี "อาสา" สมัครเข้ามาร่วมกิจกรรมของคุณ "'.$event->name.'"';
 			$body = self::renderHtmlEmail('volunteer_apply_event', array(
 																'org_name' 		=> $organization->name,
 																'event_name'	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
 			self::queuemail($from, $to, $subject, $body);
-			self::send_inbox(0, $organization->id, $subject, 'มีอาสาสมัครเข้ามาในงานอาสาของท่าน "['.$event->name.']"');
+			self::send_inbox(0, $organization->id, $subject, 'มี "อาสา" สมัครเข้ามาร่วมกิจกรรมของคุณ "'.$event->name.'"');
 		}
 	}
 
@@ -117,14 +117,14 @@ class TimebankNotification {
 		{
 			$from = Kohana::$config->load('timebank')->get('server_email');
 			$to = $org_user->email;
-			$subject = 'งานอาสาของท่านได้สิ้นสุดลงแล้ว "['.$event->name.']"';
+			$subject = 'งานอาสาของคุณเสร็จสิ้นแล้ว: กรุณาเขียนคำขอบคุณ-โพสต์รูป-ปิดงาน "'.$event->name.'"';
 			$body = self::renderHtmlEmail('event_end_org', array(
 																'org_name' 		=> $organization->name,
 																'event_name' 	=> $event->name,
 																'event_id' 		=> $event->id,
 																));
 			self::queuemail($from, $to, $subject, $body);
-			self::send_inbox(0, $organization->id, $subject, 'งานอาสาของท่านได้สิ้นสุดลงแล้ว "['.$event->name.']"');
+			self::send_inbox(0, $organization->id, $subject, 'งานอาสาของคุณเสร็จสิ้นแล้ว: กรุณาเขียนคำขอบคุณ-โพสต์รูป-ปิดงาน "'.$event->name.'"');
 		}
 	}
 
@@ -134,7 +134,7 @@ class TimebankNotification {
 		{
 			$from = Kohana::$config->load('timebank')->get('server_email');
 			$to = $user->email;
-			$subject = 'องค์กรผู้จัดได้ปิดภารกิจ"['.$event->name.']"';
+			$subject = 'องค์กรผู้จัดได้ปิดงาน "'.$event->name.'"';
 			$body = self::renderHtmlEmail('event_end_volunteer', array(
 																'displayname' 	=> $user->displayname,
 																'org_name' 		=> $organization->name,
@@ -142,7 +142,7 @@ class TimebankNotification {
 																'event_id' 		=> $event->id,
 																));
 			self::queuemail($from, $to, $subject, $body);
-			self::send_inbox($user->id, 0, $subject, 'องค์กรผู้จัดได้ปิดภารกิจ "['.$event->name.']"');
+			self::send_inbox($user->id, 0, $subject, 'องค์กรผู้จัดได้ปิดงาน "'.$event->name.'"');
 		}
 	}
 
