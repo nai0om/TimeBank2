@@ -28,7 +28,8 @@ class TimebankNotification {
 		$inbox = ORM::Factory('inbox');
 		$inbox->title = $subject;
 		$inbox->message = $body;
-		$inbox->user_id = $user->id;
+		$inbox->user_id = $user_id;
+		$inbox->organization_id = $org_id;
 		$inbox->save();
 	}
 		
