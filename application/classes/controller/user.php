@@ -449,6 +449,12 @@ class Controller_User extends Controller_Template {
 	
 	public function action_checkhours()
 	{
+		if (!$this->user)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
+		
 		$this->template->content = View::factory('user/checkhours')
 										->bind('event', $event);
 										
