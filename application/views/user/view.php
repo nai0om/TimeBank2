@@ -85,8 +85,7 @@ $sex = array ('m' => 'ชาย', 'f' => 'หญิง')
         	<h4>ชื่อเล่น</h4><p><?= $view_user->nickname ?></p>
              
 			<h4>วันเกิด </h4>
-            <p><? $time= strtotime($view_user->birthday); 
-				echo phphelp::thaidate_todate($time); ?></p>
+            <p><?=  phphelp::str_to_thai_date($view_user->birthday); ?></p>
 			<h4>เพศ</h4>	<p><?= ($view_user->sex == '' ? '' : $sex[$view_user->sex] ) ?></p>
 		
 		</div>
