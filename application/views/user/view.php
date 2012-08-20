@@ -121,9 +121,8 @@ $sex = array ('m' => 'ชาย', 'f' => 'หญิง')
 			<? endforeach ?>
 
 		</tbody></table>
-		
+		<?php include Kohana::find_file('views', 'shared/footer') ?>
 		</div>
-<?php include Kohana::find_file('views', 'shared/footer') ?>
-	
+
   </div>
 </div>
