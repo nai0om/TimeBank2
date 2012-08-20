@@ -178,7 +178,11 @@ $times['23:59:59'] = '23:59';
         <p><?= Form::radio('is_need_expense', 0, !$event->is_need_expense); ?>ไม่มี</p>
         <p><?= Form::radio('is_need_expense', 1, $event->is_need_expense == 1 ? true : false); ?>มี (โปรดระบุรายละเอียด)</p>
         <p>
-			<?= Form::textarea('expense_detail', $event->expense_detail, array('rows' => 3)); ?>            
+         	<div class="error">
+                <font color="red"><?= __(Arr::get($errors, 'expense_detail')); ?></font>
+            </div>  
+			<?= Form::textarea('expense_detail', $event->expense_detail, array('rows' => 3)); ?>      
+                  
         </p>
         <p><label><strong>ทักษะของอาสาสมัครที่ต้องการ</strong></label></p>
         <ol>

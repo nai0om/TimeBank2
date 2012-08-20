@@ -11,7 +11,7 @@
                     <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
                     <input type="submit" value="ส่งข้อมูล">
 				<?= Form::close(); ?>
-                <font color="red"><?= $message ?></font>
+                <font color="red"><?= __($message) ?></font>
 			</h3>
 		</div>
 		
