@@ -122,7 +122,7 @@ $times['23:59:59'] = '23:59';
 			 echo '<p>';
 		   }
 	   ?>
-       <input type="submit" value="ค้นหาแบบละเอียด">
+       <input type="submit" value="ค้นหาแบบละเอียด" name='action'>
         </ol>
 			</fieldset>
 
@@ -132,7 +132,7 @@ $times['23:59:59'] = '23:59';
 		<div style="clear:both"></div>
 		<div class="line"></div>
 		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $count ?></span></p>
-		 <table>
+		 <table id='result'>
                 <tbody><tr>
                     <th>งานอาสา</th>
                     <th>ต้องการจากอาสา</th>
@@ -187,6 +187,12 @@ $times['23:59:59'] = '23:59';
 
 
 <script>
+<? if($action == 1) :?>
+     $('html, body').animate({
+         scrollTop: $("#result").offset().top -200
+     }, 200);
+ <? endif ?>
+ 
 $(document).ready( function () {
   	$(function() {
 			$(".datepicker" ).datepicker();
