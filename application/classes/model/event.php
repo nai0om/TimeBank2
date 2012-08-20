@@ -94,14 +94,15 @@ class Model_Event extends ORM {
                 array('min_length', array(':value', 10)),
             ),
 			'inquiry_detail' => array(
-                array('min_length', array(':value', 10)),
+                array('not_empty'),
+				array('min_length', array(':value', 10)),
             ),	
             'is_need_expense' => array(
                 array('not_empty'),
                 array('digit'),
             ),
             'expense_detail' => array(
-                array('min_length', array(':value', 10)),
+				array('min_length', array(':value', 10)),
             ),
 			/*
 			'temp' => array(
@@ -109,6 +110,7 @@ class Model_Event extends ORM {
             ),
 			*/
             'image' => array(
+				array('not_empty'),
                 array(array($this, 'check_upload'), array('image', ':value')),
             )
         );

@@ -21,12 +21,12 @@
 			<h3>ฝากข้อมูลการติดต่อได้ที่นี่</h3>
 			<p>ธนาคารจิตอาสาจะติดต่อกลับโดยเร็วที่สุดครับ</p>
 			<?= Form::open('contactus/index'); ?>
-				<label>ชื่อ</label>
+				<label>ชื่อ*</label>
 				<?= Form::input('name', HTML::chars($contactus->name)); ?>
                 <div class="error">
                     <font color="red"><?= Arr::get($errors, 'name'); ?></font>
                 </div>
-				<label>นามสกุล</label>
+				<label>นามสกุล*</label>
 				<?= Form::input('surname', HTML::chars($contactus->surname)); ?>
                 <div class="error">
                     <font color="red"><?= Arr::get($errors, 'surname'); ?></font>
@@ -34,7 +34,7 @@
 				<label>อีเมล์ *</label>
 				<?= Form::input('email', HTML::chars($contactus->email)); ?>
                 <div class="error">
-                    <font color="red"><?= Arr::get($errors, 'email'); ?></font>
+                    <font color="red"><?= __(Arr::get($errors, 'email')); ?></font>
                 </div>
 				<label>มือถือ</label>
 				<?= Form::input('phoneno', HTML::chars($contactus->phoneno)); ?>
@@ -44,12 +44,12 @@
 				<label>หัวข้อ *</label>
 				<?= Form::input('topic', HTML::chars($contactus->topic)); ?>
                 <div class="error">
-                    <font color="red"><?= Arr::get($errors, 'topic'); ?></font>
+                    <font color="red"><?= __(Arr::get($errors, 'topic')); ?></font>
                 </div>
 				<label>ข้อความของคุณ *</label>
 				<?= Form::textarea('message', HTML::chars($contactus->message), array('rows' => 3)); ?>     
                 <div class="error">
-                    <font color="red"><?= Arr::get($errors, 'message'); ?></font>
+                    <font color="red"><?= __(Arr::get($errors, 'message')); ?></font>
                 </div>
 				<!--label>พิมพ์ข้อความที่มองเห็น *</label>
 				<img src="<?= url::base(); ?>media/img/capcha.jpg">
