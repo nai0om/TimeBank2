@@ -466,6 +466,10 @@ class Controller_Event extends Controller_Template {
 			{
 				$comment->organization = $this->orguser;
 			}
+			else
+			{
+				Request::current()->redirect('user/login');
+			}
 			
 			try
 			{
