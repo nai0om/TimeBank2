@@ -41,4 +41,5 @@ return array(
 	'contactperson must not be empty' => 'กรุณาใส่ชื่อผู้ติดต่อ',
 	'Email or password is incorrect.' => 'รหัสผ่านไม่ถูกต้อง',
 	'Please enter email address' => 'กรุณาใส่อีเมล์ ',
+	'Approve volunteer warning.' => 'การ approve อาสาสมัครจะไม่สามารถแก้ไข้ได้ ในภายหลัง'
 );

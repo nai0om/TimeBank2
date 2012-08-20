@@ -21,7 +21,7 @@
 				<div id="rightSide">
              
 				   <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>  Select All
-                 <?= Form::submit('submit', 'approve') ?>
+                 <?= Form::submit('submit', 'approve', array('onclick' =>  'var answer = confirm ("'.__('Approve volunteer warning.').'"); if (!answer)  return false;')) ?>
                  <? // Form::submit('submit', 'delete'); ?>
 						<div id="details">
                        <? foreach($event->users->order_by('timestamp','desc')->find_all() as $user) : ?>
