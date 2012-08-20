@@ -38,5 +38,7 @@ return array(
 	'postcode must not be empty' => 'กรุณาใส่รหัสไปรษณีย์',
 	'homephone must not be empty' => 'กรุณาใส่หมายเลขโทรศัพท์บ้าน',
 	'fax must not be empty' => 'กรุณาใส่หมายเลขโทรสาร',
-	'contactperson must not be empty' => 'กรุณาใส่ชื่อผู้ติดต่อ'
+	'contactperson must not be empty' => 'กรุณาใส่ชื่อผู้ติดต่อ',
+	'Email or password is incorrect.' => 'รหัสผ่านไม่ถูกต้อง',
+	'Please enter email address' => 'กรุณาใส่อีเมล์ ',
 );

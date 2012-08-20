@@ -703,6 +703,8 @@ class Controller_Event extends Controller_Template {
 	
 	private function save_event($event, $orguser, $isupdate, &$message, &$errors)
 	{
+		$errors  = array();
+		$pass = true;
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
 			$event->name = Arr::get($_POST, 'name');
@@ -730,6 +732,13 @@ class Controller_Event extends Controller_Template {
 			//name,  project_name, location_name, detail
 			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
 			
+			if($event->is_need_expense == 1 ) 
+			{
+				if($event->expense_detail == '')
+				{
+					
+				}
+			}
 			
 			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 			foreach ($jobs as $job){
@@ -817,7 +826,10 @@ class Controller_Event extends Controller_Template {
                 $message = __('There were errors, please see form below.');
                  
                 // Set errors using custom messages
-                $errors = $e->errors('models');
+				foreach($e->errors('models') as $key => $value) {
+					   $errors[$key] = $value;
+				}
+               
 				
 				//print_r($errors);
             }

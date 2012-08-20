@@ -199,49 +199,61 @@ class Controller_User extends Controller_Template {
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
 			
+			$pass = true;
+			$errors = array();
 		
 			if (Arr::get($_POST, 'displayname') == '')
 			{
-				$errors = array('displayname' => 'displayname cannot be empty.');
-				return;
+				$errors['displayname'] = 'displayname cannot be empty.';
+				$pass = false;
 			}
 			
 			if (Arr::get($_POST, 'acceptterm') == '')
 			{
-				$errors = array('acceptterm' => 'Please accept term&condition.');
-				return;
+				$errors['acceptterm'] = 'Please accept term&condition.';
+				$pass = false;
 			}
 			
 			$user->email = Arr::get($_POST, 'email');
 			
 			if (Arr::get($_POST, 'password') == '')
 			{
-				$errors = array('password' => 'Password can\'t be empty.');
-				return;
+				$errors['password'] = 'Password can\'t be empty.';
+				$pass = false;
 			}
 
 			if (Arr::get($_POST, 'password') != Arr::get($_POST, 'password_confirm'))
 			{
-				$errors = array('password_confirm' => 'The password fields did not match.');
-				return;
+				$errors['password_confirm'] = 'The password fields did not match.';
+				$pass = false;
 			}
+			
+			if (Arr::get($_POST, 'email') == '')
+			{
+				$errors['email'] = 'Please enter email address';
+				$pass = false;
+			}
+			
 			$hour = trim(Arr::get($_POST, 'hour'));
 			if (!is_numeric($hour))
 			{
-				$message = __('Please insert hours number.');
-				$errors = array('hour' => 'Please insert hours number.');
+				$errors['hour'] = 'Please insert hours number.';
+				$pass = false;
+			}
+			
+			if(!$pass)
+			{
 				return;
 			}
 			
-			
 			if($hour  <= 0)
 			{
-				$message = __('hours must more than 0');
+				$errors['hour'] = __('hours must more than 0');
 				return;
 			}
 			if ($hour > 2000)
 			{
-				$message = __('time is maximum at 2000');	
+				$errors['hour'] =  __('time is maximum at 2000');	
 				return;
 			}
 			

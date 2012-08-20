@@ -34,7 +34,7 @@
 		  <div id="rightSide">
 					<h3 style="color:#0099cc;">ฝากเวลาที่คุณตั้งใจจะแบ่งปัน</h3>
 					<div id="left"><?= Form::input('hour', HTML::chars(Arr::get($_POST, 'hour')),  array('style'=>'color:#0099cc;font-size: 70pt;width: 240px;margin: 20 0px;')); ?>
-                  <span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span></div><div class="error"><?= __($message); ?></div>
+                  <span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span></div><div class="error"><?= __(Arr::get($errors, 'hour')); ?></div>
 					<div id="right">
 						<!--div id="details">
 						<p>
@@ -49,7 +49,7 @@
 				</div>
 
 					<p>&nbsp; </p>
-					<p><div style=" float:left">
+					<p><div style=" float:left; width:600px;">
 					  <?= Form::checkbox('acceptterm', 1, false); ?> 
 					  ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง', array('target' => '_blank')); ?> ของเว็บไซต์</p>
                       	<div class="error">
