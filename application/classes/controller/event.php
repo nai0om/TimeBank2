@@ -572,6 +572,7 @@ class Controller_Event extends Controller_Template {
 		$job = 0;
 		$type = 'open';
 		$province = 0;
+		$aciontion = 0;
 		$query = '';
 		$events = ORM::factory('event');
 		if (HTTP_Request::GET == $this->request->method()) 
@@ -596,6 +597,11 @@ class Controller_Event extends Controller_Template {
 			$page = Arr::get($_GET, 'page');
 			if ($page == '') 
 				$page = 1;
+			
+			if(Arr::get($_GET, 'action') == 'ค้นหาแบบละเอียด')
+			{
+				$action = 1;
+			}
 			
 			$start = Arr::get($_GET, 'start'); 
 			$end = Arr::get($_GET, 'end'); 
@@ -697,7 +703,8 @@ class Controller_Event extends Controller_Template {
 										->bind('provices', $provinces)
 										->bind('jobs', $jobs)
 										->bind('link', $link)
-										->bind('gets', $_GET);
+										->bind('gets', $_GET)
+										->bind('action', $action);
 
 	}
 	
