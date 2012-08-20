@@ -83,7 +83,7 @@
                       คน</td>
                         <td>- ปิด -</td>
                    		<td>- ปิด -</td>
-                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?> <?= HTML::anchor('user/removeevent/'.$record->id, 'ยกเลิก') ?> </td>
+                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?></td>
                     </tr>
                  <? endif ?>
             
