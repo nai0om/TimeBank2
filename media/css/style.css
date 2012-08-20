@@ -2034,7 +2034,8 @@ header h2 {
     font-family: TH chulanarak;
     font-size: 12px;
     padding: 0 10px;
-    width: 170px;
+    width: 90%;
+
 }
 #member #main_right .list .hours {
     font-family: TH chulanarak;
@@ -2042,7 +2043,8 @@ header h2 {
     font-weight: bold;
     line-height: 21px;
     padding: 0 5px 0 0;
-    text-align: center;
+	margin:10px;
+	float:left;
 }
 /*member > settings*/
 #member.setting form{
@@ -3415,7 +3417,7 @@ header h2 {
 #volunteerSignup.popup #content{
 	background-image:url("../img/bg_popup_340.png");
 	background-size:cover;
-	height:340px;
+	height:440px;
 }
 #volunteerSignup.popup  form{
 	text-align:left;
