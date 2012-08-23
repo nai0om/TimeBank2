@@ -64,7 +64,7 @@
             <? endif ?>
 
 			<div><?= $event->time_cost ?> ชม.</div>
-			<a class="subscribe" href="<?= url::base().'event/view/'.$event->id ?>">สมัคร</a>
+			<a class="subscribe" href="<?= url::base().'event/view/'.$event->id ?>">รายละเอียด</a>
 			<p><strong><?= $event->name ?></strong><br />
             <?
 				$time= strtotime($event->volunteer_begin_date ); 

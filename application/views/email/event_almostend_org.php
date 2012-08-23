@@ -48,7 +48,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, <?= $vars['org_name'] ?></p>
+                                    <p>สวัสดีครับ <?= $vars['org_name'] ?></p>
 
 									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาของคุณใกล้ถึงเวลาปิดรับสมัครแล้ว <span style="color:#da7101">อย่าลืมตอบรับ (approve) อาสาเข้าร่วมกิจกรรมนะครับ</span><br>
 
@@ -58,9 +58,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<br clear="left">
 
-									<p>ขอบคุณครับ</p>
-
-									<p>ธนาคารจิตอาสา</p>
+									<p>ขอบคุณครับ <br>ธนาคารจิตอาสา</p>
 
                                 </td>
 

@@ -51,20 +51,18 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
                                     <p>สวัสดีครับ ทีมธนาคารจิตอาสา</p>
 
 									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีคนติดต่อมาทาง JitArsaBank.com<br></p>
-									<p>Name : <?= $vars['name'] ?></p>								 
-									<p>Surname : <?= $vars['surname'] ?></p>								 
-									<p>Email : <?= $vars['email'] ?></p>								 
-									<p>Phoneno : <?= $vars['phoneno'] ?></p>								 
-									<p>Topic : <?= $vars['topic'] ?></p>								 
-									<p>Message : <?= $vars['message'] ?></p>								 
+									<p>ชื่อ : <?= $vars['name'] ?></p>								 
+									<p>นามสกุล : <?= $vars['surname'] ?></p>								 
+									<p>อีเมล : <?= $vars['email'] ?></p>								 
+									<p>เบอร์โทร. : <?= $vars['phoneno'] ?></p>								 
+									<p>หัวข้อ : <?= $vars['topic'] ?></p>								 
+									<p>ข้อความ : <?= $vars['message'] ?></p>								 
 
 									<br clear="left">
 
 									<br clear="left">
 
-									<p>ขอบคุณครับ</p>
-
-									<p>ระบบ Contact Us, ธนาคารจิตอาสา</p>
+									<p>ขอบคุณครับ<br>ระบบ Contact Us, ธนาคารจิตอาสา</p>
 
                                 </td>
 

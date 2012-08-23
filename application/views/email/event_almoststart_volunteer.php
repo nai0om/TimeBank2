@@ -48,9 +48,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                 <td valign="top" class="header">
 
-                                    <p>Hello, <?= $vars['displayname'] ?></p>
+                                    <p>สวัสดีครับ <?= $vars['displayname'] ?></p>
 
-									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาที่คุณสมัครไป ใกล้ถึงวันจัดกิจกรรม<br>
+									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">งานอาสาที่คุณสมัครไว้ ใกล้ถึงวันจัดกิจกรรมแล้ว<br>คุณสามารถตรวจสอบรายละเอียดกิจกรรมได้ที่...
 
 									<a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
 
@@ -58,11 +58,11 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<br clear="left">
 									
-									<p>อย่าลืมเตรียมตัวให้พร้อมก่อนเข้าร่วมกิจกรรม</p>
-									<p>แล้วกลับมาแบ่งปันความประทับใจ การเรียนรู้ และประสบการณ์กันนะครับ</p>
-									<p>ขอบคุณครับ</p>
+									<p>อย่าลืมเตรียมตัวให้พร้อมก่อนเข้าร่วมกิจกรรม<br>
+									แล้วกลับมาแบ่งปันความประทับใจ การเรียนรู้ และประสบการณ์กันนะครับ</p>
+									<p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
 
-									<p>ธนาคารจิตอาสา</p>
+						
 
                                 </td>
 
