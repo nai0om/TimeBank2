@@ -44,7 +44,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                 
 			
             <div class="a2a_kit a2a_default_style">
-          	  <a id="share" class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a>
+          	  <a id="share" class="a2a_dd" href="http://www.addtoany.com/share_save">บอกต่อ</a>
             </div>
             <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
             <!-- Lockerz Share END -->
