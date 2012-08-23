@@ -31,9 +31,9 @@
 
 			<?= Form::open('organization/notification'); ?>
 				<div class="headline">แจ้งเตือนงานอาสาทางอีเมล</div><div class="line"></div>
-				<p><?= Form::checkbox('noti_volunteerregister', 1, (bool) $organization->noti_volunteerregister); ?> เมื่อมีอาสา สมัครเข้าร่วมกิจกรรมอาสาขององค์กร</p>
-				<p><?= Form::checkbox('noti_eventalmostend', 1, (bool) $organization->noti_eventalmostend); ?> เมื่องานอาสาที่กำลังเปิดรับสมัคร ใกล้สิ้นสุดวันรับสมัคร</p>
-				<p><?= Form::checkbox('noti_eventend', 1, (bool) $organization->noti_eventend); ?> เมื่อกิจกรรมอาสา จบเรียบร้อยแล้ว</p>
+				<p><?= Form::checkbox('noti_volunteerregister', 1, (bool) $organization->noti_volunteerregister); ?> เมื่อมีอาสา สมัครเข้าร่วมกิจกรรมอาสาขององค์กร (แจ้งเตือนทันที)</p>
+				<p><?= Form::checkbox('noti_eventalmostend', 1, (bool) $organization->noti_eventalmostend); ?> ก่อนงานอาสาจะสิ้นสุดการรับสมัคร 3 วัน</p>
+				<p><?= Form::checkbox('noti_eventend', 1, (bool) $organization->noti_eventend); ?> เมื่อกิจกรรมอาสา จบเรียบร้อยแล้ว (แจ้งเตือนทันที)</p>
 				<!--p class="indent"><input type="checkbox"> อย่าลืมเข้าไปเขียนคำขอบคุณในหน้ารายละเอียดกิจกรรม</p>
 				<p class="indent"><input type="checkbox"> อย่าลืมเข้าไปบันทึกจำนวนคนที่ไปร่วมกิจกรรมจริง</p>
 				<p class="indent"><input type="checkbox"> อย่าลืม upload ภาพกิจกรรมลงในหน้าภาพกิจกรรม</p-->

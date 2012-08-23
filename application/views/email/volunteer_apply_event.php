@@ -58,9 +58,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<br clear="left">
 
-									<p>ขอบคุณครับ</p>
-
-									<p>ธนาคารจิตอาสา</p>
+									<p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
 
                                 </td>
 
