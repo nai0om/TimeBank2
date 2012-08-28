@@ -146,7 +146,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
         <? endif ?>
 		<? if($isAdmin) : ?>
             <div id="post">
-                <h2>หลังจบกิจกรรมอาสาแล้ว อย่าลืมมาเขียนคำขอบคุณที่นี่นะครับ (สำหรับองค์กร) </h2>
+                <h2>***หลังจบ*** กิจกรรมอาสาแล้ว อย่าลืมมาเขียนคำขอบคุณให้จิตอาสาที่ไปร่วมงานนะครับ</h2>
                <?
 			   echo Form::open('event/addmessage/'.$event->id, array ('style' => 'float:right;')); 
 			   echo Form::textarea('message', ($event->message == '' ? 'เขียนคำขอบคุณที่นี่' : $event->message),  array ('style' => 'height: 50px; width: 760px;')); 
