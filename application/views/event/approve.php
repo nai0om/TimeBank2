@@ -4,7 +4,7 @@
 
 		<div style="clear:both"></div>
 		<div id="warn">
-			<h2>Check hour(s)</h2>
+			<h2>ตอบรับอาสา</h2>
 				    <?= Form::open('event/approve/'.$event->id, array ('method' => 'post')); ?>
 				<div id="leftSide">
 					<p><?= $event->name ?></p>
@@ -15,13 +15,13 @@
 					?>
 					<p class="blue">จำนวนรับสมัคร <?= $event->volunteer_need_count ?> คน</p>
 					<p class="blue">สมัครเข้ามาทั้งหมด <?= $all_users  ?> คน</p>
-					<p class="blue">อนุมัติแล้ว <?= $approved ?> คน</p>
+					<p class="blue">ตอบรับแล้ว <?= $approved ?> คน</p>
 					<p class="blue">เหลืออีก <?= $remain ?> คน</p>
 				</div>
 				<div id="rightSide">
              
-				   <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>  Select All
-                 <?= Form::submit('submit', 'approve', array('onclick' =>  'var answer = confirm ("'.__('Approve volunteer warning.').'"); if (!answer)  return false;')) ?>
+				   <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>  เลือกทั้งหมด
+                 <?= Form::submit('submit', 'ตอบรับ', array('onclick' =>  'var answer = confirm ("'.__('Approve volunteer warning.').'"); if (!answer)  return false;')) ?>
                  <? // Form::submit('submit', 'delete'); ?>
 						<div id="details">
                        <? foreach($event->users->order_by('timestamp','desc')->find_all() as $user) : ?>

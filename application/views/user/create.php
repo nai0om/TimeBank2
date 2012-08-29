@@ -56,7 +56,7 @@
                     		<?= __(Arr::path($errors, 'acceptterm')); ?>
                 		</div>  
                      <?= Form::hidden('back_url', Arr::get($_GET, 'back_url')) ?>
-					<p><?= Form::submit('create', 'Sign up'); ?></p>
+					<p><?= Form::submit('create', 'สมัครสมาชิก'); ?></p>
                    
                 </div>
 
