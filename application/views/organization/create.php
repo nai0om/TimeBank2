@@ -99,7 +99,7 @@
                         <?= Arr::get($errors, 'website'); ?>
                     </div>
                 </p>
-				<p><label>เฟสบุ๊ค(เช่น www.facebook.com/JitArsaBank)</label>
+				<p><label>เฟสบุ๊ค (เช่น www.facebook.com/JitArsaBank)</label>
                     <?= Form::input('facebook', HTML::chars($organization->facebook)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'facebook'); ?>
@@ -112,7 +112,7 @@
                     </div>
                 </p>
 				<p align="center"><?= Form::checkbox('acceptterm', 1, false); ?> ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง'); ?> ของเว็บไซต์</p>
-				<p align="center"><?= Form::submit('create', 'Create'); ?></p>
+				<p align="center"><?= Form::submit('create', 'สมัครสมาชิก'); ?></p>
 			<?= Form::close(); ?>
 		</div>
 		
