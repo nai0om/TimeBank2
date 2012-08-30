@@ -14,15 +14,15 @@
 		<div id="bannerRotating">
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
-					<img src="<?= url::base(); ?>media/img/long_banner.png">
+					<img src="<?= url::base(); ?>media/img/long_banner6.png">
 				</div>
 						
 				<div id="slide02" class="slide">
-					<img src="<?= url::base(); ?>media/img/long_banner.png">
+					<img src="<?= url::base(); ?>media/img/long_banner4.png">
 				</div>
 						
 				<div id="slide03" class="slide">
-					<img src="<?= url::base(); ?>media/img/long_banner.png">
+					<img src="<?= url::base(); ?>media/img/long_banner8.png">
 				</div>
 					
 			</div>
