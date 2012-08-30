@@ -1,7 +1,7 @@
 <div id="home">
   <div id="main" role="main">
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
-		<div id="banner"><img src="<?= url::base(); ?>media/img/banner_welcome.png" /></div>
+		<div id="banner"><img src="<?= url::base(); ?>media/img/banner_welcome1.png" /></div>
 		
 		<div id="videoRotating">
 			<div id="carousel">
