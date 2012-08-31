@@ -54,7 +54,6 @@
                 <?= Form::select('day', timebankhelper::getDaysNumber(), $dateArray[2], array ('class' => 'full')); ?>
                 <? $thai_month_arr = Kohana::$config->load('timebank')->get('thai_month_arr'); ?>
                 <?= Form::select('month', $thai_month_arr, $dateArray[1], array ('class' => 'full'));	?>
-                 <? echo ''.$dateArray[0] ?>
                 <?= Form::select('year', timebankhelper::getYearsNumber(), $dateArray[0] == 0 ? 2525 : $dateArray[0] + 543, array ('class' => 'full'));	?>
                 <div class="error"><?= Arr::get($errors, 'birthday'); ?></div>
                 
