@@ -111,7 +111,7 @@
                         <?= Arr::get($errors, 'twitter'); ?>
                     </div>
                 </p>
-				<p align="center"><?= Form::checkbox('acceptterm', 1, false); ?> ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง'); ?> ของเว็บไซต์</p>
+				<p align="center"><?= Form::checkbox('acceptterm', 1, false ); ?> ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง', array('target' => '_blank')); ?> ของเว็บไซต์</p>
 				<p align="center"><?= Form::submit('create', 'สมัครสมาชิก'); ?></p>
 			<?= Form::close(); ?>
 		</div>
