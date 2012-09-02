@@ -206,43 +206,7 @@ $times['23:59:59'] = '23:59';
 					}
 				}
 			}	
-			
-		   $skill = Kohana::$config->load('timebank')->get('all_skills'); 
-		   $dict = Kohana::$config->load('timebank')->get('worddict');
-		   foreach ($skill as $title => $value)
-		   {
-   			 echo  '<p><label>'.$dict[$title].'</label>';
-			 foreach ($value as $title2 => $value2)
-			 {
-				echo  '<label style="margin-left: 10px;" > - '.$dict[$title2].'</label> <br />'; 
-				foreach ($value2 as $name)
-				{
-					$value = '';
-					 $checked = '';
-					 
-					if(array_key_exists(trim($name), $skills))
-					{
-					  $value = $skills[$name];
-					 
-					  if($value <> '')
-					  {
-						 $checked = 'checked="'.$value.'"'; 
-					  }
-					}
-					
-					if(phphelp::endsWith($name, 'T'))
-					{
-						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox"> <span>'.$dict[$name].'</span> <br />';
-						echo  '<input name='.$name.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left: 50px;"><br />';
-					}
-					else
-					{
-						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox" name='.$name.'> <span>'.$dict[$name].'</span> <br />';
-					}
-				}
-			 }
-			 echo '<p>';
-		   }
+		 timebankhelper::buildSkilsForm($skills); 
 	   ?>
         </ol>
         <div class="line"></div>
