@@ -286,6 +286,9 @@ $times['23:59:59'] = '23:59';
  			 var volunteer_time_start = parseTime(time_start);
 			 var volunteer_time_end = parseTime((time_end == '23:59:59') ? '24:00:00' : time_end);
 			 var diff = volunteer_time_end.getTime() - volunteer_time_start.getTime();
+			 
+			 // in case of setting end date/time to before start date/time 
+			
 			 var day = 0;
 		
 			 
@@ -296,8 +299,17 @@ $times['23:59:59'] = '23:59';
 					{
 						day +=  CountDays(i, volunteer_date_start, volunteer_date_end);
 					}
-				 }
-			 $('#time_cost').val( Math.ceil( diff/1000/60/60*10)/10 * day );
+			}
+			
+			var time_cost = Math.ceil( diff/1000/60/60*10 )/10 * day ;
+			if( time_cost < 0 )
+			{
+				time_cost = 0;
+				alert ( '<?= __('end date/time much be after begin date/time.') ?> ');
+			}
+			
+			$('#time_cost').val(time_cost);
+			
 		}
 	}
 </script>
