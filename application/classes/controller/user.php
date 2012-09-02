@@ -19,18 +19,8 @@ class Controller_User extends Controller_Template {
 		->bind('events', $events)
 		->bind('events_rand', $events_rand);
 		
-		$time = DB::select(array('SUM("hour")', 'time'))
-				->from('user_timebanks') 	
-				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
-	
-		
-		$work_time = -1* DB::select(array('SUM("hour")', 'time'))
-				->from('user_timebanks') 	
-				->where('status','=','2')
-				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
-	
-		
-			
+		$time = Controller_User::getTotalTime($this->user->id);
+		$work_time = Controller_User::getTotalWorkedTime($this->user->id);
 		$events = timebankhelper::getRecommendEvent();
 		$events_rand = ORM::factory('event')->where('event.status', '=', '1')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
     }
@@ -55,22 +45,16 @@ class Controller_User extends Controller_Template {
 		$action = $this->request->action();
 		$this->template->content = View::factory('user/record')
 								->bind('records', $records)
-								->bind('errors', $errors)
 								->bind('time', $time)
 								->bind('work_time', $work_time)
 								->bind('action', $action)
+								->bind('error', $error)
 								->bind('message', $message);
 							
-		$message = __(Arr::get($_GET, 'error'));							
-		$time = DB::select(array('SUM("hour")', 'time'))
-				->from('user_timebanks') 	
-				->where('user_id','=',$this->user->id)->execute()->get('time', 0);
-		$work_time = 0;		
-		$pass_event = $this->user->events->where('event.status', '=', '0')->find_all();
-		foreach($pass_event as $pass)
-		{
-			$work_time += $pass->time_cost;
-		}
+		$error = __(Arr::get($_GET, 'error'));
+		$message = __(Arr::get($_GET, 'message'));									
+		$time = Controller_User::getTotalTime($this->user->id);
+		$work_time = Controller_User::getTotalWorkedTime($this->user->id);
 		
     }
 	
@@ -100,9 +84,7 @@ class Controller_User extends Controller_Template {
 				} 			
 				else 
 				{
-					$time = DB::select(array('SUM("hour")', 'time'))
-									->from('user_timebanks') 	
-									->where('user_id','=',$this->user->id)->execute()->get('time', 0);		
+					$time = Controller_User::getTotalTime($this->user->id);	
 				
 					if($time +  Arr::get($_POST, 'hour') > 2000)
 					{
@@ -520,9 +502,7 @@ class Controller_User extends Controller_Template {
 						->where('event_id', '=',  $event_id)
 						->execute();
 				
-				$time = DB::select(array('SUM("hour")', 'time'))
-					->from('user_timebanks') 	
-					->where('user_id','=',$this->user->id)->execute()->get('time', 0);		
+				$time = Controller_User::getTotalTime($this->user->id);	
 				
 				if($time < 0 )
 				{
@@ -899,7 +879,11 @@ class Controller_User extends Controller_Template {
 		}
 		else
 		{
-			if($eventid == '')
+			if (Controller_User::getTotalTime($this->user->id) <= 0 )
+			{
+				Request::current()->redirect('user/record?message=Thank you, your mission is complete.');
+			}
+			else if($eventid == '')
 			{
 				Request::current()->redirect('user/profile');
 			}
@@ -1015,7 +999,21 @@ class Controller_User extends Controller_Template {
 			return FALSE;
 		}
 	}
-		    
+	
+	public static function getTotalWorkedTime($id)
+	{
+		return -1* DB::select(array('SUM("hour")', 'time'))
+				->from('user_timebanks') 	
+				->where('status','=','2')
+				->where('user_id','=',$id)->execute()->get('time', 0);
+	}
+	public static function getTotalTime($id)
+	{
+		return DB::select(array('SUM("hour")', 'time'))
+					->from('user_timebanks') 	
+					->where('user_id','=',$id)->execute()->get('time', 0);
+	} 
+	
 	public static function logout()
 	{
 		$session = Session::instance(Session::$default);
