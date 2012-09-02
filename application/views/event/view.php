@@ -224,7 +224,11 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 				for($i = 0 ; $i < count($skill_list) ; $i++)
 				{
 					$name = trim($skill_list[$i]);
-					if($name == '') continue;
+					
+					if( $name == '' ) continue;
+					
+					if( !array_key_exists( trim( $name ), $dict ) ) continue;
+					
 					if(phphelp::startsWith($name, '2'))
 					{
 						if(strpos($name , '=') !== false)

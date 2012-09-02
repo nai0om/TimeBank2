@@ -43,4 +43,5 @@ return array(
 	'Please enter email address' => 'กรุณาใส่อีเมล์ ',
 	'Approve volunteer warning.' => 'การ approve อาสาสมัครจะไม่สามารถแก้ไข้ได้ ในภายหลัง',
 	'end date/time much be after begin date/time.' => 'เวลาเริ่มต้นกิจกรรมต้องน้อยกว่า เวลาต้องจบต้องกิจกรรม',
+	'Thank you, your mission is complete.' => 'ดีใจด้วยนะครับ คุณได้ทำอาสาตามเวลาที่ได้ตั้งใจไว้แล้ว ขอเชิญชวนฝากเวลาตามที่ตั้งใจจะไปทำอาสาเพิ่มนะครับ ขอบคุณครับ',
 );
