@@ -89,46 +89,17 @@ $times['23:59:59'] = '23:59';
 				</fieldset>
 			</div>
 			<div id="rightSide">
-				<fieldset>
-							 <p><label><strong>ทักษะที่ท่านมี</strong></label></p>
-        <ol>
-           <?php
-			
-		   $skill = Kohana::$config->load('timebank')->get('all_skills'); 
-		   $dict = Kohana::$config->load('timebank')->get('worddict');
-		   foreach ($skill as $title => $value)
-		   {
-   			 echo  '<p><label>'.$dict[$title].'</label>';
-			 foreach ($value as $title2 => $value2)
-			 {
-				echo  '<label style="margin-left: 10px;" > - '.$dict[$title2].'</label> <br />'; 
-				foreach ($value2 as $name)
-				{
-					$value = '';
-					 $checked = '';
-					
-					
-					if(phphelp::endsWith($name, 'T'))
-					{
-						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox"> <span>'.$dict[$name].'</span> <br />';
-						echo  '<input name='.$name.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left: 50px;"><br />';
-					}
-					else
-					{
-						echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox" name='.$name.'> <span>'.$dict[$name].'</span> <br />';
-					}
-				}
-			 }
-			 echo '<p>';
-		   }
-	   ?>
-       <input type="submit" value="ค้นหาแบบละเอียด" name='action'>
-        </ol>
-			</fieldset>
-
-				</fieldset>
-			</div>
-		</form>
+            <fieldset>
+            <p><label><strong>ทักษะที่ท่านมี</strong></label></p>
+            <ol>
+				<? timebankhelper::buildSkilsForm(); ?>
+                <input type="submit" value="ค้นหาแบบละเอียด" name='action'>
+            </ol>
+      		</fieldset>
+        
+        </fieldset>
+        </div>
+		<?= Form::close(); ?>
 		<div style="clear:both"></div>
 		<div class="line"></div>
 		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $count ?></span></p>
