@@ -49,7 +49,9 @@
         		<? if($mode != 1) : ?>
                     <tr>
                     	<td style="font-weight:bold; color:#F00; text-align:center">
-                        <? if( $statuses[$record->id]['status'] == '1' ) : ?>    
+                        <? if ($statuses[$record->id]['status'] == '2') : ?>
+                       	 	<?= HTML::anchor('user/checkhours/'.$record->id, 'ยืนยันการใช้เวลา') ?> 
+                        <? elseif( $statuses[$record->id]['status'] == '1' ) : ?>    
                         	ได้รับการตอบรับแล้ว
                         <? elseif( $statuses[$record->id]['status'] == '0' ) : ?>
                         	รอการตอบรับ
@@ -71,11 +73,7 @@
                  <? else : ?>
                     <tr>
                     	<td style="font-weight:bold; color:#F00; text-align:center">
-                        <? if( $statuses[$record->id]['status'] == '1' ) : ?>    
                         	ยืนยันการใช้เวลาแล้ว
-                        <? else : ?>
-                        	<?= HTML::anchor('user/checkhours/'.$record->id, 'ยืนยันการใช้เวลา') ?> 
-                        <? endif ?>
                         </td>
                         <td><?= $record->name ?></td>
                         <td><?= $record->time_cost ?></td>

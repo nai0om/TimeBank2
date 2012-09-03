@@ -534,46 +534,58 @@ class Controller_User extends Controller_Template {
             Request::current()->redirect('user/login');
 			return;
         }
-		$status = 1;
+		$status = 0;
 		if (HTTP_Request::GET == $this->request->method()) 
 		{
 			if(Arr::get($_GET, 'mode') == 1)
 			{
 				$mode = 1; //pass event
-				$status = 0;		
+				$status = 1;		
 			}
 		}
-		$records = $this->user->events->where('event.status', '=', $status)->find_all();
-		$query = DB::select()->from('users_events')->where('user_id', '=',  $this->user->id);
+		$events = $this->user->events->find_all();
+		$query = DB::select()->from('users_events')->where('user_id', '=',  $this->user->id)->where('time_approve', '=', $status);
 		$statuses = $query->execute()->as_array('event_id');
+		$records = array();
 		
-		foreach ($records as $event)
+		foreach ($events as $event)
 		{
+			if( !array_key_exists(trim($event->id), $statuses)) continue;
+			
+			$records[] = $event;
+			
+			// this only for first page (mode=0)
 			if($mode != 1)
 			{
-				$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', $status)->execute());
-				
-				if ($event->volunteer_need_count <= $approved)
+				// event was closed and user was approved to event
+				if($event->status == 0 && $statuses[$event->id]['status'] == 1)
 				{
-					if($statuses[$event->id]['status'] == 0)
+					// then this means that user waiting for approve time.
+					$statuses[$event->id]['status'] = 2;
+					
+				}
+				else if ($statuses[$event->id]['status'] == 1)
+				{
+					// user was approved.
+					$statuses[$event->id]['status'] = 1;
+				}
+				else
+				{
+					// get number of users that were aprroved to go event.
+					$approved = count(DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', '1')->execute());
+					
+					// if approved user equals need then change status to -1 (if status is 0)
+					if ($event->volunteer_need_count <= $approved)
 					{
-						$statuses[$event->id]['status'] = -1;
+						if($statuses[$event->id]['status'] == 0)
+						{
+							$statuses[$event->id]['status'] = -1;
+						}
 					}
 				}
 			}
-			else
-			{
-				$status = DB::select()->from('users_events')
-							->where('user_id', '=',  $this->user->id)
-							->where('event_id', '=',  $event->id)->execute()->get('time_approve', 0);
-				$statuses[$event->id]['status'] = $status;	
-				// 0 is unapprove, 1 is apprved
-			}
+		
 		}
-
-	
-	
-
     }
 	
     public function action_myeventpast()
