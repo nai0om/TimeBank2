@@ -50,13 +50,36 @@ class Controller_Welcome extends Controller_Template {
 		$this->template->content = View::factory('timebank')	
 									->bind('time_donate', $time_donate)
 									->bind('time_want', $time_want)
-									->bind('time_done', $time_done);
+									->bind('time_done', $time_done)
+									->bind('comments', $comments);
 	
 		$time_donate = timebankhelper::getDonatedTime();
 	
 		$time_done = timebankhelper::getFinsihedTime();
 		
 		$time_want =  timebankhelper::getWantedTime();
+		
+		$comments = array();
+		$user_highlight = DB::select()->from('users_comment_highlight')->execute();
+		
+		foreach($user_highlight as $highlight)
+		{
+			$id = $highlight['comment_id'];
+			$comment = DB::select()->from('comments')->where('id', '=', $id)->execute();
+			
+			if(count($comment) == 0) continue;
+			
+			$comment = $comment[0];
+			$user = ORM::factory('user', $comment['user_id']);
+			// in case of organization id.
+			if(!$user->loaded()) continue;
+			
+			$comment['user_image'] = $user->profile_image;
+			$comment['user_display'] = $user->displayname;
+			
+			$comments[] = $comment;
+		
+		}
 		
    	}
 	

@@ -4,7 +4,7 @@ class Controller_Admin extends Controller_Template {
 
 	public function action_index()
 	{
-		if (!$this->user && $this->user->id < 3)
+		if (!$this->user && $this->user->role != 2)
 		{
 			Request::current()->redirect('user/login');
 			return;
@@ -13,10 +13,12 @@ class Controller_Admin extends Controller_Template {
 		$organizations = ORM::factory('organization')->where('verified', '=', 0)->find_all();
 		$this->template->content = View::factory('admin/index')
 											->bind('organizations', $organizations)
-											->bind('event', $event);
+											->bind('event', $event)
+											->bind('comments', $comments);
 		
 		
 		$event = DB::select()->from('recommend_event')->execute()->as_array('id');
+		$comments = DB::select()->from('users_comment_highlight')->execute()->as_array('id');
 		
 	}
 	
@@ -39,9 +41,28 @@ class Controller_Admin extends Controller_Template {
 		}
 	}
 	
+	public function action_addHighlighComment()
+	{
+				
+        if (HTTP_Request::POST == $this->request->method()) 
+        {           
+			// delete all 
+		 	DB::delete('users_comment_highlight')->execute();
+			
+			for($i = 1 ; $i<=3 ; $i++)
+			{
+				DB::insert('users_comment_highlight', array('id', 'comment_id'))
+				->values( array($i, Arr::get($_POST, $i)))
+				->execute();
+			}
+		Request::current()->redirect('admin/index');
+			
+		}
+	}
+	
 	public function action_approve()
 	{
-		if (!$this->user && $this->user->id < 3)
+		if (!$this->user && $this->user->role != 2)
 		{
 			Request::current()->redirect('user/login');
 			return;
