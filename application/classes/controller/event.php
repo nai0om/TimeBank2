@@ -166,11 +166,10 @@ class Controller_Event extends Controller_Template {
 		{
 		 	$isOrga = true;
 		}
-		 echo $this->user->role;
+		
 		if ((!is_null($this->orguser) && $this->orguser->id == $event->organization_id) ||
 				 (!is_null($this->user) && $this->user->role == 2))
 		{
-			echo 'xxxxxxx';
 			$isAdmin = true;
 		}
 		
