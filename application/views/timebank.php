@@ -60,27 +60,15 @@
 	
 		<h3 class="title" align="center">บอกเล่าจากใจอาสา</h3>
 		<ul id="volunteer">
+        <? foreach($comments as $comment) : ?>
 			<li>
-				<img src="<?= url::base(); ?>media/img/tb_sample_profile.png"/>
-				<p><strong>name surname</strong></p>
-				<p>Neque tum eos illa opinio fefellit.</p>
-				<a>ดูภารกิจ</a>
-				<div>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</div>
+				<img src="<?= url::base().'media/upload/volunteers/'.$comment['user_image'] ?>" style="width:150px; height:150px" />
+				<p><strong><?= $comment['user_display'] ?></strong></p>
+				<p></p>
+				<?= HTML::anchor('event/view/'.$comment['event_id'],  'ดูภารกิจ'); ?>
+				<div><?= $comment['comment']?></div>
 			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/tb_sample_profile.png"/>
-				<p><strong>name surname</strong></p>
-				<p>Neque tum eos illa opinio fefellit.</p>
-				<a>ดูภารกิจ</a>
-				<div>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</div>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/tb_sample_profile.png"/>
-				<p><strong>name surname</strong></p>
-				<p>Neque tum eos illa opinio fefellit.</p>
-				<a>ดูภารกิจ</a>
-				<div>Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</div>
-			</li>
+        <? endforeach ?>
 		</ul>
 		<p align="center" style="margin:0;"><img src="<?= url::base(); ?>media/img/tb_line.png"/></p>
 		<ul id="summary">

@@ -314,21 +314,23 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 					<? if ($comment->user->id != 0 ) : ?>
                             <a><?= $comment->user->displayname ?></a>
                             <? if ($comment->user->profile_image == '') : ?>
-                                <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
+                                <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;"/>
                             <? else : ?>
-                                <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; ">
+                                <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; "/>
                             <? endif ?>
                     <? elseif ($comment->organization->id != 0)  : ?>
                             <?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
                             <? if($comment->organization->logo == '') : ?>
                                 <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
                             <? else :?>
-                                <img src="<?= url::base().'media/upload/organizations/'.$comment->organization->logo; ?>" style="float:left; width:51px; ">
+                                <img src="<?= url::base().'media/upload/organizations/'.$comment->organization->logo; ?>" style="float:left; width:51px; " />
                             <? endif ?>
                     <? endif ?>
                 	<?= $comment->comment ?>
          
 					<? if ( $isAdmin) : ?>
+                    	<br /> 
+                    	<a style="float:right; color:#999">id : <?= $comment->id ?></a>
                         <br />
                            <?= HTML::anchor('event/removecomment/'.$event->id.'?c='.$comment->id,  'ลบ comment', array ('style' => 'float:right') ); ?> 
                     <? endif ?>
