@@ -46,6 +46,7 @@ $sex = array ('m' => 'ชาย', 'f' => 'หญิง')
 				{
 					$name = trim($skill_list[$i]);
 					if($name == '') continue;
+					if( !array_key_exists( trim( $name ), $dict ) ) continue;
 					if(phphelp::startsWith($name, '2'))
 					{
 						if(strpos($name , '=') !== false)
