@@ -145,7 +145,7 @@ class Model_Event extends ORM {
 					->rules($filename, array(
     	                array('Upload::not_empty'),
 						array('Upload::valid'),
-						array('Upload::type', array(':value', array('gif', 'jpg', 'png'))),
+						array('Upload::type', array(':value', array('gif', 'jpg', 'png', 'jpeg'))),
 						array('Upload::size', array(':value', '4M')),
 					));
 	

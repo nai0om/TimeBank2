@@ -67,7 +67,7 @@ class Model_Organization extends ORM {
 						array('not_empty'),
 						array('Upload::not_empty'),
 						array('Upload::valid'),
-						array('Upload::type', array(':value', array('gif', 'jpg', 'png'))),
+						array('Upload::type', array(':value', array('gif', 'jpg', 'png', 'jpeg'))),
 						array('Upload::size', array(':value', '4M')),
 					));
 	
