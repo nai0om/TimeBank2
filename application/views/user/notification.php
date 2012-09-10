@@ -24,7 +24,7 @@
 		
 		<?= Form::open('user/notification'); ?>
 			<div class="headline">แจ้งเตือนทางอีเมล</div><div class="line"></div>
-			<p><?= Form::checkbox('noti_eventrecommended', 1, (bool) $user->noti_eventrecommended); ?> เมื่อมีงานอาสาที่เหมาะกับความสนใจ / ความถนัดของฉัน (แจ้งเตือนทันที)</p>
+			<p><?= Form::checkbox('noti_eventrecommended', 1, (bool) $user->noti_eventrecommended); ?> เมื่อมีงานอาสาที่เหมาะกับความสนใจ / ความถนัดของฉัน (แจ้งเตือนไม่เกินวันละ 1 ครั้ง)</p>
 			<!--p><input type="radio"> ให้แจ้งเตือนทันที</p>
 			<p><input type="radio"> ให้แจ้งเตือน <select><option>วันละ 1 ครั้ง</option></select></p-->
 			<p><?= Form::checkbox('noti_eventapproved', 1, (bool) $user->noti_eventapproved); ?> เมื่อได้รับการตอบรับเข้าร่วมกิจกรรม (แจ้งเตือนทันที)</p>
