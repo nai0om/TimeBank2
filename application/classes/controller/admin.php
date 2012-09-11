@@ -4,11 +4,7 @@ class Controller_Admin extends Controller_Template {
 
 	public function action_index()
 	{
-		if (!$this->user && $this->user->role != 2)
-		{
-			Request::current()->redirect('user/login');
-			return;
-		}
+		$this->check_admin();
 		// show admin page
 		$organizations = ORM::factory('organization')->where('verified', '=', 0)->find_all();
 		$this->template->content = View::factory('admin/index')
@@ -24,7 +20,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_addrecommend()
 	{
-				
+		$this->check_admin();		
         if (HTTP_Request::POST == $this->request->method()) 
         {           
 			// delete all 
@@ -43,7 +39,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_addHighlighComment()
 	{
-				
+		$this->check_admin();		
         if (HTTP_Request::POST == $this->request->method()) 
         {           
 			// delete all 
@@ -62,11 +58,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_approve()
 	{
-		if (!$this->user && $this->user->role != 2)
-		{
-			Request::current()->redirect('user/login');
-			return;
-		}
+		$this->check_admin();
 			
 		$this->template->content = View::factory('admin/approve')
 			->bind('message', $message);
@@ -98,4 +90,166 @@ class Controller_Admin extends Controller_Template {
 			
 		}
 	}
+	
+	public function action_news()
+	{
+		$this->check_admin();
+	}
+	
+	public function action_training()
+	{
+		$this->check_admin();
+		$trainings = ORM::factory('training')->order_by('timestamp','desc')->find_all();
+		$this->template->content = View::factory('admin/training')
+											->bind('trainings', $trainings);
+	}
+	
+	public function action_createtraining()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/trainingcreate')
+										->bind('training', $training)
+										->bind('errors', $errors);
+		$training = ORM::factory('training');
+		$this->training_save($training, $errors, false);
+	}
+	
+	public function action_edittraining()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		
+		$this->template->content = View::factory('admin/trainingedit')
+										->bind('training', $training)
+										->bind('errors', $errors);
+		$training = ORM::factory('training', $this->request->param('id'));
+		$this->training_save($training, $errors, true);
+	}
+	
+	
+	
+	public function action_deletetraining()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');;
+		
+		$training = ORM::factory('training', $this->request->param('id') ); 
+		$training->delete();	
+		Request::current()->redirect('admin/training/');
+	}
+	
+	public function action_trainingaddimage()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		
+		$training = ORM::factory('training', $this->request->param('id')); 
+		
+		$training->save();			//loop for sub image
+		$i = 0;
+		while(isset($_FILES['sub_'.$i]['name']) && $_FILES['sub_'.$i]['name'] != '' )
+		{	
+			$image = ORM::factory('trainingimage');
+			$image->training = $training;
+			$image->image = $_FILES['sub_'.$i]['name'];
+			try
+			{
+				$image->save();
+								
+			} catch (ORM_Validation_Exception $e) {
+				 
+				// Set errors using custom messages
+				$errors = $e->errors('models');
+			}
+			$i++;
+		}
+		Request::current()->redirect('admin/edittraining/'.$this->request->param('id'));		
+	}
+	
+	public function action_trainingdeleteimage()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');;
+		
+		$image = ORM::factory('trainingimage',  Arr::get($_GET, 'id')); 
+		unlink(DOCROOT.'media/upload/training/'.$image->image);
+		$image->delete();	
+		//Request::current()->redirect('admin/edittraining/'.$this->request->param('id'));
+	}
+	
+	private function training_save($training, &$errors, $isUpdate)
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$training->topic = Arr::get($_POST, 'topic');
+			$training->date_message = Arr::get($_POST, 'date_message');
+			$training->message = Arr::get($_POST, 'message');
+			
+			if (isset($_FILES['main_pic']['name']) && $_FILES['main_pic']['name'] != '')
+			{
+			
+				$training->main_pic = $_FILES['main_pic']['name'];
+			}
+			
+			if (isset($_FILES['thm_pic']['name']) && $_FILES['thm_pic']['name'] != '')
+			{
+				
+				$training->thm_pic = $_FILES['thm_pic']['name'];
+			}
+			
+
+			try{
+			
+				$training->save();			//loop for sub image
+				$i = 0;
+				while(isset($_FILES['sub_'.$i]['name']) && $_FILES['sub_'.$i]['name'] != '' )
+				{	
+					$image = ORM::factory('trainingimage');
+					$image->training = $training;
+					$image->image = $_FILES['sub_'.$i]['name'];
+					try
+					{
+						$image->save();
+										
+					} catch (ORM_Validation_Exception $e) {
+						 
+						// Set errors using custom messages
+						$errors = $e->errors('models');
+					}
+					$i++;
+				}
+				
+				if($isUpdate)
+				{
+					Request::current()->redirect('admin/training/');
+				}
+				else
+				{
+					Request::current()->redirect('training/view/'.$training->id);
+				}
+				
+			} catch (ORM_Validation_Exception $e) {
+			
+			// Set errors using custom messages
+			$errors = $e->errors('models');
+			
+			
+			}
+		}
+	}
+	
+	private function check_admin()
+	{
+		if ($this->user == null || $this->user->role != 2)
+		{
+			$this->redirect('/');
+		}
+	}
+	
+	private function redirect($path)
+	{
+		Request::current()->redirect($path);
+		return;
+	}
+		
 }
