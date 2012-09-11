@@ -14,10 +14,10 @@
 			<a href="<?= url::base().'media/upload/training/'.$training->main_pic ?>" target="_blank"><img style="max-width:450px" src="<?= url::base().'media/upload/training/'.$training->main_pic ?>"></a>
 		</div>
         
-        <?php $pic_list = explode(',', $training->pic); ?>
+        
 		<div id="rightSide">
-	        <?php foreach ($pic_list as $pic) : ?>
-				<a href="<?= url::base().'media/upload/training/'.$pic ?>" target="_blank"><img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/training/'.$pic ?>"></a>
+	        <?php foreach ($training->images->find_all() as $pic) : ?>
+				<a href="<?= url::base().'media/upload/training/'.$pic->image ?>" target="_blank"><img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/training/'.$pic->image  ?>"></a>
 			<? endforeach ?>
         </div>
 

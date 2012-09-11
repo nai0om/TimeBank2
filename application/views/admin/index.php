@@ -1,5 +1,5 @@
  <h1>Admin Page (Unverified organizations)</h1>
- 
+	<?php include Kohana::find_file('views', 'admin/menus') ?>
  <p>
  	<h3> เพิ่มงานอาสา แนะนำ (ใส่ event ID) <h3>
 	<?= Form::open('admin/addrecommend'); ?>

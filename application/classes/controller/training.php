@@ -4,7 +4,7 @@ class Controller_Training extends Controller_Template {
 
 	public function action_index()
 	{
-		$trainings = ORM::factory('training')->find_all();
+		$trainings = ORM::factory('training')->order_by('timestamp','desc')->find_all();
 		$this->template->content = View::factory('training/index')->bind('trainings', $trainings);
    	}
 
