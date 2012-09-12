@@ -113,13 +113,71 @@ class Controller_Admin extends Controller_Template {
 	public function action_editnews()
 	{
 		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/newsedit')
+										->bind('news', $news)
+										->bind('errors', $errors);
+										
+		$news = ORM::factory('news', $this->request->param('id'));
+		$this->news_save($news, $errors, true);
+
 	}
 	
 	public function action_deletenews()
 	{
 		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');;
+		
+		$news = ORM::factory('news', $this->request->param('id') ); 
+		$news->delete();	
+		Request::current()->redirect('admin/news/');
 	}
 	
+	public function action_newsaddimage()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		
+		$news = ORM::factory('news', $this->request->param('id')); 
+		$news->save();
+		//loop for sub image
+		$i = 0;
+		while(isset($_FILES['sub_'.$i]['name']) && $_FILES['sub_'.$i]['name'] != '' )
+		{	
+			$image = ORM::factory('newsimage');
+			$image->news = $news;
+			echo $_FILES['sub_'.$i]['name'];
+			$image->image = $_FILES['sub_'.$i]['name'];
+			try
+			{
+				$image->save();
+								
+			} catch (ORM_Validation_Exception $e) {
+				 
+				// Set errors using custom messages
+				$errors = $e->errors('models');
+			}
+			$i++;
+		}
+		Request::current()->redirect('admin/editnews/'.$this->request->param('id').'#subimage');		
+	}
+	
+	public function action_newsdeleteimage()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');;
+		
+		$image = ORM::factory('newsimage',  Arr::get($_GET, 'id')); 
+		try
+		{
+			unlink(DOCROOT.'media/upload/news/'.$image->image);
+		} catch(ErrorException  $e)
+		{
+			
+		}
+		$image->delete();	
+		Request::current()->redirect('admin/editnews/'.$this->request->param('id')).'#subimage';
+	}
 	
 	public function action_training()
 	{
@@ -169,8 +227,8 @@ class Controller_Admin extends Controller_Template {
 		if ($this->request->param('id')  == '') $this->redirect('/');
 		
 		$training = ORM::factory('training', $this->request->param('id')); 
-		
-		$training->save();			//loop for sub image
+		$training->save();
+		//loop for sub image
 		$i = 0;
 		while(isset($_FILES['sub_'.$i]['name']) && $_FILES['sub_'.$i]['name'] != '' )
 		{	
@@ -188,7 +246,7 @@ class Controller_Admin extends Controller_Template {
 			}
 			$i++;
 		}
-		Request::current()->redirect('admin/edittraining/'.$this->request->param('id'));		
+		Request::current()->redirect('admin/edittraining/'.$this->request->param('id').'#subimage');		
 	}
 	
 	public function action_trainingdeleteimage()
@@ -197,9 +255,15 @@ class Controller_Admin extends Controller_Template {
 		if ($this->request->param('id')  == '') $this->redirect('/');;
 		
 		$image = ORM::factory('trainingimage',  Arr::get($_GET, 'id')); 
-		unlink(DOCROOT.'media/upload/training/'.$image->image);
+		try
+		{
+			unlink(DOCROOT.'media/upload/training/'.$image->image);
+		} catch(ErrorException  $e)
+		{
+			print_r($e);
+		}
 		$image->delete();	
-		//Request::current()->redirect('admin/edittraining/'.$this->request->param('id'));
+		Request::current()->redirect('admin/edittraining/'.$this->request->param('id').'#subimage');
 	}
 	
 	private function training_save($training, &$errors, $isUpdate)

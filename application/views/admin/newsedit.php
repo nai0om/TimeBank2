@@ -1,17 +1,17 @@
 <?php include Kohana::find_file('views', 'admin/menus') ?>
-<h2>แก้ไข้ training</h2>
+<h2>แก้ไข้ news</h2>
 
-<?= Form::open('admin/edittraining/'.$training->id, array('enctype' => 'multipart/form-data')); ?>
-    <?php include Kohana::find_file('views', 'admin/trainingform') ?>  
+<?= Form::open('admin/editnews/'.$news->id, array('enctype' => 'multipart/form-data')); ?>
+    <?php include Kohana::find_file('views', 'admin/newsform') ?>  
     <input type="submit" value="แก้ไข">
 <?= Form::close(); ?>
 
  <label>รูปเพิ่มเติม</label> <br />
  
- <? foreach($training->images->find_all() as $image) : ?>
+ <? foreach($news->images->find_all() as $image) : ?>
  <p>
- 	<a href="<?= url::base().'media/upload/training/'.$image->image ?>" target="_blank"><img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/training/'.$image->image  ?>"></a> <br />
-    <?= HTML::anchor('admin/trainingdeleteimage/'.$training->id.'?id='.$image->id, '<strong>ลบ</strong>'); ?> 
+ 	<a href="<?= url::base().'media/upload/news/'.$image->image ?>" target="_blank"><img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/news/'.$image->image  ?>"></a> <br />
+    <?= HTML::anchor('admin/newsdeleteimage/'.$news->id.'?id='.$image->id, '<strong>ลบ</strong>'); ?> 
  </p>
 		
  <? endforeach ?>
@@ -20,7 +20,7 @@
  <br />
  <br />
  
-<?= Form::open('admin/trainingaddimage/'.$training->id, array('enctype' => 'multipart/form-data')); ?>
+<?= Form::open('admin/newsaddimage/'.$news->id, array('enctype' => 'multipart/form-data')); ?>
 <p id='subimage'>
 	
 </p>

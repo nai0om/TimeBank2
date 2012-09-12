@@ -15,18 +15,28 @@ class Model_Trainingimage extends ORM {
     {
         return array(
             'image' => array(
-                array(array($this, 'check_upload'), array('image', ':value')),
+                array(array($this, 'check_upload'), array(':value')),
             ),
         );
     }
 	
 	public function check_upload($filename)
     {
-		if (isset($_FILES[$filename]['name']) && $_FILES[$filename]['name'] != '')
+		
+		foreach ($_FILES as $key => $value )
+		{
+			if($value['name'] == $filename)
+			{
+				$field = $key;
+				break;
+			}
+
+		}
+		if (isset($filename) && $field != '')
 		{
 			// Validate the file first
 			$validation = Validation::factory($_FILES)
-					->rules($filename, array(
+					->rules($field, array(
     	                array('Upload::not_empty'),
 						array('Upload::valid'),
 						array('Upload::type', array(':value', array('gif', 'jpg', 'png', 'jpeg'))),
@@ -36,7 +46,7 @@ class Model_Trainingimage extends ORM {
 			// Validate and upload OK
 			if ($validation->check())
 			{
-				$this->upload($filename);
+				$this->upload($filename , $field);
 				
 				return TRUE;
 			}
@@ -50,15 +60,15 @@ class Model_Trainingimage extends ORM {
 			return TRUE;
     }	
 	
-	public function upload($filename)
+	public function upload($filename ,$field)
     {
 	
-        $picture = Upload::save($_FILES[$filename], NULL, Upload::$default_directory.'/training' );
+        $picture = Upload::save($_FILES[$field], NULL, Upload::$default_directory.'/training' );
 		// Resize, sharpen, and save the image
 		Image::factory($picture)
 			->resize(460, NULL)
 			->save();
-		$this->$filename = basename($picture);
+		$this->image = basename($picture);
     }	
 
 } // End Event Image Model
