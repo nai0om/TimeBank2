@@ -2,7 +2,7 @@
 <h2>แก้ไข้ training</h2>
 
 <?= Form::open('admin/edittraining/'.$training->id, array('enctype' => 'multipart/form-data')); ?>
-    <?php include Kohana::find_file('views', 'admin/trainingform') ?>  
+    <?php include Kohana::find_file('views', 'admin/training/trainingform') ?>  
     <input type="submit" value="แก้ไข">
 <?= Form::close(); ?>
 

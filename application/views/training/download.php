@@ -17,13 +17,13 @@
 		
         <div id="content">
         <? foreach ($knowledges as $knowledge) :?>
-        <p>
+        
         	<br />
         	<h2><?= $knowledge->title ?></h2>
             <p><?= $knowledge->content ?></p>
 			<div style="clear:left"></div>
 			<div class="line" style="width:100%;"></div>
-        </p>
+        
         <? endforeach;?>
         </div>
 		

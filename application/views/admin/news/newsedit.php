@@ -2,7 +2,7 @@
 <h2>แก้ไข้ news</h2>
 
 <?= Form::open('admin/editnews/'.$news->id, array('enctype' => 'multipart/form-data')); ?>
-    <?php include Kohana::find_file('views', 'admin/newsform') ?>  
+    <?php include Kohana::find_file('views', 'admin/news/newsform') ?>  
     <input type="submit" value="แก้ไข">
 <?= Form::close(); ?>
 

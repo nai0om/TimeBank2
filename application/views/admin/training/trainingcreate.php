@@ -1,13 +1,10 @@
 <?php include Kohana::find_file('views', 'admin/menus') ?>
-<h2>สร้างง ข่าว</h2>
+<h2>สร้างง training</h2>
 
-<?= Form::open('admin/createnews', array('enctype' => 'multipart/form-data', 'id' => 'createtraining', "autocomplete" => "on")); ?>
-    <?php include Kohana::find_file('views', 'admin/newsform') ?>
+<?= Form::open('admin/createtraining', array('enctype' => 'multipart/form-data', 'id' => 'createtraining', "autocomplete" => "on")); ?>
+    <?php include Kohana::find_file('views', 'admin/training/trainingform') ?>
     <label>รูปเพิ่มเติม</label>
-  	<p id='subimage'>
-	
-	</p>
-
+  	<div id='subimage'/>
     <input type="button" onclick="addInput()" name="add" value="Add small image" /><br />
     <input type="submit" value="สร้าง">
     
