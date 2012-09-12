@@ -10,7 +10,9 @@ class Controller_Training extends Controller_Template {
 
 	public function action_download()
 	{
-		$this->template->content = View::factory('training/download');
+		$knowledges = ORM::factory('knowledge')->order_by('timestamp','desc')->find_all();
+		$this->template->content = View::factory('training/download')
+											->bind('knowledges', $knowledges);
    	}
 
 	public function action_view()

@@ -91,6 +91,47 @@ class Controller_Admin extends Controller_Template {
 		}
 	}
 	
+	public function action_knowledge()
+	{
+		$this->check_admin();
+		
+		$knowledges = ORM::factory('knowledge')->order_by('timestamp','desc')->find_all();
+		$this->template->content = View::factory('admin/knowledge')
+											->bind('knowledges', $knowledges);
+	}
+	
+	public function action_createknowledge()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/knowledgecreate')
+										->bind('knowledge', $knowledge)
+										->bind('errors', $errors);
+		$knowledge = ORM::factory('knowledge');
+		$this->knowledge_save($knowledge, $errors, false);
+	}
+	
+	public function action_editknowledge()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/knowledgeedit')
+										->bind('knowledge', $knowledge)
+										->bind('errors', $errors);
+										
+		$knowledge = ORM::factory('knowledge', $this->request->param('id'));
+		$this->knowledge_save($knowledge, $errors, true);
+	}
+	
+	public function action_deleteknowledge()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');;
+		
+		$knowledge = ORM::factory('knowledge', $this->request->param('id') ); 
+		$knowledge->delete();	
+		Request::current()->redirect('admin/knowledge/');
+	}
+	
 	public function action_news()
 	{
 		$this->check_admin();
@@ -384,6 +425,34 @@ class Controller_Admin extends Controller_Template {
 			$errors = $e->errors('models');
 			
 			
+			}
+		}
+	}
+	
+	
+	private function knowledge_save($knowledge, &$errors, $isUpdate)
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$knowledge->title = Arr::get($_POST, 'title');
+			$knowledge->content = Arr::get($_POST, 'content');
+
+			try{
+			
+				$knowledge->save();			//loop for sub image
+			
+				if($isUpdate)
+				{
+					Request::current()->redirect('admin/knowledge/');
+				}
+				else
+				{
+					Request::current()->redirect('/training/download');
+				}
+				
+			} catch (ORM_Validation_Exception $e) {
+				// Set errors using custom messages
+				$errors = $e->errors('models');
 			}
 		}
 	}
