@@ -24,7 +24,11 @@
 		<div style="clear:left"></div>
 		
 		<div id="content">
-			<br /><br />
+			<br />
+            
+            <div style="float:right;">
+           		<?= $training->video ?>
+            </div>
 			<?= $training->message ?>
 		</div>
 		

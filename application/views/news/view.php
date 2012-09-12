@@ -9,25 +9,22 @@
         
 		<div style="clear:both"></div>
 		<h2><?= $news->topic ?></h2>
-		<h3><?= $news->created ?></h3>
+		<h3><?= $news->timestamp ?></h3>
 		<a id="share">Share</a>
 		<div id="leftSide">
-			<img src="<?= url::base(); ?>media/img/tb_detail_sampel.png">
+			<img src="<?= url::base()."media/upload/news/".$news->pic ?>" />
 		</div>
-		<div id="rightSide">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-			<img src="<?= url::base(); ?>media/img/org_sample_small.png">
-		</div>
+			<div id="rightSide">
+	        <?php foreach ($news->images->find_all() as $pic) : ?>
+				<a href="<?= url::base().'media/upload/training/'.$pic->image ?>" target="_blank"><img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/training/'.$pic->image  ?>"></a>
+			<? endforeach ?>
+        </div>
 		
 		<div style="clear:left"></div>
 		<div id="content">
-            <img src="<?= url::base(); ?>media/img/video.png" style="float:right;">
+            <div style="float:right;">
+           		<?= $news->video ?>
+            </div>
             <?= $news->message ?>
 		</div>
 		

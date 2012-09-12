@@ -4,7 +4,10 @@ class Controller_News extends Controller_Template {
 
 	public function action_index()
 	{
-		$this->template->content = View::factory('news/index');
+		$this->template->content = View::factory('news/index')
+									->bind('news', $news);
+		$news = ORM::factory('news')->order_by('timestamp','desc')->find_all();
+		
    	}
 
 	public function action_view()

@@ -1,45 +1,39 @@
 <label>ชื่อเรื่อง </label>
-<?= Form::input('topic', $training->topic, array('rows' => 3)); ?>    
-<div class="error">training
+<?= Form::input('topic', $news->topic, array('rows' => 3)); ?>    
+<div class="error">news
     <font color="red"><?= Arr::get($errors, 'topic'); ?></font>
 </div>  
  
-<label>วันที่ </label>
-<?= Form::textarea('date_message', $training->date_message, array('rows' => 3)); ?>    
-<div class="error">
-    <font color="red"><?= Arr::get($errors, 'date_message'); ?></font>
-</div>  
 
 <label>รายละเอียด </label>
-<?= Form::textarea('message', $training->message, array('rows' => 3)); ?>    
+<?= Form::textarea('message', $news->message, array('rows' => 3)); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'message'); ?></font>
 </div>  
 <p>
-
 <label>video ใช้ embed code </label> <br />
-<?= Form::input('video', $training->video, array('style' => 'height: 200px;width: 400px;')); ?>    
+<?= Form::input('video', $news->video, array('style' => 'height: 200px;width: 400px;')); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'video'); ?></font>
-</div>
+</div>  
 
 <label>รูปหลัก</label>
-<?php if ($training->main_pic != ''): ?>
-    <img src="<?= url::base().'media/upload/training/'.$training->main_pic; ?>" /><br />
+<?php if ($news->pic != ''): ?>
+    <img src="<?= url::base().'media/upload/news/'.$news->pic; ?>" /><br />
 <? endif ?>
-<?= Form::file('main_pic') ?>
+<?= Form::file('pic') ?>
 <div class="error">
-    <font color="red"><?= __(Arr::get($errors, 'main_pic')); ?></font>
+    <font color="red"><?= __(Arr::get($errors, 'pic')); ?></font>
 </div>
 </p>
 
 <p><label>รูปย่อ</label>
-<?php if ($training->thm_pic != ''): ?>
-    <img src="<?= url::base().'media/upload/training/'.$training->thm_pic ?>" /> <br />
+<?php if ($news->pic_thm != ''): ?>
+    <img src="<?= url::base().'media/upload/news/'.$news->pic_thm ?>" /> <br />
 <? endif ?>
-<?= Form::file('thm_pic') ?>
+<?= Form::file('pic_thm') ?>
 <div class="error">
-    <font color="red"><?= __(Arr::get($errors, 'thm_pic')); ?></font>
+    <font color="red"><?= __(Arr::get($errors, 'pic_thm')); ?></font>
 </div>
 </p>
 
