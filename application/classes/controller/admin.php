@@ -94,7 +94,32 @@ class Controller_Admin extends Controller_Template {
 	public function action_news()
 	{
 		$this->check_admin();
+		
+		$news = ORM::factory('news')->order_by('timestamp','desc')->find_all();
+		$this->template->content = View::factory('admin/news')
+											->bind('news', $news);
 	}
+	
+	public function action_createnews()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/newscreate')
+										->bind('news', $news)
+										->bind('errors', $errors);
+		$news = ORM::factory('news');
+		$this->news_save($news, $errors, false);
+	}
+	
+	public function action_editnews()
+	{
+		$this->check_admin();
+	}
+	
+	public function action_deletenews()
+	{
+		$this->check_admin();
+	}
+	
 	
 	public function action_training()
 	{
@@ -184,6 +209,7 @@ class Controller_Admin extends Controller_Template {
 			$training->topic = Arr::get($_POST, 'topic');
 			$training->date_message = Arr::get($_POST, 'date_message');
 			$training->message = Arr::get($_POST, 'message');
+			$training->video = Arr::get($_POST, 'video');
 			
 			if (isset($_FILES['main_pic']['name']) && $_FILES['main_pic']['name'] != '')
 			{
@@ -226,6 +252,66 @@ class Controller_Admin extends Controller_Template {
 				else
 				{
 					Request::current()->redirect('training/view/'.$training->id);
+				}
+				
+			} catch (ORM_Validation_Exception $e) {
+			
+			// Set errors using custom messages
+			$errors = $e->errors('models');
+			
+			
+			}
+		}
+	}
+	
+	private function news_save($news, &$errors, $isUpdate)
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$news->topic = Arr::get($_POST, 'topic');
+			$news->message = Arr::get($_POST, 'message');
+			$news->video = Arr::get($_POST, 'video');			
+			if (isset($_FILES['pic']['name']) && $_FILES['pic']['name'] != '')
+			{
+			
+				$news->pic = $_FILES['pic']['name'];
+			}
+			
+			if (isset($_FILES['pic_thm']['name']) && $_FILES['pic_thm']['name'] != '')
+			{
+				
+				$news->pic_thm = $_FILES['pic_thm']['name'];
+			}
+			
+
+			try{
+			
+				$news->save();			//loop for sub image
+				$i = 0;
+				while(isset($_FILES['sub_'.$i]['name']) && $_FILES['sub_'.$i]['name'] != '' )
+				{	
+					$image = ORM::factory('newsimage');
+					$image->news = $news;
+					$image->image = $_FILES['sub_'.$i]['name'];
+					try
+					{
+						$image->save();
+										
+					} catch (ORM_Validation_Exception $e) {
+						 
+						// Set errors using custom messages
+						$errors = $e->errors('models');
+					}
+					$i++;
+				}
+				
+				if($isUpdate)
+				{
+					Request::current()->redirect('admin/news/');
+				}
+				else
+				{
+					Request::current()->redirect('news/view/'.$news->id);
 				}
 				
 			} catch (ORM_Validation_Exception $e) {

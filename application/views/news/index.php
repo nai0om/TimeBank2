@@ -38,38 +38,15 @@
 		<div style="clear:left"></div>
 		
 		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;">20</span></p>
-		
+		 
 		<ul id="list">
+        <? foreach($news as $new) : ?>
 			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
+				<?= HTML::anchor('news/view/'.$new->id, '<img src="'.url::base().'media/upload/news/'. $new->pic_thm. '" style="float:left;">') ?>
+				<h3><?= $new->topic ?></h3>
+				<p><?= substr($new->message, 0, 100); ?><?= HTML::anchor('news/view/'.$new->id, '...[Readmore]'); ?> </p>
 			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
-			</li>
-			<li>
-				<img src="<?= url::base(); ?>media/img/about_02.png" style="float:left;">
-				<h3>Consectetuer</h3>
-				<p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[Readmore]</a></p>
-			</li>
+        <? endforeach?>
 		</ul>
 		
 		<div style="clear:left"></div>
