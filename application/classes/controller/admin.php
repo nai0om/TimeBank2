@@ -91,19 +91,211 @@ class Controller_Admin extends Controller_Template {
 		}
 	}
 	
+//###########################################################		
+//####################  valunteer control   #################
+//###########################################################	
+	// user config
+	public function action_user()
+	{
+		$this->check_admin();
+		// not need organization
+		$users = ORM::factory('user')->where('role','<>','1')->order_by('id','desc')->find_all();
+		$this->template->content = View::factory('admin/user/user')
+											->bind('users', $users);
+	}
+	
+	public function action_useredit()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/user/useredit')
+										->bind('valunteer', $valunteer)
+										->bind('errors', $errors);
+										
+		$valunteer = ORM::factory('user', $this->request->param('id'));
+		$this->user_save($valunteer, $errors);
+		
+	}
+	
+	// user record
+	public function action_userrecord()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		// not need organization
+		$records = DB::select()
+				->from('user_timebanks') 	
+				->where('user_id','=',$this->request->param('id'))
+				->execute();
+		$this->template->content = View::factory('admin/user/userrecord')
+											->bind('records', $records);
+	}
+	
+	public function action_userrecordedit()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/user/userrecordedit')
+										->bind('record', $record)
+										->bind('errors', $errors);
+										
+		$record = DB::select()
+				->from('user_timebanks') 	
+				->where('id','=',$this->request->param('id'))
+				->execute();
+				
+		$record = $record[0];
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			
+			DB::update('user_timebanks')->set(
+											array(	
+													'hour' => Arr::get($_POST, 'hour'), 
+													'description' => Arr::get($_POST, 'description'),
+													))
+							->where('id', '=',  $this->request->param('id')  )
+							->order_by('timestamp','desc')
+							->execute();
+			Request::current()->redirect('admin/userrecord/'.$record['user_id']);
+		}
+	}
+	// user event
+	public function action_userevent()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		// not need organization
+		$records = DB::select()
+				->from('users_events') 	
+				->where('user_id','=',$this->request->param('id'))
+				->order_by('timestamp','desc')
+				->execute();
+				
+		$this->template->content = View::factory('admin/user/userevent')
+											->bind('records', $records);
+		
+	}
+	
+	public function action_usereventedit()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/user/usereventedit')
+										->bind('record', $record)
+										->bind('user_id', $user_id)
+										->bind('event_id', $event_id)
+										->bind('errors', $errors);
+										
+		if (HTTP_Request::GET == $this->request->method()){		
+			$user_id= Arr::get($_GET, 'u');
+			$event_id = Arr::get($_GET, 'e');
+			//if ($user_id  == '' || $event_id == '')  $this->redirect('/');
+			$record = DB::select()
+					->from('users_events') 	
+					->where('user_id','=', $user_id)
+					->where('event_id','=', $event_id)
+					->execute();
+					
+			$record = $record[0];
+		}
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$user_id = Arr::get($_POST, 'user_id');
+			$event_id = Arr::get($_POST, 'event_id');
+			//if ($user_id  == '' || $event_id =='')  $this->redirect('/');
+	
+			DB::update('users_events')->set(
+											array(	
+													'status' => Arr::get($_POST, 'status'), 
+													'time_approve' => Arr::get($_POST, 'time_approve'),
+													))
+							->where('user_id', '=',  $user_id )
+							->where('event_id', '=', $event_id)
+							->order_by('timestamp','desc')
+							->execute();
+			Request::current()->redirect('admin/userevent/'.$user_id);
+		}
+		
+	
+		
+	}
+	
+	public function action_usereventremove()
+	{
+		if (HTTP_Request::GET == $this->request->method()){		
+		$user_id= Arr::get($_GET, 'u');
+		$event_id = Arr::get($_GET, 'e');
+		DB::delete('users_events')->where('user_id', '=',  $user_id )
+							->where('event_id', '=', $event_id)
+							->execute();
+		Request::current()->redirect('admin/userevent/'.$user_id);
+		}
+	}
+	// user inbox
+	public function action_userinbox()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+	
+		// not need organization
+		$inboxes = ORM::factory('inbox')->where('user_id','=', $this->request->param('id'))->order_by('created','desc')->find_all();
+		
+		$this->template->content = View::factory('admin/user/userinboxs')
+											->bind('inboxes', $inboxes);
+	}
+	
+	public function action_userinboxedit()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/user/userinboxsedit')
+										->bind('inbox', $inbox)
+										->bind('errors', $errors);
+										
+		$inbox = ORM::factory('inbox', $this->request->param('id'));
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$inbox->is_removed = Arr::get($_POST, 'is_removed');
+			$inbox->is_read = Arr::get($_POST, 'is_read');
+			$inbox->title = Arr::get($_POST, 'title');
+			$inbox->message = Arr::get($_POST, 'message');
+			$inbox->send_status = Arr::get($_POST, 'send_status');
+			try{
+			
+				$inbox->save();			//loop for sub image
+			
+			
+				Request::current()->redirect('/admin/userinbox/'.$inbox->id);
+			
+				
+			} catch (ORM_Validation_Exception $e) {
+				// Set errors using custom messages
+				$errors = $e->errors('models');
+			}
+		}
+
+	}
+	
+
+	
+//###########################################################		
+//####################  knowledge  control ##################
+//###########################################################	
 	public function action_knowledge()
 	{
 		$this->check_admin();
 		
 		$knowledges = ORM::factory('knowledge')->order_by('timestamp','desc')->find_all();
-		$this->template->content = View::factory('admin/knowledge')
+		$this->template->content = View::factory('admin/knowledge/knowledge')
 											->bind('knowledges', $knowledges);
 	}
 	
 	public function action_createknowledge()
 	{
 		$this->check_admin();
-		$this->template->content = View::factory('admin/knowledgecreate')
+		$this->template->content = View::factory('admin/knowledge/knowledgecreate')
 										->bind('knowledge', $knowledge)
 										->bind('errors', $errors);
 		$knowledge = ORM::factory('knowledge');
@@ -114,7 +306,7 @@ class Controller_Admin extends Controller_Template {
 	{
 		$this->check_admin();
 		if ($this->request->param('id')  == '') $this->redirect('/');
-		$this->template->content = View::factory('admin/knowledgeedit')
+		$this->template->content = View::factory('admin/knowledge/knowledgeedit')
 										->bind('knowledge', $knowledge)
 										->bind('errors', $errors);
 										
@@ -129,15 +321,18 @@ class Controller_Admin extends Controller_Template {
 		
 		$knowledge = ORM::factory('knowledge', $this->request->param('id') ); 
 		$knowledge->delete();	
-		Request::current()->redirect('admin/knowledge/');
+		Request::current()->redirect('admin/knowledge/knowledge/');
 	}
 	
+//###########################################################		
+//####################  news  control 		#################
+//###########################################################	
 	public function action_news()
 	{
 		$this->check_admin();
 		
 		$news = ORM::factory('news')->order_by('timestamp','desc')->find_all();
-		$this->template->content = View::factory('admin/news')
+		$this->template->content = View::factory('admin/news/news')
 											->bind('news', $news);
 	}
 	
@@ -155,7 +350,7 @@ class Controller_Admin extends Controller_Template {
 	{
 		$this->check_admin();
 		if ($this->request->param('id')  == '') $this->redirect('/');
-		$this->template->content = View::factory('admin/newsedit')
+		$this->template->content = View::factory('admin/news/newsedit')
 										->bind('news', $news)
 										->bind('errors', $errors);
 										
@@ -171,7 +366,7 @@ class Controller_Admin extends Controller_Template {
 		
 		$news = ORM::factory('news', $this->request->param('id') ); 
 		$news->delete();	
-		Request::current()->redirect('admin/news/');
+		Request::current()->redirect('admin/news/news/');
 	}
 	
 	public function action_newsaddimage()
@@ -219,12 +414,16 @@ class Controller_Admin extends Controller_Template {
 		$image->delete();	
 		Request::current()->redirect('admin/editnews/'.$this->request->param('id')).'#subimage';
 	}
-	
+
+//###########################################################		
+//####################  training  control  ##################
+//###########################################################	
+
 	public function action_training()
 	{
 		$this->check_admin();
 		$trainings = ORM::factory('training')->order_by('timestamp','desc')->find_all();
-		$this->template->content = View::factory('admin/training')
+		$this->template->content = View::factory('admin/training/training')
 											->bind('trainings', $trainings);
 	}
 	
@@ -243,7 +442,7 @@ class Controller_Admin extends Controller_Template {
 		$this->check_admin();
 		if ($this->request->param('id')  == '') $this->redirect('/');
 		
-		$this->template->content = View::factory('admin/trainingedit')
+		$this->template->content = View::factory('admin/training/trainingedit')
 										->bind('training', $training)
 										->bind('errors', $errors);
 		$training = ORM::factory('training', $this->request->param('id'));
@@ -307,6 +506,10 @@ class Controller_Admin extends Controller_Template {
 		Request::current()->redirect('admin/edittraining/'.$this->request->param('id').'#subimage');
 	}
 	
+	
+//###########################################################		
+//####################  private   function ##################
+//###########################################################	
 	private function training_save($training, &$errors, $isUpdate)
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
@@ -449,6 +652,48 @@ class Controller_Admin extends Controller_Template {
 				{
 					Request::current()->redirect('/training/download');
 				}
+				
+			} catch (ORM_Validation_Exception $e) {
+				// Set errors using custom messages
+				$errors = $e->errors('models');
+			}
+		}
+	}
+	
+	private function user_save($valunteer, &$errors)
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$valunteer->email = Arr::get($_POST, 'email');
+			$valunteer->displayname = Arr::get($_POST, 'displayname');
+			$valunteer->noti_eventrecommended = Arr::get($_POST, 'noti_eventrecommended');
+			$valunteer->noti_eventapproved = Arr::get($_POST, 'noti_eventapproved');
+			$valunteer->noti_almosteventdate = Arr::get($_POST, 'noti_almosteventdate');
+			$valunteer->noti_eventthank = Arr::get($_POST, 'noti_eventthank');
+			$valunteer->noti_sms_eventapproved = Arr::get($_POST, 'noti_sms_eventapproved');
+			$valunteer->noti_sms_almosteventdate = Arr::get($_POST, 'noti_sms_almosteventdate');
+			$valunteer->noti_sms_news = Arr::get($_POST, 'noti_sms_news');
+			$valunteer->nickname = Arr::get($_POST, 'nickname');
+			$valunteer->role = Arr::get($_POST, 'role');
+			$valunteer->first_name = Arr::get($_POST, 'first_name');
+			$valunteer->last_name = Arr::get($_POST, 'last_name');
+			$valunteer->birthday = Arr::get($_POST, 'birthday');
+			$valunteer->phone = Arr::get($_POST, 'phone');
+			$valunteer->address = Arr::get($_POST, 'address');
+			$valunteer->profile_image = Arr::get($_POST, 'profile_image');
+			$valunteer->quote = Arr::get($_POST, 'quote');
+			$valunteer->description = Arr::get($_POST, 'description');
+			$valunteer->sex = Arr::get($_POST, 'sex');
+			$valunteer->website = Arr::get($_POST, 'website');
+			$valunteer->skills = Arr::get($_POST, 'skills');
+
+			try{
+			
+				$valunteer->save();			//loop for sub image
+			
+			
+					Request::current()->redirect('/user/view/'.$valunteer->id);
+			
 				
 			} catch (ORM_Validation_Exception $e) {
 				// Set errors using custom messages

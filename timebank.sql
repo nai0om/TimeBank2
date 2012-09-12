@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 12, 2012 at 05:29 PM
+-- Generation Time: Sep 12, 2012 at 09:40 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -226,7 +226,7 @@ CREATE TABLE `inboxes` (
 --
 
 INSERT INTO `inboxes` (`id`, `user_id`, `organization_id`, `is_removed`, `is_read`, `title`, `message`, `send_status`, `created`) VALUES
-(1, 0, 3, 1, 0, 'ทดสอบ1', 'messageสำหรับทดสอบ1', 0, '2012-06-11 03:03:47'),
+(1, 1, 0, 1, 0, 'ทดสอบ99', 'messageสำหรับทดสอบ1', 0, '2012-06-11 03:03:47'),
 (2, 0, 3, 1, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-06-11 03:04:11'),
 (3, 0, 3, 1, 0, 'ทดสอ3', 'messageสำหรับทดสอบ3', 0, '2012-06-11 03:04:11');
 
@@ -503,13 +503,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `displayname`, `noti_eventrecommended`, `noti_eventapproved`, `noti_almosteventdate`, `noti_eventthank`, `noti_sms_eventapproved`, `noti_sms_almosteventdate`, `noti_sms_news`, `nickname`, `role`, `first_name`, `last_name`, `birthday`, `phone`, `address`, `profile_image`, `quote`, `description`, `created`, `sex`, `website`, `skills`, `interest_tags`, `location`, `province`) VALUES
-(1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', 1, 1, 1, 1, 1, 1, 1, 'nickname', 2, 'first_name', 'last_name', '2012-08-01', '12356', 'adfa', '50216d46cb0e4DSC_3074.jpg', '', '', '2012-09-03 03:07:26', '', '13123', '1101|1102|1201|2303|2304|2305|2306|2307|2803|2804|2805|', 'ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ', '12312', '1'),
+(1, 'volunteer@jitarsa.org', '029e4aa7146dceb2b9adda3ce9d9bfaa', 'volunteer nakrub', 1, 1, 1, 1, 1, 1, 1, 'test naka', 2, 'first_name', 'last_name', '2012-08-01', '12356', 'adfa', '50216d46cb0e4DSC_3074.jpg', '', '', '2012-09-12 17:04:25', '', '', '1101|1102|1201|2303|2304|2305|2306|2307|2803|2804|2805|', 'ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ', '12312', '1'),
 (2, 'org@jitarsa.org', 'fcfdd5206673d2dd3f9d68e227e1412c', 'org nakrub', 1, 1, 1, 1, 1, 1, 1, 'org ่ฟ', 1, 'organization', 'lnwlnw', '2012-06-28', '', '', '', '', '', '2012-08-16 19:32:20', '', '', '', '', '', ''),
 (10, 'nooock@gmail.com', '0f3ee822972d620fb337c02f6f3873ad', 'Noock', 1, 1, 1, 1, 1, 1, 1, 'Noock', 0, 'Teerut', 'Piriyapunyaporn', '0000-00-00', '0840034536', '', '50165a166d381Noock.jpg', '', '', '2012-07-31 04:33:40', '', '', '1101|1102|2101|2103|', 'หัตถกรรมและงานฝีมือ, ', '', '0'),
 (9, 'xinexo@gmail.com', 'abd2fc0c38db5c80f81bb864929579e6', 'xinexo', 1, 1, 1, 1, 1, 1, 1, '', 0, '', '', '0000-00-00', '', '', '', '', '', '2012-07-29 07:56:45', '', '', '', '', '', ''),
 (11, 'nonarav@gmail.com', 'b0bbcfb119e56170285fab36ad273911', 'ต้นเด้อ', 1, 1, 1, 1, 1, 1, 1, 'ต้น', 0, 'วรานนท์', 'ทองแกม', '0000-00-00', '0891130030', '', '501600a0056fepig-4.jpg', '', '', '2012-07-30 03:35:55', 'm', '', '2202T=photoshop|', 'งานอาสาทั่วไป, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ไอที และคอมพิวเตอร์กราฟฟิค, ', '', '0'),
 (12, 'jitarsabank@gmail.com', '9530d321cf6607fafc56f7ef1e7aa7f4', '', 1, 1, 1, 1, 1, 1, 1, '', 1, '', '', '0000-00-00', '', '', '', '', '', '2012-07-31 02:22:06', '', '', '', '', '', ''),
-(19, 'org2@jitarsa.org', '7039439900bbb4bd76f69985d3fd9210', '', 1, 1, 1, 1, 1, 1, 1, '', 0, '', '', '0000-00-00', '', '', '', '', '', '2012-08-16 20:01:44', '', '', '', '', '', '');
+(19, 'org2@jitarsa.org', '7039439900bbb4bd76f69985d3fd9210', 'asdfasdfasdfasdf', 1, 1, 1, 1, 1, 1, 1, '', 0, '', '', '0000-00-00', '', 'sdfgsgsdfg', '', '', '', '2012-09-12 17:13:29', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -546,13 +546,6 @@ CREATE TABLE `users_events` (
   `time_approve` int(11) NOT NULL,
   PRIMARY KEY (`user_id`,`event_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `users_events`
---
-
-INSERT INTO `users_events` (`user_id`, `event_id`, `status`, `timestamp`, `time_approve`) VALUES
-(1, 10, 1, '2012-09-03 02:36:38', 1);
 
 -- --------------------------------------------------------
 
@@ -603,31 +596,21 @@ CREATE TABLE `users_skills` (
 
 CREATE TABLE `user_timebanks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL,
   `status` int(11) DEFAULT NULL,
   `hour` int(11) NOT NULL,
   `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`user_id`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_timebanks`
 --
 
 INSERT INTO `user_timebanks` (`id`, `user_id`, `status`, `hour`, `timestamp`, `description`) VALUES
-(5, 1, 2, -1, '2012-08-16 18:17:57', 'ได้รับจากงานอาสา sdafsdfasdfa'),
-(1, 18, 1, 251, '2012-09-02 18:06:41', ''),
-(4, 1, 1, 123, '2012-08-14 17:14:13', ''),
-(3, 1, 1, 123, '2012-08-14 17:14:05', ''),
-(2, 1, 1, -122, '2012-09-02 18:09:07', 'ระบบฝากเวลาเพิ่ม auto 123 ชั่วโมง'),
-(1, 1, 2, -123, '2012-08-08 21:08:56', 'ได้รับจากงานอาสา ปุ่ม "create" สมัครสมาชิกองค์กร /organization/create'),
-(1, 19, 1, 12, '2012-08-16 20:01:44', ''),
-(6, 1, 1, 1, '2012-09-02 18:16:36', ''),
-(7, 1, 2, -48, '2012-09-03 02:27:02', 'ได้รับจากงานอาสา asdfasdfasdf'),
-(8, 1, 1, 47, '2012-09-03 02:27:02', 'ระบบฝากเวลาเพิ่ม auto 47 ชั่วโมง'),
-(9, 1, 1, 1231, '2012-09-03 02:34:53', ''),
-(10, 1, 2, -48, '2012-09-03 02:36:37', 'ได้รับจากงานอาสา asdfasdfasdf');
+(1, 1, 1, 13, '2012-09-12 18:13:34', 'manalue add'),
+(2, 1, 1, 31, '2012-09-12 18:12:28', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
