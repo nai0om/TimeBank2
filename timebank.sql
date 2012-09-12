@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 12, 2012 at 03:00 PM
+-- Generation Time: Sep 12, 2012 at 05:29 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -233,6 +233,28 @@ INSERT INTO `inboxes` (`id`, `user_id`, `organization_id`, `is_removed`, `is_rea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `knowledge`
+--
+
+CREATE TABLE `knowledge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `knowledge`
+--
+
+INSERT INTO `knowledge` (`id`, `title`, `content`, `timestamp`) VALUES
+(2, 'คู่มือจิตอาสา', '<p>ภาคี เครือข่ายจิตอาสา เครือข่ายพุทธิกา สสส. และ สช. ร่วมแบ่งปัน "คู่มือจิตอาสา" สำหรับทั้งอาสาสมัครและ องค์กรที่บริหารจัดการอาสาสมัคร</p>\n<p>เป็นแนวทางง่ายๆ ที่ช่วยให้การออกมาทำความดีร่วมกันเกิดประโยชน์สูงสุดทั้งผู้ให้และผู้รับ ช่วยให้อาสาสมัคร ทำงานโดยมี "จิตอาสา" เกิดผลดีทั้งต่องานและต่อการเรียนรู้ ฝึกฝน ขัดเกลาตนเอง</p>\n<p>มีสองเวอร์ชัน คือ</p>\n<p><a href="../media/upload/download/volunteer_2011_guidline.pdf">1. Volunteer 2011 Guideline: สำหรับแผ่นพับขนาดเอสี่ สองหน้า (หน้าหลัง พับครึ่ง)</a></p>\n<p><a href="../media/upload/download/volunteer_2011_guidline_poster.pdf">2. Volunteer 2011 Guideline Poster: สำหรับโปสเตอร์ขนาดเอสี่ สองหน้าต่อกัน</a></p>\n<p>สามารถผลิตเพิ่มและใช้ได้ตามสะดวก</p>\n<p>ยินดีรับคำแนะนำเพื่อการพัฒนาเอกสารให้รับใช้สังคมได้ดีที่สุด โดยส่งมาที่ JitArsaBank (เครื่องหมาย @) gmail.com</p>', '2012-09-12 15:20:38'),
+(3, 'คู่มือจิตอาสา', '<p>ภาคี เครือข่ายจิตอาสา เครือข่ายพุทธิกา สสส. และ สช. ร่วมแบ่งปัน "คู่มือจิตอาสา" สำหรับทั้งอาสาสมัครและ องค์กรที่บริหารจัดการอาสาสมัคร</p>\n<p>เป็นแนวทางง่ายๆ ที่ช่วยให้การออกมาทำความดีร่วมกันเกิดประโยชน์สูงสุดทั้งผู้ให้และผู้รับ ช่วยให้อาสาสมัคร ทำงานโดยมี "จิตอาสา" เกิดผลดีทั้งต่องานและต่อการเรียนรู้ ฝึกฝน ขัดเกลาตนเอง</p>\n<p>มีสองเวอร์ชัน คือ</p>\n<p><a href="../media/upload/download/volunteer_2011_guidline.pdf">1. Volunteer 2011 Guideline: สำหรับแผ่นพับขนาดเอสี่ สองหน้า (หน้าหลัง พับครึ่ง)</a></p>\n<p><a href="../media/upload/download/volunteer_2011_guidline_poster.pdf">2. Volunteer 2011 Guideline Poster: สำหรับโปสเตอร์ขนาดเอสี่ สองหน้าต่อกัน</a></p>\n<p>สามารถผลิตเพิ่มและใช้ได้ตามสะดวก</p>\n<p>ยินดีรับคำแนะนำเพื่อการพัฒนาเอกสารให้รับใช้สังคมได้ดีที่สุด โดยส่งมาที่ JitArsaBank (เครื่องหมาย @) gmail.com</p>', '2012-09-12 15:25:29');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `locations`
 --
 
@@ -287,8 +309,7 @@ INSERT INTO `news` (`id`, `topic`, `message`, `pic`, `pic_thm`, `video`, `timest
 (7, 'xxxxxxxxx', '<p>easafdfadsfadaecaercaercasdf</p>', 'a100_504d6b07d5f17.jpg', 'WP_000453.jpg', '', '2012-09-12 12:38:16'),
 (8, '1111', '<p>aasdfasd</p>', 'WP_000452.jpg', 'a100_504d6b07d5f17.jpg', 'fasdfasdf', '2012-09-12 12:39:50'),
 (9, 'vvvv', '<p>aasdfasd</p>', 'WP_000452.jpg', 'WP_000452.jpg', 'fasdfasdf', '2012-09-12 12:40:18'),
-(10, 'ccccccc', '<p>cccccvadsfasdfasdf</p>', 'click_504d6f5b8e368.jpg', 'WP_000454.jpg', '', '2012-09-12 12:57:16'),
-(11, 'ccccccc', '<p>cccccvadsfasdfasdf</p>', 'click_504d6f5b8e368.jpg', 'WP_000454.jpg', '', '2012-09-12 12:58:01');
+(10, 'ccccccc', '<p>cccccvadsfasdfasdf</p>', 'click_504d6f5b8e368.jpg', 'WP_000454.jpg', '', '2012-09-12 12:57:16');
 
 -- --------------------------------------------------------
 
@@ -302,16 +323,14 @@ CREATE TABLE `newsimages` (
   `image` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `newsimages`
 --
 
 INSERT INTO `newsimages` (`id`, `news_id`, `image`, `timestamp`) VALUES
-(1, 11, 'a100_504d6b07d5f17.jpg', '2012-09-12 12:58:01'),
-(2, 11, 'click_504d6f5b8e368.jpg', '2012-09-12 12:58:01'),
-(3, 11, 'WP_000454.jpg', '2012-09-12 12:58:01');
+(20, 11, '5050a02ecd73eWP_000453.jpg', '2012-09-12 14:46:07');
 
 -- --------------------------------------------------------
 
@@ -388,18 +407,14 @@ CREATE TABLE `trainingimages` (
   `image` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `trainingimages`
 --
 
 INSERT INTO `trainingimages` (`id`, `training_id`, `image`, `timestamp`) VALUES
-(2, 57, 'WP_000454.jpg', '2012-09-11 18:59:37'),
-(3, 57, 'a100_504d6b07d5f17.jpg', '2012-09-11 18:59:37'),
-(7, 58, 'WP_000453.jpg', '2012-09-11 19:48:04'),
-(9, 58, 'WP_000453.jpg', '2012-09-11 19:50:14'),
-(10, 58, 'WP_000452.jpg', '2012-09-11 19:55:23');
+(45, 58, '50509fa561c16click_504d6f5b8e368.jpg', '2012-09-12 14:43:49');
 
 -- --------------------------------------------------------
 
