@@ -16,7 +16,7 @@
 <? foreach ($news as $new ) :?>
     <tr>
         <td WIDTH="10"><?=  $new->id; ?></td>
-        <td WIDTH="10"><?= HTML::anchor('new/view/'.$new->id, '<strong>'.$new->topic.'</strong>'); ?></td>
+        <td WIDTH="10"><?= HTML::anchor('news/view/'.$new->id, '<strong>'.$new->topic.'</strong>'); ?></td>
         <td WIDTH="10"><?=  $new->message; ?><</td>
         <td WIDTH="10"><?=  $new->pic; ?></td>
         <td WIDTH="10"><?=  $new->pic_thm; ?></td>
