@@ -37,7 +37,7 @@
 		<div class="line"></div>
 		<div style="clear:left"></div>
 		
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;">20</span></p>
+		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($news) ?></span></p>
 		 
 		<ul id="list">
         <? foreach($news as $new) : ?>
