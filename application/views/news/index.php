@@ -51,13 +51,13 @@
 		
 		<div style="clear:left"></div>
 		<div class="line" style="width:82%;float:left"></div>
-		<ul id="pagination">
+		<!--ul id="pagination">
 			<li>Page 1</li>
 			<li>2</li>
 			<li>3</li>
 			<li>4</li>
 			<li>5</li>
-		</ul>
+		</ul -->
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>
 	</div>

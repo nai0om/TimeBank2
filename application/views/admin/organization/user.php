@@ -37,6 +37,7 @@
    		<?= HTML::anchor('admin/userrecord/'.$user->id, '<strong>record</strong>'); ?> 
         <?= HTML::anchor('admin/userevent/'.$user->id, '<strong>event</strong>'); ?>  
         <?= HTML::anchor('admin/userinbox/'.$user->id, '<strong>inbox</strong>'); ?> 
+        <?= HTML::anchor('admin/usernotification/'.$user->id, '<strong>notification</strong>'); ?>
     </td> 
     <td><?= $user->id ?></td>
     <td><?= $user->email  ?></td>
