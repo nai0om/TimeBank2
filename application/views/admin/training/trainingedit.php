@@ -1,4 +1,6 @@
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<div id="home">
+  <div id="main" role="main">
+  <?php include Kohana::find_file('views', 'admin/menus') ?>
 <h2>แก้ไข้ training</h2>
 
 <?= Form::open('admin/edittraining/'.$training->id, array('enctype' => 'multipart/form-data')); ?>
@@ -42,3 +44,6 @@
 
 	}
 </script>
+
+</div>
+</div>

@@ -1,4 +1,6 @@
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<div id="home">
+  <div id="main" role="main">
+  <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
@@ -7,7 +9,7 @@
 <th> desciption</th>
 <th> highlight </th>
 <th> timestamp</th>
-<tr>
+</tr>
 <? foreach ($images->find_all() as $image ) :?>
     <tr>
     <td>
@@ -25,3 +27,6 @@
 	</tr>
 <? endforeach ?>
 </table>
+
+</div>
+</div>

@@ -1,3 +1,5 @@
+<div id="home">
+  <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?>
 <h2>สร้างง ข่าว</h2>
 
@@ -9,7 +11,7 @@
 	</p>
 
     <input type="button" onclick="addInput()" name="add" value="Add small image" /><br />
-    <input type="submit" value="สร้าง">
+    <input type="submit" value="สร้าง" />
     
 <? Form::close(); ?>
 
@@ -28,3 +30,6 @@
 
 	}
 </script>
+
+</div>
+</div>

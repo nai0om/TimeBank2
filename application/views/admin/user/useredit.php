@@ -1,4 +1,6 @@
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<div id="home">
+  <div id="main" role="main">
+  <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 <?= Form::open('admin/useredit/'.$valunteer->id , array('enctype' => 'multipart/form-data')); ?>
 
@@ -155,7 +157,11 @@
 
 
 
-<input type="submit" value="แก้ไข">
+<input type="submit" value="แก้ไข" />
 
 
 <?= Form::close(); ?>
+
+</div>
+
+</div>

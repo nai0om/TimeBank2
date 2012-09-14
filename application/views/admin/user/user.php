@@ -1,3 +1,6 @@
+
+<div id="home">
+  <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 
@@ -29,7 +32,7 @@
 <th>sex</th>
 <th>website</th>
 <th>skills</th>
-<tr>
+</tr>
 <? foreach ($users as $user ) :?>
     <tr>
     <td>
@@ -66,3 +69,5 @@
 	</tr>
 <? endforeach ?>
 </table>
+</div>
+</div>

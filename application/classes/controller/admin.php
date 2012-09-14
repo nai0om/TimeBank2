@@ -558,7 +558,7 @@ class Controller_Admin extends Controller_Template {
 	public function action_createnews()
 	{
 		$this->check_admin();
-		$this->template->content = View::factory('admin/newscreate')
+		$this->template->content = View::factory('admin/news/newscreate')
 										->bind('news', $news)
 										->bind('errors', $errors);
 		$news = ORM::factory('news');
@@ -649,7 +649,7 @@ class Controller_Admin extends Controller_Template {
 	public function action_createtraining()
 	{
 		$this->check_admin();
-		$this->template->content = View::factory('admin/trainingcreate')
+		$this->template->content = View::factory('admin/training/trainingcreate')
 										->bind('training', $training)
 										->bind('errors', $errors);
 		$training = ORM::factory('training');
