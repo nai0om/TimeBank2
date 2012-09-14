@@ -1,4 +1,6 @@
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<div id="home">
+  <div id="main" role="main">
+  <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 <?= Form::open('admin/eventedit/'.$event->id , array('enctype' => 'multipart/form-data')); ?>
 
@@ -12,5 +14,7 @@
     <label>volunteer_joined</label>
     <?= Form::input('volunteer_joined', $event->volunteer_joined); ?>    <br />
  
-<input type="submit" value="แก้ไข">
+<input type="submit" value="แก้ไข" />
 <?= Form::close(); ?>
+
+</div>

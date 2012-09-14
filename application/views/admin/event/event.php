@@ -1,4 +1,6 @@
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<div id="home">
+  <div id="main" role="main">
+  <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
@@ -38,7 +40,7 @@
 <th> tags</th>
 <th> message</th>
 <th> volunteer_joined</th>
-<tr>
+</tr>
 <? foreach ($events as $event ) :?>
     <tr>
     <td>
@@ -85,3 +87,5 @@
 	</tr>
 <? endforeach ?>
 </table>
+</div>
+</div>

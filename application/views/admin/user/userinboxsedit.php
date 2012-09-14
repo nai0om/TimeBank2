@@ -1,4 +1,6 @@
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<div id="home">
+  <div id="main" role="main">
+  <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 <?= Form::open('admin/userinboxedit/'.$inbox->user_id, array('enctype' => 'multipart/form-data')); ?>
 
@@ -17,7 +19,9 @@
     <label>send_status</label>
     <?= Form::input('send_status', $inbox->send_status ); ?> <br />   
 
-<input type="submit" value="แก้ไข">
+<input type="submit" value="แก้ไข" />
 
 
 <?= Form::close(); ?>
+</div>
+</div>

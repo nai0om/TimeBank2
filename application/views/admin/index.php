@@ -1,4 +1,6 @@
- <h1>Admin Page (Unverified organizations)</h1>
+<div id="home">
+  <div id="main" role="main">
+   <h1>Admin Page (Unverified organizations)</h1>
 	<?php include Kohana::find_file('views', 'admin/menus') ?>
  <p>
  	<h3> เพิ่มงานอาสา แนะนำ (ใส่ event ID) <h3>
@@ -68,3 +70,7 @@
 </select>
 <?= Form::submit('approve', 'approve'); ?>
 <?= Form::close(); ?>
+
+
+</div>
+</div>

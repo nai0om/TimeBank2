@@ -1,4 +1,6 @@
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<div id="home">
+  <div id="main" role="main">
+  <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 <?= Form::open('admin/eventimageedit/'.$image->id, array('enctype' => 'multipart/form-data')); ?>
 
@@ -11,7 +13,10 @@
     <?= Form::input('description', $image->description ); ?> <br />   
     <label>highlight</label>
     <?= Form::input('highlight', $image->highlight); ?> <br /> 
-<input type="submit" value="แก้ไข">
+<input type="submit" value="แก้ไข"/>
 
 
 <?= Form::close(); ?>
+
+</div>
+</div>

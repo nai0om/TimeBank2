@@ -1,4 +1,6 @@
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<div id="home">
+  <div id="main" role="main">
+  <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 <?= Form::open('admin/eventuseredit/', array('enctype' => 'multipart/form-data')); ?>
    <label>user id</label>  <?= $event_id ?><br />
@@ -11,7 +13,10 @@
     <?= Form::input('status', $record['status'] ); ?> <br />   
     <label>time_approve</label>
     <?= Form::input('time_approve', $record['time_approve'] ); ?> <br /> 
-<input type="submit" value="แก้ไข">
+<input type="submit" value="แก้ไข"/>
 
 
 <?= Form::close(); ?>
+
+</div>
+</div>

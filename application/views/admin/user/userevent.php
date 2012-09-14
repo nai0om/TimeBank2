@@ -1,3 +1,5 @@
+<div id="home">
+  <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 
@@ -7,7 +9,7 @@
 <th>event id</th>
 <th>status 1 คือได้ ตอบแล้ว 0 คือยังไม่ได้ตอบรับ</th>
 <th>time_approve user ได้ ใส่ เวลาแล้วหรือยัง</th>
-<tr>
+</tr>
 <? foreach ($records as $record ) :?>
     <tr>
     <td>
@@ -21,3 +23,6 @@
 	</tr>
 <? endforeach ?>
 </table>
+
+</div>
+</div>
