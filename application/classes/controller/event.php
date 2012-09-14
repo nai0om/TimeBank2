@@ -54,7 +54,7 @@ class Controller_Event extends Controller_Template {
 		
 		$event = ORM::factory('event');
 		$event->organization_id  = $this->orguser->id;
-		$this->save_event($event, $this->orguser, false, $message, $errors);
+		$this->save_event($event, $this->orguser, $this->request->method(), false, $message, $errors);
 	} 
 
 	public function action_created()
@@ -139,7 +139,7 @@ class Controller_Event extends Controller_Template {
 		}
 
 		//$locations = Location::get_location_array();		
-		$this->save_event($event, $this->orguser, true, $message, $errors);
+		$this->save_event($event, $this->orguser, $this->request->method(), true, $message, $errors);
 	}
 	
 	public function action_view()
@@ -264,7 +264,14 @@ class Controller_Event extends Controller_Template {
 			
 			$image = $event->images->where('image', '=', Arr::get($_GET, 'image'))->find();	
 			
-			unlink(DOCROOT.'media/upload/events/'.$image->image);
+			try
+			{
+				unlink(DOCROOT.'media/upload/events/'.$image->image);
+						
+            } catch (ORM_Validation_Exception $e) {
+				
+			}
+			
 			$image->delete();
 			// Redirect to event view
 			Request::current()->redirect('event/view/'.$event->id.'?mode=3');
@@ -713,11 +720,11 @@ class Controller_Event extends Controller_Template {
 
 	}
 	
-	private function save_event($event, $orguser, $isupdate, &$message, &$errors)
+	public static function save_event($event, $orguser, $method, $isupdate, &$message, &$errors)
 	{
 		$errors  = array();
 		$pass = true;
-		if (HTTP_Request::POST == $this->request->method()) 
+		if (HTTP_Request::POST == $method) 
 		{
 			$event->name = Arr::get($_POST, 'name');
 			$event->project_name = Arr::get($_POST, 'project_name');
@@ -806,8 +813,8 @@ class Controller_Event extends Controller_Template {
 			if ( Arr::get($_POST, 'any_languate') != '') 
 				$event->languates  = $event->languates.''.Arr::get($_POST, 'any_languate') ;
 			
-				
-			$event->organization = $orguser;
+			if($orguser != NULL)
+				$event->organization = $orguser;
 			
 			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
 			{

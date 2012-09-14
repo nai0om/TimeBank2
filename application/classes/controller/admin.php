@@ -223,6 +223,8 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_usereventremove()
 	{
+		$this->check_admin();
+		
 		if (HTTP_Request::GET == $this->request->method()){		
 		$user_id= Arr::get($_GET, 'u');
 		$event_id = Arr::get($_GET, 'e');
@@ -279,6 +281,222 @@ class Controller_Admin extends Controller_Template {
 	}
 	
 
+//###########################################################		
+//####################  events  control 	#################
+//###########################################################	
+	public function action_event()
+	{
+		
+		$this->check_admin();
+		
+		$events = ORM::factory('event')->order_by('id','desc')->find_all();
+		$this->template->content = View::factory('admin/event/event')
+											->bind('events', $events);
+	}
+	
+	public function action_eventedit()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/event/eventedit')
+										->bind('event', $event)
+										->bind('errors', $errors);
+										
+		$event = ORM::factory('event', $this->request->param('id'));
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$event->status = Arr::get($_POST, 'status');
+			$event->message = Arr::get($_POST, 'message');
+			$event->volunteer_joined = Arr::get($_POST, 'volunteer_joined');
+			Controller_Event::save_event($event, NULL, $this->request->method(), true, $message, $errors);
+		}
+		print_r($errors);
+	}
+	
+	public function action_eventuser()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		// not need organization
+		$records = DB::select()
+				->from('users_events') 	
+				->where('event_id','=',$this->request->param('id'))
+				->order_by('timestamp','desc')
+				->execute();
+				
+		$this->template->content = View::factory('admin/event/eventuser')
+											->bind('records', $records);
+	}
+	
+	public function action_eventuseredit()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/event/eventuseredit')
+										->bind('record', $record)
+										->bind('user_id', $user_id)
+										->bind('event_id', $event_id)
+										->bind('errors', $errors);
+										
+		if (HTTP_Request::GET == $this->request->method()){		
+			$user_id= Arr::get($_GET, 'u');
+			$event_id = Arr::get($_GET, 'e');
+			//if ($user_id  == '' || $event_id == '')  $this->redirect('/');
+			$record = DB::select()
+					->from('users_events') 	
+					->where('user_id','=', $user_id)
+					->where('event_id','=', $event_id)
+					->execute();
+					
+			$record = $record[0];
+		}
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$user_id = Arr::get($_POST, 'user_id');
+			$event_id = Arr::get($_POST, 'event_id');
+			//if ($user_id  == '' || $event_id =='')  $this->redirect('/');
+	
+			DB::update('users_events')->set(
+											array(	
+													'status' => Arr::get($_POST, 'status'), 
+													'time_approve' => Arr::get($_POST, 'time_approve'),
+													))
+							->where('user_id', '=',  $user_id )
+							->where('event_id', '=', $event_id)
+							->order_by('timestamp','desc')
+							->execute();
+			Request::current()->redirect('admin/eventuser/'.$event_id);
+		}
+	}
+	
+	public function action_eventuserremove()
+	{
+		$this->check_admin();
+		
+		if (HTTP_Request::GET == $this->request->method()){		
+		$user_id= Arr::get($_GET, 'u');
+		$event_id = Arr::get($_GET, 'e');
+		DB::delete('users_events')->where('user_id', '=',  $user_id )
+							->where('event_id', '=', $event_id)
+							->execute();
+		Request::current()->redirect('admin/userevent/'.$user_id);
+		}
+	}
+	
+	public function action_eventimage()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		
+		$event = ORM::factory('event', $this->request->param('id'));
+		$images = $event->images;
+		$this->template->content = View::factory('admin/event/eventimage')
+											->bind('images', $images);
+	}
+	
+	public function action_eventimageedit()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/event/eventimageedit')
+										->bind('image', $image)
+										->bind('errors', $errors);
+										
+		$image = ORM::factory('image', $this->request->param('id'));
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$image->description = Arr::get($_POST, 'description');
+			$image->highlight = Arr::get($_POST, 'highlight');
+			if (isset($_FILES['pic_thm']['name']) && $_FILES['pic_thm']['name'] != '')
+			{
+				
+				$image->image = $_FILES['image']['name'];
+			}
+			try{
+			
+				$image->save();			
+			
+			
+				Request::current()->redirect('/admin/eventimage/'.$image->event_id);
+			
+				
+			} catch (ORM_Validation_Exception $e) {
+				// Set errors using custom messages
+				$errors = $e->errors('models');
+				print_r($e);
+			}
+		}
+	}
+	public function action_eventaddimage()
+	{
+		
+	}
+	
+	public function action_eventimagedelete()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$image = ORM::factory('image', $this->request->param('id'));
+		$event_id = $image->event_id;
+		try
+		{
+			unlink(DOCROOT.'media/upload/event/'.$image->image);
+		} catch(ErrorException  $e)
+		{
+			
+		}
+		$image->delete();
+		Request::current()->redirect('/admin/eventimage/'.$event_id);
+	}
+	
+	public function action_eventcomment()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		
+		$event = ORM::factory('event', $this->request->param('id'));
+		$comments = $event->comments;
+		$this->template->content = View::factory('admin/event/eventcomment')
+											->bind('comments', $comments);	
+	}
+	
+	public function action_eventcommentedit()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/event/eventcommentedit')
+										->bind('comment', $comment)
+										->bind('errors', $errors);
+										
+		$comment = ORM::factory('comment', $this->request->param('id'));
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$comment->comment = Arr::get($_POST, 'comment');
+		
+			try{
+			
+				$comment->save();			
+				Request::current()->redirect('/admin/eventcomment/'.$comment->event_id);
+				
+			} catch (ORM_Validation_Exception $e) {
+				// Set errors using custom messages
+				$errors = $e->errors('models');
+				print_r($e);
+			}
+		}
+	}
+	
+	public function action_eventcommentdelete()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$comment = ORM::factory('comment', $this->request->param('id'));
+		$event_id = $comment->event_id;
+		$comment->delete();
+		Request::current()->redirect('/admin/eventcomment/'.$event_id);
+		
+	}
+
 	
 //###########################################################		
 //####################  knowledge  control ##################
@@ -323,6 +541,7 @@ class Controller_Admin extends Controller_Template {
 		$knowledge->delete();	
 		Request::current()->redirect('admin/knowledge/knowledge/');
 	}
+	
 	
 //###########################################################		
 //####################  news  control 		#################
