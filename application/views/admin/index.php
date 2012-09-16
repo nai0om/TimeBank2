@@ -30,7 +30,7 @@
       
      <br /> 
     <p align="center" style="margin:0;">
-    <img src="/TimeBank/media/img/tb_line.png">
+    	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
       <p>
         <h3> เพิ่มบอกเล่าจากใจอาสา </h3>
@@ -58,7 +58,7 @@
      
     <br />   
     <p align="center" style="margin:0;">
-    <img src="/TimeBank/media/img/tb_line.png">
+   	 	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
     <p> <h3>Unverified organizations</h3>  
      <table border="1">
@@ -115,7 +115,7 @@
         </p>
     </p>
     <p align="center" style="margin:0;">
-    <img src="/TimeBank/media/img/tb_line.png">
+    	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
 </p>
 
