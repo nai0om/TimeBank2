@@ -61,7 +61,7 @@ class Controller_Welcome extends Controller_Template {
 	
 		
 		$comments = array();
-		$comment_recomends =  ORM::factory('comment')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
+		$comment_recomends =  ORM::factory('comment')->where('recommend', '=', '1')->where('organization_id', '=', '0')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
 		
 		foreach($comment_recomends as $comment_recomend)
 		{
