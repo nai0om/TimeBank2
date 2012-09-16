@@ -269,7 +269,7 @@ class Controller_Admin extends Controller_Template {
 				$inbox->save();			//loop for sub image
 			
 			
-				Request::current()->redirect('/admin/userinbox/'.$inbox->id);
+				Request::current()->redirect('/admin/userinbox/'.$inbox->user_id);
 			
 				
 			} catch (ORM_Validation_Exception $e) {
@@ -280,6 +280,83 @@ class Controller_Admin extends Controller_Template {
 
 	}
 	
+//###########################################################		
+//################  organization  control 	#################
+//###########################################################
+	public function action_organization()
+	{
+		$this->check_admin();
+		
+		$organizations = DB::select()->from('organizations')->order_by('id','desc')->execute()->as_array();
+
+		$this->template->content = View::factory('admin/organization/organization')
+											->bind('organizations', $organizations);
+		for($i = 0 ; $i < count($organizations) ; $i++)
+		{ 
+			$organizations[$i]['email'] = ORM::factory('user', $organizations[$i]['user_id'])->email;
+		}
+	}
+	
+	public function action_organizationedit()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/organization/organizationedit')
+										->bind('organization', $organization)
+										->bind('user_organization', $user_organization)
+										->bind('errors', $errors);
+										
+						
+		$organization = ORM::factory('organization', $this->request->param('id'));
+		$user_organization = ORM::factory('user', $organization->user_id);
+		$this->organization_save($organization, $user_organization, $errors);
+	}
+	
+		
+		// user inbox
+	public function action_organizationinbox()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+	
+		// not need organization
+		$inboxes = ORM::factory('inbox')->where('organization_id','=', $this->request->param('id'))->order_by('created','desc')->find_all();
+		
+		$this->template->content = View::factory('admin/organization/organizationinbox')
+											->bind('inboxes', $inboxes);
+	}
+	
+	public function action_organizationinboxedit()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/organization/organizationinboxedit')
+										->bind('inbox', $inbox)
+										->bind('errors', $errors);
+										
+		$inbox = ORM::factory('inbox', $this->request->param('id'));
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$inbox->is_removed = Arr::get($_POST, 'is_removed');
+			$inbox->is_read = Arr::get($_POST, 'is_read');
+			$inbox->title = Arr::get($_POST, 'title');
+			$inbox->message = Arr::get($_POST, 'message');
+			$inbox->send_status = Arr::get($_POST, 'send_status');
+			try{
+			
+				$inbox->save();			//loop for sub image
+			
+				Request::current()->redirect('/admin/organizationinbox/'.$inbox->organization_id);
+			
+				
+			} catch (ORM_Validation_Exception $e) {
+				// Set errors using custom messages
+				$errors = $e->errors('models');
+			}
+		}
+
+	}	
 
 //###########################################################		
 //####################  events  control 	#################
@@ -289,9 +366,16 @@ class Controller_Admin extends Controller_Template {
 		
 		$this->check_admin();
 		
-		$events = ORM::factory('event')->order_by('id','desc')->find_all();
 		$this->template->content = View::factory('admin/event/event')
 											->bind('events', $events);
+		$events = ORM::factory('event');
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			if(trim(Arr::get($_GET, 'org') != '')) 
+				$events = $events->where('organization_id', '=', trim(Arr::get($_GET, 'org')));
+		}
+		
+		$events = $events->order_by('id','desc')->find_all();
 	}
 	
 	public function action_eventedit()
@@ -920,6 +1004,65 @@ class Controller_Admin extends Controller_Template {
 			}
 		}
 	}
+	
+	private function organization_save($org, $usr_org, &$errors)
+	{
+		
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			if(Arr::get($_POST, 'email') != '')
+			{
+	
+				$usr_org->email = Arr::get($_POST, 'email');
+				
+				try 
+				{
+					$usr_org->save();
+				} catch (ORM_Validateion_Exeception $e){
+					$errors = $e->errors('models');
+				}
+			}
+			
+			$org->name = Arr::get($_POST, 'name');
+			$org->objective = Arr::get($_POST, 'objective');
+			$org->activity = Arr::get($_POST, 'activity');
+			$org->address = Arr::get($_POST, 'address');
+			$org->province = Arr::get($_POST, 'province');
+			$org->postcode = Arr::get($_POST, 'postcode');
+			$org->district = Arr::get($_POST, 'district');
+			$org->fax = Arr::get($_POST, 'fax');
+			$org->homephone = Arr::get($_POST, 'homephone');			
+			$org->contactperson = Arr::get($_POST, 'contactperson');			
+			$org->facebook = Arr::get($_POST, 'facebook');			
+			$org->twitter = str_replace('@', '', Arr::get($_POST, 'twitter'));	
+			$org->website = Arr::get($_POST, 'website');				
+			$org->noti_volunteerregister =  Arr::get($_POST, 'noti_volunteerregister');
+			$org->noti_eventend =  Arr::get($_POST, 'noti_eventend');
+			$org->noti_eventalmostend =  Arr::get($_POST, 'noti_eventalmostend');
+			
+			if (isset($_FILES['logo']['name']) && $_FILES['logo']['name'] != '')
+			{
+				$org->logo = $_FILES['logo']['name'];
+			}
+			
+			try
+			{
+				$org->save();
+                 
+				Request::current()->redirect('admin/organization');
+				
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set failure message
+                $message = __('There were errors, please see form below.');
+                
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+				//print_r($errors);
+            }
+		}
+	}
+
 	
 	private function check_admin()
 	{
