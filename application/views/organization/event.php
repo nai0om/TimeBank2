@@ -90,8 +90,40 @@
 					<td><?=  $event->volunteer_need_count ?> คน</td>
                     <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?>
                     	<?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?>
-						<?= HTML::anchor('#', 'ปิดงาน', array('onclick' => "var answer = confirm ('ก่อนปิดงานกรุณาเขียนคำขอบคุณอาสาในหน้างานอาสา และทำการอัพโหลดรูปงานอาสาด้วยครับ หลังจากคุณสั่งปิดงานแล้ว ระบบจะทำการส่งเมล์ไปแจ้งอาสาให้เข้ามาดูคำขอบคุณของคุณ คุณแน่ใจหรือที่จะปิดงาน?') 
-if (answer) window.location='".url::base()."event/closed/".$event->id."'") ); ?></td>
+						<?= HTML::anchor('#', 'ปิดงาน', array('id' => 'confirm'.$event->id)) ?>
+                        <div id="dialog-confirm<?= $event->id ?>" title="หยุดก่อน"  > 
+                            อาสาจะได้รับการแจ้งเตือนใันทีเมื่อคุณปิดงาน ดังนั้นขอแนะนำให้ทำตามลำดับดังนี้ <br />
+                            1. เขียนคำขอบคุณ<br />
+                            2. ใส่รูปกิจกรรมที่ผ่านมาแล้ว<br />
+                            3. ปิดงาน<br />
+                            4. ใส่จำนวนอาสา (หลังจากกดปิดงานแล้ว)<br />
+                        </div> 
+                       <script>
+					       $(function() {
+								$("#dialog-confirm<?= $event->id ?>").dialog({
+									resizable: false,
+									height:340,
+									width : 400,
+									modal: true,
+									autoOpen: false,
+									buttons: {
+										'ปิดงาน (ทำ 1 และ 2 แล้ว)': function() {
+											$(this).dialog('close');
+											window.location = "<?= url::base()."event/closed/".$event->id ?>"
+										},
+										'ยกเลิก (กลับไปทำ 1 และ 2 ก่อน)': function() {
+											$(this).dialog('close');
+										}
+									}
+								});
+								
+								$("#confirm<?= $event->id ?>").click(function() {
+							
+								  $("#dialog-confirm<?= $event->id ?>").dialog('open');
+								  return false;
+								});
+							});
+					   </script>
 				</tr>
                 <? endforeach ?>
 				
@@ -123,4 +155,7 @@ function check_all(){
 		});
 	}
 }
+
+
+
 </script>
