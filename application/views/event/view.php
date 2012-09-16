@@ -144,7 +144,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
              <p class="post-data"><?= $event->message ?> </p>
         </div>
         <? endif ?>
-		<? if($isAdmin) : ?>
+		<? if($isOrga) : ?>
             <div id="post">
                 <h2>***หลังจบ*** กิจกรรมอาสาแล้ว อย่าลืมมาเขียนคำขอบคุณให้จิตอาสาที่ไปร่วมงานนะครับ</h2>
                <?
