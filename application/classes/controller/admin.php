@@ -10,7 +10,8 @@ class Controller_Admin extends Controller_Template {
 											->bind('organizations', $organizations)
 											->bind('event_select', $event_select)
 											->bind('event_recommend', $event_recommend)
-											->bind('comments', $comments);
+											->bind('comment_select', $comment_select)
+											->bind('comment_recommend', $comment_recommend);
 		
 		
 		$organizations = ORM::factory('organization')->where('verified', '=', 0)->find_all();
@@ -22,11 +23,16 @@ class Controller_Admin extends Controller_Template {
 			$name = $event->id.' - '.$event->name;
 			$event_select[$event->id] = $name; 
 		}
-		
 		$event_recommend = ORM::factory('event')->where('recommend', '=', '1')->order_by('id','desc')->find_all();
-		
-		$comments = DB::select()->from('users_comment_highlight')->execute()->as_array('id');
-		
+	
+		$comments = ORM::factory('comment')->where('recommend', '=', '0')->order_by('id','desc')->find_all();
+		$comment_select = array();
+		foreach($comments as $comment )
+		{
+			$name = $comment->id.' - '.$comment->comment;
+			$comment_select[$comment->id] = $name; 
+		}
+		$comment_recommend = ORM::factory('comment')->where('recommend', '=', '1')->order_by('id','desc')->find_all();
 	}
 	
 	public function action_addrecommend()
@@ -71,23 +77,63 @@ class Controller_Admin extends Controller_Template {
 	
 	}
 	
-	public function action_addHighlighComment()
+	
+	public function action_addcomment()
 	{
 		$this->check_admin();		
         if (HTTP_Request::POST == $this->request->method()) 
         {           
-			// delete all 
-		 	DB::delete('users_comment_highlight')->execute();
+			$comment = ORM::factory('comment', Arr::get($_POST, 'comment_id'));
 			
-			for($i = 1 ; $i<=3 ; $i++)
+			$comment->recommend = 1;
+			try
 			{
-				DB::insert('users_comment_highlight', array('id', 'comment_id'))
-				->values( array($i, Arr::get($_POST, $i)))
-				->execute();
+				$comment->save();	
+			} catch (ORM_Validation_Exception $e) {
+			
+				// Set errors using custom messages
+				print_r($e->errors('models'));
 			}
-		Request::current()->redirect('admin/index');
+			Request::current()->redirect('admin/index');
 			
 		}
+		
+		if (HTTP_Request::GET == $this->request->method()) 
+        {           
+			$comment = ORM::factory('comment', Arr::get($_GET, 'comment_id'));
+			
+			$comment->recommend = 1;
+			try
+			{
+				$comment->save();	
+			} catch (ORM_Validation_Exception $e) {
+			
+				// Set errors using custom messages
+				print_r($e->errors('models'));
+			}
+			Request::current()->redirect('event/view/'.$comment->event_id."#".$comment->id);
+			
+		}
+	}
+	
+	public function action_removecomment()
+	{
+		$this->check_admin();		
+			 
+		$comment = ORM::factory('comment', $this->request->param('id'));
+		
+		$comment->recommend = 0;
+		try
+		{
+			$comment->save();	
+		} catch (ORM_Validation_Exception $e) {
+		
+		
+			// Set errors using custom messages
+			print_r($e->errors('models'));
+		}
+		Request::current()->redirect('admin/index');
+	
 	}
 	
 	public function action_approve()

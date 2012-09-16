@@ -58,29 +58,25 @@ class Controller_Welcome extends Controller_Template {
 		$time_done = timebankhelper::getFinsihedTime();
 		
 		$time_want =  timebankhelper::getWantedTime();
+	
 		
 		$comments = array();
-		$user_highlight = DB::select()->from('users_comment_highlight')->execute();
+		$comment_recomends =  ORM::factory('comment')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
 		
-		foreach($user_highlight as $highlight)
+		foreach($comment_recomends as $comment_recomend)
 		{
-			$id = $highlight['comment_id'];
-			$comment = DB::select()->from('comments')->where('id', '=', $id)->execute();
 			
-			if(count($comment) == 0) continue;
-			
-			$comment = $comment[0];
-			$user = ORM::factory('user', $comment['user_id']);
+			$comment = array();
+			$user = ORM::factory('user', $comment_recomend->user_id);
 			// in case of organization id.
 			if(!$user->loaded()) continue;
 			
 			$comment['user_image'] = $user->profile_image;
 			$comment['user_display'] = $user->displayname;
-			
+			$comment['event_id'] = $comment_recomend->event_id;
+			$comment['comment'] = $comment_recomend->comment;
 			$comments[] = $comment;
-		
 		}
-		
    	}
 	
 	public function action_timebankhow()

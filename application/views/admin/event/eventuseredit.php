@@ -1,5 +1,5 @@
-<div id="home">
-  <div id="main" role="main">
+<div  id="tb_browse_searchResult" class="search">  
+<div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
 
 <?= Form::open('admin/eventuseredit/', array('enctype' => 'multipart/form-data')); ?>
