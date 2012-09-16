@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 14, 2012 at 09:07 AM
+-- Generation Time: Sep 16, 2012 at 08:05 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -35,6 +35,7 @@ CREATE TABLE `comments` (
   `comment` text COLLATE utf8_unicode_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `organization_id` int(11) NOT NULL,
+  `recommend` int(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
@@ -42,10 +43,10 @@ CREATE TABLE `comments` (
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`id`, `type`, `event_id`, `user_id`, `ip`, `comment`, `timestamp`, `organization_id`) VALUES
-(3, 2, 1, 0, '::1', 'qweqe', '2012-08-05 17:44:26', 3),
-(4, 2, 1, 0, '::1', 'asdfasd', '2012-08-05 17:49:18', 3),
-(8, 2, 8, 0, '::1', 'asdfasdfas', '2012-08-09 16:45:46', 3);
+INSERT INTO `comments` (`id`, `type`, `event_id`, `user_id`, `ip`, `comment`, `timestamp`, `organization_id`, `recommend`) VALUES
+(3, 2, 10, 1, '::1', 'qweqe', '2012-08-05 17:44:26', 3, 1),
+(4, 2, 10, 1, '::1', 'asdfasd', '2012-08-05 17:49:18', 3, 1),
+(8, 2, 10, 1, '::1', 'asdfasdfas', '2012-08-09 16:45:46', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -144,18 +145,17 @@ CREATE TABLE `events` (
   `tags` text COLLATE utf8_unicode_ci NOT NULL,
   `message` text COLLATE utf8_unicode_ci NOT NULL,
   `volunteer_joined` int(11) NOT NULL,
+  `recommend` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `search_temp`, `signup_begin_date`, `signup_end_date`, `volunteer_begin_date`, `volunteer_end_date`, `signup_begin_time`, `signup_end_time`, `volunteer_begin_time`, `volunteer_end_time`, `organization_id`, `location_id`, `location_name`, `location_district`, `location_province`, `location_postcode`, `status`, `name`, `phone`, `contractor_name`, `project_name`, `volunteer_need_count`, `time_cost`, `detail`, `travel_detail`, `inquiry_detail`, `is_need_expense`, `expense_detail`, `image`, `skills`, `languates`, `technical`, `days`, `timestamp`, `tags`, `message`, `volunteer_joined`) VALUES
-(7, '2345234/523452345//<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events = $organization-&gt;events-&gt;where(''event.status'', ''='', ''0'')-&gt;find_all();&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // open events<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events = $organization-&gt;events-&gt;where(''event.status'', ''='', ''1'')-&gt;find_all();&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $hours_sum = 0;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $total_valun = 0;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events_pass = $organization-&gt;events-&gt;where(''event.status'', ''='', ''0'')-&gt;find_all();&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; foreach($events_pass as $event)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $hours_sum +=&nbsp; $event-&gt;time_cost * $event-&gt;volunteer_joined;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $total_valun += $event-&gt;volunteer_need_count;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;</p>/23452345', '2012-08-01', '2012-08-16', '2012-08-06', '2012-08-25', '00:00:00', '23:59:59', '01:00:00', '21:00:00', 3, NULL, '23452345', '3452345', '17', '234523', 0, 'ปุ่ม "create" สมัครสมาชิกองค์กร /organization/create', NULL, NULL, '523452345', 1, 138820, '<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events = $organization-&gt;events-&gt;where(''event.status'', ''='', ''0'')-&gt;find_all();&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // open events<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events = $organization-&gt;events-&gt;where(''event.status'', ''='', ''1'')-&gt;find_all();&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $hours_sum = 0;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $total_valun = 0;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events_pass = $organization-&gt;events-&gt;where(''event.status'', ''='', ''0'')-&gt;find_all();&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; foreach($events_pass as $event)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $hours_sum +=&nbsp; $event-&gt;time_cost * $event-&gt;volunteer_joined;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $total_valun += $event-&gt;volunteer_need_count;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;</p>', '<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events = $organization-&gt;events-&gt;where(''event.status'', ''='', ''0'')-&gt;find_all();&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // open events<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events = $organization-&gt;events-&gt;where(''event.status'', ''='', ''1'')-&gt;find_all();&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $hours_sum = 0;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $total_valun = 0;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events_pass = $organization-&gt;events-&gt;where(''event.status'', ''='', ''0'')-&gt;find_all();&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; foreach($events_pass as $event)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $hours_sum +=&nbsp; $event-&gt;time_cost * $event-&gt;volunteer_joined;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $total_valun += $event-&gt;volunteer_need_count;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;</p>', '<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events = $organization-&gt;events-&gt;where(''event.status'', ''='', ''0'')-&gt;find_all();&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // open events<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events = $organization-&gt;events-&gt;where(''event.status'', ''='', ''1'')-&gt;find_all();&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $hours_sum = 0;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $total_valun = 0;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $events_pass = $organization-&gt;events-&gt;where(''event.status'', ''='', ''0'')-&gt;find_all();&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; foreach($events_pass as $event)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $hours_sum +=&nbsp; $event-&gt;time_cost * $event-&gt;volunteer_joined;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $total_valun += $event-&gt;volunteer_need_count;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;</p>', 0, '', NULL, ' 1101|1102|2101|2102|2103|2104|2105|2106|2107|', '', '', '', '2012-08-08 20:37:15', 'งานอาสาทั่วไป, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, หัตถกรรมและงานฝีมือ เย็บ ปัก ถัก ร้อย, ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, ประสานงานและบริหารจัดการ, เด็กและเยาวชน, สตรี, ผู้สูงอายุและครอบครัว, ผู้พิการ, ไอที และคอมพิวเตอร์กราฟฟิค, สื่อ สื่อสาร ประชาสัมพันธ์ และการตลาด, สุนัข แมว และสัตว์เลี้ยง, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ', '', 23),
-(8, 'sdafsdfasdfa/asdfasfasdfas//<p>asfasdfasdf</p>/qwe', NULL, '2012-08-31', '2012-08-01', '2012-08-24', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 3, NULL, 'qwe', 'qwerqwer', '1', '1234', 1, 'sdafsdfasdfa', NULL, NULL, 'asdfasfasdfas', 12, 576, '<p>asfasdfasdf</p>', '<p>asdfaasdf</p>', '<p>asdfasdfsadf</p>', 0, '', NULL, ' 1101|1102|', '', '', 'อาทิตย์, จันทร์, อังคาร, พุธ, พฤหัสบดี, ศุกร์, เสาร์, ', '2012-08-20 20:05:37', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, ', '', 0),
-(9, 'สร้างงานอาสาใหม่/สร้างงานอาสาใหม่//<p>adfasdfasdfasdfas</p>/12313', NULL, '2012-08-07', '2012-08-30', '2012-08-31', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 3, NULL, '12313', '12323', '1', '121', 1, 'สร้างงานอาสาใหม่', NULL, NULL, 'สร้างงานอาสาใหม่', 12, 48, '<p>adfasdfasdfasdfas</p>', '<p>dfasdfasdfasdfasdf</p>', '<p>asdfasdfasdfasdf</p>', 0, '', NULL, ' ', '', '', '', '2012-08-14 16:48:19', 'งานอาสาทั่วไป, กู้ภัยและฟื้นฟูจากภัยพิบัติ, ', '', 0),
-(10, 'asdfasdfasdf/asdfasdfasdfasdfasdf//<ol>\n<li>asdfasdfasdfasdfasdf</li>\n</ol>\n<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>/asdfasdfasdfasdfasdf', NULL, '2012-09-28', '2012-08-02', '2012-09-29', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 3, NULL, 'asdfasdfasdfasdfasdf', 'asdfasdfasdfasdfasdf', '19', 'asdfasdfasdfasdfasdf', 0, 'asdfasdfasdf', NULL, NULL, 'asdfasdfasdfasdfasdf', 12, 192, '<ol>\n<li>asdfasdfasdfasdfasdf</li>\n</ol>\n<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', '<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', '<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', 0, '', '5052a9b40c58aWP_000453.jpg', ' ', '', '', 'อังคาร, ', '2012-09-14 04:19:14', 'ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ', 'สวัสดีจ้า', 0);
+INSERT INTO `events` (`id`, `search_temp`, `signup_begin_date`, `signup_end_date`, `volunteer_begin_date`, `volunteer_end_date`, `signup_begin_time`, `signup_end_time`, `volunteer_begin_time`, `volunteer_end_time`, `organization_id`, `location_id`, `location_name`, `location_district`, `location_province`, `location_postcode`, `status`, `name`, `phone`, `contractor_name`, `project_name`, `volunteer_need_count`, `time_cost`, `detail`, `travel_detail`, `inquiry_detail`, `is_need_expense`, `expense_detail`, `image`, `skills`, `languates`, `technical`, `days`, `timestamp`, `tags`, `message`, `volunteer_joined`, `recommend`) VALUES
+(10, 'asdfasdfasdf/asdfasdfasdfasdfasdf//<ol>\n<li>asdfasdfasdfasdfasdf</li>\n</ol>\n<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>/asdfasdfasdfasdfasdf', NULL, '2012-09-28', '2012-08-02', '2012-09-29', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 3, NULL, 'asdfasdfasdfasdfasdf', 'asdfasdfasdfasdfasdf', '19', 'asdfasdfasdfasdfasdf', 1, 'asdfasdfasdf', NULL, NULL, 'asdfasdfasdfasdfasdf', 12, 192, '<ol>\n<li>asdfasdfasdfasdfasdf</li>\n</ol>\n<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', '<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', '<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', 0, '', '5052a9b40c58aWP_000453.jpg', ' ', '', '', 'อังคาร, ', '2012-09-16 17:13:55', 'ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ', 'สวัสดีจ้า', 0, 0),
+(11, ' asdfasdf/sdfasdfasdfas//<p>sdfsadfasdfasdfasdfadf</p>/asdasdfasdfsa', NULL, '2012-09-29', '2012-09-02', '2012-09-30', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 3, NULL, 'asdasdfasdfsa', 'fasdfasdf12', '2', '3123211', 1, ' asdfasdf', NULL, NULL, 'sdfasdfasdfas', 23, 696, '<p>sdfsadfasdfasdfasdfadf</p>', '<p>sdfasdfasdfadsf</p>', '<p>asdfasdfasdfa</p>', 0, '<p>asdfasdf</p>', '5052d887694b2AlbumArt_{18F1C30A-581C-4F55-BDED-29D1722BA155}_Large.jpg', ' 11011|11012|1102|12031|12051T= |12042|', '', '', '', '2012-09-16 16:29:45', 'ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -219,16 +219,23 @@ CREATE TABLE `inboxes` (
   `send_status` int(11) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `inboxes`
 --
 
 INSERT INTO `inboxes` (`id`, `user_id`, `organization_id`, `is_removed`, `is_read`, `title`, `message`, `send_status`, `created`) VALUES
-(1, 1, 0, 1, 0, 'ทดสอบ99', 'messageสำหรับทดสอบ1', 0, '2012-06-11 03:03:47'),
+(1, 19, 0, 1, 0, 'ทดสอบ99xxxx', 'messageสำหรับทดสอบ1', 0, '2012-06-11 03:03:47'),
 (2, 0, 3, 1, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-06-11 03:04:11'),
-(3, 0, 3, 1, 0, 'ทดสอ3', 'messageสำหรับทดสอบ3', 0, '2012-06-11 03:04:11');
+(3, 0, 3, 1, 0, 'ทดสอ3', 'messageสำหรับทดสอบ3', 0, '2012-06-11 03:04:11'),
+(4, 0, 0, 1, 0, 'ทดสอ3', 'messageสำหรับทดสอบ3', 0, '2012-09-15 12:30:44'),
+(5, 0, 0, 1, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-09-15 12:31:15'),
+(6, 0, 0, 1, 0, 'ทดสอบ2123', 'messageสำหรับทดสอบ2', 0, '2012-09-15 12:31:53'),
+(7, 0, 0, 1, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-09-15 12:32:26'),
+(8, 0, 0, 1, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-09-15 12:33:11'),
+(9, 0, 0, 1, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-09-15 12:33:53'),
+(10, 0, 0, 1, 0, 'ทดสอบ99', 'messageสำหรับทดสอบ1', 0, '2012-09-15 12:38:58');
 
 -- --------------------------------------------------------
 
@@ -353,31 +360,7 @@ CREATE TABLE `organizations` (
 --
 
 INSERT INTO `organizations` (`id`, `search_temp`, `user_id`, `verified`, `noti_volunteerregister`, `noti_eventalmostend`, `noti_eventend`, `name`, `objective`, `activity`, `address`, `district`, `province`, `postcode`, `homephone`, `fax`, `contactperson`, `facebook`, `twitter`, `website`, `logo`, `timestamp`) VALUES
-(3, '', 2, 1, 0, 1, 0, 'ชื่ออออออออออออ', '<p>ดดดดดดดดดดดดดดดดวัตถุประสงค์dfasdf</p>', '<p>qssd</p>', 'zzzzzzz', 'เขต', 'zzzzzzz', 'ไปรษณีย์', '1231231231313', 'โทรสาร', 'บ้าน', 'facebook.com/jitarsa', '12213213', 'http://www.jitarsa.orgg', '501eb200f2adaDSC_3143.jpg', '2012-08-16 18:28:31'),
-(4, '', 3, 1, 1, 1, 1, '123124124124', '1231412314124214', '1231412314124214123141231412421412314123141242141231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', '1231412314124214', NULL, '2012-08-08 17:57:47'),
-(5, '', 12, 1, 1, 1, 1, 'ธนาคารจิตอาสา', 'เราเชื่อว่าสังคมไทยจะเป็นสังคมอุดมไปด้วยความรักความสุข มีความมั่นคง และพัฒนาก้าวหน้าต่อไปได้ เพราะทุกคนร่วมสร้างสังคมนี้ขึ้นมา ไม่จำกัดว่าเป็นวัยไหนหรืออยู่ในหน้าที่การงานใด เราต่างมีความมุ่งมั่นตั้งใจเพื่อสร้างประเทศไทย เราไม่นิ่งเฉยดูดาย แต่จะลุกขึ้นยื่นมือมาช่วยเหลือกัน ทุกๆ คนบนผืนแผ่นดินไทยสามารถเป็นอาสาสมัครผู้อุทิศกำลังความสามารถและเวลาอันมีค่าของตนให้แก่ประโยชน์ส่วนรวม', 'ธนาคารจิตอาสามีภากิจ 3 ส่วนหลัก ได้แก่1. ระบบธนาคารเวลา (Time Bank)Time Bank เป็นระบบสนับสนุนการทำงานอาสา ที่เข้าถึงได้ทาง Internet ให้อาสาสมัครได้แสดงความตั้งใจจะใช้เวลาเพื่อทำงานอาสา โดยรวบรวมสถิติการใช้เวลา ยังมีระบบคัดเลือกและแนะนำงาน (matching) ให้ค้นหางานอาสาที่เหมาะกับตนเอง ตรงกับความสนใจ ความถนัด ทักษะ ความสามารถ หรือความสะดวก ไม่เฉพาะแต่ในสถานการณ์ภัยพิบัติเท่านั้น แต่ยังรวมถึงงานอาสาสมัครเพื่อสังคมทุกประเภทที่มีอยู่แล้วในประเทศไทยด้วย2. การปฐมนิเทศและการอบรม (Orientation and Training)การปฐมนิเทศและการอบรมอาสาเป็นกระบวนการเตรียมพร้อมอาสาสมัครก่อนลงไปทำงานอาสา เพื่อให้อาสาได้เกิดประสบการณ์ที่ดี ได้เรียนรู้ และพัฒนาตนเองอย่างรอบด้านทั้งทางกาย ทางใจ และทางสังคม นอกจากนี้การจัดอบรมให้กับองค์กรที่รับอาสาเข้าไปทำงานก็เป็นสิ่งสำคัญเช่นกัน เพราะการจัดกิจกรรมเพื่อให้เกิดประโยชน์สูงสุดกับอาสานั้นจำเป็นต้องมีทั้งความเข้าใจและทักษะ รวมถึงมีการจัดทำคู่มือรวบรวมองค์ความรู้เรื่องการปฐมนิเทศและการอบรมด้วย3. อาสาสัมพันธ์ (Volunteer Relation Managaement: VRM)งานอาสาสัมพันธ์เป็นการสร้างความต่อเนื่องในการมีกิจกรรมความร่วมมือและสื่อสาระะหว่างอาสาสมัครและองค์กรที่จัดกิจกรรม นอกจากจะเป็นช่องทางในการสื่อสาร งานอาสาสัมพันธ์ยังช่วยให้กำลังใจ เปิดโอกาสการแลกเปลี่ยนประสบการณ์ และความประทับใจ จากการทำงาน ตลอดจนสามารถพัฒนาเป็นชุมชนเครือข่ายความร่วมมือตามประเด็นความสนใจ หรือตามพื้นที่ต่อไป', '10 ซ.3 ถ.พหลโยธิน สามเสนใน', 'พญาไท', 'กรุงเทพมหานคร', '10400', '02-617-1797', '02-617-1796', 'ธีรัช', 'www.facebook.com/JitArsaBank', '@JitArsaBank', 'www.JitArsaBank.com', '5017428dd707bAW-logoJitArsaThai_cropped.jpg', '2012-08-01 06:42:35');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `recommend_event`
---
-
-CREATE TABLE `recommend_event` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `event_id` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `recommend_event`
---
-
-INSERT INTO `recommend_event` (`id`, `event_id`, `timestamp`) VALUES
-(1, 7, '2012-08-08 20:12:26'),
-(2, 0, '2012-08-08 20:12:26'),
-(3, 0, '2012-08-08 20:12:26');
+(5, '', 12, 1, 1, 1, 1, 'ธนาคารจิตอาสา', 'เราเชื่อว่าสังคมไทยจะเป็นสังคมอุดมไปด้วยความรักความสุข มีความมั่นคง และพัฒนาก้าวหน้าต่อไปได้ เพราะทุกคนร่วมสร้างสังคมนี้ขึ้นมา ไม่จำกัดว่าเป็นวัยไหนหรืออยู่ในหน้าที่การงานใด เราต่างมีความมุ่งมั่นตั้งใจเพื่อสร้างประเทศไทย เราไม่นิ่งเฉยดูดาย แต่จะลุกขึ้นยื่นมือมาช่วยเหลือกัน ทุกๆ คนบนผืนแผ่นดินไทยสามารถเป็นอาสาสมัครผู้อุทิศกำลังความสามารถและเวลาอันมีค่าของตนให้แก่ประโยชน์ส่วนรวม', 'ธนาคารจิตอาสามีภากิจ 3 ส่วนหลัก ได้แก่1. ระบบธนาคารเวลา (Time Bank)Time Bank เป็นระบบสนับสนุนการทำงานอาสา ที่เข้าถึงได้ทาง Internet ให้อาสาสมัครได้แสดงความตั้งใจจะใช้เวลาเพื่อทำงานอาสา โดยรวบรวมสถิติการใช้เวลา ยังมีระบบคัดเลือกและแนะนำงาน (matching) ให้ค้นหางานอาสาที่เหมาะกับตนเอง ตรงกับความสนใจ ความถนัด ทักษะ ความสามารถ หรือความสะดวก ไม่เฉพาะแต่ในสถานการณ์ภัยพิบัติเท่านั้น แต่ยังรวมถึงงานอาสาสมัครเพื่อสังคมทุกประเภทที่มีอยู่แล้วในประเทศไทยด้วย2. การปฐมนิเทศและการอบรม (Orientation and Training)การปฐมนิเทศและการอบรมอาสาเป็นกระบวนการเตรียมพร้อมอาสาสมัครก่อนลงไปทำงานอาสา เพื่อให้อาสาได้เกิดประสบการณ์ที่ดี ได้เรียนรู้ และพัฒนาตนเองอย่างรอบด้านทั้งทางกาย ทางใจ และทางสังคม นอกจากนี้การจัดอบรมให้กับองค์กรที่รับอาสาเข้าไปทำงานก็เป็นสิ่งสำคัญเช่นกัน เพราะการจัดกิจกรรมเพื่อให้เกิดประโยชน์สูงสุดกับอาสานั้นจำเป็นต้องมีทั้งความเข้าใจและทักษะ รวมถึงมีการจัดทำคู่มือรวบรวมองค์ความรู้เรื่องการปฐมนิเทศและการอบรมด้วย3. อาสาสัมพันธ์ (Volunteer Relation Managaement: VRM)งานอาสาสัมพันธ์เป็นการสร้างความต่อเนื่องในการมีกิจกรรมความร่วมมือและสื่อสาระะหว่างอาสาสมัครและองค์กรที่จัดกิจกรรม นอกจากจะเป็นช่องทางในการสื่อสาร งานอาสาสัมพันธ์ยังช่วยให้กำลังใจ เปิดโอกาสการแลกเปลี่ยนประสบการณ์ และความประทับใจ จากการทำงาน ตลอดจนสามารถพัฒนาเป็นชุมชนเครือข่ายความร่วมมือตามประเด็นความสนใจ หรือตามพื้นที่ต่อไป', '10 ซ.3 ถ.พหลโยธิน สามเสนใน', 'พญาไท', 'กรุงเทพมหานคร', '10400', '02-617-1797', '02-617-1796', 'ธีรัช', 'www.facebook.com/JitArsaBank', 'JitArsaBank', 'www.JitArsaBank.com', '5055719a08127WP_000452.jpg', '2012-09-16 06:28:42');
 
 -- --------------------------------------------------------
 
@@ -494,27 +477,6 @@ INSERT INTO `users` (`id`, `email`, `password`, `displayname`, `noti_eventrecomm
 (11, 'nonarav@gmail.com', 'b0bbcfb119e56170285fab36ad273911', 'ต้นเด้อ', 1, 1, 1, 1, 1, 1, 1, 'ต้น', 0, 'วรานนท์', 'ทองแกม', '0000-00-00', '0891130030', '', '501600a0056fepig-4.jpg', '', '', '2012-07-30 03:35:55', 'm', '', '2202T=photoshop|', 'งานอาสาทั่วไป, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ไอที และคอมพิวเตอร์กราฟฟิค, ', '', '0'),
 (12, 'jitarsabank@gmail.com', '9530d321cf6607fafc56f7ef1e7aa7f4', '', 1, 1, 1, 1, 1, 1, 1, '', 1, '', '', '0000-00-00', '', '', '', '', '', '2012-07-31 02:22:06', '', '', '', '', '', ''),
 (19, 'org2@jitarsa.org', '7039439900bbb4bd76f69985d3fd9210', 'asdfasdfasdfasdf', 1, 1, 1, 1, 1, 1, 1, '', 0, '', '', '0000-00-00', '', 'sdfgsgsdfg', '', '', '', '2012-09-12 17:13:29', '', '', '', '', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users_comment_highlight`
---
-
-CREATE TABLE `users_comment_highlight` (
-  `id` int(11) NOT NULL,
-  `comment_id` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `users_comment_highlight`
---
-
-INSERT INTO `users_comment_highlight` (`id`, `comment_id`, `timestamp`) VALUES
-(1, 9, '2012-09-03 03:27:51'),
-(2, 0, '2012-09-03 03:27:51'),
-(3, 0, '2012-09-03 03:27:51');
 
 -- --------------------------------------------------------
 
