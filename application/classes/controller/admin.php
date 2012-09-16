@@ -6,14 +6,25 @@ class Controller_Admin extends Controller_Template {
 	{
 		$this->check_admin();
 		// show admin page
-		$organizations = ORM::factory('organization')->where('verified', '=', 0)->find_all();
 		$this->template->content = View::factory('admin/index')
 											->bind('organizations', $organizations)
-											->bind('event', $event)
+											->bind('event_select', $event_select)
+											->bind('event_recommend', $event_recommend)
 											->bind('comments', $comments);
 		
 		
-		$event = DB::select()->from('recommend_event')->execute()->as_array('id');
+		$organizations = ORM::factory('organization')->where('verified', '=', 0)->find_all();
+		
+		$events = ORM::factory('event')->where('recommend', '=', '0')->order_by('id','desc')->find_all();
+		$event_select = array();
+		foreach($events as $event )
+		{
+			$name = $event->id.' - '.$event->name;
+			$event_select[$event->id] = $name; 
+		}
+		
+		$event_recommend = ORM::factory('event')->where('recommend', '=', '1')->order_by('id','desc')->find_all();
+		
 		$comments = DB::select()->from('users_comment_highlight')->execute()->as_array('id');
 		
 	}
@@ -23,18 +34,41 @@ class Controller_Admin extends Controller_Template {
 		$this->check_admin();		
         if (HTTP_Request::POST == $this->request->method()) 
         {           
-			// delete all 
-		 	DB::delete('recommend_event')->execute();
+			$event = ORM::factory('event', Arr::get($_POST, 'event_id'));
 			
-			for($i = 1 ; $i<=3 ; $i++)
+			$event->recommend = 1;
+			try
 			{
-				DB::insert('recommend_event', array('id', 'event_id'))
-				->values( array($i, Arr::get($_POST, $i)))
-				->execute();
+				$event->save();	
+			} catch (ORM_Validation_Exception $e) {
+			
+			
+				// Set errors using custom messages
+				print_r($e->errors('models'));
 			}
-		Request::current()->redirect('admin/index');
+			Request::current()->redirect('admin/index');
 			
 		}
+	}
+	
+	public function action_removerecommend()
+	{
+		$this->check_admin();		
+			 
+		$event = ORM::factory('event', $this->request->param('id'));
+		
+		$event->recommend = 0;
+		try
+		{
+			$event->save();	
+		} catch (ORM_Validation_Exception $e) {
+		
+		
+			// Set errors using custom messages
+			print_r($e->errors('models'));
+		}
+		Request::current()->redirect('admin/index');
+	
 	}
 	
 	public function action_addHighlighComment()
