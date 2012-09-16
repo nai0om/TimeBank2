@@ -303,7 +303,7 @@ class Controller_Event extends Controller_Template {
 			}
 		}
 		
-		Request::current()->redirect('organization/event');
+		Request::current()->redirect('organization/event?mode=1');
 	}
 	
 	public function action_reopen()
