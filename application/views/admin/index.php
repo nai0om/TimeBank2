@@ -1,4 +1,4 @@
-<div id="home">
+<div  id="tb_browse_searchResult" class="search">
   <div id="main" role="main">
 	<?php include Kohana::find_file('views', 'admin/menus') ?>
  <p>
@@ -11,6 +11,7 @@
              <?= Form::submit(NULL, 'เพิ่ม'); ?>
         <?= Form::close(); ?>
         <table border="2">
+        <tbody>
          <tr>
          	<th> ตัวเลือก </th>
          	<th>id</th>
@@ -23,26 +24,45 @@
 	            <td><?= $event->name ?></td>
             </tr>
          <? endforeach ?>
+         </tbody>
         </table>
       </p>
+      
+     <br /> 
     <p align="center" style="margin:0;">
     <img src="/TimeBank/media/img/tb_line.png">
     </p>
       <p>
-        <h3> เพิ่มบอกเล่าจากใจอาสา (ใส่ comment ID) </h3>
-        <?= Form::open('admin/addHighlighComment'); ?>
-        <?= Form::input('1',  (array_key_exists('1', $comments)? $comments['1']['comment_id'] : '')); ?>
-        <?= Form::input('2',  (array_key_exists('2', $comments)? $comments['2']['comment_id'] : '')); ?>
-        <?= Form::input('3',  (array_key_exists('3', $comments)? $comments['3']['comment_id'] : '')); ?>
-        <?= Form::submit(NULL,'update'); ?>
+        <h3> เพิ่มบอกเล่าจากใจอาสา </h3>
+	   <?= Form::open('admin/addcomment'); ?>
+       <?=  Form::select('comment_id', $comment_select) ?>
+       <?= Form::submit(NULL, 'เพิ่ม'); ?>
         <?= Form::close(); ?>
+        <table border="2">
+        <tbody>
+         <tr>
+         	<th> ตัวเลือก </th>
+         	<th>id</th>
+            <th> ชื่อโครงการ </th>
+         </tr>
+         <? foreach($comment_recommend as $comment) : ?>
+         	<tr> 
+            	<td><?= HTML::anchor('admin/removecomment/'.$comment->id, '<strong>ลบ</strong>'); ?> </td>
+                <td><?= $comment->id ?></td>
+	            <td><?= $comment->comment ?></td>
+            </tr>
+         <? endforeach ?>
+         </tbody>
+        </table>
       </p>
-      
+     
+    <br />   
     <p align="center" style="margin:0;">
     <img src="/TimeBank/media/img/tb_line.png">
     </p>
     <p> <h3>Unverified organizations</h3>  
      <table border="1">
+     <tbody>
       <tr>
         <th>name</th>
         <th>objective</th>
@@ -77,19 +97,22 @@
         <td><img src="<?= url::base().'media/upload/organizations/'.$organization->logo; ?>" /></td>
         </tr>
     <? endforeach ?>
-    
-    </table> 
-    <?= Form::open('admin/approve'); ?>
-    <select name="organization_id">
-    <?php foreach ($organizations as $organization) {
-        if ( $organization->verified == '0' )
-        {
-            echo '<option value="'.$organization->id.' ">'.$organization->name.'</option>';
-        }
-    }?>
-    </select>
-    <?= Form::submit('approve', 'approve'); ?>
-    <?= Form::close(); ?>
+    </tbody>
+    </table>
+    	<br />
+        <p> 
+        <?= Form::open('admin/approve'); ?>
+        <select name="organization_id">
+        <?php foreach ($organizations as $organization) {
+            if ( $organization->verified == '0' )
+            {
+                echo '<option value="'.$organization->id.' ">'.$organization->name.'</option>';
+            }
+        }?>
+        </select>
+        <?= Form::submit('approve', 'approve'); ?>
+        <?= Form::close(); ?>
+        </p>
     </p>
     <p align="center" style="margin:0;">
     <img src="/TimeBank/media/img/tb_line.png">

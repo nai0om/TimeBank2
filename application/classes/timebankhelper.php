@@ -76,19 +76,7 @@ class timebankhelper {
 	
 	public static function getRecommendEvent()
 	{
-		$recommend_event = DB::select()->from('recommend_event')->execute()->as_array();
-		if(count($recommend_event) >=3)
-		{
-			return ORM::factory('event')->where_open()
-									   ->where('id', '=', $recommend_event[0]['event_id'])
-									   ->or_where('id', '=', $recommend_event[1]['event_id'])
-									   ->or_where('id', '=', $recommend_event[2]['event_id'])
-									   ->where_close()->find_all();
-		}
-		else
-		{
-			return ORM::factory('event', -1);	
-		}
+		return ORM::factory('event')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
 	}
 	
 	public static function buildSkilsForm($skills = array())

@@ -22,7 +22,7 @@ class Controller_User extends Controller_Template {
 		$time = Controller_User::getTotalTime($this->user->id);
 		$work_time = Controller_User::getTotalWorkedTime($this->user->id);
 		$events = timebankhelper::getRecommendEvent();
-		$events_rand = ORM::factory('event')->where('event.status', '=', '1')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
+		$events_rand = ORM::factory('event')->where('event.status', '=', '1')->order_by('id','desc')->limit(3)->find_all();
     }
 
     public function action_record()

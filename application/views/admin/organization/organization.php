@@ -1,4 +1,4 @@
-<div id="home">
+<div  id="tb_browse_searchResult" class="search">
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
 

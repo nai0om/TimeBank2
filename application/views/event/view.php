@@ -310,7 +310,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <?= Form::textarea('comment'); ?>
             <?= Form::submit(NULL, 'ส่ง', array( 'style' => 'float:right; margin: 10px;')); ?>
             <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
-            	<div>
+            	<div id="<?= $comment->id ?>">
 					<? if ($comment->user->id != 0 ) : ?>
                             <a><?= $comment->user->displayname ?></a>
                             <? if ($comment->user->profile_image == '') : ?>
@@ -329,11 +329,15 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
                 	<?= $comment->comment ?>
          
 					<? if ( $isAdmin) : ?>
-                    	<br /> 
-                    	<a style="float:right; color:#999">id : <?= $comment->id ?></a>
-                        <br />
-                           <?= HTML::anchor('event/removecomment/'.$event->id.'?c='.$comment->id,  'ลบ comment', array ('style' => 'float:right') ); ?> 
+                    	<div style="float:right; width:100px;">
+                            <label style="color:#999">id : <?= $comment->id ?></label><br />
+                            <? if ($comment->recommend <> '1') : ?>
+                                <?= HTML::anchor('admin/addcomment/?comment_id='.$comment->id,  'recommend' ); ?> <br /> 
+                            <? endif ?>
+                           <?= HTML::anchor('event/removecomment/'.$event->id.'?c='.$comment->id,  'ลบ comment'); ?> <br /> 
+                         </div>
                     <? endif ?>
+                   
                 </div>
             <? endforeach ?>
             <?= Form::close(); ?>
