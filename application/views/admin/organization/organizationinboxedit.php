@@ -2,7 +2,7 @@
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
 
-<?= Form::open('admin/userinboxedit/'.$inbox->id, array('enctype' => 'multipart/form-data')); ?>
+<?= Form::open('admin/organizationinboxedit/'.$inbox->id, array('enctype' => 'multipart/form-data')); ?>
 
     <label>title</label>
     <?= Form::input('title', $inbox->title ); ?> <br />   

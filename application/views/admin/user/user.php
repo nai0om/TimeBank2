@@ -59,7 +59,11 @@
     <td><?= $user->birthday  ?></td>
     <td><?= $user->phone  ?></td>
     <td><?= $user->address  ?></td>
-    <td><?= $user->profile_image  ?></td>
+    <td>    
+        <?php if ($user->profile_image != ''): ?>
+        	<img src="<?= url::base().'media/upload/events/'.$user->profile_image; ?>" style="max-height: 150px; max-width:150px;" />
+        <? endif ?>
+    </td>
     <td><?= $user->quote  ?></td>
     <td><?= $user->description  ?></td>
     <td><?= $user->created  ?></td>

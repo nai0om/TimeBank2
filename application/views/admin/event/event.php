@@ -75,7 +75,11 @@
     <td><?= $event->inquiry_detail ?></td>
     <td><?= $event->is_need_expense ?></td>
     <td><?= $event->expense_detail ?></td>
-    <td><?= $event->image ?></td>
+    <td>
+        <?php if ($event->image != ''): ?>
+        	<img src="<?= url::base().'media/upload/events/'.$event->image; ?>" style="max-height: 150px; max-width:150px;" />
+        <? endif ?>
+    </td>
     <td><?= $event->skills ?></td>
     <td><?= $event->languates ?></td>
     <td><?= $event->technical ?></td>
