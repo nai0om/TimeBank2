@@ -557,7 +557,7 @@ class Controller_Event extends Controller_Template {
             }
 
 			// Redirect to event view
-			Request::current()->redirect('event/view/'.$event->id);
+			Request::current()->redirect('event/view/'.$event->id."#".$comment->id);
 		}
 	}
 	
