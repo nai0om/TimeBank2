@@ -10,7 +10,7 @@
 		<div style="clear:both"></div>
 		<h2><?= $news->topic ?></h2>
 		<h3><?= $news->timestamp ?></h3>
-		<a id="share">Share</a>
+		<a id="share">บอกต่อ</a>
 		<div id="leftSide">
 			<img src="<?= url::base()."media/upload/news/".$news->pic ?>" />
 		</div>
@@ -29,7 +29,7 @@
 		</div>
 		
 		<div style="clear:left"></div>
-        <?= HTML::anchor('news', 'Go back', array('class' => 'button')); ?><div class="line" style="width:82%;float:right"></div>
+        <?= HTML::anchor('news', 'ย้อนกลับ', array('class' => 'button')); ?><div class="line" style="width:82%;float:right"></div>
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
