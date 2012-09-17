@@ -44,7 +44,7 @@
 			<li>
 				<?= HTML::anchor('news/view/'.$new->id, '<img src="'.url::base().'media/upload/news/'. $new->pic_thm. '" style="float:left;">') ?>
 				<h3><?= $new->topic ?></h3>
-				<p><?= substr($new->message, 0, 100); ?><?= HTML::anchor('news/view/'.$new->id, '[อ่านต่อ...]'); ?> </p>
+				<p><?= substr($new->message, 0, 100); ?><?= HTML::anchor('news/view/'.$new->id, '...[อ่านต่อ]'); ?> </p>
 			</li>
         <? endforeach?>
 		</ul>
