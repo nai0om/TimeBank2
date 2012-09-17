@@ -72,7 +72,7 @@ class Model_User extends ORM {
     	                array('Upload::not_empty'),
 						array('Upload::valid'),
 						array('Upload::type', array(':value', array('gif', 'jpg', 'png', 'jpeg'))),
-						array('Upload::size', array(':value', '4M')),
+						array('Upload::size', array(':value', '1.5M')),
 					));
 	
 			// Validate and upload OK

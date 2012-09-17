@@ -18,7 +18,7 @@
                         <div class="caption"><?= $image->description; ?></div>
                     </li>
                 <? endforeach ?>
-			<? if ( $isAdmin) : ?>
+			<? if ( ($isAdmin) && ($event->images->find_all()->count() <= 50)) : ?>
 			  <li class="add">
                     
 				 <?= Form::open('event/addimage/'.$event->id, array ('id' => 'search', 'enctype' => 'multipart/form-data'));  ?><br />
@@ -26,7 +26,7 @@
                     <img  style=" max-width:257px; max-height:203px;" src="<?= url::base().'media/img/tb_photos_add.png'; ?>" />    
                 </div>
                 <div class="caption" style="height:70px;">
-                <a style="color:#F00;" > ขนาดภาพไม่เกิน 4Mb </a>
+               <label style="color:#F00; width:300px;float:left; outline:20px none" >ขนาดภาพไม่เกิน 4Mb <br />และใส่ภาพได้สูงสุดไม่เกิน 50 รูป<br />(ประเภทไฟล์ gif, jpg, png หรือ jpeg)</label>
                  <?= Form::file('image') ?><br />
                  <?= Form::input('text', 'เขียนคำบรรยายที่นี่'); ?> 
                  <?= Form::submit(NULL, 'เพิ่มรูป'); ?>
