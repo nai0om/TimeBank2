@@ -1,18 +1,20 @@
 <div id="main_right">
 		
 		<div class="title left"></div>
-		<div class="title body">รูปภาพของคุณ</div>
-		<div class="title right"></div>
-		<div style="clear:both"></div>
-        
-        <? if ($user->profile_image) : ?>
-        	<p><img style="max-width:500px; max-height:300xp" src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" /></p>
-         <? else :?>
-         	<p><img src="<?= url::base().'media/img/member.png'; ?>" /></p>
-         <? endif ?>
-		<?= Form::file('profile_image') ?><br /><a style="color:#F00" > ขนาดภาพไม่เกิน 4Mb </a>
-        <div class="error"><?= Arr::get($errors, 'profile_image'); ?></div>
-        
+        <div style="height:auto;overflow:auto">
+            <div class="title body">รูปภาพของคุณ</div>
+            <div class="title right"></div>
+            <div style="clear:both"></div>
+            
+            <? if ($user->profile_image) : ?>
+                <p><img style="max-width:500px; max-height:300xp" src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" /></p>
+             <? else :?>
+                <p><img src="<?= url::base().'media/img/member.png'; ?>" /></p>
+             <? endif ?>
+            <?= Form::file('profile_image') ?><br />
+            <label style="color:#F00; width:400px;float:left; outline:20px none" >ขนาดภาพไม่เกิน 1.5Mb (ประเภทไฟล์ gif, jpg, png หรือ jpeg)</label>
+            <div class="error"><?= Arr::get($errors, 'profile_image'); ?></div>
+        </div>
 		<div class="title left"></div>
 		<div class="title body">แก้ไขข้อมูลส่วนตัว</div>
 		<div class="title right"></div>
