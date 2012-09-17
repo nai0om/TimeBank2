@@ -21,7 +21,7 @@ class Model_News extends ORM {
             ),
 			  'pic_thm' => array(
 				array('not_empty'),
-                array(array($this, 'check_upload'), array('thm_pic', ':value')),
+                array(array($this, 'check_upload'), array('pic_thm', ':value')),
             )
         );
     }

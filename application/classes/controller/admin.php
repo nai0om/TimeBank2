@@ -661,7 +661,50 @@ class Controller_Admin extends Controller_Template {
 		
 	}
 
+//###########################################################		
+//####################  Help  control 		##################
+//###########################################################	
+	public function action_help()
+	{
+		$this->check_admin();
+		
+		$helps = ORM::factory('help')->order_by('timestamp','desc')->find_all();
+		$this->template->content = View::factory('admin/help/help')
+											->bind('helps', $helps);
+	}
 	
+	public function action_createhelp()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/help/helpcreate')
+										->bind('help', $help)
+										->bind('errors', $errors);
+		$help = ORM::factory('help');
+		$this->help_save($help, $errors, false);
+	}
+	
+	public function action_edithelp()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		$this->template->content = View::factory('admin/help/helpedit')
+										->bind('help', $help)
+										->bind('errors', $errors);
+										
+		$help = ORM::factory('help', $this->request->param('id'));
+		$this->help_save($help, $errors, true);
+	}
+	
+	public function action_deletehelp()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');;
+		
+		$help = ORM::factory('help', $this->request->param('id') ); 
+		$help->delete();	
+		Request::current()->redirect('admin/help/help/');
+	}
+
 //###########################################################		
 //####################  knowledge  control ##################
 //###########################################################	
@@ -1015,7 +1058,6 @@ class Controller_Admin extends Controller_Template {
 		}
 	}
 	
-	
 	private function knowledge_save($knowledge, &$errors, $isUpdate)
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
@@ -1023,10 +1065,10 @@ class Controller_Admin extends Controller_Template {
 			$knowledge->title = Arr::get($_POST, 'title');
 			$knowledge->content = Arr::get($_POST, 'content');
 
-			try{
+			try
+			{
 			
-				$knowledge->save();			//loop for sub image
-			
+				$knowledge->save();			
 				if($isUpdate)
 				{
 					Request::current()->redirect('admin/knowledge/');
@@ -1034,6 +1076,32 @@ class Controller_Admin extends Controller_Template {
 				else
 				{
 					Request::current()->redirect('/training/download');
+				}
+				
+			} catch (ORM_Validation_Exception $e) {
+				// Set errors using custom messages
+				$errors = $e->errors('models');
+			}
+		}
+	}
+	
+	private function help_save($help, &$errors, $isUpdate)
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$help->topic = Arr::get($_POST, 'topic');
+			$help->message = Arr::get($_POST, 'message');
+
+			try
+			{
+				$help->save();
+				if($isUpdate)
+				{
+					Request::current()->redirect('admin/help/');
+				}
+				else
+				{
+					Request::current()->redirect('/help');
 				}
 				
 			} catch (ORM_Validation_Exception $e) {
