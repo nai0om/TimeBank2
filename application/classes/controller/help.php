@@ -11,7 +11,6 @@ class Controller_Help extends Controller_Template {
 		$helps_left = array();
 		$helps_right = array();
 		$split_index = count($helps)/2;
-		echo $split_index;
 		$i = 0;
 		foreach($helps as $help) 
 		{
