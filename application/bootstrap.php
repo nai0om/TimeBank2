@@ -121,4 +121,4 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 Cookie::$salt = 'your secret is safe with me';
 
 // Set the default upload directory
-Upload::$default_directory = DOCROOT.'media\upload';
+Upload::$default_directory = DOCROOT.'media/upload';
