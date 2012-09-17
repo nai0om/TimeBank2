@@ -26,99 +26,21 @@
 		</form>
 
 		<div style="clear:both"></div>
-		<div id="leftSide">
-			<div class="title">หมวดคำถามที่ 1</div>
-			<ul>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-			</ul>
-			<div class="title">หมวดคำถามที่ 2</div>
-			<ul>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-			</ul>
-			<div class="title">หมวดคำถามที่ 3</div>
-			<ul>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-			</ul>
-		</div>
+        <div id="leftSide">
+			<? foreach($helps_left as $help) : ?>
+                <div class="title" id="<?= $help->id?>"><?= $help->topic ?></div>
+                <div style="float:left; width:100%">
+                <?= $help->message ?>
+                </div>
+            <? endforeach ?>       
+         </div>     
 		<div id="rightSide">
-			<div class="title">หมวดคำถามที่ 4</div>
-			<ul>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-			</ul>
-			<div class="title">หมวดคำถามที่ 5</div>
-			<ul>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-			</ul>
-			<div class="title">หมวดคำถามที่ 6</div>
-			<ul>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-				<li>Consectetuer adipiscing elit, sed diam</li>
-				<li>nonummy nibh euismod tincidunt ut laoreet</li>
-				<li>dolore magna aliquam erat volutpat. Ut</li>
-				<li>wisi enim ad minim veniam, quis nostrud </li>
-				<li>exerci tation ullamcorper suscipit lobortis</li>
-				<li>nisl ut aliquip ex ea commodo consequat.</li>
-			</ul>
+			<? foreach($helps_right as $help) : ?>
+                <div class="title"  id="<?= $help->id?>"><?= $help->topic ?></div>
+                <div style="float:left; width:100%">
+                <?= $help->message ?>
+                </div>
+            <? endforeach ?>    
 		</div>
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>

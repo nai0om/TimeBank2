@@ -45,7 +45,7 @@
 		<ul id="list">
         <?php foreach ($trainings as $training) :?>
 			<li>
-				<a href="<?= url::base().'training/view/'.$training->id?>"><img style="max-width:240px; max-height:174px" src="<?= url::base().'media/upload/training/'.$training->main_pic ?>" style="float:left;"></a>
+				<a href="<?= url::base().'training/view/'.$training->id?>"><img style="max-width:240px; max-height:174px" src="<?= url::base().'media/upload/training/'.$training->thm_pic ?>" style="float:left;"></a>
 				<h3><?= $training->topic ?></h3>
 				<!--p>Neque tum eos illa opinio fefellit. Nam Zeuxis ilico quaesivit ab iis,quasnam virgines formosas haberent.<a>[อ่านต่อ]</a></p-->
 			</li>

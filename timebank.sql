@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 16, 2012 at 09:40 PM
+-- Generation Time: Sep 17, 2012 at 06:37 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -44,7 +44,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `type`, `event_id`, `user_id`, `ip`, `comment`, `timestamp`, `organization_id`, `recommend`) VALUES
-(3, 2, 10, 1, '::1', 'qweqe', '2012-08-05 17:44:26', 3, 1),
+(3, 2, 10, 1, '::1', 'qweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqe', '2012-08-05 17:44:26', 3, 1),
 (4, 2, 10, 1, '::1', 'asdfasd', '2012-08-05 17:49:18', 3, 1),
 (8, 2, 10, 1, '::1', 'asdfasdfas', '2012-08-09 16:45:46', 3, 1);
 
@@ -167,16 +167,18 @@ CREATE TABLE `helps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `topic` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `message` text COLLATE utf8_unicode_ci NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `helps`
 --
 
-INSERT INTO `helps` (`id`, `topic`, `message`, `created`) VALUES
-(1, 'ไม่ทราบว่าอยากบริจาคเงินกับทางเว็บไซต์ต้องทำอย่างไร ?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2012-06-05 05:18:10');
+INSERT INTO `helps` (`id`, `topic`, `message`, `timestamp`) VALUES
+(5, 'ช่วยหน่อยๆๆๆๆๆ', '<ul>\n<li>ฟหดฟหกดฟห</li>\n<li>หกดห</li>\n<li>หกด</li>\n<li>ห</li>\n<li>กด<br />ตอบๆๆๆๆ</li>\n<li>หกด</li>\n<li>ฟห</li>\n</ul>', '2012-09-17 16:34:46'),
+(3, '1231231312', '123123123123\r\n123123123123123123123123123123\r\n123123\r\n123123\r\n123123\r\n123123\r\n123123123123\r\n123123\r\n123123', '2012-09-17 15:53:26'),
+(4, 'ทั่วไปๅๅๅ', '<p>Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequConsectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequConsectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequ</p>', '2012-09-17 15:55:29');
 
 -- --------------------------------------------------------
 
