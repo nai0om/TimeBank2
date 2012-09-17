@@ -145,13 +145,16 @@ class Controller_Event extends Controller_Template {
 	public function action_view()
 	{
         $this->template->content = View::factory('event/view')
-            ->bind('event', $event)
-            ->bind('event_status', $event_status)
-            ->bind('mode', $mode)
-			->bind('isAdmin', $isAdmin)
-			->bind('isOrga', $isOrga)
-			->bind('member_event', $member_event)
-			->bind('isOpen', $isOpen);
+										->bind('event', $event)
+										->bind('event_status', $event_status)
+										->bind('mode', $mode)
+										->bind('isAdmin', $isAdmin)
+										->bind('isOrga', $isOrga)
+										->bind('member_event', $member_event)
+										->bind('images', $images)
+										->bind('page', $page)
+										->bind('images_pages', $images_pages)
+										->bind('isOpen', $isOpen);
 			
 			
 		
@@ -161,7 +164,7 @@ class Controller_Event extends Controller_Template {
 		$query = DB::select()->from('users_events')
 					->where('event_id', '=',  $event->id)
 					 ->where('status', '=',  1);
-		$member_event = $query->execute()->as_array('user_id');
+		
 		if (!is_null($this->orguser))
 		{
 		 	$isOrga = true;
@@ -196,7 +199,22 @@ class Controller_Event extends Controller_Template {
 		//$locations = Location::get_location_array();
 		
 		$mode = Arr::get($_GET, 'mode');
-	
+		
+		if($mode == 3)
+		{
+			$page = Arr::get($_GET, 'page');
+			if($page == '')
+				$page = 1;
+				
+				$current = $page*9 - 9;
+			$images_pages = ceil(count($event->images->find_all())/9);
+			$images = $event->images->order_by('highlight','desc')->order_by('id','desc')->limit(9)->offset($current)->find_all();
+			
+		}
+		
+		if($mode == 2)
+			$member_event = $query->execute()->as_array('user_id');
+		
 	}
 	
 	public function action_advance_search()
@@ -388,6 +406,55 @@ class Controller_Event extends Controller_Template {
 	
 								
 	}
+	
+	public function action_addhighlightimage()
+	{
+		$this->auto_render = false;
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			$event = ORM::factory('event', $this->request->param('id'));			
+			if (!$event->loaded())
+			{
+				throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+			}
+			
+			if($this->orguser->id != $event->organization_id) 
+			{
+				throw new Kohana_Exception('Not allow to remove image', array(':code' => '550'));
+			}
+			
+			$image = ORM::factory('image',  Arr::get($_GET, 'id'));	
+			$image->highlight = 1;
+			$image->save();
+			// Redirect to event view
+			Request::current()->redirect('event/view/'.$event->id.'?mode=3');
+		}
+	}
+	
+	public function action_removehighlightimage()
+	{
+		$this->auto_render = false;
+		if (HTTP_Request::GET == $this->request->method()) 
+		{
+			$event = ORM::factory('event', $this->request->param('id'));			
+			if (!$event->loaded())
+			{
+				throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+			}
+			
+			if($this->orguser->id != $event->organization_id) 
+			{
+				throw new Kohana_Exception('Not allow to remove image', array(':code' => '550'));
+			}
+			
+			$image = ORM::factory('image',  Arr::get($_GET, 'id'));	
+			$image->highlight = 0;
+			$image->save();
+			// Redirect to event view
+			Request::current()->redirect('event/view/'.$event->id.'?mode=3');
+		}
+	}
+	
 	public function action_addimage()
 	{
 		$this->auto_render = false;
