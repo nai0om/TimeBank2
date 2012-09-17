@@ -53,9 +53,9 @@
         
         <?= Form::open('event/addcomment/'.$event->id, array ('id' => 'post_comment', 'method' => 'post')); ?>
         <?= Form::textarea('comment'); ?>
-        <?= Form::submit(NULL, 'แบ่งปัน', array( 'style' => 'float:right; margin: 10px;')); ?>
+        <?= Form::submit(NULL, 'ส่ง', array( 'style' => 'float:right; margin: 10px;')); ?>
         <? foreach( $event->comments->order_by('timestamp','desc')->find_all() as $comment) : ?>
-            <div>
+            <div id= "<?= $comment->id?>">
                 <? if ($comment->user->id != 0 ) : ?>
                         <a><?= $comment->user->displayname ?></a>
                         <? if ($comment->user->profile_image == '') : ?>
