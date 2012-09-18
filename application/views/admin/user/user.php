@@ -1,22 +1,28 @@
 <div  id="tb_browse_searchResult" class="search">
   <div id="main" role="main">
-<?php include Kohana::find_file('views', 'admin/menus') ?>
+<?php include Kohana::find_file('views', 'admin/menus') ?><br />
 
+A = noti_eventrecommended<br />
+B = noti_eventapproved<br />
+C = noti_almosteventdate<br />
+D = noti_eventthank<br />
+E = noti_sms_eventapproved<br />
+F = noti_sms_almosteventdate<br />
+G = noti_sms_news<br />
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
 <th> ตัวเลือก </th>
 <th>id</th>
 <th>email</th>
-<th>password</th>
 <th>displayname</th>
-<th>noti_eventrecommended</th>
-<th>noti_eventapproved</th>
-<th>noti_almosteventdate</th>
-<th>noti_eventthank</th>
-<th>noti_sms_eventapproved</th>
-<th>noti_sms_almosteventdate</th>
-<th>noti_sms_news</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+<th>G</th>
 <th>nickname</th>
 <th>role</th>
 <th>first_name</th>
@@ -42,7 +48,6 @@
     </td> 
     <td><?= $user->id ?></td>
     <td><?= $user->email  ?></td>
-    <td><?= $user->password  ?></td>
     <td><?= $user->displayname  ?></td>
     <td><?= $user->noti_eventrecommended  ?></td>
     <td><?= $user->noti_eventapproved  ?></td>
