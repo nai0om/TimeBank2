@@ -31,7 +31,7 @@
         <?= $message; ?>
     </h3>
 <? endif; ?>
-			<?= Form::open('organization/', array('enctype' => 'multipart/form-data')); ?>	
+			<?= Form::open('organization/changepassword', array('enctype' => 'multipart/form-data')); ?>	
                              
 				<?= Form::label('password', 'รหัสผ่านเดิม :'); ?>
 				<?= Form::password('password'); ?>
