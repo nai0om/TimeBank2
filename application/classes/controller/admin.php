@@ -808,7 +808,6 @@ class Controller_Admin extends Controller_Template {
 		{	
 			$image = ORM::factory('newsimage');
 			$image->news = $news;
-			echo $_FILES['sub_'.$i]['name'];
 			$image->image = $_FILES['sub_'.$i]['name'];
 			try
 			{
@@ -819,6 +818,8 @@ class Controller_Admin extends Controller_Template {
 				// Set errors using custom messages
 				$errors = $e->errors('models');
 			}
+			
+			$_FILES['sub_'.$i]['name'] = ''; 
 			$i++;
 		}
 		Request::current()->redirect('admin/editnews/'.$this->request->param('id').'#subimage');		
@@ -904,12 +905,14 @@ class Controller_Admin extends Controller_Template {
 			try
 			{
 				$image->save();
-								
+				
 			} catch (ORM_Validation_Exception $e) {
 				 
 				// Set errors using custom messages
 				$errors = $e->errors('models');
 			}
+			
+			$_FILES['sub_'.$i]['name'] = ''; 
 			$i++;
 		}
 		Request::current()->redirect('admin/edittraining/'.$this->request->param('id').'#subimage');		
@@ -973,9 +976,11 @@ class Controller_Admin extends Controller_Template {
 										
 					} catch (ORM_Validation_Exception $e) {
 						 
+						
 						// Set errors using custom messages
 						$errors = $e->errors('models');
 					}
+					$_FILES['sub_'.$i]['name'] = ''; 
 					$i++;
 				}
 				
@@ -1036,6 +1041,7 @@ class Controller_Admin extends Controller_Template {
 						// Set errors using custom messages
 						$errors = $e->errors('models');
 					}
+					$_FILES['sub_'.$i]['name'] = ''; 
 					$i++;
 				}
 				
