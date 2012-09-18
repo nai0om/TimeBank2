@@ -34,6 +34,14 @@
 				$style2 = 'font-size: 35px; line-height: 70px;';
 			if($time_done > 100000000)
 				$style3 = 'font-size: 35px; line-height: 70px;';
+				
+				
+			if($time_donate > 100000000000000)
+				$style1 = 'font-size: 25px; line-height: 70px;';
+			if($time_want > 100000000000000)
+				$style2 = 'font-size: 25px; line-height: 70px;';
+			if($time_done > 100000000000000)
+				$style3 = 'font-size: 25px; line-height: 70px;';
 		?>
 		<div id="bannerRotating">
 			<div id="carouselBanner">
@@ -200,7 +208,7 @@
 				step: 1,
 				speed: 700,
 				auto: {
-					enabled: false
+					enabled: true
 				},
 				width: 450,
 				height: 215,
