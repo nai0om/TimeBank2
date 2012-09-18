@@ -306,7 +306,7 @@ class Controller_User extends Controller_Template {
     }
 
     public function action_profile() 
-    {
+    {	
 		// if a user is not logged in, redirect to login page
         if (!$this->user)
         {
@@ -315,54 +315,20 @@ class Controller_User extends Controller_Template {
         }
 	
        $action = $this->request->action();
-	   $interest = $this->user->interest_tags; 
+	   
+	   	
+		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+		
+	
 	   $this->template->content = View::factory('user/profile')
             ->bind('errors', $errors)
             ->bind('message', $message)
 			->bind('skills', $skills)
 			->bind('occupations', $occupations)
 			->bind('action', $action)
-			->bind('interest_tags', $interest);
+			->bind('interest_tags', $interest_tags);
 			
-        if (HTTP_Request::POST == $this->request->method()) 
-        {
 			
-			$this->user->nickname = Arr::get($_POST, 'nickname');
-			$this->user->first_name = Arr::get($_POST, 'first_name');
-			$this->user->last_name = Arr::get($_POST, 'last_name');
-			$this->user->phone = Arr::get($_POST, 'phone');
-			$year = Arr::get($_POST, 'year') - 543;
-			$month = Arr::get($_POST, 'month');
-			$day = Arr::get($_POST, 'day');
-			$this->user->birthday = $year.'-'.$month.'-'.$day;
-			$this->user->address = Arr::get($_POST, 'address');
-			$this->user->location = Arr::get($_POST, 'location');
-			$this->user->province = Arr::get($_POST, 'province');
-			$this->user->website = Arr::get($_POST, 'website');
-			$this->user->sex = Arr::get($_POST, 'sex');
-
-			if (isset($_FILES['profile_image']['name']) && $_FILES['profile_image']['name'] != '')
-			{
-				$this->user->profile_image = 'profile_image';
-			}
-			
-
-            try {
-				
-            	$this->user->save();       
-                 
-                // Redirect to user view
-				Request::current()->redirect('user/profile');
-                 
-            } catch (ORM_Validation_Exception $e) {
-                 
-                // Set failure message
-                $message = 'There were errors, please see form below.';
-                 
-                // Set errors using custom messages
-                $errors = $e->errors('models');
-            }
-        }
 		
 		$skill_list = explode ('|', $this->user->skills);
 		$skills = array();
@@ -380,20 +346,37 @@ class Controller_User extends Controller_Template {
 				}
 			}
 		}	
-    }
-	
-    public function action_addskill() 
-    {
-		
-        if (!$this->user)
-        {
-            Request::current()->redirect('user/login');
-			return;
-        }
-             
+		   $interest_tags = array();
+		   $interests = explode(',', $this->user->interest_tags);
+		  	foreach($interests as $interest)
+			{
+				for($i = 0 ; $i < count($jobs) ; $i++)
+				{
+					if($interest == $jobs[$i])
+					{
+						$interest_tags[] = $i;
+						break;
+					}
+				}
+			}
+			
         if (HTTP_Request::POST == $this->request->method()) 
         {
 			
+			$errors = array();
+			$this->user->nickname = Arr::get($_POST, 'nickname');
+			$this->user->first_name = Arr::get($_POST, 'first_name');
+			$this->user->last_name = Arr::get($_POST, 'last_name');
+			$this->user->phone = Arr::get($_POST, 'phone');
+			$year = Arr::get($_POST, 'year') - 543;
+			$month = Arr::get($_POST, 'month');
+			$day = Arr::get($_POST, 'day');
+			$this->user->birthday = $year.'-'.$month.'-'.$day;
+			$this->user->address = Arr::get($_POST, 'address');
+			$this->user->location = Arr::get($_POST, 'location');
+			$this->user->province = Arr::get($_POST, 'province');
+			$this->user->website = Arr::get($_POST, 'website');
+			$this->user->sex = Arr::get($_POST, 'sex');
 			// add/remove skill for this user as data recieve from post
 			 $dict = Kohana::$config->load('timebank')->get('worddict');
 			 $skill = '';
@@ -415,31 +398,69 @@ class Controller_User extends Controller_Template {
 			 }
 			 $this->user->skills = $skill;
 			 
-			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 			$tags = '';
-			foreach ($jobs as $job){
-				$job =  str_replace(' ', '_', $job);
-				if ( Arr::get($_POST, $job) != '')
-				{
-					$tags  .= ''.Arr::get($_POST, $job) .', ';	
-				}
+			$tags .= $jobs[Arr::get($_POST, 'interest_1')].',';
+			$tags .= $jobs[Arr::get($_POST, 'interest_2')].',';
+			$tags .= $jobs[Arr::get($_POST, 'interest_3')].',';
+			$tags .= $jobs[Arr::get($_POST, 'interest_4')];
+			$this->user->interest_tags = $tags; 
+
+			$tagvalidate = "";
+			
+			if (Arr::get($_POST, 'interest_1') == 0)
+				$errors['interest_1'] = __('have to select');
+			if (Arr::get($_POST, 'interest_2') == 0)
+				$errors['interest_2'] = __('have to select');
+			if (Arr::get($_POST, 'interest_3') == 0)
+				$errors['interest_3'] = __('have to select');
+			if (Arr::get($_POST, 'interest_4') == 0)
+				$errors['interest_4'] = __('have to select');
+			
+			
+			$tagvalidate = $jobs[Arr::get($_POST, 'interest_1')];
+			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_2')]);
+			if (  $pos >= 0 && $pos !== false)
+				array_key_exists('interest_2', $errors) ? : $errors['interest_2'] = __('do not duplicate') ;
+			
+			$tagvalidate .= $jobs[Arr::get($_POST, 'interest_2')];
+			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_3')]);
+			if (  $pos >= 0 && $pos !== false)
+				array_key_exists('interest_3', $errors) ?:  $errors['interest_3'] = __('do not duplicate') ;
+			
+			$tagvalidate .= $jobs[Arr::get($_POST, 'interest_3')];	
+			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_4')]);
+			if (  $pos >= 0 && $pos !== false)
+				array_key_exists('interest_4', $errors) ? : $errors['interest_4'] = __('do not duplicate') ;
+			
+			
+			if(count($errors) > 0) 
+				return;
 				
+			if (isset($_FILES['profile_image']['name']) && $_FILES['profile_image']['name'] != '')
+			{
+				$this->user->profile_image = 'profile_image';
 			}
 			
-			$this->user->interest_tags = $tags; 
-			try {
-						$this->user->save();       
-						 
-				} catch (ORM_Validation_Exception $e) {
-						// Set failure message
-						$message = 'update error.';
-					
-						
-				}
+
+            try {
+            	$this->user->save();       
+                 
+                // Redirect to user view
+				Request::current()->redirect('user/profile');
+                 
+            } catch (ORM_Validation_Exception $e) {
+                 
+                // Set failure message
+                $message = 'There were errors, please see form below.';
+                 
+                // Set errors using custom messages
+                $errors = $e->errors('models');
+            }
         }
 		
-          Request::current()->redirect('user/profile');
+	
     }
+	
 	
 	public function action_checkhours()
 	{

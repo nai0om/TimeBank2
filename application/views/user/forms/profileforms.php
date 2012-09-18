@@ -76,6 +76,4 @@
                 
                 
 			</div>
-			<div style="clear:both"></div>
-            <?= Form::submit('profile', 'บันทึกการเปลี่ยนแปลง'); ?>
-			<div class="line"></div>
+	
