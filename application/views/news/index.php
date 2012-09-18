@@ -169,7 +169,7 @@
 					enabled: true
 				},
 				width: 886,
-				height: 197,
+				height: 225,
 				start: generatePages2,
 				pageLoaded: pageLoaded2
 			}
