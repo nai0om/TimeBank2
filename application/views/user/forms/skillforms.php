@@ -3,18 +3,7 @@
 			<div class="title body" style="font-family:chula">ความสามารถเฉพาะของคุณ</div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
-       		<?= timebankhelper::buildSkilsForm($skills)  ?>
-		  <label>Tag บ่งบอกกลุ่ม</label>
-			<input name="xx" type="text" id="xx">
-			<p><span class="tag">SCBStaff</span><span class="tag">วัดไร่ขิงห้อง 6/1</span><p>
-		</div>
-		
-		<div class="right">
-			<div class="title left"></div>
-			<div class="title body" style="font-family:chula">เรื่องที่คุณใส่ใจ/สนใจ</div>
-			<div class="title right"></div>
-			<div style="clear:both"></div>
-			<label>(เลือก 4 อันดับความสนใจมากที่สุด)</label>
+            		<label>(เลือก 4 อันดับความสนใจมากที่สุด)</label>
             <? $jobs = Kohana::$config->load('timebank')->get('jobs'); ?> 
             	
             <label> อันดับที่ 1</label>
@@ -30,5 +19,16 @@
               <?= Form::select('interest_4', $jobs, array_key_exists(3, $interest_tags) ? trim($interest_tags[3]) : '');?>
               <div class="error"><?= Arr::get($errors, 'interest_4'); ?></div>
      
+
 		</div>
-	
+		
+		<div class="right">
+			<div class="title left"></div>
+			<div class="title body" style="font-family:chula">เรื่องที่คุณใส่ใจ/สนใจ</div>
+			<div class="title right"></div>
+			<div style="clear:both"></div>
+	       		<?= timebankhelper::buildSkilsForm($skills)  ?>
+		</div>
+			 	 <label>Tag บ่งบอกกลุ่ม</label>
+			<input name="xx" type="text" id="xx">
+			<p><span class="tag">SCBStaff</span><span class="tag">วัดไร่ขิงห้อง 6/1</span><p>
