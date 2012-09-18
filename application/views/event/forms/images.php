@@ -72,6 +72,7 @@
                         <? endif ?>
                 <? endif ?>
             <?= $comment->comment ?>
+            <a style="font-size:11px; color:#666; float:right"><?= phphelp::timestamp_to_thai( $comment->timestamp) ?></a>
             </div>
         <? endforeach ?>
         <?= Form::close(); ?>
