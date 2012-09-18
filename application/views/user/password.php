@@ -22,22 +22,22 @@
 			<div style="clear:both"></div>
 <? if ($message) : ?>
     <h3 class="error">
-        <?= $message; ?>
+        <?= __($message); ?>
     </h3>
 <? endif; ?>
 			<?= Form::open('user/changepassword', array('enctype' => 'multipart/form-data')); ?>	
                              
 				<?= Form::label('password', 'รหัสผ่านเดิม :'); ?>
 				<?= Form::password('password'); ?>
-                <div class="error"><?= Arr::get($errors, 'password'); ?></div>
+                <div class="error"><?= __(Arr::get($errors, 'password')); ?></div>
                 
 				<?= Form::label('newpassword', 'รหัสผ่านใหม่ :'); ?>
 				<?= Form::password('newpassword'); ?>
-                <div class="error"><?= Arr::get($errors, 'newpassword'); ?></div>
+                <div class="error"><?= __(Arr::get($errors, 'newpassword')); ?></div>
                 
 				<?= Form::label('newpasswordconfirm', 'ยืนยันรหัสผ่านใหม่อีกครั้ง :'); ?>
 				<?= Form::password('newpasswordconfirm'); ?>
-                <div class="error"><?= Arr::get($errors, 'newpasswordconfirm'); ?></div>
+                <div class="error"><?=  __(Arr::get($errors, 'newpasswordconfirm')); ?></div>
 
 				<label></label><input type="submit" value="บันทึกการเปลี่ยนแปลง">
 			<?= Form::close(); ?>

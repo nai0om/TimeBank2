@@ -54,11 +54,18 @@ class Model_User extends ORM {
             'profile_image' => array(
                 array(array($this, 'check_upload'), array('profile_image', ':value')),
             ),
+			'password' => array(
+				array('not_empty'),
+				array('min_length', array(':value', 6)),
+				)
         );
     }
 	
  	public function hash_password($password)
-    {
+    {	
+		if (strlen($password) <6) 
+			return $password;
+			
         return md5(Kohana::$config->load('timebank')->get('password_salt').$this->email.$password);
     }
 	
