@@ -46,4 +46,7 @@ return array(
 	'Thank you, your mission is complete.' => 'ดีใจด้วยนะครับ คุณได้ทำอาสาตามเวลาที่ได้ตั้งใจไว้แล้ว ขอเชิญชวนฝากเวลาตามที่ตั้งใจจะไปทำอาสาเพิ่มนะครับ ขอบคุณครับ',
 	'have to select' => 'กรุณาเลือก',
 	'do not duplicate' => 'ห้ามเลือกซ้ำ',
+	'password must be at least 6 characters long' => 'รหัสผ่านอย่างน้อย 6 ตัว',
+	'The password fields did not match.' => 'รหัสผ่านไม่ตรงกัน',
+	'Incorrect Password' => 'รหัสผ่านไม่ถูกต้อง'
 );
