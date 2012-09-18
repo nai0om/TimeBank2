@@ -1,4 +1,4 @@
-<div id="main_timeBank">
+﻿<div id="main_timeBank">
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -106,7 +106,7 @@
 			$( "a:eq(0)", "#pages" )
 				.removeClass( "off" )
 				.addClass( "on" )
-				.css( "background-image", "url(img/brown_circle.png)" );
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
 
 
 		}
@@ -135,30 +135,30 @@
 			$( "a:eq(0)", "#pages2" )
 				.removeClass( "off" )
 				.addClass( "on" )
-				.css( "background-image", "url(img/brown_circle.png)" );	
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );	
 
 		}
 
 		function pageLoaded( event, data ) {
 			$( "a.on", "#pages" )
 				.removeClass( "on" )
-				.css( "background-image", "url(img/brown_circle.png)" );
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
 
 			$( "a", "#pages" )
 				.eq( data.page )
 				.addClass( "on" )
-				.css( "background-image", "url(img/brown_circle.png)" );
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
 		}
 		
 		function pageLoaded2( event, data ) {
 			$( "a.on", "#pages2" )
 				.removeClass( "on" )
-				.css( "background-image", "url(img/brown_circle.png)" );
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
 
 			$( "a", "#pages2" )
 				.eq( data.page )
 				.addClass( "on" )
-				.css( "background-image", "url(img/brown_circle.png)" );
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
 				
 		}
 		
