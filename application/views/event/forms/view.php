@@ -179,15 +179,16 @@
                                 <img src="<?= url::base().'media/upload/volunteers/'.$comment->user->profile_image; ?>" style="float:left; width:51px; "/>
                             <? endif ?>
                     <? elseif ($comment->organization->id != 0)  : ?>
-                            <?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> :
+                            <?= HTML::anchor('organization/view/'.$comment->organization->id,  $comment->organization->name); ?> 
                             <? if($comment->organization->logo == '') : ?>
                                 <img src="<?= url::base(); ?>media/img/face.jpg" style="float:left;">
                             <? else :?>
                                 <img src="<?= url::base().'media/upload/organizations/'.$comment->organization->logo; ?>" style="float:left; width:51px; " />
                             <? endif ?>
                     <? endif ?>
+                    
                 	<?= $comment->comment ?>
-         
+         			 	<a style="font-size:11px; color:#666; float:right"><?= phphelp::timestamp_to_thai( $comment->timestamp) ?></a>
 					<? if ( $isAdmin) : ?>
                     	<div style="float:right; width:100px;">
                             <label style="color:#999">id : <?= $comment->id ?></label><br />
