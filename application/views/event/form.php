@@ -27,8 +27,7 @@ $times['23:59:59'] = '23:59';
                 <font color="red"><?= Arr::get($errors, 'project_name'); ?></font>
             </div>
         </p>
-        <p><label><strong>โดยองค์กร</strong></label></p>
-        <p><input type="text"></p>
+   
         <p><strong>เปิดรับสมัคร</strong></p>
         <!-- p><label>ตั้งแต่วันที่</label></p>
         <p>

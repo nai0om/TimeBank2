@@ -69,6 +69,11 @@ class Model_User extends ORM {
         return md5(Kohana::$config->load('timebank')->get('password_salt').$this->email.$password);
     }
 	
+	public function oldhash_password($password)
+    {	
+        return md5(Kohana::$config->load('timebank')->get('password_salt').$this->email.$password);
+    }
+	
 	public function check_upload($filename)
     {
 		if (isset($_FILES[$filename]['name']) && $_FILES[$filename]['name'] != '')

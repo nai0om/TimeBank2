@@ -408,7 +408,7 @@ class Controller_Organization extends Controller_Template {
 			}
 			
 			$org_user = ORM::factory('user', $this->orguser->user_id);
-			$hash_password = $org_user->hash_password($password);
+			$hash_password = $org_user->oldhash_password($password);
 			if ($org_user->password == $hash_password)
 			{
 				$org_user->password = Arr::get($_POST, 'newpassword');

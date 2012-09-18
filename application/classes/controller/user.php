@@ -819,7 +819,7 @@ class Controller_User extends Controller_Template {
 				return;
 			}
 			
-			$hash_password = $this->user->hash_password($password);
+			$hash_password = $this->user->oldhash_password($password);
 			if ($this->user->password == $hash_password)
 			{
 				$this->user->password = Arr::get($_POST, 'newpassword');
@@ -1015,7 +1015,7 @@ class Controller_User extends Controller_Template {
 			return FALSE;
 		}
 		
-		$hash_password = $user->hash_password($password);
+		$hash_password = $user->oldhash_password($password);
 		if ($user->password == $hash_password)
 		{
 			$session = Session::instance(Session::$default);
