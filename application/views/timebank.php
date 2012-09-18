@@ -12,21 +12,32 @@
             <?= HTML::anchor('help', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
 			<h2>ใช้บริการธนาคารจิตอาสา</h2>
 		</div>
-		
+		 <?	
+			$style1 = '';
+			$style2 = '';
+			$style3 = '';
+			
+			if($time_donate > 100000000)
+				$style1 = 'font-size: 35px; line-height: 70px;';
+			if($time_want > 100000000)
+				$style2 = 'font-size: 35px; line-height: 70px;';
+			if($time_done > 100000000)
+				$style3 = 'font-size: 35px; line-height: 70px;';
+		?>
 		<div id="bannerRotating">
 			<div id="carouselBanner">
 				<div id="slide01" class="slide">
-					<h3><?= number_format($time_donate) ?> ชั่วโมง</h3>
+					<h3  style="<?= $style1 ?>" ><?= number_format($time_donate) ?> ชั่วโมง</h3>
 					<p>เวลารวมที่อาสา<br>ฝากไว้กับธนาคาร</p>
 				</div>
 						
 				<div id="slide02" class="slide">
-					<h3><?= number_format($time_want) ?> ชั่วโมง</h3>
+					<h3  style="<?= $style2 ?>" ><?= number_format($time_want) ?> ชั่วโมง</h3>
 					<p>เวลารวมของภารกิจ<br>ที่ต้องการอาสา</p>
 				</div>
 						
 				<div id="slide03" class="slide">
-					<h3><?= number_format($time_done) ?> ชั่วโมง</h3>
+					<h3  style="<?= $style3 ?>" ><?= number_format($time_done) ?> ชั่วโมง</h3>
 					<p>เวลารวมที่อาสา<br>ได้ปฏิบัติภารกิจไปแล้ว</p>
 				</div>
 					
