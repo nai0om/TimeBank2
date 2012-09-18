@@ -420,17 +420,17 @@ class Controller_User extends Controller_Template {
 			$tagvalidate = $jobs[Arr::get($_POST, 'interest_1')];
 			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_2')]);
 			if (  $pos >= 0 && $pos !== false)
-				array_key_exists('interest_2', $errors) ? : $errors['interest_2'] = __('do not duplicate') ;
+				array_key_exists('interest_2', $errors) ? '': $errors['interest_2'] = __('do not duplicate') ;
 			
 			$tagvalidate .= $jobs[Arr::get($_POST, 'interest_2')];
 			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_3')]);
 			if (  $pos >= 0 && $pos !== false)
-				array_key_exists('interest_3', $errors) ?:  $errors['interest_3'] = __('do not duplicate') ;
+				array_key_exists('interest_3', $errors) ? '':  $errors['interest_3'] = __('do not duplicate') ;
 			
 			$tagvalidate .= $jobs[Arr::get($_POST, 'interest_3')];	
 			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_4')]);
 			if (  $pos >= 0 && $pos !== false)
-				array_key_exists('interest_4', $errors) ? : $errors['interest_4'] = __('do not duplicate') ;
+				array_key_exists('interest_4', $errors) ? '': $errors['interest_4'] = __('do not duplicate') ;
 			
 			
 			if(count($errors) > 0) 
