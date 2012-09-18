@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+    <meta name="robots" content="noindex">
     <meta name="language" content="en-us" />
     <? if ($meta_page_title != '') : ?>
     	<title><?= $meta_page_title.' - ธนาคารจิตอาสา: ปันเวลาช่วยกัน' ?></title> 
