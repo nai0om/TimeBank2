@@ -235,7 +235,7 @@ class Controller_Admin extends Controller_Template {
 													'description' => Arr::get($_POST, 'description'),
 													))
 							->where('id', '=',  $this->request->param('id')  )
-							->order_by('timestamp','desc')
+							->order_by('id','desc')
 							->execute();
 			Request::current()->redirect('admin/userrecord/'.$record['user_id']);
 		}
@@ -249,7 +249,7 @@ class Controller_Admin extends Controller_Template {
 		$records = DB::select()
 				->from('users_events') 	
 				->where('user_id','=',$this->request->param('id'))
-				->order_by('timestamp','desc')
+				->order_by('id','desc')
 				->execute();
 				
 		$this->template->content = View::factory('admin/user/userevent')
@@ -292,7 +292,7 @@ class Controller_Admin extends Controller_Template {
 													))
 							->where('user_id', '=',  $user_id )
 							->where('event_id', '=', $event_id)
-							->order_by('timestamp','desc')
+							->order_by('id','desc')
 							->execute();
 			Request::current()->redirect('admin/userevent/'.$user_id);
 		}
@@ -485,7 +485,7 @@ class Controller_Admin extends Controller_Template {
 		$records = DB::select()
 				->from('users_events') 	
 				->where('event_id','=',$this->request->param('id'))
-				->order_by('timestamp','desc')
+				->order_by('id','desc')
 				->execute();
 				
 		$this->template->content = View::factory('admin/event/eventuser')
@@ -527,7 +527,7 @@ class Controller_Admin extends Controller_Template {
 													))
 							->where('user_id', '=',  $user_id )
 							->where('event_id', '=', $event_id)
-							->order_by('timestamp','desc')
+							->order_by('id','desc')
 							->execute();
 			Request::current()->redirect('admin/eventuser/'.$event_id);
 		}
@@ -668,7 +668,7 @@ class Controller_Admin extends Controller_Template {
 	{
 		$this->check_admin();
 		
-		$helps = ORM::factory('help')->order_by('timestamp','desc')->find_all();
+		$helps = ORM::factory('help')->order_by('id','desc')->find_all();
 		$this->template->content = View::factory('admin/help/help')
 											->bind('helps', $helps);
 	}
@@ -712,7 +712,7 @@ class Controller_Admin extends Controller_Template {
 	{
 		$this->check_admin();
 		
-		$knowledges = ORM::factory('knowledge')->order_by('timestamp','desc')->find_all();
+		$knowledges = ORM::factory('knowledge')->order_by('id','desc')->find_all();
 		$this->template->content = View::factory('admin/knowledge/knowledge')
 											->bind('knowledges', $knowledges);
 	}
@@ -757,7 +757,7 @@ class Controller_Admin extends Controller_Template {
 	{
 		$this->check_admin();
 		
-		$news = ORM::factory('news')->order_by('timestamp','desc')->find_all();
+		$news = ORM::factory('news')->order_by('id','desc')->find_all();
 		$this->template->content = View::factory('admin/news/news')
 											->bind('news', $news);
 	}
@@ -849,7 +849,7 @@ class Controller_Admin extends Controller_Template {
 	public function action_training()
 	{
 		$this->check_admin();
-		$trainings = ORM::factory('training')->order_by('timestamp','desc')->find_all();
+		$trainings = ORM::factory('training')->order_by('id','desc')->find_all();
 		$this->template->content = View::factory('admin/training/training')
 											->bind('trainings', $trainings);
 	}
