@@ -13,10 +13,12 @@
 		</div>
         <?= Form::open('user/profile', array('enctype' => 'multipart/form-data')); ?>	
 			<?php include Kohana::find_file('views', 'user/forms/profileforms') ?>	
-		<?= Form::close(); ?>  
-	
-    	<?= Form::open('user/addskill', array('enctype' => 'multipart/form-data')); ?>	
+               <div class="line" style="float:left"></div>
 	  		<?php include Kohana::find_file('views', 'user/forms/skillforms') ?>
+            
+        <div style="clear:both"></div>
+        	<?= Form::submit(NULL, 'บันทึกการเปลี่ยนแปลง'); ?>
+        <div class="line"></div>
 		<?= Form::close(); ?>
 		</div>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
