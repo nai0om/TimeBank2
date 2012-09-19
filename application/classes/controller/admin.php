@@ -249,7 +249,7 @@ class Controller_Admin extends Controller_Template {
 		$records = DB::select()
 				->from('users_events') 	
 				->where('user_id','=',$this->request->param('id'))
-				->order_by('id','desc')
+				->order_by('event_id','desc')
 				->execute();
 				
 		$this->template->content = View::factory('admin/user/userevent')
@@ -292,7 +292,6 @@ class Controller_Admin extends Controller_Template {
 													))
 							->where('user_id', '=',  $user_id )
 							->where('event_id', '=', $event_id)
-							->order_by('id','desc')
 							->execute();
 			Request::current()->redirect('admin/userevent/'.$user_id);
 		}
@@ -485,7 +484,7 @@ class Controller_Admin extends Controller_Template {
 		$records = DB::select()
 				->from('users_events') 	
 				->where('event_id','=',$this->request->param('id'))
-				->order_by('id','desc')
+				->order_by('timestamp','desc')
 				->execute();
 				
 		$this->template->content = View::factory('admin/event/eventuser')
