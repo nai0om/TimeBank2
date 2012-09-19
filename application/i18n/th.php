@@ -48,5 +48,8 @@ return array(
 	'do not duplicate' => 'ห้ามเลือกซ้ำ',
 	'password must be at least 6 characters long' => 'รหัสผ่านอย่างน้อย 6 ตัว',
 	'The password fields did not match.' => 'รหัสผ่านไม่ตรงกัน',
-	'Incorrect Password' => 'รหัสผ่านไม่ถูกต้อง'
+	'Incorrect Password' => 'รหัสผ่านไม่ถูกต้อง',
+	'email is exist.' => 'อีเมล์นี้มีการใช้งานแล้ว',
+	'email is incorrect.' => 'อีเมล์ไม่ถูกต้อง',
+	'Please enter valid email address' => 'กรุณาใส่อีเมล์ ให้ถูกต้อง'
 );
