@@ -51,10 +51,12 @@
 			<p><?= $organization->province ?></p>
 			<h4>รหัสไปรษณีย์</h4>
 			<p><?= $organization->postcode ?></p>
-			<h4>โทรศัพท์ </h4>
-			<p><?= $organization->homephone ?></p>
+			<h4>โทร.สำนักงาน</h4>
+			<p><?= ($organization->homephone == '') ? '-' : $organization->homephone ?></p>
+            <h4>มือถือ</h4>
+			<p><?= ($organization->mobilephone == '') ? '-' :  $organization->mobilephone?></p>
 			<h4>โทรสาร</h4>
-			<p><?= $organization->fax ?></p>
+			<p><?= ($organization->fax == '' ) ? '-' :  $organization->fax  ?></p>
 		</div>
 		<div class="column three">
 			<h4>อีเมล</h4><span><?= $org_user->email ?></span>

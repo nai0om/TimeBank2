@@ -41,12 +41,6 @@ class Model_Organization extends ORM {
 			'district' => array(
                 array('not_empty'),
             ),
-			'fax' => array(
-                array('not_empty'),
-            ),
-			'homephone' => array(
-                array('not_empty'),
-            ),
 			'contactperson' => array(
                 array('not_empty'),
             ), 

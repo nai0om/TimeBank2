@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 17, 2012 at 06:37 PM
+-- Generation Time: Sep 19, 2012 at 07:33 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -37,7 +37,7 @@ CREATE TABLE `comments` (
   `organization_id` int(11) NOT NULL,
   `recommend` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `comments`
@@ -46,7 +46,8 @@ CREATE TABLE `comments` (
 INSERT INTO `comments` (`id`, `type`, `event_id`, `user_id`, `ip`, `comment`, `timestamp`, `organization_id`, `recommend`) VALUES
 (3, 2, 10, 1, '::1', 'qweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqeqweqe', '2012-08-05 17:44:26', 3, 1),
 (4, 2, 10, 1, '::1', 'asdfasd', '2012-08-05 17:49:18', 3, 1),
-(8, 2, 10, 1, '::1', 'asdfasdfas', '2012-08-09 16:45:46', 3, 1);
+(8, 2, 10, 1, '::1', 'asdfasdfas', '2012-08-09 16:45:46', 3, 1),
+(10, 2, 12, 0, '::1', 'asdfasdf', '2012-09-18 19:18:48', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ CREATE TABLE `events` (
   `volunteer_joined` int(11) NOT NULL,
   `recommend` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `events`
@@ -155,7 +156,8 @@ CREATE TABLE `events` (
 
 INSERT INTO `events` (`id`, `search_temp`, `signup_begin_date`, `signup_end_date`, `volunteer_begin_date`, `volunteer_end_date`, `signup_begin_time`, `signup_end_time`, `volunteer_begin_time`, `volunteer_end_time`, `organization_id`, `location_id`, `location_name`, `location_district`, `location_province`, `location_postcode`, `status`, `name`, `phone`, `contractor_name`, `project_name`, `volunteer_need_count`, `time_cost`, `detail`, `travel_detail`, `inquiry_detail`, `is_need_expense`, `expense_detail`, `image`, `skills`, `languates`, `technical`, `days`, `timestamp`, `tags`, `message`, `volunteer_joined`, `recommend`) VALUES
 (10, 'asdfasdfasdf/asdfasdfasdfasdfasdf//<ol>\n<li>asdfasdfasdfasdfasdf</li>\n</ol>\n<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>/asdfasdfasdfasdfasdf', NULL, '2012-09-28', '2012-08-02', '2012-09-29', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 5, NULL, 'asdfasdfasdfasdfasdf', 'asdfasdfasdfasdfasdf', '19', 'asdfasdfasdfasdfasdf', 0, 'asdfasdfasdf', NULL, NULL, 'asdfasdfasdfasdfasdf', 12, 192, '<ol>\n<li>asdfasdfasdfasdfasdf</li>\n</ol>\n<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', '<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', '<p>asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>', 0, '', '5052a9b40c58aWP_000453.jpg', ' ', '', '', 'อังคาร, ', '2012-09-16 19:34:33', 'ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, ', 'สวัสดีจ้า', 0, 0),
-(11, ' asdfasdf/sdfasdfasdfas//<p>sdfsadfasdfasdfasdfadf</p>/asdasdfasdfsa', NULL, '2012-09-29', '2012-09-02', '2012-09-30', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 5, NULL, 'asdasdfasdfsa', 'fasdfasdf12', '2', '3123211', 1, ' asdfasdf', NULL, NULL, 'sdfasdfasdfas', 23, 696, '<p>sdfsadfasdfasdfasdfadf</p>', '<p>sdfasdfasdfadsf</p>', '<p>asdfasdfasdfa</p>', 0, '<p>asdfasdf</p>', '5052d887694b2AlbumArt_{18F1C30A-581C-4F55-BDED-29D1722BA155}_Large.jpg', ' 11011|11012|1102|12031|12051T= |12042|', '', '', '', '2012-09-16 19:33:05', 'ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ', '', 0, 1);
+(11, ' asdfasdf/sdfasdfasdfas//<p>sdfsadfasdfasdfasdfadf</p>/asdasdfasdfsa', NULL, '2012-09-29', '2012-09-02', '2012-09-30', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 5, NULL, 'asdasdfasdfsa', 'fasdfasdf12', '2', '3123211', 1, ' asdfasdf', NULL, NULL, 'sdfasdfasdfas', 23, 696, '<p>sdfsadfasdfasdfasdfadf</p>', '<p>sdfasdfasdfadsf</p>', '<p>asdfasdfasdfa</p>', 0, '<p>asdfasdf</p>', '5052d887694b2AlbumArt_{18F1C30A-581C-4F55-BDED-29D1722BA155}_Large.jpg', ' 11011|11012|1102|12031|12051T= |12042|', '', '', '', '2012-09-19 15:42:07', 'ศาสนาและปฏิบัติธรรม, ศิลปวัฒนธรรม ท่องเที่ยว ดนตรี กีฬา นันทนาการ, อาหารและโภชนาการ, สิ่งแวดล้อมและการเกษตร, ก่อสร้างและงานช่างเทคนิค, กฎหมาย, สุขภาพและสาธารณสุข, การศึกษาและฝึกอบรม, ', 'asdfasdfasdf', 0, 1),
+(12, '143123412/34123412341//<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>/1234123413241234123', NULL, '2012-09-29', '2012-09-03', '2012-09-29', '00:00:00', '00:00:00', '00:00:00', '23:59:59', 5, NULL, '1234123413241234123', '123412', '2', '1234123', 1, '143123412', NULL, NULL, '34123412341', 12, 648, '<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>', '<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>', '<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>', 0, '<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>\n<p>13242w</p>', '5058c43390579WP_000452.jpg', ' 1403|', '', '', '', '2012-09-18 18:57:55', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -238,7 +240,7 @@ INSERT INTO `inboxes` (`id`, `user_id`, `organization_id`, `is_removed`, `is_rea
 (8, 0, 0, 1, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-09-15 12:33:11'),
 (9, 0, 0, 1, 0, 'ทดสอบ2', 'messageสำหรับทดสอบ2', 0, '2012-09-15 12:33:53'),
 (10, 0, 0, 1, 0, 'ทดสอบ99', 'messageสำหรับทดสอบ1', 0, '2012-09-15 12:38:58'),
-(11, 0, 5, 0, 0, 'งานอาสาของคุณเสร็จสิ้นแล้ว: กรุณาเขียนคำขอบคุณ-โพสต์รูป-ปิดงาน "asdfasdfasdf"', 'งานอาสาของคุณเสร็จสิ้นแล้ว: กรุณาเขียนคำขอบคุณ-โพสต์รูป-ปิดงาน "asdfasdfasdf"', 0, '2012-09-16 19:38:55');
+(11, 0, 5, 1, 0, 'งานอาสาของคุณเสร็จสิ้นแล้ว: กรุณาเขียนคำขอบคุณ-โพสต์รูป-ปิดงาน "asdfasdfasdf"', 'งานอาสาของคุณเสร็จสิ้นแล้ว: กรุณาเขียนคำขอบคุณ-โพสต์รูป-ปิดงาน "asdfasdfasdf"', 0, '2012-09-16 19:38:55');
 
 -- --------------------------------------------------------
 
@@ -374,6 +376,7 @@ CREATE TABLE `organizations` (
   `province` mediumtext COLLATE utf8_unicode_ci NOT NULL,
   `postcode` tinytext COLLATE utf8_unicode_ci NOT NULL,
   `homephone` tinytext COLLATE utf8_unicode_ci NOT NULL,
+  `mobilephone` tinytext COLLATE utf8_unicode_ci NOT NULL,
   `fax` tinytext COLLATE utf8_unicode_ci NOT NULL,
   `contactperson` tinytext COLLATE utf8_unicode_ci NOT NULL,
   `facebook` tinytext COLLATE utf8_unicode_ci NOT NULL,
@@ -382,14 +385,15 @@ CREATE TABLE `organizations` (
   `logo` mediumtext COLLATE utf8_unicode_ci,
   `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `organizations`
 --
 
-INSERT INTO `organizations` (`id`, `search_temp`, `user_id`, `verified`, `noti_volunteerregister`, `noti_eventalmostend`, `noti_eventend`, `name`, `objective`, `activity`, `address`, `district`, `province`, `postcode`, `homephone`, `fax`, `contactperson`, `facebook`, `twitter`, `website`, `logo`, `timestamp`) VALUES
-(5, '', 2, 1, 1, 1, 1, 'ธนาคารจิตอาสา', 'เราเชื่อว่าสังคมไทยจะเป็นสังคมอุดมไปด้วยความรักความสุข มีความมั่นคง และพัฒนาก้าวหน้าต่อไปได้ เพราะทุกคนร่วมสร้างสังคมนี้ขึ้นมา ไม่จำกัดว่าเป็นวัยไหนหรืออยู่ในหน้าที่การงานใด เราต่างมีความมุ่งมั่นตั้งใจเพื่อสร้างประเทศไทย เราไม่นิ่งเฉยดูดาย แต่จะลุกขึ้นยื่นมือมาช่วยเหลือกัน ทุกๆ คนบนผืนแผ่นดินไทยสามารถเป็นอาสาสมัครผู้อุทิศกำลังความสามารถและเวลาอันมีค่าของตนให้แก่ประโยชน์ส่วนรวม', 'ธนาคารจิตอาสามีภากิจ 3 ส่วนหลัก ได้แก่1. ระบบธนาคารเวลา (Time Bank)Time Bank เป็นระบบสนับสนุนการทำงานอาสา ที่เข้าถึงได้ทาง Internet ให้อาสาสมัครได้แสดงความตั้งใจจะใช้เวลาเพื่อทำงานอาสา โดยรวบรวมสถิติการใช้เวลา ยังมีระบบคัดเลือกและแนะนำงาน (matching) ให้ค้นหางานอาสาที่เหมาะกับตนเอง ตรงกับความสนใจ ความถนัด ทักษะ ความสามารถ หรือความสะดวก ไม่เฉพาะแต่ในสถานการณ์ภัยพิบัติเท่านั้น แต่ยังรวมถึงงานอาสาสมัครเพื่อสังคมทุกประเภทที่มีอยู่แล้วในประเทศไทยด้วย2. การปฐมนิเทศและการอบรม (Orientation and Training)การปฐมนิเทศและการอบรมอาสาเป็นกระบวนการเตรียมพร้อมอาสาสมัครก่อนลงไปทำงานอาสา เพื่อให้อาสาได้เกิดประสบการณ์ที่ดี ได้เรียนรู้ และพัฒนาตนเองอย่างรอบด้านทั้งทางกาย ทางใจ และทางสังคม นอกจากนี้การจัดอบรมให้กับองค์กรที่รับอาสาเข้าไปทำงานก็เป็นสิ่งสำคัญเช่นกัน เพราะการจัดกิจกรรมเพื่อให้เกิดประโยชน์สูงสุดกับอาสานั้นจำเป็นต้องมีทั้งความเข้าใจและทักษะ รวมถึงมีการจัดทำคู่มือรวบรวมองค์ความรู้เรื่องการปฐมนิเทศและการอบรมด้วย3. อาสาสัมพันธ์ (Volunteer Relation Managaement: VRM)งานอาสาสัมพันธ์เป็นการสร้างความต่อเนื่องในการมีกิจกรรมความร่วมมือและสื่อสาระะหว่างอาสาสมัครและองค์กรที่จัดกิจกรรม นอกจากจะเป็นช่องทางในการสื่อสาร งานอาสาสัมพันธ์ยังช่วยให้กำลังใจ เปิดโอกาสการแลกเปลี่ยนประสบการณ์ และความประทับใจ จากการทำงาน ตลอดจนสามารถพัฒนาเป็นชุมชนเครือข่ายความร่วมมือตามประเด็นความสนใจ หรือตามพื้นที่ต่อไป', '10 ซ.3 ถ.พหลโยธิน สามเสนใน', 'พญาไท', 'กรุงเทพมหานคร', '10400', '02-617-1797', '02-617-1796', 'ธีรัช', 'www.facebook.com/JitArsaBank', 'JitArsaBank', 'www.JitArsaBank.com', '5055719a08127WP_000452.jpg', '2012-09-16 18:39:25');
+INSERT INTO `organizations` (`id`, `search_temp`, `user_id`, `verified`, `noti_volunteerregister`, `noti_eventalmostend`, `noti_eventend`, `name`, `objective`, `activity`, `address`, `district`, `province`, `postcode`, `homephone`, `mobilephone`, `fax`, `contactperson`, `facebook`, `twitter`, `website`, `logo`, `timestamp`) VALUES
+(5, '', 2, 1, 1, 1, 1, 'ธนาคารจิตอาสา', '<p>เราเชื่อว่าสังคมไทยจะเป็นสังคมอุดมไปด้วยความรักความสุข มีความมั่นคง และพัฒนาก้าวหน้าต่อไปได้ เพราะทุกคนร่วมสร้างสังคมนี้ขึ้นมา ไม่จำกัดว่าเป็นวัยไหนหรืออยู่ในหน้าที่การงานใด เราต่างมีความมุ่งมั่นตั้งใจเพื่อสร้างประเทศไทย เราไม่นิ่งเฉยดูดาย แต่จะลุกขึ้นยื่นมือมาช่วยเหลือกัน ทุกๆ คนบนผืนแผ่นดินไทยสามารถเป็นอาสาสมัครผู้อุทิศกำลังความสามารถและเวลาอันมีค่าของตนให้แก่ประโยชน์ส่วนรวม</p>', '<p>ธนาคารจิตอาสามีภากิจ 3 ส่วนหลัก ได้แก่1. ระบบธนาคารเวลา (Time Bank)Time Bank เป็นระบบสนับสนุนการทำงานอาสา ที่เข้าถึงได้ทาง Internet ให้อาสาสมัครได้แสดงความตั้งใจจะใช้เวลาเพื่อทำงานอาสา โดยรวบรวมสถิติการใช้เวลา ยังมีระบบคัดเลือกและแนะนำงาน (matching) ให้ค้นหางานอาสาที่เหมาะกับตนเอง ตรงกับความสนใจ ความถนัด ทักษะ ความสามารถ หรือความสะดวก ไม่เฉพาะแต่ในสถานการณ์ภัยพิบัติเท่านั้น แต่ยังรวมถึงงานอาสาสมัครเพื่อสังคมทุกประเภทที่มีอยู่แล้วในประเทศไทยด้วย2. การปฐมนิเทศและการอบรม (Orientation and Training)การปฐมนิเทศและการอบรมอาสาเป็นกระบวนการเตรียมพร้อมอาสาสมัครก่อนลงไปทำงานอาสา เพื่อให้อาสาได้เกิดประสบการณ์ที่ดี ได้เรียนรู้ และพัฒนาตนเองอย่างรอบด้านทั้งทางกาย ทางใจ และทางสังคม นอกจากนี้การจัดอบรมให้กับองค์กรที่รับอาสาเข้าไปทำงานก็เป็นสิ่งสำคัญเช่นกัน เพราะการจัดกิจกรรมเพื่อให้เกิดประโยชน์สูงสุดกับอาสานั้นจำเป็นต้องมีทั้งความเข้าใจและทักษะ รวมถึงมีการจัดทำคู่มือรวบรวมองค์ความรู้เรื่องการปฐมนิเทศและการอบรมด้วย3. อาสาสัมพันธ์ (Volunteer Relation Managaement: VRM)งานอาสาสัมพันธ์เป็นการสร้างความต่อเนื่องในการมีกิจกรรมความร่วมมือและสื่อสาระะหว่างอาสาสมัครและองค์กรที่จัดกิจกรรม นอกจากจะเป็นช่องทางในการสื่อสาร งานอาสาสัมพันธ์ยังช่วยให้กำลังใจ เปิดโอกาสการแลกเปลี่ยนประสบการณ์ และความประทับใจ จากการทำงาน ตลอดจนสามารถพัฒนาเป็นชุมชนเครือข่ายความร่วมมือตามประเด็นความสนใจ หรือตามพื้นที่ต่อไป</p>', '10 ซ.3 ถ.พหลโยธิน สามเสนใน', 'พญาไท', 'กรุงเทพมหานคร', '10400', '02-617-1797', '', '02-617-1796', 'ธีรัช', 'www.facebook.com/JitArsaBank', 'JitArsaBank', 'www.JitArsaBank.com', '5055719a08127WP_000452.jpg', '2012-09-19 17:10:29'),
+(6, '', NULL, 0, 1, 1, 1, 'asdasd', NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', NULL, NULL, '2012-09-19 17:06:33');
 
 -- --------------------------------------------------------
 
