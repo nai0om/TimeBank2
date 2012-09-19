@@ -97,30 +97,56 @@ $sex = array ('m' => 'ชาย', 'f' => 'หญิง')
 			<h4>e-mail</h4><span><?= $view_user->email ?></span>
 		</div>
 
-		<div style="clear:both"></div>
-		<div class="title left"></div>
-		<div class="title body">งานของอาสา</div>
-		<div class="title right"></div>
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $view_user->events->count_all()?></span></p>
+			<?
+			$isOpen = '';
+			$isClose = 'past';
+			if($mode != 1)
+			{
+				//close
+				$isOpen = 'past';
+				$isClose = '';
+			}
+		?>
+        <div style="clear:both"></div>
 		
-		<table>
-			<tbody><tr>
-				<th>งานอาสา</th>
-				<th>ชั่วโมงที่ได้รับ</th>
-				<th>วัน / เวลาทำงานอาสา</th>
-				<th>ประเภทของงาน</th>
-				<th></th>
-			</tr>
-            <? foreach( $view_user->events->find_all() as $event ): ?>
-			<tr>
-                <td><?= HTML::anchor('event/view/'.$event->id,  $event->name) ?></td>
-                <td><?= $event->time_cost ?></td>
-                <td><?=  phphelp::str_to_thai_date($event->volunteer_begin_date); ?></td>
-                <td><?= $event->tags ?></td>
-			</tr>
-			<? endforeach ?>
+		<div class="title left"></div>
+		<div class="title body <?= $isOpen ?>"><?= HTML::anchor('user/view/'.$view_user->id, 'งานอาสาที่สมัครไป') ?></div>
+		<div class="title right"></div>
+		<div class="title left"></div>
+		<div class="title body <?= $isClose ?>"><?= HTML::anchor('user/view/'.$view_user->id.'?mode=2', 'งานอาสาที่เคยร่วม') ?></div>
+		<div class="title right"></div>
+		<div style="clear:both"></div>
+		
+		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($events) ?></span></p>
+		<!-- div id="selection">ระบุเดือนที่ต้องการดู <select></select></div -->
+			<? if (count($events) > 0) :?>
+                    <table> 	 	 	
+                        <tr>
+                        	<? if($mode == 1 ) : ?>
+                            	 <th style="width:100px;">สถานะ</th>
+                            <? endif ?>
+                            <th>งานอาสา</th>
+                            <th>ชั่วโมงที่ได้รับ</th>
+                            <th>รับจำนวน</th>
+                            <th>วัน / เวลาทำงานอาสา</th>
+                            <th>ประเภทของงาน</th>
+                        </tr>
+            <?php foreach ($events as $event):?>
+            		<tr>
+						<? if($mode == 1) : ?>
+                              <td><?= $event['ustatus'] ?> </td>                
+                         <? endif ?> 
+                        <td><?= HTML::anchor('event/view/'.$event['id'],  $event['name']) ?></td>
+                        <td><?= $event['time_cost'] ?></td>
+                        <td><?= $event['volunteer_need_count'] ?></td>
+                        <td><?=  phphelp::str_to_thai_date($event['volunteer_begin_date']);?></td>
+                        <td><?= $event['tags'] ?></td>
+                 </tr>
+           <? endforeach ?>
+                   
+            </table>
+    <? endif ?>
 
-		</tbody></table>
 		<?php include Kohana::find_file('views', 'shared/footer') ?>
 		</div>
 

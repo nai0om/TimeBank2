@@ -848,10 +848,17 @@ class Controller_User extends Controller_Template {
 	
 	public function action_view()
 	{
+		 if (!$this->orguser)
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }
 	    $this->template->content = View::factory('user/view')
 							->bind('view_user', $view_user)
 							->bind('time', $time)
-							->bind('work_time', $work_time);
+							->bind('work_time', $work_time)
+							->bind('events', $events)
+							->bind('mode', $mode);
 		
 		$view_user = ORM::factory('user', $this->request->param('id'));
 		// if a user is not logged in, redirect to login page
@@ -872,6 +879,52 @@ class Controller_User extends Controller_Template {
 		foreach($pass_event as $pass)
 		{
 			$work_time += $pass->time_cost;
+		}
+		
+		$mode = Arr::get($_GET, 'mode');
+		if($mode == '' || $mode == '1')
+		{
+			$status = 0;
+			$mode  = 1;
+			echo 'xxxx';
+		}
+		else
+		{
+			$status = 1;
+		}
+		$event = array();
+		$query = DB::select()->from('users_events')->where('user_id', '=',  $view_user->id)->where('time_approve', '=', $status);
+		$user_events = DB::select()->from('events')->execute()->as_array();
+		$statuses = $query->execute()->as_array('event_id');
+		$now = date("Y-m-d");
+		for($i = 0; $i < count($user_events); $i++)
+		{
+				
+			if (array_key_exists($user_events[$i]['id'], $statuses) )
+			{
+				if($status == 0)
+				{	
+					$event_id = $user_events[$i]['id'];
+					$userstatus = $statuses[$event_id]['status'];
+					
+					$signup_end_date = $user_events[$i]['signup_end_date'];
+					$volunteer_begin_date = $user_events[$i]['volunteer_begin_date'];
+					
+					if($userstatus == 1 && $now <= $volunteer_begin_date)
+					{	$user_events[$i]['ustatus'] = 'ได้รับการตอบรับ';
+						$events[] = $user_events[$i];
+					}
+					else if($userstatus == 0 && $now <= $signup_end_date)
+					{
+						$user_events[$i]['ustatus'] = 'รอการตอบรับ';
+						$events[] = $user_events[$i];
+					}
+				}
+				else
+				{
+					$events[] = $user_events[$i];
+				}
+			}
 		}
 	}
 	
