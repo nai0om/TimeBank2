@@ -55,9 +55,10 @@
 				<td><?= HTML::anchor('event/view/'.$event->id, 'รายละเอียด') ?></td>
 			</tr>
             <?php endforeach; ?>
-	
+			
 		</table>
-       
+        <br />
+       <p style="float:right; font-size:22px">	"งานที่แสดงข้างต้นเป็นงานที่เปิดรับสมัครอยู่ หากต้องการค้นหางานที่จบไปแล้ว กรุณา <?= HTML::anchor('event/advance_search', 'ค้นหาแบบละเอียด') ?>"  </p>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>

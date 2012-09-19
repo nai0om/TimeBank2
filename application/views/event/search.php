@@ -112,24 +112,9 @@ $page = isset($gets['page'])? $gets['page'] : '1';
                     </td>
                 </tr>
             </tbody></table>
+                    <br />
+       <p style="float:right; font-size:22px">	"งานที่แสดงข้างต้นเป็นงานที่เปิดรับสมัครอยู่ หากต้องการค้นหางานที่จบไปแล้ว กรุณา <?= HTML::anchor('event/advance_search', 'ค้นหาแบบละเอียด') ?>"  </p>
 		<?php else :?>
-        	<ul id="winnerList">
-			<li><img src="<?=url::base()?>media/img/tb_sample_image.png"/>
-				<div class="hours">50 ชม.</div>
-				<a class="no">120<br>อาสาสมัคร</a>
-				<p class="detail">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
-			</li>
-			<li><img src="<?=url::base()?>media/img/tb_sample_image.png"/>
-				<div class="hours">50 ชม.</div>
-				<a class="no">120<br>อาสาสมัคร</a>
-				<p class="detail">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
-			</li>
-			<li><img src="<?=url::base()?>media/img/tb_sample_image.png"/>
-				<div class="hours">50 ชม.</div>
-				<a class="no">120<br>อาสาสมัคร</a>
-				<p class="detail">Neque tum eos illa opinio fefellit.  Nam Zeuxis ilico quaesivit  ab iis,quasnam virgines formosas haberent.  Illi autem statim hominem deduxerunt in.</p>
-			</li>
-		</ul>
         <?php endif ?>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
