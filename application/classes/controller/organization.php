@@ -377,6 +377,84 @@ class Controller_Organization extends Controller_Template {
 			->bind('org_user', $org_user);
     }
 
+	public function action_changeemail()
+	{
+		// if a user is not logged in, redirect to login page
+		if (is_null($this->orguser))
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }	
+		$this->template->content = View::factory('organization/email')
+			->set('values', $_POST)
+            ->bind('errors', $errors)
+            ->bind('message', $message);
+			
+        if (HTTP_Request::POST == $this->request->method()) 
+        {
+			$errors = array();
+			$password = Arr::get($_POST, 'password');
+			if ($password == '')
+			{
+				$errors['password'] = 'Password can\'t be empty.';
+			
+			}
+	
+			$org_user = ORM::factory('user', $this->orguser->user_id);
+			
+		
+			$email = Arr::get($_POST, 'email');
+			if ($email == '')
+			{
+				$errors['email'] = 'email can\'t be empty.';
+			}
+			// check old email
+			if($org_user->email != $email)
+			{
+				$errors['email'] = 'email is incorrect.';
+			}
+			
+			$newemail = Arr::get($_POST, 'newemail');
+			if ($newemail == '')
+			{
+				$errors['newemail'] = 'newemail can\'t be empty.';
+			}
+			
+			// check email is valid
+			$emailvalid = ORM::factory('user')->where('email', '=', $newemail)->find_all();
+			if(count($emailvalid) > 0)
+				$errors['newemail'] = 'email is exist.';
+			
+			if(count($errors) > 0 )
+				return;
+				
+			
+			$hash_password = $org_user->oldhash_password($password);
+			if ($org_user->password == $hash_password)
+			{
+				$org_user->email = Arr::get($_POST, 'newemail');
+				$org_user->password = Arr::get($_POST, 'password');
+									
+				try
+				{
+					$org_user->save();       
+					$message = 'Update complete';
+						 
+				} catch (ORM_Validation_Exception $e) {
+					// Set failure message
+					$message = 'There were errors, please see form below.';
+					// Set errors using custom messages
+					$errors = $e->errors('models');
+					return;
+				}
+			}
+			else
+			{
+				$message = 'Incorrect Password';
+			}
+        }	
+
+	}
 	public function action_changepassword()
 	{
         // if a user is not logged in, redirect to login page

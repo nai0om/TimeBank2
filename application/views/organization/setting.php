@@ -26,7 +26,7 @@
 			
 			<div style="clear:both"></div>
 			<h2>อีเมล์ผู้ใช้ :<?= HTML::chars($org_user->email) ?></h2>
-            
+            <h2><?= HTML::anchor('organization/changeemail', 'อีเมล์'); ?></h2>
             <h2><?= HTML::anchor('organization/changepassword', 'เปลี่ยนรหัสผ่าน'); ?></h2>
 			
 		</div>
