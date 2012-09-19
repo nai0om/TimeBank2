@@ -10,7 +10,7 @@
                <?
 			   echo Form::open('event/addmessage/'.$event->id, array ('style' => 'float:right;')); 
 			   echo Form::textarea('message', ($event->message == '' ? 'เขียนคำขอบคุณที่นี่' : $event->message),  array ('style' => 'height: 50px; width: 760px;')); 
-			   echo Form::submit(NULL, 'ส่ง'); 
+			   echo Form::submit(NULL,  ($event->message == '' ? 'ส่ง' : 'แก้ไข')); 
 			  // echo '<input type="file" >'.'<img src="'.url::base().'media/img/tb_photos_add.png"/>'.'</input>';
 			   echo Form::close();
 			   ?>
