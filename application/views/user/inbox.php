@@ -24,7 +24,7 @@
 		
 		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $notification_count ?></span></p>
 		<div id="selection">
-        <?= Form::open('user/deleteinbox'); ?><input type="checkbox"> เลือกทั้งหมด <?= Form::submit('submit', 'ลบ'); ?></div>
+        <?= Form::open('user/deleteinbox'); ?><input type="checkbox"  onclick="clickall()"> เลือกทั้งหมด <?= Form::submit('submit', 'ลบ'); ?></div>
 		<table>
 			<tr>
 				<th colspan="2" width="80%">หัวข้อ</th>
@@ -32,7 +32,7 @@
 			</tr>
             <?php foreach ($inboxes as $inbox) : ?>
 			<tr>
-				<td><?= Form::checkbox('ib[]', $inbox->id, 0); ?></td>
+				<td><?= Form::checkbox('ib[]', $inbox->id, 0, array("class" => "ib")); ?></td>
 				<td width="80%"><?= $inbox->title ?><br /><a><?= $inbox->message ?></a></td>
 				<td><?= $inbox->created ?></td>
 			</tr>
@@ -46,4 +46,9 @@
 	
   </div>
   
- 
+ <script>
+function clickall()
+{
+	$('.ib').attr('checked', 'checked');
+}
+</script>

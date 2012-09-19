@@ -199,18 +199,19 @@ class Controller_Organization extends Controller_Template {
 			}
 			
 			$inbox_ids = Arr::get($_POST, 'ib');	
-			
-			foreach ($inbox_ids as $id)
+			if(count($inbox_ids) > 0 )
 			{
-				$inbox = ORM::factory('inbox', array('id' => $id, 'organization_id' => $this->orguser->id));
-				$inbox->is_removed = 1;
-				
-				try
+				foreach ($inbox_ids as $id)
 				{
-					$inbox->save();
-				} catch (ORM_Validation_Exception $e){}				
+					$inbox = ORM::factory('inbox', array('id' => $id, 'organization_id' => $this->orguser->id));
+					$inbox->is_removed = 1;
+					
+					try
+					{
+						$inbox->save();
+					} catch (ORM_Validation_Exception $e){}				
+				}
 			}
-			
 			Request::current()->redirect('organization/inbox');
 		}
 	}
