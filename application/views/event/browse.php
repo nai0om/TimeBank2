@@ -16,7 +16,7 @@
 		
 		<?php 
 			echo Form::open('event/search', array ('id' => 'search', 'method' => 'get')); 
-        	echo Form::input('query', 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่'); 
+        	echo Form::input('query', 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่', array('id' => 'query', 'onclick' => 'clear_text()')); 
             echo Form::select('job', $jobs, 'ประเภทภารกิจ');
             echo Form::select('location_province', $provices, '--จังหวัด--');
 	        echo Form::submit(NULL, 'ค้นหา', array ('class' => 'mid')); 
@@ -62,3 +62,12 @@
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
+
+<script>
+	function clear_text()
+	{
+		
+		if ($('#query').val() == 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่')
+			$('#query').val('');
+	}
+</script>

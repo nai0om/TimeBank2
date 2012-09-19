@@ -33,7 +33,7 @@ $page = isset($gets['page'])? $gets['page'] : '1';
 		</div>
 		
 		<?= Form::open('event/search', array ('id' => 'search', 'method' => 'get'));  ?>
-        <?= Form::input('query', $query);  ?>
+        <?= Form::input('query', $query, array('id' => 'query', 'onclick' => 'clear_text()'));  ?>
         <?= Form::select('job', $jobs, $job); ?>
         <?= Form::select('province', $provices, $province); ?>
         <?= Form::submit(NULL, 'หางานอาสา', array ('class' => 'mid'));  ?>
@@ -119,3 +119,11 @@ $page = isset($gets['page'])? $gets['page'] : '1';
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
+<script>
+	function clear_text()
+	{
+		
+		if ($('#query').val() == 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่')
+			$('#query').val('');
+	}
+</script>
