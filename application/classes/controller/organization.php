@@ -43,7 +43,8 @@ class Controller_Organization extends Controller_Template {
 			$organization->postcode = Arr::get($_POST, 'postcode');
 			$organization->district = Arr::get($_POST, 'district');
 			$organization->fax = Arr::get($_POST, 'fax');
-			$organization->homephone = Arr::get($_POST, 'homephone');			
+			$organization->homephone = Arr::get($_POST, 'homephone');	
+			$organization->mobilephone = Arr::get($_POST, 'mobilephone');	
 			$organization->contactperson = Arr::get($_POST, 'contactperson');			
 			$organization->facebook = Arr::get($_POST, 'facebook');			
 			$organization->twitter = str_replace('@', '', Arr::get($_POST, 'twitter'));	
@@ -331,6 +332,7 @@ class Controller_Organization extends Controller_Template {
 			$this->orguser->district = Arr::get($_POST, 'district');
 			$this->orguser->fax = Arr::get($_POST, 'fax');
 			$this->orguser->homephone = Arr::get($_POST, 'homephone');			
+			$this->orguser->mobilephone = Arr::get($_POST, 'mobilephone');	
 			$this->orguser->contactperson = Arr::get($_POST, 'contactperson');			
 			$this->orguser->facebook = Arr::get($_POST, 'facebook');			
 			$this->orguser->twitter = str_replace('@', '', Arr::get($_POST, 'twitter'));	

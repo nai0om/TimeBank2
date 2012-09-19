@@ -75,13 +75,19 @@
                             <?= __(Arr::get($errors, 'postcode')); ?>
                         </div>
                 </p>
-				<p><label>หมายเลขโทรศัพท์บ้าน</label>
+				<p><label>โทร.สำนักงาน</label>
 						<?= Form::input('homephone', HTML::chars($organization->homephone)); ?>
                         <div class="error">
                             <?= __(Arr::get($errors, 'homephone')); ?>
                         </div>
                 </p>
-				<p><label>หมายเลขโทรสาร</label>
+                <p><label>มือถือ</label>
+						<?= Form::input('mobilephone', HTML::chars($organization->mobilephone)); ?>
+                        <div class="error">
+                            <?= __(Arr::get($errors, 'mobilephone')); ?>
+                        </div>
+                </p>
+				<p><label>โทรสาร</label>
 						<?= Form::input('fax', HTML::chars($organization->fax)); ?>
                         <div class="error">
                             <?= __(Arr::get($errors, 'fax')); ?>

@@ -87,11 +87,27 @@
                             <?= Arr::get($errors, 'province'); ?>
                         </div>
                     </p>
-					<p><label>เบอร์โทรศัพท์บ้าน</label></p>
+					<p><label>โทร.สำนักงาน</label></p>
 					<p>
 						<?= Form::input('homephone', HTML::chars($organization->homephone)); ?>
                         <div class="error">
                             <?= Arr::get($errors, 'homephone'); ?>
+                        </div>
+                    </p>
+                    
+                    <p><label>มือถือ</label></p>
+					<p>
+						<?= Form::input('fax', HTML::chars($organization->mobilephone)); ?>
+                        <div class="error">
+                            <?= Arr::get($errors, 'mobilephone'); ?>
+                        </div>
+                    </p>
+                    
+                   <p><label>โทรสาร</label></p>
+					<p>
+						<?= Form::input('fax', HTML::chars($organization->fax)); ?>
+                        <div class="error">
+                            <?= Arr::get($errors, 'fax'); ?>
                         </div>
                     </p>
 				</div>
@@ -110,13 +126,7 @@
                             <?= Arr::get($errors, 'postcode'); ?>
                         </div>
                     </p>
-					<p><label>เบอร์โทรสาร</label></p>
-					<p>
-						<?= Form::input('fax', HTML::chars($organization->fax)); ?>
-                        <div class="error">
-                            <?= Arr::get($errors, 'fax'); ?>
-                        </div>
-                    </p>
+			
 					<p><label>ติดต่อคุณ</label></p>
 					<p>
 						<?= Form::input('contactperson', HTML::chars($organization->contactperson)); ?>
