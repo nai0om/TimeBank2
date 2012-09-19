@@ -31,7 +31,7 @@
 
 			<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= $notification_count ?></span></p>
 		<div id="selection">
-		<?= Form::open('organization/deleteinbox'); ?><input type="checkbox"> เลือกทั้งหมด <?= Form::submit('submit', 'ลบ'); ?></div>
+		<?= Form::open('organization/deleteinbox'); ?><input type="checkbox" onclick="clickall()"> เลือกทั้งหมด <?= Form::submit('submit', 'ลบ'); ?></div>
 		<table>
 			<tr>
 				<th colspan="2">หัวข้อ</th>
@@ -40,7 +40,7 @@
            
             <?php foreach ($inboxes as $inbox) : ?>
 			<tr>
-				<td><?= Form::checkbox('ib[]', $inbox->id, 0); ?></td>
+				<td><?= Form::checkbox('ib[]', $inbox->id, 0, array("class" => "ib")); ?></td>
 				<td><?= $inbox->title ?><br /><a><?= $inbox->message ?></a></td>
 				<td><?= $inbox->created ?></td>
 			</tr>
@@ -52,3 +52,10 @@
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
+
+<script>
+function clickall()
+{
+	$('.ib').attr('checked', 'checked');
+}
+</script>
