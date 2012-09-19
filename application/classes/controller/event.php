@@ -660,6 +660,10 @@ class Controller_Event extends Controller_Template {
 				Request::current()->redirect('event/advance_search/');
 				
 			$query = Arr::get($_GET, 'query');
+				
+			if($query == '' || $query =='ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่')
+				$query = '';
+				
 			$type = Arr::get($_GET, 'type'); // open, close, member
 			
 			if ($type == '')
