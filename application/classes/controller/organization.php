@@ -438,7 +438,10 @@ class Controller_Organization extends Controller_Template {
 				try
 				{
 					$org_user->save();       
-					$message = 'Update complete';
+					echo '<script>'.
+						'alert ("'.__('Update complete').'"); '.
+						'window.location = "'.url::base().'organization/setting/"'.
+						'</script>';
 						 
 				} catch (ORM_Validation_Exception $e) {
 					// Set failure message
@@ -497,7 +500,10 @@ class Controller_Organization extends Controller_Template {
 				try
 				{
 					$org_user->save();       
-					$message = 'Update complete';
+					echo'<script>'.
+						'alert ("'.__('Update complete').'"); '.
+						'window.location = "'.url::base().'organization/setting/"'.
+						'</script>';
 						 
 				} catch (ORM_Validation_Exception $e) {
 					// Set failure message
