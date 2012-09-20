@@ -16,29 +16,37 @@
 			
 			<div style="clear:both"></div>
 			<div class="title left"></div>
-			<div class="title body">ตั้งค่าบัญชีผู้ใช้</div>
+			<div class="title body">เปลี่ยนอีเมล์</div>
 			<div class="title right"></div>
 			
 			<div style="clear:both"></div>
 <? if ($message) : ?>
     <h3 class="error">
-        <?= $message; ?>
+        <?= __($message); ?>
     </h3>
 <? endif; ?>
-			<?= Form::open('user/setting', array('enctype' => 'multipart/form-data')); ?>	
+			<?= Form::open('user/changeemail', array('enctype' => 'multipart/form-data')); ?>	
+                <?= Form::label('email', 'อีเมลเดิม :'); ?>
+				<?= Form::input('email'); ?>
+                <div class="error"><?= __(Arr::get($errors, 'email')); ?></div>
+                            
+				<?= Form::label('newemail', 'อีเมลใหม่ :'); ?>
+				<?= Form::input('newemail'); ?>
+                <div class="error"><?= __(Arr::get($errors, 'newemail')); ?></div>
                 
-                <label>อีเมลผู้ใช้ :</label><p><?= HTML::chars($user->email) ?></p>
-				<?= Form::label('displayname', 'ชื่อที่ใช้แสดง (Display Name) :'); ?>
-				<?= Form::input('displayname', HTML::chars($user->displayname) ); ?>
-                <div class="error"><?= Arr::get($errors, 'displayname'); ?></div>
+				<?= Form::label('password', 'รหัสผ่าน :'); ?>
+				<?= Form::password('password'); ?>
+                <div class="error"><?= __(Arr::get($errors, 'password')); ?></div>
+                
+
 				<label></label><input type="submit" value="บันทึกการเปลี่ยนแปลง">
 			<?= Form::close(); ?>
-              <h2><?= HTML::anchor('user/changeemail', 'อีเมล์'); ?></h2>
-            <h2><?= HTML::anchor('user/changepassword', 'เปลี่ยนรหัสผ่าน'); ?></h2>
 			
 		</div>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
-	</div>	
+		
+    </div>
+
 </div>
   
  
