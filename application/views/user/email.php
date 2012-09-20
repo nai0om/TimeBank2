@@ -16,7 +16,7 @@
 			
 			<div style="clear:both"></div>
 			<div class="title left"></div>
-			<div class="title body">เปลี่ยนอีเมล์</div>
+			<div class="title body">เปลี่ยนอีเมล</div>
 			<div class="title right"></div>
 			
 			<div style="clear:both"></div>
