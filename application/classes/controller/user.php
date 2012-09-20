@@ -304,6 +304,85 @@ class Controller_User extends Controller_Template {
     {
 		$this->template->content = View::factory('user/thanks');
     }
+	
+	public function action_changeemail()
+	{
+		// if a user is not logged in, redirect to login page
+		if (is_null($this->user))
+        {
+            Request::current()->redirect('user/login');
+			return;
+        }	
+		$this->template->content = View::factory('user/email')
+			->set('values', $_POST)
+            ->bind('errors', $errors)
+			->bind('action', $action)
+            ->bind('message', $message);
+			
+		$action = $this->request->action();
+        if (HTTP_Request::POST == $this->request->method()) 
+        {
+			$errors = array();
+			$password = Arr::get($_POST, 'password');
+			if ($password == '')
+			{
+				$errors['password'] = 'Password can\'t be empty.';
+			
+			}
+	
+			$email = Arr::get($_POST, 'email');
+			if ($email == '')
+			{
+				$errors['email'] = 'email can\'t be empty.';
+			}
+			// check old email
+			if($this->user->email != $email)
+			{
+				$errors['email'] = 'email is incorrect.';
+			}
+			
+			$newemail = Arr::get($_POST, 'newemail');
+			if ($newemail == '')
+			{
+				$errors['newemail'] = 'newemail can\'t be empty.';
+			}
+			
+			// check email is valid
+			$emailvalid = ORM::factory('user')->where('email', '=', $newemail)->find_all();
+			if(count($emailvalid) > 0)
+				$errors['newemail'] = 'email is exist.';
+			
+			if(count($errors) > 0 )
+				return;
+				
+			
+			$hash_password = $this->user->oldhash_password($password);
+			if ($this->user->password == $hash_password)
+			{
+				$this->user->email = Arr::get($_POST, 'newemail');
+				$this->user->password = Arr::get($_POST, 'password');
+									
+				try
+				{
+					$this->user->save();       
+					$message = 'Update complete';
+						 
+				} catch (ORM_Validation_Exception $e) {
+					// Set failure message
+					$message = 'There were errors, please see form below.';
+					// Set errors using custom messages
+					$errors = $e->errors('models');
+					return;
+				}
+			}
+			else
+			{
+				$message = 'Incorrect Password';
+			}
+        }	
+
+	}
+	
 
     public function action_profile() 
     {	
