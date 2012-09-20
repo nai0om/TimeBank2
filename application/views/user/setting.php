@@ -33,7 +33,7 @@
                 <div class="error"><?= Arr::get($errors, 'displayname'); ?></div>
 				<label></label><input type="submit" value="บันทึกการเปลี่ยนแปลง">
 			<?= Form::close(); ?>
-              <h2><?= HTML::anchor('user/changeemail', 'อีเมล์'); ?></h2>
+              <h2><?= HTML::anchor('user/changeemail', 'อีเมล'); ?></h2>
             <h2><?= HTML::anchor('user/changepassword', 'เปลี่ยนรหัสผ่าน'); ?></h2>
 			
 		</div>
