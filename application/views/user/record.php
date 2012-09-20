@@ -25,7 +25,7 @@
 					<label>ต้องการฝากชั่วโมงเพิ่มเป็นเวลา</label>
 					<input type="text" name="hour" style="color:#0099cc;font-size: 70pt;width: 240px;"><span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span>
                		<div class="error"><?= $error ?></div>
-					<input type="submit" value="บันทึกการเปลี่ยนแปลง" style="margin: 10px 0;">
+					<input type="submit" value="ฝากเวลาเพิ่ม" style="margin: 10px 0;">
 				<?= Form::close(); ?>
 			</div>
 			<div id="summary">
