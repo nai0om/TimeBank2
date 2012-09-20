@@ -386,7 +386,7 @@ class Controller_Event extends Controller_Template {
 		  {
 			if(Arr::get($_POST, 'user'.$user['user_id']) != 'on') continue;
 			
-			if(Arr::get($_POST, 'submit') == 'approve')
+			if(Arr::get($_POST, 'submit') == 'ตอบรับ')
 			{
 			
 				DB::update('users_events')
