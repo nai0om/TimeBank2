@@ -2,12 +2,12 @@
   <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?><br />
 
-A = noti_eventrecommended<br />
-B = noti_eventapproved<br />
-C = noti_almosteventdate<br />
-D = noti_eventthank<br />
-E = noti_sms_eventapproved<br />
-F = noti_sms_almosteventdate<br />
+A = noti_eventrecommended, 
+B = noti_eventapproved, 
+C = noti_almosteventdate, 
+D = noti_eventthank, 
+E = noti_sms_eventapproved, 
+F = noti_sms_almosteventdate, 
 G = noti_sms_news<br />
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
@@ -27,16 +27,8 @@ G = noti_sms_news<br />
 <th>role</th>
 <th>first_name</th>
 <th>last_name</th>
-<th>birthday</th>
-<th>phone</th>
-<th>address</th>
 <th>profile_image</th>
-<th>quote</th>
-<th>description</th>
-<th>created</th>
 <th>sex</th>
-<th>website</th>
-<th>skills</th>
 </tr>
 <? foreach ($users as $user ) :?>
     <tr>
@@ -60,21 +52,13 @@ G = noti_sms_news<br />
     <td><?= $user->role  ?></td>
     <td><?= $user->first_name  ?></td>
     <td><?= $user->last_name  ?></td>
-    <td><?= $user->birthday  ?></td>
-    <td><?= $user->phone  ?></td>
-    <td><?= $user->address  ?></td>
     <td>    
-        <?php if ($user->profile_image != ''): ?>
-        	<img src="<?= url::base().'media/upload/events/'.$user->profile_image; ?>" style="max-height: 150px; max-width:150px;" />
-        <? endif ?>
+      <?php if ($user->profile_image != ''): ?>
+      <img src="<?= url::base().'media/upload/events/'.$user->profile_image; ?>" style="max-height: 150px; max-width:150px;" />
+      <? endif ?>
     </td>
-    <td><?= $user->quote  ?></td>
-    <td><?= $user->description  ?></td>
-    <td><?= $user->created  ?></td>
     <td><?= $user->sex  ?></td>
-    <td><?= $user->website  ?></td>
-    <td><?= $user->skills  ?></td>
-	</tr>
+    </tr>
 <? endforeach ?>
 </table>
 </div>
