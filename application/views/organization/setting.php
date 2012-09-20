@@ -10,7 +10,7 @@
 		<div id="menu_left">
 			<ul>
 				<li><?= HTML::anchor('organization/index', 'หน้าหลัก'); ?></li>
-				<li><?= HTML::anchor('organization/profile', 'โปร์ไพล์'); ?></li>
+				<li><?= HTML::anchor('organization/profile', 'แก้ไขข้อมูลองค์กร'); ?></li>
 				<li><?= HTML::anchor('organization/event', 'งานอาสา'); ?></li>
 				<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน'); ?></li>
 			</ul>
@@ -25,8 +25,8 @@
 			<div class="title right"></div>
 			
 			<div style="clear:both"></div>
-			<h2>อีเมล์ผู้ใช้ :<?= HTML::chars($org_user->email) ?></h2>
-            <h2><?= HTML::anchor('organization/changeemail', 'อีเมล์'); ?></h2>
+			<h2>อีเมลผู้ใช้ :<?= HTML::chars($org_user->email) ?></h2>
+            <h2><?= HTML::anchor('organization/changeemail', 'อีเมล'); ?></h2>
             <h2><?= HTML::anchor('organization/changepassword', 'เปลี่ยนรหัสผ่าน'); ?></h2>
 			
 		</div>

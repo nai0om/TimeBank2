@@ -22,7 +22,7 @@
 			
 			<div style="clear:both"></div>
 			<div class="title left"></div>
-			<div class="title body">เปลี่ยนอีเมล์</div>
+			<div class="title body">เปลี่ยนอีเมล</div>
 			<div class="title right"></div>
 			
 			<div style="clear:both"></div>
@@ -32,11 +32,11 @@
                 </h3>
             <? endif; ?>
 			<?= Form::open('organization/changeemail', array('enctype' => 'multipart/form-data')); ?>	
-                <?= Form::label('email', 'อีเมล์เดิม :'); ?>
+                <?= Form::label('email', 'อีเมลเดิม :'); ?>
 				<?= Form::input('email'); ?>
                 <div class="error"><?= __(Arr::get($errors, 'email')); ?></div>
                             
-				<?= Form::label('newemail', 'อีเมล์ไหม่ :'); ?>
+				<?= Form::label('newemail', 'อีเมลใหม่ :'); ?>
 				<?= Form::input('newemail'); ?>
                 <div class="error"><?= __(Arr::get($errors, 'newemail')); ?></div>
                 
