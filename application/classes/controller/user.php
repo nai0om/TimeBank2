@@ -365,7 +365,10 @@ class Controller_User extends Controller_Template {
 				try
 				{
 					$this->user->save();       
-					$message = 'Update complete';
+					echo'<script>'.
+					'alert ("'.__('Update complete').'"); '.
+					'window.location = "'.url::base().'user/setting/"'.
+					'</script>';
 						 
 				} catch (ORM_Validation_Exception $e) {
 					// Set failure message
@@ -908,7 +911,10 @@ class Controller_User extends Controller_Template {
 				try
 				{
 					$this->user->save();       
-					$message = 'Update complete';
+				  	echo'<script>'.
+						'alert ("'.__('Update complete').'"); '.
+						'window.location = "'.url::base().'user/setting/"'.
+						'</script>';
 						 
 				} catch (ORM_Validation_Exception $e) {
 					// Set failure message
