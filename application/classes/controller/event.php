@@ -852,14 +852,11 @@ class Controller_Event extends Controller_Template {
 		{
 			$event->name = Arr::get($_POST, 'name');
 			$event->project_name = Arr::get($_POST, 'project_name');
-			//$event->signup_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_begin_date')));
 			$event->signup_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_end_date')));
-			$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
-			$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));
-			//$event->signup_begin_time = Arr::get($_POST, 'signup_begin_time');
-			//$event->signup_end_time = Arr::get($_POST, 'signup_end_time');
+	
 			$event->volunteer_begin_time = Arr::get($_POST, 'volunteer_begin_time');
 			$event->volunteer_end_time = Arr::get($_POST, 'volunteer_end_time');
+	
 			$event->location_name = Arr::get($_POST, 'location_name');
 			$event->location_province = Arr::get($_POST, 'location_province');
 			$event->location_district = Arr::get($_POST, 'location_district');
@@ -874,6 +871,25 @@ class Controller_Event extends Controller_Template {
 			$event->time_cost = Arr::get($_POST, 'time_cost');	
 			//name,  project_name, location_name, detail
 			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
+			
+			$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
+			$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));
+			
+		
+			if($event->volunteer_begin_date > $event->volunteer_end_date )
+			{
+				$errors['volunteer_end_date'] = __('volunteer end date much more than start date.');
+			}
+			
+			if( phphelp::dateDiff($event->volunteer_begin_date, $event->volunteer_end_date) > 365 )
+			{
+				$errors['volunteer_end_date'] = __('limit 365 days per event.');
+			}
+			
+			if($event->time_cost > 2000)
+			{
+				$errors['time_cost'] = __('limit at 2000 hours.');
+			}
 			
 			if($event->is_need_expense == 1 ) 
 			{
@@ -945,7 +961,7 @@ class Controller_Event extends Controller_Template {
 				$event->image = $_FILES['image']['name'];
 			}
 	
-			
+			if(count($errors) > 0 ) return;
 			try
 			{
 				$event->save();
