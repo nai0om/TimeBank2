@@ -20,9 +20,9 @@
 				</div>
 				<div id="rightSide">
              
-				   <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>  เลือกทั้งหมด
-                 <?= Form::submit('submit', 'ตอบรับ', array('onclick' =>  'var answer = confirm ("'.__('Approve volunteer warning.').'"); if (!answer)  return false;')) ?>
-                 <? // Form::submit('submit', 'delete'); ?>
+				   <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>  ทั้งหมด
+          <?= Form::submit('submit', 'ตอบรับ', array('onclick' =>  'var answer = confirm ("'.__('Approve volunteer warning.').'"); if (!answer)  return false;')) ?>
+                 <?= Form::submit('submit', 'ลบ'); ?>
 						<div id="details">
                        <? foreach($event->users->order_by('timestamp','desc')->find_all() as $user) : ?>
 							<div class="person">
