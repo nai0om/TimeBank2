@@ -66,6 +66,14 @@ class phphelp {
 		$strMonthThai = $strMonthCut[$strMonth];
 		return "$strDay $strMonthThai $strYear, $strHour:$strMinute:$strSeconds น.";
 	}
+	
+	public static function getYearAge($birthday)
+	{
+		$diff=  abs(strtotime(date("Y-m-d")) - strtotime($birthday));
+
+		return floor($diff / (365*60*60*24));
+
+	}
 	 
 }
  

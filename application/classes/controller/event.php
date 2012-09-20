@@ -222,9 +222,57 @@ class Controller_Event extends Controller_Template {
 		
 	}
 	
+	public function action_export()
+	{
+		//if ($this->request->param('id') == '') return;
+		
+		$this->auto_render = FALSE;
+		$view  = View::factory('event/export')
+		  						->bind('name', $name)
+								->bind('valunteers', $valunteers);
+								
+		$event = ORM::factory('event', $this->request->param('id'));
+		
+		//if(!$event->loaded()) return;
+		//if (is_null($this->orguser) || $this->orguser->id != $event->organization_id) return;
+		
+		$valunteers = array();
+		$valunteers_event = $event->users->order_by('id','desc')->find_all();
+		$statuses = DB::select()->from('users_events')->where('event_id', '=', $event->id)->where('status', '=', 1)->execute()->as_array('user_id');
+		
+		$type = Arr::get($_GET, 'type');
+		if($type == 1)
+		{
+			$name = 'อาสาสมัครงานอาสา '.$event->name.'[ตอบรับแล้ว]';
+		}
+		else
+		{
+			$name = 'อาสาสมัครงานอาสา '.$event->name.'[ทั้งหมด]';
+		}
+		foreach ($valunteers_event as $valunteer_event)
+		{
+			if($type == 1)
+			{
+				if(array_key_exists($valunteer_event->id, $statuses))
+				{
+					$valunteers[] = $valunteer_event;
+				}
+			}
+			else
+			{
+				$valunteers[] = $valunteer_event;
+			}
+		}
+
+		
+	
+ 		echo (string)$view;
+			
+	}
+	
 	public function action_advance_search()
 	{
-	
+		
     	$this->search_event('event/advancedsearch');
 	}
 	

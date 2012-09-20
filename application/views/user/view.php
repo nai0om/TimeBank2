@@ -1,6 +1,6 @@
 <?
 $provinces = Kohana::$config->load('timebank')->get('provices');
-$sex = array ('m' => 'ชาย', 'f' => 'หญิง')
+
 ?>
 <div id="org">
  <div id="main" role="main">
@@ -87,7 +87,8 @@ $sex = array ('m' => 'ชาย', 'f' => 'หญิง')
              
 			<h4>วันเกิด </h4>
             <p><?=  phphelp::str_to_thai_date($view_user->birthday); ?></p>
-			<h4>เพศ</h4>	<p><?= ($view_user->sex == '' ? '' : $sex[$view_user->sex] ) ?></p>
+            
+			<h4>เพศ</h4>	<p><?= Kohana::$config->load('timebank')->get('sexs')[$view_user->sex] ?></p>
 		
 		</div>
 		<div class="column three">

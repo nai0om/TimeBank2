@@ -54,5 +54,8 @@ return array(
 	'Please enter valid email address' => 'กรุณาใส่อีเมล ให้ถูกต้อง',
 	'Account is not verified by JitArsa Bank team yet. Please wait.' => 'ยังไม่ได้รับการตรวจสอบจากทางทีมงาน ธนาคารจิตอาสา กรุณารอซักครู่..',
 	'Update complete' => 'ข้อมูลใหม่ถูกบันทึกเรียบร้อยครับ',
-	'newemail can\'t be empty.' => 'กรุณาใส่อีเมล ให้ถูกต้อง'
+	'newemail can\'t be empty.' => 'กรุณาใส่อีเมล ให้ถูกต้อง',
+	'man' => 'ชาย',
+	'woman' => 'หญิง',
+	'N/A' => 'ไม่ระบุ'
 );

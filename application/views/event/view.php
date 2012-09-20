@@ -26,19 +26,19 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <?= HTML::anchor('event/browse', '<img src="'.url::base().'media/img/icon_browse_event.png"/>'); ?>
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
 		</div>
-
+					i
 		<div id="detail">
-			<?php if ($mode == 2): ?>
+			<?php if ($mode == 2  && $isOwner): ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>
-                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา', array('class' => 'current')); ?>
+                <? if($isOwner) echo HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา', array('class' => 'current')); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
             <? elseif ($mode == 3): ?>    
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>
-                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
+                <? if($isOwner) echo  HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม', array('class' => 'current')); ?>
             <? else: ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน', array('class' => 'current')); ?>
-                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
+                <? if($isOwner) echo  HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
             <? endif ?>
                 
@@ -52,7 +52,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		</div>
 		<div style="clear:both"></div>
 		
-	<? if ($mode == 2): ?>
+	<? if ($mode == 2 && $isOwner): ?>
 	 	<?php include Kohana::find_file('views', 'event/forms/volunteers') ?>  
 	<? elseif ($mode == 3): ?>
 		<?php include Kohana::find_file('views', 'event/forms/images') ?>  
