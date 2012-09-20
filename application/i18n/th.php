@@ -57,5 +57,8 @@ return array(
 	'newemail can\'t be empty.' => 'กรุณาใส่อีเมล ให้ถูกต้อง',
 	'man' => 'ชาย',
 	'woman' => 'หญิง',
-	'N/A' => 'ไม่ระบุ'
+	'N/A' => 'ไม่ระบุ',
+	'volunteer end date much more than start date.' => 'วันสิ้นสุดงานอาสา ต้องที่หลังวันเริ่มงานอาสา',
+	'limit 365 days per event.' => 'จำกัดไม่เกิน 365',
+	'limit at 2000 hours.'  => 'จำนวนชั่วโมงสูงสุดไม่เกิน 2000 ชั่วโมง'
 );

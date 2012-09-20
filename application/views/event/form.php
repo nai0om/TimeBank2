@@ -91,6 +91,9 @@ $times['23:59:59'] = '23:59';
             ?>
         </p>
         <p>รวม (อัตโนมัติ) <input name='time_cost' id='time_cost'  value= "<?= $event->time_cost ?>" type="text" style="width:50px;margin:0;display:inline;"> ชม.(สามารถแก้ไขได้) </p>
+         <div class="error">
+                <font color="red"><?= Arr::get($errors, 'time_cost'); ?></font>
+            </div>    
         <div class="line"></div>
     </fieldset>
     <fieldset>

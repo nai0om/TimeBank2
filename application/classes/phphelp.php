@@ -70,8 +70,14 @@ class phphelp {
 	public static function getYearAge($birthday)
 	{
 		$diff=  abs(strtotime(date("Y-m-d")) - strtotime($birthday));
-
 		return floor($diff / (365*60*60*24));
+
+	}
+	
+	public static function dateDiff($start, $end)
+	{
+		$diff=  abs(strtotime($end) - strtotime($start));
+		return floor($diff / (60*60*24));
 
 	}
 	 
