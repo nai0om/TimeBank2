@@ -113,7 +113,9 @@ $page = isset($gets['page'])? $gets['page'] : '1';
                 </tr>
             </tbody></table>
                     <br />
+       <? if($type == 'open') : ?>
        <p style="float:right; font-size:22px">	"งานที่แสดงข้างต้นเป็นงานที่เปิดรับสมัครอยู่ หากต้องการค้นหางานที่จบไปแล้ว กรุณา <?= HTML::anchor('event/advance_search', 'ค้นหาแบบละเอียด') ?>"  </p>
+      	<? endif ?>
 		<?php else :?>
         <?php endif ?>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
