@@ -7,24 +7,31 @@
 			<h2>ตอบรับอาสา</h2>
 				    <?= Form::open('event/approve/'.$event->id, array ('method' => 'post')); ?>
 				<div id="leftSide">
-					<p><?= $event->name ?></p>
+					<p>ชื่องานอาสา <?= HTML::anchor('event/view/'.$event->id, $event->name); ?></p>
                     <?
-					$all_users = $event->users->count_all();
-					$approved =  $event->users->where('status', '=', '1')->count_all();
-					$remain = 	$event->volunteer_need_count- $approved; 
+						$all_users = $event->users->count_all();
+						$approved =  $event->users->where('status', '=', '1')->count_all();
+						$remain = 	$event->volunteer_need_count- $approved; 
 					?>
 					<p class="blue">จำนวนรับสมัคร <?= $event->volunteer_need_count ?> คน</p>
 					<p class="blue">สมัครเข้ามาทั้งหมด <?= $all_users  ?> คน</p>
 					<p class="blue">ตอบรับแล้ว <?= $approved ?> คน</p>
 					<p class="blue">เหลืออีก <?= $remain ?> คน</p>
+                    <br />
+                  
+                    <p>	
+						<?= HTML::anchor('event/export/'.$event->id, 'Download รายชื่อสมาชิก ทั้งหมด')  ?><br />
+                        <?= HTML::anchor('event/export/'.$event->id.'?type=1', 'Download รายชื่อสมาชิก ที่่ได้รับการตอบรับแล้ว')  ?>
+                    </p>
+                    
 				</div>
 				<div id="rightSide">
              
 				   <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?>  ทั้งหมด
           <?= Form::submit('submit', 'ตอบรับ', array('onclick' =>  'var answer = confirm ("'.__('Approve volunteer warning.').'"); if (!answer)  return false;')) ?>
-                 <?= Form::submit('submit', 'ลบ'); ?>
+                 <!-- Form::submit('submit', 'ลบ');  -->
 						<div id="details">
-                       <? foreach($event->users->order_by('timestamp','desc')->find_all() as $user) : ?>
+                       <? foreach($event->users->order_by('id','desc')->find_all() as $user) : ?>
 							<div class="person">
 								<? if( $users[$user->id]['status'] != '1' ) : ?>     
                                     <?= Form::checkbox('user'.$user->id, NULL, false, array('id' => 'user')) ?>
