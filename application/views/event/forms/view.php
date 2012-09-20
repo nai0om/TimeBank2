@@ -4,7 +4,7 @@
              <p class="post-data"><?= $event->message ?> </p>
         </div>
         <? endif ?>
-		<? if($isOrga) : ?>
+		<? if($isOwner) : ?>
             <div id="post">
                 <h2>***หลังจบ*** กิจกรรมอาสาแล้ว อย่าลืมมาเขียนคำขอบคุณให้จิตอาสาที่ไปร่วมงานนะครับ</h2>
                <?

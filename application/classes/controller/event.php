@@ -149,6 +149,7 @@ class Controller_Event extends Controller_Template {
 										->bind('event_status', $event_status)
 										->bind('mode', $mode)
 										->bind('isAdmin', $isAdmin)
+										->bind('isOwner', $isOwner)
 										->bind('isOrga', $isOrga)
 										->bind('member_event', $member_event)
 										->bind('images', $images)
@@ -170,8 +171,12 @@ class Controller_Event extends Controller_Template {
 		 	$isOrga = true;
 		}
 		
-		if ((!is_null($this->orguser) && $this->orguser->id == $event->organization_id) ||
-				 (!is_null($this->user) && $this->user->role == 2))
+		if((!is_null($this->orguser) && $this->orguser->id == $event->organization_id) )
+		{
+			$isOwner = true;
+		}
+		
+		if ((!is_null($this->user) && $this->user->role == 2))
 		{
 			$isAdmin = true;
 		}

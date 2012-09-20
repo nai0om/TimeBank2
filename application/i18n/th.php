@@ -51,5 +51,6 @@ return array(
 	'Incorrect Password' => 'รหัสผ่านไม่ถูกต้อง',
 	'email is exist.' => 'อีเมล์นี้มีการใช้งานแล้ว',
 	'email is incorrect.' => 'อีเมล์ไม่ถูกต้อง',
-	'Please enter valid email address' => 'กรุณาใส่อีเมล์ ให้ถูกต้อง'
+	'Please enter valid email address' => 'กรุณาใส่อีเมล์ ให้ถูกต้อง',
+	'Account is not verified by JitArsa Bank team yet. Please wait.' => 'ยังไม่ได้รับการตรวจสอบจากทางทีมงาน ธนาคารจิตอาสา กรุณารอซักครู่..'
 );
