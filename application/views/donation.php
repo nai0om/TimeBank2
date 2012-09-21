@@ -161,7 +161,7 @@
 				auto: {
 					enabled: true
 				},
-				width: 886,
+				width: 960,
 				height: 225,
 				start: generatePages2,
 				pageLoaded: pageLoaded2
