@@ -33,43 +33,43 @@
                 </p>
 				<div class="line"></div>
 				<h3>ข้อมูลกลุ่ม / องค์กร</h3>
-				<p><label>ชื่อองค์กร / หน่วยงาน</label>
+				<p><label>ชื่อองค์กร / หน่วยงาน *</label>
 					<?= Form::input('name', HTML::chars($organization->name)); ?>
                     <div class="error">
                         <?= __(Arr::get($errors, 'name')); ?>
                     </div>
                 </p>
-				<p><label>วัตถุประสงค์ / เป้าหมายองค์กร</label>
+				<p><label>วัตถุประสงค์ / เป้าหมายองค์กร *</label>
 					<?= Form::textarea('objective', HTML::chars($organization->objective), array('class'=>'long', 'style'=>'height:58px;')); ?>
                     <div class="error">
                         <?= __(Arr::get($errors, 'objective')); ?>
                     </div>
                 </p>
-				<p><label>ลักษณะกิจกรรมขององค์กร</label>
+				<p><label>ลักษณะกิจกรรมขององค์กร *</label>
 					<?= Form::textarea('activity', HTML::chars($organization->activity), array('class'=>'long', 'style'=>'height:58px;')); ?>
                     <div class="error">
                         <?= __(Arr::get($errors, 'activity')); ?>
                     </div>
                 </p>
-				<p><label>ที่อยู่</label>
+				<p><label>ที่อยู่ *</label>
 						<?= Form::input('address', HTML::chars($organization->address)); ?>
                         <div class="error">
                             <?= __(Arr::get($errors, 'address')); ?>
                         </div>
                 </p>
-                <p><label>เขต / อำเภอ</label>
+                <p><label>เขต / อำเภอ *</label>
 						<?= Form::input('district', HTML::chars($organization->district)); ?>
                         <div class="error">
                             <?= __(Arr::get($errors, 'district')); ?>
                         </div>
                 </p>
-				<p><label>จังหวัด</label>
+				<p><label>จังหวัด *</label>
 						<?= Form::input('province', HTML::chars($organization->province)); ?>
                         <div class="error">
                             <?= __(Arr::get($errors, 'province')); ?>
                         </div>
                 </p>
-				<p><label>รหัสไปรษณีย์</label>
+				<p><label>รหัสไปรษณีย์ *</label>
 						<?= Form::input('postcode', HTML::chars($organization->postcode)); ?>
                         <div class="error">
                             <?= __(Arr::get($errors, 'postcode')); ?>
@@ -93,7 +93,7 @@
                             <?= __(Arr::get($errors, 'fax')); ?>
                         </div>
                 </p>
-				<p><label>ชื่อผู้ติดต่อ</label>
+				<p><label>ชื่อผู้ติดต่อ *</label>
 						<?= Form::input('contactperson', HTML::chars($organization->contactperson)); ?>
                         <div class="error">
                             <?= __(Arr::get($errors, 'contactperson')); ?>
