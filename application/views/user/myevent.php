@@ -68,7 +68,12 @@
                           <br />
                           ถึง
                       <?= $record->volunteer_end_date ?></td>
-                        <td><?= HTML::anchor('event/view/'.$record->id, 'ดูรายละเอียด') ?> <?= HTML::anchor('user/removeevent/'.$record->id, 'ขอยกเลิก') ?> </td>
+                        <td>
+							<ul class="list-circle">
+								<li><?= HTML::anchor('event/view/'.$record->id, 'ดูรายละเอียด') ?></li>
+								<li><?= HTML::anchor('user/removeevent/'.$record->id, 'ขอยกเลิก') ?></li>
+							</ul>
+						</td>
                     </tr>
                  <? else : ?>
                     <tr>
