@@ -88,9 +88,12 @@
                      <td><?= HTML::anchor('event/view/'.$event->id, $event->name) ?></td>
 					<td><?=  $event->time_cost ?> ชม.</td>
 					<td><?=  $event->volunteer_need_count ?> คน</td>
-                    <td><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?>
-                    	<?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?>
-						<?= HTML::anchor('#', 'ปิดงาน', array('id' => 'confirm'.$event->id)) ?>
+                    <td>
+						<ul class="list-circle">
+							<li><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?></li>
+							<li><?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?></li>
+							<li><?= HTML::anchor('#', 'ปิดงาน', array('id' => 'confirm'.$event->id)) ?></li>
+						</ul>
                         <div id="dialog-confirm<?= $event->id ?>" title="หยุดก่อน"  > 
                             อาสาจะได้รับการแจ้งเตือนใันทีเมื่อคุณปิดงาน ดังนั้นขอแนะนำให้ทำตามลำดับดังนี้ <br />
                             1. เขียนคำขอบคุณ<br />
@@ -124,6 +127,7 @@
 								});
 							});
 					   </script>
+					</td>
 				</tr>
                 <? endforeach ?>
 				
