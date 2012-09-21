@@ -1,4 +1,4 @@
-﻿<div id="training">
+<div id="training">
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
@@ -163,7 +163,7 @@
 				auto: {
 					enabled: true
 				},
-				width: 886,
+				width: 960,
 				height: 225,
 				start: generatePages2,
 				pageLoaded: pageLoaded2
