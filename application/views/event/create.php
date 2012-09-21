@@ -10,8 +10,9 @@
 		<h2>สร้างงานอาสาใหม่</h2>
 		<?= Form::open('event/create', array('enctype' => 'multipart/form-data')); ?>
 			<?php include Kohana::find_file('views', 'event/form') ?>
-			<input type="submit" value="สร้างงานอาสา">
 			</div>
+			<div style="clear:both"></div>
+			<input style="margin:0 auto;" type="submit" value="สร้างงานอาสา">
 		<?= Form::close(); ?>
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>
