@@ -1,6 +1,6 @@
 <div class="left">
 			<div class="title left"></div>
-			<div class="title body" style="font-family:chula">ความสามารถเฉพาะของคุณ</div>
+			<div class="title body" style="font-family:chula">เรื่องที่คุณใส่ใจ/สนใจ</div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
             		<label>(เลือก 4 อันดับความสนใจมากที่สุด)</label>
@@ -24,7 +24,7 @@
 		
 		<div class="right">
 			<div class="title left"></div>
-			<div class="title body" style="font-family:chula">เรื่องที่คุณใส่ใจ/สนใจ</div>
+			<div class="title body" style="font-family:chula">ความสามารถเฉพาะของคุณ</div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 	       		<?= timebankhelper::buildSkilsForm($skills)  ?>
