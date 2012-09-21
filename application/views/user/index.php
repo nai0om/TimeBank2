@@ -35,7 +35,7 @@
 			<div class="title body">ภารกิจจิตอาสาล่าสุด</div>
 			<div class="title right"></div>
 			<div class="line" style="width:374px;"></div>
-			<a class="more">ดูเพิ่ม</a>
+			<a class="more">ดูเพิ่มเติม</a>
 			<div style="clear:both"></div>
 			<ul class="list">
 				<? foreach ($events_rand as $event) : ?>
@@ -60,7 +60,7 @@
 			<div class="title body">ภารกิจจิตอาสาที่น่าสนใจ</div>
 			<div class="title right"></div>
 			<div class="line"></div>
-			<a class="more">ดูเพิ่ม</a>
+			<a class="more">ดูเพิ่มเติม</a>
 			<div style="clear:both"></div>
 			<ul class="list">
 				<? foreach ($events as $event) : ?>
