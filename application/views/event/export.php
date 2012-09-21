@@ -31,7 +31,8 @@ xmlns="http://www.w3.org/TR/REC-html40">
             <TD><?= $valunteer->last_name ?></TD>
             <TD><?= $valunteer->displayname ?></TD>
             <TD><?= phphelp::getYearAge($valunteer->birthday) ?></TD>
-            <TD><?= Kohana::$config->load('timebank')->get('sexs')[$valunteer->sex] ?></TD>
+            <TD><? $sex = Kohana::$config->load('timebank')->get('sexs');
+					echo $sex[$valunteer->sex] ?></TD>
             <TD><?= $valunteer->email ?></TD>
             <TD><?= $valunteer->phone ?></TD>
         </TR>

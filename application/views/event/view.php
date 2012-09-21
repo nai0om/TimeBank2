@@ -28,17 +28,17 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		</div>
 					i
 		<div id="detail">
-			<?php if ($mode == 2  && $isOwner): ?>
+			<?php if ($mode == 2 ): ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>
-                <? if($isOwner) echo HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา', array('class' => 'current')); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา', array('class' => 'current')); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
             <? elseif ($mode == 3): ?>    
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>
-                <? if($isOwner) echo  HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม', array('class' => 'current')); ?>
             <? else: ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน', array('class' => 'current')); ?>
-                <? if($isOwner) echo  HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
+                <?= HTML::anchor('event/view/'.$event->id.'?mode=2', 'ประกาศรายชื่ออาสา'); ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=3', 'ภาพกิจกรรม'); ?>
             <? endif ?>
                 
@@ -52,7 +52,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		</div>
 		<div style="clear:both"></div>
 		
-	<? if ($mode == 2 && $isOwner): ?>
+	<? if ($mode == 2 ): ?>
 	 	<?php include Kohana::find_file('views', 'event/forms/volunteers') ?>  
 	<? elseif ($mode == 3): ?>
 		<?php include Kohana::find_file('views', 'event/forms/images') ?>  

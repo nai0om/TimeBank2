@@ -1,5 +1,10 @@
 	<div>
-      
+           <p>	
+            <? if($isOwner) : ?>
+				<?= HTML::anchor('event/export/'.$event->id, 'Download รายชื่อสมาชิก ทั้งหมด')  ?><br />
+                <?= HTML::anchor('event/export/'.$event->id.'?type=1', 'Download รายชื่อสมาชิก ที่่ได้รับการตอบรับแล้ว')  ?>
+            <? endif ?>
+            </p>
 			<ul id="member">
             <? foreach( $memebers as $user): ?>
             	<? if (!array_key_exists($user->id, $member_event)) continue; ?>

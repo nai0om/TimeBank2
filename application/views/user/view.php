@@ -88,7 +88,8 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<h4>วันเกิด </h4>
             <p><?=  phphelp::str_to_thai_date($view_user->birthday); ?></p>
             
-			<h4>เพศ</h4>	<p><?= Kohana::$config->load('timebank')->get('sexs')[$view_user->sex] ?></p>
+			<h4>เพศ</h4>	<p><? $sex = Kohana::$config->load('timebank')->get('sexs');
+									echo $sex[$view_user->sex] ?></p>
 		
 		</div>
 		<div class="column three">
