@@ -1037,6 +1037,10 @@ header h2 {
 	font-size: 15px;
 	text-decoration: underline;
 }
+#tb_browse_searchresult table td ul li{
+	display: inline-block;
+	margin: 0 5px 0 0;
+}
 #tb_browse_searchResult table th {
     color: #0099CC;
     font-size: 14px;
@@ -1763,6 +1767,7 @@ header h2 {
 	color: #5c5c5c;
 	font-weight:normal;
 }
+#main ul li::before{padding: 0 0 0 5px;}
 /*help*/
 #help #main {
     background: url("../img/tb_main_bg.jpg") no-repeat scroll 0 0 transparent;
