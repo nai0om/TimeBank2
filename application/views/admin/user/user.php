@@ -1,3 +1,12 @@
+<style type="text/css">
+<!--
+table {table-layout: fixed}
+td {
+	text-align: left;
+	overflow: hidden; 
+}
+-->
+</style>
 <div  id="tb_browse_searchResult" class="search">
   <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?><br />
@@ -12,52 +21,79 @@ G = noti_sms_news<br />
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
-<th> ตัวเลือก </th>
-<th>id</th>
-<th>email</th>
-<th>displayname</th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>E</th>
-<th>F</th>
-<th>G</th>
-<th>nickname</th>
-<th>role</th>
-<th>first_name</th>
-<th>last_name</th>
-<th>profile_image</th>
-<th>sex</th>
+<th width="152">displayname</th>
+<th>profile</th>
+<th width="450">image</th>
 </tr>
 <? foreach ($users as $user ) :?>
     <tr>
+    <td><strong><?= $user->displayname  ?></strong>      
+      <br />
+      <br />
+      id:<?= $user->id ?>
+        <br />
+        role:
+        <?= $user->role  ?>
+        <br />
+        <br />
+        A=
+        <?= $user->noti_eventrecommended  ?>
+        , B=
+        <?= $user->noti_eventapproved  ?>
+        , C=
+        <?= $user->noti_almosteventdate  ?>
+        , D=
+        <?= $user->noti_eventthank  ?>
+        ,<br />
+E=
+<?= $user->noti_sms_eventapproved  ?>
+        , F=
+        <?= $user->noti_sms_almosteventdate  ?>
+        , G=
+        <?= $user->noti_sms_news  ?>
+      </td>
     <td>
-		<?= HTML::anchor('admin/useredit/'.$user->id, '<strong>แก้ไข</strong>'); ?> 
-   		<?= HTML::anchor('admin/userrecord/'.$user->id, '<strong>record</strong>'); ?> 
-        <?= HTML::anchor('admin/userevent/'.$user->id, '<strong>event</strong>'); ?>  
-        <?= HTML::anchor('admin/userinbox/'.$user->id, '<strong>inbox</strong>'); ?> 
-    </td> 
-    <td><?= $user->id ?></td>
-    <td><?= $user->email  ?></td>
-    <td><?= $user->displayname  ?></td>
-    <td><?= $user->noti_eventrecommended  ?></td>
-    <td><?= $user->noti_eventapproved  ?></td>
-    <td><?= $user->noti_almosteventdate  ?></td>
-    <td><?= $user->noti_eventthank  ?></td>
-    <td><?= $user->noti_sms_eventapproved  ?></td>
-    <td><?= $user->noti_sms_almosteventdate  ?></td>
-    <td><?= $user->noti_sms_news  ?></td>
-    <td><?= $user->nickname  ?></td>
-    <td><?= $user->role  ?></td>
-    <td><?= $user->first_name  ?></td>
-    <td><?= $user->last_name  ?></td>
+      <?= HTML::anchor('admin/useredit/'.$user->id, '<strong>แก้ไข</strong>'); ?>
+      | <?= HTML::anchor('admin/userrecord/'.$user->id, '<strong>record</strong>'); ?>
+      | <?= HTML::anchor('admin/userevent/'.$user->id, '<strong>event</strong>'); ?>
+      | <?= HTML::anchor('admin/userinbox/'.$user->id, '<strong>inbox</strong>'); ?>
+      <br />
+      <br />
+      name:
+<?= $user->first_name  ?> <?= $user->last_name  ?> 
+      <?php if ($user->profile_image != ''): ?>  (<?= $user->nickname  ?>)<? endif ?>
+      <br />
+      sex:
+      <?= $user->sex  ?>
+      <br />
+phone: 
+<?= $user->phone  ?>
+<br /> 
+      email: 
+      <?= $user->email  ?>
+      <br />
+      birthday: 
+      <?= $user->birthday  ?>
+      <br />
+      address:
+      <?= $user->address  ?>
+<br /></td>
     <td>    
       <?php if ($user->profile_image != ''): ?>
-      <img src="<?= url::base().'media/upload/events/'.$user->profile_image; ?>" style="max-height: 150px; max-width:150px;" />
+      <img src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" align="right" style="max-height: 150px; max-width:150px;" />
       <? endif ?>
+      quote: 
+      <?= $user->quote  ?><br />
+      description : 
+      <?= $user->description   ?>
+      <br />
+      skills  : 
+      <?= $user->skills    ?><br />
+
+      interest_tags   : 
+      <?= $user->interest_tags     ?>
+      <br />
     </td>
-    <td><?= $user->sex  ?></td>
     </tr>
 <? endforeach ?>
 </table>

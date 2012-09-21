@@ -1,7 +1,9 @@
 <style type="text/css">
 <!--
+table {table-layout: fixed}
 td {
 	text-align: left;
+	overflow: hidden; 
 }
 -->
 </style>
@@ -9,10 +11,10 @@ td {
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
   <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
-  <th width="25%"> a</th>
-<th> a</th>
+    <th width="25%"> profile</th>
+<th> image</th>
 <? foreach ($organizations as $organization ) :?><tr>
-<td>            <?= HTML::anchor('admin/organizationedit/'.$organization['id'], '<strong>แก้ไข</strong>'); ?> |
+<td width="25%">            <?= HTML::anchor('admin/organizationedit/'.$organization['id'], '<strong>แก้ไข</strong>'); ?> |
   <?= HTML::anchor('admin/event?org='.$organization['id'], '<strong>event</strong>'); ?> |
   <?= HTML::anchor('admin/organizationinbox/'.$organization['id'], '<strong>inbox</strong>'); ?> |<br />
   name:
@@ -43,15 +45,9 @@ td {
   Contact: 
   <?= $organization['contactperson']  ?>
   <br />
-  fb: 
-  <?= $organization['facebook']  ?>
-  <br />
-  twt: 
-  <?= $organization['twitter']  ?>
-        <br />
-        web: 
-        <?= $organization['website']  ?>
-        <br />
+  <?php if ($organization['facebook'] != ''): ?>fb:   <?= Text::auto_link_urls($organization['facebook'])  ?>  <br /><? endif ?>
+  <?php if ($organization['twitter'] != ''): ?>twitter:   <?= $organization['twitter']  ?>  <br /><? endif ?>
+  <?php if ($organization['website'] != ''): ?>web:   <?= Text::auto_link($organization['website'])  ?>  <br /><? endif ?>
         timestamp: 
         <?= $organization['timestamp']  ?></td>
 <td>        	<?php if ($organization['logo'] != ''): ?>
