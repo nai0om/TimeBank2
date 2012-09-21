@@ -100,8 +100,11 @@
 		</article>
         <?php endforeach ?>
 	
-		<p align="center" style="display:inline-block"><img src="<?= url::base(); ?>media/img/tb_line.png"/>
-		<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner2.png" /></p>
+		<p align="center" style="display:inline-block;margin-bottom:-50px;">
+			<img src="<?= url::base(); ?>media/img/tb_line.png"/>
+			<img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/partner2.png" />
+			<span style="text-align: center; display: block; color: #0099CC; font-size: 40px; padding: 20px 0px 0px;">ปันเวลาช่วยกัน</span>
+		</p>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
