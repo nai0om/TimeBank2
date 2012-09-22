@@ -480,37 +480,35 @@ class Controller_User extends Controller_Template {
 			 $this->user->skills = $skill;
 			 
 			$tags = '';
-			$tags .= $jobs[Arr::get($_POST, 'interest_1')].',';
-			$tags .= $jobs[Arr::get($_POST, 'interest_2')].',';
-			$tags .= $jobs[Arr::get($_POST, 'interest_3')].',';
-			$tags .= $jobs[Arr::get($_POST, 'interest_4')];
+			if (Arr::get($_POST, 'interest_1') != 0)
+				$tags .= $jobs[Arr::get($_POST, 'interest_1')].',';
+			if (Arr::get($_POST, 'interest_2') != 0)
+				$tags .= $jobs[Arr::get($_POST, 'interest_2')].',';
+			if (Arr::get($_POST, 'interest_3') != 0)
+				$tags .= $jobs[Arr::get($_POST, 'interest_3')].',';
+			if (Arr::get($_POST, 'interest_4') != 0)
+				$tags .= $jobs[Arr::get($_POST, 'interest_4')];
+				
 			$this->user->interest_tags = $tags; 
 
 			$tagvalidate = "";
 			
-			if (Arr::get($_POST, 'interest_1') == 0)
-				$errors['interest_1'] = __('have to select');
-			if (Arr::get($_POST, 'interest_2') == 0)
-				$errors['interest_2'] = __('have to select');
-			if (Arr::get($_POST, 'interest_3') == 0)
-				$errors['interest_3'] = __('have to select');
-			if (Arr::get($_POST, 'interest_4') == 0)
-				$errors['interest_4'] = __('have to select');
+			
 			
 			
 			$tagvalidate = $jobs[Arr::get($_POST, 'interest_1')];
 			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_2')]);
-			if (  $pos >= 0 && $pos !== false)
+			if (  $pos >= 0 && $pos !== false && Arr::get($_POST, 'interest_2') != 0)
 				array_key_exists('interest_2', $errors) ? '': $errors['interest_2'] = __('do not duplicate') ;
 			
 			$tagvalidate .= $jobs[Arr::get($_POST, 'interest_2')];
 			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_3')]);
-			if (  $pos >= 0 && $pos !== false)
+			if (  $pos >= 0 && $pos !== false && Arr::get($_POST, 'interest_3') != 0)
 				array_key_exists('interest_3', $errors) ? '':  $errors['interest_3'] = __('do not duplicate') ;
 			
 			$tagvalidate .= $jobs[Arr::get($_POST, 'interest_3')];	
 			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_4')]);
-			if (  $pos >= 0 && $pos !== false)
+			if (  $pos >= 0 && $pos !== false && Arr::get($_POST, 'interest_3') != 0)
 				array_key_exists('interest_4', $errors) ? '': $errors['interest_4'] = __('do not duplicate') ;
 			
 			
