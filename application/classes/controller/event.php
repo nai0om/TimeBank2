@@ -39,15 +39,7 @@ class Controller_Event extends Controller_Template {
 		// If user have permission to create organization
 		if (is_null($this->orguser))
 		{	
-			if(is_null($this->user))
-			{
-				Request::current()->redirect('user/login');
-			}
-			else
-			{
-				// Redirect to step 1
-				throw new HTTP_Exception_404(__('Is not organization account'));
-			}
+			Request::current()->redirect('/');
 		}
 		
 		//$locations = Location::get_location_array();
