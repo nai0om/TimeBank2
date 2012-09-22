@@ -66,4 +66,8 @@ return array(
 	'name must not be empty' => 'กรุณาใส่ชื่อ',
 	'surname must not be empty' => 'กรุณาใส่นามสกุล',
 	'email must be a email address' => 'กรุณาใส่ อีเมล์ให้ถูกต้อง',
+	'nickname much not empty' => 'กรุณาใส่ชื่อเล่น',
+	'first_name much not empty.' => 'กรุณาใส่ชื่อจริง',
+	'last_name much not empty.' => 'กรุณาใส่นามสกุล',
+	'phone much not empty.' => 'กรุณาใส่หมายเลขโทรศัพท์'
 );

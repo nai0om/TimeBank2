@@ -1031,12 +1031,27 @@ class Controller_User extends Controller_Template {
 										->bind('user', $this->user)
 										->bind('eventid', $evetnid)
 										->bind('errors', $errors);
+			$errors = array();
 			try
 			{
-				$this->user->nickname = Arr::get($_POST, 'nickname');
+				/*$this->user->nickname = Arr::get($_POST, 'nickname');
+				if($this->user->nickname == '')
+					$errors['nickname'] = __('nickname much not empty.');
+				*/	
 				$this->user->first_name = Arr::get($_POST, 'first_name');
+				if($this->user->first_name == '')
+					$errors['first_name'] = __('first_name much not empty.');
+					
 				$this->user->last_name = Arr::get($_POST, 'last_name');
+				if($this->user->last_name == '')
+					$errors['last_name'] = __('last_name much not empty.');
+					
 				$this->user->phone = Arr::get($_POST, 'phone');
+				if($this->user->phone == '')
+					$errors['phone'] = __('phone much not empty.');
+				
+				if (count($errors) > 0)
+					return;
 				$this->user->save();	 
 			} catch (ORM_Validation_Exception $e) {
 				$errors = $e->errors('models');
