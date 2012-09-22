@@ -23,5 +23,33 @@ class Controller_News extends Controller_Template {
 			throw new HTTP_Exception_404(__('News id :id not found', array(':id' => $this->request->param('id'))));
 		}
 	}
+	
+	public function action_image()
+	{
+		$this->template->content = View::factory('viewimage')
+										->bind('images', $images)
+										->bind('first_page', $first_page);
+		$news = ORM::factory('news', $this->request->param('id'));
+		$images_news = $news->images->find_all();
+		$images = array();
+		$first_page = 1;
+		$selected = Arr::get($_GET, 'index');
+		$i = 0;
+		foreach($images_news as $image)
+		{
+			if($image->image == $selected)
+				$first_page = $i;
+			$temp = array();
+			$temp['image'] = 'media/upload/news/'.$image->image;
+			$temp['id'] = $image->id;
+			$temp['description'] = '';
+			$temp['link'] = '';
+			$images[] = $temp;
+			$i++;
+		}
+		
+		
+	}
+			
 			
 } // End Welcome

@@ -24,7 +24,9 @@
             <? endif ?>
 			<? foreach ($organization->events->limit(5)->find_all() as $event) : ?>
 				<? if($event->image != '' ) : ?>
+               <a href="<?= url::base().'organization/image/'.$organization->id.'?index='.$event->image ?>" target="_blank">
                 	<img src="<?= url::base().'media/upload/events/'.$event->image  ?>" style="width:107px;height:85px;margin:2px; border:3px solid #FFF" >
+                 </a>
                 <? endif ?>
             <? endforeach ?>
 		</div>
