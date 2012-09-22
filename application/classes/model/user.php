@@ -6,6 +6,7 @@ class Model_User extends ORM {
 		'user_timebanks' => array('model' => 'user_timebank'),
 		'user_tokens' => array('model' => 'user_token'),
 		'comments' => array('model' => 'comment'),
+		'tags' => array('model' => 'tag', 'through' => 'users_tags'),
 		'roles'       => array('model' => 'role', 'through' => 'roles_users'),
 		'locations'       => array('model' => 'location', 'through' => 'users_locations'),
 		'events'		=> array('model' => 'event', 'through' => 'users_events'),

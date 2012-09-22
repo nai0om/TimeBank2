@@ -29,6 +29,26 @@
 			<div style="clear:both"></div>
 	       		<?= timebankhelper::buildSkilsForm($skills)  ?>
 		</div>
-			 	 <label>Tag บ่งบอกกลุ่ม</label>
-			<input name="xx" type="text" id="xx">
-			<p><span class="tag">SCBStaff</span><span class="tag">วัดไร่ขิงห้อง 6/1</span><p>
+        
+			
+        
+   
+			<label>Tag บ่งบอกกลุ่ม</label>
+			<?= Form::input('tag', 'xxx', array('id' => 'tags-ajax')) ?>
+			<!-- p><span class="tag" >SCBStaff</span><span class="tag"></span><p -->
+            
+        <script type="text/javascript">
+            $("#tags-ajax").tokenInput("<?= url::base(); ?>tag/get", {
+                theme: "facebook",
+				hintText : '',
+				noResultsText :'',
+				searchingText : '',
+				 prePopulate: [
+				 <? foreach ($user->tags->find_all() as $tag) : ?>
+                    {id: "<?= $tag->name ?>", name: "<?= $tag->name ?>"},
+				<? endforeach ?>
+                ]
+            });
+        </script>
+      
+          
