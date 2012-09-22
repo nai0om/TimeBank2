@@ -158,10 +158,13 @@ class Controller_User extends Controller_Template {
         }
 		
 		$event = ORM::factory('event', $this->request->param('id'));
+		$organization = ORM::factory('organization', $event->organization_id);
 		$this->user->remove('events', $event);
 		try {
 		
 			$this->user->save();
+			
+			TimebankNotification::notify_eventusercancel_org($this->user, $organization, $event, Arr::get($_GET, 'message'));
 			 
 		} catch (ORM_Validation_Exception $e) {
 			//silent error		
