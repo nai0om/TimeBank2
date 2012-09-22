@@ -61,5 +61,6 @@ return array(
 	'volunteer end date much more than start date.' => 'วันสิ้นสุดงานอาสา ต้องที่หลังวันเริ่มงานอาสา',
 	'limit 365 days per event.' => 'จำกัดไม่เกิน 365',
 	'limit at 2000 hours.'  => 'จำนวนชั่วโมงสูงสุดไม่เกิน 2000 ชั่วโมง',
-	'must select province.' => 'กรุณาเลือกจังหวัด'
+	'must select province.' => 'กรุณาเลือกจังหวัด',
+	'much not empty.' => 'กรุณาใส่ข้อความ'
 );

@@ -861,12 +861,12 @@ class Controller_Event extends Controller_Template {
 			$event->detail = Arr::get($_POST, 'detail');			
 			$event->travel_detail = Arr::get($_POST, 'travel_detail');			
 			$event->inquiry_detail = Arr::get($_POST, 'inquiry_detail');			
-			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');
-			$event->expense_detail = Arr::get($_POST, 'expense_detail');
+			
+			
 			$event->phone = Arr::get($_POST, 'phone');	
 			$event->time_cost = Arr::get($_POST, 'time_cost');	
 			//name,  project_name, location_name, detail
-			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
+			
 			
 			$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
 			$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));
@@ -886,13 +886,21 @@ class Controller_Event extends Controller_Template {
 			{
 				$errors['time_cost'] = __('limit at 2000 hours.');
 			}
-			
+			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');
 			if($event->is_need_expense == 1 ) 
 			{
 				if($event->expense_detail == '')
 				{
-					
+					$errors['expense_detail'] = __('much not empty.');
 				}
+				else
+				{
+					$event->expense_detail = Arr::get($_POST, 'expense_detail');
+				}
+			}
+			else
+			{
+				$event->expense_detail = '';	
 			}
 			
 			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
@@ -957,6 +965,7 @@ class Controller_Event extends Controller_Template {
 				$event->image = $_FILES['image']['name'];
 			}
 	
+			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
 			if(count($errors) > 0 ) return;
 			try
 			{
