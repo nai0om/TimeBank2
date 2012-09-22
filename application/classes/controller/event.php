@@ -859,6 +859,10 @@ class Controller_Event extends Controller_Template {
 	
 			$event->location_name = Arr::get($_POST, 'location_name');
 			$event->location_province = Arr::get($_POST, 'location_province');
+			if($event->location_province  <= 0)
+			{
+				$errors['location_province'] = __('must select province.');
+			}
 			$event->location_district = Arr::get($_POST, 'location_district');
 			$event->location_postcode = Arr::get($_POST, 'location_postcode');
 			$event->volunteer_need_count = Arr::get($_POST, 'volunteer_need_count');			
