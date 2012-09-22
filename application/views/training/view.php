@@ -17,7 +17,9 @@
         
 		<div id="rightSide">
 	        <?php foreach ($training->images->find_all() as $pic) : ?>
-				<a href="<?= url::base().'media/upload/training/'.$pic->image ?>" target="_blank"><img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/training/'.$pic->image  ?>"></a>
+				<a href="<?= url::base().'training/image/'.$training->id.'?index='.$pic->image ?>" target="_blank">
+                	<img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/training/'.$pic->image  ?>">
+                </a>
 			<? endforeach ?>
         </div>
 

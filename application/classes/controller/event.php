@@ -688,6 +688,32 @@ class Controller_Event extends Controller_Template {
 		}
 	}
 	
+	public function action_image()
+	{
+		$this->template->content = View::factory('viewimage')
+										->bind('images', $images)
+										->bind('first_page', $first_page);
+		$event = ORM::factory('event', $this->request->param('id'));
+		$event_images = $event->images->find_all();
+		$images = array();
+		$first_page = 1;
+		$selected = Arr::get($_GET, 'index');
+		$i = 0;
+		foreach($event_images as $event_image)
+		{
+			$image = $event_image->image;
+			if($image == $selected)
+				$first_page = $i;
+			$temp = array();
+			$temp['image'] = 'media/upload/events/'.$image;
+			$temp['id'] = $event_image->id;
+			$temp['description'] = $event_image->description;
+			$temp['link'] = '';
+			$images[] = $temp;
+			$i++;
+		}
+	}
+		
 	private function search_event($view)
 	{
 		$jobs = Kohana::$config->load('timebank')->get('jobs'); 

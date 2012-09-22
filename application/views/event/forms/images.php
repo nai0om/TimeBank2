@@ -2,7 +2,7 @@
              <ul id="album" style=" width:100%">
 			 	<? foreach ($images as $image) :?>
                     <li>
-                     <? if ( $isAdmin) : ?>
+                     <? if ( $isOwner) : ?>
                     	<div class="close" onclick="window.location = '<?= url::base().'event/removeimage/'.$event->id.'?image='.$image->image; ?>';" >ลบรูปนี้</div>
                       	<? if($image->highlight == 1) : ?>
                          	<div style="width:100px" class="close" onclick="window.location = '<?= url::base().'event/removehighlightimage/'.$event->id.'?id='.$image->id; ?>';" >ลบรูปเด่น</div>
@@ -11,14 +11,14 @@
         				<? endif ?>
                     <? endif ?>
                         <div class='image'>
-                        	<a href="<?= url::base().'media/upload/events/'.$image->image; ?>" style="display: table-cell; vertical-align: middle">
+                        	<a href="<?= url::base().'event/image/'.$event->id.'?index='.$event->image  ?>" target="_blank" style="display: table-cell; vertical-align: middle">
                         		<img  style=" max-width:247px; max-height:203px;"src="<?= url::base().'media/upload/events/'.$image->image; ?>">
                             </a>
                         </div>
                         <div class="caption"><?= $image->description; ?></div>
                     </li>
                 <? endforeach ?>
-			<? if ( ($isAdmin) && ($event->images->find_all()->count() <= 50)) : ?>
+			<? if ( ($isOwner) && ($event->images->find_all()->count() <= 50)) : ?>
 			  <li class="add">
                     
 				 <?= Form::open('event/addimage/'.$event->id, array ('id' => 'search', 'enctype' => 'multipart/form-data'));  ?><br />
@@ -26,7 +26,7 @@
                     <img  style=" max-width:257px; max-height:203px;" src="<?= url::base().'media/img/tb_photos_add.png'; ?>" />    
                 </div>
                 <div class="caption" style="height:70px;">
-               <label style="color:#F00; width:300px;float:left; outline:20px none" >ขนาดภาพไม่เกิน 4Mb <br />และใส่ภาพได้สูงสุดไม่เกิน 50 รูป<br />(ประเภทไฟล์ gif, jpg, png หรือ jpeg)</label>
+               <label style="color:#F00; width:300px;float:left; outline:20px none" >ขนาดภาพไม่เกิน 4Mb และใส่ภาพได้สูงสุดไม่เกิน 50 รูป<br />(ประเภทไฟล์ gif, jpg, png หรือ jpeg)</label>
                  <?= Form::file('image') ?><br />
                  <?= Form::input('text', 'เขียนคำบรรยายที่นี่'); ?> 
                  <?= Form::submit(NULL, 'เพิ่มรูป'); ?>

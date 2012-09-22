@@ -16,7 +16,10 @@
 		</div>
 			<div id="rightSide">
 	        <?php foreach ($news->images->find_all() as $pic) : ?>
-				<a href="<?= url::base().'media/upload/news/'.$pic->image ?>" target="_blank"><img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/news/'.$pic->image  ?>"></a>
+				<a href="<?= url::base().'media/upload/news/'.$pic->image ?>" target="_blank">
+                	<a href="<?= url::base().'news/image/'.$news->id.'?index='.$pic->image ?>" target="_blank">
+                <img style="max-width:107px; border:0px" src="<?= url::base().'media/upload/news/'.$pic->image  ?>">
+                </a>
 			<? endforeach ?>
         </div>
 		

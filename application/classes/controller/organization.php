@@ -535,5 +535,33 @@ class Controller_Organization extends Controller_Template {
 			}
         }		
 	}
+	
+	public function action_image()
+	{
+		$this->template->content = View::factory('viewimage')
+										->bind('images', $images)
+										->bind('first_page', $first_page);
+		$organization = ORM::factory('organization', $this->request->param('id'));
+		$organization_event = $organization->events->find_all();
+		$images = array();
+		$first_page = 1;
+		$selected = Arr::get($_GET, 'index');
+		$i = 0;
+		foreach($organization_event as $event)
+		{
+			$image = $event->image;
+			if($image == $selected)
+				$first_page = $i;
+			$temp = array();
+			$temp['image'] = 'media/upload/events/'.$image;
+			$temp['id'] = $event->id;
+			$temp['description'] = $event->name;
+			$temp['link'] = 'event/view/'.$event->id;
+			$images[] = $temp;
+			$i++;
+		}
+		
+		
+	}
 
 }
