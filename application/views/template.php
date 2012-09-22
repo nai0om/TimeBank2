@@ -23,12 +23,13 @@
   <script>window.jQuery || document.write('<script src="<?= url::base(); ?>media/js/jquery-1.7.2.min.js"><\/script>')</script>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-	<link rel="stylesheet" href="<?= url::base(); ?>media/css/style.css">
-	<link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/widget/css/rcarousel.css" />
+    <link rel="stylesheet" href="<?= url::base(); ?>media/css/style.css">
     <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/widget/css/rcarousel.css" />
+    <link rel="stylesheet" href="<?= url::base(); ?>media/css/token-input.css" type="text/css" />
+    <link rel="stylesheet" href="<?= url::base(); ?>media/css/token-input-facebook.css" type="text/css" />
     
-     <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/css/ui-lightness/jquery-ui-1.8.21.custom.css" />
-      <link rel="icon" href="<?= url::base(); ?>favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="<?= url::base(); ?>media/css/ui-lightness/jquery-ui-1.8.21.custom.css" />
+    <link rel="icon" href="<?= url::base(); ?>favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="<?= url::base(); ?>favicon.ico" type="image/x-icon"> 
 	<script src="<?= url::base(); ?>media/js/libs/modernizr-2.5.3.min.js"></script>
 
@@ -40,6 +41,7 @@
   <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.rcarousel.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery-ui-timepicker-addon.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery.ui.datepicker-th.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery.tokeninput.js"></script>
 	
   
 </head> 
@@ -85,6 +87,7 @@
   <!-- scripts concatenated and minified via build script -->
   <script src="<?= url::base(); ?>media/js/plugins.js"></script>
   <script src="<?= url::base(); ?>media/js/script.js"></script>
+  
   <!-- end scripts -->
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->

@@ -387,6 +387,7 @@ class Controller_User extends Controller_Template {
 
     public function action_profile() 
     {	
+		
 		// if a user is not logged in, redirect to login page
         if (!$this->user)
         {
@@ -521,11 +522,26 @@ class Controller_User extends Controller_Template {
 				$this->user->profile_image = 'profile_image';
 			}
 			
+			$this->user->remove('tags');
+			if (Arr::get($_POST, 'tag') != '')
+			{
+				
+				$tags = explode(',', Arr::get($_POST, 'tag'));
+				foreach($tags as $tag)
+				{
+					$temp = ORM::factory('tag');
+					$temp->name = $tag;
+					$temp->save();
+					$this->user->add('tags', $temp);
+				}
+			}
 
             try {
+				
+		
             	$this->user->save();       
                  
-                // Redirect to user view
+              
 				Request::current()->redirect('user/profile');
                  
             } catch (ORM_Validation_Exception $e) {
