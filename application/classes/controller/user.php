@@ -856,7 +856,9 @@ class Controller_User extends Controller_Template {
 			try
 			{
 					$this->user->save();       
-					$message = 'Update complete';
+					echo'<script>'.
+						'alert ("'.__('Update complete').'"); '.
+						'</script>';
 					 
 			}
 			catch (ORM_Validation_Exception $e) 
