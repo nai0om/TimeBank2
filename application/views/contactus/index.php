@@ -24,12 +24,12 @@
 				<label>ชื่อ*</label>
 				<?= Form::input('name', HTML::chars($contactus->name)); ?>
                 <div class="error">
-                    <font color="red"><?= Arr::get($errors, 'name'); ?></font>
+                    <font color="red"><?= __(Arr::get($errors, 'name')); ?></font>
                 </div>
 				<label>นามสกุล*</label>
 				<?= Form::input('surname', HTML::chars($contactus->surname)); ?>
                 <div class="error">
-                    <font color="red"><?= Arr::get($errors, 'surname'); ?></font>
+                    <font color="red"><?= __(Arr::get($errors, 'surname')); ?></font>
                 </div>
 				<label>อีเมล์ *</label>
 				<?= Form::input('email', HTML::chars($contactus->email)); ?>
@@ -39,7 +39,7 @@
 				<label>มือถือ</label>
 				<?= Form::input('phoneno', HTML::chars($contactus->phoneno)); ?>
                 <div class="error">
-                    <font color="red"><?= Arr::get($errors, 'phoneno'); ?></font>
+                    <font color="red"><?= __(Arr::get($errors, 'phoneno')); ?></font>
                 </div>
 				<label>หัวข้อ *</label>
 				<?= Form::input('topic', HTML::chars($contactus->topic)); ?>
