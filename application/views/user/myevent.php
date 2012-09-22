@@ -71,7 +71,47 @@
                         <td>
 							<ul class="list-circle">
 								<li><?= HTML::anchor('event/view/'.$record->id, 'ดูรายละเอียด') ?></li>
-								<li><?= HTML::anchor('user/removeevent/'.$record->id, 'ขอยกเลิก') ?></li>
+								<li><?= HTML::anchor( '#'.$record->id, 'ขอยกเลิก', array('id' => 'popupButton'.$record->id)) ?></li> 
+                                <div id="popupDialog<?= $record->id ?>" title="ยกเลิกงานอาสา <?= $record->name ?>">
+                                  <p>
+                                     <label for="widgetName">ใส่ข้อความเพื่อฝากถึงองค์กร ก่อนที่จะสามารถกดยกเลิกได้</label>
+                                     <input type="textarea" style="width:400px; height:50px" id="message<?= $record->id ?>" />
+                                  </p>
+                                </div>
+                                 <script>
+								$('#popupDialog<?= $record->id ?>').dialog({
+									 modal: true,
+									 autoOpen: false,
+									 width : 500,
+									 buttons: {
+									  'Cancel': function() {
+												   $(this).dialog('close');
+												},
+									  'Accept': function() {
+												   var message = $('#message<?= $record->id ?>').val( );
+												   if(message == '')
+												   {
+													   alert('กรุณาใส่ข้อความ')
+												   }
+												   else
+												   {
+													   window.location = "<?= url::base()."user/removeevent/".$record->id."?message="?>" + message;
+													}
+												   
+												   $(this).dialog('close');
+												   
+												}
+									}
+								});
+								
+								$('#popupButton<?= $record->id ?>').click( function() {
+									
+								   $('#popupDialog<?= $record->id ?>').dialog('open');
+							
+								});
+								
+								 </script>
+
 							</ul>
 						</td>
                     </tr>
@@ -107,4 +147,5 @@
 	
   </div>
   
+
  

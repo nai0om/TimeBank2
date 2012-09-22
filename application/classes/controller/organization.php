@@ -302,6 +302,12 @@ class Controller_Organization extends Controller_Template {
 			else
 				$this->orguser->noti_volunteerregister = 0;
 				
+			if (isset($_POST['noti_volunteercancel']))
+				$this->orguser->noti_volunteercancel = 1;
+			else
+				$this->orguser->noti_volunteercancel = 0;
+					
+				
 			if (isset($_POST['noti_eventend']))
 				$this->orguser->noti_eventend = 1;
 			else

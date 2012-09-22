@@ -110,6 +110,27 @@ class TimebankNotification {
 			self::send_inbox(0, $organization->id, $subject, 'มี "อาสา" สมัครเข้ามาร่วมกิจกรรมของคุณ "'.$event->name.'"');
 		}
 	}
+	
+	public static function notify_eventusercancel_org($user, $organization, $event, $message)
+	{
+		$org_user = ORM::Factory('user', $organization->user_id);
+		
+		$from = Kohana::$config->load('timebank')->get('server_email');
+		$to = $org_user->email;
+		$subject = 'มี "อาสา" ยกเลืกงานอาสา "'.$event->name.'"';
+		
+		$body = self::renderHtmlEmail('volunteer_apply_event', array(
+															'org_name' 		=> $organization->name,
+															'event_name'	=> $event->name,
+															'event_id' 		=> $event->id,
+															));
+		if(noti_volunteercancel == 1)
+		{
+			self::queuemail($from, $to, $subject, $body);
+		}
+		self::send_inbox(0, $organization->id, $subject, $message);
+		
+	}
 
 	public static function notify_eventend_org($organization, $event)
 	{
