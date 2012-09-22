@@ -7,16 +7,18 @@
             <p>
            		<label>ชื่อ* : </label>
 	            <?= Form::input('first_name', $user->first_name); ?>
+                <a class="error"><?= Arr::get($errors, 'first_name'); ?></a>
             </p>
             <p>
             	<label>นามสกุล* : </label>
 	            <?= Form::input('last_name', $user->last_name); ?>
+                <a class="error"><?= Arr::get($errors, 'last_name'); ?></a>
             </p>
             <p><label>อีเมล* : </label><span><?= $user->email ?></span></p>  
             <p>
                 <label>หมายเลขโทรศัพท์* : </label>
                 <?= Form::input('phone', $user->phone); ?>
-                <div class="error"><?= Arr::get($errors, 'phone'); ?></div>
+                <a class="error"><?= Arr::get($errors, 'phone'); ?></a>
             </p>
             <?= Form::submit(NULL, 'เพิ่มข้อมูล'); ?> 
             <?= Form::close(); ?>
