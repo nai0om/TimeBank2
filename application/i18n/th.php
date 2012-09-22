@@ -62,5 +62,8 @@ return array(
 	'limit 365 days per event.' => 'จำกัดไม่เกิน 365',
 	'limit at 2000 hours.'  => 'จำนวนชั่วโมงสูงสุดไม่เกิน 2000 ชั่วโมง',
 	'must select province.' => 'กรุณาเลือกจังหวัด',
-	'much not empty.' => 'กรุณาใส่ข้อความ'
+	'much not empty.' => 'กรุณาใส่ข้อความ',
+	'name must not be empty' => 'กรุณาใส่ชื่อ',
+	'surname must not be empty' => 'กรุณาใส่นามสกุล',
+	'email must be a email address' => 'กรุณาใส่ อีเมล์ให้ถูกต้อง',
 );
