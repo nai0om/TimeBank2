@@ -28,6 +28,7 @@ class Controller_Organization extends Controller_Template {
 		
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
+			$errors = array();
 			// Prepare data for user
 			$user->email = Arr::get($_POST, 'email');
 			$user->password = Arr::get($_POST, 'password');
@@ -53,37 +54,46 @@ class Controller_Organization extends Controller_Template {
 			// First level validation
 			if (Arr::get($_POST, 'acceptterm') == '')
 			{
-				$message = __('There were errors, please see form below.');
-				$errors = array('acceptterm' => 'Please accept term&condition.');
-				return;
+				$errors['acceptterm'] = __('Please accept term&condition.');
+				
 			}
 						
 			if (Arr::get($_POST, 'password') == '')
 			{
-				$message = __('There were errors, please see form below.');
-				$errors = array('password' => 'Password can\'t be empty.');
-				return;
+				
+				$errors['password'] = __('Password can\'t be empty.');
+				
 			}
 
 			if (Arr::get($_POST, 'password') != Arr::get($_POST, 'password_confirm'))
 			{
-				$message = __('There were errors, please see form below.');
-				$errors = array('password_confirm' => 'The password fields did not match.');
-				return;
+				
+				$errors['password_confirm'] = __('The password fields did not match.');
+			
 			}
-
+	
 			try
 			{
-				// Pre-validation before save all value
-				$user_check = $user->check();
-
-				$organization->user_id = 0;
-				$organization_check = $organization->check();
+				try
+				{
+					// Pre-validation before save all value
+					$user_check = $user->check();
+	
+					$organization->user_id = 0;
+					$organization_check = $organization->check();
+									
+					 
+					// Save this new user
 				
-				// Save this new user
-				$user->save();
+					$user->save();
+				} catch (ORM_Validation_Exception $e) {
+					$errors = array_merge ($e->errors('models'), $errors );
+					
+				}
 				$organization->user_id = $user->id;
-				$organization->save();
+				
+					$organization->save();
+	
 
 				// Send email
 				TimebankNotification::notify_new_organization($user, $organization, Arr::get($_POST, 'password'));
@@ -100,7 +110,7 @@ class Controller_Organization extends Controller_Template {
                 $message = __('There were errors, please see form below.');
                 
                 // Set errors using custom messages
-                $errors = $e->errors('models');
+                $errors = array_merge ($e->errors('models'), $errors );
 				//print_r($errors);
             }
 		}
