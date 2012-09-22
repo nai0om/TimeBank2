@@ -187,13 +187,13 @@ class Controller_User extends Controller_Template {
 			if (Arr::get($_POST, 'displayname') == '')
 			{
 				$errors['displayname'] = 'displayname cannot be empty.';
-				$pass = false;
+				
 			}
 			
 			if (Arr::get($_POST, 'acceptterm') == '')
 			{
 				$errors['acceptterm'] = 'Please accept term&condition.';
-				$pass = false;
+				
 			}
 			
 			$user->email = Arr::get($_POST, 'email');
@@ -201,41 +201,39 @@ class Controller_User extends Controller_Template {
 			if (Arr::get($_POST, 'password') == '')
 			{
 				$errors['password'] = 'Password can\'t be empty.';
-				$pass = false;
+			
 			}
 
 			if (Arr::get($_POST, 'password') != Arr::get($_POST, 'password_confirm'))
 			{
 				$errors['password_confirm'] = 'The password fields did not match.';
-				$pass = false;
+				
 			}
 			
 			if (Arr::get($_POST, 'email') == '')
 			{
 				$errors['email'] = 'Please enter email address';
-				$pass = false;
+				
 			}
 			
 			$hour = trim(Arr::get($_POST, 'hour'));
 			if (!is_numeric($hour))
 			{
 				$errors['hour'] = 'Please insert hours number.';
-				$pass = false;
-			}
-			
-			if(!$pass)
-			{
-				return;
-			}
-			
-			if($hour  <= 0)
+				
+			} 
+			else if($hour  <= 0)
 			{
 				$errors['hour'] = __('hours must more than 0');
-				return;
-			}
-			if ($hour > 2000)
+				
+			} 
+			else if ($hour > 2000)
 			{
 				$errors['hour'] =  __('time is maximum at 2000');	
+			}
+			
+			if(count($errors) >0)
+			{
 				return;
 			}
 			
