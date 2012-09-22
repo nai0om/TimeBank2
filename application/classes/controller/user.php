@@ -514,9 +514,7 @@ class Controller_User extends Controller_Template {
 				array_key_exists('interest_4', $errors) ? '': $errors['interest_4'] = __('do not duplicate') ;
 			
 			
-			if(count($errors) > 0) 
-				return;
-				
+							
 			if (isset($_FILES['profile_image']['name']) && $_FILES['profile_image']['name'] != '')
 			{
 				$this->user->profile_image = 'profile_image';
@@ -535,6 +533,8 @@ class Controller_User extends Controller_Template {
 					$this->user->add('tags', $temp);
 				}
 			}
+			if(count($errors) > 0) 
+				return;
 
             try {
 				
