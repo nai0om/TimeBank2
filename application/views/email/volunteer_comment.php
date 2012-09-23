@@ -50,11 +50,11 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                             <p>สวัสดีครับ <?= $vars['org_name'] ?></p>
 
-                            <p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร ยกเลิกเข้าร่วมกิจรรม....
+                            <p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร comment กิจรรม....
 
                             <a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a> 
                             </br />		
-                            <strong>สาเหตุ</strong> <?= $vars['message']  ?>
+                            <strong>ข้อความ : </strong> <?= $vars['comment']  ?>
                             </p>								 
 
                             <br clear="left">

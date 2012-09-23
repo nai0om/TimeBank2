@@ -31,6 +31,7 @@
 			<p><?= Form::checkbox('noti_almosteventdate', 1, (bool) $user->noti_almosteventdate); ?> ก่อนถึงวันจัดกิจกรรมที่ได้รับการตอบรับ 3 วัน</p>
 			<!--p><?= Form::checkbox('noti_eventthank', 1, (bool) $user->noti_eventthank); ?> เมื่อมีงานอาสาที่สมัครไป ประกาศรายชื่ออาสาสมัคร และฉันได้ไป หรือไม่ได้ไป</p-->
 			<p><?= Form::checkbox('noti_eventthank', 1, (bool) $user->noti_eventthank); ?> เมื่อองค์กรได้เขียนคำขอบคุณ และ / หรือ โพสต์รูปกิจกรรมที่ได้ไปเข้าร่วม </p>
+            <p><?= Form::checkbox('noti_eventcomment', 1, (bool) $user->noti_eventcomment); ?> เมื่อมีคนมา comment ในงานที่อาสาได้ comment ไว้  </p>
 			
 			<div class="headline">แจ้งเตือนทางมือถือ (SMS)</div><div class="line"></div>
 			<p><?= Form::checkbox('noti_sms_eventapproved', 1, (bool) $user->noti_sms_eventapproved); ?> เมื่อได้รับการตอบรับเข้าร่วมกิจกรรม (แจ้งเตือนทันที)</p>

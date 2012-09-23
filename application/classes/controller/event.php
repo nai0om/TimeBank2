@@ -594,6 +594,21 @@ class Controller_Event extends Controller_Template {
 			try
 			{
 				$comment->save();
+				
+				if (isset($this->user))
+				{
+					TimebankNotification::noti_eventvolunteercomment($this->user, $event, $comment->comment);
+				}
+				else if (isset($this->orguser))
+				{
+					$users_comment = $event->comments->distinct(TRUE)->where('user_id', '<>', 0)->group_by('user_id')->find_all();
+					foreach($users_comment as $user_comment)
+					{
+						$user = ORM::factory('user', $user_comment->user_id);
+						TimebankNotification::noti_eventcomment($user, $event, $comment->comment);
+					}
+					
+				}
                  				
             } catch (ORM_Validation_Exception $e) {
                  
@@ -915,6 +930,7 @@ class Controller_Event extends Controller_Template {
 				$errors['time_cost'] = __('limit at 2000 hours.');
 			}
 			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');
+			$event->expense_detail = Arr::get($_POST, 'expense_detail');
 			if($event->is_need_expense == 1 ) 
 			{
 				if($event->expense_detail == '')

@@ -35,6 +35,8 @@
                 	<p><?= Form::checkbox('noti_volunteercancel', 1, (bool) $organization->noti_volunteercancel); ?> เมื่อมีอาสา ยกเลิกกิจกรรมอาสาขององค์กร (แจ้งเตือนทันที)</p>
 				<p><?= Form::checkbox('noti_eventalmostend', 1, (bool) $organization->noti_eventalmostend); ?> ก่อนงานอาสาจะสิ้นสุดการรับสมัคร 3 วัน</p>
 				<p><?= Form::checkbox('noti_eventend', 1, (bool) $organization->noti_eventend); ?> เมื่อกิจกรรมอาสา จบเรียบร้อยแล้ว (แจ้งเตือนทันที)</p>
+                 
+                <p><?= Form::checkbox('noti_eventvolunteercomment', 1, (bool) $organization->noti_eventvolunteercomment); ?> เมื่อมีคนมาฝากข้อความในงานขององค์กร (ส่งทันที)</p>
 				<!--p class="indent"><input type="checkbox"> อย่าลืมเข้าไปเขียนคำขอบคุณในหน้ารายละเอียดกิจกรรม</p>
 				<p class="indent"><input type="checkbox"> อย่าลืมเข้าไปบันทึกจำนวนคนที่ไปร่วมกิจกรรมจริง</p>
 				<p class="indent"><input type="checkbox"> อย่าลืม upload ภาพกิจกรรมลงในหน้าภาพกิจกรรม</p-->
