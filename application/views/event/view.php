@@ -26,7 +26,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
             <?= HTML::anchor('event/browse', '<img src="'.url::base().'media/img/icon_browse_event.png"/>'); ?>
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
 		</div>
-					i
+				
 		<div id="detail">
 			<?php if ($mode == 2 ): ?>
                 <?= HTML::anchor('event/view/'.$event->id.'?mode=1', 'รายละเอียดงาน'); ?>

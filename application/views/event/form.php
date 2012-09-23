@@ -72,8 +72,8 @@ $times['23:59:59'] = '23:59';
                 <font color="red"><?= Arr::get($errors, 'volunteer_end_date'); ?></font>
             </div>           
         </p>
-        <p><?= Form::radio('day', 'every_day',($event->days == '')? true : false, array('id' => 'every_day', 'onChange' => 'everyDayChecked()')); ?>ทุกวัน (จันทร์ - อาทิตย์)</p>
-        <p><?= Form::radio('day', 'day', ($event->days != '')? true : false, array('id' => 'day')); ?>ระบุวัน (เลือกได้มากกว่า 1)</p>
+        <p><?= Form::radio('day', 'every_day',($event->days == '')? true : false, array('id' => 'every_day', 'onChange' => 'everyDayChecked()')); ?>ทุกวัน (ไป-กลับ)</p>
+        <p><?= Form::radio('day', 'day', ($event->days != '')? true : false, array('id' => 'day')); ?>ระบุวัน (ไป-กลับ) (เลือกได้มากกว่า1)</p>
         
         <p style="margin:3px 0 3px 78px; width:250px;" >
         	<?php  
@@ -90,6 +90,7 @@ $times['23:59:59'] = '23:59';
 				}
             ?>
         </p>
+         <p><?= Form::radio('day', 'night_live',($event->days == 'ค้างคืน')? true : false, array('id' => 'night_live', 'onChange' => 'everyDayChecked()')); ?>ค้างคืน</p>
         <p>รวม (อัตโนมัติ) <input name='time_cost' id='time_cost'  value= "<?= $event->time_cost ?>" type="text" style="width:50px;margin:0;display:inline;"> ชม.(สามารถแก้ไขได้) </p>
          <div class="error">
                 <font color="red"><?= Arr::get($errors, 'time_cost'); ?></font>
@@ -263,7 +264,6 @@ $times['23:59:59'] = '23:59';
 	
 	function everyDayChecked()
 	{
-		$("#every_day").prop("checked", true);
 		 for( var i = 0 ; i < 7 ; i++)
 		 {
 			  $('#day' + i).prop("checked", false);
@@ -282,28 +282,44 @@ $times['23:59:59'] = '23:59';
 	
 		if (date_start != '' && date_end != '')
 		{
-
-			 var volunteer_date_start = parseDate(date_start);
-			 var volunteer_date_end = parseDate(date_end);
- 			 var volunteer_time_start = parseTime(time_start);
-			 var volunteer_time_end = parseTime((time_end == '23:59:59') ? '24:00:00' : time_end);
-			 var diff = volunteer_time_end.getTime() - volunteer_time_start.getTime();
-			 
-			 // in case of setting end date/time to before start date/time 
-			
 			 var day = 0;
-		
-			 
-			 for( var i = 0 ; i < 7 ; i++)
-			 {
-				 	if( ( $('#day' + i).is(':checked') && $('#day').is(':checked')) || 
-																			 ($('#every_day').is(':checked')))
-					{
-						day +=  CountDays(i, volunteer_date_start, volunteer_date_end);
-					}
+			 var diff = 0;
+
+			if($('#night_live').is(':checked'))
+			{
+				day = 1;
+				var volunteer_start = collectedDateTime(date_start + ' ' + time_start);
+				var volunteer_end = collectedDateTime(date_end + ' ' + time_end);
+				
+				diff = volunteer_end -  volunteer_start;
+				
 			}
 			
+			else
+			{
+				 var volunteer_date_start = parseDate(date_start);
+				 var volunteer_date_end = parseDate(date_end);
+				 var volunteer_time_start = parseTime(time_start);
+				 var volunteer_time_end = parseTime((time_end == '23:59:59') ? '24:00:00' : time_end);
+				 diff = volunteer_time_end.getTime() - volunteer_time_start.getTime();
+				 
+				 // in case of setting end date/time to before start date/time 
+				
+				
+			
+				 
+				 for( var i = 0 ; i < 7 ; i++)
+				 {
+						if( ( $('#day' + i).is(':checked') && $('#day').is(':checked')) || 
+																				 ($('#every_day').is(':checked')))
+						{
+							day +=  CountDays(i, volunteer_date_start, volunteer_date_end);
+						}
+				}
+			}
+console.log (diff)
 			var time_cost = Math.ceil( diff/1000/60/60*10 )/10 * day ;
+			
 			if( time_cost < 0 )
 			{
 				time_cost = 0;
