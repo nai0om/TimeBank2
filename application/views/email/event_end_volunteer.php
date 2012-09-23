@@ -51,8 +51,13 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
                                     <p>สวัสดีครับ <?= $vars['displayname'] ?></p>
 
 									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">องค์กรที่จัดกิจกรรมอาสาที่คุณได้เข้าร่วม ได้เขียนคำขอบคุณถึงคุณ และ/หรือ โพสต์รูปกิจกรรม</p>
-									<p>คุณสามารถยืนยันการใช้เวลา อ่านคำขอบคุณ ดูรูป และแบ่งปันความประทับใจ การเรียนรู้ และประสบการณ์ได้ที่...<br>
-									<a href="<?= $vars['urlbase'].'user/checkhours/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
+									<p>คุณสามารถยืนยันการใช้เวลา อ่านคำขอบคุณ ดูรูป และแบ่งปันความประทับใจ การเรียนรู้ และประสบการณ์ได้ที่...
+                                    <a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a>
+                                   
+                                    <br />
+                                    
+									<a href="<?= $vars['urlbase'].'user/checkhours/'.$vars['event_id'] ?>">ยืนยันการใช้</a></p>	
+                                    							 
 
 									<br clear="left">
 
