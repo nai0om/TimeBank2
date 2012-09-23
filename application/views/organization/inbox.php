@@ -42,7 +42,7 @@
 			<tr>
 				<td><?= Form::checkbox('ib[]', $inbox->id, 0, array("class" => "ib")); ?></td>
 				<td><?= $inbox->title ?><br /><a><?= $inbox->message ?></a></td>
-				<td><?= $inbox->created ?></td>
+				<td><?= phphelp::timestamp_to_thai($inbox->created) ?></td>
 			</tr>
             <? endforeach ?>
 		</table>

@@ -31,10 +31,10 @@
 				<th>ส่งมาวันที่</th>
 			</tr>
             <?php foreach ($inboxes as $inbox) : ?>
-			<tr>
+			<tr id="<?= $inbox->id?>">
 				<td><?= Form::checkbox('ib[]', $inbox->id, 0, array("class" => "ib")); ?></td>
 				<td width="80%"><?= $inbox->title ?><br /><a><?= $inbox->message ?></a></td>
-				<td><?= $inbox->created ?></td>
+				<td><?= phphelp::timestamp_to_thai($inbox->created) ?></td>
 			</tr>
             <? endforeach ?>
 
