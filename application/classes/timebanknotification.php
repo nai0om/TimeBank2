@@ -156,7 +156,7 @@ class TimebankNotification {
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox(0, $organization->id, $subject, $message);
+		self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
 		
 	}
 
@@ -195,7 +195,7 @@ class TimebankNotification {
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox($user->id, 0, $subject, 'องค์กรผู้จัดได้ปิดงาน "'.$event->name.'"');
+		self::send_inbox($user->id, 0, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
 		
 	}
 
