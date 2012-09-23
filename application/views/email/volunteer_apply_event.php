@@ -52,7 +52,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร เข้าสมัครเข้าร่วมกิจรรม....<br>
 
-									<a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a></p>								 
+									<a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>">ตอบรับอาสาสมัคร</a></p>								 
 
 									<br clear="left">
 
