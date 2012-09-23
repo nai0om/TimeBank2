@@ -109,11 +109,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 													<tr>
 
-														<td valign="top">
-
-															<p style="margin:0;padding:0;color:#da7101">รหัสผ่าน: </p>		
-
-														</td>
+													
 
 													
 													</tr>

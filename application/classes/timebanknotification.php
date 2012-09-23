@@ -141,13 +141,13 @@ class TimebankNotification {
 		$to = $org_user->email;
 		$subject = 'มี "อาสา" ยกเลืกงานอาสา "'.$event->name.'"';
 		
-		$body = self::renderHtmlEmail('volunteer_cancel_event.php', array(
+		$body = self::renderHtmlEmail('volunteer_cancel_event', array(
 															'org_name' 		=> $organization->name,
 															'event_name'	=> $event->name,
 															'event_id' 		=> $event->id,
 															'message'		=> $message
 															));
-		if(noti_volunteercancel == 1)
+		if($organization->noti_volunteercancel == 1)
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
@@ -249,4 +249,47 @@ class TimebankNotification {
 		self::queuemail($from, $to, $subject, $body);
 	}
 	
+	public static function noti_eventcomment($user, $event, $comment)
+	{
+		$organization = ORM::factory('organization', $event->organization_id);
+		$from = Kohana::$config->load('timebank')->get('server_email');
+		$to = $user->email;
+		$subject = 'องกรค์ comment ในงานอาสาขอคุณ : "'.$event->name.' ';
+		$body = self::renderHtmlEmail('organization_comment', array(
+															'displayname' 	=> $user->displayname,
+															'org_name'		=> $organization->name,
+															'event_id'		=> $event->id,
+															'event_name'	=> $event->name,
+															'comment' =>  $comment,
+															));
+		if ($user->noti_eventcomment == 1)
+		{
+			self::queuemail($from, $to, $subject, $body);
+		}
+		self::send_inbox($user->id, 0, $subject, '"'.$comment.'"');
+	}
+	
+	public static function noti_eventvolunteercomment($user,  $event, $comment)
+	{
+		$organization = ORM::factory('organization', $event->organization_id);
+		$org_user = ORM::Factory('user', $organization->user_id);
+		
+		$from = Kohana::$config->load('timebank')->get('server_email');
+		$to = $org_user->email;
+		$subject = 'อาสาcomment ในงาน "'.$event->name.'"';
+		
+		$body = self::renderHtmlEmail('volunteer_comment', array(
+															'org_name' 		=> $organization->name,
+															'event_name'	=> $event->name,
+															'event_id' 		=> $event->id,
+															'comment'		=> $comment
+															));
+		if($organization->noti_eventvolunteercomment == 1)
+		{
+			self::queuemail($from, $to, $subject, $body);
+		}
+		self::send_inbox(0, $organization->id, $subject, $comment);
+		
+	}
 }
+

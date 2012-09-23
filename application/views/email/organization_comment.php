@@ -4,7 +4,7 @@ h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 20px; color:
 
 p { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 16px; line-height: 21px; color: #212121; margin: 0 0 12px 0; }
 
-a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decoration:underline;}</style></head>
+a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decoration:underline; }</style></head>
 
 <body style="margin:0; padding:0;">
 
@@ -48,20 +48,69 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                 <td valign="top" class="header">
 
-                            <p>สวัสดีครับ <?= $vars['org_name'] ?></p>
+                                    <p>สวัสดีครับ <?= $vars['displayname'] ?></p>
 
-                            <p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร ยกเลิกเข้าร่วมกิจรรม....
+									<p><a><?= $vars['org_name'] ?></a> ได้ comment ในงานอาสา
 
-                            <a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a> 
-                            </br />		
-                            <strong>สาเหตุ</strong> <?= $vars['message']  ?>
-                            </p>								 
+									<a><?= $vars['event_name'] ?></a> </p>
+                                    <p>
+                                    ข้อความ : <?= $vars['comment'] ?>
+                                    </p>
 
-                            <br clear="left">
+									 <table class="top" width="505" border="0" cellspacing="0" cellpadding="0">
 
-                            <br clear="left">
+										<tr>
 
-                            <p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
+											<td valign="top" height="13">
+
+												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_header.png' ?>" style="display:block;float:none;">
+
+											</td>
+
+										</tr>
+
+										<tr>
+
+											<td align="center" valign="top" bgcolor="#ffffff">
+
+												 <table class="top" width="90%" border="0" cellspacing="0" cellpadding="0">
+
+													<tr>
+
+														<td valign="top">
+
+															<p>คุณสามารถดูรายชื่ออาสาสมัครได้ที่เข้าร่วมกิจกรรมนี้ได้ที่...</p>
+
+															<p><a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'].'?mode=2' ?>"><img src="<?= $vars['urlbase'].'media/upload/email/843_list.png' ?>"><a></p>
+
+														</td>
+
+													</tr>
+
+												 </table>
+
+											</td>
+
+										</tr>
+
+										<tr>
+
+											<td valign="top" height="15">
+
+												<img src="<?= $vars['urlbase'].'media/upload/email/843_box_footer.png' ?>" style="display:block;float:none;">
+
+											</td>
+
+										</tr>
+
+									</table>
+
+									<p></p>
+									<p>อย่าลืมเตรียมใจ เตรียมกายให้พร้อม<br>
+									และขอให้มีความสุขกับกิจกรรมนะครับ</p>
+									
+									<p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
+
 
                                 </td>
 
