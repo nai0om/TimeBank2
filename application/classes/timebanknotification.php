@@ -60,6 +60,24 @@ class TimebankNotification {
 															'password' => $password,
 															));
 		self::queuemail($from, $to, $subject, $body);
+		
+		// send to all admin
+		$admins = ORM::factory('user')->where('role', '=', '2')->find_all();
+		foreach($admins as $admin)
+		{
+			$from = Kohana::$config->load('timebank')->get('server_email');
+			$to = $admin->email;
+			$subject = 'มีองค์กรสมัครสมาชิก';
+			$body = self::renderHtmlEmail('new_organization_admin', array(
+																'org_name' => $organization->name,
+																'displayname' => $user->displayname,
+																'email' => $user->email,
+																));
+			self::queuemail($from, $to, $subject, $body);
+			self::send_inbox($admin->id, 0, $subject, 'องค์กร "'.$organization->name.'"');
+				
+		}
+		
 	} 
 		
 	public static function notify_forgetpassword($user, $password)
@@ -73,6 +91,7 @@ class TimebankNotification {
 															'password' => $password,
 															));
 		self::queuemail($from, $to, $subject, $body);
+		
 	} 
 	
 	public static function notify_eventapproved_volunteer($user, $organization, $event)
@@ -119,10 +138,11 @@ class TimebankNotification {
 		$to = $org_user->email;
 		$subject = 'มี "อาสา" ยกเลืกงานอาสา "'.$event->name.'"';
 		
-		$body = self::renderHtmlEmail('volunteer_apply_event', array(
+		$body = self::renderHtmlEmail('volunteer_cancel_event.php', array(
 															'org_name' 		=> $organization->name,
 															'event_name'	=> $event->name,
 															'event_id' 		=> $event->id,
+															'message'		=> $message
 															));
 		if(noti_volunteercancel == 1)
 		{
@@ -218,4 +238,5 @@ class TimebankNotification {
 															));
 		self::queuemail($from, $to, $subject, $body);
 	}
+	
 }
