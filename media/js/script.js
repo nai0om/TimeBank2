@@ -21,6 +21,14 @@ function parseDate(input)
 }
 
 // parse a date in dd-mm-yyyy hh:mm:ss format
+function collectedDateTime(input) 
+{
+  var parts = input.match(/(\d+)/g);
+  // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+  return new Date(parts[2], parts[1]-1 , parts[0], parts[3],  parts[4],  parts[5]);
+}
+
+// parse a date in dd-mm-yyyy hh:mm:ss format
 function parseTime(input) 
 {
 

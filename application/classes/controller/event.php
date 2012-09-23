@@ -800,6 +800,8 @@ class Controller_Event extends Controller_Template {
 			{
 				$events = $events->where('days', '=', '');
 			}
+			
+		
 			//skills
 			 $dict = Kohana::$config->load('timebank')->get('worddict');
 			 $skill = ' ';
@@ -935,13 +937,22 @@ class Controller_Event extends Controller_Template {
 				if ( Arr::get($_POST, $job) != '')
 						$event->tags  = $event->tags.''.Arr::get($_POST, $job) .', ';
 			}
-			if (Arr::get($_POST, 'day') != 'everyday' ){
+			if (Arr::get($_POST, 'day') == 'day' ){
 				$days = Kohana::$config->load('timebank')->get('days');
 				$event->days = '';
 				foreach ($days as $day){
 					if ( Arr::get($_POST, $day) != '') 
 						$event->days  = $event->days.''.Arr::get($_POST, $day) .', ';
 				}
+				$event->days = substr($event->days , 0, -2);
+			}
+			else if (Arr::get($_POST, 'day') == 'night_live' )
+			{
+					$event->days  = 'ค้างคืน';
+			}
+			else
+			{
+				$event->days  = '';
 			}
 			
 			// add/remove skill for this user as data recieve from post

@@ -48,28 +48,30 @@
 			<p><span class="header">จังหวัด : </span> <?= $provinces[$event->location_province] ?></p>
 <p><span class="header">ช่วงวันทำงาน</span>
 				<div id="duration"> 
-				<?
-				$time= strtotime($event->volunteer_begin_date ); 
-				echo phphelp::thai_date($time);
-				?> เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น.
+                <? if ($event->days != 'ค้างคืน') :?>
+					ตั้งแต่ <?=  phphelp::str_to_thai_date($event->volunteer_begin_date ); ?> 
+                    
+                    <br>
+                    ถึง <?= phphelp::str_to_thai_date($event->volunteer_end_date);  ?> 
+                    <br>
+                    เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น. - 
+							<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
+                    <br />
+                     <?=  (($event->days == '') ?  '': $event->days).'(ไป-กลับ)' ?>
+                        
+                  <br>
+                  <? else  : ?>
+                  
+                  	ตั้งแต่ <?=  phphelp::str_to_thai_date($event->volunteer_begin_date ); ?> 
+                    เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น.
+                    <br>
+                    ถึง <?= phphelp::str_to_thai_date($event->volunteer_end_date);  ?> 
+                    เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
+                    <br />
+                    <?= $event->days ?>
+                  
+                  <? endif?>
                 
-                <br>
-				ถึง <?
-				$time= strtotime($event->volunteer_end_date); 
-				echo phphelp::thai_date($time);
-				?> เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
-                <br />
-                วัน : <?php  if ($event->days == '')
-                        {
-                            echo 'ทุกวัน';
-                        }
-                        else
-                        {
-                            echo substr($event->days , 0, -2); 
-                        }
-            
-            
-                ?><br>
                 </div>
             </p>
 			<p><span class="header">รายละเอียดงานอาสา</span></p>
