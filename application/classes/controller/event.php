@@ -999,7 +999,9 @@ class Controller_Event extends Controller_Template {
 			
 			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
 			{
-				$event->image = $_FILES['image']['name'];
+			
+						$event->image = $_FILES['image']['name'];
+		
 			}
 	
 			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
