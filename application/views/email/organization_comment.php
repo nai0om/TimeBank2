@@ -69,30 +69,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 										</tr>
 
-										<tr>
-
-											<td align="center" valign="top" bgcolor="#ffffff">
-
-												 <table class="top" width="90%" border="0" cellspacing="0" cellpadding="0">
-
-													<tr>
-
-														<td valign="top">
-
-															<p>คุณสามารถดูรายชื่ออาสาสมัครได้ที่เข้าร่วมกิจกรรมนี้ได้ที่...</p>
-
-															<p><a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'].'?mode=2' ?>"><img src="<?= $vars['urlbase'].'media/upload/email/843_list.png' ?>"><a></p>
-
-														</td>
-
-													</tr>
-
-												 </table>
-
-											</td>
-
-										</tr>
-
+										
 										<tr>
 
 											<td valign="top" height="15">
@@ -105,10 +82,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									</table>
 
-									<p></p>
-									<p>อย่าลืมเตรียมใจ เตรียมกายให้พร้อม<br>
-									และขอให้มีความสุขกับกิจกรรมนะครับ</p>
-									
+							
 									<p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
 
 
