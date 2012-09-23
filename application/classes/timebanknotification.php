@@ -2,6 +2,11 @@
 
 class TimebankNotification {
 	
+	public static function getUrlBase()
+	{
+		return Kohana::$config->load('timebank')->get('server_url');
+	}
+	
 	public static function renderHtmlEmail($email_view, $vars) {
 		$vars['urlbase'] = Kohana::$config->load('timebank')->get('server_url');
  		ob_start();
@@ -109,7 +114,7 @@ class TimebankNotification {
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox($user->id, 0, $subject, 'คุณได้รับการตอบรับให้เข้าร่วม "'.$event->name.'"');
+		self::send_inbox($user->id, 0, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
 		
 	}
 	
@@ -119,7 +124,7 @@ class TimebankNotification {
 		
 			$from = Kohana::$config->load('timebank')->get('server_email');
 			$to = $org_user->email;
-			$subject = 'มี "อาสา" สมัครเข้ามาร่วมกิจกรรมของคุณ "'.$event->name.'"';
+			$subject = 'มีอาสามาสมัครเข้าร่วม '.$event->name.' ดูรายชื่ออาสาได้ที่นี่';
 			$body = self::renderHtmlEmail('volunteer_apply_event', array(
 																'org_name' 		=> $organization->name,
 																'event_name'	=> $event->name,
@@ -129,7 +134,7 @@ class TimebankNotification {
 			{	
 				self::queuemail($from, $to, $subject, $body);
 			}
-			self::send_inbox(0, $organization->id, $subject, 'มี "อาสา" สมัครเข้ามาร่วมกิจกรรมของคุณ "'.$event->name.'"');
+			self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/approve/'.$event->id.'">ตอบรับอาสาสมัคร</a>');
 		
 	}
 	
@@ -161,7 +166,7 @@ class TimebankNotification {
 		
 		$from = Kohana::$config->load('timebank')->get('server_email');
 		$to = $org_user->email;
-		$subject = 'งานอาสาของคุณเสร็จสิ้นแล้ว: กรุณาเขียนคำขอบคุณ-โพสต์รูป-ปิดงาน "'.$event->name.'"';
+		$subject = 'งานอาสา '.$event->name.' ได้สิ้นสุดแล้ว คุณสามารถเขียนคำขอบคุณให้อาสา/โพสต์รูป/ปิดงาน ได้ที่นี่ ';
 		$body = self::renderHtmlEmail('event_end_org', array(
 															'org_name' 		=> $organization->name,
 															'event_name' 	=> $event->name,
@@ -171,7 +176,7 @@ class TimebankNotification {
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}	
-		self::send_inbox(0, $organization->id, $subject, 'งานอาสาของคุณเสร็จสิ้นแล้ว: กรุณาเขียนคำขอบคุณ-โพสต์รูป-ปิดงาน "'.$event->name.'"');
+		self::send_inbox(0, $organization->id, $subject,  '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
 		
 	}
 
@@ -196,11 +201,10 @@ class TimebankNotification {
 
 	public static function notify_eventsignup_almostend_org($organization, $event)
 	{
-				
 		$from = Kohana::$config->load('timebank')->get('server_email');
 		$org_user = ORM::Factory('user', $organization->user_id);
 		$to = $org_user->email;
-		$subject = 'ภารกิจ"['.$event->name.']" ใกล้หมดเวลารับสมัครแล้ว';
+		$subject = 'งานอาสา '.$event->name.' กำลังจะสิ้นสุดการรับสมัคร คุณสามารถตอบรับอาสาได้ที่นี่';
 		$body = self::renderHtmlEmail('event_almostend_org', array(
 															'org_name' 		=> $organization->name,
 															'event_name' 	=> $event->name,
@@ -210,7 +214,7 @@ class TimebankNotification {
 		{	
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox(0, $organization->id, $subject, 'ภารกิจ"['.$event->name.']" ใกล้หมดเวลารับสมัครแล้ว');
+		self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/approve/'.$event->id.'">ตอบรับอาสาสมัคร</a>');
 		
 	}
 
@@ -219,7 +223,7 @@ class TimebankNotification {
 				
 		$from = Kohana::$config->load('timebank')->get('server_email');
 		$to = $user->email;
-		$subject = 'ภารกิจ"['.$event->name.']" ใกล้ถึงเวลาเริ่มกิจกรรมแล้ว';
+		$subject = 'งานอาสาที่คุณสมัครไปใกล้ถึงวันจัดกิจกรรม สามารถดูรายละเอียดกิจกรรมได้ที่ '.$event->name.' ';
 		$body = self::renderHtmlEmail('event_almoststart_volunteer', array(
 															'displayname' 	=> $user->displayname,
 															'event_name' 	=> $event->name,
@@ -229,7 +233,7 @@ class TimebankNotification {
 		{	
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox($user->id, 0, $subject, 'ภารกิจ"['.$event->name.']" ใกล้ถึงเวลาเริ่มกิจกรรมแล้ว');
+		self::send_inbox($user->id, 0, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
 		
 	}
 		
@@ -254,7 +258,7 @@ class TimebankNotification {
 		$organization = ORM::factory('organization', $event->organization_id);
 		$from = Kohana::$config->load('timebank')->get('server_email');
 		$to = $user->email;
-		$subject = 'องกรค์ comment ในงานอาสาขอคุณ : "'.$event->name.' ';
+		$subject = 'มีองค์กรเข้ามาตอบในงานอาสาที่คุณได้แสดงความคิดเห็นไว้ สามารถดูรายละเอียดได้ที่ "'.$event->name.' ';
 		$body = self::renderHtmlEmail('organization_comment', array(
 															'displayname' 	=> $user->displayname,
 															'org_name'		=> $organization->name,
@@ -266,7 +270,7 @@ class TimebankNotification {
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox($user->id, 0, $subject, '"'.$comment.'"');
+		self::send_inbox($user->id, 0, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
 	}
 	
 	public static function noti_eventvolunteercomment($user,  $event, $comment)
@@ -276,7 +280,7 @@ class TimebankNotification {
 		
 		$from = Kohana::$config->load('timebank')->get('server_email');
 		$to = $org_user->email;
-		$subject = 'อาสาcomment ในงาน "'.$event->name.'"';
+		$subject = 'มีอาสามาแสดงความคิดเห็นใน งานอาสา'.$event->name.'';
 		
 		$body = self::renderHtmlEmail('volunteer_comment', array(
 															'org_name' 		=> $organization->name,
@@ -288,7 +292,7 @@ class TimebankNotification {
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox(0, $organization->id, $subject, $comment);
+		self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
 		
 	}
 }
