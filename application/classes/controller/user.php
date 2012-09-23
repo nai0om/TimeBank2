@@ -561,9 +561,11 @@ class Controller_User extends Controller_Template {
 	
 	public function action_checkhours()
 	{
+		$eventid = $this->request->param('id');
 		if (!$this->user)
         {
-            Request::current()->redirect('user/login');
+			$back_url = urlencode('user/checkhours/'.$eventid);
+			Request::current()->redirect('user/login?back_url='.$back_url);
 			return;
         }
 		
