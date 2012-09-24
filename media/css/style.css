@@ -2323,6 +2323,11 @@ header h2 {
 #member.notice table td{
 	padding:10px;
 }
+.deactivated  {
+	background-color: #CCC !important; 
+	color:#FFF;
+}
+
 #member.notice table td p{
 	margin:0;
 }
