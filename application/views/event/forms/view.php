@@ -54,16 +54,16 @@
                     <br>
                     ถึง <?= phphelp::str_to_thai_date($event->volunteer_end_date);  ?> 
                     <br>
-                    เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น. - 
+                    เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?> น. - 
 							<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
                     <br />
-                     <?=  (($event->days == '') ?  '': $event->days).'(ไป-กลับ)' ?>
+                     <?=  'ทุกวัน '.(($event->days == '') ?  '': $event->days).' (ไป-กลับ)' ?>
                         
                   <br>
                   <? else  : ?>
                   
                   	ตั้งแต่ <?=  phphelp::str_to_thai_date($event->volunteer_begin_date ); ?> 
-                    เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น.
+                    เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?> น.
                     <br>
                     ถึง <?= phphelp::str_to_thai_date($event->volunteer_end_date);  ?> 
                     เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.

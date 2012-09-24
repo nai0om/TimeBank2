@@ -107,16 +107,31 @@
 			<div><?= $event->time_cost ?> ชม.</div>
 			<a class="subscribe" href="<?= url::base().'event/view/'.$event->id ?>">รายละเอียด</a>
 			<p><strong><?= $event->name ?></strong><br />
-            <?
-				$time= strtotime($event->volunteer_begin_date ); 
-				echo phphelp::thai_date($time);
-				?> เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?>น.
-                
-                <br>
-				ถึง <?
-				$time= strtotime($event->volunteer_end_date); 
-				echo phphelp::thai_date($time);
-				?> เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.</p>
+          
+            <? if ($event->days != 'ค้างคืน') :?>
+					ตั้งแต่ <?=  phphelp::str_to_thai_date($event->volunteer_begin_date ); ?> 
+                    
+                    <br>
+                    ถึง <?= phphelp::str_to_thai_date($event->volunteer_end_date);  ?> 
+                    <br>
+                    เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?> น. - 
+							<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
+                    <br />
+                     <?=  'ทุกวัน '.(($event->days == '') ?  '': $event->days).' (ไป-กลับ)' ?>
+                        
+                  <br>
+                  <? else  : ?>
+                  
+                  	ตั้งแต่ <?=  phphelp::str_to_thai_date($event->volunteer_begin_date ); ?> 
+                    เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?> น.
+                    <br>
+                    ถึง <?= phphelp::str_to_thai_date($event->volunteer_end_date);  ?> 
+                    เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
+                    <br />
+                    <?= $event->days ?>
+                  
+                  <? endif?>
+               </p>
 			<a style="font-family:Tahoma, Geneva, sans-serif" href="<?= url::base().'event/view/'.$event->id ?>" >[อ่านต่อ...]</a>
 		</article>
         <?php endforeach ?>
