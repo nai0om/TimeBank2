@@ -200,6 +200,22 @@ class Controller_Organization extends Controller_Template {
 						->find_all();
 	}
 	
+	public function action_inboxred()
+    {
+		$this->auto_render = false;
+        if (!$this->orguser)
+        {
+			return;
+		}
+		
+		$id = $this->request->param('id');
+		$message = ORM::factory('inbox', $id);
+		if($message->organization_id == $this->orguser->id)
+		{
+			$message->is_read = 1;
+			$message->save();
+		}
+	}
 	public function action_deleteinbox()
 	{
 		if (HTTP_Request::POST == $this->request->method()) 

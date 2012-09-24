@@ -811,6 +811,23 @@ class Controller_User extends Controller_Template {
 						->order_by('created', 'desc')
 						->find_all();
     }
+	
+	public function action_inboxred()
+    {
+		$this->auto_render = false;
+        if (!$this->user)
+        {
+			return;
+		}
+		
+		$id = $this->request->param('id');
+		$message = ORM::factory('inbox', $id);
+		if($message->user_id == $this->user->id)
+		{
+			$message->is_read = 1;
+			$message->save();
+		}
+    }
 
 	public function action_deleteinbox()
 	{

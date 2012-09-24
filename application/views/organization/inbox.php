@@ -39,10 +39,23 @@
 			</tr>
            
             <?php foreach ($inboxes as $inbox) : ?>
-			<tr>
+			<tr id="<?= $inbox->id?>"  <? if ($inbox->is_read == 1)  echo "class=deactivated" ?> >
 				<td><?= Form::checkbox('ib[]', $inbox->id, 0, array("class" => "ib")); ?></td>
 				<td><?= $inbox->title ?><br /><a><?= $inbox->message ?></a></td>
 				<td><?= phphelp::timestamp_to_thai($inbox->created) ?></td>
+                  <script>
+					$('#<?= $inbox->id?>').click( 
+						function()
+						{
+							$.ajax({
+									  url: "<?=  url::base()."organization/inboxred/".$inbox->id ?>",
+									}).done(function ( data ) {
+									 	$('#<?= $inbox->id?>').addClass('deactivated');
+									});
+							
+						}
+					);
+				</script>
 			</tr>
             <? endforeach ?>
 		</table>
