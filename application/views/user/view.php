@@ -30,12 +30,12 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<div class="sum"><div class="sum_hours"><?= $time ?> ชั่วโมง</div>
 			<div class="sub_title">เวลาตั้งใจอาสา</div></div>
 			<div class="sum"><div class="sum_hours"><?= $work_time ?> ชั่วโมง</div>
-			<div class="sub_title">ที่เคยร่วมงานกับมูลนิธิ</div></div>
+			<div class="sub_title">ที่เคยร่วมกิจกรรมอาสา</div></div>
 		</div>
 		
 		<div style="clear:both"></div>
 		<div class="column one">
-			<h3>ความสนใจของคุณ</h3>
+			<h3>ความสนใจของอาสา</h3>
 			<p><?= $view_user->interest_tags ?></p>
                <? 
 				$dict = Kohana::$config->load('timebank')->get('worddict'); 
@@ -96,7 +96,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
         	<h4>ที่อยู่</h4><span><?= $view_user->address ?></span>
 			<h4>จังหวัด</h4><span><?= ( $view_user->province  == '' ? '' : $provinces[$view_user->province]) ?></span>
 			<h4>เบอร์โทรติดต่อ</h4><span><?= $view_user->phone ?></span>
-			<h4>e-mail</h4><span><?= $view_user->email ?></span>
+			<h4>อีเมล</h4><span><?= $view_user->email ?></span>
 		</div>
 
 			<?
