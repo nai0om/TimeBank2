@@ -1,7 +1,28 @@
 <div id="home">
   <div id="main" role="main">
 		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
-		<div id="banner"><img src="<?= url::base(); ?>media/img/banner_welcome1.png" /></div>
+		<div id="banner">
+			<div id="carouselMain">
+					<div id="slide01" class="slide">
+						<img src="<?= url::base(); ?>media/img/banner_welcome1.png" />
+					</div>
+							
+					<div id="slide02" class="slide">
+						<img src="<?= url::base(); ?>media/img/banner_welcome1.png" />
+					</div>
+							
+					<div id="slide03" class="slide">
+						<img src="<?= url::base(); ?>media/img/banner_welcome1.png" />
+					</div>
+				</div>
+					
+				<a href="#" id="ui-carousel-next"><span>next</span></a>
+				<a href="#" id="ui-carousel-prev"><span>prev</span></a>
+			
+			<div id="pages3" style="margin: 0 auto;width: 90px;"></div>
+		
+		</div>
+
 		
 		<div id="videoRotating">
 			<div id="carousel">
@@ -170,6 +191,34 @@
 				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );	
 
 		}
+		
+		function generatePages3() {
+			
+			var _total3, i, _link;
+			
+			_total3 = $( "#carouselMain" ).rcarousel( "getTotalPages" );
+			
+			for ( i = 0; i < _total3; i++ ) {
+				_link = $( "<a href='#'></a>" );
+				
+				$(_link)
+					.bind("click", {page: i},
+						function( event ) {
+							$( "#carouselMain" ).rcarousel( "goToPage", event.data.page );
+							event.preventDefault();
+						}
+					)
+					.addClass( "bullet off" )
+					.appendTo( "#pages3" );
+			}
+			
+			// mark first page as active
+			$( "a:eq(0)", "#pages3" )
+				.removeClass( "off" )
+				.addClass( "on" )
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );	
+
+		}
 
 		function pageLoaded( event, data ) {
 			$( "a.on", "#pages" )
@@ -188,6 +237,18 @@
 				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
 
 			$( "a", "#pages2" )
+				.eq( data.page )
+				.addClass( "on" )
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
+				
+		}
+		
+		function pageLoaded3( event, data ) {
+			$( "a.on", "#pages3" )
+				.removeClass( "on" )
+				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
+
+			$( "a", "#pages3" )
 				.eq( data.page )
 				.addClass( "on" )
 				.css( "background-image", "url(<?= url::base(); ?>media/img/brown_circle.png)" );
@@ -221,6 +282,21 @@
 				height: 215,
 				start: generatePages2,
 				pageLoaded: pageLoaded2
+			}
+		);
+		
+		$("#carouselMain").rcarousel(
+			{
+				visible: 1,
+				step: 1,
+				speed: 700,
+				auto: {
+					enabled: true
+				},
+				width: 572,
+				height: 197,
+				start: generatePages3,
+				pageLoaded: pageLoaded3
 			}
 		);
 		
