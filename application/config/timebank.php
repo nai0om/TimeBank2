@@ -50,6 +50,16 @@ return array
 								 'อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'
 							),
 	'thai_day_arr'		=> array("อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"), 
+	'link_type'			=> array(
+									0   => 'no link (default)',
+									1	=> 'top interest 1',	
+									2	=> 'top interest 2',
+									3	=> 'top interest 3',
+									4	=> 'top interest 4',
+									5	=> 'skill',
+									5	=> 'living',
+									6	=> 'location',
+								),
 	'thai_month_arr'    =>array(    
 								"1"=>"มกราคม",  
 								"2"=>"กุมภาพันธ์",  
