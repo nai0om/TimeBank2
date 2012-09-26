@@ -235,12 +235,14 @@ class Controller_Event extends Controller_Template {
 		$type = Arr::get($_GET, 'type');
 		if($type == 1)
 		{
-			$name = 'อาสาสมัครงานอาสา '.$event->name.'[ตอบรับแล้ว]';
+			$name = 'รายชื่ออาสา '.$event->name.' ตอบรับแล้ว';
 		}
 		else
 		{
-			$name = 'อาสาสมัครงานอาสา '.$event->name.'[ทั้งหมด]';
+			$name = 'รายชื่ออาสา '.$event->name.' ทั้งหมด';
 		}
+		
+		$name = phphelp::fix_invalid_filename($name);
 		foreach ($valunteers_event as $valunteer_event)
 		{
 			if($type == 1)
