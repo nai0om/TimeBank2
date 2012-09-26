@@ -21,7 +21,6 @@ xmlns="http://www.w3.org/TR/REC-html40">
         <TD><b>ชื่อที่แสดง</b></TD>
         <TD><b>อายุ</b></TD>
         <TD><b>เพศ</b></TD>
-        <TD><b>ชื่อเล่น</b></TD>
         <TD><b>Email</b></TD>
         <TD><b>เบอร์โทร</b></TD>
     </TR>

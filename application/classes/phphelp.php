@@ -80,6 +80,15 @@ class phphelp {
 		return floor($diff / (60*60*24));
 
 	}
+	
+	public static function fix_invalid_filename($filename)
+	{
+		$bad = array_merge(
+        array_map('chr', range(0,31)),
+        array("<", ">", ":", '"', "/", "\\", "|", "?", "*"));
+		return str_replace($bad, "", $filename);
+
+	}
 	 
 }
  
