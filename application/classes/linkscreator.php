@@ -158,6 +158,8 @@ class linkscreator {
 	
 	public static function add_link($user_id, $event_id, $linktype, $data, $rate, $end_date)
 	{
+		 if($data == '') 	return;
+			
 		DB::query(NULL, 
 				'INSERT INTO  `timebank_test`.`links` (`user_id`, `event_id`, `link_type`, `data` , `rate`, `end_date` )
 						VALUES ("'.$user_id.'",  "'.$event_id.'",  "'.$linktype.'",  "'.$data.'",  "'.$rate.'",  "'.$end_date.'")
