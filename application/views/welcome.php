@@ -126,7 +126,7 @@
                     เวลา : <?= date("H:i", strtotime($event->volunteer_begin_time)); ?> น.
                     <br>
                     ถึง <?= phphelp::str_to_thai_date($event->volunteer_end_date);  ?> 
-                    เวลา :<?= date("H:i", strtotime($event->volunteer_end_time));?> น.
+                    เวลา : <?= date("H:i", strtotime($event->volunteer_end_time));?> น.
                     <br />
                     <?= $event->days ?>
                   
