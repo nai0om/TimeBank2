@@ -4403,6 +4403,38 @@ header h2 {
 
 #objective_tbl td, #activity_tbl td {padding: 0 !important}
 
+/*issue 164*/
+
+#new-menu , #new-menu ul{
+    float: right;
+    margin: 0;
+}
+
+header{
+	  height: 130px;
+}
+
+#new-menu li:first-child:before {
+    content: "";
+}
+#new-menu li:before {
+    content: "|";
+    padding: 0 5px 0 0;
+}
+#new-menu li {
+    color: #22B5DA;
+    float: left;
+    font-size: 18px;
+    list-style: none outside none;
+    padding: 0 0 0 5px;
+}
+#member_name a {
+    color: #EF7D05 !important;
+}
+#new-menu li a {
+    color: #2E2E2E;
+}
+
 
 
 /* ==|== media queries ======================================================
