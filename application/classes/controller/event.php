@@ -1025,7 +1025,10 @@ class Controller_Event extends Controller_Template {
 			try
 			{
 				$event->save();
-                 
+				
+				/// set link
+                linkscreator::set_event_link($event);
+				
 				if($isupdate == true)
 				{
 					// Redirect to event view

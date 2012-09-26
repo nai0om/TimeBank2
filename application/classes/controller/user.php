@@ -17,12 +17,22 @@ class Controller_User extends Controller_Template {
 		->bind('time', $time)
 		->bind('work_time', $work_time)
 		->bind('events', $events)
-		->bind('events_rand', $events_rand);
+		->bind('events_rand', $events_rand)
+		->bind('event_recommends', $event_recommends);
 		
 		$time = Controller_User::getTotalTime($this->user->id);
 		$work_time = Controller_User::getTotalWorkedTime($this->user->id);
 		$events = timebankhelper::getRecommendEvent();
 		$events_rand = ORM::factory('event')->where('event.status', '=', '1')->order_by('id','desc')->limit(3)->find_all();
+		
+		$recommend_event_ids = linkscreator::get_top_event($this->user->id, 3);
+		$event_recommends = array();
+		
+		foreach($recommend_event_ids as $event_id)
+		{
+			$event_recommends[] = ORM::factory('event', $event_id['event_id']);
+		}
+		
     }
 
     public function action_record()
@@ -542,7 +552,7 @@ class Controller_User extends Controller_Template {
 		
             	$this->user->save();       
                  
-              
+              	linkscreator::set_user_link($this->user);
 				Request::current()->redirect('user/profile');
                  
             } catch (ORM_Validation_Exception $e) {
