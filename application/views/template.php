@@ -62,6 +62,9 @@
 			<li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับเรา', array('id' => 'aboutUs')); ?></li>
 		</ul>
 	</nav>
+	<div id="new-menu">
+		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
+	</div>
   </header>
   <div id="head_main"></div>
     <div id="content">
