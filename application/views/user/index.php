@@ -98,7 +98,7 @@
                                 ">
                     <? endif ?>
                     <div class="description"><?= HTML::anchor('event/view/'.$event->id,  $event->name) ?></div>
-                    <div>
+                    <div class="detail">
                     <? if ($event->days != 'ค้างคืน') :?>
                         ตั้งแต่ <?=  phphelp::str_to_thai_date($event->volunteer_begin_date ); ?> 
                         <br />
