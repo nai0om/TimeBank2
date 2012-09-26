@@ -40,7 +40,7 @@ return array(
 	'fax must not be empty' => 'กรุณาใส่หมายเลขโทรสาร',
 	'contactperson must not be empty' => 'กรุณาใส่ชื่อผู้ติดต่อ',
 	'Email or password is incorrect.' => 'อีเมล หรือ รหัสผ่าน ไม่ถูกต้อง',
-	'Please enter email address' => 'กรุณาใส่อีเมล์ ',
+	'Please enter email address' => 'กรุณาใส่อีเมล ',
 	'Approve volunteer warning.' => 'การ approve อาสาสมัครจะไม่สามารถแก้ไข้ได้ ในภายหลัง',
 	'end date/time much be after begin date/time.' => 'เวลาเริ่มต้นกิจกรรมต้องน้อยกว่า เวลาต้องจบต้องกิจกรรม',
 	'Thank you, your mission is complete.' => 'ดีใจด้วยนะครับ คุณได้ทำอาสาตามเวลาที่ได้ตั้งใจไว้แล้ว ขอเชิญชวนฝากเวลาตามที่ตั้งใจจะไปทำอาสาเพิ่มนะครับ ขอบคุณครับ',
