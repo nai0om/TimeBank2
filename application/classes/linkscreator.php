@@ -7,7 +7,7 @@ class linkscreator {
 		
 		 DB::delete('links')->where('event_id', '=', $event->id)->execute();
 		// default event link to itself
-		linkscreator::add_link(0, $event->id, 0, 0,0);
+		linkscreator::add_link(0, $event->id, 0, 0, 0, $event->signup_end_date);
 		
 		$users = ORM::factory('user')->where('role', '<>', '1')->find_all();
 		$days = $event->days;
@@ -30,7 +30,7 @@ class linkscreator {
 				$index = linkscreator::contrain_key($type, $user->interest_tags, ','); 
 				if ( $index >= 0) 
 				{
-					linkscreator::add_link($user->id, $event->id, $index + 1, array_search($type, $jobs), 0.5);
+					linkscreator::add_link($user->id, $event->id, $index + 1, array_search($type, $jobs), 0.5, $event->signup_end_date);
 				}
 			 }
 			 
@@ -43,13 +43,13 @@ class linkscreator {
 				$index = linkscreator::contrain_key($skill, $user->skills, '|'); 
 				if ( $index >= 0) 
 				{
-					linkscreator::add_link($user->id, $event->id, 5, $skill, 0.1);
+					linkscreator::add_link($user->id, $event->id, 5, $skill, 0.1, $event->signup_end_date);
 				}
 			}
 			
 			if($user->province == $provice)
 			{
-				linkscreator::add_link($user->id, $event->id, 6, $skill, 1);
+				linkscreator::add_link($user->id, $event->id, 6, $skill, 1, $event->signup_end_date);
 			}
 		}
 		
@@ -57,21 +57,18 @@ class linkscreator {
 	
 	public static function get_top_event($user_id, $limit)
 	{
-		return DB::select('event_id', array(DB::expr('sum(rate)'), 'rate'))
-						->from('links')
-						->where('user_id', '=', $user_id)
-						->or_where('user_id', '=', '0')
-						->group_by('event_id')
-						->order_by('rate', 'desc')
-						->limit($limit)
+		return DB::query(DATABASE::SELECT, 
+						'SELECT event_id, sum(rate) - 10/datediff(end_date, NOW()) as rate_point			
+						FROM links
+						WHERE (user_id=1 or user_id='.$user_id.') and datediff(end_date, NOW()) > 1
+						group by event_id
+						order by rate_point desc
+						limit '.$limit.';')
 						->execute()
 						->as_array();
-						
-		/*	SELECT event_id, sum(rate) as rate
-			FROM links
-			WHERE user_id=1 or user_id=0
-			group by event_id
-			order by rate desc; */
+	
+			
+			
 	}
 	
 	public static function set_user_link($user)
@@ -102,7 +99,7 @@ class linkscreator {
 				$index = linkscreator::contrain_key($type, $event->tags, ','); 
 				if ( $index >= 0) 
 				{
-					linkscreator::add_link($user->id, $event->id, $index + 1, array_search($type, $jobs), 0.5);
+					linkscreator::add_link($user->id, $event->id, $index + 1, array_search($type, $jobs), 0.5, $event->signup_end_date);
 				}
 			 }
 			 
@@ -115,13 +112,13 @@ class linkscreator {
 				$index = linkscreator::contrain_key($skill, $event->skills, '|'); 
 				if ( $index >= 0) 
 				{
-					linkscreator::add_link($user->id, $event->id, 5, $skill, 0.1);
+					linkscreator::add_link($user->id, $event->id, 5, $skill, 0.1, $event->signup_end_date);
 				}
 			}
 			
 			if($event->location_province == $provice)
 			{
-				linkscreator::add_link($user->id, $event->id, 6, $skill, 1);
+				linkscreator::add_link($user->id, $event->id, 6, $skill, 1, $event->signup_end_date);
 			}
 		}
 	}
@@ -143,11 +140,11 @@ class linkscreator {
 		return -1;
 	}
 	
-	public static function add_link($user_id, $event_id, $linktype, $data, $rate)
+	public static function add_link($user_id, $event_id, $linktype, $data, $rate, $end_date)
 	{
 		DB::query(NULL, 
-				'INSERT INTO  `timebank_test`.`links` (`user_id`, `event_id`, `link_type`, `data` , `rate` )
-						VALUES ("'.$user_id.'",  "'.$event_id.'",  "'.$linktype.'",  "'.$data.'",  "'.$rate.'")
+				'INSERT INTO  `timebank_test`.`links` (`user_id`, `event_id`, `link_type`, `data` , `rate`, `end_date` )
+						VALUES ("'.$user_id.'",  "'.$event_id.'",  "'.$linktype.'",  "'.$data.'",  "'.$rate.'",  "'.$end_date.'")
 						ON DUPLICATE KEY UPDATE  `rate`="'.$rate.'"')->execute();
 					
 	}
