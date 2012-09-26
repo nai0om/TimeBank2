@@ -73,6 +73,7 @@ class Controller_Event extends Controller_Template {
 				}
 				// remove only one event
 				$event->delete();		
+				linkscreator::remove_event($event_id);
 			}
 		}
 		else if ($this->request->param('id') != '')
@@ -87,7 +88,7 @@ class Controller_Event extends Controller_Template {
 			}
 			// remove only one event
 			 $event->delete();
-			
+			linkscreator::remove_event($event->id);
 		}
 	
 			

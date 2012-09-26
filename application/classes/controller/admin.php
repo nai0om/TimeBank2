@@ -4,6 +4,7 @@ class Controller_Admin extends Controller_Template {
 
 	public function action_index()
 	{
+		$settings = settings::getInstance();
 		$this->check_admin();
 		// show admin page
 		$this->template->content = View::factory('admin/index')

@@ -4,7 +4,7 @@ class linkscreator {
  
 	public static function set_event_link($event)
 	{
-		
+		$settings = settings::getInstance();
 		 DB::delete('links')->where('event_id', '=', $event->id)->execute();
 		// default event link to itself
 		linkscreator::add_link(0, $event->id, 0, 0, 0, $event->signup_end_date);
@@ -29,8 +29,10 @@ class linkscreator {
 				if($type == '') continue;
 				$index = linkscreator::contrain_key($type, $user->interest_tags, ','); 
 				if ( $index >= 0) 
-				{
-					linkscreator::add_link($user->id, $event->id, $index + 1, array_search($type, $jobs), 0.5, $event->signup_end_date);
+				{	
+					$porp = 'top_interest_'.($index + 1);
+					$point = $settings->$porp;
+					linkscreator::add_link($user->id, $event->id, $index + 1, array_search($type, $jobs),$point, $event->signup_end_date);
 				}
 			 }
 			 
@@ -43,13 +45,13 @@ class linkscreator {
 				$index = linkscreator::contrain_key($skill, $user->skills, '|'); 
 				if ( $index >= 0) 
 				{
-					linkscreator::add_link($user->id, $event->id, 5, $skill, 0.1, $event->signup_end_date);
+					linkscreator::add_link($user->id, $event->id, 5, $skill, $settings->skill, $event->signup_end_date);
 				}
 			}
 			
 			if($user->province == $provice)
 			{
-				linkscreator::add_link($user->id, $event->id, 6, $skill, 1, $event->signup_end_date);
+				linkscreator::add_link($user->id, $event->id, 6, $skill, $settings->location, $event->signup_end_date);
 			}
 		}
 		
@@ -57,8 +59,9 @@ class linkscreator {
 	
 	public static function get_top_event($user_id, $limit)
 	{
+		$settings = settings::getInstance();
 		return DB::query(DATABASE::SELECT, 
-						'SELECT event_id, sum(rate) - 10/datediff(end_date, NOW()) as rate_point			
+						'SELECT event_id, sum(rate) - '.$settings->end_time.'/datediff(end_date, NOW()) as rate_point			
 						FROM links
 						WHERE (user_id=1 or user_id='.$user_id.') and datediff(end_date, NOW()) > 1
 						group by event_id
@@ -73,6 +76,7 @@ class linkscreator {
 	
 	public static function set_user_link($user)
 	{
+		$settings = settings::getInstance();
 		//clean up
 		DB::delete('links')->where('user_id', '=', $user->id)->execute();
 		// default event link to itself
@@ -92,6 +96,7 @@ class linkscreator {
 			 //TODO
 			 $jobs = Kohana::$config->load('timebank')->get('jobs'); 
 			 // check interest 
+			 $i = 1;
 			 foreach($types as $type)
 			 {	
 				$type = trim($type);
@@ -99,8 +104,11 @@ class linkscreator {
 				$index = linkscreator::contrain_key($type, $event->tags, ','); 
 				if ( $index >= 0) 
 				{
-					linkscreator::add_link($user->id, $event->id, $index + 1, array_search($type, $jobs), 0.5, $event->signup_end_date);
+					$porp = 'top_interest_'.$i;
+					$point = $settings->$porp;
+					linkscreator::add_link($user->id, $event->id, $i, array_search($type, $jobs), $point, $event->signup_end_date);
 				}
+				$i++;
 			 }
 			 
 			//check skill
@@ -112,16 +120,24 @@ class linkscreator {
 				$index = linkscreator::contrain_key($skill, $event->skills, '|'); 
 				if ( $index >= 0) 
 				{
-					linkscreator::add_link($user->id, $event->id, 5, $skill, 0.1, $event->signup_end_date);
+					$point = $settings->$porp;
+					linkscreator::add_link($user->id, $event->id, 5, $skill, $settings->skill, $event->signup_end_date);
 				}
 			}
 			
 			if($event->location_province == $provice)
 			{
-				linkscreator::add_link($user->id, $event->id, 6, $skill, 1, $event->signup_end_date);
+				linkscreator::add_link($user->id, $event->id, 6, $skill, $settings->location, $event->signup_end_date);
 			}
 		}
 	}
+	
+	
+	public static function remove_event($event_id)
+	{
+		 DB::delete('links')->where('event_id', '=', $event->id)->execute();
+	}
+	
 	public static function contrain_key($key, $array_tag_string, $separate)
 	{
 		$key = trim($key);
