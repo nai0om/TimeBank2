@@ -2040,7 +2040,12 @@ header h2 {
     font-size: 12px;
     padding: 0 10px;
     width: 90%;
+	margin: 10px 0 5px 0;
+	font-weight: bold;
 
+}
+#member #main_right .list .detail{
+	padding: 0 10px;
 }
 #member #main_right .list .hours {
     font-family: TH chulanarak;
