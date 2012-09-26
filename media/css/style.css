@@ -300,14 +300,14 @@ header h2 {
 #head_main{
 	background: url("../img/bg_paper_top.png") no-repeat scroll 0 0 transparent;
 	width:1055px;
-	height:85px;
+	height:25px;
 	margin:0 auto;
 }
 
 #footer_main{
 	background: url("../img/bg_paper_bottom.png") no-repeat scroll 0 0 transparent;
 	width:1061px;
-	height:85px;
+	height:25px;
 	margin:0 auto;
 }
 #data.popup{
