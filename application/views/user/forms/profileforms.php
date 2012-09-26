@@ -45,8 +45,8 @@
                 <div class="error"><?= Arr::get($errors, 'birthday'); ?></div>
                 
 				<?= Form::label('sex', 'เพศ'); ?>
-				<?= Form::radio('sex', 'm', ($user->sex === 'm')); ?> ชาย
-                <?= Form::radio('sex', 'f', ($user->sex === 'f')); ?> หญิง
+				<?= Form::radio('sex', 'm', ($user->sex == 'm')); ?> ชาย
+                <?= Form::radio('sex', 'f', ($user->sex == 'f')); ?> หญิง
                 <div class="error"><?= Arr::get($errors, 'sex'); ?></div>
                 
 				<?= Form::label('website', 'Website'); ?>
