@@ -4401,6 +4401,8 @@ header h2 {
 	padding-left: 0;
 }
 
+#objective_tbl td, #activity_tbl td {padding: 0 !important}
+
 
 
 /* ==|== media queries ======================================================
