@@ -54,7 +54,7 @@
 				<!--label>พิมพ์ข้อความที่มองเห็น *</label>
 				<img src="<?= url::base(); ?>media/img/capcha.jpg">
 				<input type="text"-->
-				<input type="submit" value="Submit">
+				<input type="submit" value="ส่งข้อความ">
 			<?= Form::close(); ?>
 		</div>
 		

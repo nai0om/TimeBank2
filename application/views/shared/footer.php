@@ -5,16 +5,17 @@
             <li>
                 <h4>ธนาคารจิตอาสา</h4>
                 <ul>
-                    <li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับเว็บไซต์'); ?></li>
+                    <li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับธนาคารจิตอาสา'); ?></li>
                     <li><?= HTML::anchor('welcome/timebank', 'ธนาคารจิตอาสา'); ?></li>
-                    <li><?= HTML::anchor('training', 'ฝึกอบรมอาสาสมัคร'); ?></li>
-                    <li><?= HTML::anchor('news', 'ข่าวสารอัพเดท'); ?></li>
-                    <li><?= HTML::anchor('welcome/donation', 'ร่วมบริจาค'); ?></li>
+                    <li><?= HTML::anchor('training', 'ฝึกอบรมและความรู้'); ?></li>
+                    <li><?= HTML::anchor('news', 'ข่าวแวดวง'); ?></li>
+                    <li><?= HTML::anchor('welcome/donation', 'สนับสนุนธนาคารจิตอาสา'); ?></li>
                 </ul>
             </li>
             <li>
                 <h4>ภารกิจจิตอาสา</h4>
                 <ul>
+					<li><?= HTML::anchor('event/browse', 'ค้นหาภารกิจ'); ?></li>
                    	<? $jobs = Kohana::$config->load('timebank')->get('jobs'); ?>
 					<? for($i = 1 ; $i < sizeof($jobs) ; $i++): ?>
                      		<li><?= HTML::anchor('event/search/?job='.$i, $jobs[$i]); ?></li>
@@ -32,10 +33,9 @@
             <li>
                 <h4>ช่วยเหลือ</h4>
                 <ul>
-                    <li><?= HTML::anchor('welcome/timebankhow', 'วิธีใช้ธนาคารจิตอาสา'); ?></li>
-                    <li>คำถาม คำตอบ</li>
-                    <li>ค้นหาภารกิจ</li>
-                    <li><?= HTML::anchor('contactus', 'ติดต่อทีมงานอาสา'); ?></li>
+                    <li><?= HTML::anchor('welcome/timebankhow', 'วิธีใช้งาน (โดยย่อ)'); ?></li>
+                    <li><?= HTML::anchor('help', 'ช่วยเหลือ'); ?></li>
+					<li><?= HTML::anchor('contactus', 'ติดต่อธนาคารจิตอาสา'); ?></li>
                 </ul>
             </li>
         </ul>
