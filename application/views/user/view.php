@@ -8,7 +8,6 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<li>หน้าแรก<li>
 			<li>ดูข้อมูลอาสา<li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 
