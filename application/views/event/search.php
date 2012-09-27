@@ -24,7 +24,6 @@ $page = isset($gets['page'])? $gets['page'] : '1';
 			?>
 			
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div id="icon_set">
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_how_it_work.png"/>'); ?>

@@ -12,7 +12,6 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 <div id="tb_browse_detail">
 <? endif ?>
   <div id="main" role="main" >
-  <?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div id="sitemap">
 			<li>หน้าแรก</li>
 			<li>ใช้บริการธนาคารจิตอาสา</li>

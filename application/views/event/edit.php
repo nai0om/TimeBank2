@@ -5,7 +5,6 @@
 			<li>ธนาคารจิตอาสา</li>
 			<li>สร้างงานอาสาใหม่</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<h2>แก้ไขงานอาสา</h2>
 		<?= Form::open('event/edit/'.$event->id, array('enctype' => 'multipart/form-data')); ?>

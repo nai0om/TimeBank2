@@ -5,7 +5,6 @@
 			<li>ใช้บริการธนาคารจิตอาสา</li>
 			<li>ดูภารกิจจิตอาสา</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<h2>ค้นหาภารกิจจิตอาสา</h2>
 		<div id="icon_set">
