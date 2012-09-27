@@ -1,6 +1,5 @@
 <div id="org" class="approve">
  <div id="main" role="main">
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div id="warn">

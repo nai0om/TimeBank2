@@ -38,7 +38,6 @@ $times['23:59:59'] = '23:59';
 			<li>ดูงานอาสา</li>
 			<li>ค้นหาแบบละเอียด</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<h2>ค้นหาแบบละเอียด</h2>

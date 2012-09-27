@@ -6,7 +6,6 @@
 			<li>ธนาคารจิตอาสา</li>
 			<li>สร้างงานอาสาใหม่</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
         
