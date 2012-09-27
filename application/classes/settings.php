@@ -14,6 +14,12 @@
         }
         return self::$instance;
     }
+	
+	public static function reload()
+	{
+		self::$instance = new Settings(self::$filename); 
+		return self::$instance;    
+	}
    
     public function __get($setting) {
         if(array_key_exists($setting, $this->settings)) {
@@ -39,7 +45,9 @@
         }
     }
 	
-	public function update_setting()
+	
+	
+	public function update()
 	{
 		$assoc_arr = $this->settings;
 		$path = self::$filename; 

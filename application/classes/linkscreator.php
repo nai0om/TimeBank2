@@ -7,8 +7,8 @@ class linkscreator {
 		$settings = settings::getInstance();
 		 DB::delete('links')->where('event_id', '=', $event->id)->execute();
 		// default event link to itself
-		linkscreator::add_link(0, $event->id, 0, 0, 0, $event->signup_end_date);
-		
+		linkscreator::add_link(0, $event->id, 0, '0' , 0, $event->signup_end_date);
+	
 		$users = ORM::factory('user')->where('role', '<>', '1')->find_all();
 		$days = $event->days;
 		// type of event;
@@ -61,17 +61,15 @@ class linkscreator {
 	{
 		$settings = settings::getInstance();
 		return DB::query(DATABASE::SELECT, 
-						'SELECT event_id, sum(rate) - '.$settings->end_time.'/datediff(end_date, NOW()) as rate_point			
+						'SELECT event_id, sum(rate) - '.$settings->end_date.'*datediff(end_date, NOW()) as rate_point			
 						FROM links
-						WHERE (user_id=1 or user_id='.$user_id.') and datediff(end_date, NOW()) > 1
+						WHERE (user_id=0 or user_id='.$user_id.') and datediff(end_date, NOW()) > 1
 						group by event_id
 						order by rate_point desc
 						limit '.$limit.';')
 						->execute()
 						->as_array();
 	
-			
-			
 	}
 	
 	public static function set_user_link($user)
@@ -120,7 +118,6 @@ class linkscreator {
 				$index = linkscreator::contrain_key($skill, $event->skills, '|'); 
 				if ( $index >= 0) 
 				{
-					$point = $settings->$porp;
 					linkscreator::add_link($user->id, $event->id, 5, $skill, $settings->skill, $event->signup_end_date);
 				}
 			}
@@ -176,15 +173,11 @@ class linkscreator {
 						->where('link_type', '=',  $linktype)
 						->where('data', '=',  $data)
 						->execute();
-			/*
-			DB::update('users_events')->set(array('time_approve' => '1'))
-						->where('user_id', '=',  $this->user->id)
-						->where('event_id', '=',  $event_id)
-						->execute();
-			*/
+			
 		}
 		else
 		{
+			
 			//insert
 			DB::query(NULL, 
 		'INSERT INTO  `links` (`user_id`, `event_id`, `link_type`, `data` , `rate`, `end_date` )

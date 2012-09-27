@@ -51,14 +51,15 @@ return array
 							),
 	'thai_day_arr'		=> array("อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"), 
 	'link_type'			=> array(
-									0   => 'no_link_(default)',
+									0   => 'no_link',
 									1	=> 'top_interest_1',	
 									2	=> 'top_interest_2',
 									3	=> 'top_interest_3',
 									4	=> 'top_interest_4',
 									5	=> 'skill',
-									5	=> 'living',
-									6	=> 'location',
+									6	=> 'living',
+									7	=> 'location',
+									8	=> 'end_date',
 								),
 	'thai_month_arr'    =>array(    
 								"1"=>"มกราคม",  
