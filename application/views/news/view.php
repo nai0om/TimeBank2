@@ -5,7 +5,6 @@
 			<li>ข่าวสารอัพเดท</li>
 			<li><?= $news->topic ?></li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
         
 		<div style="clear:both"></div>
 		<h2><?= $news->topic ?></h2>
