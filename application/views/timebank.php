@@ -1,10 +1,9 @@
-﻿<div id="main_timeBank">
+<div id="main_timeBank">
  <div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
 			<li>ใช้บริการธนาคารจิตอาสา</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div id="icon_set">
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_how_it_work.png"/>'); ?>

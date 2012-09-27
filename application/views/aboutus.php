@@ -4,7 +4,7 @@
 			<li>หน้าแรก</li>
 			<li>เกี่ยวกับเรา</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
+
 		<div style="clear:both"></div>
 		<h2>เกี่ยวกับเรา</h2>
 		<div class="column two">

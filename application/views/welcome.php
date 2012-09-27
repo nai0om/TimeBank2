@@ -1,6 +1,5 @@
 <div id="home">
   <div id="main" role="main">
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div id="banner">
 			<div id="carouselMain">
 					<div id="slide01" class="slide">
