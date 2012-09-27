@@ -4,7 +4,7 @@ class Controller_Admin extends Controller_Template {
 
 	public function action_index()
 	{
-		$settings = settings::getInstance();
+		
 		$this->check_admin();
 		// show admin page
 		$this->template->content = View::factory('admin/index')
@@ -474,7 +474,7 @@ class Controller_Admin extends Controller_Template {
 			$event->volunteer_joined = Arr::get($_POST, 'volunteer_joined');
 			Controller_Event::save_event($event, NULL, $this->request->method(), true, $message, $errors);
 		}
-		print_r($errors);
+		
 	}
 	
 	public function action_eventuser()
@@ -935,7 +935,76 @@ class Controller_Admin extends Controller_Template {
 		Request::current()->redirect('admin/edittraining/'.$this->request->param('id').'#subimage');
 	}
 	
+//###########################################################		
+//####################  settings   function ##################
+//###########################################################		
+	public function action_setting()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/setting/index')
+											->bind('settings', $settings);
+		$settings = settings::getInstance();
+	}
 	
+	public function action_settings_links_wight()
+	{	$this->auto_render = false;
+		$this->check_admin();
+		if (HTTP_Request::POST == $this->request->method()) 
+		 {	
+			 $settings = settings::getInstance();
+			 $settings->top_interest_1 = Arr::get($_POST, 'top_interest_1');
+			 $settings->top_interest_2 = Arr::get($_POST, 'top_interest_2');
+			 $settings->top_interest_3 = Arr::get($_POST, 'top_interest_3');
+			 $settings->top_interest_4 = Arr::get($_POST, 'top_interest_4');
+			 $settings->skill = Arr::get($_POST, 'skill');
+			 $settings->living = Arr::get($_POST, 'living');
+			 $settings->location = Arr::get($_POST, 'location');
+			 $settings->end_date = Arr::get($_POST, 'end_date');
+			 $settings->update();
+			 
+			 
+			 //update links
+			  $links = Kohana::$config->load('timebank')->get('link_type'); 
+			  foreach($links as $key => $value)
+			  {
+				 DB::update('links')->set(array('rate' => $settings->$value))
+				->where('link_type', '=',  $key)
+				->execute();
+			
+			  }
+			  echo'<script>'.
+						'alert ("'.__('Update complete').'"); '.
+						'window.location = "'.url::base().'admin/setting/"'.
+						'</script>';
+			
+		 }
+	}
+	
+	public function action_settings_userupdate()
+	{
+		$this->auto_render = false;
+		$users = ORM::factory('user')->find_all();
+		foreach( $users as $user)
+		{ 
+		 
+			DB::delete('rank')->where('user_id', '=', $user->id)->execute();
+			
+			linkscreator::set_user_link($user);
+			
+			$events = linkscreator::get_top_event($user->id, 9);
+			foreach($events as $event)
+			{
+				DB::insert('rank', array('user_id', 'event_id', 'rate'))
+				->values(array($user->id, $event['event_id'], $event['rate_point']))
+				->execute();
+			}
+		}
+		echo'<script>'.
+						'alert ("'.__('Update complete').'"); '.
+						'window.location = "'.url::base().'admin/setting/"'.
+						'</script>';
+		
+	}
 //###########################################################		
 //####################  private   function ##################
 //###########################################################	

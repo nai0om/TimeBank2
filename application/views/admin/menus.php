@@ -5,4 +5,5 @@
 <?= HTML::anchor('admin/training', '<strong>ฝีกอบรม</strong>'); ?> |
 <?= HTML::anchor('admin/knowledge', '<strong>ความรู้</strong>'); ?> |
 <?= HTML::anchor('admin/news', '<strong>ข่าว</strong>'); ?> |
-<?= HTML::anchor('admin/help', '<strong>ช่วยเหลือ</strong>'); ?> 
+<?= HTML::anchor('admin/help', '<strong>ช่วยเหลือ</strong>'); ?> - | -
+<?= HTML::anchor('admin/setting', '<strong>settings</strong>'); ?> 
