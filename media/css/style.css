@@ -4403,12 +4403,16 @@ header h2 {
 
 .list-circle li {
     clear: both;
-    list-style: disc outside none !important;
+    list-style: none !important;
 }
 
 #main .list-circle li:before {
     content: "";
 	padding-left: 0;
+}
+
+.list-circle {
+    width: 30px;
 }
 
 #objective_tbl td, #activity_tbl td {padding: 0 !important}
