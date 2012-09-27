@@ -1,7 +1,5 @@
 <div id="volunteerOrgSignup" class="popup big">
   <div id="main" role="main">
-
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
 			<h2>กรุณาให้ข้อมูลเกี่ยวกับกลุ่ม / องค์กรอาสาของท่าน</h2>

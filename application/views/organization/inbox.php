@@ -5,7 +5,6 @@
 			<li>หน้าหลักสมาชิกองค์กร</li>
 			<li>หน้าหลัก</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div id="menu_left">

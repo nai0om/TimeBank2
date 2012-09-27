@@ -5,7 +5,6 @@
 			<li>หน้าแรก</li>
 			<li>ธนาคารจิตอาสา</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
         
