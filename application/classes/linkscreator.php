@@ -159,11 +159,39 @@ class linkscreator {
 	public static function add_link($user_id, $event_id, $linktype, $data, $rate, $end_date)
 	{
 		 if($data == '') 	return;
-			
-		DB::query(NULL, 
-				'INSERT INTO  `timebank_test`.`links` (`user_id`, `event_id`, `link_type`, `data` , `rate`, `end_date` )
-						VALUES ("'.$user_id.'",  "'.$event_id.'",  "'.$linktype.'",  "'.$data.'",  "'.$rate.'",  "'.$end_date.'")
-						ON DUPLICATE KEY UPDATE  `rate`="'.$rate.'"')->execute();
+		
+		$check = DB::select()->from('links')
+					->where('user_id', '=', $user_id)
+					->where('event_id', '=', $event_id)
+					->where('link_type', '=', $linktype)
+					->where('data', '=', $data)
+					->execute();	
+					
+		if(count($check) > 0)
+		{
+			//update
+			DB::update('links')->set(array('rate' => $rate, 'end_date' => $end_date))
+						->where('user_id', '=',  $user_id)
+						->where('event_id', '=',  $event_id)
+						->where('link_type', '=',  $linktype)
+						->where('data', '=',  $data)
+						->execute();
+			/*
+			DB::update('users_events')->set(array('time_approve' => '1'))
+						->where('user_id', '=',  $this->user->id)
+						->where('event_id', '=',  $event_id)
+						->execute();
+			*/
+		}
+		else
+		{
+			//insert
+			DB::query(NULL, 
+		'INSERT INTO  `links` (`user_id`, `event_id`, `link_type`, `data` , `rate`, `end_date` )
+				VALUES ("'.$user_id.'",  "'.$event_id.'",  "'.$linktype.'",  "'.$data.'",  "'.$rate.'",  "'.$end_date.'")
+				')->execute();
+		}
+
 					
 	}
 	
