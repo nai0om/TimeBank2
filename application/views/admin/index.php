@@ -61,7 +61,7 @@
    	 	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
     <p> <h3>Unverified organizations</h3>  
-     <table border="1">
+     <table border="1" id="org">
      <tbody>
       <tr>
         <th>name</th>
