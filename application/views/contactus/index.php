@@ -4,7 +4,6 @@
 			<li>หน้าแรก</li>
 			<li>ติดต่อธนาคารจิตอาสา</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div style="clear:both"></div>
 		<h2>ติดต่อธนาคารจิตอาสา</h2>
 		<center><img src="<?= url::base(); ?>media/img/long_banner.png"></center>
