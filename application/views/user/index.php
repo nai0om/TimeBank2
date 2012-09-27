@@ -4,7 +4,6 @@
 			<li>หน้าแรก</li>
 			<li>หน้าหลักสมาชิกอาสา</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div id="menu_left">

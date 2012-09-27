@@ -1,7 +1,6 @@
 <div id="data" class="popup">
   <div id="main" role="main">
 
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		<div id="content">
 				<div id="warn">
 			<h2>ยืนยันการใช้เวลา</h2><br>

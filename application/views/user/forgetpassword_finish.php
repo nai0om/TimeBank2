@@ -1,7 +1,5 @@
 <div id="data" class="popup">
   <div id="main" role="main">
-
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
 			<h2>ขอบคุณครับ</h2>

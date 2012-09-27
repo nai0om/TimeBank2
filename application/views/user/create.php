@@ -1,8 +1,6 @@
 
 <div id="volunteerSignup" class="popup big">
   <div id="main" role="main">
-
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 		
 		<div id="content">
 			<h2>สมัครสมาชิก และ เปิดบัญชีฝากเวลา (สำหรับอาสาสมัคร)</h2>
