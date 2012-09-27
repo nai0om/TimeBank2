@@ -769,6 +769,12 @@ class Controller_User extends Controller_Template {
 				$this->user->noti_eventthank = 1;
 			else
 				$this->user->noti_eventthank = 0;
+				
+			if (isset($_POST['noti_eventcomment']))
+				$this->user->noti_eventcomment = 1;
+			else
+				$this->user->noti_eventcomment = 0;	
+				
 
 			if (isset($_POST['noti_sms_eventapproved']))
 				$this->user->noti_sms_eventapproved = 1;
