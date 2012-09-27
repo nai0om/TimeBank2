@@ -264,13 +264,13 @@ class TimebankNotification {
 															'org_name'		=> $organization->name,
 															'event_id'		=> $event->id,
 															'event_name'	=> $event->name,
-															'comment' =>  $comment,
+															'comment' =>  $comment->comment,
 															));
 		if ($user->noti_eventcomment == 1)
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox($user->id, 0, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
+		self::send_inbox($user->id, 0, $subject, '<a href="'.url::base().'event/view/'.$event->id.'#'.$comment->id.'">'.$event->name.'</a>');
 	}
 	
 	public static function noti_eventvolunteercomment($user,  $event, $comment)
@@ -286,13 +286,13 @@ class TimebankNotification {
 															'org_name' 		=> $organization->name,
 															'event_name'	=> $event->name,
 															'event_id' 		=> $event->id,
-															'comment'		=> $comment
+															'comment'		=> $comment->comment
 															));
 		if($organization->noti_eventvolunteercomment == 1)
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a>');
+		self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/view/'.$event->id.'#'.$comment->id.'">'.$event->name.'</a>');
 		
 	}
 }
