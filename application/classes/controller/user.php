@@ -1026,7 +1026,6 @@ class Controller_User extends Controller_Template {
 		{
 			$status = 0;
 			$mode  = 1;
-			echo 'xxxx';
 		}
 		else
 		{
