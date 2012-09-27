@@ -70,10 +70,10 @@
                         <td style="text-align:center">
 							<ul class="list-circle">
 								<li>
-									<a href="/event/view/<?= $record->id ?>"><img alt="ดูรายละเอียด" src="<?= url::base(); ?>media/img/icon_info.png"></a>
+									<a href="<?= url::base(); ?>/event/view/<?= $record->id ?>"><img alt="ดูรายละเอียด" src="<?= url::base(); ?>media/img/icon_info.png"></a>
 								</li>
 								<li>
-									<a href="<? echo $record->id?>" id="popupButton<? echo $record->id?>"><img style="width: 20px; margin-left: 3px;" alt="ขอยกเลิก" src="<?= url::base(); ?>media/img/icon_cancel.png"></a>
+									<a  id="popupButton<? echo $record->id?>"><img style="width: 20px; margin-left: 3px;" alt="ขอยกเลิก" src="<?= url::base(); ?>media/img/icon_cancel.png"></a>
 								</li> 
                                 <div id="popupDialog<?= $record->id ?>" title="ยกเลิกงานอาสา <?= $record->name ?>">
                                   <p>
@@ -99,9 +99,10 @@
 												   else
 												   {
 													   window.location = "<?= url::base()."user/removeevent/".$record->id."?message="?>" + message;
+													    $(this).dialog('close');
 													}
 												   
-												   $(this).dialog('close');
+												  
 												   
 												}
 									}
