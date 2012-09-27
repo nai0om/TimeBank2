@@ -168,7 +168,7 @@ class Controller_Admin extends Controller_Template {
 			{
 				$message = 'Not found';
 			}
-			
+			Request::current()->redirect('admin/index#org');
 		}
 	}
 	

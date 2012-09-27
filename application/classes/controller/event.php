@@ -602,7 +602,7 @@ class Controller_Event extends Controller_Template {
 				{
 					TimebankNotification::noti_eventvolunteercomment($this->user, $event, $comment->comment);
 				}
-				else if (isset($this->orguser))
+				else if (isset($this->orguser) && $this->orguser == $event->organization_id)
 				{
 					$users_comment = $event->comments->distinct(TRUE)->where('user_id', '<>', 0)->group_by('user_id')->find_all();
 					foreach($users_comment as $user_comment)
