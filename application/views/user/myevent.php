@@ -58,19 +58,23 @@
                         	งานนี้ไม่ได้รับการตอบรับ
                         <? endif ?>
                         </td>
-                        <td><?= $record->name ?></td>
-                        <td><?= $record->time_cost ?></td>
-                        <td><?= $record->volunteer_need_count ?>
+                        <td style="text-align:center"><?= $record->name ?></td>
+                        <td style="text-align:center"><?= $record->time_cost ?></td>
+                        <td style="text-align:center"><?= $record->volunteer_need_count ?>
                       คน</td>
-                        <td><?=  phphelp::str_to_thai_date($record->signup_end_date) ?></td>
-                        <td><?=  phphelp::str_to_thai_date($record->volunteer_begin_date) ?>
+                        <td style="text-align:center"><?=  phphelp::str_to_thai_date($record->signup_end_date) ?></td>
+                        <td style="text-align:center"><?=  phphelp::str_to_thai_date($record->volunteer_begin_date) ?>
                           <br />
                           ถึง
                       <?= $record->volunteer_end_date ?></td>
-                        <td>
+                        <td style="text-align:center">
 							<ul class="list-circle">
-								<li><?= HTML::anchor('event/view/'.$record->id, 'ดูรายละเอียด') ?></li>
-								<li><?= HTML::anchor( '#'.$record->id, 'ขอยกเลิก', array('id' => 'popupButton'.$record->id)) ?></li> 
+								<li>
+									<a href="/event/view/<?= $record->id ?>"><img alt="ดูรายละเอียด" src="<?= url::base(); ?>media/img/icon_info.png"></a>
+								</li>
+								<li>
+									<a href="<? echo $record->id?>" id="popupButton<? echo $record->id?>"><img style="width: 20px; margin-left: 3px;" alt="ขอยกเลิก" src="<?= url::base(); ?>media/img/icon_cancel.png"></a>
+								</li> 
                                 <div id="popupDialog<?= $record->id ?>" title="ยกเลิกงานอาสา <?= $record->name ?>">
                                   <p>
                                      <label for="widgetName">ใส่ข้อความเพื่อฝากถึงองค์กร ก่อนที่จะสามารถกดยกเลิกได้</label>
