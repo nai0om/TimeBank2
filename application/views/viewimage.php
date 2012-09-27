@@ -1,6 +1,5 @@
 <div id="training" class="gallery">
   <div id="main" role="main">
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 			<div style="clear:both"></div>
 		<div id="content">
 				<div id="carousel">
