@@ -230,6 +230,7 @@ header {
 header img {
     left: 50px;
     position: relative;
+	float: left;
 }
 footer {
     margin: 0 auto;
