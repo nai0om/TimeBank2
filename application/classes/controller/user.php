@@ -985,14 +985,16 @@ class Controller_User extends Controller_Template {
 	
 	public function action_view()
 	{
-		 if (!$this->orguser )
+		if (!$this->orguser && !isset($this->user) )
         {
-			if( (isset($this->user) && $this->user->role != 2))
-			{
-            	Request::current()->redirect('user/login');
+			Request::current()->redirect('user/login');
 				return;
-			}
         }
+		else if (isset($this->user) && $this->user->role != 2)
+		{
+			Request::current()->redirect('user/login');
+				return;
+		}
 	    $this->template->content = View::factory('user/view')
 							->bind('view_user', $view_user)
 							->bind('time', $time)

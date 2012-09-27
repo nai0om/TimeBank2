@@ -4450,6 +4450,32 @@ header{
 }
 
 
+.userprofile{
+display: none;
+border: 1px solid #AD8E5F;
+margin: 10px 0;
+padding: 10px;
+}
+.title_userprofile {
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
+.title_userprofile label{
+cursor: pointer;
+}
+.profilechoose{
+background: url("/bg_profile.png") no-repeat scroll 0 0 transparent;
+width: 304px;
+height: 249px;
+padding: 9px 15px;
+}
+.profilechoose label {
+font-size: 15px;
+font-weight: bold;
+color: #3B3B3B;
+padding: 4px 0;
+}
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

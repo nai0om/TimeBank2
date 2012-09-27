@@ -83,9 +83,12 @@ class timebankhelper {
 	{
 	   $skill = Kohana::$config->load('timebank')->get('all_skills'); 
 	   $dict = Kohana::$config->load('timebank')->get('worddict');
+	   $i = 1;
 	   foreach ($skill as $title => $value)
-	   {
-		 echo  '<p><label>'.$dict[$title].'</label><br />';
+	   { 
+	   	echo '<div class="title_userprofile" id="'.$i.'"> <label>'.$dict[$title].'</label></div>';
+		
+		echo '<div class="userprofile" id="'.$title.'">';
 		 foreach ($value as $title2 => $value2)
 		 {
 			echo  '<label style="margin-left: 10px;" > - '.$dict[$title2].'</label> <br />'; 
@@ -115,7 +118,8 @@ class timebankhelper {
 				}
 			}
 		 }
-		 echo '<p>';
+		 echo '</div>';
+		 $i++;
 	   }
 	}
 }
