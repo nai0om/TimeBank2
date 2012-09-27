@@ -219,8 +219,12 @@ td { vertical-align: top; }
    ========================================================================== */
 @font-face {  
   font-family: chula;  
-  src: url("../font/ChulaNarak.ttf") format("truetype");  
-}  
+	src: url('../font/chulanarak-webfont.eot');
+	src: url('../font/chulanarak-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('../font/chulanarak-webfont.woff') format('woff'),
+	     url('../font/chulanarak-webfont.ttf') format('truetype'),
+	     url('../font/chulanarak-webfont.svg#chula') format('svg');
+}
 
 body{width:1140px;margin:0 auto;font-family:chula,verdana, helvetica, sans-serif;}
 header {
