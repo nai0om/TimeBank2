@@ -5,7 +5,6 @@
 			<li>ธนาคารจิตอาสา</li>
 			<li>ช่วยเหลือ</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div id="icon_set">
             <?= HTML::anchor('welcome/donation', '<img src="'.url::base().'media/img/icon_donation.png"/>'); ?>

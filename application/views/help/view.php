@@ -5,7 +5,6 @@
 			<li>ธนาคารจิตอาสา</li>
 			<li>ช่วยเหลือ</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div id="icon_set">
 			<a href="main_timeBank_1.html"><img src="img/icon_donation.png"/></a>
