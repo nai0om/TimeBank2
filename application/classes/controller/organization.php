@@ -333,6 +333,13 @@ class Controller_Organization extends Controller_Template {
 				$this->orguser->noti_eventalmostend = 1;
 			else
 				$this->orguser->noti_eventalmostend = 0;
+				
+			if (isset($_POST['noti_eventvolunteercomment']))
+				$this->orguser->noti_eventvolunteercomment = 1;
+			else
+				$this->orguser->noti_eventvolunteercomment = 0;	
+				
+				
 			try
 			{
 				$this->orguser->save();
