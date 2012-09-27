@@ -4,7 +4,6 @@
 			<li>หน้าแรก</li>
 			<li>ฝึกอบรม</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div class="title left"></div>

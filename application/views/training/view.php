@@ -4,7 +4,6 @@
 			<li>หน้าแรก</li>
 			<li>ฝึกอบรมอาสาสมัคร</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
         
 		<div style="clear:both"></div>
 		<h2><?= $training->topic ?></h2>

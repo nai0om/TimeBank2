@@ -4,8 +4,7 @@
 			<li>หน้าแรก</li>
 			<li>ความรู้</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
-
+		
 		<div style="clear:both"></div>
 		<div class="title left"></div>
 		<div class="title body past"><?= HTML::anchor('training', 'ฝึกอบรม'); ?></div>
