@@ -5,7 +5,6 @@
 			<li>องค์กร</li>
 			<li>การแจ้งเตือน</li>
 		</div>
-		<?php include Kohana::find_file('views', 'shared/accountinfo') ?>
 
 		<div style="clear:both"></div>
 		<div id="menu_left">
