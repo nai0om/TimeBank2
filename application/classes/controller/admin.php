@@ -188,12 +188,52 @@ class Controller_Admin extends Controller_Template {
 	public function action_useredit()
 	{
 		$this->check_admin();
+		
+		$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+		
 		if ($this->request->param('id')  == '') $this->redirect('/');
 		$this->template->content = View::factory('admin/user/useredit')
 										->bind('valunteer', $valunteer)
+										->bind('skills', $skills)
+										->bind('occupations', $occupations)
+										->bind('interest_tags', $interest_tags)
+										->bind('message', $message)
 										->bind('errors', $errors);
 										
 		$valunteer = ORM::factory('user', $this->request->param('id'));
+		
+		$skill_list = explode ('|', $valunteer->skills);
+		$skills = array();
+		for($i = 0 ; $i < count($skill_list) ; $i++)
+		{
+			$cut =  explode('=', $skill_list[$i]);
+			if($cut[0] != ''){
+				if(count($cut) >= 2)
+				{ 
+					$skills[$cut[0]] = $cut[1];
+				}
+				else 
+				{
+					$skills[$cut[0]] = 'true';	
+				}
+			}
+		}	
+		   $interest_tags = array();
+		   $interests = explode(',', $valunteer->interest_tags);
+		  	foreach($interests as $interest)
+			{
+				for($i = 0 ; $i < count($jobs) ; $i++)
+				{
+					if($interest == $jobs[$i])
+					{
+						$interest_tags[] = $i;
+						break;
+					}
+				}
+			}
+			
+		
+		
 		$this->user_save($valunteer, $errors);
 		
 	}
@@ -1190,6 +1230,7 @@ class Controller_Admin extends Controller_Template {
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
+			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 			$valunteer->email = Arr::get($_POST, 'email');
 			$valunteer->displayname = Arr::get($_POST, 'displayname');
 			$valunteer->noti_eventrecommended = Arr::get($_POST, 'noti_eventrecommended');
@@ -1203,15 +1244,93 @@ class Controller_Admin extends Controller_Template {
 			$valunteer->role = Arr::get($_POST, 'role');
 			$valunteer->first_name = Arr::get($_POST, 'first_name');
 			$valunteer->last_name = Arr::get($_POST, 'last_name');
-			$valunteer->birthday = Arr::get($_POST, 'birthday');
+			$year = Arr::get($_POST, 'year') - 543;
+			$month = Arr::get($_POST, 'month');
+			$day = Arr::get($_POST, 'day');
+			$this->user->birthday = $year.'-'.$month.'-'.$day;
 			$valunteer->phone = Arr::get($_POST, 'phone');
 			$valunteer->address = Arr::get($_POST, 'address');
-			$valunteer->profile_image = Arr::get($_POST, 'profile_image');
 			$valunteer->quote = Arr::get($_POST, 'quote');
 			$valunteer->description = Arr::get($_POST, 'description');
 			$valunteer->sex = Arr::get($_POST, 'sex');
 			$valunteer->website = Arr::get($_POST, 'website');
 			$valunteer->skills = Arr::get($_POST, 'skills');
+			
+			
+			// add/remove skill for this user as data recieve from post
+			 $dict = Kohana::$config->load('timebank')->get('worddict');
+			 $skill = '';
+			 foreach($dict  as $key => $val)
+			 {
+				 
+				 $value = Arr::get($_POST,  $key);
+				 if( $value != '') 
+				 {
+					 if($value == 'on')
+					 {
+						$skill .= $key.'|'; 
+					 }
+					 else
+					 {
+						 $skill .= $key.'='.$value.'|'; 
+					 }
+				 }
+			 }
+			 $valunteer->skills = $skill;
+			 
+			$tags = '';
+			if (Arr::get($_POST, 'interest_1') != 0)
+				$tags .= $jobs[Arr::get($_POST, 'interest_1')].',';
+			if (Arr::get($_POST, 'interest_2') != 0)
+				$tags .= $jobs[Arr::get($_POST, 'interest_2')].',';
+			if (Arr::get($_POST, 'interest_3') != 0)
+				$tags .= $jobs[Arr::get($_POST, 'interest_3')].',';
+			if (Arr::get($_POST, 'interest_4') != 0)
+				$tags .= $jobs[Arr::get($_POST, 'interest_4')];
+				
+			$valunteer->interest_tags = $tags; 
+
+			$tagvalidate = "";
+			
+			
+			
+			
+			$tagvalidate = $jobs[Arr::get($_POST, 'interest_1')];
+			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_2')]);
+			if (  $pos >= 0 && $pos !== false && Arr::get($_POST, 'interest_2') != 0)
+				array_key_exists('interest_2', $errors) ? '': $errors['interest_2'] = __('do not duplicate') ;
+			
+			$tagvalidate .= $jobs[Arr::get($_POST, 'interest_2')];
+			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_3')]);
+			if (  $pos >= 0 && $pos !== false && Arr::get($_POST, 'interest_3') != 0)
+				array_key_exists('interest_3', $errors) ? '':  $errors['interest_3'] = __('do not duplicate') ;
+			
+			$tagvalidate .= $jobs[Arr::get($_POST, 'interest_3')];	
+			$pos = strpos($tagvalidate, $jobs[Arr::get($_POST, 'interest_4')]);
+			if (  $pos >= 0 && $pos !== false && Arr::get($_POST, 'interest_3') != 0)
+				array_key_exists('interest_4', $errors) ? '': $errors['interest_4'] = __('do not duplicate') ;
+			
+			
+							
+			if (isset($_FILES['profile_image']['name']) && $_FILES['profile_image']['name'] != '')
+			{
+				$valunteer->profile_image = 'profile_image';
+			}
+			
+			$valunteer->remove('tags');
+			if (Arr::get($_POST, 'tag') != '')
+			{
+				
+				$tags = explode(',', Arr::get($_POST, 'tag'));
+				foreach($tags as $tag)
+				{
+					$temp = ORM::factory('tag');
+					$temp->name = $tag;
+					$temp->save();
+					$valunteer->add('tags', $temp);
+				}
+			}
+			
 
 			try{
 			
