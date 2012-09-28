@@ -1254,7 +1254,6 @@ class Controller_Admin extends Controller_Template {
 			$valunteer->description = Arr::get($_POST, 'description');
 			$valunteer->sex = Arr::get($_POST, 'sex');
 			$valunteer->website = Arr::get($_POST, 'website');
-			$valunteer->skills = Arr::get($_POST, 'skills');
 			
 			
 			// add/remove skill for this user as data recieve from post
