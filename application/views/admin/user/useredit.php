@@ -4,6 +4,10 @@
 
 <?= Form::open('admin/useredit/'.$valunteer->id , array('enctype' => 'multipart/form-data')); ?>
 
+<?php include Kohana::find_file('views', 'user/forms/adminprofileforms') ?>	
+
+<?php include Kohana::find_file('views', 'user/forms/adminskillforms') ?>
+<hr>
 <label>email</label>
 <?= Form::input('email', $valunteer->email ); ?>    
 <div class="error">
@@ -59,53 +63,12 @@
 	<font color="red"><?= Arr::get($errors, 'noti_sms_news'); ?></font>
 </div>  
         
-<label>nickname</label>
-<?= Form::input('nickname', $valunteer->nickname ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'nickname'); ?></font>
-</div>  
-
 <label>role</label>
 <?= Form::input('role', $valunteer->role ); ?>    
 <div class="error">
 	<font color="red"><?= Arr::get($errors, 'role'); ?></font>
 </div>  
 
-<label>first_name</label>
-<?= Form::input('first_name', $valunteer->first_name ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'first_name'); ?></font>
-</div>  
-
-<label>last_name</label>
-<?= Form::input('last_name', $valunteer->last_name ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'last_name'); ?></font>
-</div>  
-
-<label>birthday</label>
-<?= Form::input('birthday', $valunteer->birthday ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'birthday'); ?></font>
-</div>      
-
-<label>phone</label>
-<?= Form::input('phone', $valunteer->phone ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'phone'); ?></font>
-</div>  
-
-<label>address</label>
-<?= Form::input('address', $valunteer->address ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'address'); ?></font>
-</div>  
-
-<label>profile_image</label>
-<?= Form::input('profile_image', $valunteer->profile_image ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'profile_image'); ?></font>
-</div>  
 
 <label>quote</label>
 <?= Form::input('quote', $valunteer->quote ); ?>    
@@ -119,23 +82,8 @@
     <font color="red"><?= Arr::get($errors, 'description'); ?></font>
 </div>  
 
-<label>sex</label>
-<?= Form::input('sex', $valunteer->sex ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'sex'); ?></font>
-</div>  
 
-<label>website</label>
-<?= Form::input('topic', $valunteer->website ); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'topic'); ?></font>
-</div>  
 
-<label>skills</label>
-<?= Form::input('skills', $valunteer->skills, array('style' => 'width:1000px')); ?>    
-<div class="error">
-	<font color="red"><?= Arr::get($errors, 'skills'); ?></font>
-</div>  
 
 <label>interest_tags</label>
 <?= Form::input('interest_tags', $valunteer->interest_tags, array('style' => 'width:1000px')); ?>    
@@ -143,13 +91,13 @@
 	<font color="red"><?= Arr::get($errors, 'interest_tags'); ?></font>
 </div>  
 
-<label>skills</label>
+<label>location</label>
 <?= Form::input('location', $valunteer->location); ?>    
 <div class="error">
 	<font color="red"><?= Arr::get($errors, 'location'); ?></font>
 </div>  
 
-<label>skills</label>
+<label>province</label>
 <?= Form::input('province', $valunteer->province); ?>    
 <div class="error">
 	<font color="red"><?= Arr::get($errors, 'province'); ?></font>
@@ -165,3 +113,136 @@
 </div>
 
 </div>
+ <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery-1.7.1.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.core.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.rcarousel.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery-ui-1.8.20.custom.min.js"></script>
+  <script type="text/javascript">
+			jQuery(function($) {
+			
+				$(function() {
+					$( ".datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+				});
+				function generatePages() {
+					var _total, i, _link;
+					
+					_total = $( "#carousel" ).rcarousel( "getTotalPages" );
+					
+					for ( i = 0; i < _total; i++ ) {
+						_link = $( "<a href='#'></a>" );
+						
+						$(_link)
+							.bind("click", {page: i},
+								function( event ) {
+									$( "#carousel" ).rcarousel( "goToPage", event.data.page );
+									event.preventDefault();
+								}
+							)
+							.addClass( "bullet off" )
+							.appendTo( "#pages" );
+					}
+						
+					// mark first page as active
+					$( "a:eq(0)", "#pages" )
+						.removeClass( "off" )
+						.addClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+
+
+				}
+				
+				function generatePages2() {
+					
+					var _total2, i, _link;
+					
+					_total2 = $( "#carouselBanner" ).rcarousel( "getTotalPages" );
+					
+					for ( i = 0; i < _total2; i++ ) {
+						_link = $( "<a href='#'></a>" );
+						
+						$(_link)
+							.bind("click", {page: i},
+								function( event ) {
+									$( "#carouselBanner" ).rcarousel( "goToPage", event.data.page );
+									event.preventDefault();
+								}
+							)
+							.addClass( "bullet off" )
+							.appendTo( "#pages2" );
+					}
+					
+					// mark first page as active
+					$( "a:eq(0)", "#pages2" )
+						.removeClass( "off" )
+						.addClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );	
+
+				}
+
+				function pageLoaded( event, data ) {
+					$( "a.on", "#pages" )
+						.removeClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+
+					$( "a", "#pages" )
+						.eq( data.page )
+						.addClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+				}
+				
+				function pageLoaded2( event, data ) {
+					$( "a.on", "#pages2" )
+						.removeClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+
+					$( "a", "#pages2" )
+						.eq( data.page )
+						.addClass( "on" )
+						.css( "background-image", "url(img/brown_circle.png)" );
+						
+				}
+				
+				$("#carousel").rcarousel(
+					{
+						visible: 1,
+						step: 1,
+						speed: 700,
+						auto: {
+							enabled: true
+						},
+						width: 350,
+						height: 250,
+						start: generatePages,
+						pageLoaded: pageLoaded
+					}
+				);
+				
+				$("#carouselBanner").rcarousel(
+					{
+						visible: 1,
+						step: 1,
+						speed: 700,
+						auto: {
+							enabled: true
+						},
+						width: 450,
+						height: 215,
+						start: generatePages2,
+						pageLoaded: pageLoaded2
+					}
+				);
+				
+				$( "#ui-carousel-next" )
+					.add( "#ui-carousel-prev" )
+					.add( ".bullet" )
+					.hover(
+						function() {
+							$( this ).css( "opacity", 0.7 );
+						},
+						function() {
+							$( this ).css( "opacity", 1.0 );
+						}
+					);
+			});
+		</script>
