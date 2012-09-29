@@ -70,10 +70,10 @@
                         <td style="text-align:center">
 							<ul class="list-circle">
 								<li>
-									<a href="<?= url::base(); ?>/event/view/<?= $record->id ?>"><img alt="ดูรายละเอียด" src="<?= url::base(); ?>media/img/icon_info.png"></a>
+									<a href="<?= url::base(); ?>event/view/<?= $record->id ?>"><img alt="ดูรายละเอียด" title="ดูรายละเอียด" src="<?= url::base(); ?>media/img/icon_info.png"></a>
 								</li>
 								<li>
-									<a  id="popupButton<? echo $record->id?>"><img style="width: 20px; margin-left: 3px;" alt="ขอยกเลิก" src="<?= url::base(); ?>media/img/icon_cancel.png"></a>
+									<a  id="popupButton<? echo $record->id?>"><img style="width: 20px; margin-left: 3px; cursor: pointer;" alt="ขอยกเลิก" title="ขอยกเลิก" src="<?= url::base(); ?>media/img/icon_cancel.png"></a>
 								</li> 
                                 <div id="popupDialog<?= $record->id ?>" title="ยกเลิกงานอาสา <?= $record->name ?>">
                                   <p>
@@ -124,13 +124,13 @@
                     	<td style="font-weight:bold; color:#F00; text-align:center">
                         	ยืนยันการใช้เวลาแล้ว
                         </td>
-                        <td><?= $record->name ?></td>
-                        <td><?= $record->time_cost ?></td>
-                        <td><?= $record->volunteer_need_count ?>
+                        <td style="text-align:center;"><?= $record->name ?></td>
+                        <td style="text-align:center;"><?= $record->time_cost ?></td>
+                        <td style="text-align:center;"><?= $record->volunteer_need_count ?>
                       คน</td>
-                        <td>- ปิด -</td>
-                   		<td>- ปิด -</td>
-                        <td><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?></td>
+                        <td style="text-align:center;">- ปิด -</td>
+                   		<td style="text-align:center;">- ปิด -</td>
+                        <td style="text-align:center;"><?= HTML::anchor('event/view/'.$record->id, 'เปิดดู') ?></td>
                     </tr>
                  <? endif ?>
             
