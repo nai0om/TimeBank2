@@ -33,7 +33,7 @@
 			
         
    
-			<label>Tag บ่งบอกกลุ่ม</label>
+			<label class="profiletag">Tag บ่งบอกกลุ่ม</label>
 			<?= Form::input('tag', 'xxx', array('id' => 'tags-ajax')) ?>
 			<!-- p><span class="tag" >SCBStaff</span><span class="tag"></span><p -->
             
