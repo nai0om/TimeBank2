@@ -3876,9 +3876,9 @@ margin: 20px 0 0 0;
 #training.gallery #content h2 {
     font-family: TH chulanarak;
     font-size: 16px;
-    margin-top: -70px;
-    padding: 0 0 0 84px;
-    text-align: left;
+    margin: 10px auto;
+    padding: 0 auto;
+    text-align: center;
 	color: #222;
 }
 #training.gallery #content h3 {
@@ -3891,6 +3891,10 @@ margin: 20px 0 0 0;
 }
 #training.gallery #carousel {
     padding: 0;
+	height: 400px !important;
+}
+#training.gallery #carousel .slide{
+	height: 400px !important;
 }
 #training.gallery #content {
     text-align: center;
