@@ -51,7 +51,7 @@ class linkscreator {
 			
 			if($user->province == $provice)
 			{
-				linkscreator::add_link($user->id, $event->id, 6, $skill, $settings->location, $event->signup_end_date);
+				linkscreator::add_link($user->id, $event->id, 6, $provice, $settings->location, $event->signup_end_date);
 			}
 		}
 		
@@ -63,7 +63,7 @@ class linkscreator {
 		return DB::query(DATABASE::SELECT, 
 						'SELECT event_id, sum(rate) - '.$settings->end_date.'*datediff(end_date, NOW()) as rate_point			
 						FROM links
-						WHERE (user_id=0 or user_id='.$user_id.') and datediff(end_date, NOW()) > 1
+						WHERE (user_id=0 or user_id='.$user_id.') and datediff(end_date, NOW()) >= 0
 						group by event_id
 						order by rate_point desc
 						limit '.$limit.';')
@@ -124,7 +124,7 @@ class linkscreator {
 			
 			if($event->location_province == $provice)
 			{
-				linkscreator::add_link($user->id, $event->id, 6, $skill, $settings->location, $event->signup_end_date);
+				linkscreator::add_link($user->id, $event->id, 6, $provice, $settings->location, $event->signup_end_date);
 			}
 		}
 	}
