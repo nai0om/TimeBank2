@@ -2381,6 +2381,9 @@ margin: 20px 0 0 0;
 	color:#0099cc;
 	text-decoration:underline;
 }
+#member.notice table td a:visited {
+color: #ACACAC;
+}
 /*member > check hour*/
 #member.checkHours #warn{
 	background: url("../img/bg_thankyou.png") no-repeat scroll 0 0 transparent;
@@ -2959,6 +2962,9 @@ margin: 20px 0 0 0;
 #org.notice table td a {
     color: #0099CC;
     text-decoration: underline;
+}
+#org.notice table td a:visited {
+color: #ACACAC;
 }
 #org.notice table td:nth-child(2), #org.notice table td:nth-child(3){
 	text-align:left;
