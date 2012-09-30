@@ -2189,7 +2189,8 @@ header h2 {
 	clear: both;
 	margin:10px 0;
 	position: relative;
-	top: 50px;
+	top: 0px;
+	left: 243px;
 }
 #member.profile #main_right .line {
     float: right;
