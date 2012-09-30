@@ -4308,6 +4308,14 @@ color: #ACACAC;
     width: 100%;
 }
 
+#volunteerSignup .error{
+	margin: 0 0 0 104px;
+}
+
+#volunteerSignup .error.left{
+	margin: 0;
+}
+
 
 /*Term*/
 #term #main {
