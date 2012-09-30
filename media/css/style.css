@@ -2073,7 +2073,7 @@ header h2 {
 	width: 195px;
 	display: block;
 	float: left;
-	margin: 0;
+	margin: 10px 0;
 }
 #member.setting form  input{
 	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
@@ -4318,6 +4318,19 @@ color: #ACACAC;
 
 #data .error{
 	margin:0 0 0 200px;
+}
+
+#member.setting .error{
+	margin:0 0 0 196px;
+}
+
+#h3 .error.main{
+	background: none repeat scroll 0 0 #0099CC;
+    color: #FFFFFF;
+    margin: 10px 0;
+    padding: 3px;
+    text-align: center;
+    width: 100%;
 }
 
 

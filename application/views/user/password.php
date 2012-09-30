@@ -20,7 +20,7 @@
 			
 			<div style="clear:both"></div>
 <? if ($message) : ?>
-    <h3 class="error">
+    <h3 class="error main">
         <?= __($message); ?>
     </h3>
 <? endif; ?>
