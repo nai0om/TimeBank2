@@ -4,7 +4,7 @@
 		<div id="content">
 			<h2>กรุณาให้ข้อมูลเกี่ยวกับกลุ่ม / องค์กรอาสาของท่าน</h2>
 			<?= Form::open('organization/create',array('style'=>'margin-top:20px')); ?>
-                <div class="error">
+                <div class="error main">
                     <?= Arr::path($errors, 'acceptterm'); ?>
                 </div>
 				<h3>ชื่อบัญชีผู้ใช้</h3>
