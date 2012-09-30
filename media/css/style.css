@@ -4316,6 +4316,10 @@ color: #ACACAC;
 	margin: 0;
 }
 
+#data .error{
+	margin:0 0 0 200px;
+}
+
 
 /*Term*/
 #term #main {
