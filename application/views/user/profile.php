@@ -17,7 +17,6 @@
             
         <div style="clear:both"></div>
         	<?= Form::submit(NULL, 'บันทึกการเปลี่ยนแปลง'); ?>
-        <div class="line"></div>
 		<?= Form::close(); ?>
 		</div>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
