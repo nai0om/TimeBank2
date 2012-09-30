@@ -593,7 +593,7 @@ header h2 {
 }
 #main_timeBank ul#volunteer li img{
 	float:left;
-	padding-right:10px;
+	margin: 0 10px 10px 0;
 }
 #main_timeBank ul li:first-child:before {
     visibility: hidden;
@@ -3843,7 +3843,6 @@ color: #ACACAC;
 	font-family:TH chulanarak;
 	font-size:13px;
 	color:#222;
-	height:300px;
 	overflow:hidden;
 }
 #training #list li:before{
@@ -4279,6 +4278,22 @@ color: #ACACAC;
 #insideFooter #section li:nth-child(2){
 	width: 285px;
 }
+
+/*add border to thumbnail*/
+
+#training #list a img {
+    border: 5px solid #FFFFFF;
+}
+
+#main_timeBank #volunteer img {
+    border: 5px solid #FFFFFF;
+}
+
+#training #list a img {
+    border: 5px solid #FFFFFF;
+}
+
+
 /*Term*/
 #term #main {
     background: url("../img/tb_browse_bg.jpg") no-repeat scroll 0 0 transparent;
