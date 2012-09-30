@@ -4293,6 +4293,21 @@ color: #ACACAC;
     border: 5px solid #FFFFFF;
 }
 
+/*error warning*/
+
+#volunteerOrgSignup .error{
+	margin: 0 0 0 189px;
+}
+
+#volunteerOrgSignup .error.main{
+	background: none repeat scroll 0 0 #0099CC;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 3px;
+    text-align: center;
+    width: 100%;
+}
+
 
 /*Term*/
 #term #main {
