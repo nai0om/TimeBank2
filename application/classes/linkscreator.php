@@ -132,7 +132,7 @@ class linkscreator {
 	
 	public static function remove_event($event_id)
 	{
-		 DB::delete('links')->where('event_id', '=', $event->id)->execute();
+		 DB::delete('links')->where('event_id', '=', $event_id)->execute();
 	}
 	
 	public static function contrain_key($key, $array_tag_string, $separate)
