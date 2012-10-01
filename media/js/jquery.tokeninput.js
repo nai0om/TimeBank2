@@ -244,7 +244,7 @@ $.TokenList = function (input, url_or_data, settings) {
                     break;
 
                 case KEY.BACKSPACE:
-                    previous_token = input_token.prev();
+                  /*  previous_token = input_token.prev();
 
                     if(!$(this).val().length) {
                         if(selected_token) {
@@ -262,7 +262,7 @@ $.TokenList = function (input, url_or_data, settings) {
                         setTimeout(function(){do_search();}, 5);
                     }
                     break;
-
+					*/
                 case KEY.TAB:
                 case KEY.ENTER:
                 case KEY.NUMPAD_ENTER:
