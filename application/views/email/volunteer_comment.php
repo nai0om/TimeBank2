@@ -52,7 +52,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                             <p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร comment กิจรรม....
 
-                            <a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>"><?= $vars['event_name'] ?></a> 
+                            <a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'].'#'.$vars['comment_id'] ?>"><?= $vars['event_name'] ?></a> 
                             </br />		
                             <strong>ข้อความ : </strong> <?= $vars['comment']  ?>
                             </p>								 

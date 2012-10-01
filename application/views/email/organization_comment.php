@@ -52,7 +52,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									<p><a><?= $vars['org_name'] ?></a> ได้ comment ในงานอาสา
 
-									<a><?= $vars['event_name'] ?></a> </p>
+									 <a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'].'#'.$vars['comment_id'] ?>"><?= $vars['event_name'] ?></a> </p>
                                     <p>
                                     ข้อความ : <?= $vars['comment'] ?>
                                     </p>
