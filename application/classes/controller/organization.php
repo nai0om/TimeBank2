@@ -87,6 +87,7 @@ class Controller_Organization extends Controller_Template {
 				
 					$user->save();
 				} catch (ORM_Validation_Exception $e) {
+					$message = ('There were errors, please see form below.');
 					$errors = array_merge ($e->errors('models'), $errors );
 					
 				}

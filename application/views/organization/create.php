@@ -5,7 +5,7 @@
 			<h2>กรุณาให้ข้อมูลเกี่ยวกับกลุ่ม / องค์กรอาสาของท่าน</h2>
 			<?= Form::open('organization/create',array('style'=>'margin-top:20px')); ?>
                 <div class="error main">
-                    <?= Arr::path($errors, 'acceptterm'); ?>
+                    <?= $message ?>
                 </div>
 				<h3>ชื่อบัญชีผู้ใช้</h3>
 				<p>
@@ -113,9 +113,14 @@
                     <?= Form::input('twitter', HTML::chars($organization->twitter)); ?>
                     <div class="error">
                         <?= Arr::get($errors, 'twitter'); ?>
+                    </div>      
+                </p>
+				<p align="center">
+				<?= Form::checkbox('acceptterm', 1, false ); ?> ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง', array('target' => '_blank')); ?> ของเว็บไซต์
+                	<div class="error">
+                       <?= Arr::path($errors, 'acceptterm'); ?>
                     </div>
                 </p>
-				<p align="center"><?= Form::checkbox('acceptterm', 1, false ); ?> ข้าพเจ้ายินยอมตาม <?= HTML::anchor('welcome/term', 'เงื่อนไขและข้อตกลง', array('target' => '_blank')); ?> ของเว็บไซต์</p>
 				<p align="center"><?= Form::submit('create', 'สมัครสมาชิก'); ?></p>
 			<?= Form::close(); ?>
 		</div>
