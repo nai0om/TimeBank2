@@ -542,7 +542,6 @@ class Controller_User extends Controller_Template {
 			$this->user->remove('tags');
 			if (Arr::get($_POST, 'tag') != '')
 			{
-				
 				$tags = explode(',', Arr::get($_POST, 'tag'));
 				foreach($tags as $tag)
 				{
