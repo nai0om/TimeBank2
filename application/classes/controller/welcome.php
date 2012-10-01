@@ -71,10 +71,17 @@ class Controller_Welcome extends Controller_Template {
 			// in case of organization id.
 			if(!$user->loaded()) continue;
 			
+			$comemnt['need_more'] = false;
 			$comment['user_image'] = $user->profile_image;
 			$comment['user_display'] = $user->displayname;
 			$comment['event_id'] = $comment_recomend->event_id;
-			$comment['comment'] = $comment_recomend->comment;
+			$comment['comment_id'] = $comment_recomend->id;
+			$comment['need_more'] = (strlen(utf8_decode($comment_recomend->comment)) > 140); 
+			$comment['comment'] = iconv_substr($comment_recomend->comment, 0,140, 'UTF-8');
+			if($comment['need_more'] == true)
+			{
+				$comment['comment'] = $comment['comment'].' ...';	
+			}
 			$comments[] = $comment;
 		}
    	}
