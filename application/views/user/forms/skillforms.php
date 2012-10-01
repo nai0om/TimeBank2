@@ -42,7 +42,7 @@
 				searchingText : '',
 				 prePopulate: [
 				 <? foreach ($user->tags->find_all() as $tag) : ?>
-                    {id: "<?= $tag->name ?>", name: "<?= $tag->name ?>"},
+                    {id: "<?= $tag->id ?>", name: "<?= $tag->name ?>"},
 				<? endforeach ?>
                 ]
             });
