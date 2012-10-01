@@ -265,6 +265,7 @@ class TimebankNotification {
 															'event_id'		=> $event->id,
 															'event_name'	=> $event->name,
 															'comment' =>  $comment->comment,
+															'comment_id'		=> $comment->id
 															));
 		if ($user->noti_eventcomment == 1)
 		{
@@ -286,7 +287,8 @@ class TimebankNotification {
 															'org_name' 		=> $organization->name,
 															'event_name'	=> $event->name,
 															'event_id' 		=> $event->id,
-															'comment'		=> $comment->comment
+															'comment'		=> $comment->comment,
+															'comment_id'		=> $comment->id
 															));
 		if($organization->noti_eventvolunteercomment == 1)
 		{
