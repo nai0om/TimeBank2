@@ -85,7 +85,10 @@
 				<p></p>
 				<?= HTML::anchor('event/view/'.$comment['event_id'],  'ดูภารกิจ'); ?>
 				<div><?= $comment['comment']?></div>
-				<a href="#" style="margin: 0px 0px 10px;">อ่านต่อ</a>
+                <? if ($comment['need_more'] == true) :?>
+                   <?= HTML::anchor('event/view/'.$comment['event_id'].'#'.$comment['comment_id'], 'อ่านต่อ'); ?>
+                <? endif ?>
+                
 			</li>
         <? endforeach ?>
 		</ul>
