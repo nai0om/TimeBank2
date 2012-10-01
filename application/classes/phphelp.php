@@ -32,7 +32,7 @@ class phphelp {
 		//$thai_date_return="วัน".$thai_day_arr[date("w",$time)];  
 		$thai_date_return= "".date("j",$time);  
 		$thai_date_return.=" ".$thai_month_arr[date("n",$time)];  
-		$thai_date_return.= " ".(date("Y",$time)+543);  
+		$thai_date_return.= " ".substr((date("Y",$time)+543), 2, 2);  
 	
 		return $thai_date_return;  
 	} 

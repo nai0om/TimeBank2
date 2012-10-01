@@ -40,8 +40,8 @@
                         <th>ชื่อภารกิจ</th>
                         <th>ต้องการเวลา (ชม./คน)</th>
                         <th>รับจำนวน</th>
-                        <th>รับสมัครภายใน</th>
-                        <th>ช่วงวันทำงาน</th>
+                        <th style="width:100px;">รับสมัครภายใน</th>
+                        <th style="width:100px;">ช่วงวันทำงาน</th>
                         <th>ตัวเลือก</th>
                     </tr>
         <?php foreach ($records as $record):?>
@@ -65,8 +65,8 @@
                         <td style="text-align:center"><?=  phphelp::str_to_thai_date($record->signup_end_date) ?></td>
                         <td style="text-align:center"><?=  phphelp::str_to_thai_date($record->volunteer_begin_date) ?>
                           <br />
-                          ถึง
-                      <?= $record->volunteer_end_date ?></td>
+                         -
+                      <?= phphelp::str_to_thai_date($record->volunteer_end_date) ?></td>
                         <td style="text-align:center">
 							<ul class="list-circle">
 								<li>
