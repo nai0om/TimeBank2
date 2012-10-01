@@ -3151,7 +3151,7 @@ color: #ACACAC;
 #org.approve #rightSide #details .person .user{
 	color:#E4902E;
 }
-#org.approve #rightSide #details .person .approve.yes {
+#org.approve .approve.yes {
     background: url("../img/check_black.png") no-repeat scroll 0 0 transparent;
     float: right;
     height: 22px;
@@ -4580,6 +4580,141 @@ font-weight: bold;
 color: #3B3B3B;
 padding: 4px 0;
 }
+
+
+#approve_title {
+float: left;
+clear: both;
+font-size: 30px;
+font-weight: bold;
+text-align: center;
+width: 934px;
+border-bottom: 1px solid black;
+padding: 20px 0;
+}
+
+#approve_info {
+float: left;
+clear: both;
+margin: 20px 0;
+font-size: 24px;
+font-weight: bold;
+}
+
+#approve_info ul li {
+float: none;
+color: #D97103;
+font-size: 24px;
+}
+
+#approve_info ul li::before {
+content: none;
+}
+
+#approve_info ul {
+float: left;
+}
+
+#approve_list table {
+border: 1px solid white;
+font-family: TH chulanarak;
+font-size: 15px;
+padding: 10px;
+position: relative;
+text-align: center;
+top: 20px;
+width: 100%;
+color: #4D4D4D;
+}
+
+#approve_list table tr {
+border: 1px solid white;
+}
+
+#approve_list table th {
+background: none repeat scroll 0 0 #09C;
+color: white;
+padding: 10px;
+text-align: center;
+font-size: 14px;
+font-weight: bold;
+}
+
+#approve_list table tr:nth-child(2n) {
+background: white;
+}
+
+#approve_list table td {
+vertical-align: middle;
+}
+
+#approve_list ul.tablepage li::before {
+padding: 0 0 0 5px;
+}
+
+#approve_list ul.tablepage li {
+font-size: 14px;
+padding: 0 0 0 5px;
+color: #000000;
+}
+
+#approve_list ul.tablepage li a {
+color: #4D4D4D;
+}
+
+#approve_list ul.tablepage{
+padding: 0 30px;
+}
+
+.count {
+color: #4d4d4d;
+padding-left: 10px;
+}
+
+.info_name {
+color: #09C;
+}
+
+.approve_username{
+text-align: left;
+}
+
+.approve_username a{
+color: #09C;
+}
+
+#approve_list input.accept[type="submit"] {
+background: url("/media/img/tb_orange_button_100.png") no-repeat scroll center 0 transparent;
+width: 102px;
+margin: 0 10px 0 0;
+height: 30px;
+border: none;
+float: right;
+color: #ffffff;
+}
+
+#approve_list .totalaccept{
+border: none;
+}
+
+#approve_list .totalaccept td{
+text-align: left;
+}
+
+#approve_list .totalaccept {
+border-collapse: separate;
+border: none;
+}
+
+#approve_list .totalaccept input[type="checkbox"] {
+margin: 0 10px 0 0;
+}
+
+#approve_list img.imgdownload {
+display: block;
+margin: 45px auto -35px;
+}
+
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

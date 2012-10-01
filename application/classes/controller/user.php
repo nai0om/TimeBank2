@@ -538,7 +538,6 @@ class Controller_User extends Controller_Template {
 			{
 				$this->user->profile_image = 'profile_image';
 			}
-			echo Arr::get($_POST, 'tag');
 			
 			$this->user->remove('tags');
 			if (Arr::get($_POST, 'tag') != '')
