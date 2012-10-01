@@ -538,17 +538,28 @@ class Controller_User extends Controller_Template {
 			{
 				$this->user->profile_image = 'profile_image';
 			}
+			echo Arr::get($_POST, 'tag');
 			
 			$this->user->remove('tags');
 			if (Arr::get($_POST, 'tag') != '')
 			{
+				
 				$tags = explode(',', Arr::get($_POST, 'tag'));
+			
 				foreach($tags as $tag)
 				{
-					$temp = ORM::factory('tag');
-					$temp->name = $tag;
-					$temp->save();
-					$this->user->add('tags', $temp);
+					$temp = ORM::factory('tag', trim($tag));				
+					if(!$temp->loaded())
+					{
+						$temp = ORM::factory('tag');
+						$temp->name = trim($tag);
+						$temp->save();
+					}
+					
+					if(!$this->user->has('tags', $temp))
+					{
+						$this->user->add('tags', $temp);
+					}
 				}
 			}
 			if(count($errors) > 0) 
@@ -560,7 +571,7 @@ class Controller_User extends Controller_Template {
             	$this->user->save();       
                  
               	linkscreator::set_user_link($this->user);
-				Request::current()->redirect('user/profile');
+				//Request::current()->redirect('user/profile');
                  
             } catch (ORM_Validation_Exception $e) {
                  
