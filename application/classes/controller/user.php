@@ -30,6 +30,14 @@ class Controller_User extends Controller_Template {
 		
 		foreach($recommend_event_ids as $event_id)
 		{
+			$event = ORM::factory('event', $event_id['event_id']);
+		
+			if(!$event->loaded()) 
+			{
+				 linkscreator::remove_event($event_id['event_id']);
+				 Request::current()->redirect('user/index');
+				 break;
+			}
 			$event_recommends[] = ORM::factory('event', $event_id['event_id']);
 		}
 		
