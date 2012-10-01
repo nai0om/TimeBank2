@@ -30,12 +30,9 @@
 	       		<?= timebankhelper::buildSkilsForm($skills)  ?>
 		</div>
         
-			
-        
    
-			<label class="profiletag">Tag บ่งบอกกลุ่ม</label>
-			<?= Form::input('tag', 'xxx', array('id' => 'tags-ajax')) ?>
-			<!-- p><span class="tag" >SCBStaff</span><span class="tag"></span><p -->
+        <label class="profiletag">Tag บ่งบอกกลุ่ม</label>
+        <?= Form::input('tag', 'xxx', array('id' => 'tags-ajax')) ?>
             
         <script type="text/javascript">
             $("#tags-ajax").tokenInput("<?= url::base(); ?>tag/get", {

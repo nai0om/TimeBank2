@@ -8,18 +8,35 @@ class Controller_Tag extends Controller_Template {
 		$tags = ORM::factory('tag')->where('name', 'like', '%'.Arr::get($_GET, 'q').'%')->limit(10)->find_all();
 		
 		$arr = array();
+		$i = 1;
+		$is_match = false;
 		foreach($tags as $tag){
-			$temp = array();
-			$temp['id'] = $tag->id;
-			$temp['name'] = $tag->name;
-			$arr[] = $temp;
+			if($tag->name == Arr::get($_GET, 'q'))
+			{
+				$is_match = true;
+				break;
 			}
-		if(count($arr) <= 0 )
-		{
+			
+		}
+		
+		if(count($tags) <= 0 || !$is_match )
+		{	
 			$temp = array();
 			$temp['id'] = Arr::get($_GET, 'q');
 			$temp['name'] = ' [เพิ่ม] - '.Arr::get($_GET, 'q');
 			$arr[] = $temp;
+		}
+		
+		foreach($tags as $tag){
+		$temp = array();
+		$temp['id'] = $tag->id;
+		$temp['name'] = $tag->name;
+		if($tag->name == Arr::get($_GET, 'q'))
+		{
+			$is_match = true;
+		}
+		$arr[] = $temp;
+		
 		}
 		# JSON-encode the response
 		$json_response = json_encode($arr);
