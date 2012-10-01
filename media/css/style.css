@@ -2029,6 +2029,7 @@ header h2 {
     position: relative;
     top: -26px;
     width: 97px;
+	cursor: pointer;
 }
 #member #main_right .list{
 	margin:-20px 0 20px;
@@ -2062,6 +2063,9 @@ header h2 {
     padding: 0 5px 0 0;
 	margin:10px;
 	float:left;
+}
+#member #main_right .hidelist{
+	display: none;
 }
 /*member > settings*/
 #member.setting form{
