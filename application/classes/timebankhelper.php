@@ -74,9 +74,9 @@ class timebankhelper {
 		return $years; 
 	}
 	
-	public static function getRecommendEvent()
+	public static function getRecommendEvent($limit = 3)
 	{
-		return ORM::factory('event')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit(3)->find_all();
+		return ORM::factory('event')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit($limit)->find_all();
 	}
 	
 	public static function buildSkilsForm($skills = array())
