@@ -39,8 +39,11 @@
 			<div style="clear:both"></div>
 			<div class="showlist">
 			<ul class="list">
-				 <? for ($i = 0; $i < count($event_recommends) ; $i++) : ?>
-                  <?  $event = $event_recommends[$i]; ?>
+				 <? for ($i = 0; $i < 3 ; $i++) : ?>
+                  <?
+				  	if($i >= count($event_recommends)) break; 
+				 	  $event = $event_recommends[$i]; 
+				  ?>
 				<li>
 	                <?	if ($event->image == '' || $event->image == NULL) : ?>
 	                	<img src="<?= url::base(); ?>media/img/mem_sample_list.png">
@@ -131,8 +134,11 @@
 			<div style="clear:both"></div>
 			<div class="showlist">
 			<ul class="list">
-				<? for( $i = 0 ; $i < count($events_rand); $i++) : ?>
-                <? $event = $events_rand[$i]; ?>
+				<? for( $i = 0 ; $i < 3; $i++) : ?>
+                <? 
+					if($i >= count($events_rand)) break; 
+					$event = $events_rand[$i]; 
+				?>
 				<li>
 	                <?	if ($event->image == '' || $event->image == NULL) : ?>
 	                	<img src="<?= url::base(); ?>media/img/mem_sample_list.png">
@@ -225,8 +231,11 @@
 			<div style="clear:both"></div>
 			<div class="showlist">
 			<ul class="list">
-				<? for( $i = 0 ; $i < count($events) ; $i++) : ?>
-                <? $event = $events[$i]; ?>
+				<? for( $i = 0 ; $i < 3 ; $i++) : ?>
+                <? 
+				if($i >= count($events)) break; 
+					$event = $events[$i]; 
+				?>
 				<li>
 	                <?	if ($event->image == '' || $event->image == NULL) : ?>
 	                	<img src="<?= url::base(); ?>media/img/mem_sample_list.png">
