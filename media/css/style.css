@@ -4519,6 +4519,20 @@ color: #ACACAC;
     width: 30px;
 }
 
+.list-circle2 li {
+    clear: both;
+    list-style: disc outside none !important;
+}
+
+#main .list-circle2 li:before {
+    content: "";
+	padding-left: 0;
+}
+
+.list-circle2 {
+    width: auto;
+}
+
 #main_timeBank ul#volunteer li a.readmore {
     background: none repeat scroll 0 0 transparent;
     color: #505050;

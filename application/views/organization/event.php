@@ -88,7 +88,7 @@
 					<td><?=  $event->time_cost ?> ชม.</td>
 					<td><?=  $event->volunteer_need_count ?> คน</td>
                     <td>
-						<ul class="list-circle">
+						<ul class="list-circle2">
 							<li><?= HTML::anchor('event/edit/'.$event->id, 'แก้ไข') ?></li>
 							<li><?= HTML::anchor('event/approve/'.$event->id, 'ดูอาสาสมัคร') ?></li>
 							<li><?= HTML::anchor('#', 'ปิดงาน', array('id' => 'confirm'.$event->id)) ?></li>
