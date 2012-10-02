@@ -69,5 +69,9 @@ return array(
 	'nickname much not empty' => 'กรุณาใส่ชื่อเล่น',
 	'first_name much not empty.' => 'กรุณาใส่ชื่อจริง',
 	'last_name much not empty.' => 'กรุณาใส่นามสกุล',
-	'phone much not empty.' => 'กรุณาใส่หมายเลขโทรศัพท์'
-);
+	'phone much not empty.' => 'กรุณาใส่หมายเลขโทรศัพท์',
+	'must select signup_end_date.' => 'กรุณาเลือกวันสิ้นสุดการรับสมัตร',
+	'must select volunteer_begin_date.' => 'กรุณาเลือกวันเริ่มทำงานอาสา',
+	'must select volunteer_end_date.' => 'กรุณาเลือกวันสิ้นสุดการทำงาน',
+	'much select event type at least 1 .' => 'กรุณาเลือกประเภทงานอาสา อย่างน้อย 1 อย่าง'
+ );

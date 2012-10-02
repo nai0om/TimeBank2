@@ -891,7 +891,12 @@ class Controller_Event extends Controller_Template {
 		{
 			$event->name = Arr::get($_POST, 'name');
 			$event->project_name = Arr::get($_POST, 'project_name');
-			$event->signup_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_end_date')));
+			if(Arr::get($_POST, 'signup_end_date') == '')
+				$errors['signup_end_date'] = __('must select signup_end_date.');
+			else
+				$event->signup_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_end_date')));
+	
+			
 	
 			$event->volunteer_begin_time = Arr::get($_POST, 'volunteer_begin_time');
 			$event->volunteer_end_time = Arr::get($_POST, 'volunteer_end_time');
@@ -915,20 +920,29 @@ class Controller_Event extends Controller_Template {
 			//name,  project_name, location_name, detail
 			
 			
-			$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
-			$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));
+			if(Arr::get($_POST, 'volunteer_begin_date') == '')
+				$errors['volunteer_begin_date'] = __('must select volunteer_begin_date.');
+			else
+				$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
 			
+			if(Arr::get($_POST, 'volunteer_end_date') == '')
+				$errors['volunteer_end_date'] = __('must select volunteer_end_date.');
+			else
+				$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));	
+				
 		
-			if($event->volunteer_begin_date > $event->volunteer_end_date )
+			if($event->volunteer_begin_date != '' && $event->volunteer_end_date != '' )
 			{
-				$errors['volunteer_end_date'] = __('volunteer end date much more than start date.');
+				if($event->volunteer_begin_date > $event->volunteer_end_date )
+				{
+					$errors['volunteer_end_date'] = __('volunteer end date much more than start date.');
+				}
+				
+				if( phphelp::dateDiff($event->volunteer_begin_date, $event->volunteer_end_date) > 365 )
+				{
+					$errors['volunteer_end_date'] = __('limit 365 days per event.');
+				}
 			}
-			
-			if( phphelp::dateDiff($event->volunteer_begin_date, $event->volunteer_end_date) > 365 )
-			{
-				$errors['volunteer_end_date'] = __('limit 365 days per event.');
-			}
-			
 			if($event->time_cost > 2000)
 			{
 				$errors['time_cost'] = __('limit at 2000 hours.');
@@ -957,6 +971,10 @@ class Controller_Event extends Controller_Template {
 				if ( Arr::get($_POST, $job) != '')
 						$event->tags  = $event->tags.''.Arr::get($_POST, $job) .', ';
 			}
+			
+			if($event->tags == '')
+				$errors['tags'] = __('much select event type at least 1 .');
+				
 			if (Arr::get($_POST, 'day') == 'day' ){
 				$days = Kohana::$config->load('timebank')->get('days');
 				$event->days = '';
@@ -996,24 +1014,6 @@ class Controller_Event extends Controller_Template {
 			 }
 			 $event->skills = $skill;
 			
-
-			$technicals = Kohana::$config->load('timebank')->get('technicals');
-			foreach ($technicals as $technical){
-				$technical = str_replace(' ', '_', $technical);
-				if ( Arr::get($_POST, $technical) != '') 
-					$event->technical  = $event->technical.''.Arr::get($_POST, $technical) .', ';
-			}
-			
-			$languates = Kohana::$config->load('timebank')->get('languates');
-			foreach ($languates as $languate){
-				if ( Arr::get($_POST, str_replace(' ', '_', $languate)) != '') 
-					$event->languates  = $event->languates.''.Arr::get($_POST, $languate) .', ';
-			}
-			
-			
-			if ( Arr::get($_POST, 'any_languate') != '') 
-				$event->languates  = $event->languates.''.Arr::get($_POST, 'any_languate') ;
-			
 			if($orguser != NULL)
 				$event->organization = $orguser;
 			
@@ -1025,9 +1025,11 @@ class Controller_Event extends Controller_Template {
 			}
 	
 			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
-			if(count($errors) > 0 ) return;
+		
 			try
 			{
+				$event->check();
+				
 				$event->save();
 				
 				/// set link
@@ -1052,9 +1054,7 @@ class Controller_Event extends Controller_Template {
                 $message = __('There were errors, please see form below.');
                  
                 // Set errors using custom messages
-				foreach($e->errors('models') as $key => $value) {
-					   $errors[$key] = $value;
-				}
+				$errors = array_merge ($e->errors('models'), $errors );
                
 				
 				//print_r($errors);
