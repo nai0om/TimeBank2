@@ -1,7 +1,7 @@
 <?
-$memebers = $event->users->find_all();
-$member_count = count($member_event);
-$provinces = Kohana::$config->load('timebank')->get('provices');
+	$memebers = $event->users->find_all();
+	$member_count = count($member_event);
+	$provinces = Kohana::$config->load('timebank')->get('provices');
 ?>
 
 <?php if ($mode == 2): ?>
