@@ -140,7 +140,7 @@ $times['23:59:59'] = '23:59';
                 <font color="red"><?= __(Arr::get($errors, 'detail')); ?></font>
             </div>  
         </p>
-        <p><label>รายละเอียดการเดินทาง</label></p>
+        <p><label>รายละเอียดการเดินทาง*</label></p>
         <p>
         	<?= Form::textarea('travel_detail', $event->travel_detail, array('rows' => 3)); ?>    
             <div class="error">
@@ -156,7 +156,7 @@ $times['23:59:59'] = '23:59';
         </p>
     </fieldset>	
         <fieldset>
-        <p><legend><strong>ประเภทงานอาสา  (เลือกได้มากกว่า 1)</strong></legend></p>
+        <p><legend><strong>ประเภทงานอาสา*  (เลือกได้มากกว่า 1)</strong></legend></p>
         
 			<?php  
 				$jobs = Kohana::$config->load('timebank')->get('jobs'); 
