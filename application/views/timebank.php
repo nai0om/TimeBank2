@@ -86,7 +86,7 @@
 				<?= HTML::anchor('event/view/'.$comment['event_id'],  'ดูภารกิจ'); ?>
 				<div><?= $comment['comment']?>
                 <? if ($comment['need_more'] == true) :?>
-				   <a href="/event/view/<?= .$comment['event_id'].'#'.$comment['comment_id']?>" class="readmore">[ อ่านต่อ ]</a>
+				   <a href="<?= url::base(); ?>event/view/<?= $comment['event_id'].'#'.$comment['comment_id']; ?>" class="readmore">[ อ่านต่อ ]</a>
                 <? endif ?>
 				</div>
                 
