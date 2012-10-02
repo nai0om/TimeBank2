@@ -46,7 +46,7 @@
                     </tr>
         <?php foreach ($records as $record):?>
         		<? if($mode != 1) : ?>
-                    <tr>
+                    <tr style="border-bottom:1px solid #ffffff;">
                     	<td style="font-weight:bold; color:#F00; text-align:center">
                         <? if ($statuses[$record->id]['status'] == '2') : ?>
                        	 	<?= HTML::anchor('user/checkhours/'.$record->id, 'ยืนยันการใช้เวลา') ?> 
@@ -120,7 +120,7 @@
 						</td>
                     </tr>
                  <? else : ?>
-                    <tr>
+                    <tr style="border-bottom:1px solid #ffffff;">
                     	<td style="font-weight:bold; color:#F00; text-align:center">
                         	ยืนยันการใช้เวลาแล้ว
                         </td>
