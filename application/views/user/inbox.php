@@ -46,6 +46,18 @@
 							
 						}
 					);
+					$('#<?= $inbox->id?> a').mouseup( 
+						function()
+						{
+							$.ajax({
+									async: false,
+ 							     	url: "<?=  url::base()."user/inboxred/".$inbox->id ?>",
+							  		}).done(function ( data ) {
+									 	$('#<?= $inbox->id?>').addClass('deactivated');
+									});
+							
+						}
+					);
 				</script>
 			</tr>
             <? endforeach ?>
