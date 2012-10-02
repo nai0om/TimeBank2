@@ -157,7 +157,9 @@ $times['23:59:59'] = '23:59';
     </fieldset>	
         <fieldset>
         <p><legend><strong>ประเภทงานอาสา*  (เลือกได้มากกว่า 1)</strong></legend></p>
-        
+        <div class="error">
+                <font color="red"><?= Arr::get($errors, 'tags'); ?></font>
+            </div>  
 			<?php  
 				$jobs = Kohana::$config->load('timebank')->get('jobs'); 
 				for($i = 1 ; $i < sizeof($jobs) ; $i++){
