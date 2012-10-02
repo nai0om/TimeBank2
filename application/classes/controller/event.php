@@ -210,7 +210,6 @@ class Controller_Event extends Controller_Template {
 			
 		}
 		
-		if($mode == 2)
 			$member_event = $query->execute()->as_array('user_id');
 		
 	}
