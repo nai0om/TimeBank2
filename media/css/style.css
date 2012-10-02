@@ -2066,6 +2066,11 @@ header h2 {
 }
 #member #main_right .hidelist{
 	display: none;
+	clear: both;
+}
+
+#member .hidelist .list li:nth-child(4n), #member .showlist .list li:nth-child(4n){
+	clear: both;
 }
 /*member > settings*/
 #member.setting form{
