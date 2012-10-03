@@ -87,26 +87,55 @@ class timebankhelper {
 	   foreach ($skill as $title => $value)
 	   { 
 	   		$str_level = $i.'.';
-	   		echo '<div class="title_userprofile" id="'.$i.'"> <label>'.$str_level.' '.$dict[$title].'</label></div>';
+	   		echo '<div class="title_userprofile" id="'.$title.'"> <label>'.$str_level.' '.$dict[$title].'</label></div>';
 		
-			echo '<div class="userprofile" id="'.$title.'">';
+			echo '<div class="userprofile" id="'.$title.'-panel">';
 			timebankhelper::buildSubNode($value, $skill, $dict, $skills, $str_level );
-		
-		 echo '</div>';
+			echo '<script>
+					$("#'.$title.'").click(function () {
+						if($("#'.$title.'-panel").is(":hidden")){
+							 $("#'.$title.'-panel").slideDown("slow");
+						}
+						else{
+							 $("#'.$title.'-panel").slideUp("slow");
+						}
+					 });
+				 </script>';
+			echo '</div>';
 		 $i++;
 	   }
 	}
 	
 	public static function buildSubNode($value, $skill, $dict, $skills, $str_level , $level = 0)
 	{
-		$magine =  $level*20;
+		$magine =  $level*0;
 		$i = 1;
 		 foreach ($value as $title2 => $value2)
 		 {
 			 if(is_array($value2))
-			{	$str_level_sub = $str_level.$i.'.';
-				echo  '<label style="margin-left: '.(10 + $magine).'px;" > '.$str_level_sub.' '.$dict[$title2].'</label> <br />'; 
-				timebankhelper::buildSubNode($value2, $skill, $dict, $skills, $str_level_sub, $level + 1);
+			{	$str_level_sub ='';
+				if($str_level != '')
+					$str_level_sub = $str_level.$i.'.';
+				echo  '<label id="'.$title2.'" style="margin-left:'.(10 + $magine).'px; cursor: pointer; " > '.$str_level_sub.' '.$dict[$title2].'</label> <br />'; 
+				
+				if($str_level != '')
+					echo '<div class="userprofile" id="'.$title2.'-panel">';
+				else
+					echo '<div class="userprofile" style="display: block;" >';
+					
+				timebankhelper::buildSubNode($value2, $skill, $dict, $skills, '', $level + 1);
+				echo '<script>
+					$("#'.$title2.'").click(function () {
+						if($("#'.$title2.'-panel").is(":hidden")){
+							 $("#'.$title2.'-panel").slideDown("slow");
+						}
+						else{
+							 $("#'.$title2.'-panel").slideUp("slow");
+						}
+					 });
+				 </script>';
+				echo '</div>';
+				$i++;
 			}
 			else
 			{
@@ -134,7 +163,7 @@ class timebankhelper {
 					}
 				}
 			}
-			$i++;
+			
 	}
 }
  
