@@ -86,41 +86,53 @@ class timebankhelper {
 	   $i = 1;
 	   foreach ($skill as $title => $value)
 	   { 
-	   	echo '<div class="title_userprofile" id="'.$i.'"> <label>'.$dict[$title].'</label></div>';
+	   		echo '<div class="title_userprofile" id="'.$i.'"> <label>'.$dict[$title].'</label></div>';
 		
-		echo '<div class="userprofile" id="'.$title.'">';
-		 foreach ($value as $title2 => $value2)
-		 {
-			echo  '<label style="margin-left: 10px;" > - '.$dict[$title2].'</label> <br />'; 
-			foreach ($value2 as $name)
-			{
-				$value = '';
-				 $checked = '';
-				 
-				if(array_key_exists(trim($name), $skills))
-				{
-				  $value = $skills[$name];
-				 
-				  if($value <> '')
-				  {
-					 $checked = 'checked="'.$value.'"'; 
-				  }
-				}
-				
-				if(phphelp::endsWith($name, 'T'))
-				{
-					echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox"> <span>'.$dict[$name].'</span> <br />';
-					echo  '<input name='.$name.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left: 50px;"><br />';
-				}
-				else
-				{
-					echo  '<input style="margin-left: 20px;" '. $checked .' type="checkbox" name='.$name.'> <span>'.$dict[$name].'</span> <br />';
-				}
-			}
-		 }
+			echo '<div class="userprofile" id="'.$title.'">';
+			timebankhelper::buildSubNode($value, $skill, $dict, $skills );
+		
 		 echo '</div>';
 		 $i++;
 	   }
+	}
+	
+	public static function buildSubNode($value, $skill, $dict, $skills, $level = 0)
+	{
+		$magine =  $level*20;
+		 foreach ($value as $title2 => $value2)
+		 {
+			 if(is_array($value2))
+			{
+				echo  '<label style="margin-left: '.(10 + $magine).'px;" > - '.$dict[$title2].'</label> <br />'; 
+				timebankhelper::buildSubNode($value2, $skill, $dict, $skills, $level + 1);
+			}
+			else
+			{
+					$value = '';
+					 $checked = '';
+					 
+					if(array_key_exists(trim($value2), $skills))
+					{
+					  $value = $skills[$value2];
+					 
+					  if($value <> '')
+					  {
+						 $checked = 'checked="'.$value.'"'; 
+					  }
+					}
+					
+					if(phphelp::endsWith($value2, 'T'))
+					{
+						echo  '<input style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox"> <span>'.$dict[$value2].'</span> <br />';
+						echo  '<input name='.$value2.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left:'.(50 + $magine).'px;"><br />';
+					}
+					else
+					{
+						echo  '<input style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox" name='.$value2.'> <span>'.$dict[$value2].'</span> <br />';
+					}
+				}
+			}
+
 	}
 }
  
