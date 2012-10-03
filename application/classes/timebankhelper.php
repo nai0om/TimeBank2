@@ -79,6 +79,13 @@ class timebankhelper {
 		return ORM::factory('event')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit($limit)->find_all();
 	}
 	
+	public static function display_skill($skill,  $dict )
+	{
+		$result = __($skill);
+		if($result == $skill)
+			$result = $dict[$skill];
+		return $result;
+	}
 	public static function buildSkilsForm($skills = array())
 	{
 	   $skill = Kohana::$config->load('timebank')->get('all_skills'); 
@@ -106,7 +113,7 @@ class timebankhelper {
 	   }
 	}
 	
-	public static function buildSubNode($value, $skill, $dict, $skills, $str_level , $level = 0)
+	public static function buildSubNode($value, $skill, $dict, $skills, $str_level , $key = '', $level = 0)
 	{
 		$magine =  $level*0;
 		$i = 1;
@@ -118,12 +125,12 @@ class timebankhelper {
 					$str_level_sub = $str_level.$i.'.';
 				echo  '<label id="'.$title2.'" style="margin-left:'.(10 + $magine).'px; cursor: pointer; " > '.$str_level_sub.' '.$dict[$title2].'</label> <br />'; 
 				
-				if($str_level != '')
+				if($str_level != '' || phphelp::startsWith($title2, 'X'))
 					echo '<div class="userprofile" id="'.$title2.'-panel">';
 				else
 					echo '<div class="userprofile" style="display: block;" >';
 					
-				timebankhelper::buildSubNode($value2, $skill, $dict, $skills, '', $level + 1);
+				timebankhelper::buildSubNode($value2, $skill, $dict, $skills, '', $title2, $level + 1);
 				echo '<script>
 					$("#'.$title2.'").click(function () {
 						if($("#'.$title2.'-panel").is(":hidden")){
@@ -154,8 +161,8 @@ class timebankhelper {
 					
 					if(phphelp::endsWith($value2, 'T'))
 					{
-						echo  '<input id="'.$value2.'" style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox"> <span>'.$dict[$value2].'</span> <br />';
-						echo  '<input id="'.$value2.'-input" name='.$value2.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left:'.(50 + $magine).'px;"><br />';
+						echo  '<input id="'.$value2.'" style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox" /> <span>'.$dict[$value2].'</span> <br />';
+						echo  '<input id="'.$value2.'-input" name='.$value2.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left:'.(50 + $magine).'px;" /><br />';
 						echo '<script> 
 							$("#'.$value2.'-input").click(function () {
 									$("#'.$value2.'").attr("checked", true);
@@ -163,9 +170,15 @@ class timebankhelper {
 							);
 							</script>'; 
 					}
+					else if(phphelp::startsWith($value2, 'S'))
+					{
+						echo  '<input type="radio" name="'.$key.'" value="'.$value2.'"  style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox" name='.$value2.' />
+								 <span>'.$dict[$value2].'</span> <br />';
+					}
 					else
 					{
-						echo  '<input style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox" name='.$value2.'> <span>'.$dict[$value2].'</span> <br />';
+						echo  '<input style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox" name='.$value2.' /> 
+								<span>'.$dict[$value2].'</span> <br />';
 					}
 				}
 			}

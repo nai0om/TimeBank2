@@ -494,6 +494,11 @@ class Controller_User extends Controller_Template {
 					 {
 						$skill .= $key.'|'; 
 					 }
+					 else if (phphelp::startsWith($value, 'S'))
+					 {
+						
+						 $skill .= $value.'|'; 
+					 }
 					 else
 					 {
 						 $skill .= $key.'='.$value.'|'; 
