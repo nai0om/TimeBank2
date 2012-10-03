@@ -86,25 +86,27 @@ class timebankhelper {
 	   $i = 1;
 	   foreach ($skill as $title => $value)
 	   { 
-	   		echo '<div class="title_userprofile" id="'.$i.'"> <label>'.$dict[$title].'</label></div>';
+	   		$str_level = $i.'.';
+	   		echo '<div class="title_userprofile" id="'.$i.'"> <label>'.$str_level.' '.$dict[$title].'</label></div>';
 		
 			echo '<div class="userprofile" id="'.$title.'">';
-			timebankhelper::buildSubNode($value, $skill, $dict, $skills );
+			timebankhelper::buildSubNode($value, $skill, $dict, $skills, $str_level );
 		
 		 echo '</div>';
 		 $i++;
 	   }
 	}
 	
-	public static function buildSubNode($value, $skill, $dict, $skills, $level = 0)
+	public static function buildSubNode($value, $skill, $dict, $skills, $str_level , $level = 0)
 	{
 		$magine =  $level*20;
+		$i = 1;
 		 foreach ($value as $title2 => $value2)
 		 {
 			 if(is_array($value2))
-			{
-				echo  '<label style="margin-left: '.(10 + $magine).'px;" > - '.$dict[$title2].'</label> <br />'; 
-				timebankhelper::buildSubNode($value2, $skill, $dict, $skills, $level + 1);
+			{	$str_level_sub = $str_level.$i.'.';
+				echo  '<label style="margin-left: '.(10 + $magine).'px;" > '.$str_level_sub.' '.$dict[$title2].'</label> <br />'; 
+				timebankhelper::buildSubNode($value2, $skill, $dict, $skills, $str_level_sub, $level + 1);
 			}
 			else
 			{
@@ -132,7 +134,7 @@ class timebankhelper {
 					}
 				}
 			}
-
+			$i++;
 	}
 }
  
