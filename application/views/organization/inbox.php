@@ -33,7 +33,7 @@
 		<?= Form::open('organization/deleteinbox'); ?><input type="checkbox" onclick="clickall()"> เลือกทั้งหมด <?= Form::submit('submit', 'ลบ'); ?></div>
 		<table>
 			<tr>
-				<th colspan="2">หัวข้อ</th>
+				<th colspan="2">ข้อความ</th>
 				<th>ส่งมาวันที่</th>
 			</tr>
            

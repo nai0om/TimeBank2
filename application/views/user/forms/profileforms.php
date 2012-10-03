@@ -49,7 +49,7 @@
                 <?= Form::radio('sex', 'f', ($user->sex == 'f')); ?> หญิง
                 <div class="error"><?= Arr::get($errors, 'sex'); ?></div>
                 
-				<?= Form::label('website', 'Website'); ?>
+				<?= Form::label('website', 'เว็บไซต์'); ?>
 				<?= Form::input('website', HTML::chars($user->website)); ?>
 				
 			</div>
@@ -59,7 +59,7 @@
 				<?= Form::input('last_name', HTML::chars($user->last_name)); ?>
                 <div class="error"><?= Arr::get($errors, 'last_name'); ?></div>
             
-				<?= Form::label('phone', 'เบอร์โทรติดต่อ'); ?>
+				<?= Form::label('phone', 'เบอร์โทรติดต่อ เช่น 0800001111'); ?>
 				<?= Form::input('phone', HTML::chars($user->phone)); ?>
                 <div class="error"><?= Arr::get($errors, 'phone'); ?></div>
                 

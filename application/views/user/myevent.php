@@ -75,9 +75,9 @@
 								<li>
 									<a  id="popupButton<? echo $record->id?>"><img style="width: 20px; margin-left: 3px; cursor: pointer; float:left;" alt="ขอยกเลิก" title="ขอยกเลิก" src="<?= url::base(); ?>media/img/icon_cancel.png"></a>
 								</li> 
-                                <div id="popupDialog<?= $record->id ?>" title="ยกเลิกงานอาสา <?= $record->name ?>">
+                                <div id="popupDialog<?= $record->id ?>" title="ขอยกเลิกงานอาสา <?= $record->name ?>">
                                   <p>
-                                     <label for="widgetName">ใส่ข้อความเพื่อฝากถึงองค์กร ก่อนที่จะสามารถกดยกเลิกได้</label>
+                                     <label for="widgetName">ฝากข้อความถึงองค์กร และ ขอยกเลิก</label>
                                      <input type="textarea" style="width:400px; height:50px" id="message<?= $record->id ?>" />
                                   </p>
                                 </div>
@@ -87,14 +87,14 @@
 									 autoOpen: false,
 									 width : 500,
 									 buttons: {
-									  'Cancel': function() {
+									  'กลับสู่หน้าก่อน': function() {
 												   $(this).dialog('close');
 												},
-									  'Accept': function() {
+									  'ขอยกเลิก': function() {
 												   var message = $('#message<?= $record->id ?>').val( );
 												   if(message == '')
 												   {
-													   alert('กรุณาใส่ข้อความ')
+													   alert('กรุณาฝากข้อความ')
 												   }
 												   else
 												   {
