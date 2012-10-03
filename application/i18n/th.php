@@ -20,7 +20,7 @@ return array(
 	'location_name must not be empty' => 'กรุณาใส่ชื่อสถานที่',
 	'location_district must not be empty' => 'กรุณาใส่ชื่อเขต / อำเภอ',
 	'location_postcode must not be empty' => 'กรุณาใส่รหัสไปรษณีย์',
-	'volunteer_need_count must not be empty' => 'กรุณาใส่จำนวนของผู้อาสาสมัคร',
+	'volunteer_need_count must not be empty' => 'กรุณาใส่จำนวนอาสาสมัคร',
 	'detail must not be empty' => 'กรุณาใส่รายละเอียดงานอาสา',
 	'email must not be empty' => 'กรุณาใส่อีเมล',
 	'topic must not be empty' => 'กรุณาใส่ชื่อหัวข้อ',
