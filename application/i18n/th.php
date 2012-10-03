@@ -1,6 +1,58 @@
 <?php
+ $eng = 'ภาษาอังกฤษ ';
+ $ch = 'ภาษาจีน ';
+ $gen = 'ภาษาเยอรมัน ';
+ $jap = 'ภาษาญี่ปุ่น ';
  
+ $listen = 'ฟัง/พูด ';
+ $read = 'อ่าน ';
+ $write = 'เขียน ';
+ 
+ $fair = 'พอใช้';
+ $good = 'ดี';
+ $best = 'ดีมาก';
 return array(
+
+	'S1200111' => $eng.$listen.$fair ,
+	'S1200112' => $eng.$listen.$good ,
+	'S1200113' => $eng.$listen.$best ,
+	'S1200121' => $eng.$read.$fair ,
+	'S1200122' => $eng.$read.$good ,
+	'S1200123' => $eng.$read.$best ,
+	'S1200131' => $eng.$write.$fair ,
+	'S1200132' => $eng.$write.$good ,
+	'S1200133' => $eng.$write.$best ,
+	
+	'S1200211' => $ch.$listen.$fair ,
+	'S1200212' => $ch.$listen.$good ,
+	'S1200213' => $ch.$listen.$best ,
+	'S1200221' => $ch.$read.$fair ,
+	'S1200222' => $ch.$read.$good ,
+	'S1200223' => $ch.$read.$best ,
+	'S1200231' => $ch.$write.$fair ,
+	'S1200232' => $ch.$write.$good ,
+	'S1200233' => $ch.$write.$best ,
+	
+	'S1200311' => $gen.$listen.$fair ,
+	'S1200312' => $gen.$listen.$good ,
+	'S1200313' => $gen.$listen.$best ,
+	'S1200321' => $gen.$read.$fair ,
+	'S1200322' => $gen.$read.$good ,
+	'S1200323' => $gen.$read.$best ,
+	'S1200331' => $gen.$write.$fair ,
+	'S1200332' => $gen.$write.$good ,
+	'S1200333' => $gen.$write.$best ,
+	
+	'S1200411' => $jap.$listen.$fair ,
+	'S1200412' => $jap.$listen.$good ,
+	'S1200413' => $jap.$listen.$best ,
+	'S1200421' => $jap.$read.$fair ,
+	'S1200422' => $jap.$read.$good ,
+	'S1200423' => $jap.$read.$best ,
+	'S1200431' => $jap.$write.$fair ,
+	'S1200432' => $jap.$write.$good ,
+	'S1200433' => $jap.$write.$best ,
+
     'You must provide a username.' => 'ใส่ชื่อด้วยครับ',
 	'You must provide a website.' => 'ใส่เว็บไซต์ด้วยครับ',
 	'There were errors, please see form below.' => 'กรอกข้อมูลด้านล่างให้ครบด้วยครับ',

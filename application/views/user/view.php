@@ -56,7 +56,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 						}
 						else
 						{
-							$special_skill .= $dict[$name].', '; 
+							$special_skill .= timebankhelper::display_skill($name, $dict).', '; 
 						}	
 					}
 					else
@@ -69,7 +69,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 						}
 						else
 						{
-							$normal_skill .= $dict[$name].', '; 
+							$normal_skill .= timebankhelper::display_skill($name, $dict).', '; 
 						}	
 
 					}
