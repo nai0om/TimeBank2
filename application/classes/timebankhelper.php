@@ -154,8 +154,14 @@ class timebankhelper {
 					
 					if(phphelp::endsWith($value2, 'T'))
 					{
-						echo  '<input style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox"> <span>'.$dict[$value2].'</span> <br />';
-						echo  '<input name='.$value2.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left:'.(50 + $magine).'px;"><br />';
+						echo  '<input id="'.$value2.'" style="margin-left: '.(20 + $magine).'px;" '. $checked .' type="checkbox"> <span>'.$dict[$value2].'</span> <br />';
+						echo  '<input id="'.$value2.'-input" name='.$value2.' value="'.$value.'" type="text" style="display:inline;width:40%;margin-left:'.(50 + $magine).'px;"><br />';
+						echo '<script> 
+							$("#'.$value2.'-input").click(function () {
+									$("#'.$value2.'").attr("checked", true);
+								}
+							);
+							</script>'; 
 					}
 					else
 					{
