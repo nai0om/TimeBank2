@@ -9,23 +9,8 @@ $(document).ready( function () {
 										isBuddhist: true
 											 });
 	});
-	$(".title_userprofile").click(function () {
-    if ($(this).is("#1")) {
-		if($("#1000").is(":hidden")){
-			$(".userprofile").hide();
-			$("#1000").slideDown("slow");}
-		else{
-		$("#1000").hide();
-		}
-    } else if ($(this).is("#2")) {
-     if($("#2000").is(":hidden")){
-			$(".userprofile").hide();
-			$("#2000").slideDown("slow");}
-		else{
-		$("#2000").hide();
-		}
-    }
-  });
+	
+	
 
 });
 
