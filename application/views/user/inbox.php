@@ -26,7 +26,7 @@
         <?= Form::open('user/deleteinbox'); ?><input type="checkbox"  onclick="clickall()"> เลือกทั้งหมด <?= Form::submit('submit', 'ลบ'); ?></div>
 		<table>
 			<tr>
-				<th colspan="2" width="80%">หัวข้อ</th>
+				<th colspan="2" width="80%">ข้อความ</th>
 				<th>ส่งมาวันที่</th>
 			</tr>
             <?php foreach ($inboxes as $inbox) : ?>

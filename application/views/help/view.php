@@ -7,7 +7,6 @@
 		</div>
 
 		<div id="icon_set">
-			<a href="main_timeBank_1.html"><img src="img/icon_donation.png"/></a>
 			<a href="main_timeBank_1.html"><img src="img/icon_how_it_work.png"/></a>
 			<a href="main_timeBank_2.html"><img src="img/icon_browse_event.png"/></a>
 			<a href="main_timeBank_1.html"><img src="img/icon_help.png"/></a>

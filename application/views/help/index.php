@@ -7,7 +7,6 @@
 		</div>
 
 		<div id="icon_set">
-            <?= HTML::anchor('welcome/donation', '<img src="'.url::base().'media/img/icon_donation.png"/>'); ?>
             <?= HTML::anchor('welcome/timebankhow', '<img src="'.url::base().'media/img/icon_how_it_work.png"/>'); ?>
             <?= HTML::anchor('event/browse', '<img src="'.url::base().'media/img/icon_browse_event.png"/>'); ?>
             <?= HTML::anchor('help', '<img src="'.url::base().'media/img/icon_help.png"/>'); ?>
@@ -18,10 +17,10 @@
 		<form>
 			<input type="text">
 			<img src="<?= url::base(); ?>media/img/icon_google.png" style="position:relative;top:-2px;"/>
-			<input type="submit" value="google search" id="google">
+			<input type="submit" value="ค้นหา" id="google">
 			<div style="clear:both"></div>
-			<input type="radio" name="type" ><label>Web</label>
-			<input type="radio" name="type" ><label>Jitarsabank.org website</label>
+			<input type="radio" name="type" ><label>ค้นหาในธนาคารจิตอาสา</label>
+			<input type="radio" name="type" ><label>ค้นหาเว็บไซต์อื่นๆ</label>
 		</form>
 
 		<div style="clear:both"></div>
