@@ -2069,7 +2069,7 @@ header h2 {
 	clear: both;
 }
 
-#member .hidelist .list li:nth-child(4n), #member .showlist .list li:nth-child(4n){
+#member .hidelist .list li:nth-child(3n+1), #member .showlist .list li:nth-child(3n+1){
 	clear: both;
 }
 /*member > settings*/
