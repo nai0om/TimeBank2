@@ -2032,7 +2032,7 @@ header h2 {
 	cursor: pointer;
 }
 #member #main_right .list{
-	margin:-20px 0 20px;
+	margin:0;
 }
 #member #main_right .list li{
 	float: left;
