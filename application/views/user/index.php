@@ -326,24 +326,24 @@
   $(".more").click(function () {
     if ($(this).is("#yourevent")) {
 		if($("#list_yourevent").is(":hidden")){
-			$(".hidelist").hide();
+			$(".hidelist").slideUp("fast");
 			$("#list_yourevent").slideDown("slow");}
 		else{
-		$("#list_yourevent").hide();
+		$("#list_yourevent").slideUp("fast");
 		}
     } else if ($(this).is("#newevent")) {
      if($("#list_newevent").is(":hidden")){
-			$(".hidelist").hide();
+			$(".hidelist").slideUp("fast");
 			$("#list_newevent").slideDown("slow");}
 		else{
-		$("#list_newevent").hide();
+		$("#list_newevent").slideUp("fast");
 		}
     } else if ($(this).is("#interestevent")) {
      if($("#list_interestevent").is(":hidden")){
-			$(".hidelist").hide();
+			$(".hidelist").slideUp("fast");
 			$("#list_interestevent").slideDown("slow");}
 		else{
-		$("#list_interestevent").hide();
+		$("#list_interestevent").slideUp("fast");
 		}
     }
   });
