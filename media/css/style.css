@@ -32,9 +32,9 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+html, button, input, select, textarea { font-family: chula; color: #222; }
 
-body { margin: 0; font-size: 1em;padding: 0;}
+body { margin: 0; font-size: 18px;padding: 0;}
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -434,9 +434,11 @@ header h2 {
     float: right;
     font-size: 25px;
     height: 30px;
-    margin: -35px 20px 0 0;
     text-align: center;
     width: 89px;
+	position: relative;
+	top: -48px;
+	left: -18px;
 }
 #home article p {
     font-family: chula;
@@ -902,16 +904,16 @@ header h2 {
 }
 #tb_browse table td{
 	padding:3px;
-	font-size:13px;
+	font-size:18px;
 }
 #tb_browse table td a{
 	color: #E87C0C;
-	font-size: 15px;
+	font-size: 20px;
 	text-decoration: underline;
 }
 #tb_browse table th {
     color: #0099CC;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     padding: 15px;
 }
@@ -920,7 +922,7 @@ header h2 {
 }
 #tb_browse table .pagination li {
     color: #222222;
-    font-size: 12px;
+    font-size: 17px;
 }
 /*timeBank > browse > search result*/
 #tb_browse_searchResult #main {
@@ -1038,11 +1040,11 @@ header h2 {
 }
 #tb_browse_searchResult table td{
 	padding:3px;
-	font-size:13px;
+	font-size:18px;
 }
 #tb_browse_searchResult table td a{
 	color: #E87C0C;
-	font-size: 15px;
+	font-size: 20px;
 	text-decoration: underline;
 }
 #tb_browse_searchresult table td ul li{
@@ -1051,7 +1053,7 @@ header h2 {
 }
 #tb_browse_searchResult table th {
     color: #0099CC;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     padding: 15px;
 }
@@ -1060,7 +1062,7 @@ header h2 {
 }
 #tb_browse_searchResult table .pagination li {
     color: #222222;
-    font-size: 12px;
+    font-size: 17px;
 }
 #tb_browse_searchResult #detail {
     display: inline-block;
@@ -1168,7 +1170,7 @@ header h2 {
 }
 #tb_browse_searchResult.search #main table ul li {
     color: #000000;
-    font-size: 13px;
+    font-size: 18px;
 }
 /*timeBank > browse > newEvent*/
 #tb_browse_new 	
@@ -1583,7 +1585,8 @@ header h2 {
     background: url("../img/tb_bg_textbox.jpg") repeat-x scroll 0 0 transparent;
     border: 0 none;
     height: 100px;
-    width: 100%;
+    width: 96%;
+	margin: 0 15px;
 }
 #tb_browse_detail #detail #share {
     background: url("../img/tb_orange_button_share.png") no-repeat scroll 0 0 transparent;
@@ -1679,7 +1682,8 @@ header h2 {
 	background-size: cover
 }
 #tb_browse_detail.photos #post_comment textarea {
-    width: 100%;
+    width: 96%;
+	margin: 0 15px;
 }
 #tb_browse_detail.photos h2 {
     color: #0099CC;
@@ -1985,7 +1989,7 @@ header h2 {
     background: none repeat scroll 0 0 #BE9F82;
     border-radius: 0 0 6px 6px;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     margin: 0 0 20px;
     padding: 10px;
@@ -2223,7 +2227,7 @@ float: left;
 margin: 0 !important;
 }
 #member.profile li.token-input-token-facebook p{
-font-size: 12px;
+font-size: 17px;
 color: #000000;
 }
 #member.profile li.token-input-token-facebook{
@@ -2235,12 +2239,14 @@ content: none !important;
 }
 #member.profile ul.token-input-list-facebook li input{
 width: 200px !important;
-font-size: 12px;
+font-size: 17px;
 }
 #member.profile li.token-input-token-facebook span{
 background: url("../img/cross.png") no-repeat scroll left top transparent;
 width: 13px;
 height: 13px;
+margin: 0 5px 0 10px;
+display: inline-block
 }
 #member.profile .profiletag {
 margin: 20px 0 0 0;
@@ -2271,7 +2277,7 @@ margin: 20px 0 0 0;
 	margin:2px 10px;
 }
 #member.job #main table ul li{
-	font-size:12px;
+	font-size:17px;
 	color:#000;
 }
 #member.job #selection {
@@ -2631,7 +2637,7 @@ color: #ACACAC;
     background: none repeat scroll 0 0 #BE9F82;
     border-radius: 0 0 6px 6px;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: bold;
     margin: 0 0 20px;
     padding: 10px;
@@ -2782,7 +2788,7 @@ color: #ACACAC;
 }
 #org #main table ul li{
 	color:#000;
-	font-size:13px;
+	font-size:18px;
 }
 #org h2 {
     color: #0099CC;
@@ -4233,7 +4239,7 @@ color: #ACACAC;
 }
 #tb_browse_detail.search #main table ul li {
     color: #000000;
-    font-size: 13px;
+    font-size: 18px;
 }
 #tb_browse_detail.search #main h2 {
     color: #0099CC;
@@ -4593,9 +4599,10 @@ margin: 10px 0;
 padding: 10px;
 }
 .title_userprofile {
-font-size: 16px;
+font-size: 20px;
 font-weight: bold;
 cursor: pointer;
+margin: 0 0 0 33px;
 }
 .title_userprofile label{
 cursor: pointer;
@@ -4607,7 +4614,7 @@ height: 249px;
 padding: 9px 15px;
 }
 .profilechoose label {
-font-size: 15px;
+font-size: 20px;
 font-weight: bold;
 color: #3B3B3B;
 padding: 4px 0;
@@ -4668,7 +4675,7 @@ background: none repeat scroll 0 0 #09C;
 color: white;
 padding: 10px;
 text-align: center;
-font-size: 14px;
+font-size: 19px;
 font-weight: bold;
 }
 
@@ -4685,7 +4692,7 @@ padding: 0 0 0 5px;
 }
 
 #approve_list ul.tablepage li {
-font-size: 14px;
+font-size: 19px;
 padding: 0 0 0 5px;
 color: #000000;
 }
