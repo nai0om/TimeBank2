@@ -549,7 +549,7 @@ header h2 {
 	margin-bottom:20px;
 }
 #main_timeBank ul#volunteer{
-	margin-bottom:0;
+	margin-bottom:25px;
 }
 #main_timeBank ol li:first-child{
 	margin-left: 0px;
@@ -608,7 +608,7 @@ header h2 {
 }
 #main_timeBank #summary{
 	float: left;
-	margin: 0;
+	margin: 25px 0 0;
 }
 #main_timeBank #summary li:first-child{
 	margin-left:0;
