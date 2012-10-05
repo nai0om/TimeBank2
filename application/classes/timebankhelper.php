@@ -185,6 +185,7 @@ class timebankhelper {
 		$i = 1;
 		 foreach ($value as $title2 => $value2)
 		 {
+			 $title2 = trim($title2);
 			 if(!is_array($value2) && phphelp::startsWith($value2, 'A'))
 			 {
 				 $title2 = $value2;
@@ -198,15 +199,22 @@ class timebankhelper {
 			
 			if (is_array($value2) )
 			{	
+				
+				
 				$str_level_sub ='';
 				if($str_level != '')
 					$str_level_sub = $str_level.$i.'.';
 				$checked = '';
 				if(phphelp::endsWith($title2, 'TT'))
-				{ 
+				{
+					$val = '';
+					if(array_key_exists(trim($title2), $skills))
+					{
+					  $val = $skills[$value2];
+					}
 					
 					echo '<span style="margin-left: '.(10 + $magine).'px;cursor: pointer;" id="'.$title2.'">'.$dict[$title2].'</span> <br />';
-					echo  '<input id="'.$title2.'-input" name='.$title2.' value="'.$skills[$title2].'"  type="text" style="display:inline;width:40%;margin-left:'.(10 + $magine).'px;" /><br />';
+					echo  '<input id="'.$title2.'-input" name='.$title2.' value="'.$val.'"  type="text" style="display:inline;width:40%;margin-left:'.(10 + $magine).'px;" /><br />';
 						echo '<script> 
 								$("#'.$title2.'-input").click(function () {
 									$("#'.$title2.'-panel").slideDown("slow");	
