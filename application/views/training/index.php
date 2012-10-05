@@ -39,7 +39,7 @@
 		<div class="line"></div>
 		<div style="clear:left"></div>
 		
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($trainings) ?></span></p>
+		<p><span style="color: #0099CC;font-size: 25px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 25px;font-weight: bold;"><?= count($trainings) ?></span></p>
 		
 		<ul id="list">
         <?php foreach ($trainings as $training) :?>
