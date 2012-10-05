@@ -36,7 +36,7 @@
 			<div class="title body <?= $close ?>"><?= HTML::anchor('organization/event?mode=1', 'งานอาสาที่จบไปแล้ว'); ?></div>
 			<div class="title right"></div>
 			<div style="clear:both"></div>
-			<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($events) ?></span><?= HTML::anchor('event/create', 'สร้างงานอาสาใหม่', array('class'=>'button')); ?></p>
+			<p><span style="color: #0099CC;font-size: 25px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 25px;font-weight: bold;"><?= count($events) ?></span><?= HTML::anchor('event/create', 'สร้างงานอาสาใหม่', array('class'=>'button')); ?></p>
 			<? if ($mode != '1' ) : ?>
 				<?= Form::open('event/remove', array('enctype' => 'multipart/form-data')); ?>
           
