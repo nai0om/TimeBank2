@@ -31,7 +31,7 @@
 		<div class="title right"></div>
 		<div style="clear:both"></div>
 		
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($records) ?></span></p>
+		<p><span style="color: #0099CC;font-size: 25px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 25px;font-weight: bold;"><?= count($records) ?></span></p>
 		<!-- div id="selection">ระบุเดือนที่ต้องการดู <select></select></div -->
 		<? if (count($records) > 0) :?>
                 <table>

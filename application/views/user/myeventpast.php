@@ -21,7 +21,7 @@
 		<div class="title right"></div>
 		<div style="clear:both"></div>
 		
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;">120</span></p>
+		<p><span style="color: #0099CC;font-size: 25px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 25px;font-weight: bold;">120</span></p>
 		<div id="selection"><form><input type="checkbox"> Select All <input type="submit" value="ลบ"></form><div>ระบุเดือนที่ต้องการดู <select></select></div></div>
 		<table>
 			<tr>
