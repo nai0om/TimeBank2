@@ -37,47 +37,11 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 			<h3>ความสนใจของอาสา</h3>
 			<p><?= $view_user->interest_tags ?></p>
                <? 
-				$dict = Kohana::$config->load('timebank')->get('worddict'); 
-				$skill_list = explode ('|', $view_user->skills);
-				$normal_skill = "";
-				$special_skill = "";
-				for($i = 0 ; $i < count($skill_list) ; $i++)
-				{
-					$name = trim($skill_list[$i]);
-					if($name == '') continue;
-					if( !array_key_exists( trim( $name ), $dict ) ) continue;
-					if(phphelp::startsWith($name, '2'))
-					{
-						if(strpos($name , '=') !== false)
-						{
-							$texts = explode('=', $name);
-							$text = $texts[1];
-							$special_skill .= $text.', ';  
-						}
-						else
-						{
-							$special_skill .= timebankhelper::display_skill($name, $dict).', '; 
-						}	
-					}
-					else
-					{
-						if(strpos($name , '=') !== false)
-						{
-							$texts = explode('=', $name);
-							$text = $texts[1];
-							$normal_skill .= $text.', '; 
-						}
-						else
-						{
-							$normal_skill .= timebankhelper::display_skill($name, $dict).', '; 
-						}	
-
-					}
-			
-				}
-				 $normal_skill = substr($normal_skill , 0, -2); 
-				 $special_skill = substr($special_skill , 0, -2); 
-			?>
+					$normal_skill = "";
+					$special_skill = "";
+					timebankhelper::build_skill_for_display($view_user->skills, $normal_skill, $special_skill, true);
+									
+				?>
             <h3>ความสามารถพิเศษ (Special Skill) : </h3> <p><?= $normal_skill	 ?></p>
 			<h3> ทักษะวิชาชีพ (Professional Skill) : </h3> <p><?= $special_skill ?></p>
 		</div>

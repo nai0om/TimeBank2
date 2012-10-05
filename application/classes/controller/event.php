@@ -176,7 +176,7 @@ class Controller_Event extends Controller_Template {
 		
 		if (!$event->loaded())
 		{
-			throw new HTTP_Exception_404(__('Event id :id not found', array(':id' => $this->request->param('id'))));
+			Request::current()->redirect('event/browse');
 		}
 
  		$now = date("Y-m-d");

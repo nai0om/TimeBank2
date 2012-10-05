@@ -481,31 +481,12 @@ class Controller_User extends Controller_Template {
 			$this->user->province = Arr::get($_POST, 'province');
 			$this->user->website = Arr::get($_POST, 'website');
 			$this->user->sex = Arr::get($_POST, 'sex');
+			
 			// add/remove skill for this user as data recieve from post
-			 $dict = Kohana::$config->load('timebank')->get('worddict');
-			 $skill = '';
-			 foreach($dict  as $key => $val)
-			 {
-				 
-				 $value = Arr::get($_POST,  $key);
-				 if( $value != '') 
-				 {
-					 if($value == 'on')
-					 {
-						$skill .= $key.'|'; 
-					 }
-					 else if (phphelp::startsWith($value, 'S'))
-					 {
-						
-						 $skill .= $value.'|'; 
-					 }
-					 else
-					 {
-						 $skill .= $key.'='.$value.'|'; 
-					 }
-				 }
-			 }
-			 $this->user->skills = $skill;
+		
+			 $this->user->skills = self::get_skill();
+			 $this->user->skills .= self::get_laguate();
+		
 			 
 			$tags = '';
 			if (Arr::get($_POST, 'interest_1') != 0)
@@ -577,7 +558,7 @@ class Controller_User extends Controller_Template {
             	$this->user->save();       
                  
               	linkscreator::set_user_link($this->user);
-				//Request::current()->redirect('user/profile');
+				Request::current()->redirect('user/profile');
                  
             } catch (ORM_Validation_Exception $e) {
                  
@@ -592,6 +573,79 @@ class Controller_User extends Controller_Template {
 	
     }
 	
+	private function get_laguate()
+	{
+		$languate = "";
+		$Alanguates = Kohana::$config->load('timebank')->get('Alanguates');
+		foreach( $Alanguates as $key => $value)
+		{
+			 $val = Arr::get($_POST,  $key);
+			 
+			 if($val == 'on')
+			 { 
+				 $languate .= $key.'|';
+				foreach($value as $key2 => $value2)
+				{
+					
+					$val = Arr::get($_POST,  $key2);
+					
+					if($val != '')
+						$languate .= $val.'|';
+				} 
+			 }
+			 else if($val != '' && phphelp::endsWith($key, 'TT'))
+			{
+				$languate .= $key.'='.$val.'|';
+				foreach($value as $key2 => $value2)
+				{
+					
+					$val2 = Arr::get($_POST,  $key2);
+					
+					if($val != '')
+						$languate .= $val2.'='.$val.'|';
+				} 
+			}
+			
+		}
+
+		return $languate;
+	}
+	 
+	private function get_skill( $array_skill = NULL)
+	{
+		if($array_skill == NULL)
+			$array_skill = Kohana::$config->load('timebank')->get('all_skills');
+		
+		 $skill = '';
+		 foreach($array_skill  as $key => $val)
+		 { 
+			 if(is_array($val))
+			 {
+				 $skill .= self::get_skill($val);
+			 }
+			 else
+			 {
+				 $value = Arr::get($_POST,  $val);
+				 if( $value != '') 
+				 {
+					 if($value == 'on')
+					 {
+						$skill .= $val.'|'; 
+					 }
+					 else if (phphelp::startsWith($value, 'S'))
+					 {
+						
+						 $skill .= $value.'|'; 
+					 }
+					 else
+					 {
+						 $skill .= $val.'='.$value.'|'; 
+					 }
+				 }
+			 }
+		 }
+		 return $skill;
+	}
 	
 	public function action_checkhours()
 	{
