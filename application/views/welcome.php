@@ -131,7 +131,7 @@
                   
                   <? endif?>
                </p>
-			<a style="font-family:Tahoma, Geneva, sans-serif" href="<?= url::base().'event/view/'.$event->id ?>" >[อ่านต่อ...]</a>
+			<a href="<?= url::base().'event/view/'.$event->id ?>" >[อ่านต่อ...]</a>
 		</article>
         <?php endforeach ?>
 	
