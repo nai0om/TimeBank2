@@ -118,7 +118,7 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 		<div class="title right"></div>
 		<div style="clear:both"></div>
 		
-		<p><span style="color: #0099CC;font-family: tahoma;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-family: tahoma;font-size: 20px;font-weight: bold;"><?= count($events) ?></span></p>
+		<p><span style="color: #0099CC;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 20px;font-weight: bold;"><?= count($events) ?></span></p>
 		<!-- div id="selection">ระบุเดือนที่ต้องการดู <select></select></div -->
 			<? if (count($events) > 0) :?>
                     <table> 	 	 	

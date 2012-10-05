@@ -335,8 +335,9 @@ header h2 {
 #main ul li {
     color: #0099CC;
     float: left;
-    font-size: 19px;
+    font-size: 18px;
     list-style: none outside none;
+	font-family: chula
 }
 #main ul li:before {
     content: "│";
@@ -385,8 +386,8 @@ header h2 {
 }
 #home blockquote p {
     background: url("../img/close_quote.png") no-repeat scroll right 0 transparent;
-    font-family: TH chulanarak;
-    font-size: 16px;
+    font-family: chula;
+    font-size: 20px;
     margin: 0;
     padding: 10px 45px;
 }
@@ -438,8 +439,8 @@ header h2 {
     width: 89px;
 }
 #home article p {
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     margin: 5px 0;
 	overflow:hidden;
 	width:250px;	
@@ -468,8 +469,8 @@ header h2 {
 }
 #main_timeBank blockquote p {
     background: url("../img/close_quote.png") no-repeat scroll right 0 transparent;
-    font-family: TH chulanarak;
-    font-size: 16px;
+    font-family: chula;
+    font-size: 21px;
     margin: 0;
     padding: 0 62px;
     word-wrap: break-word;
@@ -560,8 +561,8 @@ header h2 {
 }
 #main_timeBank ul#volunteer li {
     float: left;
-    font-family: tohama;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
     width: 298px;
 }
 #main_timeBank ul#volunteer li a {
@@ -713,8 +714,8 @@ header h2 {
 }
 
 #tb_hiw ol li strong, #tb_hiw ol li p {
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     margin: 0;
     padding: 0;
 }
@@ -826,8 +827,8 @@ header h2 {
 #tb_browse #search input, #tb_browse #search select {
     border: 1px solid #A8ACAD;
 	background: url("../img/tb_bg_form.jpg") repeat-x scroll center 0 transparent;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     margin: 7px 0;
     width: 100%;
 	padding: 2px;
@@ -874,8 +875,8 @@ header h2 {
     background: url("../img/tb_bullet.png") no-repeat scroll 0 0 transparent;
     color: #222222;
     float: left;
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     height: 30px;
     padding: 0 0 0 27px;
     width: 46%;
@@ -888,8 +889,8 @@ header h2 {
 }
 #tb_browse table {
     border: 1px solid #FFFFFF;
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     padding: 10px;
     position: relative;
     text-align: center;
@@ -998,8 +999,8 @@ header h2 {
 #tb_browse_searchResult #search input, #tb_browse_searchResult #search select {
     background: url("../img/tb_bg_form.jpg") repeat-x scroll center 0 transparent;
     border: 1px solid #A8ACAD;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     margin: 7px 0;
     padding: 2px;
     width: 28%;
@@ -1024,8 +1025,8 @@ header h2 {
 }
 #tb_browse_searchResult table {
     border: 1px solid #FFFFFF;
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     padding: 10px;
     position: relative;
     text-align: center;
@@ -1067,8 +1068,8 @@ header h2 {
 }
 #tb_browse_searchResult #detail p {
     clear: both;
-    font-family: TH chulanarak;
-    font-size: 17px;
+    font-family: chula;
+    font-size: 22px;
     margin: 0;
 	padding: 0 0 15px;
 }
@@ -1144,8 +1145,8 @@ header h2 {
 #tb_browse_searchResult #winnerList .detail {
     border-top: 1px dashed #222222;
     color: #222222;
-    font-family: TH chulanarak;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
     margin: 3px 41px 10px 0;
 }
 #tb_browse_searchResult #page_winnerList {
@@ -1260,8 +1261,8 @@ header h2 {
 	margin: 15px 0 5px;
 }
 #tb_browse_new form{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	display:inline-block;
 }
 #tb_browse_new form .line{
@@ -1392,8 +1393,8 @@ header h2 {
 }
 #tb_browse_detail #detail p {
     clear: both;
-    font-family: TH chulanarak;
-    font-size: 17px;
+    font-family: chula;
+    font-size: 22px;
     margin: 0;
 	padding: 0 0 15px;
 }
@@ -1461,8 +1462,8 @@ header h2 {
 	width:300px;
 }
 #tb_browse_detail #post form{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	margin:-15px 0 0;
 }
 #tb_browse_detail #post input[type="submit"],#tb_browse_detail #post_comment input[type="submit"] {
@@ -1510,16 +1511,16 @@ header h2 {
 }
 #tb_browse_detail #leftSide {
     float: left;
-    font-family: TH chulanarak;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
     margin-right: 20px;
     overflow: hidden;
     width: 480px;
 }
 #tb_browse_detail #rightSide {
     float: right;
-    font-family: TH chulanarak;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
     width: 433px;
 }
 #tb_browse_detail h3.title {
@@ -1568,8 +1569,8 @@ header h2 {
     clear: both;
     display: inline-block;
     padding: 10px 0;
-	font-size:12px;
-	font-family:TH chulanarak;
+	font-size:17px;
+	font-family:chula;
 	width:100%;
 }
 #tb_browse_detail #post_comment div img{
@@ -1627,8 +1628,8 @@ header h2 {
 }
 #tb_browse_detail.photos #album li .caption{
 
-    font-family: TH chulanarak;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
     padding: 3px 10px;
     position: relative;
 	height:40px;
@@ -1637,8 +1638,8 @@ header h2 {
 #tb_browse_detail.photos #album li .close {
   
     cursor: pointer;
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     padding: 5px 0px;
     position: relative;
     text-align: right;
@@ -1710,14 +1711,14 @@ header h2 {
     border-bottom: 0;
 }
 #tb_browse_detail.members #member .username {
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     padding-left: 10px;
 	color: #ec7c06;
 }
 #tb_browse_detail.members #member .name{
-	font-family: TH chulanarak;
-    font-size: 12px;
+	font-family: chula;
+    font-size: 17px;
 	padding-left: 10px;
 	color: #222222;
 }
@@ -1742,8 +1743,8 @@ header h2 {
 }
 #tb_browse_detail.thanks #content h3 {
     color: #5C5C5C;
-    font-family: TH chulanarak;
-    font-size: 14px;
+    font-family: chula;
+    font-size: 19px;
 }
 #tb_browse_detail.thanks #content h3 a{
 	color:#2f1c00;
@@ -1758,15 +1759,15 @@ header h2 {
 	text-align:center;
 }
 #tb_browse_detail.gallery #content h2 {
-    font-family: TH chulanarak;
-    font-size: 16px;
+    font-family: chula;
+    font-size: 21px;
     margin-top: -70px;
     padding: 0 0 0 138px;
     text-align: left;
 }
 #tb_browse_detail.gallery #content h3{
-	font-family: TH chulanarak;
-    font-size: 13px;
+	font-family: chula;
+    font-size: 18px;
     padding: 0 0 0 138px;
     text-align: left;
 	color: #5c5c5c;
@@ -1836,8 +1837,8 @@ header h2 {
 }
 #help #leftSide li,#help #rightSide li{
 	list-style:disc inside;
-	font-family:TH chulanarak;
-	font-size:14px;
+	font-family:chula;
+	font-size:19px;
 	color: #4d4d4d;
 }
 #help #rightSide {
@@ -1874,8 +1875,8 @@ header h2 {
     width: 737px;
 }
 #help #content p {
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     margin: 30px 0;
 }
 #help #content .line {
@@ -1952,8 +1953,8 @@ header h2 {
     clear: both;
     color: #8B4C03;
     float: left;
-    font-family: TH chulanarak;
-    font-size: 13px !important;
+    font-family: chula;
+    font-size: 18px !important;
     font-weight: bold;
     padding: 4px 0;
 }
@@ -1969,7 +1970,7 @@ header h2 {
 }
 #member #main_right #summary .sum {
     display: inline-block;
-    font-family: TH chulanarak;
+    font-family: chula;
     width: 208px;
 }
 #member #main_right #summary .sum_hours {
@@ -1991,8 +1992,8 @@ header h2 {
 }
 #member #main_right #summary #photo a {
     color: #0099CC;
-    font-family: TH chulanarak;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
 }
 #member #main_right .title.left {
     background: url("../img/mem_head_left.png") no-repeat scroll 0 0 transparent;
@@ -2023,7 +2024,7 @@ header h2 {
     color: #FFFFFF;
     display: block;
     float: right;
-    font-family: TH chulanarak;
+    font-family: chula;
     height: 22px;
     padding: 4px 10px;
     position: relative;
@@ -2044,8 +2045,8 @@ header h2 {
 #member #main_right .list .description {
     color: #4C4C4C;
     float: left;
-    font-family: TH chulanarak;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
     padding: 0 10px;
     width: 90%;
 	margin: 10px 0 5px 0;
@@ -2056,8 +2057,8 @@ header h2 {
 	padding: 0 10px;
 }
 #member #main_right .list .hours {
-    font-family: TH chulanarak;
-    font-size: 22px;
+    font-family: chula;
+    font-size: 27px;
     font-weight: bold;
     line-height: 21px;
     padding: 0 5px 0 0;
@@ -2074,9 +2075,9 @@ header h2 {
 }
 /*member > settings*/
 #member.setting form{
-	font-family: TH chulanarak;
+	font-family: chula;
 	width:500px;
-	font-size:13px;
+	font-size:18px;
 }
 #member.setting form label{
 	width: 195px;
@@ -2123,8 +2124,8 @@ header h2 {
 	width: 45%;
 }
 #member.deposit #timeSave form{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 }
 #member.deposit #timeSave form label {
     display: block;
@@ -2169,8 +2170,8 @@ header h2 {
 	float:right;
 }
 #member.profile form {
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
 }
 #member.profile label {
     display: inline-block;
@@ -2247,8 +2248,8 @@ margin: 20px 0 0 0;
 /*member > job*/
 #member.job table {
     border: 1px solid #FFFFFF;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     width: 100%;
 	margin:10px 0;
 }
@@ -2274,8 +2275,8 @@ margin: 20px 0 0 0;
 	color:#000;
 }
 #member.job #selection {
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     text-align: right;
 }
 #member.job #selection select{
@@ -2331,8 +2332,8 @@ margin: 20px 0 0 0;
 	color: #a2600d !important;
 }
 #member.notice #selection {
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     text-align: left;
 }
 #member.notice #selection select{
@@ -2359,8 +2360,8 @@ margin: 20px 0 0 0;
     width: 51px;
 }
 #member.notice table{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 }
 #member.notice table th {
     background: none repeat scroll 0 0 #0099CC;
@@ -2405,8 +2406,8 @@ color: #ACACAC;
 }
 #member.checkHours #warn form {
     border-top: 1px solid #000000;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     padding: 0 0 0 150px;
     text-align: left;
 }
@@ -2429,8 +2430,8 @@ color: #ACACAC;
 	color: #a2600d !important;
 }
 #member.warn form{
-	font-family: TH chulanarak;
-    font-size: 13px;
+	font-family: chula;
+    font-size: 18px;
 }
 #member.warn .headline {
     color: #0099CC;
@@ -2469,8 +2470,8 @@ color: #ACACAC;
 }
 /*member > own*/
 #member.own #selection {
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     text-align: left;
 }
 #member.own #update a{
@@ -2494,8 +2495,8 @@ color: #ACACAC;
     width: 51px;
 }
 #member.own table{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	width: 100%;
 }
 #member.own table th {
@@ -2597,8 +2598,8 @@ color: #ACACAC;
     clear: both;
     color: #8B4C03;
     float: left;
-    font-family: TH chulanarak;
-    font-size: 13px !important;
+    font-family: chula;
+    font-size: 18px !important;
     font-weight: bold;
     padding: 4px 0;
 }
@@ -2614,7 +2615,7 @@ color: #ACACAC;
 }
 #org .sum {
     display: inline-block;
-    font-family: TH chulanarak;
+    font-family: chula;
     width: 252px;
 	text-align:center;
 }
@@ -2637,8 +2638,8 @@ color: #ACACAC;
 }
 #org #main_right #summary #photo a {
     color: #0099CC;
-    font-family: TH chulanarak;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
 }
 #org .title.left {
     background: url("../img/mem_head_left.png") no-repeat scroll 0 0 transparent;
@@ -2669,7 +2670,7 @@ color: #ACACAC;
     color: #FFFFFF;
     display: block;
     float: right;
-    font-family: TH chulanarak;
+    font-family: chula;
     height: 22px;
     padding: 4px 10px;
     position: relative;
@@ -2689,14 +2690,14 @@ color: #ACACAC;
 #org #main_right .list .description {
     color: #4C4C4C;
     float: left;
-    font-family: TH chulanarak;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
     padding: 0 10px;
     width: 170px;
 }
 #org #main_right .list .hours {
-    font-family: TH chulanarak;
-    font-size: 22px;
+    font-family: chula;
+    font-size: 27px;
     font-weight: bold;
     line-height: 21px;
     padding: 0 5px 0 0;
@@ -2714,8 +2715,8 @@ color: #ACACAC;
 }
 #org .column {
     float: left;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
 	padding: 0 20px 20px 0;
 }
 #org .column h4,#org .column p,#org .column h3{
@@ -2743,8 +2744,8 @@ color: #ACACAC;
 	width:88px;
 }
 #org table{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	width: 100%;
 	border:1px solid #fff;
 }
@@ -2798,8 +2799,8 @@ color: #ACACAC;
 }
 /*org > my job*/
 #org #selection {
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     text-align: left;
 }
 #org #update a{
@@ -2860,8 +2861,8 @@ color: #ACACAC;
     clear: both;
     color: #8B4C03;
     float: left;
-    font-family: TH chulanarak;
-    font-size: 13px !important;
+    font-family: chula;
+    font-size: 18px !important;
     font-weight: bold;
     padding: 4px 0;
 }
@@ -2870,8 +2871,8 @@ color: #ACACAC;
 }
 /*org > setting*/
 #org.setting form{
-	font-family: TH chulanarak;
-    font-size: 13px;
+	font-family: chula;
+    font-size: 18px;
 }
 #org.setting form label{
 	display:inline-block;
@@ -2884,8 +2885,8 @@ color: #ACACAC;
 }
 /*org > warn*/
 #org.warn form {
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
 }
 #org.warn .headline {
     color: #0099CC;
@@ -2927,8 +2928,8 @@ color: #ACACAC;
 }
 /*org > notice*/
 #org.notice #selection {
-    font-family: TH chulanarak;
-    font-size: 15px;
+    font-family: chula;
+    font-size: 20px;
     text-align: left;
 }
 #org.notice form input[type="submit"] {
@@ -2943,8 +2944,8 @@ color: #ACACAC;
     width: 51px;
 }
 #org.notice table {
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
 	border:0;
 }
 #org.notice table tr:nth-child(2n){
@@ -2984,8 +2985,8 @@ color: #ACACAC;
 	margin:3px 0;
 }
 #org.profile form{
-	font-family: TH chulanarak;
-    font-size: 13px;
+	font-family: chula;
+    font-size: 18px;
 }
 #org.profile .long{
 	width:90%;
@@ -3013,8 +3014,8 @@ color: #ACACAC;
 }
 /*org > profile > detail*/
 #org.profile.detail form {
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
 }
 #org.profile.detail form .line {
     background: none repeat scroll 0 0 #716B62;
@@ -3104,8 +3105,8 @@ color: #ACACAC;
 }
 #org.approve #warn form {
     border-top: 1px solid #000000;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     text-align: left;
 }
 #org.approve form input[type="submit"] {
@@ -3174,8 +3175,8 @@ color: #ACACAC;
 }
 #about_us .column.two {
     float: left;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     padding: 0 0 0 20px;
     width: 47%;
 }
@@ -3244,8 +3245,8 @@ color: #ACACAC;
 	font-size:20px;
 	margin-bottom:20px;
 	list-style:none;
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 }
 #about_us ul#volunteer{
 	margin-bottom:0;
@@ -3298,8 +3299,8 @@ color: #ACACAC;
 .popup #content {
     clear: both;
 	background: url("../img/bg_thankyou.png") no-repeat scroll 0 0 transparent;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     height: 221px;
     margin: 0 auto;
     padding: 20px 50px;
@@ -3527,8 +3528,8 @@ color: #ACACAC;
     background: url("../img/mem_plus.png") no-repeat scroll 0 0 transparent;
     color: #FFFFFF;
     float: left;
-    font-family: TH chulanarak;
-    font-size: 17px;
+    font-family: chula;
+    font-size: 22px;
     height: 191px;
     padding: 55px 0;
     text-align: center;
@@ -3540,8 +3541,8 @@ color: #ACACAC;
 /*contact*/
 #contact_us .column.two {
     float: left;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     padding: 0 0 0 20px;
     width: 47%;
 }
@@ -3601,8 +3602,8 @@ color: #ACACAC;
 }
 #contact_us #message {
     background: url("../img/contact_bg.png") no-repeat scroll 0 0 transparent;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     padding: 10px;
     text-align: center;
     width: 890px;
@@ -3616,8 +3617,8 @@ color: #ACACAC;
     float: left;
     width: 50%;
 	margin: 0 30px 0 20px;
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	padding: 0 20px 0 0;
 }
 #contact_us input[type="text"] {
@@ -3652,8 +3653,8 @@ color: #ACACAC;
 /*donation*/
 #donation .column.two {
     float: left;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     padding: 0 0 0 20px;
     width: 47%;
 }
@@ -3720,8 +3721,8 @@ color: #ACACAC;
 }
 #donation #message {
     background: url("../img/contact_bg.png") no-repeat scroll 0 0 transparent;
-    font-family: TH chulanarak;
-    font-size: 16px;
+    font-family: chula;
+    font-size: 21px;
     padding: 10px;
     text-align: center;
     width: 890px;
@@ -3732,8 +3733,8 @@ color: #ACACAC;
 	margin: 0;
 }
 #donation #content{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	padding:0 0 0 20px;
 }
 #donation #content img {
@@ -3800,11 +3801,13 @@ color: #ACACAC;
     font-size: 30px;
     margin: 0 0 10px 53px;
     text-align: left;
+	font-family: chula;
+    font-size: 18px;
 }
 #training #message {
     background: url("../img/contact_bg.png") no-repeat scroll 0 0 transparent;
-    font-family: TH chulanarak;
-    font-size: 16px;
+    font-family: chula;
+    font-size: 21px;
     padding: 10px;
     text-align: center;
     width: 890px;
@@ -3815,8 +3818,8 @@ color: #ACACAC;
 	margin: 0;
 }
 #training #content{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	padding:0 0 0 20px;
 }
 #training #content img {
@@ -3850,8 +3853,8 @@ color: #ACACAC;
 	width: 50%;
 }
 #training #list li,#training #pagination li{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px !important;
 	color:#222;
 	overflow:hidden;
 }
@@ -3859,7 +3862,7 @@ color: #ACACAC;
 	content:'';
 }
 #training #list li img{
-	margin:0 20px 0 0;
+	margin:0 20px 10px 0;
 	max-height:300px;
 	max-width:300px;
 }
@@ -3889,8 +3892,8 @@ color: #ACACAC;
     width: 738px;
 }
 #training.gallery #content h2 {
-    font-family: TH chulanarak;
-    font-size: 16px;
+    font-family: chula;
+    font-size: 21px;
     margin: 10px auto;
     padding: 0 auto;
     text-align: center;
@@ -3898,8 +3901,8 @@ color: #ACACAC;
 }
 #training.gallery #content h3 {
     color: #5C5C5C;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     font-weight: normal;
     padding: 0 0 0 138px;
     text-align: left;
@@ -3974,15 +3977,15 @@ color: #ACACAC;
 }
 #news h2 {
     color: #0099CC;
-    font-size: 26px;
+    font-size: 31px;
     margin: 0 0 10px 53px;
     text-align: left;
-	font-family:TH chulanarak;
+	font-family:chula;
 	font-weight:normal;
 }
 #news h3 {
     color: #F9941C;
-    font-family: TH chulanarak;
+    font-family: chula;
     font-weight: normal;
     margin: 0 0 10px 53px;
     width: 20%;
@@ -4004,8 +4007,8 @@ color: #ACACAC;
     width: 95px;
 }
 #news #content{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 }
 #news #content p{
 	width:64%;
@@ -4015,8 +4018,8 @@ color: #ACACAC;
     float: left;
     width: 50%;
 	margin: 0 30px 0 20px;
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	padding: 0 20px 0 0;
 }
 #news .button{
@@ -4064,15 +4067,15 @@ color: #ACACAC;
 }
 #training.news h2 {
     color: #0099CC;
-    font-size: 26px;
+    font-size: 31px;
     margin: 0 0 10px 53px;
     text-align: left;
-	font-family:TH chulanarak;
+	font-family:chula;
 	font-weight:normal;
 }
 #training.news h3 {
     color: #F9941C;
-    font-family: TH chulanarak;
+    font-family: chula;
     font-weight: normal;
     margin: 0 0 10px 53px;
     width: 20%;
@@ -4095,8 +4098,8 @@ color: #ACACAC;
     width: 95px;
 }
 #training.news #content{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 }
 #training.news #content p{
 	width:64%;
@@ -4106,8 +4109,8 @@ color: #ACACAC;
     float: left;
     width: 50%;
 	margin: 0 30px 0 20px;
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 	padding: 0 20px 0 0;
 }
 #training.news .button{
@@ -4128,8 +4131,8 @@ color: #ACACAC;
 	text-align:right;
 }
 #tb_browse_detail.search form,#tb_browse_detail.search #leftSide,#tb_browse_detail.search #rightSide {
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
 }
 #tb_browse_detail.search label {
     clear: both;
@@ -4193,8 +4196,8 @@ color: #ACACAC;
 }
 #tb_browse_detail.search table {
     border: 1px solid #FFFFFF;
-    font-family: TH chulanarak;
-    font-size: 13px;
+    font-family: chula;
+    font-size: 18px;
     width: 100%;
 }
 #tb_browse_detail.search table th {
@@ -4252,8 +4255,8 @@ color: #ACACAC;
 #insideFooter #section li{
 	float:left;
 	width:205px;
-	font-family:TH chulanarak;
-	font-size:12px;
+	font-family:chula;
+	font-size:17px;
 }
 #main #insideFooter #section li:before, #main #insideFooter #section li li:before {
     content: "";
@@ -4271,7 +4274,7 @@ color: #ACACAC;
 	color: #09C;
 	background: none;
 	margin:0;
-	font-size:12px;
+	font-size:17px;
 }
 #insideFooter #section ul {
     float: left;
@@ -4283,7 +4286,7 @@ color: #ACACAC;
     width: 100%;
 	color: #999;
 	list-style:disc inside;
-	font-size:12px;
+	font-size:17px;
 }
 #insideFooter #section li:nth-child(2){
 	width: 285px;
@@ -4378,8 +4381,8 @@ color: #ACACAC;
     font-size: 37px;
 }
 #term #main p{
-	font-family:TH chulanarak;
-	font-size:13px;
+	font-family:chula;
+	font-size:18px;
 }
 #term #main p img{
 	padding:0 10px;
@@ -4470,13 +4473,13 @@ color: #ACACAC;
 }
 
 .mid.content {
-    font-family: TH chulanarak;
+    font-family: chula;
     margin: 0 auto;
     position: relative;
     text-align: center;
     top: 130px;
     width: 500px;
-	font-size:14px;
+	font-size:19px;
 }
 .mid.content a{
 	color:#0099cc;
@@ -4541,8 +4544,8 @@ color: #ACACAC;
 #main_timeBank ul#volunteer li a.readmore {
     background: none repeat scroll 0 0 transparent;
     color: #505050;
-    font-family: tahoma;
-    font-size: 12px;
+    font-family: chula;
+    font-size: 17px;
     height: auto;
     margin: 0;
 	width: auto;
@@ -4646,8 +4649,8 @@ float: left;
 
 #approve_list table {
 border: 1px solid white;
-font-family: TH chulanarak;
-font-size: 15px;
+font-family: chula;
+font-size: 20px;
 padding: 10px;
 position: relative;
 text-align: center;
