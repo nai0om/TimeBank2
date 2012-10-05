@@ -91,7 +91,7 @@ $times['23:59:59'] = '23:59';
             <fieldset>
             <p><label><strong>ทักษะที่ท่านมี</strong></label></p>
             <ol>
-				<? timebankhelper::buildSkilsForm(); ?>
+				<? timebankhelper::buildSkilsForm(array(), true); ?>
                 <input type="submit" value="ค้นหาแบบละเอียด" name='action'>
             </ol>
       		</fieldset>
