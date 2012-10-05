@@ -79,49 +79,10 @@
 			<p><span class="header">ทักษะของอาสาสมัครที่ต้องการ</span></p>
 			
             <? 
-				$dict = Kohana::$config->load('timebank')->get('worddict'); 
-				$skill_list = explode ('|', $event->skills);
-				$normal_skill = "";
-				$special_skill = "";
-				for($i = 0 ; $i < count($skill_list) ; $i++)
-				{
-					$name = trim($skill_list[$i]);
-					
-					if( $name == '' ) continue;
-					
-					if( !array_key_exists( trim( $name ), $dict ) ) continue;
-					
-					if(phphelp::startsWith($name, '2'))
-					{
-						if(strpos($name , '=') !== false)
-						{
-							$texts = explode('=', $name);
-							$text = $texts[1];
-							$special_skill .= $text.', ';  
-						}
-						else
-						{
-							$special_skill .= $dict[$name].', '; 
-						}	
-					}
-					else
-					{
-						if(strpos($name , '=') !== false)
-						{
-							$texts = explode('=', $name);
-							$text = $texts[1];
-							$normal_skill .= $text.', '; 
-						}
-						else
-						{
-							$normal_skill .= $dict[$name].', '; 
-						}	
-
-					}
-			
-				}
-				 $normal_skill = substr($normal_skill , 0, -2); 
-				 $special_skill = substr($special_skill , 0, -2); 
+				$normal_skill = '';
+				$special_skill = '';
+				timebankhelper::build_skill_for_display($event->skills, $normal_skill, $special_skill, false);
+				
 			?>
 			<p>ความสามารถพิเศษ (Special Skill) : <?= ($normal_skill == '') ? 'ไม่มี' : ''.$normal_skill ?></p>
 			<p>ทักษะวิชาชีพ (Professional Skill) : <?= ($special_skill == '') ? 'ไม่มี' : ''.$special_skill  ?></p>

@@ -4,15 +4,23 @@
  $gen = 'ภาษาเยอรมัน ';
  $jap = 'ภาษาญี่ปุ่น ';
  
- $listen = 'ฟัง/พูด ';
- $read = 'อ่าน ';
- $write = 'เขียน ';
+ $listen = 'ฟัง/พูด';
+ $read = 'อ่าน';
+ $write = 'เขียน';
  
  $fair = 'พอใช้';
  $good = 'ดี';
  $best = 'ดีมาก';
 return array(
-
+	'S12005TT11' => $listen.$fair,
+	'S12005TT12' => $listen.$good ,
+	'S12005TT13' => $listen.$best ,
+	'S12005TT21' => $read.$fair ,
+	'S12005TT22' => $read.$good ,
+	'S12005TT23' => $read.$best ,
+	'S12005TT31' => $write.$fair ,
+	'S12005TT32' => $write.$good ,
+	'S12005TT33' => $write.$best ,
 	'S1200111' => $eng.$listen.$fair ,
 	'S1200112' => $eng.$listen.$good ,
 	'S1200113' => $eng.$listen.$best ,

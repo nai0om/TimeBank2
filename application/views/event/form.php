@@ -211,7 +211,7 @@ $times['23:59:59'] = '23:59';
 					}
 				}
 			}	
-		 timebankhelper::buildSkilsForm($skills); 
+		 timebankhelper::buildSkilsForm($skills, true); 
 	   ?>
         </ol>
         <div class="line"></div>
