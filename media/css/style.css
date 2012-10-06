@@ -1582,7 +1582,7 @@ header h2 {
 	border-top: 0;
 }
 #tb_browse_detail #post_comment textarea {
-    background: url("../img/tb_bg_textbox.jpg") repeat-x scroll 0 0 transparent;
+    background: url("../img/tb_bg_textbox.jpg") repeat-x scroll 0 0 #ffffff;
     border: 0 none;
     height: 100px;
     width: 96%;
