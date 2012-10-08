@@ -92,6 +92,33 @@ class Timebankutil {
 		}		
 		*/
 	}
+	public static function send_sms()
+	{
+		$user = 'api1610966';
+		$password = 'jbankapisms';
+		$msn = '0866035261';
+		$MsgDemo = 'สวัสดี';
+		
+		$postData = '&RefNo=12';
+		$postData += '&Sender=' + urlencode('I am your sender'); 
+		$postData += '&Msn=' + '66'.substr($msn, 1); ;
+		$postData += '&Sno=00';
+		$postData += '&MsgType=T';
+		$postData += '&Msg='+ urlencode($MsgDemo);
+		$postData += '&User='+ urlencode($user);
+		$postData += '&Password='+ urlencode($password);
+		//RefNo=$sendrefno&Msn=$sendmsn&Msg=$sendmsg&Encoding=$sendencoding&MsgType=$sendmsgtype&User=$senduser&Password=$sendpassword"
+	
+		// Post parameters (Use curl) 
+		$ch = curl_init();
+		curl_setopt($ch,CURLOPT_URL,"http://corpsms.dtac.co.th/servlet/com.iess.socket.SmsCorplink"); 
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch,CURLOPT_POST ,1);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$postData);
+		$status = curl_exec($ch); // Status from DTAC 
+		curl_close($ch);
+		echo $status;	
+	}
 	
 	// Convert unix time to "10 secs ago" format
 	public static function timesince($in_time, $suffix = " ago")

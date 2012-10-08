@@ -114,6 +114,9 @@
         <?= Form::close(); ?>
         </p>
     </p>
+    
+    send sms test <br />
+   <?= HTML::anchor('admin/send_sms', '<strong>ส่ง smsm เมพ</strong>'); ?> 
     <p align="center" style="margin:0;">
     	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
