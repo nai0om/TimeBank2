@@ -1738,6 +1738,10 @@ margin: 5px 0;
 #tb_browse_detail.photos #pagination li{
 	color:#222;
 }
+#tb_browse_detail.photos #post_comment a{
+	font-size: 18px;
+	font-family: chula;
+}
 #tb_browse_detail.photos #post_comment textarea {
     width: 96%;
 	margin: 0 15px;
@@ -3879,7 +3883,6 @@ color: #ACACAC;
     margin: 0 0 10px 53px;
     text-align: left;
 	font-family: chula;
-    font-size: 18px;
 }
 #training #message {
     background: url("../img/contact_bg.png") no-repeat scroll 0 0 transparent;
