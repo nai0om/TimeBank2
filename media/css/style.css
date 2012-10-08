@@ -1605,6 +1605,8 @@ margin: 5px 0;
 }
 #tb_browse_detail #duration{
 	width:  400px;
+	font-size: 19px;
+	font-family: chula;
 }
 #tb_browse_detail h4.title {
     background: url("../img/tb_highlight.png") no-repeat scroll 0 0 transparent;
