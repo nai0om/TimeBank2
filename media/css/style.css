@@ -2724,7 +2724,7 @@ color: #ACACAC;
     color: #FFFFFF;
     display: inline-block;
     float: left;
-    font-size: 30px;
+    font-size: 25px;
     height: 45px;
 	padding-top: 5px;
 }
@@ -2783,7 +2783,7 @@ color: #ACACAC;
 #org .column {
     float: left;
     font-family: chula;
-    font-size: 18px;
+    font-size: 19px;
 	padding: 0 20px 20px 0;
 }
 #org .column h4,#org .column p,#org .column h3{
@@ -3012,7 +3012,7 @@ color: #ACACAC;
 }
 #org.notice table {
     font-family: chula;
-    font-size: 18px;
+    font-size: 19px;
 	border:0;
 }
 #org.notice table tr:nth-child(2n){
@@ -4331,6 +4331,9 @@ color: #ACACAC;
 	width:205px;
 	font-family:chula;
 	font-size:17px;
+}
+#insideFooter #section .footersection2{
+	width: 285px;
 }
 #main #insideFooter #section li:before, #main #insideFooter #section li li:before {
     content: "";
