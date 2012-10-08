@@ -22,7 +22,7 @@
     <?= HTML::anchor('event/export/'.$event->id.'?type=1', '<img src="'.url::base().'media/img/btn_download_excel_accept.png" class="imgdownload">')  ?> 
     
 <div id="approve_list">
-<img src="<?= url::base() ?>media/img/tb_line.png">
+<img src="<?= url::base() ?>media/img/tb_line.png" style="margin-top:30px;">
 <?= Form::open('event/approve/'.$event->id, array ('method' => 'post')); ?>
     <table class="totalaccept">
         <tr>
