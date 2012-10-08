@@ -27,8 +27,8 @@
     <table class="totalaccept">
         <tr>
         <td colspan="7">
-       <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?><span style="font-size: 16px; color: #D97103">ทั้งหมด </span>
-       <span style="font-size: 16px; color: #09C"><?=  $all_users  ?></span>
+       <?= Form::checkbox('', '', false, array('id' => 'checkall', 'onChange' => 'check_all()')) ?><span style="font-size: 25px; color: #D97103">ทั้งหมด </span>
+       <span style="font-size: 25px; color: #09C"><?=  $all_users  ?></span>
         </td>
         <td><?= Form::submit('submit', 'ตอบรับ', array('class' => 'accept','onclick' =>  'var answer = confirm ("'.__('Approve volunteer warning.').'"); if (!answer)  return false;')) ?></td>
     </tr>
