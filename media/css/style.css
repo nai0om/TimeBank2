@@ -34,7 +34,7 @@ html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10
 
 html, button, input, select, textarea { font-family: chula; color: #222; }
 
-body { margin: 0; font-size: 18px;padding: 0;}
+body { margin: 0; font-size: 18px;padding: 0; font-family: chula;}
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -229,6 +229,7 @@ td { vertical-align: top; }
 }
 
 body{width:1140px;margin:0 auto;font-family:chula,verdana, helvetica, sans-serif;}
+h2{font-family: chula;}
 header {
 	margin: 0;padding:0px;
     width: 1054px;
@@ -243,6 +244,7 @@ footer {
     width: 935px;
 	font-size:19px;
 	color:#d1b380;
+	font-family: chula;
 }
 footer p{
 	margin:0;
@@ -260,6 +262,7 @@ footer li:before {
     left: -8px;
     padding: 0 0 0 15px;
     position: relative;
+	font-family: chula
 }
 footer li:first-child:before{
 	content:none;
@@ -283,6 +286,7 @@ nav a {
     margin: 0;
     padding: 15px 20px;
     text-decoration: none;
+	font-family: chula;
 }
 nav a:visited {
 	color: #0099CC;
@@ -383,6 +387,7 @@ header h2 {
     margin: 0;
     padding: 0;
 	font-weight:bold;
+	font-family: chula;
 }
 #home blockquote p {
     background: url("../img/close_quote.png") no-repeat scroll right 0 transparent;
@@ -396,6 +401,7 @@ header h2 {
     font-size: 28px;
     margin: 0;
     padding: 10px 0 0;
+	font-family: chula;
 }
 #home section {
     background: url("../img/jobWeb_bg.png") no-repeat scroll 0 0 transparent;
@@ -407,6 +413,7 @@ header h2 {
     text-align: center;
     width: 496px;
 	font-weight:bold;
+	font-family: chula;
 }
 #home article.first {
     margin-left: 0;
@@ -468,6 +475,7 @@ header h2 {
     margin: 0;
     padding: 0;
 	font-weight:bold;
+	font-family: chula;
 }
 #main_timeBank blockquote p {
     background: url("../img/close_quote.png") no-repeat scroll right 0 transparent;
@@ -483,6 +491,7 @@ header h2 {
     margin: 0;
     padding: 10px 0 0;
 	background:none;
+	font-family: chula;
 }
 #main_timeBank #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
@@ -497,6 +506,7 @@ header h2 {
     float: left;
     font-size: 24px;
     list-style: none outside none;
+	font-family: chula;
 }
 #main_timeBank #sitemap li:before{
 	content:'>';
@@ -516,6 +526,7 @@ header h2 {
 #main_timeBank #icon_set h2{
 	color:#0099cc;
 	font-size:40px;
+	font-family: chula;
 }
 #main_timeBank #icon_set a {
     display: inline-block;
@@ -536,6 +547,7 @@ header h2 {
     padding: 6px 0;
     text-align: center;
     width: 295px;
+	font-family: chula;
 }
 #main_timeBank ol li {
     background: url("../img/tb_bg.png") no-repeat scroll 0 0 transparent;
@@ -547,6 +559,7 @@ header h2 {
     width: 223px;
 	font-size:20px;
 	margin-bottom:20px;
+	font-family: chula;
 }
 #main_timeBank ul#volunteer{
 	margin-bottom:25px;
@@ -632,6 +645,7 @@ header h2 {
     padding: 3px 44px 3px 19px;
     text-align: right;
     width: 73px;
+	font-family: chula;
 }
 #main_timeBank #banner{
 	margin:0 0 15px;
@@ -654,6 +668,7 @@ header h2 {
     float: left;
     font-size: 24px;
     list-style: none outside none;
+	font-family: chula;
 }
 #tb_hiw #sitemap li:before{
 	content:'>';
@@ -670,6 +685,7 @@ header h2 {
     float: left;
     font-size: 37px;
     padding-left: 128px;
+	font-family: chula;
 }
 #tb_hiw #icon_set {
     float: right;
@@ -679,6 +695,7 @@ header h2 {
 #tb_hiw #icon_set h2{
 	color:#0099cc;
 	font-size:40px;
+	font-family: chula;
 }
 #tb_hiw #icon_set a {
     display: inline-block;
@@ -693,6 +710,7 @@ header h2 {
     margin: 0;
     padding: 6px 0;
     text-align: center;
+	font-family: chula;
 }
 #tb_hiw .table {
     float: left;
@@ -713,6 +731,7 @@ header h2 {
     margin-left: 60px;
     padding: 10px 20px;
     width: 223px;
+	font-family: chula;
 }
 
 #tb_hiw ol li strong, #tb_hiw ol li p {
@@ -767,6 +786,7 @@ header h2 {
     float: left;
     font-size: 24px;
     list-style: none outside none;
+	font-family: chula;
 }
 #tb_browse #sitemap li:before{
 	content:'>';
@@ -783,6 +803,7 @@ header h2 {
     float: left;
     font-size: 37px;
     padding-left: 128px;
+	font-family: chula;
 }
 #tb_browse #icon_set {
     float: right;
@@ -792,6 +813,7 @@ header h2 {
 #tb_browse #icon_set h2{
 	color:#0099cc;
 	font-size:40px;
+	font-family: chula;
 }
 #tb_browse #icon_set a {
     display: inline-block;
@@ -808,6 +830,7 @@ header h2 {
     padding: 6px 0;
     text-align: center;
     width: 295px;
+	font-family: chula;
 }
 
 #tb_browse #search {
@@ -825,6 +848,7 @@ header h2 {
     position: relative;
     text-decoration: underline;
     top: 10px;
+	font-family: chula;
 }
 #tb_browse #search input, #tb_browse #search select {
     border: 1px solid #A8ACAD;
@@ -872,6 +896,7 @@ header h2 {
     font-weight: normal;
     margin: 0;
     padding: 0 0 0 40px;
+	font-family: chula;
 }
 #tb_browse .type li {
     background: url("../img/tb_bullet.png") no-repeat scroll 0 0 transparent;
@@ -905,17 +930,20 @@ header h2 {
 #tb_browse table td{
 	padding:3px;
 	font-size:18px;
+	font-family: chula;
 }
 #tb_browse table td a{
 	color: #E87C0C;
 	font-size: 20px;
 	text-decoration: underline;
+	font-family: chula;
 }
 #tb_browse table th {
     color: #0099CC;
     font-size: 19px;
     font-weight: bold;
     padding: 15px;
+	font-family: chula;
 }
 #tb_browse table tr:nth-child(2n){
 	background:#FFF;
@@ -923,6 +951,7 @@ header h2 {
 #tb_browse table .pagination li {
     color: #222222;
     font-size: 17px;
+	font-family: chula;
 }
 /*timeBank > browse > search result*/
 #tb_browse_searchResult #main {
@@ -942,6 +971,7 @@ header h2 {
     float: left;
     font-size: 24px;
     list-style: none outside none;
+	font-family: chula;
 }
 #tb_browse_searchResult #sitemap li:before{
 	content:'>';
@@ -956,6 +986,7 @@ header h2 {
     clear: both;
     color: #0099CC;
     font-size: 37px;
+	font-family: chula;
 }
 #tb_browse_searchResult #icon_set {
     float: right;
@@ -965,6 +996,7 @@ header h2 {
 #tb_browse_searchResult #icon_set h2{
 	color:#0099cc;
 	font-size:40px;
+	font-family: chula;
 }
 #tb_browse_searchResult #icon_set a {
     display: inline-block;
@@ -981,6 +1013,7 @@ header h2 {
     padding: 6px 0;
     text-align: center;
     width: 295px;
+	font-family: chula;
 }
 
 #tb_browse_searchResult #search {
@@ -997,6 +1030,7 @@ header h2 {
     position: relative;
     text-decoration: underline;
     top: 10px;
+	font-family: chula;
 }
 #tb_browse_searchResult #search input, #tb_browse_searchResult #search select {
     background: url("../img/tb_bg_form.jpg") repeat-x scroll center 0 transparent;
@@ -1041,11 +1075,13 @@ header h2 {
 #tb_browse_searchResult table td{
 	padding:3px;
 	font-size:18px;
+	font-family: chula;
 }
 #tb_browse_searchResult table td a{
 	color: #E87C0C;
 	font-size: 20px;
 	text-decoration: underline;
+	font-family: chula;
 }
 #tb_browse_searchresult table td ul li{
 	display: inline-block;
@@ -1056,6 +1092,7 @@ header h2 {
     font-size: 19px;
     font-weight: bold;
     padding: 15px;
+	font-family: chula;
 }
 #tb_browse_searchResult table tr:nth-child(2n){
 	background:#FFF;
@@ -1063,6 +1100,7 @@ header h2 {
 #tb_browse_searchResult table .pagination li {
     color: #222222;
     font-size: 17px;
+	font-family: chula;
 }
 #tb_browse_searchResult #detail {
     display: inline-block;
@@ -1087,6 +1125,7 @@ header h2 {
     width: 179px;
 	margin-right:20px;
 	text-decoration:underline;
+	font-family: chula;
 }
 #tb_browse_searchResult #detail h2{
 	margin:0;
@@ -1104,6 +1143,7 @@ header h2 {
 	position: relative;
 	top: 10px;
 	text-decoration:none;
+	font-family: chula;
 }
 #tb_browse_searchResult #detail a.long:hover{
 	color: #FFFFFF;
@@ -1364,6 +1404,7 @@ header h2 {
     list-style: none outside none;
     position: relative;
     top: 3px;
+	font-family: chula;
 }
 #tb_browse_detail #sitemap li:before{
 	content:'>';
@@ -1412,6 +1453,7 @@ header h2 {
     width: 179px;
 	margin-right:20px;
 	text-decoration:underline;
+    font-family: chula;
 }
 #tb_browse_detail #detail h2{
 	margin:0;
@@ -1505,11 +1547,13 @@ header h2 {
     color: #EC7C06;
     font-size: 40px;
     margin: 20px 0;
+	font-family: chula;
 }
 #tb_browse_detail h4 {
     color: #FFF;
     font-size: 25px;
     margin: 20px 0 0;
+	font-family: chula;
 }
 #tb_browse_detail #leftSide {
     float: left;
@@ -1530,6 +1574,7 @@ header h2 {
     color: #0099CC;
 	font-size: 30px;
 	margin: 20px 0 0;
+	font-family: chula;
 }
 #tb_browse_detail .header{
 	font-weight:bold;
@@ -1556,7 +1601,7 @@ header h2 {
 	font-family:chula;
 }
 #tb_browse_detail #post_comment {
-    background: url("../img/bg_comment.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/bg_comment.png") no-repeat scroll -50px -7px transparent;
     clear: both;
     height: 315px;
     padding: 17px;
@@ -1564,7 +1609,7 @@ header h2 {
 	background-repeat: no-repeat;
     background-size: cover;
 	display:inline-table;
-	width:100%;
+	width:96%;
 }
 #tb_browse_detail #post_comment div {
     border-top: 1px solid #FFFFFF;
@@ -1798,6 +1843,7 @@ header h2 {
     list-style: none outside none;
     position: relative;
     top: 3px;
+	font-family: chula;
 }
 #help #sitemap li:before{
 	content:'>';
@@ -1820,6 +1866,7 @@ header h2 {
     margin: 0;
     width: 150px;
 	display: inline-block;
+	font-family: chula;
 }
 #help #icon_set a {
     display: inline-block;
@@ -1863,6 +1910,7 @@ header h2 {
 	margin-right:20px;
 	text-decoration:underline;
 	cursor: pointer;
+	font-family: chula;
 }
 #help #google {
     background: url("../img/tb_orange_button_130.png") no-repeat scroll 0 0 transparent;
@@ -1877,6 +1925,7 @@ header h2 {
     margin: 10px 0;
     padding: 20px 40px;
     width: 737px;
+	font-family: chula;
 }
 #help #content p {
     font-family: chula;
@@ -1913,6 +1962,7 @@ header h2 {
 }
 #member #main ul li{
 	font-size:18px;
+	font-family: chula;
 }
 #member #sitemap {
     background: url("../img/member_bar.png") no-repeat scroll 0 0 transparent;
@@ -1929,6 +1979,7 @@ header h2 {
     list-style: none outside none;
     position: relative;
     top: 3px;
+	font-family: chula;
 }
 #member #sitemap li:before{
 	content:'>';
@@ -4583,6 +4634,7 @@ header{
     font-size: 18px;
     list-style: none outside none;
     padding: 0 0 0 5px;
+	font-family: chula;
 }
 #member_name a {
     color: #EF7D05 !important;
@@ -4603,6 +4655,7 @@ font-size: 20px;
 font-weight: bold;
 cursor: pointer;
 margin: 0 0 0 33px;
+font-family: chula;
 }
 .title_userprofile label{
 cursor: pointer;
@@ -4618,6 +4671,7 @@ font-size: 20px;
 font-weight: bold;
 color: #3B3B3B;
 padding: 4px 0;
+font-family: chula;
 }
 
 
@@ -4630,6 +4684,7 @@ text-align: center;
 width: 934px;
 border-bottom: 1px solid black;
 padding: 20px 0;
+font-family: chula;
 }
 
 #approve_info {
@@ -4638,12 +4693,14 @@ clear: both;
 margin: 20px 0;
 font-size: 24px;
 font-weight: bold;
+font-family: chula;
 }
 
 #approve_info ul li {
 float: none;
 color: #D97103;
 font-size: 24px;
+font-family: chula;
 }
 
 #approve_info ul li::before {
@@ -4677,6 +4734,7 @@ padding: 10px;
 text-align: center;
 font-size: 19px;
 font-weight: bold;
+font-family: chula;
 }
 
 #approve_list table tr:nth-child(2n) {
@@ -4695,6 +4753,7 @@ padding: 0 0 0 5px;
 font-size: 19px;
 padding: 0 0 0 5px;
 color: #000000;
+font-family: chula;
 }
 
 #approve_list ul.tablepage li a {
