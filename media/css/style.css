@@ -232,7 +232,7 @@ body{width:1140px;margin:0 auto;font-family:chula,verdana, helvetica, sans-serif
 h2{font-family: chula;}
 span{
 	font-family: chula !important;
-	font-size: 19px;
+	font-size: 19px !important;
 }
 p{
 	font-family: chula;
