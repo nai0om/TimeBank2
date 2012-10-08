@@ -229,7 +229,11 @@ td { vertical-align: top; }
 }
 
 body{width:1140px;margin:0 auto;font-family:chula,verdana, helvetica, sans-serif;}
-h2, span{font-family: chula;}
+h2{font-family: chula;}
+span{
+	font-family: chula !important;
+	font-size: 19px;
+}
 p{
 	font-family: chula;
 	font-size: 19px;
