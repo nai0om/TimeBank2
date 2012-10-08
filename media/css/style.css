@@ -1222,6 +1222,10 @@ header h2 {
     background: url("../img/tb_browse_bg.jpg") no-repeat scroll 0 0 transparent;
     min-height: 1197px;
 }
+#tb_browse_new img{
+width: 300px;
+margin: 5px 0;
+}
 #tb_browse_new #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
@@ -4346,6 +4350,7 @@ color: #ACACAC;
     float: none;
     margin: -20px 0 0;
     width: 900px;
+	font-style: normal;
 }
 #insideFooter #section li h4{
 	color: #09C;
