@@ -1619,15 +1619,12 @@ margin: 5px 0;
 	font-family:chula;
 }
 #tb_browse_detail #post_comment {
-    background: url("../img/bg_comment.png") no-repeat scroll -50px -7px transparent;
+    background: url("../img/bg_post_comment.png") no-repeat scroll 0 0 #EEDBB1;
     clear: both;
-    height: 315px;
-    padding: 17px;
-	margin-bottom:50px;
-	background-repeat: no-repeat;
-    background-size: cover;
-	display:inline-table;
-	width:96%;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    padding: 17px 17px 55px 17px;
+    width: 870px;
 }
 #tb_browse_detail #post_comment div {
     border-top: 1px solid #FFFFFF;
