@@ -36,6 +36,10 @@ class Controller_Admin extends Controller_Template {
 		$comment_recommend = ORM::factory('comment')->where('recommend', '=', '1')->order_by('id','desc')->find_all();
 	}
 	
+	public function action_send_sms()
+	{
+		timebankutil::send_sms();
+	}
 	public function action_addrecommend()
 	{
 		$this->check_admin();		
