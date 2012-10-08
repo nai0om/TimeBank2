@@ -1654,9 +1654,10 @@ margin: 5px 0;
     background: url("../img/tb_orange_button_share.png") no-repeat scroll 0 0 transparent;
     color: #FFFFFF;
     float: right;
+    font-size: 23px;
     height: 30px;
-    margin: 20px 0 0 73px;
-    padding: 0 0 0 10px;
+    margin: 10px 0 0 73px;
+    padding: 8px 0 0 3px;
     text-decoration: none;
     width: 95px;
 }
