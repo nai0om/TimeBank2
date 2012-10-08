@@ -2,7 +2,7 @@
 <div id="insideFooter">
     <div class="line" style="padding-bottom:40px; padding-top:40px"></div>
         <ul id="section">
-            <li>
+            <li class="footerseciton1">
                 <h4>ธนาคารจิตอาสา</h4>
                 <ul>
                     <li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับธนาคารจิตอาสา'); ?></li>
@@ -12,7 +12,7 @@
                     <li><?= HTML::anchor('welcome/donation', 'สนับสนุนธนาคารจิตอาสา'); ?></li>
                 </ul>
             </li>
-            <li>
+            <li class="footerseciton2">
                 <h4>ภารกิจจิตอาสา</h4>
                 <ul>
 					<li><?= HTML::anchor('event/browse', 'ค้นหาภารกิจ'); ?></li>
@@ -22,7 +22,7 @@
                     <? endfor ?>
                 </ul>
             </li>
-            <li>
+            <li class="footerseciton3">
                 <h4>สมาชิกอาสา</h4>
                 <ul>
                     <li><?= HTML::anchor('user/signup', 'สมัครสมาชิก'); ?></li>
@@ -30,7 +30,7 @@
                     <li><?= HTML::anchor('user/forgetpassword', 'ลืมรหัสผ่าน'); ?></li>
                 </ul>
             </li>
-            <li>
+            <li class="footerseciton4">
                 <h4>ช่วยเหลือ</h4>
                 <ul>
                     <li><?= HTML::anchor('welcome/timebankhow', 'วิธีใช้งาน (โดยย่อ)'); ?></li>
