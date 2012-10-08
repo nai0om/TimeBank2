@@ -229,7 +229,11 @@ td { vertical-align: top; }
 }
 
 body{width:1140px;margin:0 auto;font-family:chula,verdana, helvetica, sans-serif;}
-h2{font-family: chula;}
+h2, span{font-family: chula;}
+p{
+	font-family: chula;
+	font-size: 19px;
+}
 header {
 	margin: 0;padding:0px;
     width: 1054px;
@@ -439,17 +443,18 @@ header h2 {
     cursor: pointer;
     display: block;
     float: right;
-    font-size: 25px;
+    font-size: 23px;
     height: 30px;
     text-align: center;
     width: 89px;
 	position: relative;
 	top: -48px;
 	left: -18px;
+	padding-top: 2px;
 }
 #home article p {
     font-family: chula;
-    font-size: 18px;
+    font-size: 19px;
     margin: 5px 0;
 	overflow:hidden;
 	width:250px;	
@@ -504,7 +509,7 @@ header h2 {
 #main_timeBank #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 	font-family: chula;
 }
@@ -541,10 +546,10 @@ header h2 {
     background: url("../img/tb_highlight.png") no-repeat scroll 0 0 transparent;
     clear: both;
     color: #FFFFFF;
-    font-size: 31px;
+    font-size: 30px;
     height: 39px;
     margin: 0;
-    padding: 6px 0;
+    padding: 9px 0;
     text-align: center;
     width: 295px;
 	font-family: chula;
@@ -557,7 +562,7 @@ header h2 {
     margin-left: 50px;
     padding: 20px;
     width: 223px;
-	font-size:20px;
+	font-size:21px;
 	margin-bottom:20px;
 	font-family: chula;
 }
@@ -577,7 +582,7 @@ header h2 {
 #main_timeBank ul#volunteer li {
     float: left;
     font-family: chula;
-    font-size: 17px;
+    font-size: 18px;
     width: 298px;
 }
 #main_timeBank ul#volunteer li a {
@@ -603,7 +608,7 @@ header h2 {
     background: url("../img/tb_bubble.png") no-repeat scroll 0 0 transparent;
     clear: both;
     height: 65px;
-    padding: 25px 15px;
+    padding: 21px 15px;
     width: 224px;
 	color: #4c4c4c;
 }
@@ -639,10 +644,10 @@ header h2 {
 #main_timeBank #summary li .showNumber {
     background: url("../img/tb_counter.png") no-repeat scroll 0 0 transparent;
     color: #FFFFFF;
-    font-size: 37px;
+    font-size: 35px;
     font-weight: bold;
     height: 54px;
-    padding: 3px 44px 3px 19px;
+    padding: 6px 44px 3px 19px;
     text-align: right;
     width: 73px;
 	font-family: chula;
@@ -666,7 +671,7 @@ header h2 {
 #tb_hiw #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 	font-family: chula;
 }
@@ -784,7 +789,7 @@ header h2 {
 #tb_browse #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 	font-family: chula;
 }
@@ -969,7 +974,7 @@ header h2 {
 #tb_browse_searchResult #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 	font-family: chula;
 }
@@ -1228,7 +1233,7 @@ header h2 {
 #tb_browse_new #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #tb_browse_new #sitemap li:before{
@@ -1347,7 +1352,7 @@ header h2 {
 #tb_browse_new_thankyou #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #tb_browse_new_thankyou #sitemap li:before{
@@ -1400,7 +1405,7 @@ header h2 {
 #tb_browse_detail #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 19px;
+    font-size: 25px;
     list-style: none outside none;
     position: relative;
     top: 3px;
@@ -1498,6 +1503,7 @@ header h2 {
 {
 	 font-size: 25px;
     font-weight: bolder;
+	font-family: chula;
 }
 
 #tb_browse_detail #post input{
@@ -1839,7 +1845,7 @@ header h2 {
 #help #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 19px;
+    font-size: 25px;
     list-style: none outside none;
     position: relative;
     top: 3px;
@@ -1975,7 +1981,7 @@ header h2 {
 #member #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 19px;
+    font-size: 25px;
     list-style: none outside none;
     position: relative;
     top: 3px;
@@ -2626,7 +2632,7 @@ color: #ACACAC;
 #org #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 19px;
+    font-size: 25px;
     list-style: none outside none;
     position: relative;
     top: 3px;
@@ -3256,7 +3262,7 @@ color: #ACACAC;
 #about_us #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #about_us #sitemap li:before{
@@ -3622,7 +3628,7 @@ color: #ACACAC;
 #contact_us #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #contact_us #sitemap li:before{
@@ -3741,7 +3747,7 @@ color: #ACACAC;
 #donation #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #donation #sitemap li:before{
@@ -3824,7 +3830,7 @@ color: #ACACAC;
 #training #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #training #sitemap li:before{
@@ -3901,6 +3907,7 @@ color: #ACACAC;
     float: left;
     font-size: 30px;
     height: 45px;
+	padding-top: 5px;
 }
 #training .line {
     background: url("../img/mem_line.png") repeat-x scroll 0 center transparent;
@@ -4021,7 +4028,7 @@ color: #ACACAC;
 #news #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #news #sitemap li:before{
@@ -4110,7 +4117,7 @@ color: #ACACAC;
 #training.news #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #training.news #sitemap li:before{
@@ -4331,7 +4338,7 @@ color: #ACACAC;
 	color: #09C;
 	background: none;
 	margin:0;
-	font-size:17px;
+	font-size:19px;
 }
 #insideFooter #section ul {
     float: left;
@@ -4343,7 +4350,7 @@ color: #ACACAC;
     width: 100%;
 	color: #999;
 	list-style:disc inside;
-	font-size:17px;
+	font-size:18px;
 }
 #insideFooter #section li:nth-child(2){
 	width: 285px;
@@ -4420,7 +4427,7 @@ color: #ACACAC;
 #term #sitemap li {
     color: #FFFFFF;
     float: left;
-    font-size: 24px;
+    font-size: 25px;
     list-style: none outside none;
 }
 #term #sitemap li:before{
