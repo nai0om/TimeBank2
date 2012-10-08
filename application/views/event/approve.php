@@ -8,7 +8,7 @@
  <div id="main" role="main">
 
 <div id="approve_title">ตอบรับอาสา</div>
-<div id="approve_info">ชื่องานอาสา <span class="info_name"> <?= HTML::anchor('event/view/'.$event->id, $event->name); ?></span>
+<div id="approve_info"><div>ชื่องานอาสา <span class="info_name"> <?= HTML::anchor('event/view/'.$event->id, $event->name); ?></span></div>
 	<ul>
      <li>จำนวนรับสมัคร <span class="count"><?= $event->volunteer_need_count ?> คน</span></li>
             <li>สมัครเข้ามาทั้งหมด <span class="count"><?=  $all_users  ?> คน</span></li>
