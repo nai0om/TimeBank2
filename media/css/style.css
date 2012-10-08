@@ -237,7 +237,7 @@ span{
 	font-size: 19px !important;
 }
 p{
-	font-family: chula;
+	font-family: chula !important;
 	font-size: 19px;
 }
 header {
@@ -1509,7 +1509,7 @@ margin: 5px 0;
 }
 #tb_browse_detail #post h2{
 	padding:0;
-	margin:0 0 25px 0;
+	margin:20px 0 25px 0;
 }
 #tb_browse_detail #post .post-data
 {
@@ -1612,13 +1612,14 @@ margin: 5px 0;
     background: url("../img/tb_highlight.png") no-repeat scroll 0 0 transparent;
     clear: both;
     color: #FFFFFF;
-    font-size: 31px;
+    font-size: 30px;
     height: 39px;
     margin: 0;
     padding: 6px 0;
     text-align: center;
     width: 295px;
 	font-family:chula;
+	padding-top: 9px;
 }
 #tb_browse_detail #post_comment {
     background: url("../img/bg_post_comment.png") no-repeat scroll 0 0 #EEDBB1;
@@ -1627,6 +1628,9 @@ margin: 5px 0;
     margin-top: 15px;
     padding: 17px 17px 55px 17px;
     width: 870px;
+}
+#tb_browse_detail #post_comment a{
+	font-size: 18px !important;
 }
 #tb_browse_detail #post_comment div {
     border-top: 1px solid #FFFFFF;
@@ -1939,6 +1943,8 @@ margin: 5px 0;
     border: 0 none;
     height: 30px;
     width: 130px;
+	color: #ffffff;
+	font-size: 22px;
 }
 #help h3 {
     background: url("../img/bg_help_title.png") no-repeat scroll 0 0 transparent;
@@ -2091,6 +2097,7 @@ margin: 5px 0;
     float: left;
     font-size: 30px;
     height: 45px;
+	padding-top: 5px;
 }
 #member #main_right .line {
     background: url("../img/mem_line.png") repeat-x scroll 0 center transparent;
@@ -2635,7 +2642,7 @@ color: #ACACAC;
 	width: 933px;
 }
 #org #main ul li{
-	font-size:18px;
+	font-size:19px;
 }
 #org #sitemap {
     background: url("../img/member_bar.png") no-repeat scroll 0 0 transparent;
@@ -2925,13 +2932,14 @@ color: #ACACAC;
     clear: both;
     color: #FFFFFF;
     font-family: chula;
-    font-size: 20px;
+    font-size: 21px;
     height: 30px;
     width: 130px;
 	display:block;
 	float:right;
 	text-align:center;
 	cursor: pointer;
+	padding-top: 4px;
 }
 #org.job table tr td{
 	text-align:center;
@@ -3727,7 +3735,7 @@ color: #ACACAC;
     clear: both;
     color: #FFFFFF;
     font-family: chula;
-    font-size: 20px;
+    font-size: 22px;
     height: 30px;
     margin: 10px 0;
     width: 101px;
@@ -3885,10 +3893,12 @@ color: #ACACAC;
 }
 #training h2 {
     color: #0099CC;
-    font-size: 30px;
+    /*font-size: 30px;*/
     margin: 0 0 10px 53px;
     text-align: left;
 	font-family: chula;
+	font-size: 19px;
+	font-weight: normal;
 }
 #training #message {
     background: url("../img/contact_bg.png") no-repeat scroll 0 0 transparent;
@@ -4117,13 +4127,14 @@ color: #ACACAC;
     clear: both;
     color: #FFFFFF;
     font-family: chula;
-    font-size: 20px;
+    font-size: 22px;
     height: 30px;
     width: 130px;
 	display:block;
 	float:left;
 	text-align:center;
 	cursor: pointer;
+	padding-top: 5px;
 }
 /*training*/
 #training.news #main {
@@ -4476,7 +4487,7 @@ color: #ACACAC;
 }
 #term #main p{
 	font-family:chula;
-	font-size:18px;
+	font-size:19px;
 }
 #term #main p img{
 	padding:0 10px;
@@ -4495,7 +4506,7 @@ color: #ACACAC;
 	font-weight:bold;
 }
 #bannerRotating .slide p{
-	font-size:20px;
+	font-size:22px;
 	margin:0;
 }
 #container {

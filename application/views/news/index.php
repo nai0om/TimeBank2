@@ -36,7 +36,7 @@
 		<div class="line"></div>
 		<div style="clear:left"></div>
 		
-		<p><span style="color: #0099CC;font-size: 20px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 20px;font-weight: bold;"><?= count($news) ?></span></p>
+		<p><span style="color: #0099CC;font-size: 25px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 25px;font-weight: bold;"><?= count($news) ?></span></p>
 		 
 		<ul id="list">
         <? foreach($news as $new) : ?>
@@ -49,7 +49,7 @@
 		</ul>
 		
 		<div style="clear:left"></div>
-		<div class="line" style="width:82%;float:left"></div>
+		<!--<div class="line" style="width:82%;float:left"></div>-->
 		<!--ul id="pagination">
 			<li>Page 1</li>
 			<li>2</li>
