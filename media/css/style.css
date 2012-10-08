@@ -1085,7 +1085,7 @@ header h2 {
 }
 #tb_browse_searchResult table td{
 	padding:3px;
-	font-size:18px;
+	font-size:19px;
 	font-family: chula;
 }
 #tb_browse_searchResult table td a{
@@ -1221,7 +1221,7 @@ header h2 {
 }
 #tb_browse_searchResult.search #main table ul li {
     color: #000000;
-    font-size: 18px;
+    font-size: 19px;
 }
 /*timeBank > browse > newEvent*/
 #tb_browse_new 	
@@ -1737,6 +1737,12 @@ margin: 5px 0;
 }
 #tb_browse_detail.photos #pagination li{
 	color:#222;
+}
+#tb_browse_detail.photos #post_comment {
+    background: url("../img/tb_bg_post_photo.png") no-repeat scroll 0 0 transparent;
+    height: 317px;
+    margin: 0 auto;
+	background-size: cover
 }
 #tb_browse_detail.photos #post_comment a{
 	font-size: 18px;
