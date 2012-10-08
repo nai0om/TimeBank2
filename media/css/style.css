@@ -1235,6 +1235,7 @@ header h2 {
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #tb_browse_new #sitemap li:before{
 	content:'>';
@@ -1248,7 +1249,7 @@ header h2 {
 #tb_browse_new #main h2 {
     clear: both;
     color: #0099CC;
-    font-size: 37px;
+    font-size: 35px;
 	margin: 0 0 0 50px;
 }
 #tb_browse_new #leftSide {
@@ -1354,6 +1355,7 @@ header h2 {
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #tb_browse_new_thankyou #sitemap li:before{
 	content:'>';
@@ -2636,6 +2638,7 @@ color: #ACACAC;
     list-style: none outside none;
     position: relative;
     top: 3px;
+	font-family: chula;
 }
 #org #sitemap li:before{
 	content:'>';
@@ -2723,6 +2726,7 @@ color: #ACACAC;
     float: left;
     font-size: 30px;
     height: 45px;
+	padding-top: 5px;
 }
 #org #main_right .line {
     background: url("../img/mem_line.png") repeat-x scroll 0 center transparent;
@@ -3264,6 +3268,7 @@ color: #ACACAC;
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #about_us #sitemap li:before{
 	content:'>';
@@ -3377,12 +3382,12 @@ color: #ACACAC;
 }
 .popup #content h2 {
     border-bottom: 1px solid;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: normal;
     padding: 0 0 10px;
 }
 .popup #content h3 {
-    font-size: 17px;
+    font-size: 22px;
     font-weight: normal;
 }
 .popup a.button{
@@ -3391,7 +3396,7 @@ color: #ACACAC;
     clear: both;
     color: #FFFFFF;
     font-family: chula;
-    font-size: 20px;
+    font-size: 23px;
     height: 30px;
     width: 101px;
 	display:inline-block;
@@ -3433,7 +3438,7 @@ color: #ACACAC;
     clear: both;
     color: #FFFFFF;
     font-family: chula;
-    font-size: 20px;
+    font-size: 23px;
     height: 30px;
     margin: 10px;
     width: 101px;
@@ -3630,6 +3635,7 @@ color: #ACACAC;
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #contact_us #sitemap li:before{
 	content:'>';
@@ -3749,6 +3755,7 @@ color: #ACACAC;
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #donation #sitemap li:before{
 	content:'>';
@@ -3832,6 +3839,7 @@ color: #ACACAC;
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #training #sitemap li:before{
 	content:'>';
@@ -4030,6 +4038,7 @@ color: #ACACAC;
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #news #sitemap li:before{
 	content:'>';
@@ -4119,6 +4128,7 @@ color: #ACACAC;
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #training.news #sitemap li:before{
 	content:'>';
@@ -4429,6 +4439,7 @@ color: #ACACAC;
     float: left;
     font-size: 25px;
     list-style: none outside none;
+	font-family: chula;
 }
 #term #sitemap li:before{
 	content:'>';
@@ -4638,7 +4649,7 @@ header{
 #new-menu li {
     color: #22B5DA;
     float: left;
-    font-size: 18px;
+    font-size: 20px;
     list-style: none outside none;
     padding: 0 0 0 5px;
 	font-family: chula;
