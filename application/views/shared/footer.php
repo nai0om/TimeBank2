@@ -1,6 +1,6 @@
 <div style="clear:both"></div>
 <div id="insideFooter">
-    <div class="line" style="padding-bottom:40px; padding-top:40px"></div>
+    <div class="line" style="padding-bottom:40px; padding-top:15px"></div>
         <ul id="section">
             <li class="footerseciton1">
                 <h4>ธนาคารจิตอาสา</h4>
