@@ -4879,6 +4879,11 @@ display: block;
 margin: 45px auto -35px;
 }
 
+.title_userprofile, .title_userprofile label{
+	padding-left: 20px;
+	background: url("/media/img/bullet.png") no-repeat;
+}
+
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
