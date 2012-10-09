@@ -1499,7 +1499,7 @@ margin: 5px 0;
 	color:#dc6b0b;
 }
 #tb_browse_detail #post {
-    background: url("../img/bg_post_comment.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/bg_post_comment.png") no-repeat scroll 0 0 #efddb7;
 	background-size: cover;
     background-repeat: no-repeat;
    	display:inline-block;
@@ -1516,6 +1516,7 @@ margin: 5px 0;
 	 font-size: 25px;
     font-weight: bolder;
 	font-family: chula;
+	margin: -15px 0 15px 0;
 }
 
 #tb_browse_detail #post input{
@@ -1526,7 +1527,7 @@ margin: 5px 0;
 #tb_browse_detail #post form{
 	font-family:chula;
 	font-size:18px;
-	margin:-15px 0 0;
+	margin:-15px 0px 25px 0px;
 }
 #tb_browse_detail #post input[type="submit"],#tb_browse_detail #post_comment input[type="submit"] {
     background: url("../img/tb_orange_button_short.png") no-repeat scroll center 0 transparent;
@@ -1743,10 +1744,12 @@ margin: 5px 0;
 	color:#222;
 }
 #tb_browse_detail.photos #post_comment {
-    background: url("../img/tb_bg_post_photo.png") no-repeat scroll 0 0 transparent;
-    height: 317px;
-    margin: 0 auto;
-	background-size: cover
+	background: url("../img/bg_post_comment.png") no-repeat scroll 0 0 #EEDBB1;
+    clear: both;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    padding: 17px 17px 55px 17px;
+    width: 870px;
 }
 #tb_browse_detail.photos #post_comment a{
 	font-size: 18px;
@@ -2057,7 +2060,7 @@ margin: 5px 0;
     width: 208px;
 }
 #member #main_right #summary .sum_hours {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+    background: none repeat scroll 0 0 #f3ece4;
     border-radius: 6px 6px 0 0;
     color: #EC7C06;
     font-size: 29px;
@@ -2115,6 +2118,7 @@ margin: 5px 0;
     top: -26px;
     width: 97px;
 	cursor: pointer;
+	font-size: 22px;
 }
 #member #main_right .list{
 	margin:0;
@@ -2633,6 +2637,7 @@ color: #ACACAC;
 #org #main ul li:before {
     left: 0;
     padding: 0 0 0 0;
+	content: none;
 }
 #org #main ul {
     margin: 0;
@@ -2710,7 +2715,7 @@ color: #ACACAC;
 	text-align:center;
 }
 #org .sum_hours {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+    background: none repeat scroll 0 0 #f3ece4;
     border-radius: 6px 6px 0 0;
     color: #EC7C06;
     font-size: 29px;
@@ -2767,6 +2772,7 @@ color: #ACACAC;
     position: relative;
     top: -26px;
     width: 97px;
+	font-size: 22px;
 }
 #org #main_right .list{
 	margin:-20px 0 20px;
@@ -3260,6 +3266,9 @@ color: #ACACAC;
 }
 #org.approve .blue{
 	color: #0099CC;
+}
+#org #insideFooter #section li li a{
+	font-size:18px !important;
 }
 /*about us*/
 #about_us #bannerRotating .slide{
@@ -4361,8 +4370,8 @@ color: #ACACAC;
 	font-family:chula;
 	font-size:17px;
 }
-#insideFooter #section .footersection2{
-	width: 285px;
+#insideFooter #section li.footerseciton2{
+	width: 285px !important;
 }
 #main #insideFooter #section li:before, #main #insideFooter #section li li:before {
     content: "";
@@ -4393,7 +4402,7 @@ color: #ACACAC;
     width: 100%;
 	color: #999;
 	list-style:disc inside;
-	font-size:18px;
+	font-size:18px !important;
 }
 #insideFooter #section li:nth-child(2){
 	width: 285px;
