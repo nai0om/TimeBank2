@@ -510,7 +510,7 @@ header h2 {
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #main_timeBank #sitemap li {
     color: #FFFFFF;
@@ -672,7 +672,7 @@ header h2 {
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #tb_hiw #sitemap li {
     color: #FFFFFF;
@@ -790,7 +790,7 @@ header h2 {
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #tb_browse #sitemap li {
     color: #FFFFFF;
@@ -974,8 +974,8 @@ header h2 {
     float: left;
     height: 36px;
     margin: 1em 0;
-    padding: 3px 0 0 36px;
-    width: 686px;
+    padding: 3px 0 0 18px;
+    width: 800px;
 }
 #tb_browse_searchResult #sitemap li {
     color: #FFFFFF;
@@ -1238,7 +1238,7 @@ margin: 5px 0;
     height: 36px;
     margin: 1em 0 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #tb_browse_new #sitemap li {
     color: #FFFFFF;
@@ -1358,7 +1358,7 @@ margin: 5px 0;
     height: 36px;
     margin: 1em 0 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #tb_browse_new_thankyou #sitemap li {
     color: #FFFFFF;
@@ -1411,7 +1411,7 @@ margin: 5px 0;
     margin: 1em 0 0;
     padding: 3px 36px 0 36px;
    	background-size: cover;
-	min-width:686px;
+	min-width:800px;
 	max-width:886px;
 }
 #tb_browse_detail.photos #sitemap{
@@ -1866,7 +1866,7 @@ margin: 5px 0;
     height: 36px;
     margin: 1em 0 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #help #sitemap li {
     color: #FFFFFF;
@@ -3300,7 +3300,7 @@ color: #ACACAC;
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #about_us #sitemap li {
     color: #FFFFFF;
@@ -3671,7 +3671,7 @@ color: #ACACAC;
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #contact_us #sitemap li {
     color: #FFFFFF;
@@ -3791,7 +3791,7 @@ color: #ACACAC;
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #donation #sitemap li {
     color: #FFFFFF;
@@ -3875,7 +3875,7 @@ color: #ACACAC;
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #training #sitemap li {
     color: #FFFFFF;
@@ -4075,7 +4075,7 @@ color: #ACACAC;
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #news #sitemap li {
     color: #FFFFFF;
@@ -4166,7 +4166,7 @@ color: #ACACAC;
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #training.news #sitemap li {
     color: #FFFFFF;
@@ -4481,7 +4481,7 @@ color: #ACACAC;
     height: 36px;
     margin: 1em 0;
     padding: 3px 0 0 36px;
-    width: 686px;
+    width: 800px;
 }
 #term #sitemap li {
     color: #FFFFFF;
