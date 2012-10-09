@@ -716,10 +716,10 @@ header h2 {
 #tb_hiw h3.title {
     background: url("../img/tb_highlight.png") no-repeat scroll center 0 transparent;
     color: #FFFFFF;
-    font-size: 31px;
+    font-size: 29px;
     height: 39px;
     margin: 0;
-    padding: 6px 0;
+    padding: 8px 0;
     text-align: center;
 	font-family: chula;
 }
