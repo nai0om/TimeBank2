@@ -16,6 +16,16 @@ class TimebankNotification {
 		return $html;
 	}
 	
+	private static function queuesms($phone, $message, $note)
+	{
+		if ($phone == '')  return;
+		
+		$smsqueue = ORM::Factory('smsqueue');
+		$smsqueue->phone = $phone;
+		$smsqueue->message = $message;
+		$smsqueue->note = $note; // add user id.
+		$smsqueue->save();
+	}
 	private static function queuemail($from, $to, $subject, $body)
 	{
 		$mailqueue = ORM::Factory('mailqueue');
@@ -113,6 +123,11 @@ class TimebankNotification {
 		if ($user->noti_eventapproved == 1)
 		{
 			self::queuemail($from, $to, $subject, $body);
+		}
+		
+		if($user->noti_sms_almosteventdate = 1)
+		{
+			self::queuesms($user->phone, $subject.' '.timebanknotification::getUrlBase().'event/view/'.$event->id, $user->id);
 		}
 		self::send_inbox($user->id, 0, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">ดูรายละเอียดเพิ่มเติม</a>');
 		
@@ -232,6 +247,11 @@ class TimebankNotification {
 		if ($user->noti_almosteventdate == 1)
 		{	
 			self::queuemail($from, $to, $subject, $body);
+		}
+		
+		if($user->noti_sms_almosteventdate == 1)
+		{
+			self::queuesms($user->phone, $subject.' '.timebanknotification::getUrlBase().'event/view/'.$event->id, $user->id);
 		}
 		self::send_inbox($user->id, 0, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">ดูรายละเอียดกิจกรรม</a>');
 		

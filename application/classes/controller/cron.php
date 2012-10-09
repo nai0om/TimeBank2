@@ -1,6 +1,51 @@
 ﻿<?php defined('SYSPATH') or die('No direct script access.');
  
 class Controller_Cron extends Controller_Template {
+	
+	public function action_sendsms()
+	{
+		$this->auto_render = false;
+		
+		for ($i = 0; $i < 10; $i++)
+		{
+			$smsqueue = ORM::Factory('smsqueue')
+								->where('sending', '=', 0)
+								->and_where('sent', '=', 0)
+								->find();
+			
+			if ($smsqueue->loaded())
+			{
+				// Stamp that this one is currently sending
+				$smsqueue->sending = rand();
+				$smsqueue->save();
+				echo 'working on '.$smsqueue->id.'<br>';
+				
+				$status = TimebankUtil::send_sms($smsqueue->id, $smsqueue->phone, $smsqueue->message);
+				
+				//get resutl
+				$return = explode('=', $status[0]);
+				// Try again later
+				if ($return[1] != 0)
+				{	
+					$smsqueue->sending = 0;
+					$smsqueue->return_status = implode(",", $status);
+					$smsqueue->save();
+				}
+				else
+				{
+					$smsqueue->sending = 0;
+					$smsqueue->return_status = implode(",", $status);
+					$smsqueue->sent = 1;
+					$smsqueue->save();
+				}
+			}
+			else
+			{
+				echo 'nothing to send';
+				return;	
+			}
+		}
+	}
 
 	public function action_sendmail()
 	{
