@@ -1,4 +1,4 @@
-
+﻿
 <?php defined('SYSPATH') or die('No direct script access.');
 
 class Timebankutil {
@@ -92,21 +92,17 @@ class Timebankutil {
 		}		
 		*/
 	}
-	public static function send_sms()
+	public static function send_sms($refno, $msn, $msgDemo )
 	{
 		$user = 'api1610966';
 		$password = 'jbankapisms';
-		$msn = '0866035261';
-		$MsgDemo = 'สวัสดี';
-		
-		$postData = '&RefNo=12';
-		$postData += '&Sender=' + urlencode('I am your sender'); 
-		$postData += '&Msn=' + '66'.substr($msn, 1); ;
-		$postData += '&Sno=00';
-		$postData += '&MsgType=T';
-		$postData += '&Msg='+ urlencode($MsgDemo);
-		$postData += '&User='+ urlencode($user);
-		$postData += '&Password='+ urlencode($password);
+		$postData = '&RefNo='.$refno;
+		$postData .= '&Sender='.urlencode('JitArsaBank'); 
+		$postData .= '&Msn=66'.substr($msn, 1);
+		$postData .= '&MsgType=T';
+		$postData .= '&Msg='.$msgDemo;
+		$postData .= '&User='.urlencode($user);
+		$postData .= '&Password='.urlencode($password);
 		//RefNo=$sendrefno&Msn=$sendmsn&Msg=$sendmsg&Encoding=$sendencoding&MsgType=$sendmsgtype&User=$senduser&Password=$sendpassword"
 	
 		// Post parameters (Use curl) 
@@ -117,7 +113,8 @@ class Timebankutil {
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$postData);
 		$status = curl_exec($ch); // Status from DTAC 
 		curl_close($ch);
-		echo $status;	
+		$status = explode(' ', $status);
+		return $status;	
 	}
 	
 	// Convert unix time to "10 secs ago" format
