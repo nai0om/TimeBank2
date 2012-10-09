@@ -160,7 +160,7 @@ class timebankhelper {
 	   foreach ($skill as $title => $value)
 	   { 
 	   		$str_level = $i.'.';
-	   		echo '<div class="title_userprofile" id="'.$title.'"> <label>'.$str_level.' '.$dict[$title].'</label></div>';
+	   		echo '<div class="title_userprofile hide" id="'.$title.'"> <label>'.$str_level.' '.$dict[$title].'</label></div>';
 		
 			echo '<div class="userprofile" id="'.$title.'-panel">';
 			timebankhelper::buildSubNode($value, $skill, $dict, $skills, $str_level, $noX);
@@ -168,9 +168,13 @@ class timebankhelper {
 					$("#'.$title.'").click(function () {
 						if($("#'.$title.'-panel").is(":hidden")){
 							 $("#'.$title.'-panel").slideDown("slow");
+							 $(this).addClass("expand");
+							 $(this).removeClass("collapse");
 						}
 						else{
 							 $("#'.$title.'-panel").slideUp("slow");
+							 $(this).addClass("collapse");
+							 $(this).removeClass("expand");
 						}
 					 });
 				 </script>';
@@ -218,6 +222,8 @@ class timebankhelper {
 						echo '<script> 
 								$("#'.$title2.'-input").click(function () {
 									$("#'.$title2.'-panel").slideDown("slow");	
+									$(this).addClass("expand");
+									$(this).removeClass("collapse");
 								
 								}
 								);
@@ -237,10 +243,14 @@ class timebankhelper {
 									if($("#'.$title2.'-checkbok").is(":checked"))
 									{
 											$("#'.$title2.'-panel").slideDown("slow");
+											$(this).addClass("expand");
+											$(this).removeClass("collapse");
 									}
 									else
 									{
 										$("#'.$title2.'-panel").slideUp("slow");	
+										$(this).addClass("collapse");
+										$(this).removeClass("expand");
 									}
 								
 								}
@@ -262,9 +272,13 @@ class timebankhelper {
 					$("#'.$title2.'").click(function () {
 						if($("#'.$title2.'-panel").is(":hidden")){
 							 $("#'.$title2.'-panel").slideDown("slow");
+							 $(this).addClass("expand");
+							 $(this).removeClass("collapse");
 						}
 						else{
 							 $("#'.$title2.'-panel").slideUp("slow");
+							 $(this).addClass("collapse");
+							 $(this).removeClass("expand");
 						}
 					 });
 				 </script>';
