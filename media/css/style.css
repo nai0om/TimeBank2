@@ -3563,7 +3563,6 @@ color: #ACACAC;
     background-image: url("../img/map_bg.png");
     height: auto;
 	background-size:cover;
-	background-repeat: repeat-y;
 }
 #volunteerOrgSignup.popup  form{
 	text-align:left;
