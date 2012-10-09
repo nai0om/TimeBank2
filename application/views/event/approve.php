@@ -37,13 +37,13 @@
                 <tbody>
 					<tr>
                         <th></th>
-                        <th>รูป Profile</th>
-                         <th>diplay name</th>
-                        <th>ชื่อจริง / username</th>
+                        <th>รูปโปรไฟล์</th>
+                         <th>ชื่อที่ใช้แสดง</th>
+                        <th>ชื่อจริง / นามสกุล</th>
                         <th>ชื่อเล่น</th>
                         <th>อายุ</th>
                         <th>เพศ</th>
-                        <th>Email</th>
+                        <th>อีเมล</th>
 						<th>เบอร์โทร</th>
                 </tr>
               <? foreach($event->users->order_by('id','desc')->find_all() as $user) : ?>
