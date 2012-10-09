@@ -214,7 +214,7 @@ class timebankhelper {
 					$val = '';
 					if(array_key_exists(trim($title2), $skills))
 					{
-					  $val = $skills[$value2];
+					  $val = $skills[$title2];
 					}
 					
 					echo '<span style="margin-left: '.(10 + $magine).'px;cursor: pointer;" id="'.$title2.'">'.$dict[$title2].'</span> <br />';
