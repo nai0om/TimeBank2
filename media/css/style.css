@@ -1414,6 +1414,9 @@ margin: 5px 0;
 	min-width:686px;
 	max-width:886px;
 }
+#tb_browse_detail.photos #sitemap{
+	    padding: 3px 55px 0 40px;
+}
 #tb_browse_detail #sitemap li {
     color: #FFFFFF;
     float: left;
@@ -1761,7 +1764,7 @@ margin: 5px 0;
 }
 #tb_browse_detail.photos h2 {
     color: #0099CC;
-    margin: 10px 0 10px 103px;
+    margin: 10px auto;
     text-align: center;
 }
 #tb_browse_detail.photos h4.title{
@@ -3560,6 +3563,7 @@ color: #ACACAC;
     background-image: url("../img/map_bg.png");
     height: auto;
 	background-size:cover;
+	background-repeat: repeat-y;
 }
 #volunteerOrgSignup.popup  form{
 	text-align:left;
@@ -3593,6 +3597,9 @@ color: #ACACAC;
 	background-image:url("../img/bg_popup_340.png");
 	background-size:cover;
 	height:440px;
+}
+#volunteerSignup.popup #content{
+	background: none scroll 0 0 #EEDBB1\9;
 }
 #volunteerSignup.popup  form{
 	text-align:left;
