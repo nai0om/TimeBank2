@@ -1047,22 +1047,7 @@ class Controller_Admin extends Controller_Template {
 	public function action_settings_userupdate()
 	{
 		$this->auto_render = false;
-		$users = ORM::factory('user')->find_all();
-		foreach( $users as $user)
-		{ 
-		 
-			DB::delete('rank')->where('user_id', '=', $user->id)->execute();
-			
-			linkscreator::set_user_link($user);
-			
-			$events = linkscreator::get_top_event($user->id, 9);
-			foreach($events as $event)
-			{
-				DB::insert('rank', array('user_id', 'event_id', 'rate'))
-				->values(array($user->id, $event['event_id'], $event['rate_point']))
-				->execute();
-			}
-		}
+		Request::factory('cron/updateuserevent')->execute();
 		echo'<script>'.
 						'alert ("'.__('Update complete').'"); '.
 						'window.location = "'.url::base().'admin/setting/"'.

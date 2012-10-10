@@ -317,5 +317,29 @@ class TimebankNotification {
 		self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/view/'.$event->id.'#'.$comment->id.'">ดูข้อความ</a>');
 		
 	}
+	
+	public static function notify_matchevent($user, $events/*array*/)
+	{
+		if(count($events) <= 0) return;
+		$subject = 'มีงานอาสาที่เหมาะกับคุณ';
+		
+		//build link 
+		$links = '';
+		$htmllinks = '';
+		foreach($events as $event)
+		{
+			$links .= timebanknotification::getUrlBase().'event/view/'.$event->id.' ';	
+			$htmllinks .=  '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a> | ';
+		}
+			
+		if ($user->noti_sms_event_matched == 1)
+		{
+			
+			self::queuesms($user->phone, $subject.' '.$links, $user->id);
+		}
+		
+		self::send_inbox($user->id, 0 , $subject, $htmllinks);
+		
+	}
 }
 
