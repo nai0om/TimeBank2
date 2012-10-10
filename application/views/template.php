@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
-    <meta name="robots" content="noindex">
     <meta name="language" content="en-us" />
     <? if ($meta_page_title != '') : ?>
     	<title><?= $meta_page_title.' - ธนาคารจิตอาสา: ปันเวลาช่วยกัน' ?></title> 
@@ -97,7 +96,7 @@
        mathiasbynens.be/notes/async-analytics-snippet -->
   <script>
 
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    var _gaq=[['_setAccount','UA-34261709-1'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
