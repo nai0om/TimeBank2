@@ -65,7 +65,7 @@ class timebankhelper {
 	}
 	
 	public static function getYearsNumber()
-	{
+	{ 
 		$years = array();
 		for($i = 0; $i <= 150 ; $i++)
 		{
@@ -167,7 +167,6 @@ class timebankhelper {
 			echo '<script>
 					$("#'.$title.'").click(function () {
 						if($("#'.$title.'-panel").is(":hidden")){
-							 close();
 							 $("#'.$title.'-panel").slideDown("slow");
 							 $(this).addClass("expand");
 							 $(this).removeClass("collapse");
@@ -178,15 +177,7 @@ class timebankhelper {
 							 $(this).removeClass("expand");
 						}
 					 });
-					 
-					 function close(){
-						$.each($(".expand"), function(index, value) { 
-							var panel = $(this).attr("id")+"-panel";
-							$("#"+panel).slideUp("slow");
-							$(this).addClass("collapse");
-							$(this).removeClass("expand");
-						});
-					 }
+					
 				 </script>';
 			echo '</div>';
 		 $i++;
@@ -281,7 +272,6 @@ class timebankhelper {
 				echo '<script>
 					$("#'.$title2.'").click(function () {
 						if($("#'.$title2.'-panel").is(":hidden")){
-							 close_sub();
 							 $("#'.$title2.'-panel").slideDown("slow");
 							 $(this).addClass("expand");
 							 $(this).removeClass("collapse");
@@ -292,12 +282,6 @@ class timebankhelper {
 							 $(this).removeClass("expand");
 						}
 					 });
-					  function close_sub(){
-						$.each($(".userprofile .expand"), function(index, value) { 
-							var panel = $(this).attr("id")+"-panel";
-							$("#"+panel).slideUp("slow");
-						});
-					 }
 				 </script>';
 				echo '</div>';
 				$i++;
