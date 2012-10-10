@@ -34,6 +34,7 @@
 			<p></p>
 			<p><i>หมายเหตุ: การแจ้งเตือนทางอีเมลจะส่งไปยังอีเมลผู้ใช้ของคุณ (ชื่อบัญชีผู้ใช้) หากไม่ได้รับการแจ้งเตือนกรุณาตรวจสอบในกล่องอีเมลขยะ (spam หรือ junk mail)</p>
 			<div class="headline">แจ้งเตือนทางมือถือ (SMS)</div><div class="line"></div>
+            <p><?= Form::checkbox('noti_sms_event_matched', 1, (bool) $user->noti_sms_event_matched); ?> เมื่อมีงานอาสาที่เหมาะกับโปรไพล์ (ความสนใจ/ ความถนัด) ของอาสา</p>
 			<p><?= Form::checkbox('noti_sms_eventapproved', 1, (bool) $user->noti_sms_eventapproved); ?> เมื่อคุณได้รับการตอบรับเข้าร่วมกิจกรรม (แจ้งเตือนทันที)</p>
 			<p><?= Form::checkbox('noti_sms_almosteventdate', 1, (bool) $user->noti_sms_almosteventdate); ?> ก่อนถึงวันจัดกิจกรรมที่คุณได้รับการตอบรับ 3 วัน</p>
 			<p><?= Form::checkbox('noti_sms_news', 1, (bool) $user->noti_sms_news); ?> รับข่าวสารพิเศษจากธนาคารจิตอาสา</p>

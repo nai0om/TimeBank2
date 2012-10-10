@@ -27,7 +27,13 @@ class Controller_User extends Controller_Template {
 		//event-rand is latest event.
 		$events_rand = ORM::factory('event')->where('event.status', '=', '1')->order_by('id','desc')->limit(15)->find_all();
 		
-		$recommend_event_ids = linkscreator::get_top_event($this->user->id, 15);
+		$recommend_event_ids = DB::select()
+										->from('rank')
+										->where('user_id', '=', $this->user->id)
+										->order_by('rate', 'DESC') 
+										->limit(15)
+										->execute()
+										->as_array();
 		$event_recommends = array();
 		
 		foreach($recommend_event_ids as $event_id)
@@ -868,6 +874,11 @@ class Controller_User extends Controller_Template {
 				$this->user->noti_sms_news = 1;
 			else
 				$this->user->noti_sms_news = 0;
+			
+			if (isset($_POST['noti_sms_event_matched']))
+				$this->user->noti_sms_event_matched = 1;
+			else
+				$this->user->noti_sms_event_matched = 0;
 
 			try
 			{
