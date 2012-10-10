@@ -48,7 +48,7 @@ class Controller_Admin extends Controller_Template {
 				Request::current()->redirect('admin/index');
 			}
 			
-			$users = ORM::factory('user')->where('role', '=', '0')->find_all();
+			$users = ORM::factory('user')->where('role', '<>', '1')->find_all();
 			foreach($users as $user)
 			{
 				if($user->noti_sms_news == 1)

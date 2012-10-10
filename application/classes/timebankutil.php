@@ -92,7 +92,7 @@ class Timebankutil {
 		}		
 		*/
 	}
-	public static function send_sms($refno, $msn, $msgDemo )
+	public static function send_sms($refno, $msn, $msg)
 	{
 		$user = 'api1610966';
 		$password = 'jbankapisms';
@@ -100,7 +100,7 @@ class Timebankutil {
 		$postData .= '&Sender='.urlencode('JitArsaBank'); 
 		$postData .= '&Msn=66'.substr($msn, 1);
 		$postData .= '&MsgType=T';
-		$postData .= '&Msg='.$msgDemo;
+		$postData .= '&Msg='.urlencode(iconv("UTF-8", "windows-874", $msg));
 		$postData .= '&User='.urlencode($user);
 		$postData .= '&Password='.urlencode($password);
 		//RefNo=$sendrefno&Msn=$sendmsn&Msg=$sendmsg&Encoding=$sendencoding&MsgType=$sendmsgtype&User=$senduser&Password=$sendpassword"
