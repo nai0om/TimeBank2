@@ -3448,8 +3448,9 @@ color: #ACACAC;
 	width: auto;
 }
 .popup .button.long170 {
-    background: url("../img/tb_orange_button_176.png") no-repeat scroll center 0 transparent;
+    background: url("../img/tb_orange_button_180.png") no-repeat scroll center 0 transparent;
     width: 176px;
+	height: 40px;
 }
 #data.popup.big #content {
     background-image: url("../img/bg_popup_397.png");
