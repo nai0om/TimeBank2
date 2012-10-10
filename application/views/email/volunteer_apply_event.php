@@ -50,7 +50,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
                                     <p>สวัสดีครับ <?= $vars['org_name'] ?></p>
 
-									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร เข้าสมัครเข้าร่วมกิจรรม....<br>
+									<p><img src="<?= $vars['urlbase'].'media/upload/email/bullet.png' ?>">มีอาสาสมัคร เข้าสมัครเข้าร่วมกิจรรม <?= $vars['event_name'] ?><br>
 
 									<a href="<?= $vars['urlbase'].'event/approve/'.$vars['event_id'] ?>">ตอบรับอาสาสมัคร</a></p>								 
 

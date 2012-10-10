@@ -159,7 +159,7 @@ class TimebankNotification {
 		
 		$from = Kohana::$config->load('timebank')->get('server_email');
 		$to = $org_user->email;
-		$subject = 'มี "อาสา" ขอเลิกงาน "'.$event->name.'"';
+		$subject = 'มี "อาสา" ขอยกเลิกงาน "'.$event->name.'"';
 		
 		$body = self::renderHtmlEmail('volunteer_cancel_event', array(
 															'org_name' 		=> $organization->name,
@@ -171,7 +171,7 @@ class TimebankNotification {
 		{
 			self::queuemail($from, $to, $subject, $body);
 		}
-		self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/view/'.$event->id.'">ดูรายชื่อาสาทั้งหมด</a>');
+		self::send_inbox(0, $organization->id, $subject, '<a href="'.url::base().'event/approve/'.$event->id.'">ดูรายชื่อาสาทั้งหมด</a>');
 		
 	}
 
