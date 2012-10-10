@@ -28,6 +28,7 @@ class Controller_Cron extends Controller_Template {
 				if ($return[1] != 0)
 				{	
 					$smsqueue->sending = 0;
+					$smsqueue->sent = -1;
 					$smsqueue->return_status = implode(",", $status);
 					$smsqueue->save();
 				}
