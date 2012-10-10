@@ -263,10 +263,7 @@ class timebankhelper {
 					echo  '<label id="'.$title2.'" style="margin-left:'.(10 + $magine).'px; cursor: pointer; " > '.$str_level_sub.' '.$dict[$title2].'</label> <br />'; 
 				}
 				
-				if($str_level != '' || phphelp::startsWith($title2, 'X'))
-					echo '<div class="userprofile" id="'.$title2.'-panel">';
-				else
-					echo '<div class="userprofile" style="display: block;" >';
+				echo '<div class="userprofile" id="'.$title2.'-panel">';
 					
 				timebankhelper::buildSubNode($value2, $skill, $dict, $skills, '', $noX, $title2, $level + 1);
 				echo '<script>
