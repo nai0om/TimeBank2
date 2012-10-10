@@ -16,7 +16,7 @@ class TimebankNotification {
 		return $html;
 	}
 	
-	private static function queuesms($phone, $message, $note)
+	public static function queuesms($phone, $message, $note)
 	{
 		if ($phone == '')  return;
 		
