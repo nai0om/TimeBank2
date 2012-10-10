@@ -38,7 +38,27 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_send_sms()
 	{
-		timebankutil::send_sms();
+		$this->check_admin();		
+        if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$message = Arr::get($_POST, 'message');
+			
+			if ($message == '') 
+			{
+				Request::current()->redirect('admin/index');
+			}
+			
+			$users = ORM::factory('user')->where('role', '=', '0')->find_all();
+			foreach($users as $user)
+			{
+				if($user->noti_sms_news == 1)
+				{
+					TimebankNotification::queuesms($user->phone, $message, $user->id);
+				}
+			}
+			
+		}
+		Request::current()->redirect('admin/index');
 	}
 	public function action_addrecommend()
 	{

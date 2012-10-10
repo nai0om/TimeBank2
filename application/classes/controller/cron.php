@@ -6,7 +6,7 @@ class Controller_Cron extends Controller_Template {
 	{
 		$this->auto_render = false;
 		
-		for ($i = 0; $i < 10; $i++)
+		for ($i = 0; $i < 100; $i++)
 		{
 			$smsqueue = ORM::Factory('smsqueue')
 								->where('sending', '=', 0)
@@ -51,7 +51,7 @@ class Controller_Cron extends Controller_Template {
 	{
 		$this->auto_render = false;
 		
-		for ($i = 0; $i < 5; $i++)
+		for ($i = 0; $i < 100; $i++)
 		{
 			$mailqueue = ORM::Factory('mailqueue')
 								->where('sending', '=', 0)
