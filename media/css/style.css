@@ -463,7 +463,8 @@ header h2 {
     font-size: 19px;
     margin: 5px 0;
 	overflow:hidden;
-	width:250px;	
+	width:250px;
+	line-height: 21px;
 }
 #home article p  a{
 	color:#e87c0c;
@@ -1576,6 +1577,7 @@ margin: 5px 0;
     font-size: 25px;
     margin: 20px 0 0;
 	font-family: chula;
+	padding: 4px 0;
 }
 #tb_browse_detail #leftSide {
     float: left;
@@ -1662,7 +1664,7 @@ margin: 5px 0;
     background: url("../img/tb_orange_button_share.png") no-repeat scroll 0 0 transparent;
     color: #FFFFFF;
     float: right;
-    font-size: 23px;
+    font-size: 22px;
     height: 30px;
     margin: 10px 0 0 73px;
     padding: 8px 0 0 3px;
@@ -3646,7 +3648,7 @@ color: #ACACAC;
     width: 162px;
 }
 #volunteerSignup.popup #content h3{
-	margin:0;
+	margin:0 0 7px 0;
 }
 /*contact*/
 #contact_us .column.two {
@@ -4116,10 +4118,10 @@ color: #ACACAC;
     color: #FFFFFF;
     display: inline;
     float: right;
-    font-size: 24px;
+    font-size: 22px;
     height: 30px;
     margin: -38px 37px 0 75px;
-    padding: 0 0 0 35px;
+    padding: 2px 0 0 35px;
     text-decoration: none;
     width: 95px;
 }
@@ -4208,10 +4210,10 @@ color: #ACACAC;
     color: #FFFFFF;
     display: inline;
     float: right;
-    font-size: 24px;
+    font-size: 22px;
     height: 30px;
     margin: -38px 37px 0 75px;
-    padding: 0 0 0 35px;
+    padding: 2px 0 0 35px;
     text-decoration: none;
     width: 95px;
 }
