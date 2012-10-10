@@ -76,7 +76,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 														<td valign="top">
 
-															<p>คุณสามารถดูรายชื่ออาสาสมัครได้ที่เข้าร่วมกิจกรรมนี้ได้ที่...</p>
+															<p>คุณสามารถดูรายชื่ออาสาสมัครได้ที่เข้าร่วมกิจกรรมนี้ได้ที่นี่</p>
 
 															<p><a href="<?= $vars['urlbase'].'event/view/'.$vars['event_id'].'?mode=2' ?>"><img src="<?= $vars['urlbase'].'media/upload/email/843_list.png' ?>"><a></p>
 
