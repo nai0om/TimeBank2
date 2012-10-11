@@ -1,4 +1,4 @@
-﻿<?php defined('SYSPATH') or die('No direct script access.');
+<?php defined('SYSPATH') or die('No direct script access.');
  
 class Controller_Event extends Controller_Template {
 	
@@ -1024,7 +1024,7 @@ class Controller_Event extends Controller_Template {
 		
 			}
 	
-			$event->search_temp =  $event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.$event->detail.'/'.$event->location_name;
+			$event->search_temp =  $orguser->name.'/'.$event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.strip_tags($event->detail).'/'.$event->location_name;
 		
 			try
 			{
