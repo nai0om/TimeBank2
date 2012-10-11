@@ -1016,6 +1016,8 @@ class Controller_Event extends Controller_Template {
 			
 			if($orguser != NULL)
 				$event->organization = $orguser;
+
+			$orguser = $event->organization;
 			
 			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
 			{
