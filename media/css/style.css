@@ -3983,6 +3983,8 @@ color: #ACACAC;
 	font-size:18px !important;
 	color:#222;
 	overflow:hidden;
+	margin: 0 15px 0 0;
+	width: 430px;
 }
 #training #list li:before{
 	content:'';
@@ -4428,13 +4430,10 @@ color: #ACACAC;
 
 #training #list a img {
     border: 5px solid #FFFFFF;
+	margin: 0 0 15px 0;
 }
 
 #main_timeBank #volunteer img {
-    border: 5px solid #FFFFFF;
-}
-
-#training #list a img {
     border: 5px solid #FFFFFF;
 }
 
