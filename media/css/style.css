@@ -3465,10 +3465,12 @@ color: #ACACAC;
 	color:#0099cc;
 }
 #alertMsg.popup #content h2{
-	padding:0 0 10px 70px;
+	padding:0 10px;
+	text-align: center
 }
 #forgot.popup #content h2{
-	padding:0 0 10px 55px;
+	padding:0 10px;
+	text-align: center
 }
 .popup form input{
     background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #FFFFFF;
@@ -3487,7 +3489,8 @@ color: #ACACAC;
     width: 101px;
 }
 #data.popup #content h2{
-	padding:0 0 10px 55px;
+	padding:0 10px;
+	text-align: center;
 	
 }
 
@@ -3523,7 +3526,8 @@ color: #ACACAC;
 }
 /*help calculate*/
 #helpCal.popup #content h2{
-	padding:0 0 10px 55px;
+	padding:0 10px;
+	text-align: center;
 }
 #helpCal.popup #content{
 	background-image:url("../img/bg_popup_340.png");
@@ -3561,7 +3565,8 @@ color: #ACACAC;
 }
 /*volunteer org sign up*/
 #volunteerOrgSignup.popup #content h2{
-	padding:0 0 10px 55px;
+	padding:0 10px;
+	text-align: center;
 }
 #volunteerOrgSignup.popup #content {
     background-image: url("../img/map_bg.png");
@@ -3594,7 +3599,8 @@ color: #ACACAC;
 }
 /*volunteer sign up*/
 #volunteerSignup.popup #content h2{
-	padding:0 0 10px 55px;
+	padding:0 10px;
+	text-align: center;
 }
 #volunteerSignup.popup #content{
 	background-image:url("../img/bg_popup_340.png");
