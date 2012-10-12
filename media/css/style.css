@@ -2104,9 +2104,9 @@ margin: 5px 0;
     color: #FFFFFF;
     display: inline-block;
     float: left;
-    font-size: 30px;
+    font-size: 28px;
     height: 45px;
-	padding-top: 5px;
+	padding-top: 7px;
 }
 #member #main_right .line {
     background: url("../img/mem_line.png") repeat-x scroll 0 center transparent;
