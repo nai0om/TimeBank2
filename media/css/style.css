@@ -3510,6 +3510,9 @@ color: #ACACAC;
 	width:200px;
 }
 #data.popup input[type="submit"]{
+	margin:0;
+}
+#data.checkdata input[type="submit"]{
 	margin:0 205px;
 	padding: 6px 0;
 	font-size: 21px;
