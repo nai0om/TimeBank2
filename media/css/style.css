@@ -1238,7 +1238,7 @@ margin: 5px 0;
     float: left;
     height: 36px;
     margin: 1em 0 0;
-    padding: 3px 0 0 36px;
+    padding: 5px 0 0 36px;
     width: 800px;
 }
 #tb_browse_new #sitemap li {
@@ -1262,6 +1262,7 @@ margin: 5px 0;
     color: #0099CC;
     font-size: 35px;
 	margin: 0 0 0 50px;
+	padding: 8px 0;
 }
 #tb_browse_new #leftSide {
     background: url("../img/tb_line_verticle.png") repeat-y scroll right 0 transparent;
@@ -2760,7 +2761,7 @@ color: #ACACAC;
     float: left;
     font-size: 25px;
     height: 45px;
-	padding-top: 5px;
+	padding-top: 9px;
 }
 #org #main_right .line {
     background: url("../img/mem_line.png") repeat-x scroll 0 center transparent;
