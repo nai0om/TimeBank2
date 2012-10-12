@@ -26,15 +26,15 @@
 		<div id="videoRotating">
 			<div id="carousel">
 				<div id="slide01" class="slide">
-					<iframe width="297" height="216" src="http://www.youtube.com/embed/_TAkbT6CxJ4?rel=0" frameborder="0" allowfullscreen></iframe>
+					<iframe width="297" height="216" src="http://www.youtube.com/embed/XphuDvRjY7c" frameborder="0" allowfullscreen></iframe>
 				</div>
 						
 				<div id="slide02" class="slide">
-					<iframe width="297" height="216" src="http://www.youtube.com/embed/DYgDWw4epK8?rel=0" frameborder="0" allowfullscreen></iframe>
+					<iframe width="297" height="216" src="http://www.youtube.com/embed/kY7nQsFCj5c" frameborder="0" allowfullscreen></iframe>
 				</div>
 						
 				<div id="slide03" class="slide">
-					<iframe width="297" height="216" src="http://www.youtube.com/embed/dZjVzFsRakg?rel=0" frameborder="0" allowfullscreen></iframe>
+					<iframe width="297" height="216" src="http://www.youtube.com/embed/XphuDvRjY7c" frameborder="0" allowfullscreen></iframe>
 				</div>
 					
 			</div>
