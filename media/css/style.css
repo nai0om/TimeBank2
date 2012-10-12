@@ -508,9 +508,9 @@ header h2 {
 #main_timeBank #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #main_timeBank #sitemap li {
@@ -670,9 +670,9 @@ header h2 {
 #tb_hiw #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #tb_hiw #sitemap li {
@@ -788,9 +788,9 @@ header h2 {
 #tb_browse #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #tb_browse #sitemap li {
@@ -973,9 +973,9 @@ header h2 {
 #tb_browse_searchResult #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 18px;
+    padding: 11px 0 0 18px;
     width: 800px;
 }
 #tb_browse_searchResult #sitemap li {
@@ -1236,9 +1236,9 @@ margin: 5px 0;
 #tb_browse_new #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #tb_browse_new #sitemap li {
@@ -1357,9 +1357,9 @@ margin: 5px 0;
 #tb_browse_new_thankyou #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0 0;
-    padding: 3px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #tb_browse_new_thankyou #sitemap li {
@@ -1409,9 +1409,9 @@ margin: 5px 0;
 #tb_browse_detail #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 30px;
+    height: 39px;
     margin: 1em 0 0;
-    padding: 3px 36px 0 36px;
+    padding: 11px 36px 0 36px;
    	background-size: cover;
 	min-width:800px;
 	max-width:886px;
@@ -1866,9 +1866,9 @@ margin: 5px 0;
 #help #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0 0;
-    padding: 3px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #help #sitemap li {
@@ -3300,9 +3300,9 @@ color: #ACACAC;
 #about_us #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #about_us #sitemap li {
@@ -3679,9 +3679,9 @@ color: #ACACAC;
 #contact_us #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #contact_us #sitemap li {
@@ -3800,9 +3800,9 @@ color: #ACACAC;
 #donation #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #donation #sitemap li {
@@ -3884,9 +3884,9 @@ color: #ACACAC;
 #training #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #training #sitemap li {
@@ -4086,9 +4086,9 @@ color: #ACACAC;
 #news #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #news #sitemap li {
@@ -4177,9 +4177,9 @@ color: #ACACAC;
 #training.news #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 5px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #training.news #sitemap li {
@@ -4489,9 +4489,9 @@ color: #ACACAC;
 #term #sitemap {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 36px;
+    height: 39px;
     margin: 1em 0;
-    padding: 3px 0 0 36px;
+    padding: 11px 0 0 36px;
     width: 800px;
 }
 #term #sitemap li {
