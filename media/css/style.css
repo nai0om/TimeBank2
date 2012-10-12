@@ -3425,7 +3425,8 @@ color: #ACACAC;
     border-bottom: 1px solid;
     font-size: 25px;
     font-weight: normal;
-    padding: 0 0 10px;
+    padding: 10px;
+	text-align: center;
 }
 .popup #content h3 {
     font-size: 22px;
@@ -3465,11 +3466,11 @@ color: #ACACAC;
 	color:#0099cc;
 }
 #alertMsg.popup #content h2{
-	padding:0 10px;
+	padding:10px;
 	text-align: center
 }
 #forgot.popup #content h2{
-	padding:0 10px;
+	padding:10px;
 	text-align: center
 }
 .popup form input{
@@ -3489,14 +3490,14 @@ color: #ACACAC;
     width: 101px;
 }
 #data.popup #content h2{
-	padding:0 10px;
+	padding:10px;
 	text-align: center;
 	
 }
 
 #data.popup #content{
-	background-image:url("../img/bg_popup_340.png");
-	height:340px;
+	background-image:url("../img/bg_popup_397.png");
+	height:397px;
 }
 #data.popup  form{
 	text-align:left;
@@ -3526,7 +3527,7 @@ color: #ACACAC;
 }
 /*help calculate*/
 #helpCal.popup #content h2{
-	padding:0 10px;
+	padding:10px;
 	text-align: center;
 }
 #helpCal.popup #content{
@@ -3565,7 +3566,7 @@ color: #ACACAC;
 }
 /*volunteer org sign up*/
 #volunteerOrgSignup.popup #content h2{
-	padding:0 10px;
+	padding:10px;
 	text-align: center;
 }
 #volunteerOrgSignup.popup #content {
@@ -3599,7 +3600,7 @@ color: #ACACAC;
 }
 /*volunteer sign up*/
 #volunteerSignup.popup #content h2{
-	padding:0 10px;
+	padding:10px;
 	text-align: center;
 }
 #volunteerSignup.popup #content{
