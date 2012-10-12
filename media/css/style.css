@@ -419,7 +419,7 @@ header h2 {
     font-size: 30px;
     height: 41px;
     margin: 0 auto;
-    padding: 2px 0;
+    padding: 7px 0;
     text-align: center;
     width: 496px;
 	font-weight:bold;
@@ -672,7 +672,7 @@ header h2 {
     float: left;
     height: 36px;
     margin: 1em 0;
-    padding: 3px 0 0 36px;
+    padding: 5px 0 0 36px;
     width: 800px;
 }
 #tb_hiw #sitemap li {
@@ -975,7 +975,7 @@ header h2 {
     float: left;
     height: 36px;
     margin: 1em 0;
-    padding: 3px 0 0 18px;
+    padding: 5px 0 0 18px;
     width: 800px;
 }
 #tb_browse_searchResult #sitemap li {
@@ -3680,7 +3680,7 @@ color: #ACACAC;
     float: left;
     height: 36px;
     margin: 1em 0;
-    padding: 3px 0 0 36px;
+    padding: 5px 0 0 36px;
     width: 800px;
 }
 #contact_us #sitemap li {
@@ -3751,6 +3751,7 @@ color: #ACACAC;
 #contact_us label{
 	width: 90%;
 	display:block;
+	padding: 7px 0 3px 0;
 }
 #contact_us textarea {
     background: url("../img/tb_bg_textbox.jpg") repeat-x scroll 0 0 #fff;
@@ -4086,7 +4087,7 @@ color: #ACACAC;
     float: left;
     height: 36px;
     margin: 1em 0;
-    padding: 3px 0 0 36px;
+    padding: 5px 0 0 36px;
     width: 800px;
 }
 #news #sitemap li {
@@ -4177,7 +4178,7 @@ color: #ACACAC;
     float: left;
     height: 36px;
     margin: 1em 0;
-    padding: 3px 0 0 36px;
+    padding: 5px 0 0 36px;
     width: 800px;
 }
 #training.news #sitemap li {
