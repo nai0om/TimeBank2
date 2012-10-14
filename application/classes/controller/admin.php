@@ -556,6 +556,16 @@ class Controller_Admin extends Controller_Template {
 											->bind('records', $records);
 	}
 	
+	public function action_eventdelete()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		
+		$event = ORM::factory('event', $this->request->param('id') );
+		$event->delete(); 
+		Request::current()->redirect('admin/event');
+	}
+	
 	public function action_eventuseredit()
 	{
 		$this->check_admin();
