@@ -24,23 +24,32 @@
 		</form>
 
 		<div style="clear:both"></div>
-        <div id="leftSide">
-			<? foreach($helps_left as $help) : ?>
-                <div class="title" id="<?= $help->id?>"><?= $help->topic ?></div>
-                <div style="float:left; width:100%">
-                <?= $help->message ?>
-                </div>
-            <? endforeach ?>       
+            <div id="leftSide">
+            <? foreach($helps as $help): ?>
+			    <div class="title" id="<?= $help->id ?>"><?= $help->topic ?></div>
+                <div style="float:left; width:100%"></div>
+                <script>
+							
+				  $("#<?= $help->id ?>").click(function () {
+							$(".rightcontent").hide();
+						$("#contentshow<?= $help->id ?>").slideDown("slow");
+					}
+					);
+				
+
+				</script>
+            <? endforeach ?>
          </div>     
 		<div id="rightSide">
-			<? foreach($helps_right as $help) : ?>
-                <div class="title"  id="<?= $help->id?>"><?= $help->topic ?></div>
-                <div style="float:left; width:100%">
-                <?= $help->message ?>
+        	<? foreach($helps as $help): ?>
+                <div style="float:left; width:100%; display:none;" class="rightcontent" id="contentshow<?= $help->id ?>">
+                	<?= $help->message ?>
                 </div>
-            <? endforeach ?>    
+			<? endforeach ?>
+         
 		</div>
-		
+
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
 </div>
+
