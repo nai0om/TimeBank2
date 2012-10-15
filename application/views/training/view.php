@@ -27,7 +27,7 @@
 		<div id="content">
 			<br />
             
-            <div>
+            <div style="float: right;">
            		<?= $training->video ?>
             </div>
 			<?= $training->message ?>
