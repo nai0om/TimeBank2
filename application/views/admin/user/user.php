@@ -53,7 +53,8 @@ E=
         <?= $user->noti_sms_news  ?>
       </td>
     <td>
-      <?= HTML::anchor('admin/useredit/'.$user->id, '<strong>แก้ไข</strong>'); ?>
+	  <?= HTML::anchor('admin/userdelete/'.$user->id, '<strong>ลบอาสา</strong>'); ?>
+      |<?= HTML::anchor('admin/useredit/'.$user->id, '<strong>แก้ไข</strong>'); ?>
       | <?= HTML::anchor('admin/userrecord/'.$user->id, '<strong>record</strong>'); ?>
       | <?= HTML::anchor('admin/userevent/'.$user->id, '<strong>event</strong>'); ?>
       | <?= HTML::anchor('admin/userinbox/'.$user->id, '<strong>inbox</strong>'); ?>

@@ -209,6 +209,16 @@ class Controller_Admin extends Controller_Template {
 											->bind('users', $users);
 	}
 	
+	public function action_userdelete()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		
+		$user = ORM::factory('user', $this->request->param('id') );
+		$user->delete(); 
+		Request::current()->redirect('admin/user');
+	}
+	
 	public function action_useredit()
 	{
 		$this->check_admin();
@@ -440,6 +450,20 @@ class Controller_Admin extends Controller_Template {
 			$organizations[$i]['email'] = ORM::factory('user', $organizations[$i]['user_id'])->email;
 		}
 	}
+	
+	public function action_organizationdelete()
+	{
+		$this->check_admin();
+		if ($this->request->param('id')  == '') $this->redirect('/');
+		
+		$organization = ORM::factory('organization', $this->request->param('id') );
+		$user_id = $organization->user_id;
+			$user = ORM::factory('user', $user_id);
+			$user->delete();
+		$organization->delete(); 
+		Request::current()->redirect('admin/organization');
+	}
+	
 	
 	public function action_organizationedit()
 	{
