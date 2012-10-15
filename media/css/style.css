@@ -4242,6 +4242,9 @@ color: #ACACAC;
 #training.news #content p{
 	width:64%;
 }
+#training.news #content .contentview p{
+	width:95%;
+}
 #training.news #leftSide{
 	background: url("../img/tb_line_verticle.png") repeat-y scroll right 0 transparent;
     float: left;
@@ -4263,6 +4266,9 @@ color: #ACACAC;
 	display:inline-block;
 	text-align:center;
 	cursor: pointer;
+}
+#training.news #content iframe{
+	width: 400px;
 }
 /*advance search*/
 #tb_browse_detail.search #icon_set{
