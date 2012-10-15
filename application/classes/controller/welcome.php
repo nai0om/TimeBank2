@@ -4,7 +4,12 @@ class Controller_Welcome extends Controller_Template {
 	
 	public function action_index()
 	{
-		$this->template->content = View::factory('welcome')
+		$this->template->content = View::factory('index');
+   	}
+	
+	public function action_home()
+	{
+		$this->template->content = View::factory('home')
 									->bind('time_donate', $time_donate)
 									->bind('time_want', $time_want)
 									->bind('time_done', $time_done)
