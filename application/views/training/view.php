@@ -30,7 +30,7 @@
             <div style="float: right;">
            		<?= $training->video ?>
             </div>
-			<?= $training->message ?>
+			<div class="contentview"><?= $training->message ?></div>
 		</div>
 		
 		<div style="clear:left"></div>
