@@ -3,6 +3,10 @@
  
 class timebankhelper {
  	
+	public static function redirectToHome()
+	{
+		Request::current()->redirect('welcome/home');
+	}
 	public static function getAllValunteerNumber()
 	{
 		return ORM::factory('user')->where('role', '=', '0')->count_all();

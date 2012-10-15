@@ -39,7 +39,7 @@ class Controller_Event extends Controller_Template {
 		// If user have permission to create organization
 		if (is_null($this->orguser))
 		{	
-			Request::current()->redirect('/');
+			timebankhelper::redirectToHome();;
 		}
 		
 		//$locations = Location::get_location_array();
@@ -348,7 +348,7 @@ class Controller_Event extends Controller_Template {
 		$id = $this->request->param('id'); 
 		if (is_null($this->orguser))
 		{
-			Request::current()->redirect('/');	
+			timebankhelper::redirectToHome();;	
 		}
 		
 		$event = ORM::factory('event', $this->request->param('id'));	
@@ -377,7 +377,7 @@ class Controller_Event extends Controller_Template {
 		$id = $this->request->param('id'); 
 		if (is_null($this->orguser))
 		{
-			Request::current()->redirect('/');	
+			timebankhelper::redirectToHome();;	
 		}
 	
 		$event = ORM::factory('event', $this->request->param('id'));	
@@ -411,13 +411,13 @@ class Controller_Event extends Controller_Template {
 		if(!$event->loaded())
 		{
 			echo 'not found event';
-			Request::current()->redirect('/');
+			timebankhelper::redirectToHome();;
 		}
 		
 		if($event->organization_id != $this->orguser->id)
 		{
 			echo 'no permission';			
-			Request::current()->redirect('/');
+			timebankhelper::redirectToHome();;
 		}
 		
 		$query = DB::select()->from('users_events')->where('event_id', '=',  $this->request->param('id'));

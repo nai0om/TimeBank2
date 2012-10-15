@@ -51,7 +51,7 @@
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
   <header>
 	<h2>ธนาคารจิตอาสา</h2>
-	<?= HTML::anchor('/', '<img src="'.url::base().'media/img/logo.png"/>'); ?>
+	<?= HTML::anchor('welcome/home', '<img src="'.url::base().'media/img/logo.png"/>'); ?>
 	<nav>
 		<ul>
 			<li><?= HTML::anchor('welcome/timebank', 'ใช้บริการธนาคารจิตอาสา', array('id' => 'timeBank')); ?></li>

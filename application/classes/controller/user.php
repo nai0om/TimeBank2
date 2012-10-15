@@ -1233,7 +1233,7 @@ class Controller_User extends Controller_Template {
 		// If user already logged in
 		if (isset($this->user))
 		{
-			Request::current()->redirect('/');
+			timebankhelper::redirectToHome();
 		}
 
 		$this->template->content = View::factory('user/login')
@@ -1357,7 +1357,7 @@ class Controller_User extends Controller_Template {
 	{
 		Controller_User::logout();
 		// Redirect
-		Request::current()->redirect('/');
+		timebankhelper::redirectToHome();
 	}
 	
 	
