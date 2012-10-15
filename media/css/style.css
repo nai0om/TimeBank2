@@ -4245,6 +4245,9 @@ color: #ACACAC;
 #training.news #content .contentview p{
 	width:95%;
 }
+#training.news #content .contentview{
+	width: 50%
+}
 #training.news #leftSide{
 	background: url("../img/tb_line_verticle.png") repeat-y scroll right 0 transparent;
     float: left;
