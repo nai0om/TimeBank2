@@ -31,7 +31,7 @@
 		</div>
 		<div style="clear:left"></div>
 		<div class="title left"></div>
-		<div class="title body">ข่าวสารต่างๆ</div>
+		<div class="title body">ข่าวแวดวง</div>
 		<div class="title right"></div>
 		<div class="line"></div>
 		<div style="clear:left"></div>

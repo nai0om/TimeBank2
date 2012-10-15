@@ -2,7 +2,7 @@
 	<div id="main" role="main">
 		<div id="sitemap">
 			<li>หน้าแรก</li>
-			<li>ข่าวสารอัพเดท</li>
+			<li>ข่าวแวดวง</li>
 			<li><?= $news->topic ?></li>
 		</div>
         
