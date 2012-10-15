@@ -33,11 +33,15 @@
                         <tr>
                             <td width="50%">
                                 <img src="<?= url::base(); ?>media/img/logo_clear.png" id="down100" />
+                             
+                            <p>
+                            <iframe width="297" height="216" src="http://www.youtube.com/embed/XphuDvRjY7c" frameborder="0" allowfullscreen></iframe>
+                            </p>
                             <p> 
                             <a style="font-size:32px;">	ขณะนี้ระบบธนาคารจิตอาสา<br />ได้เปิดให้ทดลองใช้แล้ว </a>
                             </p>
                             <p>
-                              <?= HTML::anchor('welcome/term', 'เข้าสู่เว็บไซต์ jitarsabank.com', array('style' => 'color:#000')); ?>
+                              <?= HTML::anchor('welcome/home', 'เข้าสู่เว็บไซต์ jitarsabank.com', array('style' => 'color:#000')); ?>
                            
                             </p>
                             </td>
