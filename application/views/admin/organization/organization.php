@@ -14,9 +14,13 @@ td {
     <th width="25%"> profile</th>
 <th> image</th>
 <? foreach ($organizations as $organization ) :?><tr>
-<td width="25%">            <?= HTML::anchor('admin/organizationedit/'.$organization['id'], '<strong>แก้ไข</strong>'); ?> |
+<td width="25%">           
+<?= HTML::anchor('admin/organizationdelete/'.$organization['id'], '<strong>ลบ</strong>'); ?> |
+ <?= HTML::anchor('admin/organizationedit/'.$organization['id'], '<strong>แก้ไข</strong>'); ?> |
   <?= HTML::anchor('admin/event?org='.$organization['id'], '<strong>event</strong>'); ?> |
-  <?= HTML::anchor('admin/organizationinbox/'.$organization['id'], '<strong>inbox</strong>'); ?> |<br />
+  <?= HTML::anchor('admin/organizationinbox/'.$organization['id'], '<strong>inbox</strong>'); ?> |
+  
+  <br />
   name:
   <strong>
     <?= $organization['name']  ?> 
