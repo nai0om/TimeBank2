@@ -71,6 +71,17 @@ class linkscreator {
 						->as_array();
 	
 	}
+		
+	public static function get_top_event_from_rank($user)
+	{
+		return DB::select()
+					->from('rank')
+					->where('user_id', '=', $user->id)
+					->order_by('rate', 'DESC') 
+					->limit(15)
+					->execute()
+					->as_array('event_id');
+	}
 	
 	public static function set_user_link($user)
 	{
@@ -133,6 +144,50 @@ class linkscreator {
 	public static function remove_event($event_id)
 	{
 		 DB::delete('links')->where('event_id', '=', $event_id)->execute();
+	}
+
+	
+	public static function refresh_rank($user)
+	{
+		$previous_events = DB::select()
+										->from('rank')
+										->where('user_id', '=', $user->id)
+										->order_by('rate', 'DESC') 
+										->limit(3)
+										->execute()
+										->as_array('event_id');
+									
+			
+			DB::delete('rank')->where('user_id', '=', $user->id)->execute();
+			
+			linkscreator::set_user_link($user);
+			
+			$events = linkscreator::get_top_event($user->id, 15);
+			foreach($events as $event)
+			{
+				DB::insert('rank', array('user_id', 'event_id', 'rate'))
+				->values(array($user->id, $event['event_id'], $event['rate_point']))
+				->execute();
+			}
+			
+			$after_events = DB::select()
+										->from('rank')
+										->where('user_id', '=', $user->id)
+										->order_by('rate', 'DESC') 
+										->limit(3)
+										->execute()
+										->as_array('event_id');
+			$new_events = array();
+			foreach($after_events as $key => $event)
+			{
+				
+				if (!array_key_exists ($key, $previous_events))
+				{
+					$new_events[] = ORM::factory('event', $key);
+				}
+			}
+			
+			return $new_events;
 	}
 	
 	public static function contrain_key($key, $array_tag_string, $separate)

@@ -4,49 +4,12 @@ class Controller_Cron extends Controller_Template {
 	
 	public function action_updateuserevent()
 	{
-		$users = ORM::factory('user')->find_all();
+		$users = ORM::factory('user')->where('role', '<>', '1')->find_all();
 		foreach( $users as $user)
 		{ 
-		
 			$this->auto_render = false;
-		 	$previous_events = DB::select()
-										->from('rank')
-										->where('user_id', '=', $user->id)
-										->order_by('rate', 'DESC') 
-										->limit(3)
-										->execute()
-										->as_array('event_id');
-									
-			
-			DB::delete('rank')->where('user_id', '=', $user->id)->execute();
-			
-			linkscreator::set_user_link($user);
-			
-			$events = linkscreator::get_top_event($user->id, 15);
-			foreach($events as $event)
-			{
-				DB::insert('rank', array('user_id', 'event_id', 'rate'))
-				->values(array($user->id, $event['event_id'], $event['rate_point']))
-				->execute();
-			}
-			
-			$after_events = DB::select()
-										->from('rank')
-										->where('user_id', '=', $user->id)
-										->order_by('rate', 'DESC') 
-										->limit(3)
-										->execute()
-										->as_array('event_id');
-			$new_events = array();
-			foreach($after_events as $key => $event)
-			{
-				echo $key;
-				if (!array_key_exists ($key, $previous_events))
-				{
-					$new_events[] = ORM::factory('event', $key);
-				}
-			}
-			
+			echo '<br />updating user id : '.$user->id;
+		 	$new_events = linkscreator::refresh_rank($user);
 			timebanknotification::notify_matchevent($user, $new_events);
 			//send notification here.
 		}
