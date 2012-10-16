@@ -27,28 +27,41 @@ class Controller_User extends Controller_Template {
 		//event-rand is latest event.
 		$events_rand = ORM::factory('event')->where('event.status', '=', '1')->order_by('id','desc')->limit(15)->find_all();
 		
-		$recommend_event_ids = DB::select()
-										->from('rank')
-										->where('user_id', '=', $this->user->id)
-										->order_by('rate', 'DESC') 
-										->limit(15)
-										->execute()
-										->as_array();
-		$event_recommends = array();
-		
-		foreach($recommend_event_ids as $event_id)
+		$recommend_event_ids = linkscreator::get_top_event_from_rank($this->user);
+		if(count($recommend_event_ids) <= 0)
 		{
-			$event = ORM::factory('event', $event_id['event_id']);
-		
-			if(!$event->loaded()) 
-			{
-				 linkscreator::remove_event($event_id['event_id']);
-				 Request::current()->redirect('user/index');
-				 break;
-			}
-			$event_recommends[] = ORM::factory('event', $event_id['event_id']);
+			linkscreator::refresh_rank($this->user);
+			$recommend_event_ids = linkscreator::get_top_event_from_rank($this->user);
 		}
-		
+		$need_update = true;
+		while($need_update)
+		{	
+			$need_update = false;
+			$event_recommends = array();
+			foreach($recommend_event_ids as $event_id)
+			{
+				$event = ORM::factory('event', $event_id['event_id']);
+			
+				if(!$event->loaded()) 
+				{
+					 linkscreator::remove_event($event_id['event_id']);
+					$need_update = true;
+				
+					
+				}
+				else
+				{
+
+					$event_recommends[] = ORM::factory('event', $event_id['event_id']);
+				}
+			}
+			
+			if($need_update)
+			{
+				linkscreator::refresh_rank($this->user);
+				$recommend_event_ids = linkscreator::get_top_event_from_rank($this->user);
+			}
+		}
     }
 
     public function action_record()
