@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
     <meta name="language" content="en-us" /> 
     	<title><?= 'ธนาคารจิตอาสา: ปันเวลาช่วยกัน' ?></title> 
-    <title>Jitarsa Bank</title> 
+    <title>JitArsa Bank</title> 
 
 	  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
 		   More info: h5bp.com/i/378 -->
@@ -38,10 +38,10 @@
                             <iframe width="297" height="216" src="http://www.youtube.com/embed/XphuDvRjY7c" frameborder="0" allowfullscreen></iframe>
                             </p>
                             <p> 
-                            <a style="font-size:32px;">	ขณะนี้ระบบธนาคารจิตอาสา<br />ได้เปิดให้ทดลองใช้แล้ว </a>
+                            <a style="font-size:22px;color:#000;">	ขณะนี้ระบบธนาคารจิตอาสา<br />ได้เปิดให้ทดลองใช้แล้ว </a>
                             </p>
                             <p>
-                              <?= HTML::anchor('welcome/home', 'เข้าสู่เว็บไซต์ jitarsabank.com', array('style' => 'color:#000')); ?>
+                              <?= HTML::anchor('welcome/home', 'เข้าสู่เว็บไซต์ JitArsaBank.com กันเลย', array('style' => 'color:FF7F50; font-size: 28px;')); ?>
                            
                             </p>
                             </td>
