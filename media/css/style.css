@@ -1588,11 +1588,17 @@ margin: 5px 0;
     overflow: hidden;
     width: 480px;
 }
+#tb_browse_detail #leftSide p{
+	word-break: break-all;
+}
 #tb_browse_detail #rightSide {
     float: right;
     font-family: chula;
     font-size: 17px;
     width: 433px;
+}
+#tb_browse_detail #rightSide p{
+	word-break: break-all;
 }
 #tb_browse_detail h3.title {
     border-bottom: 1px dashed #000000;
