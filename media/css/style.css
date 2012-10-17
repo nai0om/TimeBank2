@@ -2134,6 +2134,7 @@ margin: 5px 0;
 }
 #member #main_right .list{
 	margin:0;
+	float: left;
 }
 #member #main_right .list li{
 	float: left;
@@ -2548,7 +2549,7 @@ color: #ACACAC;
     float: right;
     height: 30px;
     margin: 13px 0 0;
-    width: 324px;
+    width: 345px;
 }
 #member.warn form input[type="checkbox"]{
 	margin:0 5px 0 0;
