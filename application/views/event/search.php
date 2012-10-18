@@ -113,7 +113,7 @@ $page = isset($gets['page'])? $gets['page'] : '1';
             </tbody></table>
                     <br />
        <? if($type == 'open') : ?>
-       <p style="float:right; font-size:22px">	"งานที่แสดงข้างต้นเป็นงานที่เปิดรับสมัครอยู่ หากต้องการค้นหางานที่จบไปแล้ว กรุณา <?= HTML::anchor('event/advance_search', 'ค้นหาแบบละเอียด') ?>"  </p>
+       <p style="float:right; font-size:22px">	"หากต้องการค้นหางานที่จบไปแล้ว กรุณา <?= HTML::anchor('event/advance_search', 'ค้นหาแบบละเอียด') ?>"  </p>
       	<? endif ?>
 		<?php else :?>
         <?php endif ?>
