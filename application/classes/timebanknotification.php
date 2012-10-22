@@ -337,6 +337,11 @@ class TimebankNotification {
 			
 			self::queuesms($user->phone, $subject.' '.$links, $user->id);
 		}
+		else if ($user->noti_sms_event_matched == 2)
+		{
+			if (date('w') == 1) // update only monday
+				self::queuesms($user->phone, $subject.' '.$links, $user->id);
+		}
 		
 		self::send_inbox($user->id, 0 , $subject, $htmllinks);
 		
