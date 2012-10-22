@@ -2568,9 +2568,7 @@ color: #ACACAC;
 	clear: both;
 	margin:10px 0;
 }	
-#member.warn #main_right .line{
-	width:435px;
-}
+
 /*member > own*/
 #member.own #selection {
     font-family: chula;

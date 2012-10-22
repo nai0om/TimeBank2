@@ -13,6 +13,11 @@ return array
 								'admin'			=>	'2'
 							),
 	
+	'sms_sent_time'		=>	array(
+								'1'	=>	__('a day'),
+								'2'	=>	__('a week'),
+								),
+								
  	'event_status'		=>	array(
 								'1'	=>	__('open'),
 								'0'	=>	'close',

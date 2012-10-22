@@ -4,6 +4,7 @@ class Controller_User extends Controller_Template {
  
     public function action_index()
     {
+		
         // if a user is not logged in, redirect to login page
         if (!$this->user)
         {
@@ -884,14 +885,19 @@ class Controller_User extends Controller_Template {
 				$this->user->noti_sms_almosteventdate = 1;
 			else
 				$this->user->noti_sms_almosteventdate = 0;
-
+		
 			if (isset($_POST['noti_sms_news']))
 				$this->user->noti_sms_news = 1;
 			else
 				$this->user->noti_sms_news = 0;
 			
-			if (isset($_POST['noti_sms_event_matched']))
-				$this->user->noti_sms_event_matched = 1;
+			
+			
+			
+			if (isset($_POST['noti_sms_event_matched_check']))
+			{
+				$this->user->noti_sms_event_matched = $_POST['noti_sms_event_matched'];
+			}
 			else
 				$this->user->noti_sms_event_matched = 0;
 
