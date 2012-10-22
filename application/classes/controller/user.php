@@ -42,11 +42,10 @@ class Controller_User extends Controller_Template {
 			{
 				$event = ORM::factory('event', $event_id['event_id']);
 			
-				if(!$event->loaded()) 
+				if(!$event->loaded() || $event->status == 0) 
 				{
-					 linkscreator::remove_event($event_id['event_id']);
+					linkscreator::remove_event($event_id['event_id']);
 					$need_update = true;
-				
 					
 				}
 				else
