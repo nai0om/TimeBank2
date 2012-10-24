@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+notify_matchevent<?php defined('SYSPATH') or die('No direct script access.');
 
 class TimebankNotification {
 	
@@ -339,7 +339,7 @@ class TimebankNotification {
 		}
 		else if ($user->noti_sms_event_matched == 2)
 		{
-			if (date('w') == 1) // update only monday
+			if (date('w') == 4) // update only thursday.
 				self::queuesms($user->phone, $subject.' '.$links, $user->id);
 		}
 		
