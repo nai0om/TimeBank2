@@ -63,7 +63,7 @@
 			<h4>อีเมล</h4><span><?= $org_user->email ?></span>
 			<h4>ติดต่อ </h4><span><?= $organization->contactperson ?></span>
 			<h4>เว็บไซต์</h4><span><a href="<?= $organization->website ?>" target="_blank"><?= $organization->website ?></a></span>
-			<h4>เฟสบุ๊ค</h4><span><a href="<?= 'http://'.$organization->facebook ?>" target="_blank"><?= $organization->facebook ?></a></span>
+			<h4>เฟสบุ๊ค</h4><span><a href="<?= $organization->facebook ?>" target="_blank"><?= $organization->facebook ?></a></span>
 			<h4>ทวิตเตอร์</h4><span><a href="<?='http://www.twitter.com/'.$organization->twitter ?>" target="_blank"><?= ($organization->twitter == '' )?  '': '@'.$organization->twitter ?></a></span>
 		</div>
 
