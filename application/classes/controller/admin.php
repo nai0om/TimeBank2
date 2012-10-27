@@ -1222,7 +1222,7 @@ class Controller_Admin extends Controller_Template {
 		{
 			$knowledge->title = Arr::get($_POST, 'title');
 			$knowledge->content = Arr::get($_POST, 'content');
-
+			$knowledge->video = Arr::get($_POST, 'video');
 			try
 			{
 			

@@ -1,7 +1,7 @@
 <div  id="tb_browse_searchResult" class="search">
   <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?>
-<h2>สร้างง training</h2>
+<h2>สร้าง training</h2>
 
 <?= Form::open('admin/createtraining', array('enctype' => 'multipart/form-data', 'id' => 'createtraining', "autocomplete" => "on")); ?>
     <?php include Kohana::find_file('views', 'admin/training/trainingform') ?>

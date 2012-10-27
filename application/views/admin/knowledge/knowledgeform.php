@@ -9,9 +9,16 @@
 <?= Form::textarea('content', $knowledge->content, array('rows' => 3)); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'content'); ?></font>
-</div>  
-<p>
+</div> 
 
+<br />
+<br />
+<br />
+<label>video embed </label>
+<?= Form::input('video', $knowledge->video, array('style' => 'width:100%')); ?>    
+<div class="error">
+    <font color="red"><?= Arr::get($errors, 'video'); ?></font>
+</div>  
 
 
 <!-- TinyMCE -->
