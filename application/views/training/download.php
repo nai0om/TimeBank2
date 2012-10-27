@@ -18,7 +18,8 @@
         <? foreach ($knowledges as $knowledge) :?>
         
         	<br />
-        	<h2><?= $knowledge->title ?></h2>
+        	<h1><?= $knowledge->title ?></h1>
+            <p><?= $knowledge->video ?></p>
             <p><?= $knowledge->content ?></p>
 			<div style="clear:left"></div>
 			<div class="line" style="width:100%;"></div>
