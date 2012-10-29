@@ -15,7 +15,7 @@
             <li class="footerseciton2">
                 <h4>ภารกิจจิตอาสา</h4>
                 <ul>
-					<li><?= HTML::anchor('event/browse', 'ค้นหาภารกิจ งานจิตอาสา'); ?></li>
+					<li><?= HTML::anchor('event/browse', 'ค้นหาภารกิจ หางานอาสา'); ?></li>
                    	<? $jobs = Kohana::$config->load('timebank')->get('jobs'); ?>
 					<? for($i = 1 ; $i < sizeof($jobs) ; $i++): ?>
                      		<li><?= HTML::anchor('event/search/?job='.$i, $jobs[$i]); ?></li>
