@@ -33,6 +33,9 @@
 					<h3 style="color:#0099cc;">ฝากเวลาที่คุณตั้งใจจะแบ่งปัน</h3>
 					<div id="left"><?= Form::input('hour', HTML::chars(Arr::get($_POST, 'hour')),  array('style'=>'color:#0099cc;font-size: 70pt;width: 240px;margin: 20 0px;')); ?>
                   <span style="color:#0099CC;font-size:28px;"> ชั่วโมง</span></div><div class="error left"><?= __(Arr::get($errors, 'hour')); ?></div>
+				   <p><label></label></p>
+				   <p>ฝากเวลาได้สูงสุด 100 ชั่วโมง และสามารถฝากเพิ่มได้</p> 
+				   <p><b>เวลามากน้อยไม่สำคัญเท่ากับความตั้งใจแบ่งปันเวลาเพื่อทำจิตอาสาของพวกเรานะครับ</b></p>
 					<div id="right">
 						<!--div id="details">
 						<p>
