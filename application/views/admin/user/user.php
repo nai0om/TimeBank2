@@ -11,19 +11,19 @@ td {
   <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?><br />
 
-A = noti_eventrecommended, 
-B = noti_eventapproved, 
-C = noti_almosteventdate, 
-D = noti_eventthank, 
-E = noti_sms_eventapproved, 
-F = noti_sms_almosteventdate, 
+A = noti_eventrecommended<br> 
+B = noti_eventapproved<br>  
+C = noti_almosteventdate<br>  
+D = noti_eventthank<br>  
+E = noti_sms_eventapproved<br>  
+F = noti_sms_almosteventdate<br>  
 G = noti_sms_news<br />
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
-<th width="152">displayname</th>
-<th>profile</th>
-<th width="450">image</th>
+<th width="152">ชื่อที่ใช้แสดง + รายละเอียด</th>
+<th>ข้อมูลส่วนตัว</th>
+<th width="450">รูป/ทักษะ/ความสนใจ</th>
 </tr>
 <? foreach ($users as $user ) :?>
     <tr>
@@ -32,7 +32,7 @@ G = noti_sms_news<br />
       <br />
       id:<?= $user->id ?>
         <br />
-        role:
+        ประเภทสมาชิก:
         <?= $user->role  ?>
         <br />
         <br />
@@ -55,28 +55,28 @@ E=
     <td>
 	  <?= HTML::anchor('admin/userdelete/'.$user->id, '<strong>ลบอาสา</strong>'); ?>
       |<?= HTML::anchor('admin/useredit/'.$user->id, '<strong>แก้ไข</strong>'); ?>
-      | <?= HTML::anchor('admin/userrecord/'.$user->id, '<strong>record</strong>'); ?>
-      | <?= HTML::anchor('admin/userevent/'.$user->id, '<strong>event</strong>'); ?>
-      | <?= HTML::anchor('admin/userinbox/'.$user->id, '<strong>inbox</strong>'); ?>
+      | <?= HTML::anchor('admin/userrecord/'.$user->id, '<strong>รายการเดินบัญชีเวลา</strong>'); ?>
+      | <?= HTML::anchor('admin/userevent/'.$user->id, '<strong>งานอาสา</strong>'); ?>
+      | <?= HTML::anchor('admin/userinbox/'.$user->id, '<strong>การแจ้งเตือน</strong>'); ?>
       <br />
       <br />
-      name:
+      ชื่อ-สกุล (ชื่อเล่น):
 <?= $user->first_name  ?> <?= $user->last_name  ?> 
       <?php if ($user->profile_image != ''): ?>  (<?= $user->nickname  ?>)<? endif ?>
       <br />
-      sex:
+      เพศ:
       <?= $user->sex  ?>
       <br />
-phone: 
+โทร.: 
 <?= $user->phone  ?>
 <br /> 
-      email: 
+      อีเมล: 
       <?= $user->email  ?>
       <br />
-      birthday: 
+      วันเกิด: 
       <?= $user->birthday  ?>
       <br />
-      address:
+      ที่อยู่:
       <?= $user->address  ?>
 <br /></td>
     <td>    
@@ -88,10 +88,10 @@ phone:
       description : 
       <?= $user->description   ?>
       <br />
-      skills  : 
+      ทักษะ: 
       <?= $user->skills    ?><br />
 
-      interest_tags   : 
+      สิ่งที่สนใจ/ใส่ใจ: 
       <?= $user->interest_tags     ?>
       <br />
     </td>
