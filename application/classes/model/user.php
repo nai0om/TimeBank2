@@ -25,6 +25,15 @@ class Model_User extends ORM {
 			'password' => array(
                 array(array($this, 'hash_password')),
             ),
+			'first_name' => array(
+               array('trim'),
+			),
+			'last_name' => array(
+                array('trim'),
+            ),
+			 'phone' => array(
+                array('trim')
+            ),
 		);
 	}
 	
