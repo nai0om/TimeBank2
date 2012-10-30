@@ -16,7 +16,7 @@
 <? foreach ($knowledges as $knowledge ) :?>
     <tr>
         <td WIDTH="10"><?=  $knowledge->id; ?></td>
-        <td WIDTH="10"><?= HTML::anchor('news/view/'.$knowledge->id, '<strong>'.$knowledge->title.'</strong>'); ?></td>
+        <td WIDTH="10"><?= HTML::anchor('training/download#'.$knowledge->id, '<strong>'.$knowledge->title.'</strong>'); ?></td>
         <td WIDTH="10"><?=  $knowledge->content; ?></td>
         <td WIDTH="10"><?=  $knowledge->timestamp; ?></td>
         <td><?= HTML::anchor('admin/editknowledge/'.$knowledge->id, '<strong>แก้ไข</strong>'); ?></td> 
