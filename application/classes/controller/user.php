@@ -491,7 +491,7 @@ class Controller_User extends Controller_Template {
 			$this->user->first_name = Arr::get($_POST, 'first_name');
 			$this->user->last_name = Arr::get($_POST, 'last_name');
 			
-			if (Arr::get($_POST, 'phone') == '')
+			if (trim(Arr::get($_POST, 'phone')) == '')
 				 $errors['phone'] = __('phone much not empty.');
 			$this->user->phone = Arr::get($_POST, 'phone');
 			$year = Arr::get($_POST, 'year') - 543;
@@ -1203,28 +1203,29 @@ class Controller_User extends Controller_Template {
 					$errors['nickname'] = __('nickname much not empty.');
 				*/	
 				$this->user->first_name = Arr::get($_POST, 'first_name');
-				if($this->user->first_name == '')
+				if(trim($this->user->first_name) == '')
 					$errors['first_name'] = __('first_name much not empty.');
 					
 				$this->user->last_name = Arr::get($_POST, 'last_name');
-				if($this->user->last_name == '')
+				if(trim($this->user->last_name) == '')
 					$errors['last_name'] = __('last_name much not empty.');
 					
 				$this->user->phone = Arr::get($_POST, 'phone');
-				if($this->user->phone == '')
+				if(trim($this->user->phone) == '')
 					$errors['phone'] = __('phone much not empty.');
 				
 				if (count($errors) > 0)
 					return;
+					
 				$this->user->save();	 
 			} catch (ORM_Validation_Exception $e) {
 				$errors = $e->errors('models');
 			}
 		}
 		
-		if(	$this->user->first_name == '' ||
-			$this->user->last_name == '' ||
-			$this->user->phone == '')
+		if(	trim($this->user->first_name) == '' ||
+			trim($this->user->last_name) == '' ||
+			trim($this->user->phone) == '')
 		{
 			 $this->template->content = View::factory('user/checkdata')
 										->bind('user', $this->user)
