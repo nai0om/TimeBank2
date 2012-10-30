@@ -3,9 +3,9 @@
 	<?php include Kohana::find_file('views', 'admin/menus') ?>
  <p>
      
-   <h1>Admin Page </h1>
+   <h1>ยินดีต้อนรับสู่ ระบบหลังบ้าน ธนาคารจิตอาสา :D</h1>
      <p>
-        <h3> เพิ่มงานอาสา แนะนำ (ใส่ event ID) </h3>
+        <h3>เพิ่มงานอาสาแนะนำ</h3>
         <?= Form::open('admin/addrecommend'); ?>
     		<?=  Form::select('event_id', $event_select) ?>
              <?= Form::submit(NULL, 'เพิ่ม'); ?>
@@ -13,8 +13,8 @@
         <table border="2">
         <tbody>
          <tr>
-         	<th> ตัวเลือก </th>
-         	<th>id</th>
+         	<th>ตัวเลือก </th>
+         	<th> id </th>
             <th> ชื่อโครงการ </th>
          </tr>
          <? foreach($event_recommend as $event) : ?>
@@ -33,7 +33,7 @@
     	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
       <p>
-        <h3> เพิ่มบอกเล่าจากใจอาสา </h3>
+        <h3>เพิ่มบอกเล่าจากใจอาสา </h3>
 	   <?= Form::open('admin/addcomment'); ?>
        <?=  Form::select('comment_id', $comment_select) ?>
        <?= Form::submit(NULL, 'เพิ่ม'); ?>
@@ -42,8 +42,8 @@
         <tbody>
          <tr>
          	<th> ตัวเลือก </th>
-         	<th>id</th>
-            <th> ชื่อโครงการ </th>
+         	<th> id </th>
+            <th> Comment </th>
          </tr>
          <? foreach($comment_recommend as $comment) : ?>
          	<tr> 
@@ -60,24 +60,24 @@
     <p align="center" style="margin:0;">
    	 	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
-    <p> <h3>Unverified organizations</h3>  
+    <p> <h3>สมาชิกองค์กรที่รอการอนุมัติ</h3>  
      <table border="1" id="org">
      <tbody>
       <tr>
-        <th>name</th>
-        <th>objective</th>
-        <th>activity</th>
-        <th>address</th>
-        <th>district</th>
-        <th>province</th>
-        <th>postcode</th>
-        <th>homephone</th>
-        <th>fax</th>
-        <th>contactperson</th>
-        <th>facebook</th>
-        <th>twitter</th>
-        <th>website</th>
-        <th>logo</th>
+        <th>ชื่อองค์กร</th>
+        <th>วัตถุประสงค์</th>
+        <th>ลักษณะกิจกรรม</th>
+        <th>ที่อยู่</th>
+        <th>เขต / อำเภอ</th>
+        <th>จังหวัด</th>
+        <th>รหัสไปรษณีย์</th>
+        <th>โทร.สำนักงาน</th>
+        <th>โทรสาร</th>
+        <th>ชื่อผู้ติดต่อ</th>
+        <th>เฟสบุ๊ค</th>
+        <th>ทวิตเตอร์</th>
+        <th>เว็บไซต์</th>
+        <th>โลโก้</th>
       </tr>
     <?php foreach ($organizations as $organization):?>
         <tr>
@@ -110,7 +110,7 @@
             }
         }?>
         </select>
-        <?= Form::submit('approve', 'approve'); ?>
+        <?= Form::submit('approve', 'อนุมัติ'); ?>
         <?= Form::close(); ?>
         </p>
     </p>
@@ -120,10 +120,10 @@
     	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
     <p>
-    <h3>ส่งข่าวสารให้ อาสาสมัคร</h3>  
+    <h3>ส่งข่าวสารทาง SMS ให้ อาสาสมัคร</h3>  
 		<?= Form::open('admin/send_sms'); ?>
         <?= Form::textarea('message'); ?>
-        <?= Form::submit('approve', 'send'); ?>
+        <?= Form::submit('approve', 'ส่ง'); ?>
         <?= Form::close(); ?>
     </p>
 </p>

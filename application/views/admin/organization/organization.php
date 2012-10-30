@@ -17,42 +17,42 @@ td {
 <td width="25%">           
 <?= HTML::anchor('admin/organizationdelete/'.$organization['id'], '<strong>ลบ</strong>'); ?> |
  <?= HTML::anchor('admin/organizationedit/'.$organization['id'], '<strong>แก้ไข</strong>'); ?> |
-  <?= HTML::anchor('admin/event?org='.$organization['id'], '<strong>event</strong>'); ?> |
-  <?= HTML::anchor('admin/organizationinbox/'.$organization['id'], '<strong>inbox</strong>'); ?> |
+  <?= HTML::anchor('admin/event?org='.$organization['id'], '<strong>งานอาสา</strong>'); ?> |
+  <?= HTML::anchor('admin/organizationinbox/'.$organization['id'], '<strong>การแจ้งเตือน</strong>'); ?> |
   
   <br />
-  name:
+  ขื่อองค์กร:
   <strong>
     <?= $organization['name']  ?> 
     </strong><br />
   id:
-  <?= $organization['id'] ?> | email: 
-  <?= $organization['email']  ?> | verified:
+  <?= $organization['id'] ?> | อีเมล: 
+  <?= $organization['email']  ?> | สถานะการเป็นสมาชิก:
   <?= $organization['verified']  ?>
   <br />
-  address: 
+  ที่อยู่ : 
   <?= $organization['address']  ?>
   <br />
-  district: 
+  เขต / อำเภอ : 
   <?= $organization['district']  ?>
   <br />
-  province: 
+ จังหวัด : 
   <?= $organization['province']  ?>
   <br />
-  postcode: 
+  รหัสไปรษณีย์ : 
   <?= $organization['postcode']  ?>
   <br />
-  phone: 
-  <?= $organization['homephone']  ?> | fax: 
+  โทร.สำนักงาน : 
+  <?= $organization['homephone']  ?> | โทรสาร : 
   <?= $organization['fax']  ?>
   <br />
-  Contact: 
+  ชื่อผู้ติดต่อ : 
   <?= $organization['contactperson']  ?>
   <br />
-  <?php if ($organization['facebook'] != ''): ?>fb:   <?= Text::auto_link_urls($organization['facebook'])  ?>  <br /><? endif ?>
-  <?php if ($organization['twitter'] != ''): ?>twitter:   <?= $organization['twitter']  ?>  <br /><? endif ?>
-  <?php if ($organization['website'] != ''): ?>web:   <?= Text::auto_link($organization['website'])  ?>  <br /><? endif ?>
-        timestamp: 
+  <?php if ($organization['facebook'] != ''): ?>เฟสบุ๊ค :   <?= Text::auto_link_urls($organization['facebook'])  ?>  <br /><? endif ?>
+  <?php if ($organization['twitter'] != ''): ?>ทวิตเตอร์ :   <?= $organization['twitter']  ?>  <br /><? endif ?>
+  <?php if ($organization['website'] != ''): ?>เว็บไซต์ :   <?= Text::auto_link($organization['website'])  ?>  <br /><? endif ?>
+        วันที่/เวลา สมัครสมาชิก: 
         <?= $organization['timestamp']  ?></td>
 <td>        	<?php if ($organization['logo'] != ''): ?>
         		<img src="<?= url::base().'media/upload/organizations/'.$organization['logo']; ?>" align="right" style="max-height: 150px; max-width:150px;" />
