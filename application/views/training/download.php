@@ -16,14 +16,13 @@
 		
         <div id="content">
         <? foreach ($knowledges as $knowledge) :?>
-        
-        	<br />
-        	<h1><?= $knowledge->title ?></h1>
-            <p><?= $knowledge->video ?></p>
-            <p><?= $knowledge->content ?></p>
-			<div style="clear:left"></div>
-			<div class="line" style="width:100%;"></div>
-        
+        	<p id='<?= $knowledge->id ?>'>
+                <h1><?= $knowledge->title ?></h1>
+                <p><?= $knowledge->video ?></p>
+                <p><?= $knowledge->content ?></p>
+                <div style="clear:left"></div>
+                <div class="line" style="width:100%;"></div>
+            </p>
         <? endforeach;?>
         </div>
 		
