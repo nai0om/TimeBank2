@@ -1,11 +1,11 @@
-<label>ชื่อเรื่อง </label>
+<label>ชื่อหมวด </label>
 <?= Form::input('topic', $help->topic, array('rows' => 3)); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'topic'); ?></font>
 </div>  
  
 
-<label>รายละเอียด </label>
+<label>เนื้อหา </label>
 <?= Form::textarea('message', $help->message, array('rows' => 3)); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'message'); ?></font>

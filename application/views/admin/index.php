@@ -43,7 +43,7 @@
          <tr>
          	<th> ตัวเลือก </th>
          	<th> id </th>
-            <th> Comment </th>
+            <th> ข้อความ </th>
          </tr>
          <? foreach($comment_recommend as $comment) : ?>
          	<tr> 

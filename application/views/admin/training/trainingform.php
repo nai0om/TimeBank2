@@ -1,4 +1,4 @@
-<label>ชื่อเรื่อง </label>
+<label>ชื่องานอบรม </label>
 <?= Form::input('topic', $training->topic, array('rows' => 3)); ?>    
 <div class="error">training
     <font color="red"><?= Arr::get($errors, 'topic'); ?></font>
@@ -9,15 +9,16 @@
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'date_message'); ?></font>
 </div>  
-
+<p>
 <label>รายละเอียด </label>
 <?= Form::textarea('message', $training->message, array('rows' => 3)); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'message'); ?></font>
 </div>  
+</p>
 <p>
 
-<label>video ใช้ embed code </label> <br />
+<label>วิดีโอ (ใช้ embed code จาก youtube, vimeo ฯลฯ) </label> <br />
 <?= Form::input('video', $training->video, array('style' => 'height: 200px;width: 400px;')); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'video'); ?></font>
@@ -33,7 +34,7 @@
 </div>
 </p>
 
-<p><label>รูปย่อ</label>
+<p><label>รูปหน้า index</label>
 <?php if ($training->thm_pic != ''): ?>
     <img src="<?= url::base().'media/upload/training/'.$training->thm_pic ?>" /> <br />
 <? endif ?>

@@ -2,18 +2,18 @@
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
 
-<h1><?= HTML::anchor('admin/createnews', '<strong>สร้าง ข่าว</strong>'); ?> </h1>
+<h1><?= HTML::anchor('admin/createnews', '<strong>+ สร้าง "ข่าว"</strong>'); ?> </h1>
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
     <th WIDTH="10">id</th>		 	 		 	 		
-    <th WIDTH="10">topic</th>	 			 	 	 					 
-    <th WIDTH="10">message</th>			 	 	 					 
-    <th WIDTH="10">pic</th>			 	 	 	 	 	 		 
-    <th WIDTH="10">pic_thm</th>		 	 	 						 
-    <th WIDTH="10">created</th>
-    <th>edit</th>
-    <th>Delete</th>
+    <th WIDTH="10">หัวข้อข่าว</th>	 			 	 	 					 
+    <th WIDTH="10">เนื้อหา</th>			 	 	 					 
+    <th WIDTH="10">รูปหลัก</th>			 	 	 	 	 	 		 
+    <th WIDTH="10">รูปหน้า index</th>		 	 	 						 
+    <th WIDTH="10">วันที่สร้าง</th>
+    <th>แก้ไข</th>
+    <th>ลบ</th>
 </tr>
 <? foreach ($news as $new ) :?>
     <tr>

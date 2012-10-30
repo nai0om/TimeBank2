@@ -1,14 +1,15 @@
 <div  id="tb_browse_searchResult" class="search">
   <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?>
-<h2>สร้าง training</h2>
+<h2>สร้าง "งานฝึกอบรม"</h2>
 
 <?= Form::open('admin/createtraining', array('enctype' => 'multipart/form-data', 'id' => 'createtraining', "autocomplete" => "on")); ?>
     <?php include Kohana::find_file('views', 'admin/training/trainingform') ?>
-    <label>รูปเพิ่มเติม</label>
+    <label>รูปประกอบ</label>
   	<div id='subimage'/>
-    <input type="button" onclick="addInput()" name="add" value="Add small image" /><br />
-    <input type="submit" value="สร้าง" />
+    <input type="button" onclick="addInput()" name="add" value="ใส่รูปประกอบ" /><br />
+    <p></p>
+	<input type="submit" value="==สร้างงานอบรม==" />
     
 <? Form::close(); ?>
 

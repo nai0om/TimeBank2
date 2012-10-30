@@ -11,8 +11,8 @@ td {
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
   <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
-    <th width="25%"> profile</th>
-<th> image</th>
+    <th width="25%"> ข้อมูลองค์กร</th>
+<th> รายละเอียดเพิ่มเติม</th>
 <? foreach ($organizations as $organization ) :?><tr>
 <td width="25%">           
 <?= HTML::anchor('admin/organizationdelete/'.$organization['id'], '<strong>ลบ</strong>'); ?> |
@@ -52,14 +52,14 @@ td {
   <?php if ($organization['facebook'] != ''): ?>เฟสบุ๊ค :   <?= Text::auto_link_urls($organization['facebook'])  ?>  <br /><? endif ?>
   <?php if ($organization['twitter'] != ''): ?>ทวิตเตอร์ :   <?= $organization['twitter']  ?>  <br /><? endif ?>
   <?php if ($organization['website'] != ''): ?>เว็บไซต์ :   <?= Text::auto_link($organization['website'])  ?>  <br /><? endif ?>
-        วันที่/เวลา สมัครสมาชิก: 
+        เวลาสมัครสมาชิก : 
         <?= $organization['timestamp']  ?></td>
 <td>        	<?php if ($organization['logo'] != ''): ?>
         		<img src="<?= url::base().'media/upload/organizations/'.$organization['logo']; ?>" align="right" style="max-height: 150px; max-width:150px;" />
-    	    <? endif ?><p><strong>Objective:</strong>
+    	    <? endif ?><p><strong>วัตถุประสงค์ :</strong>
   <?= $organization['objective']  ?>
 </p>
-  <p><strong>Activity: </strong> 
+  <p><strong>ลักษณะกิจกรรม : </strong> 
     <?= $organization['activity']  ?>
   </p></td>
 </tr>
