@@ -14,7 +14,7 @@
 <br />
 <br />
 <br />
-<label>video embed </label>
+<label>วิดีโอ (ใช้ embed code จาก youtube, vimeo ฯลฯ) </label>
 <?= Form::input('video', $knowledge->video, array('style' => 'width:100%')); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'video'); ?></font>

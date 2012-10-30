@@ -6,22 +6,22 @@
 <tr>
 <th> ตัวเลือก</th>
 <th> id</th>
-<th> name</th>
-<th> vlt_begin_date</th>
-<th> vlt_end_date</th>
-<th> org_id</th>
-<th> status</th>
+<th> ชื่อกิจกรรม</th>
+<th> เริ่ม</th>
+<th> จบ</th>
+<th> องค์กร</th>
+<th> สถานะการเปิดรับสมัคร</th>
 
-<th> vlt_need</th>
-<th> time_cost</th>
-<th> vlt_joined</th>
+<th> จำนวนอาสาที่เปิดรับ</th>
+<th> เวลาที่ต้องใช้ / คน</th>
+<th> อาสาที่เข้าร่วมงานจริง (องกรณ์ใส่ตอนปิดงาน)</th>
 </tr>
 <? foreach ($events as $event ) :?>
     <tr>
     <td>
 		<?= HTML::anchor('admin/eventedit/'.$event->id, '<strong>แก้ไข</strong>'); ?>  <br />
         <?= HTML::anchor('admin/eventdelete/'.$event->id, '<strong>ลบงานอาสา</strong>'); ?>  <br />
-   		<?= HTML::anchor('admin/eventuser/'.$event->id, '<strong>ดู อาสา</strong>'); ?>  <br />
+   		<?= HTML::anchor('admin/eventuser/'.$event->id, '<strong>ดูอาสา</strong>'); ?>  <br />
         <?= HTML::anchor('admin/eventimage/'.$event->id, '<strong>รูปภาพ</strong>'); ?>   <br />
         <?= HTML::anchor('admin/eventcomment/'.$event->id, '<strong>comment</strong>'); ?>  <br />
     </td> 

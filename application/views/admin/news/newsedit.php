@@ -1,14 +1,14 @@
 <div  id="tb_browse_searchResult" class="search">
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
-<h2>แก้ไข้ news</h2>
+<h2>แก้ไขรายละเอียด</h2>
 
 <?= Form::open('admin/editnews/'.$news->id, array('enctype' => 'multipart/form-data')); ?>
     <?php include Kohana::find_file('views', 'admin/news/newsform') ?>  
-    <input type="submit" value="แก้ไข">
+    <input type="submit" value="************บันทึกการเปลี่ยนแปลง************">
 <?= Form::close(); ?>
 
- <label>รูปเพิ่มเติม</label> <br />
+ <label><b>----------------------------------------------------------------------------------------------------<br>รูปประกอบ (เพิ่มเติม / แก้ไข)</b></label> <br />
  
  <? foreach($news->images->find_all() as $image) : ?>
  <p>
@@ -26,8 +26,8 @@
 <p id='subimage'>
 	
 </p>
-    <input type="button" onclick="addInput()" name="add" value="เพิ่มรูป" /><br /><br />
-     <input type="submit" value="อัพเดทรูปเสริม" />
+    <input type="button" onclick="addInput()" name="add" value="เพิ่มรูปประกอบ" /><br /><br />
+     <input type="submit" value="บันทึกการเปลี่ยนแปลง (เฉพาะรูปประกอบ)" />
 <?= Form::close(); ?>
 
 <script language="javascript">

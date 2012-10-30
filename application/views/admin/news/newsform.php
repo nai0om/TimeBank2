@@ -1,17 +1,17 @@
-<label>ชื่อเรื่อง </label>
+<label>หัวข้อข่าว </label>
 <?= Form::input('topic', $news->topic, array('rows' => 3)); ?>    
 <div class="error">news
     <font color="red"><?= Arr::get($errors, 'topic'); ?></font>
 </div>  
  
 
-<label>รายละเอียด </label>
+<label>เนื้อหา </label>
 <?= Form::textarea('message', $news->message, array('rows' => 3)); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'message'); ?></font>
 </div>  
 <p>
-<label>video ใช้ embed code </label> <br />
+<label>วิดีโอ (ใช้ embed code จาก youtube, vimeo ฯลฯ)  </label> <br />
 <?= Form::input('video', $news->video, array('style' => 'height: 200px;width: 400px;')); ?>    
 <div class="error">
     <font color="red"><?= Arr::get($errors, 'video'); ?></font>
@@ -27,7 +27,7 @@
 </div>
 </p>
 
-<p><label>รูปย่อ</label>
+<p><label>รูปหน้า index</label>
 <?php if ($news->pic_thm != ''): ?>
     <img src="<?= url::base().'media/upload/news/'.$news->pic_thm ?>" /> <br />
 <? endif ?>

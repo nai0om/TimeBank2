@@ -2,21 +2,21 @@
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
 
-<h1><?= HTML::anchor('admin/createtraining', '<strong>สร้าง Traning</strong>'); ?> </h1>
+<h1><?= HTML::anchor('admin/createtraining', '<strong>+ สร้าง "งานฝึกอบรม"</strong>'); ?> </h1>
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
     <th >id</th>		 	 		 	 		
-    <th >topic</th>	 	 	 	 	 	 		 
-    <th >date_message</th>		 	 	 					 
-    <th >message	text</th>			 	 	 					 
-    <th >main_pic</th>			 	 	 	 	 	 		 
-    <th >thm_pic	</th>		 	 	 					 
+    <th >ชื่องาน</th>	 	 	 	 	 	 		 
+    <th >วันที่</th>		 	 	 					 
+    <th >รายละเอียด</th>			 	 	 					 
+    <th >รูปหลัก</th>			 	 	 	 	 	 		 
+    <th >รูปหน้า index</th>		 	 	 					 
    		 	 	 					 
-    <th >video</th>			 	 	 					 
-    <th >created</th>
-    <th>edit</th>
-    <th>Delete</th>
+    <th >วิดีโอ</th>			 	 	 					 
+    <th >วันที่สร้าง</th>
+    <th>แก้ไข</th>
+    <th>ลบ</th>
 </tr>
 <? foreach ($trainings as $training ) :?>
     <tr>
