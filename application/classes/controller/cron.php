@@ -17,7 +17,14 @@ class Controller_Cron extends Controller_Template {
 	public function action_sendsms()
 	{
 		$this->auto_render = false;
+		$now_time = time();
+		if ( $now_time < strtotime('08:00:00') || $now_time > strtotime('21:00:00'))
+		{
+			echo 'available time is 08:00-21:00';
+			return;
+		}
 		
+		echo 'start sending sms... <br />';			
 		for ($i = 0; $i < 100; $i++)
 		{
 			$smsqueue = ORM::Factory('smsqueue')
