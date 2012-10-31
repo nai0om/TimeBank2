@@ -14,15 +14,23 @@
 
 		<div style="clear:both"></div>
 		<h2>ช่วยเหลือ</h2>
-		<form>
-			<input type="text">
-			<img src="<?= url::base(); ?>media/img/icon_google.png" style="position:relative;top:-2px;"/>
-			<input type="submit" value="ค้นหา" id="google">
-			<div style="clear:both"></div>
-			<input type="radio" name="type" ><label>ค้นหาในธนาคารจิตอาสา</label>
-			<input type="radio" name="type" ><label>ค้นหาเว็บไซต์อื่นๆ</label>
-		</form>
-
+            <!-- Put the following javascript before the closing </head> tag. -->
+      
+		<script>
+          (function() {
+            var cx = '001108975738905188510:_-yhbvyjmj0';
+            var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                '//www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+       
+        
+        <!-- Place this tag where you want the search box to render -->
+        <div style="width:300px; float:right;" >
+       	 <gcse:searchbox-only ></gcse:searchbox-only>
+		</div>
 		<div style="clear:both"></div>
             <div id="leftSide">
             <? foreach($helps as $help): ?>
