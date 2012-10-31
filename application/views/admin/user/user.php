@@ -89,7 +89,13 @@ E=
       <?= $user->description   ?>
       <br />
       ทักษะ: 
-      <?= $user->skills    ?><br />
+      <? 
+	  	$normal_skill = "";
+		$special_skill = "";
+		timebankhelper::build_skill_for_display($user->skills, $normal_skill, $special_skill, true);
+		echo $normal_skill.','.$special_skill;
+	  ?>
+      <br />
 
       สิ่งที่สนใจ/ใส่ใจ: 
       <?= $user->interest_tags     ?>
