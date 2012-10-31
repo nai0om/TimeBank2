@@ -900,7 +900,16 @@ class Controller_User extends Controller_Template {
 			}
 			else
 				$this->user->noti_sms_event_matched = 0;
+				
+				
 
+ 			if (isset($_POST['noti_event_matched_check']))
+			{
+				$this->user->noti_event_matched = $_POST['noti_event_matched'];
+			}
+			else
+				$this->user->noti_event_matched = 0;
+				
 			try
 			{
 				$this->user->save();

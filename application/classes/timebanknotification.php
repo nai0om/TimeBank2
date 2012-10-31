@@ -343,6 +343,27 @@ class TimebankNotification {
 				self::queuesms($user->phone, $subject.' '.$links, $user->id);
 		}
 		
+		
+		if ($user->noti_event_matched > 0)
+		{
+			$from = Kohana::$config->load('timebank')->get('server_email');
+			$to = $user->email;
+			$body = self::renderHtmlEmail('volunteer_mached', array(
+																'displayname' => $user->displayname,
+																'events' 		=> $events,
+																));
+			if ($user->noti_event_matched == 1)
+			{
+				self::queuemail($from, $to, $subject, $body);
+			}
+			else if ($user->noti_event_matched == 2)
+			{
+				if (date('w') == 4) // update only thursday.
+					self::queuemail($from, $to, $subject, $body);
+			}
+		}
+		
+		
 		self::send_inbox($user->id, 0 , $subject, $htmllinks);
 		
 	}

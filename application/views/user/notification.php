@@ -25,6 +25,8 @@
 			<div class="headline">แจ้งเตือนทางอีเมล</div>
             <div class="line"></div>
 		
+             <p><?= Form::checkbox('noti_event_matched_check', 1, $user->noti_event_matched > 0? true: false); ?> เมื่อมีงานอาสาที่เหมาะกับโปรไพล์ (ความสนใจ/ ความถนัด) ของอาสา : 
+            		 แจ้งเตือน <?= Form::select('noti_event_matched', Kohana::$config->load('timebank')->get('sms_sent_time'), $user->noti_event_matched); ?></p>
 			<p><?= Form::checkbox('noti_eventapproved', 1, (bool) $user->noti_eventapproved); ?> เมื่อคุณได้รับการตอบรับเข้าร่วมกิจกรรม (แจ้งเตือนทันที)</p>
 			<p><?= Form::checkbox('noti_almosteventdate', 1, (bool) $user->noti_almosteventdate); ?> ก่อนถึงวันจัดกิจกรรมที่คุณได้รับการตอบรับ 3 วัน</p>
 			<p><?= Form::checkbox('noti_eventthank', 1, (bool) $user->noti_eventthank); ?> เมื่อองค์กรได้เขียนคำขอบคุณ และ / หรือ โพสต์รูปกิจกรรมที่คุณได้ไปเข้าร่วม </p>
