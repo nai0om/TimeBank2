@@ -66,6 +66,7 @@ class Model_Event extends ORM {
             'volunteer_need_count' => array(
                 array('not_empty'),
                 array('digit'),
+				 array('range', array(':value', 1, 1000)),
             ),
 			/*
             'time_cost' => array(
@@ -85,6 +86,9 @@ class Model_Event extends ORM {
             ),
             'location_postcode' => array(
                 array('not_empty'),
+                array('digit'),
+				array('min_length', array(':value', 5)),
+				array('max_length', array(':value', 5)),
             ),
             'detail' => array(
                 array('not_empty'),

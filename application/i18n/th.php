@@ -118,7 +118,7 @@ return array(
 	'man' => 'ชาย',
 	'woman' => 'หญิง',
 	'N/A' => 'ไม่ระบุ',
-	'volunteer end date much more than start date.' => 'วันสิ้นสุดงานอาสา ต้องที่หลังวันเริ่มงานอาสา',
+	'volunteer end date much more than start date.' => 'วันจบกิจกรรมอาสาต้องเป็นวันหลังจากวันเริ่มกิจกรรมครับ',
 	'limit 365 days per event.' => 'จำกัดไม่เกิน 365',
 	'limit at 2000 hours.'  => 'จำนวนชั่วโมงสูงสุดไม่เกิน 2000 ชั่วโมง',
 	'must select province.' => 'กรุณาเลือกจังหวัด',
@@ -135,5 +135,9 @@ return array(
 	'must select volunteer_end_date.' => 'กรุณาเลือกวันสิ้นสุดการทำงาน',
 	'much select event type at least 1 .' => 'กรุณาเลือกประเภทงานอาสา อย่างน้อย 1 อย่าง',
 	'a day' => 'ทุกวัน(วันละ 1 ครั้ง)',
-	'a week' => 'ทุกสัปดาห์ '
+	'a week' => 'ทุกสัปดาห์ ',
+	'location_postcode must be a digit' => 'รหัสไปรษณีย์ต้องเป็นตัวเลข',
+	'location_postcode must be at least 5 characters long' => 'รหัสไปรษณีย์ต้องมี 5 เลข',
+	'location_postcode must not exceed 5 characters long' => 'รหัสไปรษณีย์ต้องมี 5 เลข',
+	'volunteer_need_count must be within the range of 1 to 1000' => 'จำนวนอาสาต้องไม่มีอย่างน้อย 1 คนและไม่เกิน 1000 คน'
  );
