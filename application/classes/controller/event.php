@@ -360,7 +360,7 @@ class Controller_Event extends Controller_Template {
 		{
 			$event->status = '0';
 			$event->save();	
-			TimebankNotification::notify_eventend_org($this->orguser, $event);
+			
 			$users = DB::select()->from('users_events')->where('event_id', '=',  $this->request->param('id'))->where('status', '=', '1')->execute()->as_array();
 			foreach($users as $user_id)
 			{
