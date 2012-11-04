@@ -8,7 +8,7 @@
         
 		<div style="clear:both"></div>
 		<h2><?= $news->topic ?></h2>
-		<h3><?= $news->timestamp ?></h3>
+		<h3><?= phphelp::timestamp_to_thai($news->timestamp) ?></h3>
 		<a id="share">บอกต่อ</a>
 		<div id="leftSide">
 			<img src="<?= url::base()."media/upload/news/".$news->pic ?>" />
