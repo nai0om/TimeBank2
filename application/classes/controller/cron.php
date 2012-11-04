@@ -128,6 +128,21 @@ class Controller_Cron extends Controller_Template {
 			}
 		}
 		
+		echo  'events closed by time. <br />';
+		$events = ORM::Factory('event')->where('eventclose_noti', '=', 0)->where(DB::expr('CONCAT(volunteer_end_date, \' \',volunteer_end_time)'), '<=', DB::expr('NOW()'))->find_all();		
+		foreach ($events as $event)
+		{			
+			
+			$organization = ORM::Factory('organization', $event->organization_id);
+			if ($organization->loaded())
+			{
+				echo  'event closed: '.$event->id.'<br />';
+				$event->eventclose_noti = 1;
+				$event->save();
+				TimebankNotification::notify_eventend_org($organization, $event);
+			}
+		}
+				
 		echo '<br>start almost start<br>';
 	
 		// Find event that doesn't send "event almost start" email notification yet (3 days)
