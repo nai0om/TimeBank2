@@ -50,7 +50,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
                                     <p>สวัสดีครับ <?= $vars['displayname'] ?></p>
 
-									<p>มีงานอาสาทีเหมาะกับคุณ</p>
+									<p>มีงานอาสาที่เหมาะกับคุณ</p>
                                     <p>
                                    	 <? foreach( $vars['events'] as $event) : ?>
                                       - <a href="<?= $vars['urlbase'].'event/view/'.$event->id ?>"><?= $event->name?></a> <br />
