@@ -959,7 +959,7 @@ class Controller_User extends Controller_Template {
 		$this->template->content = View::factory('user/inbox')
 									->bind('inboxes', $inboxes)
 									->bind('action', $action);
-
+									
 		$inboxes = ORM::factory('inbox')
 						->where('user_id', '=', $this->user->id)
 						->and_where('is_removed', '=', 0)

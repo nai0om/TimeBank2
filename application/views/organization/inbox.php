@@ -28,7 +28,7 @@
 			<div class="title right"></div>
 			<div style="clear:both"></div>
 
-			<p><span style="color: #0099CC;font-size: 25px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 25px;font-weight: bold;"><?= $notification_count ?></span></p>
+			<p><span style="color: #0099CC;font-size: 25px;font-weight: bold;">ทั้งหมด</span> <span style="color: #f9941c;font-size: 25px;font-weight: bold;"><?= count($inboxes)  ?></span></p>
 		<div id="selection">
 		<?= Form::open('organization/deleteinbox'); ?><input type="checkbox" onclick="clickall()"> เลือกทั้งหมด <?= Form::submit('submit', 'ลบ'); ?></div>
 		<table>
