@@ -17,7 +17,15 @@ class Controller_Organization extends Controller_Template {
 	}
 	
 	public function action_create()
-	{		
+	{	
+		if (isset($this->orguser)) 
+		{
+			Request::current()->redirect('organization/profile');
+		}	
+		if (isset($this->user) )
+		{
+			timebankhelper::redirectToHome();
+		}
 		$this->template->content = View::factory('organization/create')
 									->bind('message', $message)
 									->bind('errors', $errors)
