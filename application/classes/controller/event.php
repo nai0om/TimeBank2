@@ -812,14 +812,16 @@ class Controller_Event extends Controller_Template {
 			//day 
 			if ( Arr::get($_GET, 'day') == '0')
 			{
+				$events->and_where_open();
 				$days = Kohana::$config->load('timebank')->get('days'); 
 				for($i = 0 ; $i < sizeof($days) ; $i++){
 				
 					if (Arr::get($_GET, 'day'.$i ) != ''){
-				
-					$events = $events->where('days', 'like', '%'.$days[ $i ].'%');
-				 }
+						echo $i;
+						$events = $events->or_where('days', 'like', '%'.$days[ $i ].'%');
+					}
 				}
+				$events->and_where_close(); 
 			}
 			else if ( Arr::get($_GET, 'day') == '1')
 			{
