@@ -29,32 +29,21 @@ $times['23:59:59'] = '23:59';
         </p>
    
         <p><strong>เปิดรับสมัคร</strong></p>
-        <!-- p><label>ตั้งแต่วันที่</label></p>
-        <p>
-			<?= Form::input('signup_begin_date', HTML::chars($event->signup_begin_date), array('class' => 'datepicker')); ?>
-            <div class="error">
-                <font color="red"><?= Arr::get($errors, 'signup_begin_date'); ?></font>
-            </div>
-		</p -->
+    
         <p><label>ถึงวันที่ *</label></p>
         <p>
-			<?= Form::input('signup_end_date', $event->signup_end_date == '' ? '' : date("d-m-Y", strtotime($event->signup_end_date)), array('class' => 'datepicker')); ?>
+			<?= Form::input('signup_end_date', $event->signup_end_date == '' ? '' : date("d-m-Y", phphelp::DC_to_BE($event->signup_end_date)), array('class' => 'datepicker')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'signup_end_date'); ?></font>
             </div>        
         </p>
-        <!--p><label>ตั้งแต่เวลา</label>
-        	<?= Form::select('signup_begin_time', $times, $event->signup_begin_time); ?>
-        	<label>ถึง</label>
-        	<?= Form::select('signup_end_time', $times, ($event->signup_end_time == '')? '23:59:59': $event->signup_end_time); ?>
-        </p -->
         <div class="line"></div>
     </fieldset>
     <fieldset>
         <p><legend><strong>ช่วงวันทำอาสา</strong></legend></p>
         <p><label>ตั้งแต่วันที่ *</label></p>
         <p>
-			<?= Form::input('volunteer_begin_date', $event->volunteer_begin_date == '' ? '' : date("d-m-Y", strtotime($event->volunteer_begin_date)), array('class' => 'datepicker', 'id' => 'volunteer_begin_date', 'onChange' => 'difDateTIme()')); ?>
+			<?= Form::input('volunteer_begin_date', $event->volunteer_begin_date == '' ? '' : date("d-m-Y", phphelp::DC_to_BE($event->volunteer_begin_date)), array('class' => 'datepicker', 'id' => 'volunteer_begin_date', 'onChange' => 'difDateTIme()')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'volunteer_begin_date'); ?></font>
             </div>           
@@ -67,7 +56,7 @@ $times['23:59:59'] = '23:59';
         <p><label>ถึงวันที่ *</label>
         </p>
         <p>
-			<?= Form::input('volunteer_end_date', $event->volunteer_end_date == '' ? '' : date("d-m-Y", strtotime($event->volunteer_end_date)), array('class' => 'datepicker', 'id' => 'volunteer_end_date', 'onChange' => 'difDateTIme()')); ?>
+			<?= Form::input('volunteer_end_date', $event->volunteer_end_date == '' ? '' : date("d-m-Y", phphelp::DC_to_BE($event->volunteer_end_date)), array('class' => 'datepicker', 'id' => 'volunteer_end_date', 'onChange' => 'difDateTIme()')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'volunteer_end_date'); ?></font>
             </div>           

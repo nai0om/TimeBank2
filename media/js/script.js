@@ -6,7 +6,9 @@ $(document).ready( function () {
   	$(function() {
 			$(".datepicker" ).datepicker({
 										dateFormat: 'dd-mm-yy',
-										isBuddhist: true
+										isBE: true,
+                    autoConversionField: true
+
 											 });
 	});
 	

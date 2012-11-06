@@ -23,6 +23,11 @@ class phphelp {
 		$time = strtotime($string); 
 		return phphelp::thai_date($time);
 	}
+	
+	public static function DC_to_BE($date)
+	{
+		return strtotime(date("Y-m-d", strtotime($date)) . " +543 year");
+	}
 
 	public static function thai_date($time)
 	{  
