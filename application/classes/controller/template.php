@@ -44,7 +44,7 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 						$query = DB::select(array('COUNT("id")', 'notification_count'))
 												->from('inboxes')
 												->where('organization_id', '=', $this->orguser->id)
-												->and_where('is_removed', '=', 0);
+												->and_where('is_read', '=', 0);
 						$result = $query->execute();
 						$this->notification_count = $result[0]['notification_count'];
 					}
@@ -59,7 +59,7 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 					$query = DB::select(array('COUNT("id")', 'notification_count'))
 											->from('inboxes')
 											->where('user_id', '=', $this->user->id)
-											->and_where('is_removed', '=', 0);
+											->and_where('is_read', '=', 0);
 					$result = $query->execute();
 					$this->notification_count = $result[0]['notification_count'];
 				}
