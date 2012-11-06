@@ -66,10 +66,15 @@ class Controller_User extends Controller_Template {
 
     public function action_record()
     {
+		if(isset($this->orguser))
+		{
+			timebankhelper::redirectToHome();
+			return;
+		}
         // if a user is not logged in, redirect to login page
         if (!$this->user)
         {
-            Request::current()->redirect('user/login');
+            Request::current()->redirect('user/login?back_url=user/record');
 			return;
         }
 		
@@ -155,6 +160,14 @@ class Controller_User extends Controller_Template {
 
     public function action_forgetpassword()
     {
+		if(isset($this->user) || isset($this->userorg))
+		{
+			 echo'<script>'.
+						'alert ("'.__('Please logout').'"); '.
+						'window.location = "'.url::base().'welcome/home"'.
+						'</script>';
+			return;
+		}
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
 			if (Arr::get($_POST, 'email') != '')
@@ -214,6 +227,13 @@ class Controller_User extends Controller_Template {
 	}
 	public function action_create()
 	{
+		if (isset($this->user) || isset($this->orguser))
+		{
+			timebankhelper::redirectToHome();
+		}
+		
+	
+		
 		$this->template->content = View::factory('user/create')
 									->bind('message', $message)
 									->bind('errors', $errors)
@@ -1262,7 +1282,7 @@ class Controller_User extends Controller_Template {
 	public function action_login()
 	{
 		// If user already logged in
-		if (isset($this->user))
+		if (isset($this->user) || isset($this->orguser))
 		{
 			timebankhelper::redirectToHome();
 		}

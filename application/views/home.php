@@ -89,7 +89,7 @@
 		<blockquote>
 			<h2>ปันเวลาช่วยกัน</h2>
 			<p>มาช่วยกันสร้างสรรค์สังคมของเรา <br>ผ่านการฝากเวลา เพื่อปฏิบัติภารกิจจิตอาสา <br>(หากคุณเป็นอาสาสมัคร) หรือ <br>สร้างภารกิจจิตอาสา เพื่อเป็นโอกาสในการใช้เวลา (หากคุณเป็นองค์กรอาสา) </p>
-			<h3><a href="<?= url::base().'user/create' ?>"><span style="text-decoration:underline">ฝากเวลา</span></a>  <span style="font-size:20px;">หรือ</span>  <a href="<?= url::base().'organization/create' ?>"> <span style="text-decoration:underline">สร้างภารกิจจิตอาสา</span></a></h3>
+			<h3><a href="<?= url::base().'user/record' ?>"><span style="text-decoration:underline">ฝากเวลา</span></a>  <span style="font-size:20px;">หรือ</span>  <a href="<?= url::base().'event/create' ?>"> <span style="text-decoration:underline">สร้างภารกิจจิตอาสา</span></a></h3>
 		</blockquote>
 		
 		<section><span style="color:#a73c0c">ภารกิจจิตอาสาที่น่าสนใจ</span></section>

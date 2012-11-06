@@ -16,7 +16,7 @@
 		
 		<div class="table left"><h3 class="title">ขั้นตอนฝากเวลาเป็นอาสา</h3>
 		<ol>
-			<li><strong>สมัครบอกความตั้งใจให้เวลา</strong><p>กรอกชื่อ อีเมล รหัสผ่าน และฝากจำนวนชั่วโมงตามที่ตั้งใจ</p><p class="link" style="top:47px;"><a href="<?= url::base().'user/create' ?>"><img src="<?= url::base(); ?>media/img/tb_icon_heart.png"/>ฝากเวลา</a></P></li>
+			<li><strong>สมัครบอกความตั้งใจให้เวลา</strong><p>กรอกชื่อ อีเมล รหัสผ่าน และฝากจำนวนชั่วโมงตามที่ตั้งใจ</p><p class="link" style="top:47px;"><a href="<?= url::base().'user/record' ?>"><img src="<?= url::base(); ?>media/img/tb_icon_heart.png"/>ฝากเวลา</a></P></li>
 			<li><strong>เลือกใช้เวลากับงานอาสาที่ตรงใจ</strong><p>ค้นหาและสมัครภารกิจจิตอาสาที่สอดคล้องกับเวลา ความสนใจ หรือทักษะของเรา</p><p class="link" style="top:10px;"><a href="<?= url::base().'event' ?>"><img src="<?= url::base(); ?>media/img/tb_icon_plus.png"/>ค้นหางานจิตอาสา</a></p></li>
 			<li><strong>แบ่งปันประสบการณ์และยืนยันการใช้เวลา</strong><p>เล่าความประทับใจ การเรียนรู้ เรื่องราวจากภารกิจจิตอาสา และยืนยันเวลาที่ได้ใช้ไปแล้ว</p></li>
 		</ol></div>

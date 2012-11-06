@@ -36,10 +36,16 @@ class Controller_Event extends Controller_Template {
 			->bind('errors', $errors)
 			->bind('event', $event);
 		
+		if(isset($this->user))
+		{
+			timebankhelper::redirectToHome();
+			return;
+		}
 		// If user have permission to create organization
 		if (is_null($this->orguser))
 		{	
-			timebankhelper::redirectToHome();;
+			Request::current()->redirect('user/login?back_url=event/create');
+			return;
 		}
 		
 		//$locations = Location::get_location_array();
