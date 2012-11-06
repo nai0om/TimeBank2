@@ -38,8 +38,8 @@
   <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.core.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.widget.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/widget/lib/jquery.ui.rcarousel.js"></script>
-  <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery-ui-timepicker-addon.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery.ui.datepicker-th.js"></script>
+  <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery.ui.datepicker.ext.be.js"></script>
   <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery.tokeninput.js"></script>
   <!-- cript type="text/javascript" src="widget/lib/jquery.ui.rcarousel.js"></script -->
 	
