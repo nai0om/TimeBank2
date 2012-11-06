@@ -92,13 +92,14 @@ class Controller_Admin extends Controller_Template {
 		try
 		{
 			$event->save();	
+			Request::current()->redirect('admin/index');
 		} catch (ORM_Validation_Exception $e) {
 		
 		
 			// Set errors using custom messages
 			print_r($e->errors('models'));
 		}
-		Request::current()->redirect('admin/index');
+		
 	
 	}
 	

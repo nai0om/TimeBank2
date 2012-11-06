@@ -81,7 +81,11 @@
 		<ul id="volunteer">
         <? foreach($comments as $comment) : ?>
 			<li>
-				<img src="<?= url::base().'media/upload/volunteers/'.$comment['user_image'] ?>" style="width:150px; height:150px" />
+            	<? if ($comment['user_image'] != '') :?>
+					<img src="<?= url::base().'media/upload/volunteers/'.$comment['user_image'] ?>" style="width:150px; height:150px" />
+                 <? else : ?>
+                 	<img src="<?= url::base().'media/img/face2.png'?>" style="width:150px; height:150px" />
+                 <? endif ?>
 				<p><strong><?= $comment['user_display'] ?></strong></p>
 				<p></p>
 				<?= HTML::anchor('event/view/'.$comment['event_id'],  'ดูภารกิจ'); ?>
