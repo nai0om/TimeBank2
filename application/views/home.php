@@ -141,7 +141,9 @@
 			<a href="http://www.thaihealth.or.th/" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/thaihealth.png" /></a>
 			<a href="http://www.thaivolunteer.org/" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/thaivolunteer.png" /></a>
 			<a href="http://www.volunteerspirit.org/" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/volunteerspirit.png" /></a>
+			<a href="http://www.budnet.org/" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/logo_budthika" /></a>
 			<a href="http://www.facebook.com/SiamArsa" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/siamarsa.png" /></a>
+			
 		</p>
 
 <?php include Kohana::find_file('views', 'shared/footer') ?>
