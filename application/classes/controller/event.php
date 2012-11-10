@@ -34,7 +34,8 @@ class Controller_Event extends Controller_Template {
             //->bind('locations', $locations)
             ->bind('message', $message)
 			->bind('errors', $errors)
-			->bind('event', $event);
+			->bind('event', $event)
+			->bind('image_path', $image_path);
 		
 		if(isset($this->user))
 		{
@@ -53,6 +54,7 @@ class Controller_Event extends Controller_Template {
 		$event = ORM::factory('event');
 		$event->organization_id  = $this->orguser->id;
 		$this->save_event($event, $this->orguser, $this->request->method(), false, $message, $errors);
+		$image_path = $event->image;
 	} 
 
 	public function action_created()
@@ -107,7 +109,8 @@ class Controller_Event extends Controller_Template {
             //->bind('locations', $locations)
             ->bind('message', $message)
 			->bind('errors', $errors)
-			->bind('event', $event);
+			->bind('event', $event)
+			->bind('image_path', $image_path);
 		
 		// If user have permission to create event
 		if (is_null($this->orguser))
@@ -139,6 +142,7 @@ class Controller_Event extends Controller_Template {
 
 		//$locations = Location::get_location_array();		
 		$this->save_event($event, $this->orguser, $this->request->method(), true, $message, $errors);
+		$image_path = $event->image;
 	}
 	
 	public function action_view()
@@ -1027,11 +1031,13 @@ class Controller_Event extends Controller_Template {
 
 			$orguser = $event->organization;
 			
-			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
+			if (Arr::get($_POST, 'image_path') != '' )
 			{
-			
-						$event->image = $_FILES['image']['name'];
-		
+				$event->image = Arr::get($_POST, 'image_path');
+			}
+			else
+			{
+				$event->image = '';
 			}
 	
 			$event->search_temp =  $orguser->name.'/'.$event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.strip_tags($event->detail).'/'.$event->location_name;

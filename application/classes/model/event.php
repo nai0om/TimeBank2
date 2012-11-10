@@ -140,8 +140,12 @@ class Model_Event extends ORM {
 		);
 	}
 	
-	public function check_upload($filename)
+	public function check_upload($filename, $value)
     {
+		if($value != '')
+		{
+			return TRUE;
+		}
 		if (isset($_FILES[$filename]['name']) && $_FILES[$filename]['name'] != '')
 		{
 			// Validate the file first
