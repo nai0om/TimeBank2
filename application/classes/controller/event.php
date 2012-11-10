@@ -1033,17 +1033,25 @@ class Controller_Event extends Controller_Template {
 			
 			if (Arr::get($_POST, 'image_path') != '' )
 			{
-				$event->image = Arr::get($_POST, 'image_path');
+				if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
+				{
+					$event->image = '[intenal]';
+				}
+				else
+				{
+					$event->image = Arr::get($_POST, 'image_path');
+				}
 			}
 			else
 			{
-				$event->image = '';
+				$event->image = '[intenal]';
 			}
 	
 			$event->search_temp =  $orguser->name.'/'.$event->name.'/'.$event->project_name.'/'.$event->contractor_name.'/'.strip_tags($event->detail).'/'.$event->location_name;
 		
 			try
 			{
+				
 				$event->check();
 				
 				$event->save();
