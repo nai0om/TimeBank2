@@ -208,10 +208,11 @@ $times['23:59:59'] = '23:59';
 
     <fieldset>
         <legend>รูปงานอาสา * (ขนาดไม่เกิน 4 MB)</legend>
+        <input type="hidden" name="image_path" value="<?= $image_path ?>" />
         <?php if ($event->image != ''): ?>
         	<img src="<?= url::base().'media/upload/events/'.$event->image; ?>" />
         <? endif ?>
-		<?= Form::file('image') ?>
+		<?= Form::file('image', array('value' => 'xxx')) ?>
         <div class="error">
             <font color="red"><?= __(Arr::get($errors, 'image')); ?></font>
         </div>
