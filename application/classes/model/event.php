@@ -142,12 +142,14 @@ class Model_Event extends ORM {
 	
 	public function check_upload($filename, $value)
     {
-		if($value != '')
+		if($value <> '[intenal]')
 		{
 			return TRUE;
 		}
+		
 		if (isset($_FILES[$filename]['name']) && $_FILES[$filename]['name'] != '')
 		{
+			
 			// Validate the file first
 			$validation = Validation::factory($_FILES)
 					->rules($filename, array(
@@ -176,6 +178,7 @@ class Model_Event extends ORM {
 	
 	public function upload($filename)
     {
+		
         $picture = Upload::save($_FILES[$filename], NULL, Upload::$default_directory.'/events' );
 		// Resize, sharpen, and save the image
 		Image::factory($picture)
