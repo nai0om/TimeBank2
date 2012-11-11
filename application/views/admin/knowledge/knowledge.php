@@ -7,8 +7,8 @@
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
     <th WIDTH="10">id</th>		 	 		 	 		
-    <th WIDTH="10">ชื่อเรื่อง</th>	 			 	 	 					 
-    <th WIDTH="10">เนื่อหา</th>		 	 	 						 
+    <th style="width: 200px;">ชื่อเรื่อง</th>	 			 	 	 					 
+    <th style="width: 500px;">เนื่อหา</th>		 	 	 						 
     <th WIDTH="10">วันที่สร้าง</th>
     <th>แก้ไข</th>
     <th>ลบ</th>
