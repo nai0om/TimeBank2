@@ -8,7 +8,7 @@
     organization_id	: <?= $comment->organization_id  ?><br /> 
     ip	: <?= $comment->ip  ?><br /> 
     <label>comment</label>
-    <?= Form::input('comment', $comment->comment ); ?> <br />   
+    <?= Form::textarea('comment', $comment->comment, array('style' => 'width:900px') ); ?> <br />   
 <input type="submit" value="แก้ไข " />
 
 
