@@ -326,8 +326,16 @@ class Controller_Admin extends Controller_Template {
 				->from('users_events') 	
 				->where('user_id','=',$this->request->param('id'))
 				->order_by('event_id','desc')
-				->execute();
-				
+				->execute()
+				->as_array();
+		for($i = 0 ; $i < count($records); $i++)
+		{
+			$event = ORM::factory('event', $records[$i]['event_id']);
+			if($event->loaded())
+			{
+				$records[$i]['event_name'] = $event->name;
+			}
+		}
 		$this->template->content = View::factory('admin/user/userevent')
 											->bind('records', $records);
 		
