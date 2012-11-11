@@ -335,6 +335,13 @@ class Controller_Admin extends Controller_Template {
 			{
 				$records[$i]['event_name'] = $event->name;
 			}
+			{
+				$records[$i]['event_name'] = '';
+				DB::delete('users_events')
+					->where('event_id', '=', $records[$i]['event_id'])
+					->execute();
+			}
+			
 		}
 		$this->template->content = View::factory('admin/user/userevent')
 											->bind('records', $records);
