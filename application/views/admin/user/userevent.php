@@ -16,7 +16,7 @@
 		<?= HTML::anchor('admin/usereventedit?u='.$record['user_id'].'&e='.$record['event_id'], '<strong>แก้ไข</strong>'); ?>
         <?= HTML::anchor('admin/usereventremove?u='.$record['user_id'].'&e='.$record['event_id'], '<strong>ลบ</strong>'); ?>        
     </td> 
-    <td>  <?= HTML::anchor('evemt/view/'.$record['event_id'], $record['event_name']); ?></td>
+    <td>  <?= HTML::anchor('event/view/'.$record['event_id'], $record['event_name']); ?></td>
     <td><?= $record['status']  ?></td>
     <td><?= $record['time_approve']  ?></td>
 	</tr>
