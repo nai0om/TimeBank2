@@ -650,7 +650,7 @@ class Controller_Admin extends Controller_Template {
 		DB::delete('users_events')->where('user_id', '=',  $user_id )
 							->where('event_id', '=', $event_id)
 							->execute();
-		Request::current()->redirect('admin/userevent/'.$user_id);
+		Request::current()->redirect('admin/eventuser/'.$event_id);
 		}
 	}
 	

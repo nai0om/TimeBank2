@@ -4,7 +4,7 @@
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
-<th> ตัวเลือก</th>
+<th style="width:100px"> ตัวเลือก</th>
 <th> id</th>
 <th> ชื่อกิจกรรม</th>
 <th> เริ่ม</th>
