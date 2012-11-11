@@ -26,7 +26,7 @@
         <?= HTML::anchor('admin/eventcomment/'.$event->id, '<strong>comment</strong>'); ?>  <br />
     </td> 
     <td><?= $event->id ?></td>
-    <td><?= $event->name ?></td>
+    <td><?= HTML::anchor('event/view/'.$event->id, $event->name); ?></td>
     <td><?= $event->volunteer_begin_date ?></td>
     <td><?= $event->volunteer_end_date ?></td>
     <td><?= $event->organization_id ?></td>
