@@ -30,7 +30,7 @@ class Controller_Admin extends Controller_Template {
 		$comment_select = array();
 		foreach($comments as $comment )
 		{
-			$name = $comment->id.' - '.$comment->comment;
+			$name = $comment->id.' - '. iconv_substr( strip_tags($comment->comment), 0,140, 'UTF-8');
 			$comment_select[$comment->id] = $name; 
 		}
 		$comment_recommend = ORM::factory('comment')->where('recommend', '=', '1')->order_by('id','desc')->find_all();
@@ -568,7 +568,8 @@ class Controller_Admin extends Controller_Template {
 		if ($this->request->param('id')  == '') $this->redirect('/');
 		$this->template->content = View::factory('admin/event/eventedit')
 										->bind('event', $event)
-										->bind('errors', $errors);
+										->bind('errors', $errors)
+										->bind('image_path', $image_path);
 										
 		$event = ORM::factory('event', $this->request->param('id'));
 		if (HTTP_Request::POST == $this->request->method()) 
@@ -577,7 +578,9 @@ class Controller_Admin extends Controller_Template {
 			$event->message = Arr::get($_POST, 'message');
 			$event->volunteer_joined = Arr::get($_POST, 'volunteer_joined');
 			Controller_Event::save_event($event, NULL, $this->request->method(), true, $message, $errors);
+			
 		}
+		$image_path = $event->image;
 		
 	}
 	
