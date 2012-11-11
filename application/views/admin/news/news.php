@@ -7,10 +7,8 @@
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
     <th WIDTH="10">id</th>		 	 		 	 		
-    <th WIDTH="10">หัวข้อข่าว</th>	 			 	 	 					 
-    <th WIDTH="10">เนื้อหา</th>			 	 	 					 
-    <th WIDTH="10">รูปหลัก</th>			 	 	 	 	 	 		 
-    <th WIDTH="10">รูปหน้า index</th>		 	 	 						 
+    <th style="width:650px;">หัวข้อข่าว</th>	 			 	 	 					 
+	 	 	 						 
     <th WIDTH="10">วันที่สร้าง</th>
     <th>แก้ไข</th>
     <th>ลบ</th>
@@ -19,9 +17,7 @@
     <tr>
         <td WIDTH="10"><?=  $new->id; ?></td>
         <td WIDTH="10"><?= HTML::anchor('news/view/'.$new->id, '<strong>'.$new->topic.'</strong>'); ?></td>
-        <td WIDTH="10"><?=  $new->message; ?></td>
-        <td WIDTH="10"><?=  $new->pic; ?></td>
-        <td WIDTH="10"><?=  $new->pic_thm; ?></td>
+
         <td WIDTH="10"><?=  $new->timestamp; ?></td>
         <td><?= HTML::anchor('admin/editnews/'.$new->id, '<strong>แก้ไข</strong>'); ?></td> 
         <td><?= HTML::anchor('admin/deletenews/'.$new->id, '<strong>ลบ</strong>'); ?> </td>
