@@ -1,4 +1,4 @@
-notify_matchevent<?php defined('SYSPATH') or die('No direct script access.');
+<?php defined('SYSPATH') or die('No direct script access.');
 
 class TimebankNotification {
 	

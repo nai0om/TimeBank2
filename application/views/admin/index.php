@@ -119,13 +119,7 @@
     <p align="center" style="margin:0;">
     	<img src="<?= url::base()."media/img/tb_line.png" ?>">
     </p>
-    <p>
-    <h3>ส่งข่าวสารทาง SMS ให้ อาสาสมัคร</h3>  
-		<?= Form::open('admin/send_sms'); ?>
-        <?= Form::textarea('message'); ?>
-        <?= Form::submit('approve', 'ส่ง'); ?>
-        <?= Form::close(); ?>
-    </p>
+
 </p>
 
 </div>

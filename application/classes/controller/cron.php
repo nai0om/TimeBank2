@@ -168,4 +168,36 @@ class Controller_Cron extends Controller_Template {
 		}
 	}
 	
+	public function action_news()
+	{
+		$this->auto_render = false;
+		if($this->adminsmsrunning) return;
+		
+		
+		for ($i = 0; $i < 100; $i++)
+		{
+			$adminsms = ORM::Factory('adminsms')
+								->where('status', '=', 0)
+								->where('send_time', '<' , date("Y-m-d H:i:s") )
+								->find() ;
+								
+			
+			if ($adminsms->loaded())
+			{
+				$adminsms->status = 2;// sendding
+				$adminsms->save();
+				$users = ORM::factory('user')->find_all();
+				foreach($users as $user)
+				{
+					TimebankNotification::queuesms($user->phone, $adminsms->message, $user->id);
+				}
+				$adminsms->sent_time = date("Y-m-d H:i:s");
+				$adminsms->status = 1;// finished
+				$adminsms->save();
+			}
+		
+		}
+	
+	}
+	
 }
