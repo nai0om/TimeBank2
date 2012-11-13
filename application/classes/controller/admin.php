@@ -1108,6 +1108,47 @@ class Controller_Admin extends Controller_Template {
 		
 	}
 //###########################################################		
+//####################  SMS admin control  ##################
+//###########################################################	
+	
+	public function action_sms()
+	{
+		$this->template->content = View::factory('admin/sms/index')
+											->bind('smses', $smses);
+		$smses = ORM::factory('adminsms')->order_by('id','desc')->find_all();
+	}
+	
+	public function action_add_sms()
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$adminsms = ORM::factory('adminsms');
+			$adminsms->message = Arr::get($_POST, 'message');
+			
+			if(Arr::get($_POST, 'send_time') != '')
+				$adminsms->send_time = date("Y-m-d", strtotime(Arr::get($_POST, 'send_time'))).' '.Arr::get($_POST, 'begin_time');
+			$adminsms->save();
+			Request::current()->redirect('admin/sms');
+		}
+	}
+	
+	public function action_remove_sms()
+	{
+	
+		$id = $this->request->param('id');
+		$adminsms = ORM::factory('adminsms', $id);
+		
+		if($adminsms->loaded())
+		{
+			
+			$adminsms->delete();
+		}
+		
+		Request::current()->redirect('admin/sms');
+	}
+	
+
+//###########################################################		
 //####################  private   function ##################
 //###########################################################	
 	private function training_save($training, &$errors, $isUpdate)

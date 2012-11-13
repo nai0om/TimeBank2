@@ -160,7 +160,7 @@ class Controller_User extends Controller_Template {
 
     public function action_forgetpassword()
     {
-		if(isset($this->user) || isset($this->userorg))
+		if(isset($this->user) || isset($this->orguser))
 		{
 			 echo'<script>'.
 						'alert ("'.__('Please logout').'"); '.
