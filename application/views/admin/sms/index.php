@@ -39,10 +39,10 @@ for($i = 1;$i < 48;$i++) {
     </p>
 	
 
-<table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
+<table style="table-layout: fixed; width: 100%"  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
     <th>id</th>		 	 		 	 		
-    <th>ข้อความ</th>	 			 	 	 					 						 
+    <th style="width:400px" >ข้อความ</th>	 			 	 	 					 						 
     <th>กำหนดส่ง</th>
     <th>สถานะการส่ง</th>
     <th>เวลาส่ง</th>
@@ -51,7 +51,7 @@ for($i = 1;$i < 48;$i++) {
 <? foreach ($smses as $sms ) :?>
     <tr>
         <td ><?=  $sms->id; ?></td>
-        <td><?=  $sms->message; ?></td>
+        <td  style="word-wrap: break-word"><?=  $sms->message; ?></td>
         <td><?=  $sms->send_time; ?></td>
         <td><?=  ($sms->status == 1) ? 'ส่งแล้ว' : '-' ?></td>
         <td><?=  $sms->sent_time; ?></td>
