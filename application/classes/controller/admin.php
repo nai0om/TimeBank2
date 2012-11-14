@@ -605,6 +605,13 @@ class Controller_Admin extends Controller_Template {
 		if ($this->request->param('id')  == '') $this->redirect('/');
 		
 		$event = ORM::factory('event', $this->request->param('id') );
+			
+		DB::delete('users_events')
+			->where('event_id', '=', $event_id)
+			->execute();
+		DB::delete('comments')
+			->where('event_id', '=', $event_id)
+			->execute();
 		$event->delete(); 
 		Request::current()->redirect('admin/event');
 	}
@@ -721,7 +728,7 @@ class Controller_Admin extends Controller_Template {
 		$event_id = $image->event_id;
 		try
 		{
-			unlink(DOCROOT.'media/upload/event/'.$image->image);
+			unlink(DOCROOT.'media/upload/events/'.$image->image);
 		} catch(ErrorException  $e)
 		{
 			
@@ -1146,7 +1153,45 @@ class Controller_Admin extends Controller_Template {
 		
 		Request::current()->redirect('admin/sms');
 	}
+//###########################################################		
+//###################  comments function ####################
+//###########################################################	
+	public function action_comment()
+	{
+		$this->template->content = View::factory('admin/comment/index')
+											->bind('comments', $comments);
+		$comments = ORM::factory('comment')->order_by('id','desc')->find_all();
+	}
 	
+	public function action_commentedit()
+	{
+		$id = $this->request->param('id');
+		if(Arr::get($_GET, 'message') != '')
+		{
+			$comment = ORM::factory('comment', $id);
+			if($comment->loaded())
+			{
+				$comment->comment =  Arr::get($_GET, 'message');
+				$comment->save();
+			}
+		}
+		Request::current()->redirect('admin/comment');
+
+	}
+	
+	public function action_commentremove()
+	{
+		$id = $this->request->param('id');
+		$comment = ORM::factory('comment', $id);
+		
+		if($comment->loaded())
+		{
+			
+			$comment->delete();
+		}
+		
+		Request::current()->redirect('admin/comment');
+	}
 
 //###########################################################		
 //####################  private   function ##################

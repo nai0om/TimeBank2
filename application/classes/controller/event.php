@@ -79,8 +79,16 @@ class Controller_Event extends Controller_Template {
 				{
 					continue;
 				}
+				
+				DB::delete('users_events')
+					->where('event_id', '=', $event_id)
+					->execute();
+				DB::delete('comments')
+					->where('event_id', '=', $event_id)
+					->execute();
 				// remove only one event
 				$event->delete();		
+				
 				linkscreator::remove_event($event_id);
 			}
 		}
