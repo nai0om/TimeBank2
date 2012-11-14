@@ -20,7 +20,9 @@
         <td ><?=  $training->date_message; ?></td>
         <td ><?=  $training->timestamp; ?></td>
         <td><?= HTML::anchor('admin/edittraining/'.$training->id, '<strong>แก้ไข</strong>'); ?></td> 
-        <td><?= HTML::anchor('admin/deletetraining/'.$training->id, '<strong>ลบ</strong>'); ?> </td>
+        <td>
+		 <a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/deletetraining/'.$training->id ?>')"><strong>ลบ</strong> </a>
+         </td>
 	</tr>
 <? endforeach ?>
 </table>

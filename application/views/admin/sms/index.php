@@ -55,7 +55,9 @@ for($i = 1;$i < 48;$i++) {
         <td><?=  $sms->send_time; ?></td>
         <td><?=  ($sms->status == 1) ? 'ส่งแล้ว' : '-' ?></td>
         <td><?=  $sms->sent_time; ?></td>
-        <td ><?= HTML::anchor('admin/remove_sms/'.$sms->id, 'ลบ'); ?></td>
+        <td>
+        <a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/remove_sms/'.$sms->id ?>')"><strong>ลบ</strong> </a> 
+        </td>
 	</tr>
 <? endforeach ?>
 </table>

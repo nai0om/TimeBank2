@@ -19,7 +19,9 @@
         <td ><?= ($comment->user_id == 0)? '-' : HTML::anchor('user/view/'.$comment->user_id, $comment->user_id) ?></td>
         <td ><?= ($comment->organization_id == 0) ? '-' : HTML::anchor('organization/view/'.$comment->organization_id, $comment->organization_id) ?> </td>
         <td style="word-wrap: break-word" ><?= HTML::anchor('event/view/'.$comment->event_id.'#'.$comment->id, $comment->comment)?></td>
-        <td ><a style="cursor:pointer" id="popupButton<? echo $comment->id?>">แก้ไข </a> | <?= HTML::anchor('admin/commentremove/'.$comment->id, 'ลบ'); ?>
+        <td ><a style="cursor:pointer" id="popupButton<? echo $comment->id?>">แก้ไข </a> | 
+     			<a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/commentremove/'.$comment->id ?>')">ลบ </a>
+		
          						<div id="popupDialog<?= $comment->id ?>" title="แก้ไข">
                                   <p>
                                    

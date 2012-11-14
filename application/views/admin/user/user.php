@@ -53,7 +53,7 @@ E=
         <?= $user->noti_sms_news  ?>
       </td>
     <td>
-	  <?= HTML::anchor('admin/userdelete/'.$user->id, '<strong>ลบอาสา</strong>'); ?>
+      <a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/userdelete/'.$user->id ?>')"><strong>ลบอาสา</strong> </a>
       |<?= HTML::anchor('admin/useredit/'.$user->id, '<strong>แก้ไข</strong>'); ?>
       | <?= HTML::anchor('admin/userrecord/'.$user->id, '<strong>รายการเดินบัญชีเวลา</strong>'); ?>
       | <?= HTML::anchor('admin/userevent/'.$user->id, '<strong>งานอาสา</strong>'); ?>

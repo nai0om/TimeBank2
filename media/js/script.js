@@ -16,6 +16,16 @@ $(document).ready( function () {
 
 });
 
+function OnDelete(url)
+{
+    var conf = confirm("ต้องการลบข้อมูลนี้?");
+
+    if(conf == true){
+         window.location =  url;
+}
+
+
+}
 // parse a date in dd-mm-yyyy hh:mm:ss format
 function parseDate(input) 
 {
