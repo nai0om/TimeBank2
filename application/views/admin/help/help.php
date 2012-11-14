@@ -20,7 +20,9 @@
         <td WIDTH="10"><?=  $help->message; ?></td>
         <td WIDTH="10"><?=  $help->timestamp; ?></td>
         <td><?= HTML::anchor('admin/edithelp/'.$help->id, '<strong>แก้ไข</strong>'); ?></td> 
-        <td><?= HTML::anchor('admin/deletehelp/'.$help->id, '<strong>ลบ</strong>'); ?> </td>
+        <td>
+        <a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/deletehelp/'.$help->id ?>')">
+        <strong>ลบ</strong> </a> </td>
 	</tr>
 <? endforeach ?>
 </table>

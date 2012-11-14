@@ -20,7 +20,8 @@
         <td WIDTH="10"><?=  $knowledge->content; ?></td>
         <td WIDTH="10"><?=  $knowledge->timestamp; ?></td>
         <td><?= HTML::anchor('admin/editknowledge/'.$knowledge->id, '<strong>แก้ไข</strong>'); ?></td> 
-        <td><?= HTML::anchor('admin/deleteknowledge/'.$knowledge->id, '<strong>ลบ</strong>'); ?> </td>
+        <td><a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/deleteknowledge/'.$knowledge->id ?>')">
+        <strong>ลบ</strong> </a></td>
 	</tr>
 <? endforeach ?>
 </table>

@@ -20,7 +20,7 @@
     <tr>
     <td>
 		<?= HTML::anchor('admin/eventedit/'.$event->id, '<strong>แก้ไข</strong>'); ?>  <br />
-        <?= HTML::anchor('admin/eventdelete/'.$event->id, '<strong>ลบงานอาสา</strong>'); ?>  <br />
+    	<a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/eventdelete/'.$event->id?>')"><strong>ลบงานอาสา</strong> </a>  <br />
    		<?= HTML::anchor('admin/eventuser/'.$event->id, '<strong>ดูอาสา</strong>'); ?>  <br />
         <?= HTML::anchor('admin/eventimage/'.$event->id, '<strong>รูปภาพ</strong>'); ?>   <br />
         <?= HTML::anchor('admin/eventcomment/'.$event->id, '<strong>comment</strong>'); ?>  <br />

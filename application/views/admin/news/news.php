@@ -20,7 +20,8 @@
 
         <td WIDTH="10"><?=  $new->timestamp; ?></td>
         <td><?= HTML::anchor('admin/editnews/'.$new->id, '<strong>แก้ไข</strong>'); ?></td> 
-        <td><?= HTML::anchor('admin/deletenews/'.$new->id, '<strong>ลบ</strong>'); ?> </td>
+        <td><a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/deletenews/'.$new->id ?>')">
+        <strong>ลบ</strong> </a></td>
 	</tr>
 <? endforeach ?>
 </table>

@@ -15,7 +15,7 @@ td {
 <th> รายละเอียดเพิ่มเติม</th>
 <? foreach ($organizations as $organization ) :?><tr>
 <td width="25%">           
-<?= HTML::anchor('admin/organizationdelete/'.$organization['id'], '<strong>ลบ</strong>'); ?> |
+<a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/organizationdelete/'.$organization['id'] ?>')"><strong>ลบ</strong> </a>|
  <?= HTML::anchor('admin/organizationedit/'.$organization['id'], '<strong>แก้ไข</strong>'); ?> |
   <?= HTML::anchor('admin/event?org='.$organization['id'], '<strong>งานอาสา</strong>'); ?> |
   <?= HTML::anchor('admin/organizationinbox/'.$organization['id'], '<strong>การแจ้งเตือน</strong>'); ?> |
