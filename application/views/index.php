@@ -35,7 +35,7 @@
                                 <img src="<?= url::base(); ?>media/img/logo_clear.png" id="down100" />
                              
                             <p>
-                            <iframe width="297" height="216" src="http://www.youtube.com/embed/XphuDvRjY7c" frameborder="0" allowfullscreen></iframe>
+                            <iframe width="297" height="216" src="http://www.youtube.com/embed/3AK6zgs1ul4" frameborder="0" allowfullscreen></iframe>
                             </p>
                             <p> 
                             <a style="font-size:22px;color:#000;">	ขณะนี้ระบบธนาคารจิตอาสา<br />ได้เปิดให้ทดลองใช้แล้ว </a>
@@ -59,7 +59,7 @@
     </div>
     
   <footer>
-	<p>Copyright 2012 Jitarsa All rights reserved.</p>
+	<p></p>
   </footer>
   
  

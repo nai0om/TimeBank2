@@ -20,14 +20,16 @@ for($i = 1;$i < 48;$i++) {
             <div style="float:left;width:340px;" >
           
              <?= Form::textarea('message', '', array('id' => 'message', 'onkeyup' => 'Ontextchange()')); ?>
-              <label >จำนวนทั้งหมด :</label> <label id="count">0</label><label > ตัวอักษร</label>
+              <label >จำนวนตัวอักษรทั้งหมด :</label> <label id="count">0</label><label > ตัวอักษร</label>
                <br />
-                <a>หากข้อความเป็นอังกฤษล้วน 160 char = 1 message หากมีภาษาไทยบนด้วย 70 char = 1 message</a>
+                <a>ข้อความที่เป็นภาษาอังกฤษล้วน 160 ตัวอักษร = 1 ข้อความ <br>ข้อความที่มีภาษาไทยด้วย 70 ตัวอักษร = 1 ข้อความ</a>
            </div> 
            <label >เลือกวันเวลา :</label> 
 			<?= Form::input('send_time', '', array('class' => 'datepicker')); ?>
             <?= Form::select('begin_time', $times); ?><br />
-            <a>หากเลือกเวลาก่อน ปัจจุบันระบบจะทำการส่งทั้นที่</a>
+            <p></p>
+			<a>ระบบจะส่งข้อความระหว่างเวลา 0800 - 2100 น. หากเลือกเวลาส่งหลัง 2100 ระบบจะส่งข้อความให้ในเวลา 0800 น. ของวันถัดไป
+			<p>และหากเลือกเวลาก่อนปัจจุบัน ระบบจะทำการส่งทันที</p></a>
            
         </div>
         <div>
@@ -42,8 +44,8 @@ for($i = 1;$i < 48;$i++) {
     <th>id</th>		 	 		 	 		
     <th>ข้อความ</th>	 			 	 	 					 						 
     <th>กำหนดส่ง</th>
-    <th>status</th>
-    <th>ส่งแล้วเวลา</th>
+    <th>สถานะการส่ง</th>
+    <th>เวลาส่ง</th>
     <th>ตัวเลือก</th>
 </tr>
 <? foreach ($smses as $sms ) :?>
