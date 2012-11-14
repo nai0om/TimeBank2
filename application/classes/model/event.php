@@ -173,7 +173,7 @@ class Model_Event extends ORM {
 			}
 		}
 		else
-			return TRUE;
+			return FALSE;
     }	
 	
 	public function upload($filename)

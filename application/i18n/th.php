@@ -87,6 +87,7 @@ return array(
 	'message must not be empty' => 'กรุณาใส่ข้อความของคุณ',
 	'inquiry_detail must not be empty' => 'กรุณาใส่ข้อมูลการติดต่อ',
 	'image must not be empty' => 'กรุณาใส่รูปกิจกรรมงานอาสา',
+	'models/event.image.check_upload' => 'กรุณาใส่รูปกิจกรรมงานอาสา',
 	'Password can&rsquo;t be empty.' =>  'กรุณาใส่รหัสผ่าน',
 	'The password fields did not match.' => 'รหัสผ่านที่ยืนยันไม่ตรงกัน',
 	'name must not be empty' => 'กรุณาใส่ชื่อองค์กร / หน่วยงาน',
