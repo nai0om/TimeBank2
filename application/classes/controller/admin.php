@@ -607,10 +607,10 @@ class Controller_Admin extends Controller_Template {
 		$event = ORM::factory('event', $this->request->param('id') );
 			
 		DB::delete('users_events')
-			->where('event_id', '=', $event_id)
+			->where('event_id', '=', $event->id)
 			->execute();
 		DB::delete('comments')
-			->where('event_id', '=', $event_id)
+			->where('event_id', '=', $event->id)
 			->execute();
 		$event->delete(); 
 		Request::current()->redirect('admin/event');
