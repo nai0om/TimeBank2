@@ -171,7 +171,6 @@ class Controller_Cron extends Controller_Template {
 	public function action_news()
 	{
 		$this->auto_render = false;
-		if($this->adminsmsrunning) return;
 		
 		
 		for ($i = 0; $i < 100; $i++)
