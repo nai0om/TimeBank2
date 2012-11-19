@@ -335,6 +335,7 @@ class Controller_Admin extends Controller_Template {
 			{
 				$records[$i]['event_name'] = $event->name;
 			}
+			else
 			{
 				$records[$i]['event_name'] = '';
 				DB::delete('users_events')
