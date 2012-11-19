@@ -199,4 +199,54 @@ class Controller_Cron extends Controller_Template {
 	
 	}
 	
+	public function action_hack()
+	{
+	/*	$this->auto_render = false;
+		$inboxes = DB::query(DATABASE::SELECT, 
+						'SELECT *
+						FROM `inboxes`
+						WHERE `title` LIKE \'%คุณได้รับการตอบรับให้เข้าร่วม%\'')
+						->execute()
+						->as_array();
+						
+		foreach($inboxes as $inbox)
+		{
+			$event_name =  substr($inbox['title'], strlen('คุณได้รับการตอบรับให้เข้าร่วม') + 2, -1);
+			$event = ORM::factory('event')->where('name', 'LIKE', '%'.$event_name.'%')->find();
+			if($event->loaded())
+			{
+				
+				$user = ORM::factory('user', $inbox['user_id']);
+				if($user->loaded())
+				{
+						
+						
+						$check = DB::select()->from('users_events')
+									->where('user_id', '=', $user->id)
+									->where('event_id', '=', $event->id)
+									->execute();	
+									
+						if(count($check) <= 0)
+						{
+							echo $user->displayname.' - - -'.$event_name."<br />";
+									
+							DB::query(NULL, 
+				'INSERT INTO  `users_events` (`user_id`, `event_id`, `status` )
+						VALUES ("'.$user->id.'",  "'.$event->id.'",  "1")
+						')->execute();
+					
+						}
+				
+				}
+				
+			
+			}
+			
+		}
+		*/
+		
+		
+
+	}
+	
 }

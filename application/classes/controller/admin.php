@@ -397,12 +397,12 @@ class Controller_Admin extends Controller_Template {
 		$this->check_admin();
 		
 		if (HTTP_Request::GET == $this->request->method()){		
-		$user_id= Arr::get($_GET, 'u');
-		$event_id = Arr::get($_GET, 'e');
-		DB::delete('users_events')->where('user_id', '=',  $user_id )
-							->where('event_id', '=', $event_id)
-							->execute();
-		Request::current()->redirect('admin/userevent/'.$user_id);
+			$user_id= Arr::get($_GET, 'u');
+			$event_id = Arr::get($_GET, 'e');
+			DB::delete('users_events')->where('user_id', '=',  $user_id )
+								->where('event_id', '=', $event_id)
+								->execute();
+			Request::current()->redirect('admin/userevent/'.$user_id);
 		}
 	}
 	// user inbox
