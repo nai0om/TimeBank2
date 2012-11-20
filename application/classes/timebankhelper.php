@@ -84,7 +84,13 @@ class timebankhelper {
 		foreach($events as $event)
 		{
 			$event->recommend = 0;
-			$event->save();	
+			try
+			{
+				$event->save();	
+			} catch (ORM_Validation_Exception $e) {
+			
+			
+			}
 		}
 		return ORM::factory('event')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit($limit)->find_all();
 	}
