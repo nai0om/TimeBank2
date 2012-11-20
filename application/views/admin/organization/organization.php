@@ -23,7 +23,7 @@ td {
   <br />
   ขื่อองค์กร:
   <strong>
-    <?= $organization['name']  ?> 
+    <?= HTML::anchor('organization/view/'.$organization['id'], $organization['name']) ?> 
     </strong><br />
   id:
   <?= $organization['id'] ?> | อีเมล: 
