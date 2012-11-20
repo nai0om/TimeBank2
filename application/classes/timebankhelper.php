@@ -79,7 +79,8 @@ class timebankhelper {
 	}
 	
 	public static function getRecommendEvent($limit = 3)
-	{
+	{	
+	    DB::delete('events')->where('recommend', '=', '1')->where('volunteer_begin_date', '<=', date("Y-m-d"))->execute();
 		return ORM::factory('event')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit($limit)->find_all();
 	}
 	
