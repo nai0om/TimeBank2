@@ -10,7 +10,7 @@
     <th> event id </th>		 	 		 	 		
     <th>user id</th>	 			 	 	 					 						 
     <th>organiztion id</th>
-    <th style="width:600px" >comment</th>
+    <th style="width:600px" >คอมเมนต์</th>
     <th style="width:100px" >ตัวเลือก</th>
 </tr>
 <? foreach ($comments as $comment ) :?>
