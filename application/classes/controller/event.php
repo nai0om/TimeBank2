@@ -911,10 +911,19 @@ class Controller_Event extends Controller_Template {
 		{
 			$event->name = Arr::get($_POST, 'name');
 			$event->project_name = Arr::get($_POST, 'project_name');
-			if(Arr::get($_POST, 'signup_end_date') == '')
+			if(Arr::get($_POST, 'signup_end_date') == '' && Arr::get($_POST, 'signup_end_date_convert') == '')
+			{
 				$errors['signup_end_date'] = __('must select signup_end_date.');
+			}
 			else
-				$event->signup_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_end_date')));
+			{
+				if(Arr::get($_POST, 'signup_end_date') != '' )
+					$event->signup_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'signup_end_date')));
+				else
+				{
+					$event->signup_end_date = date("Y-m-d", strtotime(phphelp::BE_to_DC(Arr::get($_POST, 'signup_end_date_convert'))));
+				}
+			}
 	
 			
 	
@@ -940,15 +949,24 @@ class Controller_Event extends Controller_Template {
 			//name,  project_name, location_name, detail
 			
 			
-			if(Arr::get($_POST, 'volunteer_begin_date') == '')
+			if(Arr::get($_POST, 'volunteer_begin_date') == '' && Arr::get($_POST, 'volunteer_begin_date_convert') == '')
 				$errors['volunteer_begin_date'] = __('must select volunteer_begin_date.');
 			else
-				$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
+			{
+				if(Arr::get($_POST, 'volunteer_begin_date') != '' )
+					$event->volunteer_begin_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_begin_date')));
+				else
+					$event->volunteer_begin_date = date("Y-m-d", strtotime(phphelp::BE_to_DC(Arr::get($_POST, 'volunteer_begin_date_convert'))));
+			}
 			
-			if(Arr::get($_POST, 'volunteer_end_date') == '')
+			if(Arr::get($_POST, 'volunteer_end_date') == '' && Arr::get($_POST, 'volunteer_end_date_convert') == '')
 				$errors['volunteer_end_date'] = __('must select volunteer_end_date.');
 			else
-				$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));	
+			{	if(Arr::get($_POST, 'volunteer_end_date') != '')
+					$event->volunteer_end_date = date("Y-m-d", strtotime(Arr::get($_POST, 'volunteer_end_date')));	
+				else
+					$event->volunteer_end_date = date("Y-m-d", strtotime(phphelp::BE_to_DC(Arr::get($_POST, 'volunteer_end_date_convert'))));	
+			}	
 				
 		
 			if($event->volunteer_begin_date != '' && $event->volunteer_end_date != '' )

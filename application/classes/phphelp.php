@@ -35,7 +35,12 @@ class phphelp {
 	{
 		return strtotime(date("Y-m-d", strtotime($date)) . " +543 year");
 	}
-
+	
+	public static function BE_to_DC($date)
+	{
+		return date("Y-m-d", strtotime(date("Y-m-d", strtotime($date)) . " -543 year"));
+	}
+	
 	public static function thai_date($time)
 	{  
 		$thai_day_arr = Kohana::$config->load('timebank')->get('thai_day_arr'); 

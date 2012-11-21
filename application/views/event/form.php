@@ -32,7 +32,7 @@ $times['23:59:59'] = '23:59';
     
         <p><label>ถึงวันที่ *</label></p>
         <p>
-			<?= Form::input('signup_end_date', $event->signup_end_date == '' ? '' : date("d-m-Y", phphelp::DC_to_BE($event->signup_end_date)), array('class' => 'datepicker')); ?>
+			<?= Form::input('signup_end_date', $event->signup_end_date == '' ? '' : date("d-m-Y", phphelp::DC_to_BE($event->signup_end_date)), array('class' => 'datepicker', 'id' => 'signup_end_date')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'signup_end_date'); ?></font>
             </div>        
