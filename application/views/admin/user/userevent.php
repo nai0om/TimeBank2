@@ -6,9 +6,9 @@
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
 <th> ตัวเลือก </th>
-<th>event id</th>
-<th>status 1 คือได้ ตอบแล้ว 0 คือยังไม่ได้ตอบรับ</th>
-<th>time_approve user ได้ ใส่ เวลาแล้วหรือยัง</th>
+<th>กิจกรรม</th>
+<th>ตอบรับเข้าร่วมงาน <br>1 = ได้รับการตอบรับ <br>0 = ยังไม่ได้ตอบรับ</th>
+<th>ยืนยันการใช้เวลา <br>1 = อาสาได้ยืนยันการใช้เวลาแล้ว <br>0 = ยังไม่ได้ยืนยัน</th>
 </tr>
 <? foreach ($records as $record ) :?>
 	<? if($record['event_name'] != '') : ?>
