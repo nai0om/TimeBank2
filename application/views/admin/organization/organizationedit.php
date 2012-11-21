@@ -10,12 +10,6 @@
         <font color="red"><?= Arr::get($errors, 'email'); ?></font>
     </div>  
     <br />
-    <label>verified</label>
-    <?= Form::input('verified', $organization->verified ); ?>    
-    <div class="error">
-        <font color="red"><?= Arr::get($errors, 'verified'); ?></font>
-    </div> 
-    <br />
     <label>noti_volunteerregister</label>
     <?= Form::input('noti_volunteerregister', $organization->noti_volunteerregister ); ?>    
     <div class="error">
