@@ -2,6 +2,13 @@
  
 class phphelp {
  
+ 	public static function fixUrl($url)
+	{
+		if(!phphelp::startsWith($url, 'http://'))
+		{
+			return 'http://'.$url;
+		}
+	}
 	public static function startsWith($haystack, $needle)
 	{
 		$length = strlen($needle);
