@@ -7,12 +7,12 @@
 <tr> 	
     <th> ตัวเลือก</th>
     <th> id </th>
-    <th> is_removed </th>
-    <th> is_read </th>
-    <th> title </th>
-    <th>message</th>
-    <th>send_status</th>
-    <th>created</th>
+    <th> การลบ <br>(1= ถูกลบแล้ว) </th>
+    <th> การอ่าน <br>(1 = ได้อ่านแล้ว) </th>
+    <th> หัวเรื่อง </th>
+    <th>ข้อความ</th>
+    <th>send_status <br>(ไม่ต้องสนใจ)</th>
+    <th>วัน/เวลาที่ส่ง</th>
 </tr>
 <? foreach ($inboxes as $inbox ) :?>
     <tr>
