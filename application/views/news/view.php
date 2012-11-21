@@ -9,7 +9,12 @@
 		<div style="clear:both"></div>
 		<h2><?= $news->topic ?></h2>
 		<h3><?= phphelp::timestamp_to_thai($news->timestamp) ?></h3>
-		<a id="share">บอกต่อ</a>
+        
+		<a id="share" class="a2a_dd" href="http://www.addtoany.com/share_save">บอกต่อ</a>
+        <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+            <!-- Lockerz Share END -->
+        
+        
 		<div id="leftSide">
 			<img src="<?= url::base()."media/upload/news/".$news->pic ?>" />
 		</div>
