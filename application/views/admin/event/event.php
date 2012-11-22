@@ -12,7 +12,7 @@
 <th> องค์กร</th>
 <th> สถานะงาน (0 = ปิดงานแล้ว)</th>
 
-<th> จำนวนอาสาที่เปิดรับ</th>
+<th> สมัคร/เปิดรับ => ยืนยัน</th>
 <th> เวลาที่ต้องใช้ / คน</th>
 <th> อาสาที่เข้าร่วมงานจริง (องกรณ์ใส่ตอนปิดงาน)</th>
 </tr>
@@ -32,7 +32,7 @@
     <td><?= $event->organization_id ?></td>
     <td><?= $event->status ?></td>
 
-    <td><?= $event->volunteer_need_count ?></td>
+    <td><?= $event->users->count_all().' / '.$event->volunteer_need_count.' => '. $event->users->where('status', '=', '1')->count_all() ?></td>
     <td><?= $event->time_cost ?></td>
     <td><?= $event->volunteer_joined ?></td>
 	</tr>
