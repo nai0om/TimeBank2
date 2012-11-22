@@ -3989,7 +3989,7 @@ color: #ACACAC;
 }
 #training #list li{
 	width: 50%;
-	min-height: 300px;
+	height: 450px;
 }
 #training #list li,#training #pagination li{
 	font-family:chula;
