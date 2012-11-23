@@ -12,7 +12,8 @@
                 <p><img src="<?= url::base().'media/img/member.png'; ?>" /></p>
              <? endif ?>
             <?= Form::file('profile_image') ?><br />
-            <label style="color:#F00; width:400px;float:left; outline:20px none" >ขนาดภาพไม่เกิน 1.5Mb (ประเภทไฟล์ gif, jpg, png หรือ jpeg)</label>
+            <label style="color:#F10; width:400px;float:left; outline:20px none" >- ขนาดภาพแนะนำ กว้าง 270 x สูง 260 พิกเซล</label>
+			<label style="color:#F10; width:400px;float:left; outline:20px none" >- ขนาดภาพไม่เกิน 1.5 MB (ประเภทไฟล์  jpg, jpeg, png หรือ gif)</label>
             <div class="error"><?= Arr::get($errors, 'profile_image'); ?></div>
         </div>
 		<div class="title left"></div>
