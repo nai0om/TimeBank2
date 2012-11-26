@@ -21,7 +21,7 @@
             <? else :?>
             	<img src="<?= url::base().'media/upload/organizations/'.$organization->logo; ?>" style="float:left;width:265px;height:253px;border:3px solid #FFF;margin:2px">
             <? endif ?>
-			<? foreach ($organization->events->limit(5)->find_all() as $event) : ?>
+			<? foreach ($organization->events->order_by('id', 'desc')->limit(5)->find_all() as $event) : ?>
 				<? if($event->image != '' ) : ?>
                <a href="<?= url::base().'organization/image/'.$organization->id.'?index='.$event->image ?>" target="_blank">
                 	<img src="<?= url::base().'media/upload/events/'.$event->image  ?>" style="width:107px;height:85px;margin:2px; border:3px solid #FFF" >
