@@ -4085,6 +4085,8 @@ color: #ACACAC;
     display: block;
 }
 #training.gallery #content img {
+	max-width:460px;
+	max-height:311px;
     margin:0;
 }
 /*news*/
