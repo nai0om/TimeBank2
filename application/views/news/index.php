@@ -41,7 +41,7 @@
 		<ul id="list">
         <? foreach($news as $new) : ?>
 			<li>
-				<?= HTML::anchor('news/view/'.$new->id, '<img src="'.url::base().'media/upload/news/'. $new->pic_thm. '" style="float:left;"/>') ?>
+				<?= HTML::anchor('news/view/'.$new->id, '<img src="'.url::base().'media/upload/news/'. $new->pic_thm. '" style="clear:both;"/>') ?>
 				<h3><?= $new->topic ?></h3>
 				<p><?=  iconv_substr( strip_tags($new->message), 0,140, 'UTF-8');?><?= HTML::anchor('news/view/'.$new->id, '...[อ่านต่อ]'); ?> </p>
 			</li>
