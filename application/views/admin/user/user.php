@@ -10,14 +10,10 @@ td {
 <div  id="tb_browse_searchResult" class="search">
   <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?><br />
-
-A = noti_eventrecommended<br> 
-B = noti_eventapproved<br>  
-C = noti_almosteventdate<br>  
-D = noti_eventthank<br>  
-E = noti_sms_eventapproved<br>  
-F = noti_sms_almosteventdate<br>  
-G = noti_sms_news<br />
+<p>การแจ้งเตือนทางอีเมล และ SMS</p>
+A = noti_eventrecommended  B = noti_eventapproved   C = noti_almosteventdate  D = noti_eventthank<br>  
+E = noti_sms_eventapproved   F = noti_sms_almosteventdate   G = noti_sms_news<br />
+<p>ประเภทสมาชิก: 0 = อาสา, 1 = องค์กร, 2 = Admin (ผู้ดูแลระบบ) </p>
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>
