@@ -18,7 +18,7 @@ td {
 <a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/organizationdelete/'.$organization['id'] ?>')"><strong>ลบ</strong> </a>|
  <?= HTML::anchor('admin/organizationedit/'.$organization['id'], '<strong>แก้ไข</strong>'); ?> |
   <?= HTML::anchor('admin/event?org='.$organization['id'], '<strong>งานอาสา</strong>'); ?> |
-  <?= HTML::anchor('admin/organizationinbox/'.$organization['id'], '<strong>การแจ้งเตือน</strong>'); ?> |
+  <?= HTML::anchor('admin/organizationinbox/'.$organization['id'], '<strong>การแจ้งเตือน (ทางเว็บไซต์) </strong>'); ?> |
   
   <br />
   ขื่อองค์กร:
