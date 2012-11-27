@@ -57,7 +57,7 @@ E=
       |<?= HTML::anchor('admin/useredit/'.$user->id, '<strong>แก้ไข</strong>'); ?>
       | <?= HTML::anchor('admin/userrecord/'.$user->id, '<strong>รายการเดินบัญชีเวลา</strong>'); ?>
       | <?= HTML::anchor('admin/userevent/'.$user->id, '<strong>งานอาสา</strong>'); ?>
-      | <?= HTML::anchor('admin/userinbox/'.$user->id, '<strong>การแจ้งเตือน</strong>'); ?>
+      | <?= HTML::anchor('admin/userinbox/'.$user->id, '<strong>การแจ้งเตือน (ทางเว็บไซต์) </strong>'); ?>
       <br />
       <br />
       ชื่อ-สกุล (ชื่อเล่น):
