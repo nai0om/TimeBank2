@@ -594,7 +594,17 @@ class Controller_Admin extends Controller_Template {
 				->from('users_events') 	
 				->where('event_id','=',$this->request->param('id'))
 				->order_by('timestamp','desc')
-				->execute();
+				->execute()
+				->as_array();
+		for($i = 0 ; $i < count($records); $i++)
+		{
+			$user = ORM::factory('user', $records[$i]['user_id']);
+			if($user->loaded())
+			{
+				$records[$i]['displayname'] = $user->displayname;
+				$records[$i]['fullname']  = $user->first_name.' '.$user->last_name;
+			}
+		}
 				
 		$this->template->content = View::factory('admin/event/eventuser')
 											->bind('records', $records);

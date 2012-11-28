@@ -7,6 +7,7 @@
 <tr>
 <th> ตัวเลือก </th>
 <th>user id</th>
+<th style="width:300px"> ชื่อ </th>
 <th>status 1 คือได้ ตอบแล้ว 0 คือยังไม่ได้ตอบรับ</th>
 <th>time_approve user ได้ ใส่ เวลาแล้วหรือยัง</th>
 </tr>
@@ -18,6 +19,8 @@
        
     </td> 
     <td><?= $record['user_id']  ?></td>
+    
+    <td><?= $record['displayname'] ?>: <?= HTML::anchor('user/view/'.$record['user_id'], $record['fullname'] ) ; ?>  </td>
     <td><?= $record['status']  ?></td>
     <td><?= $record['time_approve']  ?></td>
 	</tr>

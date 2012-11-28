@@ -23,7 +23,7 @@ E = noti_sms_eventapproved   F = noti_sms_almosteventdate   G = noti_sms_news<br
 </tr>
 <? foreach ($users as $user ) :?>
     <tr>
-    <td><strong><?= $user->displayname  ?></strong>      
+    <td><strong><?= HTML::anchor('user/view/'.$user->id,  $user->displayname); ?> </strong>      
       <br />
       <br />
       id:<?= $user->id ?>
@@ -79,11 +79,6 @@ E=
       <?php if ($user->profile_image != ''): ?>
       <img src="<?= url::base().'media/upload/volunteers/'.$user->profile_image; ?>" align="right" style="max-height: 150px; max-width:150px;" />
       <? endif ?>
-      quote: 
-      <?= $user->quote  ?><br />
-      description : 
-      <?= $user->description   ?>
-      <br />
       ทักษะ: 
       <? 
 	  	$normal_skill = "";
