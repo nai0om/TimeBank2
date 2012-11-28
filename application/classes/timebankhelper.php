@@ -95,6 +95,11 @@ class timebankhelper {
 		return ORM::factory('event')->where('recommend', '=', '1')->order_by(DB::expr('RAND()'))->limit($limit)->find_all();
 	}
 	
+	public static function get_partners()
+	{
+		return ORM::factory('partner')->find_all();
+	}
+	
 	public static function build_skill_for_display($str_skill, &$normal_skill, &$special_skill, $noXshowS = true)
 	{
 				$dict = Kohana::$config->load('timebank')->get('worddict'); 

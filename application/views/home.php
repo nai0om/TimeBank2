@@ -138,11 +138,11 @@
 		<p align="center" style="display:inline-block;margin-bottom:-25px;">
 			<img src="<?= url::base(); ?>media/img/tb_line.png"/>
 			<span style="text-align: center; display: block; color: #0099CC; font-size: 40px; padding: 20px 0px 0px;">ภาคีหลัก</span>
-			<a href="http://www.thaihealth.or.th/" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/thaihealth.png" /></a>
-			<a href="http://www.thaivolunteer.org/" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/thaivolunteer.png" /></a>
-			<a href="http://www.volunteerspirit.org/" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/volunteerspirit.png" /></a>
-			<a href="http://www.budnet.org/" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/logo_budthika.png" /></a>
-			<a href="http://www.facebook.com/SiamArsa" target="_blank"><img style="margin:10px 0 0"src="<?= url::base(); ?>media/img/siamarsa.png" /></a>
+            <? foreach(timebankhelper::get_partners() as $partner) : ?>
+				<a  href="<?= $partner->link ?>" target="_blank" style="text-decoration:none">
+                	<img  title="<?= $partner->alias ?>" style="margin:10px 0 0" src="<?= url::base().'media/upload/'.$partner->image; ?>" />
+                </a>
+            <? endforeach ?>
 			
 		</p>
 
