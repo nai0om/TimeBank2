@@ -1107,6 +1107,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_settings_userupdate()
 	{
+		$this->check_admin();
 		$this->auto_render = false;
 		Request::factory('cron/updateuserevent')->execute();
 		echo'<script>'.
@@ -1121,6 +1122,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_sms()
 	{
+		$this->check_admin();
 		$this->template->content = View::factory('admin/sms/index')
 											->bind('smses', $smses);
 		$smses = ORM::factory('adminsms')->order_by('id','desc')->find_all();
@@ -1128,6 +1130,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_add_sms()
 	{
+		$this->check_admin();
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
 			$adminsms = ORM::factory('adminsms');
@@ -1142,7 +1145,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_remove_sms()
 	{
-	
+		$this->check_admin();
 		$id = $this->request->param('id');
 		$adminsms = ORM::factory('adminsms', $id);
 		
@@ -1159,6 +1162,7 @@ class Controller_Admin extends Controller_Template {
 //###########################################################	
 	public function action_comment()
 	{
+		$this->check_admin();
 		$this->template->content = View::factory('admin/comment/index')
 											->bind('comments', $comments);
 		$comments = ORM::factory('comment')->order_by('id','desc')->find_all();
@@ -1166,6 +1170,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_commentedit()
 	{
+		$this->check_admin();
 		$id = $this->request->param('id');
 		if(Arr::get($_GET, 'message') != '')
 		{
@@ -1182,6 +1187,7 @@ class Controller_Admin extends Controller_Template {
 	
 	public function action_commentremove()
 	{
+		$this->check_admin();
 		$id = $this->request->param('id');
 		$comment = ORM::factory('comment', $id);
 		
@@ -1192,6 +1198,70 @@ class Controller_Admin extends Controller_Template {
 		}
 		
 		Request::current()->redirect('admin/comment');
+	}
+
+
+//###########################################################		
+//####################  partner   function ##################
+//###########################################################
+	public function action_partner()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/partner/index')
+											->bind('partners', $partners);
+		$partners = ORM::factory('partner')->order_by('id','desc')->find_all();	
+	}
+	public function action_add_partner()
+	{
+		$this->check_admin();
+		$this->template->content = View::factory('admin/partner/create');
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$partner = ORM::factory('partner');
+			 $this->save_partner($partner, $errors);
+			 Request::current()->redirect('admin/partner');
+		}
+		
+	}
+	
+	public function action_remove_partner()
+	{
+		$this->check_admin();
+		$id = $this->request->param('id');
+		$partner = ORM::factory('partner', $id);
+		try
+		{
+			unlink(DOCROOT.'media/upload/'.$partner->image);
+			$partner->delete();
+			Request::current()->redirect('admin/partner');
+		} catch(ErrorException  $e)
+		{
+			print_r($e);
+		}
+		
+	}
+	
+	private function save_partner($partner, &$errors)
+	{
+		if (HTTP_Request::POST == $this->request->method()) 
+		{
+			$partner->alias = Arr::get($_POST, 'alias');
+			$partner->link = Arr::get($_POST, 'link');
+			if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '')
+			{
+				$partner->image = $_FILES['image']['name'];
+			}
+			
+		try
+		{
+				$partner->save();
+		} catch (ORM_Validation_Exception $e) {
+				// Set errors using custom messages
+			$errors = $e->errors('models');			
+		}
+	
+			
+		}
 	}
 
 //###########################################################		
@@ -1519,7 +1589,7 @@ class Controller_Admin extends Controller_Template {
 			$org->address = Arr::get($_POST, 'address');
 			$org->province = Arr::get($_POST, 'province');
 			$org->postcode = Arr::get($_POST, 'postcode');
-			$org->district = Arr::get($_POST, 'district');
+			$org->district = Arr::get($_POST, 'district');	
 			$org->fax = Arr::get($_POST, 'fax');
 			$org->homephone = Arr::get($_POST, 'homephone');			
 			$org->contactperson = Arr::get($_POST, 'contactperson');			
