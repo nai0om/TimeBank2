@@ -7,6 +7,6 @@
 <?= HTML::anchor('admin/training', '<strong>ฝีกอบรม</strong>'); ?> |
 <?= HTML::anchor('admin/knowledge', '<strong>ความรู้</strong>'); ?> |
 <?= HTML::anchor('admin/news', '<strong>ข่าว</strong>'); ?> |
-<?= HTML::anchor('admin/partner', '<strong>ภาคี</strong>'); ?> |
+<?= HTML::anchor('admin/partner', '<strong>โลโก้ภาคี</strong>'); ?> |
 <?= HTML::anchor('admin/help', '<strong>ช่วยเหลือ (help)</strong>'); ?> - | -
 <?= HTML::anchor('admin/setting', '<strong>ระบบแนะนำงานอาสา (Matching)</strong>'); ?> 
