@@ -6,7 +6,7 @@
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>		 	 		 	 		
-    <th>ชื่อ</th>	 
+    <th>ชื่อภาคี</th>	 
     <th>เว็บไซต์</th>
     <th style="width:150px">โลโก้</th>
     <th>ลบ</th>
