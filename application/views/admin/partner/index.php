@@ -2,13 +2,13 @@
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
 
-<h1><?= HTML::anchor('admin/add_partner', '<strong>+ เพิ่มภาคคี</strong>'); ?> </h1>
+<h1><?= HTML::anchor('admin/add_partner', '<strong>+ เพิ่มโลโก้ภาคี</strong>'); ?> </h1>
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
 <tr>		 	 		 	 		
     <th>ชื่อ</th>	 
-    <th>ว็บไซต์</th>
-    <th style="width:150px">รูป</th>
+    <th>เว็บไซต์</th>
+    <th style="width:150px">โลโก้</th>
     <th>ลบ</th>
 </tr>
 <? foreach ($partners as $partner) :?>
