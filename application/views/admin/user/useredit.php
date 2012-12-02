@@ -43,7 +43,19 @@
 <?= Form::input('noti_eventthank', $valunteer->noti_eventthank ); ?>    
 <div class="error">
 	<font color="red"><?= Arr::get($errors, 'noti_eventthank'); ?></font>
-</div>  
+</div> 
+
+<label>noti_event_matched</label>
+<?= Form::input('noti_event_matched', $valunteer->noti_event_matched ); ?>    
+<div class="error">
+	<font color="red"><?= Arr::get($errors, 'noti_event_matched'); ?></font>
+</div> 
+ 
+<label>noti_eventcomment</label>
+<?= Form::input('noti_eventcomment', $valunteer->noti_eventcomment ); ?>    
+<div class="error">
+	<font color="red"><?= Arr::get($errors, 'noti_eventcomment'); ?></font>
+</div> 
 
 <label>noti_sms_eventapproved</label>
 <?= Form::input('noti_sms_eventapproved', $valunteer->noti_sms_eventapproved ); ?>    
@@ -61,6 +73,12 @@
 <?= Form::input('noti_sms_news', $valunteer->noti_sms_news ); ?>    
 <div class="error">
 	<font color="red"><?= Arr::get($errors, 'noti_sms_news'); ?></font>
+</div>  
+
+<label>noti_sms_event_matched</label>
+<?= Form::input('noti_sms_event_matched', $valunteer->noti_sms_event_matched ); ?>    
+<div class="error">
+	<font color="red"><?= Arr::get($errors, 'noti_sms_event_matched'); ?></font>
 </div>  
         
 <label>role</label>

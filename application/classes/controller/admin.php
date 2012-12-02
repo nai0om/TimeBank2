@@ -1466,9 +1466,13 @@ class Controller_Admin extends Controller_Template {
 			$valunteer->noti_eventapproved = Arr::get($_POST, 'noti_eventapproved');
 			$valunteer->noti_almosteventdate = Arr::get($_POST, 'noti_almosteventdate');
 			$valunteer->noti_eventthank = Arr::get($_POST, 'noti_eventthank');
+			$valunteer->noti_event_matched = Arr::get($_POST, 'noti_event_matched');
+			$valunteer->noti_eventcomment = Arr::get($_POST, 'noti_eventcomment');
+			
 			$valunteer->noti_sms_eventapproved = Arr::get($_POST, 'noti_sms_eventapproved');
 			$valunteer->noti_sms_almosteventdate = Arr::get($_POST, 'noti_sms_almosteventdate');
 			$valunteer->noti_sms_news = Arr::get($_POST, 'noti_sms_news');
+			$valunteer->noti_sms_event_matched = Arr::get($_POST, 'noti_sms_event_matched');
 			$valunteer->nickname = Arr::get($_POST, 'nickname');
 			$valunteer->role = Arr::get($_POST, 'role');
 			$valunteer->first_name = Arr::get($_POST, 'first_name');
@@ -1609,6 +1613,10 @@ class Controller_Admin extends Controller_Template {
 			$org->noti_volunteerregister =  Arr::get($_POST, 'noti_volunteerregister');
 			$org->noti_eventend =  Arr::get($_POST, 'noti_eventend');
 			$org->noti_eventalmostend =  Arr::get($_POST, 'noti_eventalmostend');
+			$org->noti_eventvolunteercomment =  Arr::get($_POST, 'noti_eventvolunteercomment');
+			$org->noti_volunteercancel =  Arr::get($_POST, 'noti_volunteercancel');
+			
+			
 			
 			if (isset($_FILES['logo']['name']) && $_FILES['logo']['name'] != '')
 			{
