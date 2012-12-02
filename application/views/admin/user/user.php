@@ -11,8 +11,17 @@ td {
   <div id="main" role="main">
 <?php include Kohana::find_file('views', 'admin/menus') ?><br />
 <p>การแจ้งเตือนทางอีเมล และ SMS</p>
-A = noti_eventrecommended  B = noti_eventapproved   C = noti_almosteventdate  D = noti_eventthank<br>  
-E = noti_sms_eventapproved   F = noti_sms_almosteventdate   G = noti_sms_news<br />
+NA = noti_eventrecommended  
+NB = noti_eventapproved  
+NC = noti_almosteventdate  
+ND = noti_eventthank   
+NE = noti_event_matched
+NF = noti_eventcomment
+<br>  
+SA = noti_sms_eventapproved   
+SB = noti_sms_almosteventdate   
+SC = noti_sms_news  
+SD = noti_sms_event_matched<br />
 <p>ประเภทสมาชิก: 0 = อาสา, 1 = องค์กร, 2 = Admin (ผู้ดูแลระบบ) </p>
 
 <table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
@@ -32,21 +41,16 @@ E = noti_sms_eventapproved   F = noti_sms_almosteventdate   G = noti_sms_news<br
         <?= $user->role  ?>
         <br />
         <br />
-        A=
-        <?= $user->noti_eventrecommended  ?>
-        , B=
-        <?= $user->noti_eventapproved  ?>
-        , C=
-        <?= $user->noti_almosteventdate  ?>
-        , D=
-        <?= $user->noti_eventthank  ?>
-        ,<br />
-E=
-<?= $user->noti_sms_eventapproved  ?>
-        , F=
-        <?= $user->noti_sms_almosteventdate  ?>
-        , G=
-        <?= $user->noti_sms_news  ?>
+         NA= <?= $user->noti_eventrecommended  ?><br />
+         NB= <?= $user->noti_eventapproved  ?><br />
+         NC= <?= $user->noti_almosteventdate  ?><br />
+         ND= <?= $user->noti_eventthank  ?><br />
+         NE= <?= $user->noti_event_matched ?><br />
+         NF= <?= $user->noti_eventcomment ?><br />
+         SA= <?= $user->noti_sms_eventapproved  ?><br />
+         SB= <?= $user->noti_sms_almosteventdate  ?><br />
+         SC= <?= $user->noti_sms_news  ?><br />
+         SD= <?= $user->noti_sms_event_matched ?><br />
       </td>
     <td>
       <a style="cursor:pointer" onclick="OnDelete('<?= url::base().'admin/userdelete/'.$user->id ?>')"><strong>ลบอาสา</strong> </a>

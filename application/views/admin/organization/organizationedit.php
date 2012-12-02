@@ -28,6 +28,20 @@
         <font color="red"><?= Arr::get($errors, 'noti_eventend'); ?></font>
     </div> 
 	<br />
+    <label>noti_eventvolunteercomment</label>
+	<?= Form::input('noti_eventvolunteercomment', $organization->noti_eventvolunteercomment ); ?>    
+    <div class="error">
+        <font color="red"><?= Arr::get($errors, 'noti_eventvolunteercomment'); ?></font>
+    </div> 
+	<br />
+    <label>noti_volunteercancel</label>
+	<?= Form::input('noti_volunteercancel', $organization->noti_volunteercancel ); ?>    
+    <div class="error">
+        <font color="red"><?= Arr::get($errors, 'noti_volunteercancel'); ?></font>
+    </div> 
+	<br />
+    
+    
 	<label>name</label>
 	<?= Form::input('name', $organization->name ); ?>    
     <div class="error">
