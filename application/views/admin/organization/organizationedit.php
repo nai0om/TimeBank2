@@ -10,38 +10,38 @@
         <font color="red"><?= Arr::get($errors, 'email'); ?></font>
     </div>  
     <br />
-    <label>noti_volunteerregister</label>
+	<p><label>การแจ้งเตือน (Notification)</label></p>
+    <label>- เมื่อมีอาสา สมัครเข้าร่วมกิจกรรมอาสาขององค์กร (แจ้งเตือนทันที) noti_volunteerregister</label>
     <?= Form::input('noti_volunteerregister', $organization->noti_volunteerregister ); ?>    
     <div class="error">
         <font color="red"><?= Arr::get($errors, 'noti_volunteerregister'); ?></font>
     </div> 
 	<br />
-	<label>noti_eventalmostend</label>
+	<label>- ก่อนงานอาสาจะสิ้นสุดการรับสมัคร 3 วัน noti_eventalmostend</label>
 	<?= Form::input('noti_eventalmostend', $organization->noti_eventalmostend); ?>    
     <div class="error">
         <font color="red"><?= Arr::get($errors, 'noti_eventalmostend'); ?></font>
     </div> 
     <br />
-	<label>noti_eventend</label>
+	<label>- เมื่อกิจกรรมอาสา จบเรียบร้อยแล้ว (แจ้งเตือนทันที) noti_eventend</label>
 	<?= Form::input('noti_eventend', $organization->noti_eventend ); ?>    
     <div class="error">
         <font color="red"><?= Arr::get($errors, 'noti_eventend'); ?></font>
     </div> 
 	<br />
-    <label>noti_eventvolunteercomment</label>
+    <label>- เมื่อมีคนมาฝากข้อความในงานขององค์กร (ส่งทันที) noti_eventvolunteercomment</label>
 	<?= Form::input('noti_eventvolunteercomment', $organization->noti_eventvolunteercomment ); ?>    
     <div class="error">
         <font color="red"><?= Arr::get($errors, 'noti_eventvolunteercomment'); ?></font>
     </div> 
 	<br />
-    <label>noti_volunteercancel</label>
+    <label>- เมื่อมีอาสา ยกเลิกกิจกรรมอาสาขององค์กร (แจ้งเตือนทันที) noti_volunteercancel</label>
 	<?= Form::input('noti_volunteercancel', $organization->noti_volunteercancel ); ?>    
     <div class="error">
         <font color="red"><?= Arr::get($errors, 'noti_volunteercancel'); ?></font>
     </div> 
 	<br />
-    
-    
+    <p></p>
 	<label>name</label>
 	<?= Form::input('name', $organization->name ); ?>    
     <div class="error">
