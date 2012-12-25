@@ -35,7 +35,7 @@
             	<img src="<?= url::base().'media/upload/organizations/'.$organization->logo; ?>" style="float:left;width:265px;height:253px;border:3px solid #FFF;margin:2px">
             <? endif ?>
             <?= Form::file('logo' , array('style' => 'float:left;width:300px;')) ?>
-            <label style="color:#F00; width:300px;float:left; outline:20px none" > ขนาดภาพไม่เกิน 4Mb <br />(ประเภทไฟล์ gif, jpg, png หรือ jpeg)</label>
+            <label style="color:#F00; width:300px;float:left; outline:20px none" >- ขนาดไม่เกิน 4Mb <br />- ขนาดภาพแนะนำ กว้าง 270 x สูง 260 พิกเซล<br />- ประเภทไฟล์ gif, jpg, png หรือ jpeg</label>
             <? foreach ($organization->events->limit(5)->find_all() as $event) : ?>
             	<? if($event->image != '' ) : ?>
 					<img src="<?= url::base().'media/upload/events/'.$event->image  ?>" style="width:107px;height:85px;margin:2px; border:3px solid #FFF" >
