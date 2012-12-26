@@ -26,7 +26,7 @@
                     <img  style=" max-width:257px; max-height:203px;" src="<?= url::base().'media/img/tb_photos_add.png'; ?>" />    
                 </div>
                 <div class="caption" style="height:70px;">
-               <label style="color:#F00; width:300px;float:left; outline:20px none" >ขนาดภาพไม่เกิน 4Mb และใส่ภาพได้สูงสุดไม่เกิน 50 รูป<br />(ประเภทไฟล์ gif, jpg, png หรือ jpeg)</label>
+               <label style="color:#F00; width:300px;float:left; outline:20px none" >- ขนาดภาพไม่เกิน 4Mb <br />- ใส่ภาพได้สูงสุด 50 รูป<br />- ประเภทไฟล์ jpg, jpeg, png หรือ gif</label>
                  <?= Form::file('image') ?><br />
                  <?= Form::input('text', 'เขียนคำบรรยายที่นี่'); ?> 
                  <?= Form::submit(NULL, 'เพิ่มรูป'); ?>
