@@ -261,7 +261,7 @@ class TimebankNotification {
 	{
 		$from = Kohana::$config->load('timebank')->get('server_email');
 		$to = 'jitarsabank@gmail.com';
-		$subject = 'มีข้อความจากหน้าเว็บไซต์ (contact us)';
+		$subject = 'ธนาคารจิตอาสา (ตอบกลับ)';
 		$body = self::renderHtmlEmail('contact_us', array(
 															'name' 		=> $contactus->name,
 															'surname' 	=> $contactus->surname,
