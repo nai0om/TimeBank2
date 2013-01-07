@@ -523,6 +523,7 @@ class Controller_User extends Controller_Template {
 			$this->user->province = Arr::get($_POST, 'province');
 			$this->user->website = Arr::get($_POST, 'website');
 			$this->user->sex = Arr::get($_POST, 'sex');
+			$this->user->postcode = Arr::get($_POST, 'postcode');
 			
 			// add/remove skill for this user as data recieve from post
 		
@@ -605,7 +606,7 @@ class Controller_User extends Controller_Template {
             } catch (ORM_Validation_Exception $e) {
                  
                 // Set failure message
-                $message = 'There were errors, please see form below.';
+                $message = __('There were errors, please see form below.');
                  
                 // Set errors using custom messages
                 $errors = $e->errors('models');

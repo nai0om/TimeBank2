@@ -67,7 +67,13 @@ class Model_User extends ORM {
 			'password' => array(
 				array('not_empty'),
 				array('min_length', array(':value', 6)),
-				)
+			),
+            'postcode' => array(
+			 	array('not_empty'),
+                array('numeric'),
+				array('min_length', array(':value', 5)),				
+				array('max_length', array(':value', 5)),
+            ),
         );
     }
 	
