@@ -143,4 +143,7 @@ return array(
 	'volunteer_need_count must be within the range of 1 to 1000' => 'กรุณาใส่จำนวนอาสาที่เปิดรับสมัคร (อย่างน้อย 1 คน แต่ไม่เกิน 1000 คน)',
 	'Please logout' => 'กรุณาออกจากระบบก่อน',
 	'volunteer_need_count must be a digit' => 'กรุณาใส่จำนวนอาสาที่เปิดรับสมัคร (อย่างน้อย 1 คน แต่ไม่เกิน 1000 คน)',
+	'postcode must be numeric' => 'รหัสไปรษณีย์ต้องเป็นตัวเลข',
+	'postcode must not exceed 5 characters long' => 'รหัสไปรษณีย์ไม่เกิน 5 ตัว',
+	'postcode must be at least 5 characters long' => 'รหัสไปรษณีย 5 ตัว'
  );

@@ -22,7 +22,7 @@
 
 		<div style="clear:both"></div>
         <? if ($message) : ?>
-        <h3 class="message">
+        <h3 class="messag error">
             <?= $message; ?>
         </h3>
             <? endif; ?>
@@ -75,6 +75,9 @@
 				?>
                 <div class="error"><?= Arr::get($errors, 'address'); ?></div>
                 
+                <?= Form::label('postcode', 'รหัสไปรษณีย์'); ?>
+				<?= Form::input('postcode', HTML::chars($user->postcode)); ?>
+                <div class="error"><?= __(Arr::get($errors, 'postcode')); ?></div>
                 
 			</div>
 	

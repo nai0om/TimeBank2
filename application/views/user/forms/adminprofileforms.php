@@ -21,7 +21,7 @@
 
 		<div style="clear:both"></div>
         <? if ($message) : ?>
-        <h3 class="message">
+        <h3 class="error">
             <?= $message; ?>
         </h3>
             <? endif; ?>
@@ -68,12 +68,15 @@
                 <?= Form::label('location', 'เขต/อำเภอ'); ?>
 				<?= Form::input('location', HTML::chars($valunteer->location)); ?>
                 <?= Form::label('province', 'จังหวัด'); ?>
+                
 				 <?php
 				$provices = Kohana::$config->load('timebank')->get('provices'); 
 				echo Form::select('province', $provices, $valunteer->province, array ('class' => 'full'));
 				?>
                 <div class="error"><?= Arr::get($errors, 'address'); ?></div>
-                
+                <?= Form::label('postcode', 'รหัสไปรษณีย์'); ?>
+				<?= Form::input('postcode', HTML::chars($valunteer->postcode)); ?>
+                 <div class="error"><?= Arr::get($errors, 'postcode'); ?></div>
                 
 			</div>
 	
