@@ -90,7 +90,7 @@ class Controller_Cron extends Controller_Template {
 				// Try again later
 				if ($status != 1)
 				{
-					$mailqueue->sending = 0;
+					$mailqueue->sending = -1;
 					$mailqueue->save();
 				}
 				else

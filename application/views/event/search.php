@@ -66,11 +66,11 @@ $page = isset($gets['page'])? $gets['page'] : '1';
             <table>
                 <tbody><tr>
                     <th>ชื่อภารกิจ</th>
-                    <th>ต้องการเวลา (ชม./คน)</th>
+                    <th width="82pxpx">ต้องการเวลา (ชม./คน) </th>
                     <th>รับจำนวน</th>
                     <th>รับสมัครภายใน</th>
                     <th>ช่วงวันทำงาน</th>
-                    <th></th>
+                    <th width="55px"></th>
                 </tr>
                 <?php foreach ($events as $event):	?>
                 <tr>
@@ -113,7 +113,7 @@ $page = isset($gets['page'])? $gets['page'] : '1';
             </tbody></table>
                     <br />
        <? if($type == 'open') : ?>
-       <p style="float:right; font-size:22px">	"หากต้องการค้นหางานที่จบไปแล้ว กรุณา <?= HTML::anchor('event/advance_search', 'ค้นหาแบบละเอียด') ?>"  </p>
+       <p style="float:right; font-size:17px">	"หากต้องการค้นหางานที่จบไปแล้ว กรุณา <?= HTML::anchor('event/advance_search', 'ค้นหาแบบละเอียด') ?>"  </p>
       	<? endif ?>
 		<?php else :?>
         <?php endif ?>
