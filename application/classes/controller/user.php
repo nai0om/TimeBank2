@@ -511,8 +511,7 @@ class Controller_User extends Controller_Template {
 			$this->user->first_name = Arr::get($_POST, 'first_name');
 			$this->user->last_name = Arr::get($_POST, 'last_name');
 			
-			if (trim(Arr::get($_POST, 'phone')) == '')
-				 $errors['phone'] = __('phone much not empty.');
+			
 			$this->user->phone = Arr::get($_POST, 'phone');
 			$year = Arr::get($_POST, 'year') - 543;
 			$month = Arr::get($_POST, 'month');
