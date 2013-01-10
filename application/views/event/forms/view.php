@@ -35,7 +35,7 @@
 		<div class="main">
 			<h2>รับสมัครอาสา</h2>
 			<h3><?= number_format($event->volunteer_need_count) ?> คน</h3>
-			<h4>สมัครแล้ว <?= $member_count ?> คน ต้องการอีก <?= (($event->volunteer_need_count - $member_count) < 0 ? 0: $event->volunteer_need_count - $member_count ) ?> คน</h4>
+			<h4>สมัครและตอบรับแล้ว <?= $member_count ?> คน ต้องการอีก <?= (($event->volunteer_need_count - $member_count) < 0 ? 0: $event->volunteer_need_count - $member_count ) ?> คน</h4>
 		</div>
 		<div style="clear:both"></div>
 		
