@@ -3,7 +3,7 @@
 		<div id="banner">
 			<div id="carouselMain">
 					<div id="slide01" class="slide">
-						<img src="<?= url::base(); ?>media/img/web banner_alert5.png" />
+						<img src="<?= url::base(); ?>media/img/banner_welcome_3.png" />
 					</div>
 							
 					<div id="slide02" class="slide">
