@@ -50,9 +50,11 @@
                 <div class="error">
                     <font color="red"><?= __(Arr::get($errors, 'message')); ?></font>
                 </div>
-				<!--label>พิมพ์ข้อความที่มองเห็น *</label>
-				<img src="<?= url::base(); ?>media/img/capcha.jpg">
-				<input type="text"-->
+				<label>***  กรุณาพิมคำว่า ธนาคารจิตอาสา </label>
+				<?= Form::input('capchar', HTML::chars($contactus->topic)); ?>
+                <div class="error">
+                    <font color="red"><?= __(Arr::get($errors, 'capchar')); ?></font>
+                </div>
 				<input type="submit" value="ส่งข้อความ">
 			<?= Form::close(); ?>
 		</div>

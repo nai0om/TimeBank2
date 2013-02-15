@@ -27,6 +27,12 @@ class Controller_Contactus extends Controller_Template {
 	{
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
+			
+			if (Arr::get($_POST, 'capchar') != 'ธนาคารจิตอาสา')
+			{
+				$errors['capchar'] = 'need correct text.';
+				return;
+			}
 			$contactus->name = Arr::get($_POST, 'name');
 			$contactus->surname = Arr::get($_POST, 'surname');
 			$contactus->email = Arr::get($_POST, 'email');
