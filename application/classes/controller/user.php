@@ -507,9 +507,9 @@ class Controller_User extends Controller_Template {
         {
 			
 			$errors = array();
-			$this->user->nickname = Arr::get($_POST, 'nickname');
-			$this->user->first_name = Arr::get($_POST, 'first_name');
-			$this->user->last_name = Arr::get($_POST, 'last_name');
+			$this->user->nickname = trim(Arr::get($_POST, 'nickname'));
+			$this->user->first_name = trim(Arr::get($_POST, 'first_name'));
+			$this->user->last_name =  trim(Arr::get($_POST, 'last_name'));
 			
 			
 			$this->user->phone = Arr::get($_POST, 'phone');
@@ -1231,15 +1231,15 @@ class Controller_User extends Controller_Template {
 				if($this->user->nickname == '')
 					$errors['nickname'] = __('nickname much not empty.');
 				*/	
-				$this->user->first_name = Arr::get($_POST, 'first_name');
+				$this->user->first_name = trim(Arr::get($_POST, 'first_name'));
 				if(trim($this->user->first_name) == '')
 					$errors['first_name'] = __('first_name much not empty.');
 					
-				$this->user->last_name = Arr::get($_POST, 'last_name');
+				$this->user->last_name = trim(Arr::get($_POST, 'last_name'));
 				if(trim($this->user->last_name) == '')
 					$errors['last_name'] = __('last_name much not empty.');
 					
-				$this->user->phone = Arr::get($_POST, 'phone');
+				$this->user->phone = trim(Arr::get($_POST, 'phone'));
 				if(trim($this->user->phone) == '')
 					$errors['phone'] = __('phone much not empty.');
 				
