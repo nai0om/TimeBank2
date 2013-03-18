@@ -140,7 +140,7 @@ return array(
 	'location_postcode must be a digit' => 'กรุณาใส่รหัสไปรษณีย์เป็นเลข 5 หลัก หากไม่ทราบให่ใส่ 00000',
 	'location_postcode must be at least 5 characters long' => 'กรุณาใส่รหัสไปรษณีย์เป็นเลข 5 หลัก หากไม่ทราบให่ใส่ 00000',
 	'location_postcode must not exceed 5 characters long' => 'กรุณาใส่รหัสไปรษณีย์เป็นเลข 5 หลัก หากไม่ทราบให่ใส่ 00000',
-	'volunteer_need_count must be within the range of 1 to 1000' => 'กรุณาใส่จำนวนอาสาที่เปิดรับสมัคร (อย่างน้อย 1 คน แต่ไม่เกิน 1000 คน)',
+	'volunteer_need_count must be within the range of 1 to 1000' => 'กรุณาใส่จำนวนอาสาที่เปิดรับสมัคร (อย่างน้อย 1 คน แต่ไม่เกิน 1,000 คน)',
 	'Please logout' => 'กรุณาออกจากระบบก่อน',
 	'volunteer_need_count must be a digit' => 'กรุณาใส่จำนวนอาสาที่เปิดรับสมัคร (อย่างน้อย 1 คน แต่ไม่เกิน 1000 คน)',
 	'postcode must be numeric' => 'รหัสไปรษณีย์ต้องเป็นตัวเลข',
