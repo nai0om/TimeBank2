@@ -68,7 +68,7 @@ return array(
 	'Sample first page' => 'หน้าแรก',
 	'time is maximum at 2000' =>  '"ขอบคุณที่ตั้งใจให้เวลาทำอาสาจำนวนมากนะครับ แต่ระบบสามารถฝากเวลาได้สูงสุดไม่เกิน 2000 ชั่วโมงเท่านั้น"',
 	'hours must more than 0' => 'จำนวณชั่วโมงต้องมากกว่า 0',
-	'Please insert hours number.' => 'กรุณาใส่ตัวเลขจำนวนชั่วโมง',
+	'Please insert hours number.' => 'กรุณาใส่ตัวเลขจำนวนชั่วโมงเป็นเลขอารบิก',
 	'models/user.email.unique' => 'อีเมลนี้มีการใช้งานแล้ว',
 	'Please accept term&condition.' => 'กรุณายอมรับเงื่อนไขและข้อตกลง',
 	'The password fields did not match.' => 'ยืนยันรหัสผ่าน ไม่ถูกต้อง',
