@@ -16,9 +16,9 @@
 		
 		<div class="table left"><h3 class="title">ขั้นตอนฝากเวลาเป็นอาสา</h3>
 		<ol>
-			<li><strong>สมัครบอกความตั้งใจให้เวลา</strong><p>กรอกชื่อ อีเมล รหัสผ่าน และฝากจำนวนชั่วโมงตามที่ตั้งใจ</p><p class="link" style="top:47px;"><a href="<?= url::base().'user/record' ?>"><img src="<?= url::base(); ?>media/img/tb_icon_heart.png"/>ฝากเวลา</a></P></li>
-			<li><strong>เลือกใช้เวลากับงานอาสาที่ตรงใจ</strong><p>ค้นหาและสมัครภารกิจจิตอาสาที่สอดคล้องกับเวลา ความสนใจ หรือทักษะของเรา</p><p class="link" style="top:10px;"><a href="<?= url::base().'event' ?>"><img src="<?= url::base(); ?>media/img/tb_icon_plus.png"/>ค้นหางานจิตอาสา</a></p></li>
-			<li><strong>แบ่งปันประสบการณ์และยืนยันการใช้เวลา</strong><p>เล่าความประทับใจ การเรียนรู้ เรื่องราวจากภารกิจจิตอาสา และยืนยันเวลาที่ได้ใช้ไปแล้ว</p></li>
+			<li><strong>สมัครบอกความตั้งใจให้เวลา</strong><p>กรอกชื่อ อีเมล รหัสผ่าน และฝากจำนวนชั่วโมงตามที่ตั้งใจ</p><a href="http://www.youtube.com/watch?v=W3dbESdNf54">(ดูคลิปแนะนำ)</a> <p class="link" style="top:47px;"><a href="<?= url::base().'user/record' ?>"><img src="<?= url::base(); ?>media/img/tb_icon_heart.png"/>ฝากเวลา</a></P></li>
+			<li><strong>เลือกใช้เวลากับงานอาสาที่ตรงใจ</strong><p>ค้นหาและสมัครภารกิจจิตอาสาที่สอดคล้องกับเวลา ความสนใจ หรือทักษะของเรา <a href="http://www.youtube.com/watch?v=zxc8n6V4Eak">(ดูคลิปแนะนำ)</a> </p><p class="link" style="top:10px;"><a href="<?= url::base().'event' ?>"><img src="<?= url::base(); ?>media/img/tb_icon_plus.png"/>ค้นหางานจิตอาสา</a></p></li>
+			<li><strong>แบ่งปันประสบการณ์และยืนยันการใช้เวลา</strong><p>เล่าความประทับใจ การเรียนรู้ เรื่องราวจากภารกิจจิตอาสา และยืนยันเวลาที่ได้ใช้ไปแล้ว <a href="http://www.youtube.com/watch?v=_JWTzdpmbKQ">(ดูคลิปแนะนำ)</a></p></li>
 		</ol></div>
 		
 		<div class="table right"><h3 class="title">ขั้นตอนสร้างภารกิจจิตอาสา</h3>
