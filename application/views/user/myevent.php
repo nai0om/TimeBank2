@@ -145,6 +145,14 @@
 		  <form><a href="#">ยกเลิก</a> <input type="text"><input type="submit" value="บันทึก"><a class="cross"></a></form>
 		</div -->
 		
+		<div align="center">
+			<h3>พร้อมทั้งกายและใจก่อนงานอาสา -- ง่ายๆ ใน 3 นาทีเอง</h3>
+			<p><iframe width="300" height="200" src="http://www.youtube.com/embed/0Uji3vowha8" frameborder="0" allowfullscreen></p></iframe>
+			
+			<h3>ยืนยันการใช้เวลาทำยังไง? มีเรื่องดีๆ จากงานอาสาบอกต่อได้ที่ไหนบ้าง?</h3>
+			<p><iframe width="300" height="200" src="http://www.youtube.com/embed/_JWTzdpmbKQ" frameborder="0" allowfullscreen></p></iframe>
+		</div>
+		
 		</div>
 <?php include Kohana::find_file('views', 'shared/footer') ?>
 		</div>

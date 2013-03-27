@@ -8,6 +8,9 @@
 		<div style="clear:both"></div>
 		<div id="menu_left">
 			<?php include Kohana::find_file('views', 'shared/usermenu') ?>
+			<p style="color:#C8B560">.</p>
+			<h3 style="text-align:center;">จะหางานอาสาที่ตรงใจได้ยังไง? คลิก...เพื่อดูคำแนะนำเลยจ้า :D</h3>
+			<p><iframe width="180" height="150" src="http://www.youtube.com/embed/zxc8n6V4Eak" frameborder="0" allowfullscreen></p></iframe>
 		</div>
 		
 		
@@ -29,8 +32,8 @@
 				<div class="sum"><div class="sum_hours"><?= $work_time ?> ชั่วโมง</div>
 				<div class="sub_title">เวลาที่ได้ทำอาสาไปแล้ว</div></div>
 			</div>
-            
-            <div style="clear:both"></div>
+			
+			<div style="clear:both"></div>
 			<div class="title left"></div>
 			<div class="title body">ภารกิจจิตอาสาที่เหมาะกับคุณ</div>
 			<div class="title right"></div>
