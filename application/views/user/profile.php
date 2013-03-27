@@ -9,6 +9,9 @@
 		<div style="clear:both"></div>
 		<div id="menu_left">
 			<?php include Kohana::find_file('views', 'shared/usermenu') ?>
+			<p style="color:#C8B560">.</p>
+			<h3 style="text-align:center;">ทำไมต้องให้ข้อมูลส่วนตัวด้วยล่ะ? :D</h3>
+			<p><iframe width="180" height="150" src="http://www.youtube.com/embed/W3dbESdNf54" frameborder="0" allowfullscreen></p></iframe>
 		</div>
         <?= Form::open('user/profile', array('enctype' => 'multipart/form-data')); ?>	
 			<?php include Kohana::find_file('views', 'user/forms/profileforms') ?>	

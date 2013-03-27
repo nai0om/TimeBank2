@@ -64,6 +64,11 @@
 			<?= Form::close(); ?>
 		</div>
 		
+		<div align="center">
+		<h2>ต้องการความช่วยเหลือ? ลองดูคลิปแนะนำการใช้งานเบื้องต้นกันทางนี้กันเลย (แค่ 3 นาทีกว่าๆ เอง)</h2>
+		<iframe width="500" height="315" src="http://www.youtube.com/embed/W3dbESdNf54" frameborder="10" allowfullscreen></iframe>
+		</div>
+		
 <?php include Kohana::find_file('views', 'shared/footer') ?>
   </div>
  </div>
