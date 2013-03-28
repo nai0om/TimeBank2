@@ -58,8 +58,10 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc; text-decorat
 
 									<br clear="left">
 									
-									<p>อย่าลืมเตรียมตัวให้พร้อมก่อนเข้าร่วมกิจกรรม<br>
-									แล้วกลับมาแบ่งปันความประทับใจ การเรียนรู้ และประสบการณ์กันนะครับ</p>
+									<p>อย่าลืมเตรียมตัวให้พร้อมก่อนเข้าไปอาสา ง่ายๆ แค่ 3 นาทีเอง</p>
+									<iframe width="420" height="315" src="http://www.youtube.com/embed/0Uji3vowha8" frameborder="0" allowfullscreen></iframe>
+									
+									<p>แล้วกลับมาแบ่งปันความประทับใจ การเรียนรู้ และประสบการณ์กันนะครับ</p>
 									<p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
 
 						
