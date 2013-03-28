@@ -103,8 +103,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 									</table>
 
 									<p></p>
-									<p>อย่าลืมเตรียมใจ เตรียมกายให้พร้อม<br>
-									และขอให้มีความสุขกับกิจกรรมนะครับ</p>
+									<p>อย่าลืมเตรียมใจ เตรียมกายให้พร้อมก่อนอาสา<br>
+									หากไม่แน่ใจว่าควรเตรียมอะไรบ้าง มาดูคลิปข้างล่างกันเลย</p>
+									<iframe width="420" height="315" src="http://www.youtube.com/embed/0Uji3vowha8" frameborder="0" allowfullscreen></iframe>
 									
 									<p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
 
