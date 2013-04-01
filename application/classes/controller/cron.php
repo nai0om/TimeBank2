@@ -4,6 +4,18 @@ class Controller_Cron extends Controller_Template {
 	
 	public function action_updateuserevent()
 	{
+		if (date('w') == 4) // update only thursday.
+		{
+			$settings = settings::getInstance();
+			
+			if ($settings->sms_week == "1") 
+			    $settings->sms_week = "0";
+			else
+			   $settings->sms_week = "1";
+			   
+			$settings->update();
+		}
+		
 		$users = ORM::factory('user')->where('role', '<>', '1')->find_all();
 		foreach( $users as $user)
 		{ 
