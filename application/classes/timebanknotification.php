@@ -332,7 +332,7 @@ class TimebankNotification {
 			$htmllinks .=  '<a href="'.url::base().'event/view/'.$event->id.'">'.$event->name.'</a> | ';
 		}
 			
-		if ($user->noti_sms_event_matched == 1 && $user->noti_sms_event_matched == 2)
+		if ($user->noti_sms_event_matched == 1 || $user->noti_sms_event_matched == 2)
 		{
 			$settings = settings::getInstance();
 			if ($settings->sms_week == "1") 
@@ -351,14 +351,13 @@ class TimebankNotification {
 																'displayname' => $user->displayname,
 																'events' 		=> $events,
 																));
-			if ($user->noti_event_matched == 1)
+			if ($user->noti_event_matched == 1 || $user->noti_event_matched == 2)
 			{
-				self::queuemail($from, $to, $subject, $body);
-			}
-			else if ($user->noti_event_matched == 2)
-			{
-				if (date('w') == 4) // update only thursday.
+				$settings = settings::getInstance();
+				if ($settings->sms_week == "1") 
+				{
 					self::queuemail($from, $to, $subject, $body);
+				}
 			}
 		}
 		
