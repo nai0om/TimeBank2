@@ -8,8 +8,8 @@ class Controller_Cron extends Controller_Template {
 		{
 			$settings = settings::getInstance();
 			
-			if ($settings->sms_week == "1") 
-			    $settings->sms_week = "0";
+			if ($settings->sms_week == "-1") 
+			    $settings->sms_week = "0"; // weeek of reset to 0 not need to send sms
 			else
 			   $settings->sms_week = "1";
 			   
@@ -24,6 +24,13 @@ class Controller_Cron extends Controller_Template {
 		 	$new_events = linkscreator::refresh_rank($user);
 			timebanknotification::notify_matchevent($user, $new_events);
 			//send notification here.
+		}
+		
+		if($settings->sms_week == 1)
+		{
+			// already update sms set to -1
+		   $settings->sms_week = -1;
+		   $settings->update();
 		}
 	}
 	public function action_sendsms()
