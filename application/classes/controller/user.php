@@ -508,9 +508,14 @@ class Controller_User extends Controller_Template {
 			
 			$errors = array();
 			$this->user->nickname = trim(Arr::get($_POST, 'nickname'));
-			$this->user->first_name = trim(Arr::get($_POST, 'first_name'));
+			$this->user->first_name = trim(Arr::get($_POST, 'first_name'));		  
 			$this->user->last_name =  trim(Arr::get($_POST, 'last_name'));
 			
+			if(trim(Arr::get($_POST, 'first_name')) == '') 
+			  $errors['first_name'] = __('first_name much not empty.');
+			   
+			if(trim(Arr::get($_POST, 'last_name')) == '') 
+			  $errors['last_name'] = __('last_name much not empty.'); 
 			
 			$this->user->phone = Arr::get($_POST, 'phone');
 			$year = Arr::get($_POST, 'year') - 543;
