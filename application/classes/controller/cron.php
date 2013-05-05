@@ -4,10 +4,9 @@ class Controller_Cron extends Controller_Template {
 	
 	public function action_updateuserevent()
 	{
+		$settings = settings::getInstance();
 		if (date('w') == 4) // update only thursday.
 		{
-			$settings = settings::getInstance();
-			
 			if ($settings->sms_week == "-1") 
 			    $settings->sms_week = "0"; // weeek of reset to 0 not need to send sms
 			else
@@ -17,7 +16,7 @@ class Controller_Cron extends Controller_Template {
 		}
 		
 		$users = ORM::factory('user')->where('role', '<>', '1')->find_all();
-		foreach( $users as $user)
+		foreach ($users as $user)
 		{ 
 			$this->auto_render = false;
 			echo '<br />updating user id : '.$user->id;
@@ -26,7 +25,7 @@ class Controller_Cron extends Controller_Template {
 			//send notification here.
 		}
 		
-		if($settings->sms_week == 1)
+		if ($settings->sms_week == 1)
 		{
 			// already update sms set to -1
 		   $settings->sms_week = -1;
