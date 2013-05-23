@@ -104,8 +104,8 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									<p></p>
 									<p>อย่าลืมเตรียมใจ เตรียมกายให้พร้อมก่อนอาสา<br>
-									หากไม่แน่ใจว่าควรเตรียมอะไรบ้าง มาดูคลิปข้างล่างกันเลย</p>
-									<iframe width="420" height="315" src="http://www.youtube.com/embed/0Uji3vowha8" frameborder="0" allowfullscreen></iframe>
+									หากไม่แน่ใจว่าควรเตรียมอะไรบ้าง <a href="http://www.youtube.com/watch?v=0Uji3vowha8">คลิกที่นี่กันเลย</a> (คลิปสั้นๆ แค่ 3 นาทีเอง)</p>
+									
 									
 									<p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
 
