@@ -102,8 +102,8 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									</table>
 
-									<p></p>
-									<p>อย่าลืมเตรียมใจ เตรียมกายให้พร้อมก่อนอาสา<br>
+									<p>หากไม่สามารถร่วมกิจกรรมได้กรุณาแจ้งยกเลิกผ่านระบบ <a href="http://www.youtube.com/watch?v=zxc8n6V4Eak&feature=youtu.be&t=3m46s">คลิกที่นี่เพื่อดูวิธีการ</a></p>
+									<p>ก่อนไปอาสา อย่าลืมเตรียมตัวให้พร้อม<br>
 									หากไม่แน่ใจว่าควรเตรียมอะไรบ้าง <a href="http://www.youtube.com/watch?v=0Uji3vowha8">คลิกที่นี่กันเลย</a> (คลิปสั้นๆ แค่ 3 นาทีเอง)</p>
 									
 									
