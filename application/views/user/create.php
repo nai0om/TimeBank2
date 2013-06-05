@@ -10,7 +10,7 @@
                   
 					<p>
                         <label>ชื่อที่ใช้แสดง   
-						(Display Nome)*</label>
+						(Display Name)*</label>
                         <?= Form::input('displayname', HTML::chars(Arr::get($_POST, 'displayname'))); ?>
                   <div class="error"><?= __(Arr::get($errors, 'displayname')); ?></div>
                     </p>
