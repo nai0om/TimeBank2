@@ -149,8 +149,9 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 												<!--p>กรุณาคลิกลิงค์ด้านล่าง เพื่อยืนยันการเป็นสมาชิกของคุณที่นี่ก่อนเข้าสู่ระบบ: <br>
 
 												<a>http://www.hostname.com/confirm.php</a></p-->
-                                                <p>ท่านสามารถเริ่มใช้บริการธนาคารจิตอาสาได้ทันที</p>
-                                                <a href="<?= $vars['urlbase'] ?>">คลิกที่นี่ เพื่อเริ่มใช้บริการ</a>
+                                                <p>ท่านสามารถเริ่มใช้บริการธนาคารจิตอาสาได้แล้ว</p>
+                                                <a href="<?= $vars['urlbase'] ?>">เริ่มใช้บริการ คลิกที่นี่</a>
+												<a href="http://www.youtube.com/watch?v=W3dbESdNf54&list=PLQf8FsdNJGHDTWcyFVi7xtm571CjOy308">ดูคลิปแนะนำการใช้งาน คลิกที่นี่</a>
 											</td>
 
 										</tr>
@@ -159,7 +160,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 									<br clear="left">
 
-									<p>ขอบคุณครับ<br><a href="<?= $vars['urlbase'] ?>">ธนาคารจิตอาสา</a></p>
+									<p>ขอบคุณครับ<br>ธนาคารจิตอาสา</p>
 
 
                                 </td>
