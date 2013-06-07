@@ -150,7 +150,7 @@ a{ font-family:Verdana, Arial, Helvetica, sans-serif;color:#0099cc;text-decorati
 
 												<a>http://www.hostname.com/confirm.php</a></p-->
                                                 <p>ท่านสามารถเริ่มใช้บริการธนาคารจิตอาสาได้แล้ว</p>
-                                                <a href="<?= $vars['urlbase'] ?>">เริ่มใช้บริการ คลิกที่นี่</a>
+                                                <a href="<?= $vars['urlbase'] ?>">เริ่มใช้บริการ คลิกที่นี่</a><br>
 												<a href="http://www.youtube.com/watch?v=W3dbESdNf54&list=PLQf8FsdNJGHDTWcyFVi7xtm571CjOy308">ดูคลิปแนะนำการใช้งาน คลิกที่นี่</a>
 											</td>
 
