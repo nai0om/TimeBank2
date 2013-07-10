@@ -5,18 +5,18 @@
 			<?= Form::open('user/checkdata/'.$eventid, array ('style' => 'display: table')); ?>
 
             <p>
-           		<label>ชื่อ* : </label>
+           		<label>ชื่อ* (ภาษาไทย): </label>
 	            <?= Form::input('first_name', $user->first_name); ?>
                 <a class="error"><?= Arr::get($errors, 'first_name'); ?></a>
             </p>
             <p>
-            	<label>นามสกุล* : </label>
+            	<label>นามสกุล* (ภาษาไทย): </label>
 	            <?= Form::input('last_name', $user->last_name); ?>
                 <a class="error"><?= Arr::get($errors, 'last_name'); ?></a>
             </p>
             <p><label>อีเมล* : </label><span><?= $user->email ?></span></p>  
             <p>
-                <label>หมายเลขโทรศัพท์* : </label>
+                <label>หมายเลขโทรศัพท์เคลื่อนที่* : </label>
                 <?= Form::input('phone', $user->phone); ?>
                 <a class="error"><?= Arr::get($errors, 'phone'); ?></a>
             </p>
