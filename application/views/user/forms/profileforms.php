@@ -29,7 +29,7 @@
 
 			<div class="left">
             
-				<?= Form::label('first_name', 'ชื่อ'); ?>
+				<?= Form::label('first_name', 'ชื่อ (ภาษาไทย)'); ?>
 				<?= Form::input('first_name', HTML::chars($user->first_name)); ?>
                 <div class="error"><?= Arr::get($errors, 'first_name'); ?></div>
                 
@@ -56,7 +56,7 @@
 			</div>
 			<div class="right">
             
-				<?= Form::label('last_name', 'นามสกุล'); ?>
+				<?= Form::label('last_name', 'นามสกุล (ภาษาไทย)'); ?>
 				<?= Form::input('last_name', HTML::chars($user->last_name)); ?>
                 <div class="error"><?= Arr::get($errors, 'last_name'); ?></div>
             
