@@ -38,7 +38,7 @@
                             <iframe width="297" height="216" src="http://www.youtube.com/embed/3AK6zgs1ul4" frameborder="0" allowfullscreen></iframe>
                             </p>
                             <p> 
-                            <a style="font-size:22px;color:#000;">	ขณะนี้ระบบธนาคารจิตอาสา<br />ได้เปิดให้ทดลองใช้แล้ว </a>
+                            <a style="font-size:22px;color:#000;">	ชวนดูคลิปแนะนำธนาคารจิตอาสา<br />กันก่อนนะครับ</a>
                             </p>
                             <p>
                               <?= HTML::anchor('welcome/home', 'เข้าสู่เว็บไซต์ JitArsaBank.com กันเลย', array('style' => 'color:FF7F50; font-size: 28px;')); ?>
