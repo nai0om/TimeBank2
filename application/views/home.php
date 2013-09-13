@@ -1,3 +1,10 @@
+<head>
+<meta property="og:title" content="ธนาคารจิตอาสา: ยินดีต้อนรับครับ"/>
+<meta property="og:image" content="http://jitarsabank.com/media/img/logo_clear.png"/>
+<meta property="og:site_name" content="ธนาคารจิตอาสา JitArsaBank.com"/>
+<meta property="og:description" content="ธนาคารจิตอาสาเป็นพื้นที่ให้ทุกคนได้เข้ามาใช้เพื่อประกาศความตั้งใจที่จะแบ่งปันเวลาให้กับสังคม เวลาเหล่านี้คือทุนของความมุ่งมั่นตั้งใจของคนไทยทั้งประเทศเป็นทุน และหลักประกันความมั่นคงของสังคม เป็นเครื่องชี้ว่าจิตอาสาคือคุณค่าที่สังคมไทยยึดถือ เพราะการให้เวลาคือการมอบสมบัติล้ำค่าที่เรา ทุกคนมีอยู่อย่างเท่าเทียมกันให้แก่ส่วนรวม และให้แก่กันและกัน"/>
+</head>
+
 <div id="home">
   <div id="main" role="main">
 		<div id="banner">
