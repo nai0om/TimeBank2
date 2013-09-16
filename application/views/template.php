@@ -5,6 +5,10 @@
 	<meta name="google-site-verification" content="dgCAL2kKmQ1ExVWH66jNv8xi4qVKgafToAFW6YE2ryI" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
     <meta name="language" content="en-us" />
+    <meta property="og:title" content="ธนาคารจิตอาสา: ยินดีต้อนรับครับ"/>
+    <meta property="og:image" content="http://jitarsabank.com/media/img/logo_clear.png"/>
+    <meta property="og:site_name" content="ธนาคารจิตอาสา JitArsaBank.com"/>
+    <meta property="og:description" content="ธนาคารจิตอาสาเป็นพื้นที่ให้ทุกคนได้เข้ามาใช้เพื่อประกาศความตั้งใจที่จะแบ่งปันเวลาให้กับสังคม เวลาเหล่านี้คือทุนของความมุ่งมั่นตั้งใจของคนไทยทั้งประเทศเป็นทุน และหลักประกันความมั่นคงของสังคม เป็นเครื่องชี้ว่าจิตอาสาคือคุณค่าที่สังคมไทยยึดถือ เพราะการให้เวลาคือการมอบสมบัติล้ำค่าที่เรา ทุกคนมีอยู่อย่างเท่าเทียมกันให้แก่ส่วนรวม และให้แก่กันและกัน"/>
     <? if ($meta_page_title != '') : ?>
     	<title><?= $meta_page_title.' - ธนาคารจิตอาสา: ปันเวลาช่วยกัน' ?></title> 
 	<? else : ?>
