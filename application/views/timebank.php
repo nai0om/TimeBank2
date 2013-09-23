@@ -71,7 +71,7 @@
             	<? if ($comment['user_image'] != '') :?>
 					<img src="<?= url::base().'media/upload/volunteers/'.$comment['user_image'] ?>" style="width:150px; height:150px" />
                  <? else : ?>
-                 	<img src="<?= url::base().'sample_member_01.png'?>" style="width:150px; height:150px" />
+                 	<img src="<?= url::base().'media/img/sample_member_01.png'?>" style="width:150px; height:150px" />
                  <? endif ?>
 				<p><strong><?= $comment['user_display'] ?></strong></p>
 				<p></p>
