@@ -797,7 +797,7 @@ header h2 {
     float: left;
     height: 39px;
     margin: 1em 0;
-    padding: 11px 0 0 36px;
+    padding: 7px 0 0 36px;
     width: 800px;
 }
 #tb_browse #sitemap li {
@@ -806,6 +806,15 @@ header h2 {
     font-size: 25px;
     list-style: none outside none;
 	font-family: chula;
+}
+#tb_browse #sitemap a:link,
+#tb_browse #sitemap a:visited,
+#tb_browse #sitemap a:active {
+    color: #fff;
+    text-decoration: none;
+}
+#tb_browse #sitemap a:hover {
+    text-decoration: underline;
 }
 #tb_browse #sitemap li:before{
 	content:'>';
