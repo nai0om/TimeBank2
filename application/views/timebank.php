@@ -73,7 +73,7 @@
                  <? else : ?>
                  	<img src="<?= url::base().'media/img/sample_member_01.png'?>" style="width:150px; height:150px" />
                  <? endif ?>
-				<p><strong><?= $comment['user_display'] ?></strong></p>
+				<p class="display_name"><strong><?= $comment['user_display'] ?></strong></p>
 				<p></p>
 				<?= HTML::anchor('event/view/'.$comment['event_id'],  'ดูภารกิจ'); ?>
 				<div><?= $comment['comment']?>

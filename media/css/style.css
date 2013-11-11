@@ -612,6 +612,12 @@ header h2 {
 	margin: 0;
 	color: #4c4c4c;
 }
+#main_timeBank ul#volunteer li p.display_name{
+    float: left;
+    width: 95px;
+    display: block;
+    word-wrap: break-word;
+}
 #main_timeBank ul#volunteer li div {
     background: url("../img/tb_bubble.png") no-repeat scroll 0 0 transparent;
     clear: both;
