@@ -34,6 +34,8 @@ html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10
 
 html, button, input, select, textarea { font-family: chula; color: #222; }
 
+input[type="text"], input[type="password"], select, textarea { font-family: Tahoma, sans-serif; }
+
 body { margin: 0; font-size: 18px;padding: 0; font-family: chula;}
 
 /*
@@ -151,7 +153,9 @@ legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
  * 3. Define consistent vertical alignment display in all browsers
  */
 
-button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+button, input, select, textarea { font-size: 14px; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+
+select { border: 1px solid #A8ACAD; background: url("../img/tb_bg_form.jpg") repeat-x scroll center 0 #fff; font-size: 14px; padding: 5px; -moz-border-radius: 4px; border-radius: 4px; }
 
 /*
  * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
@@ -880,12 +884,15 @@ header h2 {
 }
 #tb_browse #search input, #tb_browse #search select {
     border: 1px solid #A8ACAD;
-	background: url("../img/tb_bg_form.jpg") repeat-x scroll center 0 transparent;
-    font-family: chula;
-    font-size: 18px;
+    background: url("../img/tb_bg_form.jpg") repeat-x scroll center 0 #fff;
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
     margin: 7px 0;
     width: 100%;
-	padding: 2px;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #333;
 }
 
 #tb_browse #search input{
@@ -1295,10 +1302,14 @@ margin: 5px 0;
 #tb_browse_new input {
     display: block;
     width: 300px;
-	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
+	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #fff;
 	border:1px solid #a8acad;
 	padding:1px;
 	margin: 0 155px 0 0;
+    font-size: 14px;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 #tb_browse_new label.day {
     display: inline-block;
@@ -1334,7 +1345,7 @@ margin: 5px 0;
 #tb_browse_new select{
 	width: 110px;
 	border:1px solid #a8acad;
-	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
+	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #fff;
 	margin: 15px 0 5px;
 }
 #tb_browse_new form{
@@ -1552,7 +1563,7 @@ margin: 5px 0;
 	margin:-15px 0px 25px 0px;
 }
 #tb_browse_detail #post input[type="submit"],#tb_browse_detail #post_comment input[type="submit"] {
-    background: url("../img/tb_orange_button_short.png") no-repeat scroll center 0 transparent;
+    background: url("../img/tb_orange_button_short.png") no-repeat scroll center 0 #fff;
     border: 0 none;
     color: #FFFFFF;
     font-family: chula;
@@ -2203,11 +2214,15 @@ margin: 5px 0;
 	float: left;
 	margin: 10px 0;
 }
-#member.setting form  input{
-	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
+#member.setting form input{
+	background:url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #fff;
 	border:1px solid #a8acad;
 	width: 300px;
 	margin: 10px 0;
+    font-size: 14px;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 #member.setting form p{
 	margin: 10px 0;
@@ -2299,6 +2314,20 @@ margin: 5px 0;
     background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #FFFFFF;
     border: 1px solid #A8ACAD;
     width: 80%;
+    font-size: 14px;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+#member.profile select {
+    background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #FFFFFF;
+    border: 1px solid #A8ACAD;
+    font-size: 14px;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 5px;
 }
 #member.profile input[type="text"].moreinfo {
 	background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #FFFFFF;
@@ -3500,6 +3529,10 @@ color: #ACACAC;
     background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #FFFFFF;
     border: 1px solid #A8ACAD;
     width: 200px;
+    font-size: 14px;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 .popup form input[type="submit"]{
 	background: url("../img/tb_orange_button_100.png") no-repeat scroll center 0 transparent;
@@ -3653,7 +3686,7 @@ color: #ACACAC;
 }
 #volunteerSignup.popup form p{
 	margin:0;
-	padding:0 0 8px;
+	padding:0 0 4px;
 }
 #volunteerSignup.popup input[type="radio"]{
 	width:auto;
@@ -4329,21 +4362,27 @@ color: #ACACAC;
     width: 10px;
 }
 #tb_browse_detail.search select {
-    background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
-    border: 1px solid #A8ACAD;
-    width: 110px;
+    background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #fff;
+    border: 1px solid #A8ACAD;\
+    font-size: 14px;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 #tb_browse_detail.search #leftSide {
     margin: 0 0 0 50px;
     width: 444px;
 }
 #tb_browse_detail.search input {
-    background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 transparent;
+    background: url("../img/tb_bg_form.jpg") repeat-x scroll 0 0 #fff;
     border: 1px solid #A8ACAD;
     display: block;
     margin: 0 155px 0 0;
-    padding: 1px;
     width: 300px;
+    font-size: 14px;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 #tb_browse_detail.search form input[type="submit"] {
     background: url("../img/tb_orange_button_long.png") no-repeat scroll center 0 transparent;

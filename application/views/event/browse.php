@@ -15,7 +15,7 @@
 		
 		<?php 
 			echo Form::open('event/search', array ('id' => 'search', 'method' => 'get')); 
-        	echo Form::input('query', 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่', array('id' => 'query', 'onclick' => 'clear_text()')); 
+        	echo Form::input('query', 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่', array('id' => 'query')); 
             echo Form::select('job', $jobs, 'ประเภทภารกิจ');
             echo Form::select('province', $provices, '--จังหวัด--');
 	        echo Form::submit(NULL, 'ค้นหา', array ('class' => 'mid')); 
@@ -63,10 +63,12 @@
 </div>
 
 <script>
-	function clear_text()
-	{
-		
+	$('#query').click(function(){
 		if ($('#query').val() == 'ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่')
 			$('#query').val('');
-	}
+	});
+	$('#query').blur(function(){
+		if ($('#query').val() == '')
+			$('#query').val('ใส่ชื่อภารกิจ, ชื่อองค์กร, ชื่อสถานที่');
+	});
 </script>
