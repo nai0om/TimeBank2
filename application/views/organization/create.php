@@ -11,14 +11,14 @@
 				<p>
                 	<label>ชื่อผู้ใช้ (อีเมล) *</label>
                     <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
-                    <div class="error">
+                    <div class="error" id="email-error">
                         <?= Arr::get($errors, 'email'); ?>
                     </div>
                 </p>
 				<p>
                 	<label>รหัสผ่าน *</label>
                      <?= Form::password('password'); ?>
-                    <div class="error">
+                    <div class="error" id="password-error">
                         <?= __(Arr::path($errors, 'password')); ?>
                     </div>
                 </p>
