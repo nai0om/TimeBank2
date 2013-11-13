@@ -570,7 +570,7 @@ header h2 {
     background: url("../img/tb_bg.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 126px;
-    list-style: decimal inside none;
+    list-style: none;
     margin-left: 50px;
     padding: 20px;
     width: 223px;
