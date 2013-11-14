@@ -622,13 +622,31 @@ header h2 {
     display: block;
     word-wrap: break-word;
 }
-#main_timeBank ul#volunteer li div {
+#main_timeBank ul#volunteer li div#wrap_text {
     background: url("../img/tb_bubble.png") no-repeat scroll 0 0 transparent;
     clear: both;
     height: 65px;
     padding: 21px 15px;
     width: 224px;
 	color: #4c4c4c;
+	overflow:hidden;
+}
+#main_timeBank ul#volunteer li div#text {
+	padding: 0px 0px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	word-wrap:break-word;
+	display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    width: 224px;
+	height : 55px; 	
+}
+#main_timeBank ul#volunteer li div#read_more {
+	padding: 0px 0px;
+	overflow:hidden;
+	width: 224px;
+	text-align: right;
 }
 #main_timeBank ul#volunteer li img{
 	float:left;
