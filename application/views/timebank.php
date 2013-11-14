@@ -76,10 +76,13 @@
 				<p class="display_name"><strong><?= $comment['user_display'] ?></strong></p>
 				<p></p>
 				<?= HTML::anchor('event/view/'.$comment['event_id'],  'ดูภารกิจ'); ?>
-				<div><?= $comment['comment']?>
-                <? if ($comment['need_more'] == true) :?>
-				   <a href="<?= url::base(); ?>event/view/<?= $comment['event_id'].'#'.$comment['comment_id']; ?>" class="readmore">[ อ่านต่อ ]</a>
-                <? endif ?>
+				<div id="wrap_text">
+					<div id="text"><?= $comment['comment']?></div>
+					<? if ($comment['need_more'] == true) :?>
+					   <div id="read_more">
+					   		<a href="<?= url::base(); ?>event/view/<?= $comment['event_id'].'#'.$comment['comment_id']; ?>" class="readmore">[ อ่านต่อ ]</a>
+					   </div>
+	                <? endif ?>
 				</div>
                 
 			</li>

@@ -86,7 +86,7 @@ class Controller_Welcome extends Controller_Template {
 			$comment['comment'] = iconv_substr($comment_recomend->comment, 0,130, 'UTF-8');
 			if($comment['need_more'] == true)
 			{
-				$comment['comment'] = $comment['comment'].' ...';	
+				$comment['comment'] = $comment['comment'].'...';	
 			}
 			$comments[] = $comment;
 		}
