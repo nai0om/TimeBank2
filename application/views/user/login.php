@@ -8,7 +8,11 @@
                 <p><label>ชื่อบัญชีผู้ใช้ (อีเมล)  * : </label><?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?></p>
 				<p><label>รหัสผ่าน * : </label><?= Form::password('password'); ?></p>
 				<p><label></label><?= Form::checkbox('remember'); ?> จำอีเมลและรหัสผ่าน</p>
-                <div class="error" id="login-error"><?= __($message); ?></div>
+                <div class="error"><?= __($message); ?></div>
+                <div class="error" id="thai-email-error" style="display:none"></div>
+                <div class="error" id="caps-email-error" style="display:none"></div>
+                <div class="error" id="thai-password-error" style="display:none"></div>
+                <div class="error" id="caps-password-error" style="display:none"></div>
                 <input id="back_url" name="back_url" type="hidden" value="<?= Arr::get($_GET, 'back_url') ?>" />
 				<p><label></label><input type="submit" value="เข้าสู่ระบบ">
                 <input onclick="window.location='<?=url::base().'user/forgetpassword' ?>'; return false" type="submit" value="ลืมรหัสผ่าน">
