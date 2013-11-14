@@ -11,16 +11,20 @@
 				<p>
                 	<label>ชื่อผู้ใช้ (อีเมล) *</label>
                     <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
-                    <div class="error" id="email-error">
+                    <div class="error">
                         <?= Arr::get($errors, 'email'); ?>
                     </div>
+                    <div class="error" id="thai-email-error" style="margin:0px; display:none"></div>
+                    <div class="error" id="caps-email-error" style="margin:0px; display:none"></div>
                 </p>
 				<p>
                 	<label>รหัสผ่าน *</label>
                      <?= Form::password('password'); ?>
-                    <div class="error" id="password-error">
+                    <div class="error">
                         <?= __(Arr::path($errors, 'password')); ?>
                     </div>
+                    <div class="error" id="thai-password-error" style="margin:0px; display:none"></div>
+                    <div class="error" id="caps-password-error" style="margin:0px; display:none"></div>
                 </p>
 				<p>
                 	<label>ยืนยันรหัสผ่าน *</label>
