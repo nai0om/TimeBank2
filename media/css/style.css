@@ -4400,6 +4400,22 @@ color: #ACACAC;
     top: 10px;
     width: 147px;
 }
+#tb_browse_detail .closed{
+	background: url("../img/tb_black_button_long.png") no-repeat scroll center 0 transparent;
+    border: 0 none;
+    color: rgb(70,70,70);
+    
+    font-family: chula;
+    font-size: 22px;
+    font-weight: bold;
+    height: 30px;
+    margin: 0 10px 0 0;
+    padding: 2px 0;
+    position: relative;
+    text-decoration: none;
+    top: 10px;
+    width: 147px;
+}
 #tb_browse_detail.search .line {
     background: url("../img/mem_line.png") repeat-x scroll 0 center transparent;
     height: 30px;
