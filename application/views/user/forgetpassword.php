@@ -9,7 +9,9 @@
                     <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
                     <input type="submit" value="ส่งข้อมูล">
 				<?= Form::close(); ?>
-                <font color="red" id="email-error"><?= __($message) ?></font>
+                <font color="red"><?= __($message) ?></font>
+                <div class="error" id="thai-email-error" style="margin:0px; display:none"></div>
+                 <div class="error" id="caps-email-error" style="margin:0px; display:none"></div>
 			</h3>
 		</div>
 		
