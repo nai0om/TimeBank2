@@ -129,7 +129,7 @@
             <p align="center">
             	<div align="center">
             	<img src="<?= url::base(); ?>media/img/tb_line.png"> 
-            	<div class="closed" align="center" style="position:relative; top:-20px;" >ปิดรับสมัครแล้วครับ</div>
+            	<div class="closed" align="center" style="position:relative; top:-20px;" >ปิดรับสมัครแล้ว</div>
             	</div>
             </p>
         <? endif ?>
