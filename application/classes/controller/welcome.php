@@ -82,11 +82,11 @@ class Controller_Welcome extends Controller_Template {
 			$comment['user_display'] = $user->displayname;
 			$comment['event_id'] = $comment_recomend->event_id;
 			$comment['comment_id'] = $comment_recomend->id;
-			$comment['need_more'] = (strlen(utf8_decode($comment_recomend->comment)) > 140); 
-			$comment['comment'] = iconv_substr($comment_recomend->comment, 0,140, 'UTF-8');
+			$comment['need_more'] = (strlen(utf8_decode($comment_recomend->comment)) > 130); 
+			$comment['comment'] = iconv_substr($comment_recomend->comment, 0,130, 'UTF-8');
 			if($comment['need_more'] == true)
 			{
-				$comment['comment'] = $comment['comment'].' ...';	
+				$comment['comment'] = $comment['comment'].'...';	
 			}
 			$comments[] = $comment;
 		}
