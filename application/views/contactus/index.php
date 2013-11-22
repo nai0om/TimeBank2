@@ -1,8 +1,8 @@
 <div id="contact_us">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ติดต่อธนาคารจิตอาสา</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('contactus/index', 'ติดต่อธนาคารจิตอาสา') ?></li>
 		</div>
 		<div style="clear:both"></div>
 		<h2>ติดต่อธนาคารจิตอาสา</h2>
