@@ -1,9 +1,9 @@
 <div id="tb_browse_new">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
-			<li>แก้ไขข้อมูล</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+            <li><?= HTML::anchor('welcome/timebank', 'ธนาคารจิตอาสา') ?></li>
+			<li><?= HTML::anchor('event/edit', 'แก้ไขข้อมูล') ?></li>
 		</div>
 		
 		<h2>แก้ไขงานอาสา</h2>
