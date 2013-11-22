@@ -1,8 +1,8 @@
 <div id="member" class="deposit">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ฝากเวลาเพิ่ม</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('user/record', 'ฝากเวลาเพิ่ม') ?></li>
 		</div>
 
 		<div style="clear:both"></div>
