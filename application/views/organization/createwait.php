@@ -2,8 +2,8 @@
 
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('welcome/timebank', 'ธนาคารจิตอาสา') ?></li>
 		</div>
 		
 		<div id="content">

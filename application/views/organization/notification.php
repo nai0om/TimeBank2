@@ -1,9 +1,9 @@
 <div id="org" class="warn">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>องค์กร</li>
-			<li>การแจ้งเตือน</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('organization/', 'องค์กร') ?></li>
+			<li><?= HTML::anchor('organization/notification', 'การแจ้งเตือน') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

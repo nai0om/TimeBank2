@@ -1,8 +1,8 @@
 <div id="member" class="setting">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ตั้งค่าบัญชีผู้ใช้</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('user/password', 'ตั้งค่าบัญชีผู้ใช้') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

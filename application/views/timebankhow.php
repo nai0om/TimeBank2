@@ -1,8 +1,9 @@
 <div id="tb_hiw">
 <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('welcome/timebank', 'ธนาคารจิตอาสา') ?></li>
+			<li><?= HTML::anchor('welcome/timebankhow', 'วิธีใช้งาน') ?></li>
 			<li>วิธีใช้งาน</li>
 		</div>
 		

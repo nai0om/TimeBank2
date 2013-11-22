@@ -1,8 +1,8 @@
 <div id="member" class="own">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>งานฝึกอบรมของฉัน</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('user/mytraining', 'งานฝึกอบรมของฉัน') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

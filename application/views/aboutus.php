@@ -1,8 +1,8 @@
 <div id="about_us">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>เกี่ยวกับเรา</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('welcome/aboutus', 'เกี่ยวกับเรา') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

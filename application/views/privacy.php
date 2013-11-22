@@ -1,8 +1,8 @@
 <div id="term">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>นโยบายความเป็นส่วนตัว</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('welcome/privacy', 'นโยบายความเป็นส่วนตัว') ?></li>
 		</div>
 		
 		<h2>นโยบายความเป็นส่วนตัว</h2>
