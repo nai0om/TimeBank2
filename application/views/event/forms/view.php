@@ -124,7 +124,10 @@
 		</div>
        
 		<? if (!$isOrga && $isOpen) : ?>
-			<p align="center"><img src="<?= url::base(); ?>media/img/tb_line.png"><?=  HTML::anchor('user/checkdata/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?></p>
+			<p align="center">
+                <img src="<?= url::base(); ?>media/img/tb_line.png">
+                <?=  HTML::anchor('user/checkdata/'.$event->id, 'สมัครคลิกที่นี่', array( 'style' => 'position:relative;top:-20px;', 'class' => 'long'))?>
+            </p>
         <? else :?>
             <p align="center">
             	<div align="center">
