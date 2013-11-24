@@ -1,8 +1,8 @@
 <div id="donation">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>สนับสนุนธนาคารจิตอาสา</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('welcome/donation', 'สนับสนุนธนาคารจิตอาสา') ?></li>
 		</div>
 		<div style="clear:both"></div>
 		<h2></h2>

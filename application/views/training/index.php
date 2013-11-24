@@ -1,8 +1,8 @@
 <div id="training">
 	<div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ฝึกอบรม</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('training/index', 'ฝึกอบรม') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

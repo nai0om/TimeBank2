@@ -5,8 +5,8 @@ $provinces = Kohana::$config->load('timebank')->get('provices');
 <div id="org">
  <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก<li>
-			<li>ดูข้อมูลอาสา<li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('user/view', 'ดูข้อมูลอาสา') ?></li>
 		</div>
 
 		<div style="clear:both"></div>
