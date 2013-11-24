@@ -1,9 +1,9 @@
 <div id="org" class="notice">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>หน้าหลักสมาชิกองค์กร</li>
-			<li>หน้าหลัก</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('organization/', 'หน้าหลักสมาชิกองค์กร') ?></li>
+			<li><?= HTML::anchor('organization/inbox', 'หน้าหลัก') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

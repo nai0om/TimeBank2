@@ -1,9 +1,9 @@
 <div id="org" class="job">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>องค์กร</li>
-			<li>งานอาสา</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('organization/', 'องค์กร') ?></li>
+			<li><?= HTML::anchor('organization/event', 'งานอาสา') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

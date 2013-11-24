@@ -1,8 +1,8 @@
 <div id="main_timeBank">
  <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ใช้บริการธนาคารจิตอาสา</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('welcome/timebank', 'ใช้บริการธนาคารจิตอาสา') ?></li>
 		</div>
 
 		<div id="icon_set">

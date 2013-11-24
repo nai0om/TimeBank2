@@ -1,8 +1,8 @@
 <div id="member" class="notice">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>การแจ้งเตือน</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('user/inbox', 'การแจ้งเตือน') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

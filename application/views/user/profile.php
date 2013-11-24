@@ -2,8 +2,8 @@
 <div id="member" class="profile">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>แก้ไขข้อมูลส่วนตัว</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('user/profile', 'แก้ไขข้อมูลส่วนตัว') ?></li>
 		</div>
 
 		<div style="clear:both"></div>
