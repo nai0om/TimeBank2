@@ -1,9 +1,9 @@
 <div id="help">
 <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
-			<li>ช่วยเหลือ</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+            <li><?= HTML::anchor('welcome/timebank', 'ธนาคารจิตอาสา') ?></li>
+            <li><?= HTML::anchor('help/index','ช่วยเหลือ') ?></li>
 		</div>
 
 		<div id="icon_set">

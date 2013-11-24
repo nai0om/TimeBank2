@@ -1,9 +1,9 @@
 <div id="tb_browse_new">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>ธนาคารจิตอาสา</li>
-			<li>สร้างงานอาสาใหม่</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+			<li><?= HTML::anchor('welcome/timebank', 'ธนาคารจิตอาสา') ?></li>
+			<li><?= HTML::anchor('event/create','สร้างงานอาสาใหม่') ?></li>
 		</div>
 		
 		<h2>สร้างงานอาสาใหม่</h2>

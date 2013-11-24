@@ -1,9 +1,9 @@
 <div id="org" class="profile">
   <div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>องค์กร</li>
-			<li>แก้ไขข้อมูลองค์กร</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+            <li><?= HTML::anchor('organization/', 'องค์กร') ?></li>
+            <li><?= HTML::anchor('organization/profile', 'แก้ไขข้อมูลองค์กร') ?></li>
 		</div>
 
 		<div style="clear:both"></div>

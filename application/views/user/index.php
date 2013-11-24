@@ -1,8 +1,8 @@
 <div id="member" class="detail">
 	<div id="main" role="main">
 		<div id="sitemap">
-			<li>หน้าแรก</li>
-			<li>หน้าหลักสมาชิกอาสา</li>
+			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
+            <li><?= HTML::anchor('user/index', 'หน้าหลักสมาชิกอาสา') ?></li>
 		</div>
 
 		<div style="clear:both"></div>
