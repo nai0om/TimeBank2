@@ -3533,7 +3533,9 @@ color: #ACACAC;
 }
 #data.popup.big #content {
     background-image: url("../img/bg_popup_397.png");
-    height: 397px;
+    /*height: 397px;*/
+    height: auto;
+    background-size: cover;
 }
 #data.popup.big #sub{
 	text-align:left;
