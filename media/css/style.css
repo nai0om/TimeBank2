@@ -1616,6 +1616,9 @@ margin: 5px 0;
     text-align: center;
     width: 201px;
 }
+#tb_browse_detail .sub h4{
+    background-color: #ccb388;
+}
 #tb_browse_detail h4 {
     background: none repeat scroll 0 0 #BE9F82;
     border-bottom-left-radius: 3px;
