@@ -93,13 +93,16 @@ class Model_Event extends ORM {
             'detail' => array(
                 array('not_empty'),
                 array('min_length', array(':value', 10)),
+                array(array($this, 'check_wysiwyg'), array(':value')),
             ),
             'travel_detail' => array(
                 array('min_length', array(':value', 10)),
+                array(array($this, 'check_wysiwyg'), array(':value')),
             ),
 			'inquiry_detail' => array(
                 array('not_empty'),
 				array('min_length', array(':value', 10)),
+                array(array($this, 'check_wysiwyg'), array(':value')),
             ),	
             'is_need_expense' => array(
                 array('not_empty'),
@@ -107,6 +110,7 @@ class Model_Event extends ORM {
             ),
             'expense_detail' => array(
 				array('min_length', array(':value', 10)),
+                array(array($this, 'check_wysiwyg'), array(':value')),
             ),
 			/*
 			'temp' => array(
@@ -114,8 +118,11 @@ class Model_Event extends ORM {
             ),
 			*/
             'image' => array(
-				array('not_empty'),
+                array('not_empty'),
                 array(array($this, 'check_upload'), array('image', ':value')),
+            ),
+            'tags' => array(
+				array('not_empty'),
             )
         );
     }
@@ -139,6 +146,16 @@ class Model_Event extends ORM {
 			),
 		);
 	}
+
+    public function check_wysiwyg($value)
+    {
+        $pure_string = trim(str_replace(array('<p>','</p>','&nbsp;'), '', $value));
+        if(strlen($pure_string) < 3)
+        {
+            return false;
+        }
+        return true;
+    }
 	
 	public function check_upload($filename, $value)
     {
