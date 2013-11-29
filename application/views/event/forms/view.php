@@ -29,13 +29,13 @@
                 <h3><?= number_format($event->volunteer_need_count) ?> คน <span class="black">x</span> <?= number_format($event->time_cost) ?> ชั่วโมง</h3>
                 <h4>จำนวนคนที่ต้องการ x เวลาทำงาน</h4>
             </div>
+            <div class="sub">
+                <h3><?= $member_count ?> คน</h3>
+                <h4>ตอบรับแล้ว</h4>
+            </div>
     		<div class="sub">
     			<h3><?= $event->users->count_all() ?> คน</h3>
     			<h4>จำนวนผู้สมัคร</h4>
-    		</div>
-    		<div class="sub">
-    			<h3><?= $member_count ?> คน</h3>
-    			<h4>ตอบรับแล้ว</h4>
     		</div>
             <div class="clear"></div>
         </div>
