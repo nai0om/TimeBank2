@@ -5039,6 +5039,29 @@ margin: 45px auto -35px;
 	background-image: url("../img/bullet_expand.png")
 }
 
+
+/* Sitemap Breadcrumb override definition */
+
+#sitemap {
+    padding: 5px 0 0 36px !important;
+}
+#sitemap li {
+    color: #FFFFFF;
+    float: left;
+    font-size: 25px;
+    list-style: none outside none;
+    font-family: chula;
+}
+#sitemap a:link,
+#sitemap a:visited,
+#sitemap a:active {
+    color: #fff;
+    text-decoration: none;
+}
+#sitemap a:hover {
+    text-decoration: underline;
+}
+
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
    This example overrides the primary ('mobile first') styles
@@ -5097,3 +5120,4 @@ margin: 45px auto -35px;
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
+
