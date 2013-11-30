@@ -91,23 +91,26 @@ $page = isset($gets['page'])? $gets['page'] : '1';
                 <?php endforeach; ?>
                 <tr>
                     <td colspan="6">
-                        <ul>
-                        <?php for($i = 1; $i <= $total_page; $i++){	
-                                if( $i == $page)
-                                {
-                                    echo '<li>หน้า '.$i.'</li>';
-                                }
-                                else
-                                {
-                                    if($type != '')
-                                        $link .= 'type='.$type.'&';
-                                        
-                                        $link .= 'page='.$i.'&';
-                                    echo '<li>'.HTML::anchor($link, $i) .'</li>';
-                                }
-                              }
-                        ?>
-                        </ul>
+						<div class="fix">
+
+							<?php
+								for($i = 1; $i <= $total_page; $i++){
+									if( $i == $page)
+									{
+										echo '<span class="current-page">'.$i.'</span>';
+									}
+									else
+									{
+										if($type != '')
+											$link .= 'type='.$type.'&';
+										$link .= 'page='.$i.'&';
+										echo ''.HTML::anchor($link, $i) .'';
+									}
+								}
+							?>
+
+                        </div>
+
                     </td>
                 </tr>
             </tbody></table>

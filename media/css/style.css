@@ -5083,3 +5083,27 @@ margin: 45px auto -35px;
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
+div.fix{
+	margin-top:8px;
+	margin-bottom:5px;
+	padding: 0px 10px;
+	float:right;
+}
+div.fix>*{
+	float:left;
+	border:1px solid #999;
+	margin-right:5px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+div.fix>span{
+	padding: 3px 7px 4px 8px;
+	background:#9A9A9A;
+}
+div.fix>a{
+	padding: 3px 7px;
+}
+div.fix>a:hover{
+	background:#EEEEEE;
+}
+
