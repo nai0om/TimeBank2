@@ -50,7 +50,7 @@ class Controller_Event extends Controller_Template {
 		}
 		
 		//$locations = Location::get_location_array();
-		
+	
 		$event = ORM::factory('event');
 		$event->organization_id  = $this->orguser->id;
 		$this->save_event($event, $this->orguser, $this->request->method(), false, $message, $errors);
@@ -909,8 +909,8 @@ class Controller_Event extends Controller_Template {
 		$pass = true;
 		if (HTTP_Request::POST == $method) 
 		{
-			$event->name = Arr::get($_POST, 'name');
-			$event->project_name = Arr::get($_POST, 'project_name');
+			$event->name = trim(Arr::get($_POST, 'name'));
+			$event->project_name = trim(Arr::get($_POST, 'project_name'));
 			if(Arr::get($_POST, 'signup_end_date') == '' && Arr::get($_POST, 'signup_end_date_convert') == '')
 			{
 				$errors['signup_end_date'] = __('must select signup_end_date.');
@@ -927,25 +927,25 @@ class Controller_Event extends Controller_Template {
 	
 			
 	
-			$event->volunteer_begin_time = Arr::get($_POST, 'volunteer_begin_time');
-			$event->volunteer_end_time = Arr::get($_POST, 'volunteer_end_time');
+			$event->volunteer_begin_time = trim(Arr::get($_POST, 'volunteer_begin_time'));
+			$event->volunteer_end_time = trim(Arr::get($_POST, 'volunteer_end_time'));
 	
-			$event->location_name = Arr::get($_POST, 'location_name');
-			$event->location_province = Arr::get($_POST, 'location_province');
+			$event->location_name = trim(Arr::get($_POST, 'location_name'));
+			$event->location_province = trim(Arr::get($_POST, 'location_province'));
 			if($event->location_province  <= 0)
 			{
 				$errors['location_province'] = __('must select province.');
 			}
-			$event->location_district = Arr::get($_POST, 'location_district');
-			$event->location_postcode = Arr::get($_POST, 'location_postcode');
-			$event->volunteer_need_count = Arr::get($_POST, 'volunteer_need_count');			
-			$event->detail = Arr::get($_POST, 'detail');			
-			$event->travel_detail = Arr::get($_POST, 'travel_detail');			
-			$event->inquiry_detail = Arr::get($_POST, 'inquiry_detail');			
+			$event->location_district = trim(Arr::get($_POST, 'location_district'));
+			$event->location_postcode = trim(Arr::get($_POST, 'location_postcode'));
+			$event->volunteer_need_count = trim(Arr::get($_POST, 'volunteer_need_count'));
+			$event->detail = trim(str_replace('&nbsp;', '', Arr::get($_POST, 'detail')));
+			$event->travel_detail = trim(str_replace('&nbsp;', '', Arr::get($_POST, 'travel_detail')));
+			$event->inquiry_detail = trim(str_replace('&nbsp;', '', Arr::get($_POST, 'inquiry_detail')));
 			
 			
-			$event->phone = Arr::get($_POST, 'phone');	
-			$event->time_cost = Arr::get($_POST, 'time_cost');	
+			$event->phone = trim(Arr::get($_POST, 'phone'));
+			$event->time_cost = trim(Arr::get($_POST, 'time_cost'));
 			//name,  project_name, location_name, detail
 			
 			
@@ -985,17 +985,14 @@ class Controller_Event extends Controller_Template {
 			{
 				$errors['time_cost'] = __('limit at 2000 hours.');
 			}
-			$event->is_need_expense = Arr::get($_POST, 'is_need_expense');
+			$event->is_need_expense = trim(Arr::get($_POST, 'is_need_expense'));
 			$event->expense_detail = Arr::get($_POST, 'expense_detail');
+			$expense_detail_test = trim(str_replace(array('<p>','</p>','&nbsp;'), '', Arr::get($_POST, 'expense_detail')));
 			if($event->is_need_expense == 1 ) 
 			{
-				if($event->expense_detail == '')
+				if(strlen($expense_detail_test) < 3)
 				{
-					$errors['expense_detail'] = __('much not empty.');
-				}
-				else
-				{
-					$event->expense_detail = Arr::get($_POST, 'expense_detail');
+					$errors['expense_detail'] = __('must not empty.');
 				}
 			}
 			else
@@ -1004,6 +1001,7 @@ class Controller_Event extends Controller_Template {
 			}
 			
 			$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+			$event->tags = '';
 			foreach ($jobs as $job){
 				$job =  str_replace(' ', '_', $job);
 				if ( Arr::get($_POST, $job) != '')

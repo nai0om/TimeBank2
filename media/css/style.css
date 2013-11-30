@@ -241,6 +241,9 @@ span{
 	font-family:Tahoma, Geneva, sans-serif;
 	font-size: 14px !important;
 }
+.clear{
+    clear: both;
+}
 p{
 	font-family: Tahoma, Geneva, sans-serif !important;
 	font-size: 14px;
@@ -1597,6 +1600,14 @@ margin: 5px 0;
     margin: 0 5px;
     width: 51px;
 }
+#tb_browse_detail .sidebar-wrapper{
+    float: right;
+    width: 462px;
+}
+#tb_browse_detail span.black{
+    color: #222;
+    font-family: chula!important;
+}
 #tb_browse_detail .sub, #tb_browse_detail .main {
     background: none repeat scroll 0 0 #FAF7F4;
     border-radius: 3px 3px 3px 3px;
@@ -1604,6 +1615,9 @@ margin: 5px 0;
     margin: 0 0 0 30px;
     text-align: center;
     width: 201px;
+}
+#tb_browse_detail .sub h4{
+    background-color: #ccb388;
 }
 #tb_browse_detail h4 {
     background: none repeat scroll 0 0 #BE9F82;
@@ -1618,7 +1632,7 @@ margin: 5px 0;
 #tb_browse_detail .main{
 	width: 433px;
 	float: right;
-	margin: 30px 0 0;
+	margin-bottom: 30px;
 }
 #tb_browse_detail h3 {
     color: #EC7C06;
@@ -5023,6 +5037,29 @@ margin: 45px auto -35px;
 
 .title_userprofile.expand,  .userprofile.expand label{
 	background-image: url("../img/bullet_expand.png")
+}
+
+
+/* Sitemap Breadcrumb override definition */
+
+#sitemap {
+    padding: 5px 0 0 36px !important;
+}
+#sitemap li {
+    color: #FFFFFF;
+    float: left;
+    font-size: 25px;
+    list-style: none outside none;
+    font-family: chula;
+}
+#sitemap a:link,
+#sitemap a:visited,
+#sitemap a:active {
+    color: #fff;
+    text-decoration: none;
+}
+#sitemap a:hover {
+    text-decoration: underline;
 }
 
 /* ==|== media queries ======================================================
