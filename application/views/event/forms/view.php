@@ -23,20 +23,22 @@
         <? else :?>
             <img src="<?= url::base().'media/img/tb_detail_sampel.png' ?>" style="float:left;">
         <? endif ?>
-
-		<div class="sub">
-			<h3><?= number_format($event->time_cost) ?> ชั่วโมง</h3>
-			<h4>เวลาทำงานอาสา</h4>
-		</div>
-		<div class="sub">
-			<h3><?= number_format($member_count*$event->time_cost)  ?> ชั่วโมง</h3>
-			<h4>เวลารวมที่ได้จากอาสา</h4>
-		</div>
-		<div class="main">
-			<h2>รับสมัครอาสา</h2>
-			<h3><?= number_format($event->volunteer_need_count) ?> คน</h3>
-			<h4>สมัครและตอบรับแล้ว <?= $member_count ?> คน ต้องการอีก <?= (($event->volunteer_need_count - $member_count) < 0 ? 0: $event->volunteer_need_count - $member_count ) ?> คน</h4>
-		</div>
+        <div class="sidebar-wrapper">
+            <div class="main">
+                <h2>รับสมัครอาสา</h2>
+                <h3><?= number_format($event->volunteer_need_count) ?> คน <span class="black">x</span> <?= number_format($event->time_cost) ?> ชั่วโมง</h3>
+                <h4>จำนวนคนที่ต้องการ x เวลาทำงาน</h4>
+            </div>
+            <div class="sub">
+                <h3><?= $member_count ?> คน</h3>
+                <h4>ตอบรับแล้ว</h4>
+            </div>
+    		<div class="sub">
+    			<h3><?= $event->users->count_all() ?> คน</h3>
+    			<h4>จำนวนผู้สมัคร</h4>
+    		</div>
+            <div class="clear"></div>
+        </div>
 		<div style="clear:both"></div>
 		
 		<h3 class="title"><?= $event->name ?></h3>
