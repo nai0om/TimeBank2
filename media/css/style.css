@@ -1455,7 +1455,7 @@ margin: 5px 0;
     min-height: 1514px;
 	display:table;
 }
-#tb_browse_detail #sitemap {
+#tb_browse_detail #sitemap_event {
     background: url("../img/sub_tab_nav.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 39px;
@@ -1476,7 +1476,7 @@ margin: 5px 0;
 #tb_browse_detail.photos #sitemap{
 	    padding: 11px 36px 0 36px;
 }
-#tb_browse_detail #sitemap li {
+#tb_browse_detail #sitemap_event li {
     color: #FFFFFF;
     font-size: 25px;
     list-style: none outside none;
@@ -1484,15 +1484,25 @@ margin: 5px 0;
 	font-family: chula;
     display:inline;
 }
-#tb_browse_detail #sitemap li:before{
+#tb_browse_detail #sitemap_event li:before{
 	content:'>';
 	padding: 0 0 0 10px;
 	position:relative;
 	left:-5px;
 }
-#tb_browse_detail #sitemap li:first-child:before{
+#tb_browse_detail #sitemap_event li:first-child:before{
 	visibility:hidden;
 }
+#sitemap_event a:link,
+#sitemap_event a:visited,
+#sitemap_event a:active {
+    color: #fff;
+    text-decoration: none;
+}
+#sitemap_event a:hover {
+    text-decoration: underline;
+}
+
 #tb_browse_detail #icon_set {
     float: right;
     width: 588px;
