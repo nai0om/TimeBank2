@@ -155,7 +155,7 @@ class Controller_User extends Controller_Template {
 	
     public function action_signup()
     {
-		$this->template->content = View::factory('user/signup');
+    	$this->template->content = View::factory('user/signup');
     }
 
     public function action_forgetpassword()
@@ -1292,14 +1292,24 @@ class Controller_User extends Controller_Template {
 			timebankhelper::redirectToHome();
 		}
 
+		$cookie_user = Cookie::get('user');
+		$cookie_pass = Cookie::get('password');
+
+		$data = array('user' => $cookie_user, 'pass' => $cookie_pass);
 		$this->template->content = View::factory('user/login')
 									->bind('message', $message)
-									->bind('errors', $errors);
+									->bind('errors', $errors)
+									->bind('data', $data);									
 
 		if (HTTP_Request::POST == $this->request->method()) 
 		{
 			$user = $this->login(Arr::get($_POST, 'email'), Arr::get($_POST, 'password'));
-			
+
+			if(Arr::get($_POST, 'remember')==TRUE)
+			{
+				Cookie::set('user', Arr::get($_POST, 'email'),1209600);
+				Cookie::set('password', Arr::get($_POST, 'password'),1209600);
+			}
 			if ($user !== FALSE)
 			{
 				$user_roles = Kohana::$config->load('timebank')->get('user_roles');
