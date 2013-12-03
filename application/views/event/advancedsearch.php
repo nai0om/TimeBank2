@@ -130,11 +130,11 @@ $times['23:59:59'] = '23:59';
                 <?php endforeach; ?>
                 <tr>
                     <td colspan="6">
-                        <ul>
+                       	<div class="fix advance-fix"> 
                         <?php for($i = 1; $i <= $total_page; $i++){	
                                 if( $i == $page)
                                 {
-                                    echo '<li>หน้า '.$i.'</li>';
+                                    echo '<span class="current-page">'.$i.'</span>';
                                 }
                                 else
                                 {
@@ -142,11 +142,11 @@ $times['23:59:59'] = '23:59';
                                         $link .= 'type='.$type.'&';
                                         
                                         $link .= 'page='.$i.'&';
-                                    echo '<li>'.HTML::anchor($link, $i) .'</li>';
+                                    echo ''.HTML::anchor($link, $i) .'';
                                 }
                               }
                         ?>
-                        </ul>
+                        </div>
                     </td>
                 </tr>
             </tbody>
