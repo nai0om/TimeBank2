@@ -5146,11 +5146,13 @@ div.fix>*{
 div.fix>span{
 	padding: 3px 7px 4px 8px;
 	background:#9A9A9A;
+	font-size:13px;
 }
 div.fix>a{
 	padding: 3px 7px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:14px;
 }
 div.fix>a:hover{
 	background:#EEEEEE;
 }
-
