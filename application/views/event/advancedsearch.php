@@ -131,7 +131,8 @@ $times['23:59:59'] = '23:59';
                 <tr>
                     <td colspan="6">
                        	<div class="fix advance-fix"> 
-                        <?php for($i = 1; $i <= $total_page; $i++){	
+						<?php 	
+							for($i = 1; $i <= $total_page; $i++){	
                                 if( $i == $page)
                                 {
                                     echo '<span class="current-page">'.$i.'</span>';
