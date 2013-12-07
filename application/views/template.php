@@ -95,7 +95,6 @@
   <!-- scripts concatenated and minified via build script -->
   <script src="<?= url::base(); ?>media/js/plugins.js"></script>
   <script src="<?= url::base(); ?>media/js/script.js"></script>
-  <script src="<?= url::base(); ?>media/js/englishcheck-for-input.js"></script>
   
   <!-- end scripts -->
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.

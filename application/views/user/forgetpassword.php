@@ -10,12 +10,13 @@
                     <input type="submit" value="ส่งข้อมูล">
 				<?= Form::close(); ?>
                 <font color="red"><?= __($message) ?></font>
-                <div class="error" id="thai-email-error" style="margin:0px; display:none"></div>
-                 <div class="error" id="caps-email-error" style="margin:0px; display:none"></div>
+                <div class="error" id="thai-error" style="margin:0px; display:none"></div>
+                <div class="error" id="caps-error" style="margin:0px; display:none"></div>
 			</h3>
 		</div>
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>
+<script src="<?= url::base(); ?>media/js/englishcheck-for-input.js"></script>
   </div>
  </div>
  
