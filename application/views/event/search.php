@@ -15,11 +15,11 @@ $page = isset($gets['page'])? $gets['page'] : '1';
           <?php	
 		  	
 			if($job != 0){
-				echo '<li>ดูภารกิจจิตอาสา</li>';
-				echo '<li>'.$jobs[$gets['job']].'</li>';
+				echo '<li>'.HTML::anchor('event/browse', 'ดูภารกิจจิตอาสา').'</li>';
+				echo '<li>'.HTML::anchor('event/search/?job='.$job, $jobs[$gets['job']]).'</li>';
 			}
 			else{
-				echo '<li>ค้นหาภารกิจจิตอาสา</li>';
+				echo '<li>'.HTML::anchor('event/browse', 'ค้นหาภารกิจจิตอาสา').'</li>';
 				}
 			?>
 			
