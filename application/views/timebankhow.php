@@ -4,7 +4,6 @@
 			<li><?= HTML::anchor('welcome/home', 'หน้าแรก') ?></li>
 			<li><?= HTML::anchor('welcome/timebank', 'ธนาคารจิตอาสา') ?></li>
 			<li><?= HTML::anchor('welcome/timebankhow', 'วิธีใช้งาน') ?></li>
-			<li>วิธีใช้งาน</li>
 		</div>
 		
 		<h2>วิธีใช้งาน</h2>
