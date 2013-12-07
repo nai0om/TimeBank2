@@ -14,8 +14,6 @@
                     <div class="error">
                         <?= Arr::get($errors, 'email'); ?>
                     </div>
-                    <div class="error" id="thai-email-error" style="margin:0px; display:none"></div>
-                    <div class="error" id="caps-email-error" style="margin:0px; display:none"></div>
                 </p>
 				<p>
                 	<label>รหัสผ่าน *</label>
@@ -23,14 +21,14 @@
                     <div class="error">
                         <?= __(Arr::path($errors, 'password')); ?>
                     </div>
-                    <div class="error" id="thai-password-error" style="margin:0px; display:none"></div>
-                    <div class="error" id="caps-password-error" style="margin:0px; display:none"></div>
                 </p>
 				<p>
                 	<label>ยืนยันรหัสผ่าน *</label>
                     <?= Form::password('password_confirm'); ?>
                     <div class="error">
                         <?= __(Arr::path($errors, 'password_confirm')); ?>
+                        <div class="error" id="thai-error" style="margin:0px; display:none"></div>
+                        <div class="error" id="caps-error" style="margin:0px; display:none"></div>
                     </div>
                 </p>
 				<div class="line"></div>
@@ -130,5 +128,6 @@
 		</div>
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>
+<script src="<?= url::base(); ?>media/js/englishcheck-for-input.js"></script>
   </div>
 </div>
