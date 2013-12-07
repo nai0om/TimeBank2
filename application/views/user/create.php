@@ -18,18 +18,16 @@
                     	<label>ชื่อผู้ใช้ (อีเมล) *</label>
                        <?= Form::input('email', HTML::chars(Arr::get($_POST, 'email'))); ?>
                   <div class="error" style="margin:0px"><?= __(Arr::get($errors, 'email')); ?></div>
-                  <div class="error" id="thai-email-error" style="margin:0px; display:none"></div>
-                  <div class="error" id="caps-email-error" style="margin:0px; display:none"></div>
                     </p>
 					<p><label>รหัสผ่าน *</label>
                        <?= Form::password('password', HTML::chars(Arr::get($_POST, 'password'))); ?>
                   <div class="error" style="margin:0px"><?= __(Arr::get($errors, 'password')); ?></div>
-                  <div class="error" id="thai-password-error" style="margin:0px; display:none"></div>
-                  <div class="error" id="caps-password-error" style="margin:0px; display:none"></div>
                     </p>
 					<p><label>ยืนยันรหัสผ่าน *</label>
                        <?= Form::password('password_confirm', HTML::chars(Arr::get($_POST, 'password_confirm'))); ?>
                   <div class="error"><?= __(Arr::get($errors, 'password_confirm')); ?></div>
+                  <div class="error" id="thai-error" style="margin:0px; display:none"></div>
+                  <div class="error" id="caps-error" style="margin:0px; display:none"></div>
                     </p>
 					
 				</div>
@@ -74,6 +72,7 @@
 		</div>
 		
 <?php include Kohana::find_file('views', 'shared/footer') ?>
+<script src="<?= url::base(); ?>media/js/englishcheck-for-input.js"></script>
   </div>
  </div>
  
