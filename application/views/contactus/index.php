@@ -50,7 +50,7 @@
                 <div class="error">
                     <font color="red"><?= __(Arr::get($errors, 'message')); ?></font>
                 </div>
-				<label>***  กรุณาพิมคำว่า ธนาคารจิตอาสา </label>
+				<label>***  กรุณาพิมพ์คำว่า ธนาคารจิตอาสา </label>
 				<?= Form::input('capchar', HTML::chars($contactus->topic)); ?>
                 <div class="error">
                     <font color="red"><?= __(Arr::get($errors, 'capchar')); ?></font>
