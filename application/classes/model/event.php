@@ -51,7 +51,7 @@ class Model_Event extends ORM {
                 array('not_empty'),
                 array('max_length', array(':value', 11)),
             ),
-			
+
             'status' => array(
                 array('not_empty'),
             ),
@@ -74,7 +74,7 @@ class Model_Event extends ORM {
                 array('digit'),
                 array('max_length', array(':value', 3)),
             ),*/
-			
+
             'location_name' => array(
                 array('not_empty'),
             ),
@@ -96,6 +96,7 @@ class Model_Event extends ORM {
                 array(array($this, 'check_wysiwyg'), array(':value')),
             ),
             'travel_detail' => array(
+                array('not_empty'),
                 array('min_length', array(':value', 10)),
                 array(array($this, 'check_wysiwyg'), array(':value')),
             ),
@@ -103,7 +104,7 @@ class Model_Event extends ORM {
                 array('not_empty'),
 				array('min_length', array(':value', 10)),
                 array(array($this, 'check_wysiwyg'), array(':value')),
-            ),	
+            ),
             'is_need_expense' => array(
                 array('not_empty'),
                 array('digit'),
@@ -156,17 +157,17 @@ class Model_Event extends ORM {
         }
         return true;
     }
-	
+
 	public function check_upload($filename, $value)
     {
 		if($value <> '[intenal]')
 		{
 			return TRUE;
 		}
-		
+
 		if (isset($_FILES[$filename]['name']) && $_FILES[$filename]['name'] != '')
 		{
-			
+
 			// Validate the file first
 			$validation = Validation::factory($_FILES)
 					->rules($filename, array(
@@ -175,12 +176,12 @@ class Model_Event extends ORM {
 						array('Upload::type', array(':value', array('gif', 'jpg', 'png', 'jpeg'))),
 						array('Upload::size', array(':value', '4M')),
 					));
-	
+
 			// Validate and upload OK
 			if ($validation->check())
 			{
 				$this->upload($filename);
-				
+
 				return TRUE;
 			}
 			else
@@ -191,17 +192,17 @@ class Model_Event extends ORM {
 		}
 		else
 			return FALSE;
-    }	
-	
+    }
+
 	public function upload($filename)
     {
-		
+
         $picture = Upload::save($_FILES[$filename], NULL, Upload::$default_directory.'/events' );
 		// Resize, sharpen, and save the image
 		Image::factory($picture)
 			->resize(460, NULL)
 			->save();
 		$this->$filename = basename($picture);
-    }	
+    }
 
 } // End User Timebank Model

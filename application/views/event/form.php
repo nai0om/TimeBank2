@@ -27,15 +27,15 @@ $times['23:59:59'] = '23:59';
                 <font color="red"><?= Arr::get($errors, 'project_name'); ?></font>
             </div>
         </p>
-   
+
         <p><strong>เปิดรับสมัคร</strong></p>
-    
+
         <p><label>ถึงวันที่ *</label></p>
         <p>
 			<?= Form::input('signup_end_date', $event->signup_end_date == '' ? '' : date("d-m-Y", phphelp::DC_to_BE($event->signup_end_date)), array('class' => 'datepicker', 'id' => 'signup_end_date')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'signup_end_date'); ?></font>
-            </div>        
+            </div>
         </p>
         <div class="line"></div>
     </fieldset>
@@ -46,7 +46,7 @@ $times['23:59:59'] = '23:59';
 			<?= Form::input('volunteer_begin_date', $event->volunteer_begin_date == '' ? '' : date("d-m-Y", phphelp::DC_to_BE($event->volunteer_begin_date)), array('class' => 'datepicker', 'id' => 'volunteer_begin_date', 'onChange' => 'difDateTIme()')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'volunteer_begin_date'); ?></font>
-            </div>           
+            </div>
         </p>
 		<p><label>ตั้งแต่เวลา *</label>
         	<?= Form::select('volunteer_begin_time', $times, $event->volunteer_begin_time, array('id' => 'volunteer_begin_time', 'onChange' => 'difDateTIme()')); ?>
@@ -59,14 +59,14 @@ $times['23:59:59'] = '23:59';
 			<?= Form::input('volunteer_end_date', $event->volunteer_end_date == '' ? '' : date("d-m-Y", phphelp::DC_to_BE($event->volunteer_end_date)), array('class' => 'datepicker', 'id' => 'volunteer_end_date', 'onChange' => 'difDateTIme()')); ?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'volunteer_end_date'); ?></font>
-            </div>           
+            </div>
         </p>
         <p><?= Form::radio('day', 'every_day',($event->days == '')? true : false, array('id' => 'every_day', 'onChange' => 'everyDayChecked()')); ?>ทุกวัน (ไป-กลับ)</p>
         <p><?= Form::radio('day', 'day', ($event->days != '')? true : false, array('id' => 'day')); ?>ระบุวัน (ไป-กลับ) (เลือกได้มากกว่า1)</p>
-        
+
         <p style="margin:3px 0 3px 78px; width:250px;" >
-        	<?php  
-				$days = Kohana::$config->load('timebank')->get('days'); 
+        	<?php
+				$days = Kohana::$config->load('timebank')->get('days');
 				for($i = 0 ; $i < sizeof($days) ; $i++){
 					$checked = FALSE;
 					if($event->days != '') {
@@ -83,7 +83,7 @@ $times['23:59:59'] = '23:59';
         <p>รวม (อัตโนมัติ) <input name='time_cost' id='time_cost'  value= "<?= $event->time_cost ?>" type="text" style="width:50px;margin:0;display:inline;"> ชม.(สามารถแก้ไขได้) </p>
          <div class="error">
                 <font color="red"><?= Arr::get($errors, 'time_cost'); ?></font>
-            </div>    
+            </div>
         <div class="line"></div>
     </fieldset>
     <fieldset>
@@ -92,16 +92,16 @@ $times['23:59:59'] = '23:59';
 			<?= Form::input('location_name', HTML::chars($event->location_name)); ?>
             <div class="error">
                 <font color="red"><?= __(Arr::get($errors, 'location_name')); ?></font>
-            </div>        
+            </div>
         </p>
         <p><label>จังหวัด *</label>
         	<?php
-				$provices = Kohana::$config->load('timebank')->get('provices'); 
+				$provices = Kohana::$config->load('timebank')->get('provices');
 				echo Form::select('location_province', $provices, $event->location_province, array ('class' => 'full'));
 			?>
             <div class="error">
                 <font color="red"><?= Arr::get($errors, 'location_province'); ?></font>
-            </div>           
+            </div>
         </p>
         <p><label>เขต / อำเภอ *</label>
 			<?= Form::input('location_district', HTML::chars($event->location_district)); ?>
@@ -124,33 +124,33 @@ $times['23:59:59'] = '23:59';
         </p>
         <p><label>รายละเอียดของงานอาสา *</label></p>
         <p>
-			<?= Form::textarea('detail', $event->detail, array('rows' => 3 )); ?>      
+			<?= Form::textarea('detail', $event->detail, array('rows' => 3 )); ?>
             <div class="error">
                 <font color="red"><?= __(Arr::get($errors, 'detail')); ?></font>
-            </div>  
+            </div>
         </p>
         <p><label>รายละเอียดการเดินทาง *</label></p>
         <p>
-        	<?= Form::textarea('travel_detail', $event->travel_detail, array('rows' => 3)); ?>    
+        	<?= Form::textarea('travel_detail', $event->travel_detail, array('rows' => 3)); ?>
             <div class="error">
-                <font color="red"><?= Arr::get($errors, 'travel_detail'); ?></font>
-            </div>  
+                <font color="red"><?= __(Arr::get($errors, 'travel_detail')); ?></font>
+            </div>
         </p>
         <p><label>ติดต่อสอบถามเพิ่มเติมที่ *</label></p>
         <p>
-        	<?= Form::textarea('inquiry_detail', $event->inquiry_detail, array('rows' => 3)); ?>    
+        	<?= Form::textarea('inquiry_detail', $event->inquiry_detail, array('rows' => 3)); ?>
             <div class="error">
                 <font color="red"><?= __(Arr::get($errors, 'inquiry_detail')); ?></font>
-            </div>  
+            </div>
         </p>
-    </fieldset>	
+    </fieldset>
         <fieldset>
         <p><legend><strong>ประเภทงานอาสา *  (เลือกได้มากกว่า 1)</strong></legend></p>
         <div class="error">
                 <font color="red"><?= Arr::get($errors, 'tags'); ?></font>
-            </div>  
-			<?php  
-				$jobs = Kohana::$config->load('timebank')->get('jobs'); 
+            </div>
+			<?php
+				$jobs = Kohana::$config->load('timebank')->get('jobs');
 				for($i = 1 ; $i < sizeof($jobs) ; $i++){
 					$checked = FALSE;
 					if($event->tags != '') {
@@ -161,7 +161,7 @@ $times['23:59:59'] = '23:59';
 					}
 					echo '<p>'.Form::checkbox(str_replace(' ','_',$jobs[$i]), $jobs[$i], $checked).''.$jobs[$i].'</p>';
 				}
-            ?> 
+            ?>
         <div class="line"></div>
     </fieldset>
 </div>
@@ -174,33 +174,33 @@ $times['23:59:59'] = '23:59';
         <p>
          	<div class="error">
                 <font color="red"><?= __(Arr::get($errors, 'expense_detail')); ?></font>
-            </div>  
-			<?= Form::textarea('expense_detail', $event->expense_detail, array('rows' => 3)); ?>      
-                  
+            </div>
+			<?= Form::textarea('expense_detail', $event->expense_detail, array('rows' => 3)); ?>
+
         </p>
         <p><label><strong>ทักษะของอาสาสมัครที่ต้องการ</strong></label></p>
         <ol>
            <?php
-		   
+
 			$skill_list = explode ('|', $event->skills);
 			$skills = array();
 			for($i = 0 ; $i < count($skill_list) ; $i++)
 			{
-				
+
 				$cut =  explode('=', $skill_list[$i]);
 				if($cut[0] != ''){
-					
+
 					if(count($cut) >= 2)
-					{ 
+					{
 						$skills[trim($cut[0])] = $cut[1];
 					}
-					else 
+					else
 					{
-						$skills[trim($cut[0])] = 'true';	
+						$skills[trim($cut[0])] = 'true';
 					}
 				}
-			}	
-		 timebankhelper::buildSkilsForm($skills, true); 
+			}
+		 timebankhelper::buildSkilsForm($skills, true);
 	   ?>
         </ol>
         <div class="line"></div>
@@ -220,16 +220,16 @@ $times['23:59:59'] = '23:59';
 
 <script>
 	function eachDayChecked()
-	{		
+	{
 		checkDaySelect();
 		 dayChecked();
-		
+
 	}
 	function checkDaySelect()
 	{
 		var date_start  = $('#volunteer_begin_date').val();
 		var date_end = $('#volunteer_end_date').val();
-		
+
 		if (date_start != '' && date_end != '')
 		{
 			 var volunteer_date_start = parseDate(date_start);
@@ -239,28 +239,28 @@ $times['23:59:59'] = '23:59';
 			 {
 				   if ( $('#day' + i).is(':checked') )
 				   {
-					   
+
 					 if (CountDays(i, volunteer_date_start, volunteer_date_end) <=0 ){
 						  $('#day' + i).prop("checked", false);
 						 }
 				   }
 			 }
-		 }	 
+		 }
 	}
-	
+
 	function dayChecked()
 	{
 		$("#day").prop("checked", true);
 		difDateTIme();
 	}
-	
+
 	function everyDayChecked()
 	{
 		 for( var i = 0 ; i < 7 ; i++)
 		 {
 			  $('#day' + i).prop("checked", false);
 		 }
-			
+
 		difDateTIme();
 	}
 	function difDateTIme()
@@ -271,7 +271,7 @@ $times['23:59:59'] = '23:59';
 		var date_end = $('#volunteer_end_date').val();
 		var time_start  = $('#volunteer_begin_time').val();
 		var time_end = $('#volunteer_end_time').val();
-	
+
 		if (date_start != '' && date_end != '')
 		{
 			 var day = 0;
@@ -282,11 +282,11 @@ $times['23:59:59'] = '23:59';
 				day = 1;
 				var volunteer_start = collectedDateTime(date_start + ' ' + time_start);
 				var volunteer_end = collectedDateTime(date_end + ' ' + time_end);
-				
+
 				diff = volunteer_end -  volunteer_start;
-				
+
 			}
-			
+
 			else
 			{
 				 var volunteer_date_start = parseDate(date_start);
@@ -294,15 +294,15 @@ $times['23:59:59'] = '23:59';
 				 var volunteer_time_start = parseTime(time_start);
 				 var volunteer_time_end = parseTime((time_end == '23:59:59') ? '24:00:00' : time_end);
 				 diff = volunteer_time_end.getTime() - volunteer_time_start.getTime();
-				 
-				 // in case of setting end date/time to before start date/time 
-				
-				
-			
-				 
+
+				 // in case of setting end date/time to before start date/time
+
+
+
+
 				 for( var i = 0 ; i < 7 ; i++)
 				 {
-						if( ( $('#day' + i).is(':checked') && $('#day').is(':checked')) || 
+						if( ( $('#day' + i).is(':checked') && $('#day').is(':checked')) ||
 																				 ($('#every_day').is(':checked')))
 						{
 							day +=  CountDays(i, volunteer_date_start, volunteer_date_end);
@@ -311,15 +311,15 @@ $times['23:59:59'] = '23:59';
 			}
 console.log (diff)
 			var time_cost = Math.ceil( diff/1000/60/60*10 )/10 * day ;
-			
+
 			if( time_cost < 0 )
 			{
 				time_cost = 0;
 				alert ( '<?= __('end date/time much be after begin date/time.') ?> ');
 			}
-			
+
 			$('#time_cost').val(time_cost);
-			
+
 		}
 	}
 </script>
@@ -330,8 +330,8 @@ console.log (diff)
 tinyMCE.init({
         mode : "textareas",
         theme : "advanced",
-        plugins : "emotions,spellchecker,advhr,insertdatetime", 
-       
+        plugins : "emotions,spellchecker,advhr,insertdatetime",
+
 		theme_advanced_resizing_max_width: "400",
         // Theme options - button# indicated the row# only
         theme_advanced_buttons1 : "justifyleft,justifycenter,justifyright,fontselect,fontsizeselect,formatselect",
