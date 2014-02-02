@@ -3718,7 +3718,7 @@ color: #ACACAC;
 #volunteerSignup.popup #content{
 	background-image:url("../img/bg_popup_340.png");
 	background-size:cover;
-	height:440px;
+    height: auto;
 }
 #volunteerSignup.popup #content{
 	background: none scroll 0 0 #EEDBB1\9;
@@ -4599,10 +4599,6 @@ color: #ACACAC;
     width: 100%;
 }
 
-#volunteerSignup .error{
-	margin: 0 0 0 104px;
-}
-
 #volunteerSignup .error.left{
 	margin: 0;
 }
@@ -5155,4 +5151,8 @@ div.fix>a{
 }
 div.fix>a:hover{
 	background:#EEEEEE;
+}
+
+.clearfix {
+    clear:both;
 }

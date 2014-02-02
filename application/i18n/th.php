@@ -3,11 +3,11 @@
  $ch = 'ภาษาจีน ';
  $gen = 'ภาษาเยอรมัน ';
  $jap = 'ภาษาญี่ปุ่น ';
- 
+
  $listen = 'ฟัง/พูด';
  $read = 'อ่าน';
  $write = 'เขียน';
- 
+
  $fair = 'พอใช้';
  $good = 'ดี';
  $best = 'ดีมาก';
@@ -30,7 +30,7 @@ return array(
 	'S1200131' => $eng.$write.$fair ,
 	'S1200132' => $eng.$write.$good ,
 	'S1200133' => $eng.$write.$best ,
-	
+
 	'S1200211' => $ch.$listen.$fair ,
 	'S1200212' => $ch.$listen.$good ,
 	'S1200213' => $ch.$listen.$best ,
@@ -40,7 +40,7 @@ return array(
 	'S1200231' => $ch.$write.$fair ,
 	'S1200232' => $ch.$write.$good ,
 	'S1200233' => $ch.$write.$best ,
-	
+
 	'S1200311' => $gen.$listen.$fair ,
 	'S1200312' => $gen.$listen.$good ,
 	'S1200313' => $gen.$listen.$best ,
@@ -50,7 +50,7 @@ return array(
 	'S1200331' => $gen.$write.$fair ,
 	'S1200332' => $gen.$write.$good ,
 	'S1200333' => $gen.$write.$best ,
-	
+
 	'S1200411' => $jap.$listen.$fair ,
 	'S1200412' => $jap.$listen.$good ,
 	'S1200413' => $jap.$listen.$best ,
@@ -76,6 +76,9 @@ return array(
 	'Password can\'t be empty.' => 'กรุณาใส่รหัสผ่าน',
 	'You must enter an email address' => 'กรุณาใส่อีเมล',
 	'displayname cannot be empty.' => 'กรุณาใส่ชื่อที่ใช้แสดง (Display Name)',
+    'firstname cannot be empty.' => 'กรุณาใส่ชื่อจริง',
+    'lastname cannot be empty.' => 'กรุณาใส่นามสกุล',
+    'phone cannot be empty.' => 'กรุณาใส่เบอร์โทรศัพท์',
 	'name must not be empty' => 'กรุณาใส่ชื่องานอาสา',
 	'location_name must not be empty' => 'กรุณาใส่ชื่อสถานที่',
 	'location_district must not be empty' => 'กรุณาใส่ชื่อเขต / อำเภอ',
