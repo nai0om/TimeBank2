@@ -48,6 +48,7 @@
   <script type="text/javascript" src="<?= url::base(); ?>media/js/jquery.tokeninput.js"></script>
   <!-- cript type="text/javascript" src="widget/lib/jquery.ui.rcarousel.js"></script -->
 	
+  <a href="https://plus.google.com/106336392544723081478" rel="publisher" >
   
 </head> 
 <body>

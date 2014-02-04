@@ -21,6 +21,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 	<link rel="stylesheet" href="<?= url::base(); ?>media/css/style.css">
 
+    <a href="https://plus.google.com/106336392544723081478" rel="publisher">
 </head> 
 <body>
 
