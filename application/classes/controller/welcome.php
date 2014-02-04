@@ -4,8 +4,8 @@ class Controller_Welcome extends Controller_Template {
 	
 	public function action_index()
 	{
-		$this->auto_render = false;
-		$this->response->body(View::factory('index'));
+	
+		timebankhelper::redirectToHome();
    	}
 	
 	public function action_home()
