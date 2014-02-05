@@ -19,8 +19,39 @@ class Controller_User extends Controller_Template {
 		->bind('work_time', $work_time)
 		->bind('events', $events)
 		->bind('events_rand', $events_rand)
-		->bind('event_recommends', $event_recommends);
+		->bind('event_recommends', $event_recommends)
 		
+////////----------------------FIND TIME APPROVE--------------------------
+		->bind('records', $records)
+		->bind('statuses', $statuses);
+		
+		$status = 0;
+		$events = $this->user->events->find_all();
+		$query = DB::select()->from('users_events')->where('user_id', '=',  $this->user->id)->where('time_approve', '=', $status);
+		$statuses = $query->execute()->as_array('event_id');
+		$records = array();
+		
+		foreach ($events as $event)
+		{
+			if( !array_key_exists(trim($event->id), $statuses)) continue;
+			
+			$records[] = $event;
+			
+			// event was closed and user was approved to event
+			if($event->status == 0 && $statuses[$event->id]['status'] == 1)
+			{
+				// then this means that user waiting for approve time.
+				$statuses[$event->id]['status'] = 2;
+				
+			}
+			else if ($statuses[$event->id]['status'] == 1)
+			{
+				// user was approved.
+				$statuses[$event->id]['status'] = 1;
+			}		
+		}
+//----------------------END OF FIND TIME APPROVE--------------------------
+
 		$time = Controller_User::getTotalTime($this->user->id);
 		$work_time = Controller_User::getTotalWorkedTime($this->user->id);
 		//events is get from admin
