@@ -1,3 +1,11 @@
+<? if (count($records) > 0) :?>
+<?php foreach ($records as $record):?>
+    <? if ($statuses[$record->id]['status'] == '2') : ?>
+        <?= HTML::anchor('user/myevent/', 'มีงานอาสารอยืนยันการใช้เวลา') ?> 
+    <? endif ?>
+<? endforeach ?>
+<? endif ?>
+
 <div id="member" class="detail">
 	<div id="main" role="main">
 		<div id="sitemap">
