@@ -5156,3 +5156,19 @@ div.fix>a{
 div.fix>a:hover{
 	background:#EEEEEE;
 }
+.alert{
+    background-color: #F5BFBF;
+    margin: 0 0 20px 0;
+    border: 2px solid #ED5555;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+.alert a{
+    color: #000;
+}
+.alert a:hover{
+    color: #6B0E0E;
+}
