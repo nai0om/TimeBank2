@@ -1666,7 +1666,7 @@ margin: 5px 0;
     width: 480px;
 }
 #tb_browse_detail #leftSide p{
-	word-break: break-all;
+	word-break: break-word;
 }
 #tb_browse_detail #rightSide {
     float: right;
@@ -1675,7 +1675,7 @@ margin: 5px 0;
     width: 433px;
 }
 #tb_browse_detail #rightSide p{
-	word-break: break-all;
+	word-break: break-word;
 }
 #tb_browse_detail h3.title {
     border-bottom: 1px dashed #000000;
