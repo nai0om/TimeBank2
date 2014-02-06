@@ -15,6 +15,13 @@
 		
 		
 		<div id="main_right">
+
+            <? if ($need_time_approve == true ) :?>
+                <div class="alert">
+                    <?= HTML::anchor('user/myevent/', 'มีงานอาสารอยืนยันการใช้เวลา') ?> 
+                </div>
+            <? endif ?>
+
 			<div id="summary">
 				<div id="photo" style="float:left;">
                 <a href="<?= url::base().'user/profile'; ?>">

@@ -5,13 +5,14 @@ class Controller_Tag extends Controller_Template {
 	public function action_get()
 	{
 		$this->auto_render = false;
-		$tags = ORM::factory('tag')->where('name', 'like', '%'.Arr::get($_GET, 'q').'%')->limit(10)->find_all();
+		$tags = ORM::factory('tag')->where('name', 'like', '%'.trim(Arr::get($_GET, 'q')).'%')->limit(10)->find_all();
 		
 		$arr = array();
 		$i = 1;
 		$is_match = false;
 		foreach($tags as $tag){
-			if($tag->name == Arr::get($_GET, 'q'))
+//			if($tag->name == Arr::get($_GET, 'q'))
+			if($tag->name == trim(Arr::get($_GET, 'q')))
 			{
 				$is_match = true;
 				break;
@@ -28,14 +29,15 @@ class Controller_Tag extends Controller_Template {
 		}
 		
 		foreach($tags as $tag){
-		$temp = array();
-		$temp['id'] = $tag->id;
-		$temp['name'] = $tag->name;
-		if($tag->name == Arr::get($_GET, 'q'))
-		{
-			$is_match = true;
-		}
-		$arr[] = $temp;
+			$temp = array();
+			$temp['id'] = $tag->id;
+			$temp['name'] = $tag->name;
+//			if($tag->name == Arr::get($_GET, 'q'))
+			if($tag->name == trim(Arr::get($_GET, 'q')))
+			{
+				$is_match = true;
+			}
+			$arr[] = $temp;
 		
 		}
 		# JSON-encode the response
