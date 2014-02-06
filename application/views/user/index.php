@@ -1,9 +1,5 @@
-<? if (count($records) > 0) :?>
-<?php foreach ($records as $record):?>
-    <? if ($statuses[$record->id]['status'] == '2') : ?>
-        <?= HTML::anchor('user/myevent/', 'มีงานอาสารอยืนยันการใช้เวลา') ?> 
-    <? endif ?>
-<? endforeach ?>
+<? if ($need_time_approve == true ) :?>
+    <?= HTML::anchor('user/myevent/', 'มีงานอาสารอยืนยันการใช้เวลา') ?> 
 <? endif ?>
 
 <div id="member" class="detail">
