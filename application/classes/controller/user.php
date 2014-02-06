@@ -22,7 +22,7 @@ class Controller_User extends Controller_Template {
 				return true;	
 			}	
 		}
-		return false
+		return false;
     }
 
     public function action_index()
