@@ -166,16 +166,19 @@ class Controller_Event extends Controller_Template {
 										->bind('images', $images)
 										->bind('page', $page)
 										->bind('images_pages', $images_pages)
+										->bind('meta_page_title', $meta_page_title)
 										->bind('isOpen', $isOpen);
 			
 			
 		
 		$isOrga = false;
 		$event = ORM::factory('event', $this->request->param('id'));
-		
 		$query = DB::select()->from('users_events')
 					->where('event_id', '=',  $event->id)
 					 ->where('status', '=',  1);
+		$this->template->meta_page_title = $event->name;
+		$this->template->meta_image = url::base().'media/upload/events/'.$event->image;
+		$this->template->meta_desc = strip_tags(substr($event->detail, 0, 1000));
 		
 		if (!is_null($this->orguser))
 		{
