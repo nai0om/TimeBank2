@@ -164,10 +164,10 @@ class Controller_Cron extends Controller_Template {
 		echo '<br>start almost start<br>';
 	
 		// Find event that doesn't send "event almost start" email notification yet (3 days)
-		$events = ORM::Factory('event')->where('almoststart_noti', '=', 0)->and_where('volunteer_end_date', '<=', $due_date)->find_all();
+		$events = ORM::Factory('event')->where('almoststart_noti', '=', 0)->and_where('volunteer_begin_date', '<=', $due_date)->find_all();
 		foreach ($events as $event)
 		{	
-			echo $event->name.' : '.$event->volunteer_end_date.'<br>';	
+			echo $event->name.' : '.$event->volunteer_begin_date.'<br>';	
 			// Get user from this event
 			$query = DB::select()
 							->from('users_events')
