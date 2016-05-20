@@ -2,7 +2,7 @@
   <div id="main" role="main">
   <?php include Kohana::find_file('views', 'admin/menus') ?>
 
-<table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000"> 
+<table  BORDER="2" CELLPADDING="2" CELLSPACING="2" WIDTH="1000">
 <tr>
 <th style="width:100px"> ตัวเลือก</th>
 <th> id</th>
@@ -24,7 +24,7 @@
    		<?= HTML::anchor('admin/eventuser/'.$event->id, '<strong>ดูอาสา</strong>'); ?>  <br />
         <?= HTML::anchor('admin/eventimage/'.$event->id, '<strong>รูปภาพ</strong>'); ?>   <br />
         <?= HTML::anchor('admin/eventcomment/'.$event->id, '<strong>comment</strong>'); ?>  <br />
-    </td> 
+    </td>
     <td><?= $event->id ?></td>
     <td><?= HTML::anchor('event/view/'.$event->id, $event->name); ?></td>
     <td><?= $event->volunteer_begin_date ?></td>
@@ -39,4 +39,27 @@
 <? endforeach ?>
 </table>
 </div>
+<tr>
+    <td colspan="6">
+        <div class="fix">
+
+      <br />
+      <br />
+        <?php
+                for($i = 1; $i <= $total_page; $i++){
+                    if( $i == $page)
+                    {
+                        echo '<span class="current-page">'.$i.'</span>';
+                    }
+                    else
+                    {
+                        echo ''.HTML::anchor('/admin/event?page='.$i.'&org='.$org, $i) .'';
+                    }
+                }
+            ?>
+
+        </div>
+
+    </td>
+</tr>
 </div>
