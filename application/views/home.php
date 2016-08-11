@@ -138,11 +138,23 @@
 		<p align="center" style="display:inline-block;margin-bottom:-25px;">
 			<img src="<?= url::base(); ?>media/img/tb_line.png"/>
 			<span style="text-align: center; display: block; color: #0099CC; font-size: 40px; padding: 20px 0px 0px;">ภาคีหลัก</span>
-            <? foreach(timebankhelper::get_partners() as $partner) : ?>
-				<a  href="<?= $partner->link ?>" target="_blank" style="text-decoration:none">
-                	<img  title="<?= $partner->alias ?>" style="margin:10px 0 0" src="<?= url::base().'media/upload/'.$partner->image; ?>" />
-                </a>
-            <? endforeach ?>
+            
+				<a  href="http://www.thaivolunteer.org" target="_blank" style="text-decoration:none">
+                	<img  title="มูลนิธิอาสาสมัครเพื่อสังคม (มอส.)" style="margin:10px 0 0" src="<?= url::base().'media/images/partner_thaivolunteer.png' ?>" />
+                <a  href="https://www.zanroo.com/" target="_blank" style="text-decoration:none">
+                	<img  title="แสนรู้" style="margin:10px 0 0" src="<?= url::base().'media/images/partner_zanroo.png' ?>" />
+				<a  href="http://icare-club.com/" target="_blank" style="text-decoration:none">
+                	<img  title="icare" style="margin:10px 0 0" src="<?= url::base().'media/images/partner_icare.png' ?>" />
+                <a  href="http://www.thaihealth.or.th" target="_blank" style="text-decoration:none">
+                	<img  title="สำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ (สสส.)" style="margin:10px 0 0" src="<?= url::base().'media/images/partner_thaihealth.png' ?>" />
+                <a  href="http://www.budnet.org" target="_blank" style="text-decoration:none">
+                	<img  title="เครือข่ายพุทธิกาเพื่อพระพุทธศาสนาและสังคมไทย" style="margin:10px 0 0" src="<?= url::base().'media/images/partner_budnet.png' ?>" />
+                <a  href="http://www.volunteerspirit.org" target="_blank" style="text-decoration:none">
+                	<img  title="เครือข่ายจิตอาสา" style="margin:10px 0 0" src="<?= url::base().'media/images/partner_vsn.png' ?>" />
+                <a  href="http://facebook.com/SiamArsa" target="_blank" style="text-decoration:none">
+                	<img  title="อาสาสมัครฟื้นฟูประเทศไทย" style="margin:10px 0 0" src="<?= url::base().'media/images/partner_siamarsa.png' ?>" />
+
+
 			
 		</p>
 
