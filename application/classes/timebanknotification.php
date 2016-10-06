@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+﻿<?php defined('SYSPATH') or die('No direct script access.');
 
 class TimebankNotification {
 	
@@ -18,13 +18,13 @@ class TimebankNotification {
 	
 	public static function queuesms($phone, $message, $note)
 	{
-		if ($phone == '')  return;
+	//	if ($phone == '')  return;
 		
-		$smsqueue = ORM::Factory('smsqueue');
-		$smsqueue->phone = $phone;
-		$smsqueue->message = $message;
-		$smsqueue->note = $note; // add user id.
-		$smsqueue->save();
+	//	$smsqueue = ORM::Factory('smsqueue');
+	//	$smsqueue->phone = $phone;
+	//	$smsqueue->message = $message;
+	//	$smsqueue->note = $note; // add user id.
+	//	$smsqueue->save();
 	}
 	private static function queuemail($from, $to, $subject, $body)
 	{
@@ -356,7 +356,7 @@ class TimebankNotification {
 				$settings = settings::getInstance();
 				if ($settings->sms_week == "1") 
 				{
-					self::queuemail($from, $to, $subject, $body);
+					//self::queuemail($from, $to, $subject, $body);
 				}
 			}
 		}
